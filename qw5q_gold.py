@@ -1,4 +1,3 @@
-import networkx as nx
 import pathlib
 RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
