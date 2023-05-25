@@ -2,6 +2,7 @@ nqubits: 21
 description: QuantWare 25-qubit device with 4 witness removed. qw25q_v3_e10
 
 settings:
+    nshots: 1024
     sampling_rate: 1000000000
     repetition_duration: 100_000
 
