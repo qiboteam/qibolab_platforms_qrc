@@ -2,15 +2,17 @@ import pathlib
 
 from qibolab.channels import Channel, ChannelMap
 from qibolab.platform import Platform
+from qibolab.instruments.qm import QMOPX
+from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.rohde_schwarz import SGS100A
 
+NAME = "qmopx"
+ADDRESS = "192.168.0.101:80"
 RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 
-def create_tii_qw25q(runcard=RUNCARD):
+def create(runcard=RUNCARD):
     """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
-    from qibolab.instruments.qm import QMOPX
-    from qibolab.instruments.erasynth import ERA
-    from qibolab.instruments.rohde_schwarz import SGS100A
     # Create channel objects
     channels = ChannelMap()
 
@@ -88,7 +90,7 @@ def create_tii_qw25q(runcard=RUNCARD):
                 (f"con{connections[feedline][last_con + (i + last_port)//8]}", (i + last_port) % 8 + 1)
             ]
 
-    controller = QMOPX("qmopx", "192.168.0.101:80")
+    controller = QMOPX(NAME, ADDRESS)
     # set time of flight for readout integration (HARDCODED)
     controller.time_of_flight = 280
 
@@ -140,8 +142,7 @@ def create_tii_qw25q(runcard=RUNCARD):
                         channels[wiring["drive"][feedline][i]].local_oscillator = lo
 
     instruments = [controller] + local_oscillators
-    design = InstrumentDesign(instruments, channels)
-    platform = DesignPlatform("qw25q", design, runcard)
+    platform = Platform("qw25q", design, runcard, instruments, channels)
 
     # assign channels to qubits
     qubits = platform.qubits
