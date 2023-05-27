@@ -66,6 +66,7 @@ def create(runcard=RUNCARD):
             (f"con{connections[feedline][1]}", 1),
             (f"con{connections[feedline][1]}", 2),
         ]
+        
         channels[wiring["readout"][feedline][0]].ports = [
             (f"con{connections[feedline][0]}", 10),
             (f"con{connections[feedline][0]}", 9),
@@ -74,6 +75,10 @@ def create(runcard=RUNCARD):
             (f"con{connections[feedline][1]}", 10),
             (f"con{connections[feedline][1]}", 9),
         ]
+
+        # add gain to feedback channels
+        channels[wiring["feedback"][feedline][1]].gain = 15
+        channels[wiring["feedback"][feedline][0]].gain = 15
 
         wires_list = wiring["drive"][feedline]
         for i in range(len(wires_list)):
