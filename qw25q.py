@@ -1,10 +1,10 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.platform import Platform
-from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.rohde_schwarz import SGS100A
+from qibolab.platform import Platform
 
 NAME = "qmopx"
 ADDRESS = "192.168.0.101:80"
@@ -66,7 +66,7 @@ def create(runcard=RUNCARD):
             (f"con{connections[feedline][1]}", 1),
             (f"con{connections[feedline][1]}", 2),
         ]
-        
+
         channels[wiring["readout"][feedline][0]].ports = [
             (f"con{connections[feedline][0]}", 10),
             (f"con{connections[feedline][0]}", 9),
@@ -92,7 +92,10 @@ def create(runcard=RUNCARD):
         wires_list = wiring["flux"][feedline]
         for i in range(len(wires_list)):
             channels[wires_list[i]].ports = [
-                (f"con{connections[feedline][last_con + (i + last_port)//8]}", (i + last_port) % 8 + 1)
+                (
+                    f"con{connections[feedline][last_con + (i + last_port)//8]}",
+                    (i + last_port) % 8 + 1,
+                )
             ]
 
     controller = QMOPX(NAME, ADDRESS)
@@ -100,8 +103,13 @@ def create(runcard=RUNCARD):
     controller.time_of_flight = 280
 
     # Instantiate local oscillators (HARDCODED)
-    local_oscillators = [ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external") for i in range(1, 9)]
-    local_oscillators.extend(SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9])
+    local_oscillators = [
+        ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
+        for i in range(1, 9)
+    ]
+    local_oscillators.extend(
+        SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
+    )
     drive_local_oscillators = {
         "A": ["LO_05"] + 2 * ["LO_01"] + ["LO_05"] + ["LO_01"] + ["era_01"],
         "B": ["era_02"] + 4 * ["LO_06"],
@@ -160,12 +168,32 @@ def create(runcard=RUNCARD):
                 elif channel == "drive":
                     qubits[q].drive = channels[wire]
                     if "era" in qubits[q].drive.local_oscillator.name:
-                        qubits[q].drive.local_oscillator.frequency = qubits[q].drive_frequency + 200e6
+                        qubits[q].drive.local_oscillator.frequency = (
+                            qubits[q].drive_frequency + 200e6
+                        )
 
-    for q in ["A3", "A5", "A6", "B4", "B5", "C2", "C3", "C5"]:  # Qubits with LO around 7e9
+    for q in [
+        "A3",
+        "A5",
+        "A6",
+        "B4",
+        "B5",
+        "C2",
+        "C3",
+        "C5",
+    ]:  # Qubits with LO around 7e9
         qubits[q].readout = channels[wiring["readout"][q[0]][0]]
         qubits[q].feedback = channels[wiring["feedback"][q[0]][0]]
-    for q in ["A1", "A2", "A4", "B1", "B2", "B3", "C1", "C4"]:  # Qubits with LO around 7.5e9
+    for q in [
+        "A1",
+        "A2",
+        "A4",
+        "B1",
+        "B2",
+        "B3",
+        "C1",
+        "C4",
+    ]:  # Qubits with LO around 7.5e9
         qubits[q].readout = channels[wiring["readout"][q[0]][1]]
         qubits[q].feedback = channels[wiring["feedback"][q[0]][1]]
 

@@ -2,8 +2,8 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import ChannelMap
-from qibolab.instruments.zhinst import Zurich
 from qibolab.instruments.dummy_oscillator import DummyLocalOscillator as LocalOscillator
+from qibolab.instruments.zhinst import Zurich
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
@@ -55,15 +55,24 @@ def create(runcard=RUNCARD):
     # Instantiate Zh set of instruments[They work as one]
     instruments = {
         "SHFQC": [{"address": "DEV12146", "uid": "device_shfqc"}],
-        "HDAWG": [{"address": "DEV8660", "uid": "device_hdawg"}, {"address": "DEV8673", "uid": "device_hdawg2"}],
+        "HDAWG": [
+            {"address": "DEV8660", "uid": "device_hdawg"},
+            {"address": "DEV8673", "uid": "device_hdawg2"},
+        ],
         "PQSC": [{"address": "DEV10055", "uid": "device_pqsc"}],
     }
 
     shfqc = []
     for i in range(5):
-        shfqc.append({"iq_signal": f"q{i}/drive_line", "ports": f"SGCHANNELS/{i}/OUTPUT"})
-        shfqc.append({"iq_signal": f"q{i}/measure_line", "ports": ["QACHANNELS/0/OUTPUT"]})
-        shfqc.append({"acquire_signal": f"q{i}/acquire_line", "ports": ["QACHANNELS/0/INPUT"]})
+        shfqc.append(
+            {"iq_signal": f"q{i}/drive_line", "ports": f"SGCHANNELS/{i}/OUTPUT"}
+        )
+        shfqc.append(
+            {"iq_signal": f"q{i}/measure_line", "ports": ["QACHANNELS/0/OUTPUT"]}
+        )
+        shfqc.append(
+            {"acquire_signal": f"q{i}/acquire_line", "ports": ["QACHANNELS/0/INPUT"]}
+        )
 
     hdawg = []
     for i in range(5):
@@ -101,7 +110,10 @@ def create(runcard=RUNCARD):
     controller.smearing = 100
 
     # Instantiate local oscillators
-    local_oscillators = [LocalOscillator(f"lo_{kind}", None) for kind in ["readout"] + [f"drive_{n}" for n in range(4)]]
+    local_oscillators = [
+        LocalOscillator(f"lo_{kind}", None)
+        for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
+    ]
 
     # Set Dummy LO parameters (Map only the two by two oscillators)
     local_oscillators[0].frequency = 5_500_000_000  # For SG0 (Readout)
