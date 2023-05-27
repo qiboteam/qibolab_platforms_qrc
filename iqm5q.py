@@ -115,7 +115,7 @@ def create(runcard=RUNCARD):
         channels[ch].local_oscillator = local_oscillators[lo]
 
     instruments = [controller] + local_oscillators
-    platform = Platform("IQM5q", design, runcard, instruments, channels)
+    platform = Platform("IQM5q", runcard, instruments, channels)
     platform.resonator_type = "2D"
 
     # assign channels to qubits and sweetspots(operating points)

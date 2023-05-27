@@ -95,9 +95,8 @@ def create(runcard=RUNCARD):
     controller.time_of_flight = 280
 
     # Instantiate local oscillators (HARDCODED)
-    local_oscillators = [ERA(f"era_0{i}", f"192.168.0.20{i}") for i in range(1, 9)] + [
-        SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
-    ]
+    local_oscillators = [ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external") for i in range(1, 9)]
+    local_oscillators.extend(SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9])
     drive_local_oscillators = {
         "A": ["LO_05"] + 2 * ["LO_01"] + ["LO_05"] + ["LO_01"] + ["era_01"],
         "B": ["era_02"] + 4 * ["LO_06"],
@@ -142,7 +141,7 @@ def create(runcard=RUNCARD):
                         channels[wiring["drive"][feedline][i]].local_oscillator = lo
 
     instruments = [controller] + local_oscillators
-    platform = Platform("qw25q", design, runcard, instruments, channels)
+    platform = Platform("qw25q", runcard, instruments, channels)
 
     # assign channels to qubits
     qubits = platform.qubits
