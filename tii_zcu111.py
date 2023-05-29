@@ -1,8 +1,8 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rfsoc import RFSoC as TII_ZCU111
 from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.rfsoc import RFSoC as TII_ZCU111
 from qibolab.platform import Platform
 
 NAME = "tii_zcu111"
@@ -11,6 +11,7 @@ PORT = 6000
 RUNCARD = pathlib.Path(__file__).parent / "tii_zcu111.yml"
 
 LO_ADDRESS = "192.168.0.212"
+
 
 def create(runcard=RUNCARD):
     """Platform for ZCU111 board running qibosoq.
@@ -25,16 +26,16 @@ def create(runcard=RUNCARD):
 
     # QUBIT 0
     channels |= ChannelMap.from_names("L2-4-RO_0")  # feedback adc0
-    channels |= ChannelMap.from_names("L4-29_qd")   # drive    dac3
-    channels |= ChannelMap.from_names("L1-22_fl")   # flux     dac0
+    channels |= ChannelMap.from_names("L4-29_qd")  # drive    dac3
+    channels |= ChannelMap.from_names("L1-22_fl")  # flux     dac0
     # QUBIT 1
     channels |= ChannelMap.from_names("L2-4-RO_1")  # feedback adc1
-    channels |= ChannelMap.from_names("L4-30_qd")   # drive    dac4
-    channels |= ChannelMap.from_names("L1-23_fl")   # flux     dac1
+    channels |= ChannelMap.from_names("L4-30_qd")  # drive    dac4
+    channels |= ChannelMap.from_names("L1-23_fl")  # flux     dac1
     # QUBIT 2
     channels |= ChannelMap.from_names("L2-4-RO_2")  # feedback adc2
-    channels |= ChannelMap.from_names("L4-31_qd")   # drive    dac5
-    channels |= ChannelMap.from_names("L1-24_fl")   # flux     dac2
+    channels |= ChannelMap.from_names("L4-31_qd")  # drive    dac5
+    channels |= ChannelMap.from_names("L1-24_fl")  # flux     dac2
 
     # Map controllers to qubit channels (HARDCODED)
     channels["L3-30_ro"].ports = [("dac6", 6)]
