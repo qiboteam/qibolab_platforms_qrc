@@ -177,4 +177,4 @@ def create(runcard=RUNCARD):
             qubits[q].readout = channels[wiring["readout"][q[0]][idx]]
             qubits[q].feedback = channels[wiring["feedback"][q[0]][idx]]
 
-    return platfom
+    return platform
