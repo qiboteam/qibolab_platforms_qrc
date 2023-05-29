@@ -59,7 +59,7 @@ def create(runcard=RUNCARD):
     for channel in wiring:
         for feedline in wiring[channel]:
             for wire in wiring[channel][feedline]:
-                channels |= ChannelMap.from_names(wire)
+                channels |= wire
 
     for feedline in connections:
         channels[wiring["feedback"][feedline][0]].ports = [
