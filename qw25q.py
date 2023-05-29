@@ -1,6 +1,6 @@
 import pathlib
 
-from qibolab.channels import Channel, ChannelMap
+from qibolab.channels import ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.rohde_schwarz import SGS100A
@@ -106,10 +106,8 @@ def create(runcard=RUNCARD):
     local_oscillators = [
         ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
         for i in range(1, 9)
-    ]
-    local_oscillators.extend(
-        SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
-    )
+    ] + [SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]]
+
     drive_local_oscillators = {
         "A": ["LO_05"] + 2 * ["LO_01"] + ["LO_05"] + ["LO_01"] + ["era_01"],
         "B": ["era_02"] + 4 * ["LO_06"],
@@ -124,14 +122,17 @@ def create(runcard=RUNCARD):
         "LO_03": (7.8e9, 23),
         "LO_05": (5.37e9, 18),
         "LO_06": (6.2e9, 21),
+        "era": (4e9, 15),
     }
     for lo in local_oscillators:
         if lo.name in lo_settings:
-            lo.frequency = lo_settings[lo.name][0]
-            lo.power = lo_settings[lo.name][1]
+            values = lo_settings[lo.name]
         elif "era" in lo.name:
-            lo.frequency = 4e9
-            lo.power = 15
+            values = lo_settings["era"]
+        else:
+            continue
+        lo.frequency = values[0]
+        lo.power = values[1]
 
     # Assign local oscillators to channels
     for lo in local_oscillators:
