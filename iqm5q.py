@@ -1,3 +1,4 @@
+import itertools
 import pathlib
 
 from qibolab import Platform
@@ -101,9 +102,7 @@ def create(runcard=RUNCARD):
         "connections": connections,
     }
 
-    descriptor_yaml = yaml.dump(descriptor, sort_keys=False)
-
-    controller = Zurich("EL_ZURO", descriptor_yaml, use_emulation=False)
+    controller = Zurich("EL_ZURO", descriptor, use_emulation=False)
 
     # set time of flight for readout integration (HARDCODED)
     controller.time_of_flight = 280
