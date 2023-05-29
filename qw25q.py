@@ -116,23 +116,19 @@ def create(runcard=RUNCARD):
         "C": [f"era_0{i}" for i in range(3, 8)],
         # "D": ["era_08"] + 2 * ["LO_01"],
     }
+
     # Configure local oscillator's frequency and power
+    lo_settings = {
+        "LO_01": (6.15e9, 21),
+        "LO_04": (7.1e9, 23),
+        "LO_03": (7.8e9, 23),
+        "LO_05": (5.37e9, 18),
+        "LO_06": (6.2e9, 21),
+    }
     for lo in local_oscillators:
-        if lo.name == "LO_01":
-            lo.frequency = 6.15e9
-            lo.power = 21
-        elif lo.name == "LO_04":
-            lo.frequency = 7.1e9
-            lo.power = 23
-        elif lo.name == "LO_03":
-            lo.frequency = 7.8e9
-            lo.power = 23
-        elif lo.name == "LO_05":
-            lo.frequency = 5.37e9
-            lo.power = 18
-        elif lo.name == "LO_06":
-            lo.frequency = 6.2e9
-            lo.power = 21
+        if lo.name in lo_settings:
+            lo.frequency = lo_settings[lo.name][0]
+            lo.power = lo_settings[lo.name][1]
         elif "era" in lo.name:
             lo.frequency = 4e9
             lo.power = 15
