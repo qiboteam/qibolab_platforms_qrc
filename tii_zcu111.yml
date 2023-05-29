@@ -20,15 +20,15 @@ native_gates:
             RX:  # TODO
                 duration: 43
                 amplitude: 0.02
-                frequency: 4_942_000_000
+                frequency: 4_939_827_950
                 shape: Rectangular()
                 type: qd # qubit drive
                 start: 0
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.038
-                frequency: 6_953_200_000
+                amplitude: 0.1 #038
+                frequency: 6_953_000_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -37,7 +37,7 @@ native_gates:
             RX:  # TODO
                 duration: 40
                 amplitude: 0.0484
-                frequency: 6_070_000_000
+                frequency: 6_084_974_252
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -45,7 +45,7 @@ native_gates:
             MZ:
                 duration: 1000
                 amplitude: 0.15
-                frequency: 7_345_300_000
+                frequency: 7_344_900_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -54,7 +54,7 @@ native_gates:
             RX:  # TODO
                 duration: 40
                 amplitude: 0.01
-                frequency: 5_760_000_000
+                frequency: 5_765_142_132
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -62,7 +62,7 @@ native_gates:
             MZ:
                 duration: 1000
                 amplitude: 0.1
-                frequency: 7_111_000_000
+                frequency: 7_111_200_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -93,7 +93,7 @@ characterization:   #TODO No characterization yet
             drive_frequency: 5_722_860_285
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.35
+            sweetspot: 0.28
             threshold: 0.0
             iq_angle: 0.0
         1:
@@ -101,7 +101,7 @@ characterization:   #TODO No characterization yet
             drive_frequency: 6_085_931_000
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.40
+            sweetspot: -0.33
             threshold: 0.0
             iq_angle: 0.0
         2:
@@ -109,6 +109,6 @@ characterization:   #TODO No characterization yet
             drive_frequency: 0.0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.15
+            sweetspot: -0.08
             threshold: 0.0
             iq_angle: 0.0
