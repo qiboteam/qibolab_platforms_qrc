@@ -12,7 +12,12 @@ RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 
 def create(runcard=RUNCARD):
-    """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
+    """Create platform for the Quantware 25 qubits.
+
+    QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde
+    Schwarz/ERAsynth local oscillators.
+
+    """
 
     # Wiring
     wiring = {
