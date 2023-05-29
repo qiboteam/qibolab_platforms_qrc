@@ -172,29 +172,13 @@ def create(runcard=RUNCARD):
                             qubits[q].drive_frequency + 200e6
                         )
 
-    for q in [
-        "A3",
-        "A5",
-        "A6",
-        "B4",
-        "B5",
-        "C2",
-        "C3",
-        "C5",
-    ]:  # Qubits with LO around 7e9
-        qubits[q].readout = channels[wiring["readout"][q[0]][0]]
-        qubits[q].feedback = channels[wiring["feedback"][q[0]][0]]
-    for q in [
-        "A1",
-        "A2",
-        "A4",
-        "B1",
-        "B2",
-        "B3",
-        "C1",
-        "C4",
-    ]:  # Qubits with LO around 7.5e9
-        qubits[q].readout = channels[wiring["readout"][q[0]][1]]
-        qubits[q].feedback = channels[wiring["feedback"][q[0]][1]]
+    qubits_groups = (
+        ["A3", "A5", "A6", "B4", "B5", "C2", "C3", "C5"],  # Qubits with LO around 7e9
+        ["A1", "A2", "A4", "B1", "B2", "B3", "C1", "C4"],  # Qubits with LO around 7.5e9
+    )
+    for idx, gr in enumerate(qubits_groups):
+        for q in gr:
+            qubits[q].readout = channels[wiring["readout"][q[0]][idx]]
+            qubits[q].feedback = channels[wiring["feedback"][q[0]][idx]]
 
     return platform
