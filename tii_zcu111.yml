@@ -1,5 +1,5 @@
 nqubits: 3
-description: Unknown 3-qubit device controlled by a Xilinx ZCU111 boards
+description: 3-qubits of line D (25qw) controlled by a Xilinx ZCU111 board
 
 qubits: [0, 1, 2]
 
@@ -17,7 +17,7 @@ topology: [[2, 1]]
 native_gates:
     single_qubit:
         0: # D1
-            RX:
+            RX:  # TODO
                 duration: 43
                 amplitude: 0.02
                 frequency: 4_942_000_000
@@ -34,9 +34,9 @@ native_gates:
                 start: 0
                 phase: 0
         1: # D3
-            RX:
-                duration: 40 # TODO
-                amplitude: 0.0484 # TODO
+            RX:  # TODO
+                duration: 40
+                amplitude: 0.0484
                 frequency: 6_070_000_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -51,7 +51,7 @@ native_gates:
                 start: 0
                 phase: 0
         2: # D2
-            RX:
+            RX:  # TODO
                 duration: 40
                 amplitude: 0.01
                 frequency: 5_760_000_000
@@ -68,7 +68,7 @@ native_gates:
                 start: 0
                 phase: 0
 
-    two_qubit: #TODO Still to be defined .....
+    two_qubit: #TODO
         2-1:
             CZ:
             - duration: 30
@@ -94,51 +94,21 @@ characterization:   #TODO No characterization yet
             T1: 0.0
             T2: 0.0
             sweetspot: 0.35
-            filter: {}
-            # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            mixer_drive_g: 0.0
-            mixer_drive_phi: 0.0
-            mixer_readout_g: 0.0
-            mixer_readout_phi: 0.0
         1:
             readout_frequency: 7_345_317_000
             drive_frequency: 6_085_931_000
             T1: 0.0
             T2: 0.0
             sweetspot: -0.40
-            filter: {}
-            # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            # classifier:
-            #     type: "scikit"
-            #     model: "qw5q_gold/RBF_SVM_1.pkl"
-            # required for mixers (not sure if it should be here)
-            mixer_drive_g: 0.0
-            mixer_drive_phi: 0.0
-            mixer_readout_g: 0.0
-            mixer_readout_phi: 0.0
-        2:   # TODO for now we do not have flux here!
+        2:
             readout_frequency: 7_458_000_000
             drive_frequency: 0.0
             T1: 0.0
             T2: 0.0
             sweetspot: -0.15
-            filter: {}
-            # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            # Software classifier
-            # classifier:
-            #     type: "scikit"
-            #     model: "qw5q_gold/RBF_SVM_1.pkl"
-            # required for mixers (not sure if it should be here)
-            mixer_drive_g: 0.0
-            mixer_drive_phi: 0.0
-            mixer_readout_g: 0.0
-            mixer_readout_phi: 0.0

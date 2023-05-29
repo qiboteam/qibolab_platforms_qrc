@@ -25,17 +25,17 @@ def create(runcard=RUNCARD):
     channels |= ChannelMap.from_names("L3-30_ro")  # dac6
 
     # QUBIT 0
-    channels |= ChannelMap.from_names("L2-4-RO_0")  # feedback adc0
-    channels |= ChannelMap.from_names("L4-29_qd")  # drive    dac3
-    channels |= ChannelMap.from_names("L1-22_fl")  # flux     dac0
+    channels |= "L2-4-RO_0"  # feedback adc0
+    channels |= "L4-29_qd"  # drive    dac3
+    channels |= "L1-22_fl"  # flux     dac0
     # QUBIT 1
-    channels |= ChannelMap.from_names("L2-4-RO_1")  # feedback adc1
-    channels |= ChannelMap.from_names("L4-30_qd")  # drive    dac4
-    channels |= ChannelMap.from_names("L1-23_fl")  # flux     dac1
+    channels |= "L2-4-RO_1"  # feedback adc1
+    channels |= "L4-30_qd"  # drive    dac4
+    channels |= "L1-23_fl"  # flux     dac1
     # QUBIT 2
-    channels |= ChannelMap.from_names("L2-4-RO_2")  # feedback adc2
-    channels |= ChannelMap.from_names("L4-31_qd")  # drive    dac5
-    channels |= ChannelMap.from_names("L1-24_fl")  # flux     dac2
+    channels |= "L2-4-RO_2"  # feedback adc2
+    channels |= "L4-31_qd"  # drive    dac5
+    channels |= "L1-24_fl"  # flux     dac2
 
     # Map controllers to qubit channels (HARDCODED)
     channels["L3-30_ro"].ports = [("dac6", 6)]
