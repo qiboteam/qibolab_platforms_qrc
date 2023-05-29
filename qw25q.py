@@ -13,8 +13,6 @@ RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 def create(runcard=RUNCARD):
     """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
-    # Create channel objects
-    channels = ChannelMap()
 
     # Wiring
     wiring = {
@@ -52,6 +50,7 @@ def create(runcard=RUNCARD):
     }
 
     # Create channels
+    channels = ChannelMap()
     for channel in wiring:
         for feedline in wiring[channel]:
             for wire in wiring[channel][feedline]:
@@ -178,4 +177,4 @@ def create(runcard=RUNCARD):
             qubits[q].readout = channels[wiring["readout"][q[0]][idx]]
             qubits[q].feedback = channels[wiring["feedback"][q[0]][idx]]
 
-    return platform
+    return platfom
