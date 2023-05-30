@@ -59,12 +59,12 @@ def create(runcard=RUNCARD):
 
     for feedline in connections:
         channels[wiring["feedback"][feedline][0]].ports = [
-            (f"con{connections[feedline][0]}", 1),
             (f"con{connections[feedline][0]}", 2),
+            (f"con{connections[feedline][0]}", 1),
         ]
         channels[wiring["feedback"][feedline][1]].ports = [
-            (f"con{connections[feedline][1]}", 1),
             (f"con{connections[feedline][1]}", 2),
+            (f"con{connections[feedline][1]}", 1),
         ]
 
         channels[wiring["readout"][feedline][0]].ports = [
