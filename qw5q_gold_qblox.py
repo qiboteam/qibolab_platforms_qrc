@@ -37,20 +37,6 @@ def create(runcard=RUNCARD):
     controller = instruments["controller"] = QbloxController("qblox_controller", modules)
     twpa_pump = instruments["twpa_pump"] = SGS100A(name="twpa_pump", address="192.168.0.37")
 
-
-    channels = ChannelMap()
-    # readout
-    channels |= ChannelMap.from_names("L3-25_a", "L3-25_b")
-    # feedback
-    channels |= ChannelMap.from_names("L2-5_a", "L2-5_b")
-    # drive
-    channels |= ChannelMap.from_names(*(f"L3-{i}" for i in range(11, 16)))
-    # flux
-    channels |= ChannelMap.from_names(*(f"L4-{i}" for i in range(1, 6)))
-    # TWPA
-    channels |= ChannelMap.from_names("L4-26")
-
-
     # Create channel objects
     channels = {}
     # readout
@@ -77,7 +63,6 @@ def create(runcard=RUNCARD):
 
     # TWPA
     channels["L4-26"] = QbloxChannel(name="L4-4", instrument=twpa_pump)
-
 
     platform = Platform(name="qw5q_gold_qblox", runcard=runcard, instruments=instruments, channels=channels)
 
