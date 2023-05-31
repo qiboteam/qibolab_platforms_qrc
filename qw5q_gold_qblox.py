@@ -5,7 +5,10 @@ import yaml
 from qibolab.platform import Platform
 from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.qblox.channel import QbloxChannel
-from qibolab.instruments.qblox.cluster import Cluster, ClusterQRM_RF, ClusterQCM_RF, ClusterQCM
+from qibolab.instruments.qblox.cluster import Cluster
+from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
+from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
+from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.channels import Channel, ChannelMap
 
@@ -37,8 +40,8 @@ def create(runcard=RUNCARD):
     qcm_rf1  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.6:3", settings) # qubits q1, q2
     qcm_rf2  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.6:4", settings) # qubits q3, q4
     
-    qcm_bb0  = instantiate_module(modules, ClusterQCM, "qcm_bb0", "192.168.0.6:5", settings) # qubit q0
-    qcm_bb1  = instantiate_module(modules, ClusterQCM, "qcm_bb1", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
+    qcm_bb0  = instantiate_module(modules, ClusterQCM_BB, "qcm_bb0", "192.168.0.6:5", settings) # qubit q0
+    qcm_bb1  = instantiate_module(modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
 
     
     # DEBUG: debug folder = report folder
