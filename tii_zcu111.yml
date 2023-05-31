@@ -20,14 +20,14 @@ native_gates:
             RX:  # TODO
                 duration: 43
                 amplitude: 0.02
-                frequency: 4_939_827_950
+                frequency: 4_942_200_615
                 shape: Rectangular()
                 type: qd # qubit drive
                 start: 0
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.1 #038
+                amplitude: 0.038
                 frequency: 6_953_000_000
                 shape: Rectangular()
                 type: ro # readout
@@ -35,9 +35,9 @@ native_gates:
                 phase: 0
         1: # D3
             RX:  # TODO
-                duration: 40
-                amplitude: 0.0484
-                frequency: 6_084_974_252
+                duration: 154
+                amplitude: 0.9
+                frequency: 6_085_573_445
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -52,9 +52,9 @@ native_gates:
                 phase: 0
         2: # D2
             RX:  # TODO
-                duration: 40
-                amplitude: 0.01
-                frequency: 5_765_142_132
+                duration: 134
+                amplitude: 0.9
+                frequency: 5_762_385_067
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -89,26 +89,26 @@ native_gates:
 characterization:   #TODO No characterization yet
     single_qubit:
         0:
-            readout_frequency: 7_111_290_000
-            drive_frequency: 5_722_860_285
+            readout_frequency: 6_953_000_000
+            drive_frequency: 4_942_200_615
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.28
+            sweetspot: 0.34
             threshold: 0.0
             iq_angle: 0.0
         1:
-            readout_frequency: 7_345_317_000
-            drive_frequency: 6_085_931_000
+            readout_frequency: 7_344_900_000
+            drive_frequency: 6_085_491_445
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.33
+            sweetspot: -0.38
             threshold: 0.0
             iq_angle: 0.0
         2:
-            readout_frequency: 7_458_000_000
-            drive_frequency: 0.0
+            readout_frequency: 7_111_200_000
+            drive_frequency: 5_763_509_599
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.08
+            sweetspot: -0.14
             threshold: 0.0
             iq_angle: 0.0
