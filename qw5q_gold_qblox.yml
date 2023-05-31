@@ -36,21 +36,21 @@ topology: [[0, 2], [1, 2], [2, 3], [2, 4]]
 # 192.168.0.6
 
 
-# no bias line, using qblox offset from qcm_bbc
-channels: [
-  'L2-5a','L2-5b', 'L3-25a', 'L3-25b', #RO channels: Ro lines L2-5 and L3-25 splitted
-  'L3-15', 'L3-11', 'L3-12', 'L3-13', 'L3-14', 'L3-16', # Drive channels q0, q1, q2, q3, q4 | not used ports label: L3-16
-  'L4-5', 'L4-1', 'L4-2', 'L4-3', 'L4-4', 'L4-6', 'L4-7', 'L4-8', # Flux channels q0, q1, q2, q3, q4 | not used labels: 'L4-6', 'L4-7', 'L4-8'
-]
+# # no bias line, using qblox offset from qcm_bbc
+# channels: [
+#   'L2-5a','L2-5b', 'L3-25a', 'L3-25b', #RO channels: Ro lines L2-5 and L3-25 splitted
+#   'L3-15', 'L3-11', 'L3-12', 'L3-13', 'L3-14', 'L3-16', # Drive channels q0, q1, q2, q3, q4 | not used ports label: L3-16
+#   'L4-5', 'L4-1', 'L4-2', 'L4-3', 'L4-4', 'L4-6', 'L4-7', 'L4-8', # Flux channels q0, q1, q2, q3, q4 | not used labels: 'L4-6', 'L4-7', 'L4-8'
+# ]
 
-# [ReadOut, QubitDrive, QubitFlux, QubitBias]
-qubit_channel_map:
-    0:   [L3-25a, L3-15, L4-5, null] #q0
-    1:   [L3-25a, L3-11, L4-1, null] #q1
-    2:   [L3-25b, L3-12, L4-2, null] #q2
-    3:   [L3-25b, L3-13, L4-3, null] #q3
-    4:   [L3-25b, L3-14, L4-4, null] #q4
-    5:   [L3-25a,  null, null, null] #q5 witness
+# # [ReadOut, QubitDrive, QubitFlux, QubitBias]
+# qubit_channel_map:
+#     0:   [L3-25a, L3-15, L4-5, null] #q0
+#     1:   [L3-25a, L3-11, L4-1, null] #q1
+#     2:   [L3-25b, L3-12, L4-2, null] #q2
+#     3:   [L3-25b, L3-13, L4-3, null] #q3
+#     4:   [L3-25b, L3-14, L4-4, null] #q4
+#     5:   [L3-25a,  null, null, null] #q5 witness
 
 instruments:
     cluster:
@@ -61,7 +61,7 @@ instruments:
         settings:
             reference_clock_source      : internal                      # external or internal
 
-    qrm_rf1: # ReadOut module 10 controllin qubits q0, q1, q5
+    qrm_rf_a: # ReadOut module 10 controllin qubits q0, q1, q5
         lib: qblox
         class: ClusterQRM_RF
         address: 192.168.0.6:10
@@ -69,13 +69,13 @@ instruments:
         settings:
             ports:
                 o1:
-                    channel                     : L3-25a
+                    channel                     : L3-25_a
                     attenuation                 : 38                        # should be multiple of 2
                     lo_enabled                  : true
                     lo_frequency                : 7_255_000_000             # (Hz) from 2e9 to 18e9
                     gain                        : 0.6                       # for path0 and path1 -1.0<=v<=1.0
                 i1:
-                    channel                     : L2-5a
+                    channel                     : L2-5_a
                     acquisition_hold_off        : 500                       # must be multiple of 4
                     acquisition_duration        : 900
 
@@ -87,7 +87,7 @@ instruments:
                     rotation_angle              : 36.232                   # in degrees 0.0<=v<=360.0
                     threshold                   : 0.002601                  # in V
 
-    qrm_rf2: # ReadOut module 12: controlling qubits q2, q3, q4
+    qrm_rf_b: # ReadOut module 12: controlling qubits q2, q3, q4
         lib: qblox
         class: ClusterQRM_RF
         address: 192.168.0.6:12
@@ -95,13 +95,13 @@ instruments:
         settings:
             ports:
                 o1:
-                    channel                     : L3-25b
+                    channel                     : L3-25_b
                     attenuation                 : 32                        # should be multiple of 2
                     lo_enabled                  : true
                     lo_frequency                : 7_850_000_000             # (Hz) from 2e9 to 18e9
                     gain                        : 0.6                       # for path0 and path1 -1.0<=v<=1.0
                 i1:
-                    channel                     : L2-5b
+                    channel                     : L2-5_b
                     acquisition_hold_off        : 500
                     acquisition_duration        : 900
 
@@ -116,7 +116,7 @@ instruments:
                     rotation_angle              : 214.316                   # in degrees 0.0<=v<=360.0
                     threshold                   : 0.001211                  # in V
 
-    qcm_rf1:
+    qcm_rf0:
         lib: qblox
         class: ClusterQCM_RF
         address: 192.168.0.6:8
@@ -130,7 +130,7 @@ instruments:
                     lo_frequency        : 5_245_070_000             # (Hz) from 2e9 to 18e9
                     gain                : 0.470                     # for path0 and path1 -1.0<=v<=1.0
 
-    qcm_rf2:
+    qcm_rf1:
         lib: qblox
         class: ClusterQCM_RF
         address: 192.168.0.6:3
@@ -150,7 +150,7 @@ instruments:
                     lo_frequency        : 5_994_176_000             # (Hz) from 2e9 to 18e9
                     gain                : 0.655                     # for path0 and path1 -1.0<=v<=1.0
 
-    qcm_rf3:
+    qcm_rf2:
         lib: qblox
         class: ClusterQCM_RF
         address: 192.168.0.6:4
@@ -171,7 +171,7 @@ instruments:
                     gain                : 0.596                     # for path0 and path1 -1.0<=v<=1.0
 
     #Cluster QCM usado para bias mediante el offset
-    qcm_bb1:
+    qcm_bb0:
         lib: qblox
         class: ClusterQCM
         address: 192.168.0.6:5
@@ -182,7 +182,7 @@ instruments:
                 # o4: {channel: L4-3, gain: 0.5, offset:  0.0925, qubit: 3} #q3 oscilloscope
 
     #Cluster QCM usado para bias mediante el offset
-    qcm_bb2:
+    qcm_bb1:
         lib: qblox
         class: ClusterQCM
         address: 192.168.0.6:2

@@ -1,5 +1,6 @@
 import pathlib
 import networkx as nx
+import yaml
 
 from qibolab.platform import Platform
 from qibolab.instruments.qblox.controller import QbloxController
@@ -17,26 +18,36 @@ def create(runcard=RUNCARD):
     Args:
         runcard (str): Path to the runcard file.
     """
+    def instantiate_module(modules, cls, name, address, settings):
+        module_settings = settings["instruments"][name]["settings"]
+        modules[name] = cls(name=name, address=address, settings=module_settings)
+        return modules[name]
 
+    with open(runcard) as file:
+        settings = yaml.safe_load(file)
     
-
     modules = {}
-    cluster = modules["cluster"] = Cluster(name="cluster", address="192.168.0.6")
 
-    qrm_rf_a = modules["qrm_rf_a"] = ClusterQRM_RF(name="qrm_rf_a", address="192.168.0.6:10") # qubits q0, q1, q5
-    qrm_rf_b = modules["qrm_rf_b"] = ClusterQRM_RF(name="qrm_rf_b", address="192.168.0.6:12") # qubits q2, q3, q4
+    cluster  = instantiate_module(modules, Cluster, "cluster", "192.168.0.6", settings)
     
-    qcm_rf0 = modules["qcm_rf0"] = ClusterQCM_RF(name="qcm_rf0", address="192.168.0.6:8") # qubit q0
-    qcm_rf1 = modules["qcm_rf1"] = ClusterQCM_RF(name="qcm_rf1", address="192.168.0.6:3") # qubits q1, q2
-    qcm_rf2 = modules["qcm_rf2"] = ClusterQCM_RF(name="qcm_rf2", address="192.168.0.6:4") # qubits q3, q4
+    qrm_rf_a = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.6:10", settings) # qubits q0, q1, q5
+    qrm_rf_b = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.6:12", settings) # qubits q2, q3, q4
+    
+    qcm_rf0  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.6:8", settings) # qubit q0
+    qcm_rf1  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.6:3", settings) # qubits q1, q2
+    qcm_rf2  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.6:4", settings) # qubits q3, q4
+    
+    qcm_bb0  = instantiate_module(modules, ClusterQCM, "qcm_bb1", "192.168.0.6:5", settings) # qubit q0
+    qcm_bb1  = instantiate_module(modules, ClusterQCM, "qcm_bb0", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
 
-    qcm_bb0 = modules["qcm_bb1"] = ClusterQCM(name="qcm_bb1", address="192.168.0.6:5") # qubit q0
-    qcm_bb1 = modules["qcm_bb0"] = ClusterQCM(name="qcm_bb0", address="192.168.0.6:2") # qubits q1, q2, q3, q4
+    
+    controller = QbloxController("qblox_controller", modules)
+    twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.37")
+    instruments = [controller, twpa_pump]
 
-    instruments = {}
-    controller = instruments["controller"] = QbloxController("qblox_controller", modules)
-    twpa_pump = instruments["twpa_pump"] = SGS100A(name="twpa_pump", address="192.168.0.37")
-
+    twpa_pump.frequency = settings["instruments"]["twpa_pump"]["settings"]["frequency"]
+    twpa_pump.power = settings["instruments"]["twpa_pump"]["settings"]["power"]
+    
     # Create channel objects
     channels = {}
     # readout
@@ -44,8 +55,8 @@ def create(runcard=RUNCARD):
     channels["L3-25_b"] = QbloxChannel(name="L3-25_b", instrument=qrm_rf_b, port_name="o1")
 
     # feedback
-    channels["L3-25_a"] = QbloxChannel(name="L2-5_a", instrument=qrm_rf_a, port_name="i1")
-    channels["L3-25_b"] = QbloxChannel(name="L2-5_b", instrument=qrm_rf_b, port_name="i1")
+    channels["L2-5_a"] = QbloxChannel(name="L2-5_a", instrument=qrm_rf_a, port_name="i1")
+    channels["L2-5_b"] = QbloxChannel(name="L2-5_b", instrument=qrm_rf_b, port_name="i1")
 
     # drive
     channels["L3-15"] = QbloxChannel(name="L3-15", instrument=qcm_rf0, port_name="o1")
