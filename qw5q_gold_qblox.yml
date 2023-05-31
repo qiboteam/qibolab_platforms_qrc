@@ -54,18 +54,18 @@ topology: [[0, 2], [1, 2], [2, 3], [2, 4]]
 
 instruments:
     cluster:
-        lib: qblox
-        class: Cluster
-        address: 192.168.0.6
-        roles: [other]
+        # lib: qblox
+        # class: Cluster
+        # address: 192.168.0.6
+        # roles: [other]
         settings:
             reference_clock_source      : internal                      # external or internal
 
     qrm_rf_a: # ReadOut module 10 controllin qubits q0, q1, q5
-        lib: qblox
-        class: ClusterQRM_RF
-        address: 192.168.0.6:10
-        roles: [readout]
+        # lib: qblox
+        # class: ClusterQRM_RF
+        # address: 192.168.0.6:10
+        # roles: [readout]
         settings:
             ports:
                 o1:
@@ -88,10 +88,10 @@ instruments:
                     threshold                   : 0.002601                  # in V
 
     qrm_rf_b: # ReadOut module 12: controlling qubits q2, q3, q4
-        lib: qblox
-        class: ClusterQRM_RF
-        address: 192.168.0.6:12
-        roles: [readout]
+        # lib: qblox
+        # class: ClusterQRM_RF
+        # address: 192.168.0.6:12
+        # roles: [readout]
         settings:
             ports:
                 o1:
@@ -117,10 +117,10 @@ instruments:
                     threshold                   : 0.001211                  # in V
 
     qcm_rf0:
-        lib: qblox
-        class: ClusterQCM_RF
-        address: 192.168.0.6:8
-        roles: [control]
+        # lib: qblox
+        # class: ClusterQCM_RF
+        # address: 192.168.0.6:8
+        # roles: [control]
         settings:
             ports:
                 o1: # qubit q0
@@ -131,10 +131,10 @@ instruments:
                     gain                : 0.470                     # for path0 and path1 -1.0<=v<=1.0
 
     qcm_rf1:
-        lib: qblox
-        class: ClusterQCM_RF
-        address: 192.168.0.6:3
-        roles: [control]
+        # lib: qblox
+        # class: ClusterQCM_RF
+        # address: 192.168.0.6:3
+        # roles: [control]
         settings:
             ports:
                 o1: # qubit q1
@@ -151,10 +151,10 @@ instruments:
                     gain                : 0.655                     # for path0 and path1 -1.0<=v<=1.0
 
     qcm_rf2:
-        lib: qblox
-        class: ClusterQCM_RF
-        address: 192.168.0.6:4
-        roles: [control]
+        # lib: qblox
+        # class: ClusterQCM_RF
+        # address: 192.168.0.6:4
+        # roles: [control]
         settings:
             ports:
                 o1: # qubit q3
@@ -172,10 +172,10 @@ instruments:
 
     #Cluster QCM usado para bias mediante el offset
     qcm_bb0:
-        lib: qblox
-        class: ClusterQCM
-        address: 192.168.0.6:5
-        roles: [control]
+        # lib: qblox
+        # class: ClusterQCM
+        # address: 192.168.0.6:5
+        # roles: [control]
         settings:
             ports:
                 o1: {channel: L4-5,gain: 0.5, offset: -0.0884, qubit: 0} #q0
@@ -183,10 +183,10 @@ instruments:
 
     #Cluster QCM usado para bias mediante el offset
     qcm_bb1:
-        lib: qblox
-        class: ClusterQCM
-        address: 192.168.0.6:2
-        roles: [control]
+        # lib: qblox
+        # class: ClusterQCM
+        # address: 192.168.0.6:2
+        # roles: [control]
         settings:
             ports:
                 o1: {channel: L4-1, gain: 0.5, offset:  0.5592, qubit: 1} #q1
@@ -195,10 +195,10 @@ instruments:
                 o4: {channel: L4-4, gain: 0.5, offset: 0.4555, qubit: 4} #q4
 
     twpa_pump:
-        lib: rohde_schwarz
-        class: SGS100A
-        address: 192.168.0.37
-        roles: [other]
+        # lib: rohde_schwarz
+        # class: SGS100A
+        # address: 192.168.0.37
+        # roles: [other]
         settings:
             frequency: 6_478_250_000 # Hz
             power: 3.5 # dBm

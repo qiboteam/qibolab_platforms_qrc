@@ -28,7 +28,7 @@ def create(runcard=RUNCARD):
     
     modules = {}
 
-    cluster  = instantiate_module(modules, Cluster, "cluster", "192.168.0.6", settings)
+    cluster  = Cluster(name="cluster", address="192.168.0.6", settings=settings["instruments"]["cluster"]["settings"])
     
     qrm_rf_a = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.6:10", settings) # qubits q0, q1, q5
     qrm_rf_b = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.6:12", settings) # qubits q2, q3, q4
@@ -41,7 +41,16 @@ def create(runcard=RUNCARD):
     qcm_bb1  = instantiate_module(modules, ClusterQCM, "qcm_bb0", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
 
     
-    controller = QbloxController("qblox_controller", modules)
+    # DEBUG: debug folder = report folder
+    import os
+    folder = os.path.dirname(runcard) + "/debug/"
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+    for name in modules:
+        modules[name]._debug_folder = folder
+
+
+    controller = QbloxController("qblox_controller", cluster, modules)
     twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.37")
     instruments = [controller, twpa_pump]
 
