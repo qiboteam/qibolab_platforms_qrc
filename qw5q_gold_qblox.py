@@ -37,8 +37,8 @@ def create(runcard=RUNCARD):
     qcm_rf1  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.6:3", settings) # qubits q1, q2
     qcm_rf2  = instantiate_module(modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.6:4", settings) # qubits q3, q4
     
-    qcm_bb0  = instantiate_module(modules, ClusterQCM, "qcm_bb1", "192.168.0.6:5", settings) # qubit q0
-    qcm_bb1  = instantiate_module(modules, ClusterQCM, "qcm_bb0", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
+    qcm_bb0  = instantiate_module(modules, ClusterQCM, "qcm_bb0", "192.168.0.6:5", settings) # qubit q0
+    qcm_bb1  = instantiate_module(modules, ClusterQCM, "qcm_bb1", "192.168.0.6:2", settings) # qubits q1, q2, q3, q4
 
     
     # DEBUG: debug folder = report folder
