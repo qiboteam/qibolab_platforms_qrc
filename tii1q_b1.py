@@ -1,20 +1,17 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rfsoc import RFSoC as TII_RFSOC4x2
+from qibolab.instruments.rfsoc import TII_RFSOC4x2
 from qibolab.instruments.rohde_schwarz import SGS100A as LocalOscillator
 from qibolab.platform import Platform
 
 NAME = "tii_rfsoc4x2"
-ADDRESS = "192.168.0.72"
-PORT = 6000
+ADDRESS = "192.168.0.72:6000"
 RUNCARD = pathlib.Path(__file__).parent / "tii1q_b1.yml"
-
-TWPA_ADDRESS = "192.168.0.32"
 
 
 def create(runcard=RUNCARD):
-    """Platform for RFSoC4x2 board running qibosoq.
+    """Platform using QICK project on the RFSoC4x2 board.
 
     IPs and other instrument related parameters are hardcoded in.
     """
@@ -30,13 +27,13 @@ def create(runcard=RUNCARD):
     channels["L3-18_qd"].ports = [("o1", 1)]  # drive
 
     local_oscillators = [
-        LocalOscillator("twpa_a", TWPA_ADDRESS),
+        LocalOscillator("twpa_a", "192.168.0.32"),
     ]
     local_oscillators[0].frequency = 6_200_000_000
     local_oscillators[0].power = -1
 
     # Instantiate QICK instruments
-    controller = TII_RFSOC4x2(NAME, ADDRESS, PORT)
+    controller = TII_RFSOC4x2(NAME, ADDRESS)
     instruments = [controller] + local_oscillators
     platform = Platform(NAME, runcard, instruments, channels)
 
