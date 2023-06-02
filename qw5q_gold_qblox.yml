@@ -81,11 +81,11 @@ instruments:
 
             classification_parameters:
                 0:  # qubit id
-                    rotation_angle              : 272.173                   # in degrees 0.0<=v<=360.0
-                    threshold                   : 0.003373                  # in V
+                    rotation_angle              : 269.907                   # in degrees 0.0<=v<=360.0
+                    threshold                   : 0.003312                  # in V
                 1:  # qubit id
-                    rotation_angle              : 36.232                   # in degrees 0.0<=v<=360.0
-                    threshold                   : 0.002601                  # in V
+                    rotation_angle              : 37.712                   # in degrees 0.0<=v<=360.0
+                    threshold                   : 0.002625                  # in V
 
     qrm_rf_b: # ReadOut module 12: controlling qubits q2, q3, q4
         # lib: qblox
@@ -107,14 +107,14 @@ instruments:
 
             classification_parameters:
                 2:  # qubit id
-                    rotation_angle              : 58.699                    # in degrees 0.0<=v<=360.0
-                    threshold                   : 0.003068                  # in V
+                    rotation_angle              : 58.116                    # in degrees 0.0<=v<=360.0
+                    threshold                   : 0.003047                  # in V
                 3:  # qubit id
-                    rotation_angle              : 23.717                    # in degrees 0.0<=v<=360.0
-                    threshold                   : 0.003702                  # in V
+                    rotation_angle              : 21.968                    # in degrees 0.0<=v<=360.0
+                    threshold                   : 0.003540                  # in V
                 4:  # qubit id
-                    rotation_angle              : 214.316                   # in degrees 0.0<=v<=360.0
-                    threshold                   : 0.001211                  # in V
+                    rotation_angle              : 216.618                   # in degrees 0.0<=v<=360.0
+                    threshold                   : 0.001338                  # in V
 
     qcm_rf0:
         # lib: qblox
@@ -300,7 +300,7 @@ native_gates:
         3-2:
             CZ:
             - duration: 32
-              amplitude: -0.6010
+              amplitude: -0.6025
               shape: Exponential(12, 5000, 0.1)
               qubit: 3
               relative_start: 0
@@ -312,7 +312,7 @@ native_gates:
               relative_start: 32
               type: qf
             - type: virtual_z
-              phase: -3.862
+              phase: -3.630
               qubit: 3
 
             - duration: 32
@@ -328,7 +328,7 @@ native_gates:
               relative_start: 32
               type: qf
             - type: virtual_z
-              phase: -0.095
+              phase: -0.041
               qubit: 2
 
         2-0:
