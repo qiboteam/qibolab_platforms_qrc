@@ -305,31 +305,31 @@ native_gates:
               qubit: 3
               relative_start: 0
               type: qf
-            # - duration: 20
-            #   amplitude: 0
-            #   shape: Rectangular())
-            #   qubit: 3
-            #   relative_start: 32
-            #   type: qf
-            # - type: virtual_z
-            #   phase: -3.862
-            #   qubit: 3
+            - duration: 20
+              amplitude: 0
+              shape: Rectangular())
+              qubit: 3
+              relative_start: 32
+              type: qf
+            - type: virtual_z
+              phase: -3.862
+              qubit: 3
 
-            # - duration: 32
-            #   amplitude: 0
-            #   shape: Rectangular())
-            #   qubit: 2
-            #   relative_start: 0
-            #   type: qf
-            # - duration: 20
-            #   amplitude: 0
-            #   shape: Rectangular())
-            #   qubit: 2
-            #   relative_start: 32
-            #   type: qf
-            # - type: virtual_z
-            #   phase: -0.095
-            #   qubit: 2
+            - duration: 32
+              amplitude: 0
+              shape: Rectangular())
+              qubit: 2
+              relative_start: 0
+              type: qf
+            - duration: 20
+              amplitude: 0
+              shape: Rectangular())
+              qubit: 2
+              relative_start: 32
+              type: qf
+            - type: virtual_z
+              phase: -0.095
+              qubit: 2
 
         2-0:
             CZ:
