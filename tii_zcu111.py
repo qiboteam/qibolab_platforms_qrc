@@ -2,7 +2,7 @@ import pathlib
 
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
-from qibolab.instruments.rfsoc import RFSoC as TII_ZCU111
+from qibolab.instruments.rfsoc import RFSoC
 from qibolab.platform import Platform
 
 NAME = "tii_zcu111"
@@ -58,7 +58,7 @@ def create(runcard=RUNCARD):
     ]
 
     # Instantiate QICK instruments
-    controller = TII_ZCU111("tii_zcu111", ADDRESS, PORT)
+    controller = RFSoC("tii_zcu111", ADDRESS, PORT)
 
     # Readout local oscillator
     local_oscillators[0].frequency = 7_500_000_000

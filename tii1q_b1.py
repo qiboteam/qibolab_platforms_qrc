@@ -1,7 +1,7 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rfsoc import RFSoC as TII_RFSOC4x2
+from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.rohde_schwarz import SGS100A as LocalOscillator
 from qibolab.platform import Platform
 
@@ -36,7 +36,7 @@ def create(runcard=RUNCARD):
     local_oscillators[0].power = -1
 
     # Instantiate QICK instruments
-    controller = TII_RFSOC4x2(NAME, ADDRESS, PORT)
+    controller = RFSoC(NAME, ADDRESS, PORT)
     instruments = [controller] + local_oscillators
     platform = Platform(NAME, runcard, instruments, channels)
 
