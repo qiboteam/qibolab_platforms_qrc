@@ -3,7 +3,7 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import ChannelMap
-from qibolab.instruments.dummy_oscillator import DummyLocalOscillator as LocalOscillator
+from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.zhinst import Zurich
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
