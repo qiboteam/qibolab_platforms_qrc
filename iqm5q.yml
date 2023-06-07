@@ -122,8 +122,8 @@ native_gates:
             -   type: virtual_z
                 phase: 0.015
                 qubit: 2
-             
-            
+
+
 characterization:
     single_qubit:
         0:
@@ -139,7 +139,7 @@ characterization:
             # parameters for single shot classification
             threshold: 1.5939
             iq_angle: 0.662
-            alpha: 217_492_000 
+            alpha: 217_492_000
         1:
             readout_frequency: 4.9525e+9
             resonator_polycoef_flux: []
