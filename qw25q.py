@@ -1,6 +1,6 @@
 import pathlib
 
-from qibolab.channels import Channel, ChannelMap
+from qibolab.channels import ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.rohde_schwarz import SGS100A
@@ -12,9 +12,12 @@ RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 
 def create(runcard=RUNCARD):
-    """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
-    # Create channel objects
-    channels = ChannelMap()
+    """Create platform for the Quantware 25 qubits.
+
+    QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde
+    Schwarz/ERAsynth local oscillators.
+
+    """
 
     # Wiring
     wiring = {
@@ -52,10 +55,11 @@ def create(runcard=RUNCARD):
     }
 
     # Create channels
+    channels = ChannelMap()
     for channel in wiring:
         for feedline in wiring[channel]:
             for wire in wiring[channel][feedline]:
-                channels |= ChannelMap.from_names(wire)
+                channels |= wire
 
     for feedline in connections:
         channels[wiring["feedback"][feedline][0]].ports = [
@@ -106,36 +110,33 @@ def create(runcard=RUNCARD):
     local_oscillators = [
         ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
         for i in range(1, 9)
-    ]
-    local_oscillators.extend(
-        SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
-    )
+    ] + [SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]]
+
     drive_local_oscillators = {
         "A": ["LO_05"] + 2 * ["LO_01"] + ["LO_05"] + ["LO_01"] + ["era_01"],
         "B": ["era_02"] + 4 * ["LO_06"],
         "C": [f"era_0{i}" for i in range(3, 8)],
         # "D": ["era_08"] + 2 * ["LO_01"],
     }
+
     # Configure local oscillator's frequency and power
+    lo_settings = {
+        "LO_01": (6.15e9, 21),
+        "LO_04": (7.1e9, 23),
+        "LO_03": (7.8e9, 23),
+        "LO_05": (5.37e9, 18),
+        "LO_06": (6.2e9, 21),
+        "era": (4e9, 15),
+    }
     for lo in local_oscillators:
-        if lo.name == "LO_01":
-            lo.frequency = 6.15e9
-            lo.power = 21
-        elif lo.name == "LO_04":
-            lo.frequency = 7.1e9
-            lo.power = 23
-        elif lo.name == "LO_03":
-            lo.frequency = 7.8e9
-            lo.power = 23
-        elif lo.name == "LO_05":
-            lo.frequency = 5.37e9
-            lo.power = 18
-        elif lo.name == "LO_06":
-            lo.frequency = 6.2e9
-            lo.power = 21
+        if lo.name in lo_settings:
+            values = lo_settings[lo.name]
         elif "era" in lo.name:
-            lo.frequency = 4e9
-            lo.power = 15
+            values = lo_settings["era"]
+        else:
+            continue
+        lo.frequency = values[0]
+        lo.power = values[1]
 
     # Assign local oscillators to channels
     for lo in local_oscillators:
@@ -172,29 +173,13 @@ def create(runcard=RUNCARD):
                             qubits[q].drive_frequency + 200e6
                         )
 
-    for q in [
-        "A3",
-        "A5",
-        "A6",
-        "B4",
-        "B5",
-        "C2",
-        "C3",
-        "C5",
-    ]:  # Qubits with LO around 7e9
-        qubits[q].readout = channels[wiring["readout"][q[0]][0]]
-        qubits[q].feedback = channels[wiring["feedback"][q[0]][0]]
-    for q in [
-        "A1",
-        "A2",
-        "A4",
-        "B1",
-        "B2",
-        "B3",
-        "C1",
-        "C4",
-    ]:  # Qubits with LO around 7.5e9
-        qubits[q].readout = channels[wiring["readout"][q[0]][1]]
-        qubits[q].feedback = channels[wiring["feedback"][q[0]][1]]
+    qubits_groups = (
+        ["A3", "A5", "A6", "B4", "B5", "C2", "C3", "C5"],  # Qubits with LO around 7e9
+        ["A1", "A2", "A4", "B1", "B2", "B3", "C1", "C4"],  # Qubits with LO around 7.5e9
+    )
+    for idx, gr in enumerate(qubits_groups):
+        for q in gr:
+            qubits[q].readout = channels[wiring["readout"][q[0]][idx]]
+            qubits[q].feedback = channels[wiring["feedback"][q[0]][idx]]
 
     return platform
