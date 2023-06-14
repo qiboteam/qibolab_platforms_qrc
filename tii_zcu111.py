@@ -18,47 +18,29 @@ def create(runcard=RUNCARD):
 
     IPs and other instrument related parameters are hardcoded in.
     """
+
+    # Instantiate QICK instruments
+    controller = RFSoC("tii_zcu111", ADDRESS, PORT)
+
     # Create channel objects
     channels = ChannelMap()
-
-    # Readout channel
-    channels |= ChannelMap.from_names("L3-30_ro")  # dac6
-
+    channels |= Channel("L3-30_ro", port=controller[6])  # readout  dac6
     # QUBIT 0
-    channels |= "L2-4-RO_0"  # feedback adc0
-    channels |= "L4-29_qd"  # drive    dac3
-    channels |= "L1-22_fl"  # flux     dac0
+    channels |= Channel("L2-4-RO_0", port=controller[0])  # feedback adc0
+    channels |= Channel("L4-29_qd", port=controller[3])  # drive    dac3
+    channels |= Channel("L1-22_fl", port=controller[0])  # flux     dac0
     # QUBIT 1
-    channels |= "L2-4-RO_1"  # feedback adc1
-    channels |= "L4-30_qd"  # drive    dac4
-    channels |= "L1-23_fl"  # flux     dac1
+    channels |= Channel("L2-4-RO_1", port=controller[1])  # feedback adc1
+    channels |= Channel("L4-30_qd", port=controller[4])  # drive    dac4
+    channels |= Channel("L1-23_fl", port=controller[1])  # flux     dac1
     # QUBIT 2
-    channels |= "L2-4-RO_2"  # feedback adc2
-    channels |= "L4-31_qd"  # drive    dac5
-    channels |= "L1-24_fl"  # flux     dac2
-
-    # Map controllers to qubit channels (HARDCODED)
-    channels["L3-30_ro"].ports = [("dac6", 6)]
-
-    # Qubit 0
-    channels["L2-4-RO_0"].ports = [("adc0", 0)]
-    channels["L4-29_qd"].ports = [("dac3", 3)]
-    channels["L1-22_fl"].ports = [("dac0", 0)]
-    # Qubit 1
-    channels["L2-4-RO_1"].ports = [("adc1", 1)]
-    channels["L4-30_qd"].ports = [("dac4", 4)]
-    channels["L1-23_fl"].ports = [("dac1", 1)]
-    # Qubit 2
-    channels["L2-4-RO_2"].ports = [("adc2", 2)]
-    channels["L4-31_qd"].ports = [("dac5", 5)]
-    channels["L1-24_fl"].ports = [("dac2", 2)]
+    channels |= Channel("L2-4-RO_2", port=controller[2])  # feedback adc2
+    channels |= Channel("L4-31_qd", port=controller[5])  # drive    dac5
+    channels |= Channel("L1-24_fl", port=controller[2])  # flux     dac2
 
     local_oscillators = [
         ERA("ErasynthLO", LO_ADDRESS, ethernet=True),
     ]
-
-    # Instantiate QICK instruments
-    controller = RFSoC("tii_zcu111", ADDRESS, PORT)
 
     # Readout local oscillator
     local_oscillators[0].frequency = 7_500_000_000

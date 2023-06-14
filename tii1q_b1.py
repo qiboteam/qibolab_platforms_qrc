@@ -20,14 +20,9 @@ def create(runcard=RUNCARD):
     """
     # Create channel objects
     channels = ChannelMap()
-    channels |= "L3-18_ro"  # readout (DAC)
-    channels |= "L2-RO"  # feedback (readout DAC)
-    channels |= "L3-18_qd"  # drive
-
-    # Map controllers to qubit channels (HARDCODED)
-    channels["L3-18_ro"].ports = [("o0", 0)]  # readout
-    channels["L2-RO"].ports = [("i0", 0)]  # feedback
-    channels["L3-18_qd"].ports = [("o1", 1)]  # drive
+    channels |= Channel("L3-18_ro", port=controller[0])  # readout (DAC)
+    channels |= Channel("L2-RO", port=controller[0])  # feedback (readout DAC)
+    channels |= Channel("L3-18_qd", port=controller[1])  # drive
 
     local_oscillators = [
         LocalOscillator("twpa_a", TWPA_ADDRESS),
