@@ -8,6 +8,7 @@ from qibolab.instruments.zhinst import Zurich
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
+TWPA_ADDRESS = "192.168.0.32" #CHANGE
 
 def create(runcard=RUNCARD):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
@@ -113,6 +114,11 @@ def create(runcard=RUNCARD):
         LocalOscillator(f"lo_{kind}", None)
         for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
     ]
+    
+    local_oscillators.append(LocalOscillator("twpa_fixed", TWPA_ADDRESS))
+    #TWPA Parameters
+    local_oscillators[-1].frequency = 6_200_000_000
+    local_oscillators[-1].power = -1
 
     # Set Dummy LO parameters (Map only the two by two oscillators)
     local_oscillators[0].frequency = 5_500_000_000  # For SG0 (Readout)
