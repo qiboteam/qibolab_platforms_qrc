@@ -18,20 +18,16 @@ def create(runcard=RUNCARD):
 
     IPs and other instrument related parameters are hardcoded in.
     """
+    # Instantiate QICK instruments
+    controller = RFSoC(NAME, ADDRESS, PORT)
     # Create channel objects
     channels = ChannelMap()
     channels |= Channel("L3-18_ro", port=controller[0])  # readout (DAC)
     channels |= Channel("L2-RO", port=controller[0])  # feedback (readout DAC)
     channels |= Channel("L3-18_qd", port=controller[1])  # drive
 
-    local_oscillators = [
-        LocalOscillator("twpa_a", TWPA_ADDRESS),
-    ]
-    local_oscillators[0].frequency = 6_200_000_000
-    local_oscillators[0].power = -1
+    local_oscillators = []
 
-    # Instantiate QICK instruments
-    controller = RFSoC(NAME, ADDRESS, PORT)
     instruments = [controller] + local_oscillators
     platform = Platform(NAME, runcard, instruments, channels)
 
