@@ -8,13 +8,18 @@ from qibolab.platform import Platform
 
 NAME = "qmopx"
 ADDRESS = "192.168.0.101:80"
+TIME_OF_FLIGHT = 280
 RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 
 def create(runcard=RUNCARD):
     """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
-    # Create channel objects
-    channels = ChannelMap()
+    controller = QMOPX(NAME, ADDRESS, time_of_flight=TIME_OF_FLIGHT)
+    # Instantiate local oscillators
+    local_oscillators = [
+        ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
+        for i in range(1, 9)
+    ]
 
     # Wiring
     wiring = {
@@ -51,29 +56,37 @@ def create(runcard=RUNCARD):
         # "D": [8, 9],
     }
 
-    # Create channels
+    # Create channel objects
+    channels = ChannelMap()
     for channel in wiring:
         for feedline in wiring[channel]:
-            for wire in wiring[channel][feedline]:
-                channels |= ChannelMap.from_names(wire)
+            channels |= wiring[channel][feedline]
 
     for feedline in connections:
-        channels[wiring["feedback"][feedline][0]].ports = [
-            (f"con{connections[feedline][0]}", 2),
-            (f"con{connections[feedline][0]}", 1),
+        channels[wiring["feedback"][feedline][0]].port = controller[
+            (
+                (f"con{connections[feedline][0]}", 2),
+                (f"con{connections[feedline][0]}", 1),
+            )
         ]
-        channels[wiring["feedback"][feedline][1]].ports = [
-            (f"con{connections[feedline][1]}", 2),
-            (f"con{connections[feedline][1]}", 1),
+        channels[wiring["feedback"][feedline][1]].port = controller[
+            (
+                (f"con{connections[feedline][1]}", 2),
+                (f"con{connections[feedline][1]}", 1),
+            )
         ]
 
-        channels[wiring["readout"][feedline][0]].ports = [
-            (f"con{connections[feedline][0]}", 10),
-            (f"con{connections[feedline][0]}", 9),
+        channels[wiring["readout"][feedline][0]].port = controller[
+            (
+                (f"con{connections[feedline][0]}", 10),
+                (f"con{connections[feedline][0]}", 9),
+            )
         ]
-        channels[wiring["readout"][feedline][1]].ports = [
-            (f"con{connections[feedline][1]}", 10),
-            (f"con{connections[feedline][1]}", 9),
+        channels[wiring["readout"][feedline][1]].port = controller[
+            (
+                (f"con{connections[feedline][1]}", 10),
+                (f"con{connections[feedline][1]}", 9),
+            )
         ]
 
         # add gain to feedback channels
@@ -82,31 +95,26 @@ def create(runcard=RUNCARD):
 
         wires_list = wiring["drive"][feedline]
         for i in range(len(wires_list)):
-            channels[wires_list[i]].ports = [
-                (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 1),
-                (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 2),
+            channels[wires_list[i]].port = controller[
+                (
+                    (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 1),
+                    (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 2),
+                )
             ]
             last_port = 2 * i % 8 + 2
             last_con = (2 * i) // 8
 
         wires_list = wiring["flux"][feedline]
         for i in range(len(wires_list)):
-            channels[wires_list[i]].ports = [
+            channels[wires_list[i]].port = controller[
                 (
-                    f"con{connections[feedline][last_con + (i + last_port)//8]}",
-                    (i + last_port) % 8 + 1,
+                    (
+                        f"con{connections[feedline][last_con + (i + last_port)//8]}",
+                        (i + last_port) % 8 + 1,
+                    ),
                 )
             ]
 
-    controller = QMOPX(NAME, ADDRESS)
-    # set time of flight for readout integration (HARDCODED)
-    controller.time_of_flight = 280
-
-    # Instantiate local oscillators (HARDCODED)
-    local_oscillators = [
-        ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
-        for i in range(1, 9)
-    ]
     local_oscillators.extend(
         SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
     )

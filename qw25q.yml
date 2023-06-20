@@ -409,7 +409,6 @@ native_gates:
               qubit: A3
 
 
-
 characterization:
     single_qubit:
         A1:
@@ -417,8 +416,8 @@ characterization:
             drive_frequency: 5.06217e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.000288842361133913
             iq_angle: 0.3303038506310445
@@ -433,8 +432,8 @@ characterization:
             drive_frequency: 5.8513e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.48
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.00031560006787954647
             iq_angle: 1.9919151514426674
@@ -449,8 +448,8 @@ characterization:
             drive_frequency: 5.991311e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.245
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold:  0.000253824457112318
             iq_angle:  5.307493519332263
@@ -465,8 +464,8 @@ characterization:
             drive_frequency: 5.239805e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0005704866316357044
             iq_angle: 0.6485151176256205
@@ -481,8 +480,8 @@ characterization:
             drive_frequency: 6081000000
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 7.210173850141511e-05
             iq_angle: 5.884396412526421
@@ -497,8 +496,8 @@ characterization:
             drive_frequency: 6.860000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -513,8 +512,8 @@ characterization:
             drive_frequency: 5.057380E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: -0.0012829707530760102
             iq_angle: 1.4306003480740943
@@ -529,8 +528,8 @@ characterization:
             drive_frequency: 6.017959E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: -0.003446505933489241
             iq_angle: 5.409004218529808
@@ -545,8 +544,8 @@ characterization:
             drive_frequency: 6.058000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:  0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -561,8 +560,8 @@ characterization:
             drive_frequency: 6.120616E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -577,8 +576,8 @@ characterization:
             drive_frequency: 6.101000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.475
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0009597380015034596
             iq_angle: 3.330673312911072
@@ -593,8 +592,8 @@ characterization:
             drive_frequency: 5.405000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.365
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.00031384816695217467
             iq_angle: 3.217366652143714
@@ -609,8 +608,8 @@ characterization:
             drive_frequency: 6.084000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.3
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.00010808753410035694
             iq_angle: 5.069603506402022
@@ -625,8 +624,8 @@ characterization:
             drive_frequency: 5.803000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.22
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0015968256455689796
             iq_angle: 0.34193055438791875
@@ -641,8 +640,8 @@ characterization:
             drive_frequency: 5.388000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.05
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -657,8 +656,8 @@ characterization:
             drive_frequency: 5.822600E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.3
-            filter: {}
+            sweetspot: 0.0
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -674,7 +673,7 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -690,7 +689,7 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -706,7 +705,7 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -721,7 +720,7 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -736,7 +735,7 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
+            filters: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
