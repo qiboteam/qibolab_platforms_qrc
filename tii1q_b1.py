@@ -20,10 +20,12 @@ def create(runcard=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
+    controller.cfg.adc_trig_offset = 200
+    controller.cfg.repetition_duration = 200
     # Create channel objects
     channels = ChannelMap()
     channels |= Channel("L3-18_ro", port=controller[0])  # readout (DAC)
-    channels |= Channel("L2-RO", port=controller[0])  # feedback (readout DAC)
+    channels |= Channel("L2-RO", port=controller[0])  # feedback (readout ADC)
     channels |= Channel("L3-18_qd", port=controller[1])  # drive
 
     local_oscillators = []
