@@ -5,6 +5,7 @@ from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.zhinst import Zurich
+from qibolab.instruments.erasynth import ERA
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
@@ -128,7 +129,8 @@ def create(runcard=RUNCARD):
         for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
     ]
 
-    local_oscillators.append(LocalOscillator("twpa_fixed", TWPA_ADDRESS))
+    # local_oscillators.append(LocalOscillator("twpa_fixed", TWPA_ADDRESS))
+    local_oscillators.append(ERA("twpa_fixed", TWPA_ADDRESS))
     # TWPA Parameters
     local_oscillators[-1].frequency = 6_690_000_000
     local_oscillators[-1].power = -4.5
@@ -140,7 +142,7 @@ def create(runcard=RUNCARD):
     local_oscillators[3].frequency = 4_800_000_000  # For SG5 and SG6 (Drive)
 
     # Map LOs to channels
-    ch_to_lo = {"L2-7": 0, "L4-15": 1, "L4-16": 1, "L4-17": 2, "L4-18": 2, "L4-19": 3}
+    ch_to_lo = {"L2-7": 0, "L4-15": 1, "L4-16": 1, "L4-17": 2, "L4-18": 2, "L4-19": 3, "L3-32": 4}
     for ch, lo in ch_to_lo.items():
         channels[ch].local_oscillator = local_oscillators[lo]
 
