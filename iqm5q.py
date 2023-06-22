@@ -117,7 +117,7 @@ def create(runcard=RUNCARD):
     ]
 
     local_oscillators.append(LocalOscillator("twpa_fixed", TWPA_ADDRESS))
-    #TWPA Parameters
+    # TWPA Parameters
     local_oscillators[-1].frequency = 6_690_000_000
     local_oscillators[-1].power = -4.5
 
