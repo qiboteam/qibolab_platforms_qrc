@@ -10,33 +10,24 @@ ADDRESS = "192.168.0.72"
 PORT = 6000
 RUNCARD = pathlib.Path(__file__).parent / "tii1q_b1.yml"
 
-TWPA_ADDRESS = "192.168.0.32"
-
 
 def create(runcard=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
-    # Create channel objects
-    channels = ChannelMap()
-    channels |= "L3-18_ro"  # readout (DAC)
-    channels |= "L2-RO"  # feedback (readout DAC)
-    channels |= "L3-18_qd"  # drive
-
-    # Map controllers to qubit channels (HARDCODED)
-    channels["L3-18_ro"].ports = [("o0", 0)]  # readout
-    channels["L2-RO"].ports = [("i0", 0)]  # feedback
-    channels["L3-18_qd"].ports = [("o1", 1)]  # drive
-
-    local_oscillators = [
-        LocalOscillator("twpa_a", TWPA_ADDRESS),
-    ]
-    local_oscillators[0].frequency = 6_200_000_000
-    local_oscillators[0].power = -1
-
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
+    controller.cfg.adc_trig_offset = 200
+    controller.cfg.repetition_duration = 200
+    # Create channel objects
+    channels = ChannelMap()
+    channels |= Channel("L3-18_ro", port=controller[0])  # readout (DAC)
+    channels |= Channel("L2-RO", port=controller[0])  # feedback (readout ADC)
+    channels |= Channel("L3-18_qd", port=controller[1])  # drive
+
+    local_oscillators = []
+
     instruments = [controller] + local_oscillators
     platform = Platform(NAME, runcard, instruments, channels)
 
