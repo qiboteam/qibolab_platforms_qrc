@@ -10,8 +10,6 @@ ADDRESS = "192.168.0.72"
 PORT = 6000
 RUNCARD = pathlib.Path(__file__).parent / "tii1q_b1.yml"
 
-TWPA_ADDRESS = "192.168.0.32"
-
 
 def create(runcard=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
@@ -20,7 +18,7 @@ def create(runcard=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
-    controller.cfg.adc_trig_offset = 220
+    controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 200
     # Create channel objects
     channels = ChannelMap()
