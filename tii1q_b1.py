@@ -20,7 +20,7 @@ def create(runcard=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
-    controller.cfg.adc_trig_offset = 200
+    controller.cfg.adc_trig_offset = 220
     controller.cfg.repetition_duration = 200
     # Create channel objects
     channels = ChannelMap()
