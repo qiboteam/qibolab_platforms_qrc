@@ -99,7 +99,7 @@ def create(runcard=RUNCARD):
         for i in range(11, 14)
     )
     channels |= Channel("L4-14", port=controller[("device_hdawg2", f"SIGOUTS/0")])
-    
+
     # TWPA pump(EraSynth)
     channels |= Channel("L3-32")
 
