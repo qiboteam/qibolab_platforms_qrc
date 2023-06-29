@@ -12,6 +12,30 @@ resonator_type: 2D
 
 topology: [[0, 2], [1, 2], [2, 3], [2, 4]]
 
+# Drive:
+# L3-15:mod8-o1 q0
+# L3-11:mod3-o1 q1
+# L3-12:mod3-o2 q2
+# L3-13:mod4-o1 q3
+# L3-14:mod4-o2 q4
+
+
+# Flux:
+# L4-5:mod5-o1 q0
+# L4-1:mod2-o1 q1
+# L4-2:mod2-o2 q2
+# L4-3:mod2-o3 q3
+# L4-4:mod2-o4 q4
+
+
+# Readout out:
+# L3-25:mod12 and mod10 (out)
+# L2-25:mod12 and mod10 (in)
+
+# Cluster IP:
+# 192.168.0.6
+
+
 # no bias line, using qblox offset from qcm_bbc
 channels: [
   'L2-5a','L2-5b', 'L3-25a', 'L3-25b', #RO channels: Ro lines L2-5 and L3-25 splitted
@@ -45,16 +69,15 @@ instruments:
         settings:
             ports:
                 o1:
-                    attenuation                 : 38 # should be multiple of 2
+                    channel                     : L3-25a
+                    attenuation                 : 38                        # should be multiple of 2
                     lo_enabled                  : true
-                    lo_frequency                : 7_255_000_000                    # (Hz) from 2e9 to 18e9
-                    gain                        : 0.6                              # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en             : true
+                    lo_frequency                : 7_255_000_000             # (Hz) from 2e9 to 18e9
+                    gain                        : 0.6                       # for path0 and path1 -1.0<=v<=1.0
                 i1:
-                    hardware_demod_en           : true
-
-            acquisition_hold_off        : 500
-            acquisition_duration        : 900
+                    channel                     : L2-5a
+                    acquisition_hold_off        : 500                       # must be multiple of 4
+                    acquisition_duration        : 900
 
             classification_parameters:
                 0:  # qubit id
@@ -64,11 +87,6 @@ instruments:
                     rotation_angle              : 37.712                   # in degrees 0.0<=v<=360.0
                     threshold                   : 0.002625                  # in V
 
-
-            channel_port_map:   # Refrigerator Channel : Instrument port
-                'L3-25a' : o1    # IQ Port = out0 & out1
-                'L2-5a' : i1     # Labeled but not used
-
     qrm_rf2: # ReadOut module 12: controlling qubits q2, q3, q4
         lib: qblox
         class: ClusterQRM_RF
@@ -77,16 +95,15 @@ instruments:
         settings:
             ports:
                 o1:
-                    attenuation                 : 32 # should be multiple of 2
+                    channel                     : L3-25b
+                    attenuation                 : 32                        # should be multiple of 2
                     lo_enabled                  : true
-                    lo_frequency                : 7_850_000_000                   # (Hz) from 2e9 to 18e9
-                    gain                        : 0.6                              # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en             : true
+                    lo_frequency                : 7_850_000_000             # (Hz) from 2e9 to 18e9
+                    gain                        : 0.6                       # for path0 and path1 -1.0<=v<=1.0
                 i1:
-                    hardware_demod_en           : true
-
-            acquisition_hold_off        : 500
-            acquisition_duration        : 900
+                    channel                     : L2-5b
+                    acquisition_hold_off        : 500
+                    acquisition_duration        : 900
 
             classification_parameters:
                 2:  # qubit id
@@ -99,10 +116,6 @@ instruments:
                     rotation_angle              : 216.618                   # in degrees 0.0<=v<=360.0
                     threshold                   : 0.001338                  # in V
 
-            channel_port_map:   # Refrigerator Channel : Instrument port
-                'L3-25b' : o1    # IQ Port = out0 & out1
-                'L2-5b' : i1     # Labeled but not used
-
     qcm_rf1:
         lib: qblox
         class: ClusterQCM_RF
@@ -111,21 +124,11 @@ instruments:
         settings:
             ports:
                 o1: # qubit q0
-                    attenuation                  : 20 # (dB) # should be multiple of 2
-                    lo_enabled                   : true
-                    lo_frequency                 : 5_250_304_836 # (Hz) from 2e9 to 18e9
-                    gain                         : 0.470 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
-                o2: # not used
-                    attenuation                  : 0 # (dB)
-                    lo_enabled                   : false
-                    lo_frequency                 : 2_000_000_000 # (Hz) from 2e9 to 18e9
-                    gain                         : 0 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
-
-            channel_port_map:
-                'L3-15': o1 # q0
-                'L3-16': o2 # not used port
+                    channel             : L3-15
+                    attenuation         : 20                        # (dB) # should be multiple of 2
+                    lo_enabled          : true
+                    lo_frequency        : 5_250_304_836             # (Hz) from 2e9 to 18e9
+                    gain                : 0.470                     # for path0 and path1 -1.0<=v<=1.0
 
     qcm_rf2:
         lib: qblox
@@ -135,21 +138,17 @@ instruments:
         settings:
             ports:
                 o1: # qubit q1
-                    attenuation                  : 20 # (dB)
-                    lo_enabled                   : true
-                    lo_frequency                 : 5_052_833_073 # (Hz) from 2e9 to 18e9
-                    gain                         : 0.570 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
+                    channel             : L3-11
+                    attenuation         : 20                        # (dB)
+                    lo_enabled          : true
+                    lo_frequency        : 5_052_833_073             # (Hz) from 2e9 to 18e9
+                    gain                : 0.570                      # for path0 and path1 -1.0<=v<=1.0
                 o2: # qubit q2
-                    attenuation                  : 20 # (dB)
-                    lo_enabled                   : true
-                    lo_frequency                 : 5_995_371_914 # (Hz) from 2e9 to 18e9
-                    gain                         : 0.655 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
-
-            channel_port_map:
-                'L3-11': o1 # q1
-                'L3-12': o2 # q2
+                    channel             : L3-12
+                    attenuation         : 20                        # (dB)
+                    lo_enabled          : true
+                    lo_frequency        : 5_995_371_914             # (Hz) from 2e9 to 18e9
+                    gain                : 0.655                     # for path0 and path1 -1.0<=v<=1.0
 
     qcm_rf3:
         lib: qblox
@@ -159,21 +158,17 @@ instruments:
         settings:
             ports:
                 o1: # qubit q3
-                    attenuation                  : 20 # (dB)
-                    lo_enabled                   : true
-                    lo_frequency                 : 6_961_018_001 # (Hz) from 2e9 to 18e9
-                    gain                         : 0.550 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
+                    channel             : L3-13
+                    attenuation         : 20                        # (dB)
+                    lo_enabled          : true
+                    lo_frequency        : 6_961_018_001             # (Hz) from 2e9 to 18e9
+                    gain                : 0.550                     # for path0 and path1 -1.0<=v<=1.0
                 o2: # qubit q4
-                    attenuation                  : 20 # (dB)
-                    lo_enabled                   : true
-                    lo_frequency                 : 6_786_543_060 # (Hz) from 2e9 to 18e9
-                    gain                         : 0.596 # for path0 and path1 -1.0<=v<=1.0
-                    hardware_mod_en              : true
-
-            channel_port_map:
-                'L3-13': o1 # 1
-                'L3-14': o2 # 0
+                    channel             : L3-14
+                    attenuation         : 20                        # (dB)
+                    lo_enabled          : true
+                    lo_frequency        : 6_786_543_060             # (Hz) from 2e9 to 18e9
+                    gain                : 0.596                     # for path0 and path1 -1.0<=v<=1.0
 
     #Cluster QCM usado para bias mediante el offset
     qcm_bb1:
@@ -183,11 +178,8 @@ instruments:
         roles: [control]
         settings:
             ports:
-                o1: {gain: 0.5, offset: 0.5507, hardware_mod_en: false} #q0
-                o2: {gain: 0, offset: 0.0, hardware_mod_en: false} #not used
-                o3: {gain: 0, offset: 0.0, hardware_mod_en: false} #not used
-                o4: {gain: 0, offset: 0.0, hardware_mod_en: false} #not used
-            channel_port_map: {L4-5: o1, L4-6: o2, L4-7: o3, L4-8: o4}
+                o1: {channel: L4-5,gain: 0.5, offset: 0.5507, qubit: 0} #q0
+                # o4: {channel: L4-3, gain: 0.5, offset:  0.0, qubit: 3} #q3 oscilloscope
 
     #Cluster QCM usado para bias mediante el offset
     qcm_bb2:
@@ -197,11 +189,10 @@ instruments:
         roles: [control]
         settings:
             ports:
-                o1: {gain: 0.5, offset: 0.2227, hardware_mod_en: false} #q1
-                o2: {gain: 0.5, offset: -0.3780, hardware_mod_en: false} #q2
-                o3: {gain: 0.5, offset: -0.8899, hardware_mod_en: false} #q3
-                o4: {gain: 0.5, offset: 0.5890, hardware_mod_en: false} #q4
-            channel_port_map: {L4-1: o1, L4-2: o2, L4-3: o3, L4-4: o4}
+                o1: {channel: L4-1, gain: 0.5, offset: 0.2227, qubit: 1} #q1
+                o2: {channel: L4-2, gain: 0.5, offset: -0.3780, qubit: 2} #q2
+                o3: {channel: L4-3, gain: 0.5, offset: -0.8899, qubit: 3} #q3
+                o4: {channel: L4-4, gain: 0.5, offset: 0.5890, qubit: 4} #q4
 
     twpa_pump:
         lib: rohde_schwarz
@@ -209,7 +200,7 @@ instruments:
         address: 192.168.0.37
         roles: [other]
         settings:
-            frequency: 6_535_900_000 # Hz
+            frequency: 6_535_900_000 # 6_478_250_000 # Hz
             power: 4 # dBm
 
 native_gates:
@@ -339,6 +330,7 @@ native_gates:
             - type: virtual_z
               phase: -0.041
               qubit: 2
+
         2-0:
             CZ:
             - duration: 28
@@ -347,33 +339,6 @@ native_gates:
               qubit: 2
               relative_start: 0
               type: qf
-            - duration: 20
-              amplitude: 0
-              shape: Rectangular())
-              qubit: 2
-              relative_start: 28
-              type: qf
-            - type: virtual_z
-              phase: -3.491
-              qubit: 2
-
-            - duration: 28
-              amplitude: 0
-              shape: Rectangular())
-              qubit: 0
-              relative_start: 0
-              type: qf
-            - duration: 20
-              amplitude: 0
-              shape: Rectangular())
-              qubit: 0
-              relative_start: 28
-              type: qf
-            - type: virtual_z
-              phase: -0.013
-              qubit: 0
-
-
 
 
 characterization:
@@ -381,7 +346,7 @@ characterization:
         0:
             readout_frequency: 7_212_299_307
             drive_frequency: 5_050_304_836
-            # anharmonicity: 291_463_266
+            anharmonicity: 291_463_266
             T1: 5_857
             T2: 0
             state0_voltage: 0.0
@@ -392,7 +357,7 @@ characterization:
         1:
             readout_frequency: 7_452_990_931
             drive_frequency: 4_852_833_073
-            # anharmonicity: 292_584_018
+            anharmonicity: 292_584_018
             T1: 1_253
             T2: 0
             state0_voltage: 0.0
@@ -403,7 +368,7 @@ characterization:
         2:
             readout_frequency: 7_655_083_068
             drive_frequency: 5_795_371_914
-            # anharmonicity: 276_187_576
+            anharmonicity: 276_187_576
             T1: 4_563
             T2: 0
             state0_voltage: 0.0
@@ -414,7 +379,7 @@ characterization:
         3:
             readout_frequency: 7_803_441_221
             drive_frequency: 6_761_018_001
-            # anharmonicity: 262_310_994
+            anharmonicity: 262_310_994
             T1: 4_232
             T2: 0
             state0_voltage: 0.0
@@ -425,7 +390,7 @@ characterization:
         4:
             readout_frequency: 8_058_947_261
             drive_frequency: 6_586_543_060
-            # anharmonicity: 261_390_626
+            anharmonicity: 261_390_626
             T1: 492
             T2: 0
             state0_voltage: 0.0
@@ -436,7 +401,7 @@ characterization:
         5:
             readout_frequency: 7_118_627_658
             drive_frequency: 4_700_000_000
-            # anharmonicity: 300_000_000
+            anharmonicity: 300_000_000
             T1: 0
             T2: 0
             state0_voltage: 0.0
