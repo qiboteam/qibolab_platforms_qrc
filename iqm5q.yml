@@ -19,7 +19,7 @@ native_gates:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.61
+                amplitude: 0.62
                 frequency: 4_098_114_578 #4_098_014_578 #4095985280
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -27,8 +27,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .58
-                frequency: 5_228_200_000  #5_225_200_000
+                amplitude: .61
+                frequency: 5_228_200_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -137,8 +137,8 @@ characterization:
             mean_gnd_states: 1.5417+0.1817j
             mean_exc_states: 2.5332-0.5914j
             # parameters for single shot classification
-            threshold: 0.5309458563179676 #0.8063827925440396
-            iq_angle: 1.4877185365886445 #1.5272645228149095
+            threshold: 0.6095166609527551
+            iq_angle: -2.425656120898259
             alpha: 217_492_000
         1:
             readout_frequency: 4.9525e+9

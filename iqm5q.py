@@ -68,7 +68,7 @@ def create(runcard=RUNCARD):
     }
 
     controller = Zurich(
-        "EL_ZURO", descriptor, use_emulation=False, time_of_flight=280, smearing=100
+        "EL_ZURO", descriptor, use_emulation=False, time_of_flight=75, smearing=50, #time_of_flight=280, smearing=100
     )
 
     # Create channel objects and map controllers
@@ -132,7 +132,6 @@ def create(runcard=RUNCARD):
         for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
     ]
 
-    # local_oscillators.append(LocalOscillator("twpa_fixed", TWPA_ADDRESS))
     local_oscillators.append(ERA("twpa_fixed", TWPA_ADDRESS))
     # TWPA Parameters
     local_oscillators[-1].frequency = 6_690_000_000
