@@ -4,7 +4,6 @@ import yaml
 
 from qibolab.platform import Platform
 from qibolab.instruments.qblox.controller import QbloxController
-from qibolab.instruments.qblox.channel import QbloxChannel
 from qibolab.instruments.qblox.cluster import Cluster
 from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
 from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
@@ -12,7 +11,163 @@ from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.channels import Channel, ChannelMap
 
-RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold_qblox.yml"
+NAME = "qblox"
+ADDRESS = "192.168.0.6"
+TIME_OF_FLIGHT = 500
+RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
+
+instruments_settings = {
+
+    'cluster': {
+        'settings': {
+            'reference_clock_source': 'internal'
+            }
+        }, 
+    'qrm_rf_a': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L3-25_a', 
+                    'attenuation': 38, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 7255000000, 
+                    'gain': 0.6
+                    }, 
+                'i1': {
+                    'channel': 'L2-5_a', 
+                    'acquisition_hold_off': 500, 
+                    'acquisition_duration': 900
+                    }
+                }, 
+                'classification_parameters': {
+                    0: {'rotation_angle': 269.907, 'threshold': 0.003312}, 
+                    1: {'rotation_angle': 37.712, 'threshold': 0.002625}
+                }
+            }
+        }, 
+    'qrm_rf_b': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L3-25_b', 
+                    'attenuation': 32, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 7850000000, 
+                    'gain': 0.6
+                    }, 
+                'i1': {
+                    'channel': 'L2-5_b', 
+                    'acquisition_hold_off': 500, 
+                    'acquisition_duration': 900
+                    }
+                }, 
+                'classification_parameters': {
+                    2: {'rotation_angle': 58.116, 'threshold': 0.003047}, 
+                    3: {'rotation_angle': 21.968, 'threshold': 0.00354}, 
+                    4: {'rotation_angle': 216.618, 'threshold': 0.001338}
+                }
+            }
+        }, 
+    'qcm_rf0': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L3-15', 
+                    'attenuation': 20, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 5245070000, 
+                    'gain': 0.47}
+                }
+            }
+        }, 
+    'qcm_rf1': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L3-11', 
+                    'attenuation': 20, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 5052280321, 
+                    'gain': 0.57
+                    }, 
+                'o2': {
+                    'channel': 'L3-12', 
+                    'attenuation': 20, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 5994176000, 
+                    'gain': 0.655
+                    }
+                }
+            }
+        }, 
+    'qcm_rf2': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L3-13', 
+                    'attenuation': 20, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 6960050000, 
+                    'gain': 0.55
+                    }, 
+                'o2': {
+                    'channel': 'L3-14', 
+                    'attenuation': 20, 
+                    'lo_enabled': True, 
+                    'lo_frequency': 6785145857, 
+                    'gain': 0.596
+                    }
+                }
+            }
+        }, 
+    'qcm_bb0': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L4-5', 
+                    'gain': 0.5, 
+                    'offset': -0.0884, 
+                    'qubit': 0
+                    }
+                }
+            }
+        }, 
+    'qcm_bb1': {
+        'settings': {
+            'ports': {
+                'o1': {
+                    'channel': 'L4-1', 
+                    'gain': 0.5, 
+                    'offset': 0.5592, 
+                    'qubit': 1
+                    }, 
+                'o2': {
+                    'channel': 'L4-2', 
+                    'gain': 0.5, 
+                    'offset': 0.1967, 
+                    'qubit': 2
+                    }, 
+                'o3': {
+                    'channel': 'L4-3', 
+                    'gain': 0.5, 'offset': 0.7557, 
+                    'qubit': 3
+                    }, 
+                'o4': {
+                    'channel': 'L4-4', 
+                    'gain': 0.5, 
+                    'offset': 0.4555, 
+                    'qubit': 4
+                    }
+                }
+            }
+        }, 
+    'twpa_pump': {
+        'settings': {
+            'frequency': 6478250000, 
+            'power': 3.5
+            }
+        }
+    }
 
 
 def create(runcard=RUNCARD):
@@ -22,17 +177,14 @@ def create(runcard=RUNCARD):
         runcard (str): Path to the runcard file.
     """
 
-    with open(runcard) as file:
-        instruments_settings = yaml.safe_load(file)
-    
     def instantiate_module(modules, cls, name, address, settings):
-        module_settings = settings["instruments"][name]["settings"]
+        module_settings = settings[name]["settings"]
         modules[name] = cls(name=name, address=address, settings=module_settings)
         return modules[name]
     
     modules = {}
 
-    cluster  = Cluster(name="cluster", address="192.168.0.6", settings=instruments_settings["instruments"]["cluster"]["settings"])
+    cluster  = Cluster(name="cluster", address="192.168.0.6", settings=instruments_settings["cluster"]["settings"])
     
     qrm_rf_a = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.6:10", instruments_settings) # qubits q0, q1, q5
     qrm_rf_b = instantiate_module(modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.6:12", instruments_settings) # qubits q2, q3, q4
@@ -57,8 +209,8 @@ def create(runcard=RUNCARD):
     controller = QbloxController("qblox_controller", cluster, modules)
 
     twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.37")
-    twpa_pump.frequency = instruments_settings["instruments"]["twpa_pump"]["settings"]["frequency"]
-    twpa_pump.power = instruments_settings["instruments"]["twpa_pump"]["settings"]["power"]
+    twpa_pump.frequency = instruments_settings["twpa_pump"]["settings"]["frequency"]
+    twpa_pump.power = instruments_settings["twpa_pump"]["settings"]["power"]
     
     instruments = [controller, twpa_pump]
     
@@ -67,29 +219,29 @@ def create(runcard=RUNCARD):
     # readout
     channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
 
-    channels["L3-25_a"] = QbloxChannel(name="L3-25_a", instrument=qrm_rf_a, port_name="o1")
-    channels["L3-25_b"] = QbloxChannel(name="L3-25_b", instrument=qrm_rf_b, port_name="o1")
+    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
+    channels["L3-25_b"] = Channel(name="L3-25_b", port=qrm_rf_b.ports["o1"])
 
     # feedback
-    channels["L2-5_a"] = QbloxChannel(name="L2-5_a", instrument=qrm_rf_a, port_name="i1")
-    channels["L2-5_b"] = QbloxChannel(name="L2-5_b", instrument=qrm_rf_b, port_name="i1")
+    channels["L2-5_a"] = Channel(name="L2-5_a", port=qrm_rf_a.ports["i1"])
+    channels["L2-5_b"] = Channel(name="L2-5_b", port=qrm_rf_b.ports["i1"])
 
     # drive
-    channels["L3-15"] = QbloxChannel(name="L3-15", instrument=qcm_rf0, port_name="o1")
-    channels["L3-11"] = QbloxChannel(name="L3-11", instrument=qcm_rf1, port_name="o1")
-    channels["L3-12"] = QbloxChannel(name="L3-12", instrument=qcm_rf1, port_name="o2")
-    channels["L3-13"] = QbloxChannel(name="L3-13", instrument=qcm_rf2, port_name="o1")
-    channels["L3-14"] = QbloxChannel(name="L3-14", instrument=qcm_rf2, port_name="o2")
+    channels["L3-15"] = Channel(name="L3-15", port=qcm_rf0.ports["o1"])
+    channels["L3-11"] = Channel(name="L3-11", port=qcm_rf1.ports["o1"])
+    channels["L3-12"] = Channel(name="L3-12", port=qcm_rf1.ports["o2"])
+    channels["L3-13"] = Channel(name="L3-13", port=qcm_rf2.ports["o1"])
+    channels["L3-14"] = Channel(name="L3-14", port=qcm_rf2.ports["o2"])
 
     # flux
-    channels["L4-5"] = QbloxChannel(name="L4-5", instrument=qcm_bb0, port_name = "o1")
-    channels["L4-1"] = QbloxChannel(name="L4-1", instrument=qcm_bb1, port_name = "o1")
-    channels["L4-2"] = QbloxChannel(name="L4-2", instrument=qcm_bb1, port_name = "o2")
-    channels["L4-3"] = QbloxChannel(name="L4-3", instrument=qcm_bb1, port_name = "o3")
-    channels["L4-4"] = QbloxChannel(name="L4-4", instrument=qcm_bb1, port_name = "o4")
+    channels["L4-5"] = Channel(name="L4-5", port=qcm_bb0.ports["o1"])
+    channels["L4-1"] = Channel(name="L4-1", port=qcm_bb1.ports["o1"])
+    channels["L4-2"] = Channel(name="L4-2", port=qcm_bb1.ports["o2"])
+    channels["L4-3"] = Channel(name="L4-3", port=qcm_bb1.ports["o3"])
+    channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o4"])
 
     # TWPA
-    channels["L4-26"] = QbloxChannel(name="L4-4", instrument=twpa_pump)
+    channels["L4-26"] = Channel(name="L4-4", port=None)
 
     platform = Platform(name="qw5q_gold_qblox", runcard=runcard, instruments=instruments, channels=channels)
 
@@ -130,3 +282,46 @@ def create(runcard=RUNCARD):
     platform.topology = chip
 
     return platform
+
+
+
+
+# Drive:
+# L3-15:mod8-o1 q0
+# L3-11:mod3-o1 q1
+# L3-12:mod3-o2 q2
+# L3-13:mod4-o1 q3
+# L3-14:mod4-o2 q4
+
+
+# Flux:
+# L4-5:mod5-o1 q0
+# L4-1:mod2-o1 q1
+# L4-2:mod2-o2 q2
+# L4-3:mod2-o3 q3
+# L4-4:mod2-o4 q4
+
+
+# Readout out:
+# L3-25:mod12 and mod10 (out)
+# L2-25:mod12 and mod10 (in)
+
+# Cluster IP:
+# 192.168.0.6
+
+
+# # no bias line, using qblox offset from qcm_bbc
+# channels: [
+#   'L2-5a','L2-5b', 'L3-25a', 'L3-25b', #RO channels: Ro lines L2-5 and L3-25 splitted
+#   'L3-15', 'L3-11', 'L3-12', 'L3-13', 'L3-14', 'L3-16', # Drive channels q0, q1, q2, q3, q4 | not used ports label: L3-16
+#   'L4-5', 'L4-1', 'L4-2', 'L4-3', 'L4-4', 'L4-6', 'L4-7', 'L4-8', # Flux channels q0, q1, q2, q3, q4 | not used labels: 'L4-6', 'L4-7', 'L4-8'
+# ]
+
+# # [ReadOut, QubitDrive, QubitFlux, QubitBias]
+# qubit_channel_map:
+#     0:   [L3-25a, L3-15, L4-5, null] #q0
+#     1:   [L3-25a, L3-11, L4-1, null] #q1
+#     2:   [L3-25b, L3-12, L4-2, null] #q2
+#     3:   [L3-25b, L3-13, L4-3, null] #q3
+#     4:   [L3-25b, L3-14, L4-4, null] #q4
+#     5:   [L3-25a,  null, null, null] #q5 witness
