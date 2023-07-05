@@ -65,6 +65,8 @@ def create(runcard=RUNCARD):
     # Create channel objects
     channels = {}
     # readout
+    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
+
     channels["L3-25_a"] = QbloxChannel(name="L3-25_a", instrument=qrm_rf_a, port_name="o1")
     channels["L3-25_b"] = QbloxChannel(name="L3-25_b", instrument=qrm_rf_b, port_name="o1")
 
