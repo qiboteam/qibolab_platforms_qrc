@@ -30,7 +30,7 @@ instruments_settings = {
                     'channel': 'L3-25_a', 
                     'attenuation': 38, 
                     'lo_enabled': True, 
-                    'lo_frequency': 7255000000, 
+                    'lo_frequency': 7_255_000_000, 
                     'gain': 0.6
                     }, 
                 'i1': {
@@ -40,8 +40,8 @@ instruments_settings = {
                     }
                 }, 
                 'classification_parameters': {
-                    0: {'rotation_angle': 269.907, 'threshold': 0.003312}, 
-                    1: {'rotation_angle': 37.712, 'threshold': 0.002625}
+                    0: {'rotation_angle':  99.758, 'threshold': 0.003933}, 
+                    1: {'rotation_angle': 146.297, 'threshold': 0.003488}
                 }
             }
         }, 
@@ -52,7 +52,7 @@ instruments_settings = {
                     'channel': 'L3-25_b', 
                     'attenuation': 32, 
                     'lo_enabled': True, 
-                    'lo_frequency': 7850000000, 
+                    'lo_frequency': 7_850_000_000, 
                     'gain': 0.6
                     }, 
                 'i1': {
@@ -62,9 +62,9 @@ instruments_settings = {
                     }
                 }, 
                 'classification_parameters': {
-                    2: {'rotation_angle': 58.116, 'threshold': 0.003047}, 
-                    3: {'rotation_angle': 21.968, 'threshold': 0.00354}, 
-                    4: {'rotation_angle': 216.618, 'threshold': 0.001338}
+                    2: {'rotation_angle': 97.821, 'threshold': 0.002904}, 
+                    3: {'rotation_angle': 91.209, 'threshold': 0.004318}, 
+                    4: {'rotation_angle': 7.997, 'threshold': 0.002323}
                 }
             }
         }, 
@@ -75,8 +75,8 @@ instruments_settings = {
                     'channel': 'L3-15', 
                     'attenuation': 20, 
                     'lo_enabled': True, 
-                    'lo_frequency': 5245070000, 
-                    'gain': 0.47}
+                    'lo_frequency': 5_250_304_836, 
+                    'gain': 0.470}
                 }
             }
         }, 
@@ -87,14 +87,14 @@ instruments_settings = {
                     'channel': 'L3-11', 
                     'attenuation': 20, 
                     'lo_enabled': True, 
-                    'lo_frequency': 5052280321, 
-                    'gain': 0.57
+                    'lo_frequency': 5_052_833_073, 
+                    'gain': 0.570
                     }, 
                 'o2': {
                     'channel': 'L3-12', 
                     'attenuation': 20, 
                     'lo_enabled': True, 
-                    'lo_frequency': 5994176000, 
+                    'lo_frequency': 5_995_371_914, 
                     'gain': 0.655
                     }
                 }
@@ -107,14 +107,14 @@ instruments_settings = {
                     'channel': 'L3-13', 
                     'attenuation': 20, 
                     'lo_enabled': True, 
-                    'lo_frequency': 6960050000, 
-                    'gain': 0.55
+                    'lo_frequency': 6_961_018_001, 
+                    'gain': 0.550
                     }, 
                 'o2': {
                     'channel': 'L3-14', 
                     'attenuation': 20, 
                     'lo_enabled': True, 
-                    'lo_frequency': 6785145857, 
+                    'lo_frequency': 6_786_543_060, 
                     'gain': 0.596
                     }
                 }
@@ -126,7 +126,7 @@ instruments_settings = {
                 'o1': {
                     'channel': 'L4-5', 
                     'gain': 0.5, 
-                    'offset': -0.0884, 
+                    'offset': 0.5507, 
                     'qubit': 0
                     }
                 }
@@ -138,24 +138,25 @@ instruments_settings = {
                 'o1': {
                     'channel': 'L4-1', 
                     'gain': 0.5, 
-                    'offset': 0.5592, 
+                    'offset': 0.2227, 
                     'qubit': 1
                     }, 
                 'o2': {
                     'channel': 'L4-2', 
                     'gain': 0.5, 
-                    'offset': 0.1967, 
+                    'offset': -0.3780, 
                     'qubit': 2
                     }, 
                 'o3': {
                     'channel': 'L4-3', 
-                    'gain': 0.5, 'offset': 0.7557, 
+                    'gain': 0.5, 
+                    'offset': -0.8899, 
                     'qubit': 3
                     }, 
                 'o4': {
                     'channel': 'L4-4', 
                     'gain': 0.5, 
-                    'offset': 0.4555, 
+                    'offset': 0.5890, 
                     'qubit': 4
                     }
                 }
@@ -163,8 +164,8 @@ instruments_settings = {
         }, 
     'twpa_pump': {
         'settings': {
-            'frequency': 6478250000, 
-            'power': 3.5
+            'frequency': 6_535_900_000, 
+            'power': 4
             }
         }
     }
