@@ -198,12 +198,12 @@ def create(runcard=RUNCARD):
 
     
     # DEBUG: debug folder = report folder
-    import os
-    folder = os.path.dirname(runcard) + "/debug/"
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-    for name in modules:
-        modules[name]._debug_folder = folder
+    # import os
+    # folder = os.path.dirname(runcard) + "/debug/"
+    # if not os.path.exists(folder):
+    #     os.makedirs(folder)
+    # for name in modules:
+    #     modules[name]._debug_folder = folder
 
 
     controller = QbloxController("qblox_controller", cluster, modules)
