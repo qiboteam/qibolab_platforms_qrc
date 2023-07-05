@@ -219,8 +219,6 @@ def create(runcard=RUNCARD):
     channels = {}
     # readout
     channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
-
-    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
     channels["L3-25_b"] = Channel(name="L3-25_b", port=qrm_rf_b.ports["o1"])
 
     # feedback
