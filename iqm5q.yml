@@ -1,0 +1,206 @@
+nqubits: 5
+description: IQM 5-qubit device, controlled with Zurich Instruments.
+
+settings:
+    nshots: 4096
+    sampling_rate: 2.e+9
+    relaxation_time: 100_000
+    time_of_flight: 280
+    smearing: 0
+    Fast_reset: False
+    chip: iqm5q
+
+qubits: [0, 1, 2, 3, 4, "c0", "c1", "c3", "c4"]
+
+topology: [[0, 2], [1, 2], [2, 3], [2, 4]]
+
+native_gates:
+    single_qubit:
+        0: # qubit number
+            RX:
+                duration: 40
+                amplitude: 0.606
+                frequency: 4095985280
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 2000
+                amplitude: .1
+                frequency: 5_233_200_000
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+        1: # qubit number
+            RX:
+                duration: 40
+                amplitude: 0.2
+                frequency: 4.25e+9
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 2000
+                amplitude: .1
+                frequency: 4.9325e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+        2: # qubit number
+            RX:
+                duration: 40
+                amplitude: 0.477
+                frequency: 4342116873
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 2000
+                amplitude: .6
+                frequency: 6.126e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+        3: # qubit number
+            RX:
+                duration: 60
+                amplitude: 0.565
+                frequency: 4130512577
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 2000
+                amplitude: .3
+                frequency: 5.8060e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+        4: # qubit number
+            RX:
+                duration: 40
+                amplitude: 0.6272
+                frequency: 4102039843
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 2000
+                amplitude: .1
+                frequency: 5.5240e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+    two_qubit:
+        2-3: # qubit numbers
+            CZ:
+            -   duration: 66
+                amplitude: -0.52
+                frequency: 0
+                shape: Rectangular()
+                phase: null
+                qubit: c3
+                type: qf # qubit flux
+            -   type: virtual_z
+                phase: 0.007
+                qubit: 3
+            -   type: virtual_z
+                phase: 0.015
+                qubit: 2
+
+
+characterization:
+    single_qubit:
+        0:
+            readout_frequency: 5_228_700_000
+            resonator_polycoef_flux: []
+            drive_frequency: 4095985280
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0
+            # filter: {}
+            mean_gnd_states: 1.5417+0.1817j
+            mean_exc_states: 2.5332-0.5914j
+            # parameters for single shot classification
+            threshold: 1.5939
+            iq_angle: 0.662
+            alpha: 217_492_000
+        1:
+            readout_frequency: 4.9525e+9
+            resonator_polycoef_flux: []
+            drive_frequency: 4.25e+9
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0
+            # filter: {}
+            mean_gnd_states: (0+0j)
+            mean_exc_states: (0+0j)
+        2:
+            readout_frequency: 6.109e+9
+            resonator_polycoef_flux: []
+            drive_frequency: 4342116873
+            T1: 0.0
+            T2: 0.0
+            sweetspot: -0.1745
+            # filter: {}
+            mean_gnd_states: -1.8517+0.6431j
+            mean_exc_states: -0.8696+1.1473j
+            # parameters for single shot classification
+            threshold: -0.6085
+            iq_angle: -0.474
+            alpha: 211_604_296
+        3:
+            readout_frequency: 5.8060e+9
+            resonator_polycoef_flux: []
+            drive_frequency: 4130512577
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # filter: {}
+            mean_gnd_states: -4.0757-1.1911j
+            mean_exc_states: -4.1897+0.8349j
+            # parameters for single shot classificatio
+            threshold: 0.1074
+            iq_angle: -2.904
+            alpha: 214_000_000
+        4:
+            readout_frequency: 5.5240e+9
+            resonator_polycoef_flux: []
+            drive_frequency: 4.1017e+9
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0
+            # filter: {}
+            mean_gnd_states: (0+0j)
+            mean_exc_states: (0+0j)
+            # parameters for single shot classification
+            threshold: 0.233806
+            iq_angle: 0.481
+            alpha: 0
+        "c0":
+            sweetspot: 0.0
+            # filter: {}
+        "c1":
+            sweetspot: 0.0
+            # filter: {}
+        "c3":
+            sweetspot: 0.065
+            # filter: {}
+        "c4":
+            sweetspot: 0.0
+            # filter: {}

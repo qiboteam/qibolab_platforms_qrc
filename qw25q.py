@@ -1,19 +1,25 @@
 import pathlib
-import networkx as nx
 
 from qibolab.channels import Channel, ChannelMap
+from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.qm import QMOPX
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
 
+NAME = "qmopx"
+ADDRESS = "192.168.0.101:80"
+TIME_OF_FLIGHT = 280
 RUNCARD = pathlib.Path(__file__).parent / "qw25q.yml"
 
 
-def create_tii_qw25q(runcard=RUNCARD):
+def create(runcard=RUNCARD):
     """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
-    from qibolab.instruments.qm import QMOPX
-    from qibolab.instruments.erasynth import ERA
-    from qibolab.instruments.rohde_schwarz import SGS100A
-    # Create channel objects
-    channels = ChannelMap()
+    controller = QMOPX(NAME, ADDRESS, time_of_flight=TIME_OF_FLIGHT)
+    # Instantiate local oscillators
+    local_oscillators = [
+        ERA(f"era_0{i}", f"192.168.0.20{i}", reference_clock_source="external")
+        for i in range(1, 9)
+    ]
 
     # Wiring
     wiring = {
@@ -50,53 +56,68 @@ def create_tii_qw25q(runcard=RUNCARD):
         # "D": [8, 9],
     }
 
-    # Create channels
+    # Create channel objects
+    channels = ChannelMap()
     for channel in wiring:
         for feedline in wiring[channel]:
-            for wire in wiring[channel][feedline]:
-                channels |= ChannelMap.from_names(wire)
+            channels |= wiring[channel][feedline]
 
     for feedline in connections:
-        channels[wiring["feedback"][feedline][0]].ports = [
-            (f"con{connections[feedline][0]}", 1),
-            (f"con{connections[feedline][0]}", 2),
+        channels[wiring["feedback"][feedline][0]].port = controller[
+            (
+                (f"con{connections[feedline][0]}", 2),
+                (f"con{connections[feedline][0]}", 1),
+            )
         ]
-        channels[wiring["feedback"][feedline][1]].ports = [
-            (f"con{connections[feedline][1]}", 1),
-            (f"con{connections[feedline][1]}", 2),
+        channels[wiring["feedback"][feedline][1]].port = controller[
+            (
+                (f"con{connections[feedline][1]}", 2),
+                (f"con{connections[feedline][1]}", 1),
+            )
         ]
-        channels[wiring["readout"][feedline][0]].ports = [
-            (f"con{connections[feedline][0]}", 10),
-            (f"con{connections[feedline][0]}", 9),
+
+        channels[wiring["readout"][feedline][0]].port = controller[
+            (
+                (f"con{connections[feedline][0]}", 10),
+                (f"con{connections[feedline][0]}", 9),
+            )
         ]
-        channels[wiring["readout"][feedline][1]].ports = [
-            (f"con{connections[feedline][1]}", 10),
-            (f"con{connections[feedline][1]}", 9),
+        channels[wiring["readout"][feedline][1]].port = controller[
+            (
+                (f"con{connections[feedline][1]}", 10),
+                (f"con{connections[feedline][1]}", 9),
+            )
         ]
+
+        # add gain to feedback channels
+        channels[wiring["feedback"][feedline][1]].gain = 15
+        channels[wiring["feedback"][feedline][0]].gain = 15
 
         wires_list = wiring["drive"][feedline]
         for i in range(len(wires_list)):
-            channels[wires_list[i]].ports = [
-                (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 1),
-                (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 2),
+            channels[wires_list[i]].port = controller[
+                (
+                    (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 1),
+                    (f"con{connections[feedline][(2*i)//8]}", 2 * i % 8 + 2),
+                )
             ]
             last_port = 2 * i % 8 + 2
             last_con = (2 * i) // 8
 
         wires_list = wiring["flux"][feedline]
         for i in range(len(wires_list)):
-            channels[wires_list[i]].ports = [
-                (f"con{connections[feedline][last_con + (i + last_port)//8]}", (i + last_port) % 8 + 1)
+            channels[wires_list[i]].port = controller[
+                (
+                    (
+                        f"con{connections[feedline][last_con + (i + last_port)//8]}",
+                        (i + last_port) % 8 + 1,
+                    ),
+                )
             ]
 
-    controller = QMOPX("qmopx", "192.168.0.101:80")
-    # set time of flight for readout integration (HARDCODED)
-    controller.time_of_flight = 280
-
-    # Instantiate local oscillators (HARDCODED)
-    local_oscillators = [ERA(f"era_0{i}", f"192.168.0.20{i}") for i in range(1, 9)] + [
+    local_oscillators.extend(
         SGS100A(f"LO_0{i}", f"192.168.0.3{i}") for i in [1, 3, 4, 5, 6, 9]
-    ]
+    )
     drive_local_oscillators = {
         "A": ["LO_05"] + 2 * ["LO_01"] + ["LO_05"] + ["LO_01"] + ["era_01"],
         "B": ["era_02"] + 4 * ["LO_06"],
@@ -141,8 +162,7 @@ def create_tii_qw25q(runcard=RUNCARD):
                         channels[wiring["drive"][feedline][i]].local_oscillator = lo
 
     instruments = [controller] + local_oscillators
-    design = InstrumentDesign(instruments, channels)
-    platform = DesignPlatform("qw25q", design, runcard)
+    platform = Platform("qw25q", runcard, instruments, channels)
 
     # assign channels to qubits
     qubits = platform.qubits
@@ -156,68 +176,33 @@ def create_tii_qw25q(runcard=RUNCARD):
                 elif channel == "drive":
                     qubits[q].drive = channels[wire]
                     if "era" in qubits[q].drive.local_oscillator.name:
-                        qubits[q].drive.local_oscillator.frequency = qubits[q].drive_frequency + 200e6
+                        qubits[q].drive.local_oscillator.frequency = (
+                            qubits[q].drive_frequency + 200e6
+                        )
 
-    for q in ["A3", "A5", "A6", "B4", "B5", "C2", "C3", "C5"]:  # Qubits with LO around 7e9
+    for q in [
+        "A3",
+        "A5",
+        "A6",
+        "B4",
+        "B5",
+        "C2",
+        "C3",
+        "C5",
+    ]:  # Qubits with LO around 7e9
         qubits[q].readout = channels[wiring["readout"][q[0]][0]]
         qubits[q].feedback = channels[wiring["feedback"][q[0]][0]]
-    for q in ["A1", "A2", "A4", "B1", "B2", "B3", "C1", "C4"]:  # Qubits with LO around 7.5e9
+    for q in [
+        "A1",
+        "A2",
+        "A4",
+        "B1",
+        "B2",
+        "B3",
+        "C1",
+        "C4",
+    ]:  # Qubits with LO around 7.5e9
         qubits[q].readout = channels[wiring["readout"][q[0]][1]]
         qubits[q].feedback = channels[wiring["feedback"][q[0]][1]]
-
-    # Save temporarely the qubits as a yaml file
-    import yaml
-
-    yaml.dump(qubits, open("qubits.yaml", "w"))
-
-    # Platfom topology
-    Q = []
-    for i in range(1, 7):
-        Q += ["A{i}"]
-    for i in range(1, 6):
-        Q += ["B{i}"]
-    for i in range(1, 6):
-        Q += ["C{i}"]
-    for i in range(1, 6):
-        Q += ["D{i}"]
-    chip = nx.Graph()
-    chip.add_nodes_from(Q)
-    graph_list = [
-        (Q[0], Q[1]),
-        (Q[0], Q[2]),
-        (Q[0], Q[20]),
-        (Q[1], Q[3]),
-        (Q[2], Q[4]),
-        (Q[2], Q[19]),
-        (Q[3], Q[4]),
-        (Q[3], Q[8]),
-        (Q[4], Q[6]),
-        (Q[5], Q[2]),
-        (Q[5], Q[8]),
-        (Q[5], Q[18]),
-        (Q[5], Q[13]),
-        (Q[6], Q[8]),
-        (Q[6], Q[7]),
-        (Q[7], Q[9]),
-        (Q[8], Q[9]),
-        (Q[9], Q[10]),
-        (Q[9], Q[13]),
-        (Q[10], Q[11]),
-        (Q[11], Q[13]),
-        (Q[11], Q[12]),
-        (Q[12], Q[14]),
-        (Q[13], Q[14]),
-        (Q[14], Q[18]),
-        (Q[14], Q[15]),
-        (Q[15], Q[16]),
-        (Q[16], Q[18]),
-        (Q[16], Q[17]),
-        (Q[17], Q[19]),
-        (Q[18], Q[19]),
-        (Q[19], Q[20]),
-    ]
-    chip.add_edges_from(graph_list)
-
-    platform.topology = chip
 
     return platform

@@ -1,15 +1,21 @@
 nqubits: 21
-description: QuantWare 25-qubit device with 4 witness removed because. qw25q_v3_e10
+description: QuantWare 25-qubit device with 4 witness removed. qw25q_v3_e10
+
+settings:
+    nshots: 1024
+    sampling_rate: 1000000000
+    relaxation_time: 100_000
 
 qubits: [A1, A2, A3, A4, A5, A6,
         B1, B2, B3, B4, B5,
         C1, C2, C3, C4, C5,
         D1, D2, D3, D4, D5]
 
-settings:
-    sampling_rate: 1000000000
-    repetition_duration: 100_000
-topology: "Simone to fix"
+topology: [[A1, A2], [A1, A3], [A1, D5], [A2, A4], [A3, A4], [A3, A6], [A3, D4], [A4, A5], [A6, B3], [A6, C3], [A6, D3],
+            [B1, B2], [B1, B3], [B2, B4], [B3, B4], [B4, B5], [B4, C3], [B5, C1],
+            [C1, C2], [C1, C3], [C2, C4], [C3, C4], [C5, D1],
+            [D1, D2], [D1, D3], [D2, D4], [D3, D4], [D4, D5]]
+
 resonator_type: 2D
 
 native_gates:
@@ -34,7 +40,7 @@ native_gates:
         A2:
             RX:
                 duration: 40
-                amplitude: 0.29062970832
+                amplitude: 0.3229
                 frequency: 5846525399
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -68,8 +74,8 @@ native_gates:
         A4:
             RX:
                 duration: 40
-                amplitude: 0.17121058814696768
-                frequency: 5.239007e+9
+                amplitude: 0.159
+                frequency: 5_233_507_007
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -204,8 +210,8 @@ native_gates:
         C1:
             RX:
                 duration: 40
-                amplitude: 0.118944
-                frequency: 5435542369
+                amplitude: 0.097
+                frequency: 5_434_669_369
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -238,8 +244,8 @@ native_gates:
         C3:
             RX:
                 duration: 40
-                amplitude: 0.2
-                frequency: 5.889114e+9
+                amplitude: 0.168
+                frequency: 5_878_614_114
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -378,15 +384,15 @@ native_gates:
             - duration: 20
               amplitude: 0.0055
               shape: Rectangular()
-              qubit: 2
+              qubit: A2
               relative_start: 0
               type: qf
             - type: virtual_z
               phase: -1.5707963267948966
-              qubit: 1
+              qubit: A1
             - type: virtual_z
               phase: -1.5707963267948966
-              qubit: 2
+              qubit: A2
         A3-A4:
             CZ:
             - duration: 20
@@ -403,7 +409,6 @@ native_gates:
               qubit: A3
 
 
-
 characterization:
     single_qubit:
         A1:
@@ -411,13 +416,11 @@ characterization:
             drive_frequency: 5.06217e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.000288842361133913
             iq_angle: 0.3303038506310445
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -428,13 +431,11 @@ characterization:
             drive_frequency: 5.8513e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.48
-            filter: {}
+            sweetspot: 0.05
             # parameters for single shot classification
             threshold: 0.00031560006787954647
             iq_angle: 1.9919151514426674
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -445,13 +446,11 @@ characterization:
             drive_frequency: 5.991311e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.245
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold:  0.000253824457112318
             iq_angle:  5.307493519332263
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -462,13 +461,11 @@ characterization:
             drive_frequency: 5.239805e+9
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0005704866316357044
             iq_angle: 0.6485151176256205
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -479,13 +476,11 @@ characterization:
             drive_frequency: 6081000000
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 7.210173850141511e-05
             iq_angle: 5.884396412526421
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -496,13 +491,11 @@ characterization:
             drive_frequency: 6.860000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -513,13 +506,11 @@ characterization:
             drive_frequency: 5.057380E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: -0.0012829707530760102
             iq_angle: 1.4306003480740943
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -530,13 +521,11 @@ characterization:
             drive_frequency: 6.017959E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: -0.003446505933489241
             iq_angle: 5.409004218529808
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -547,13 +536,11 @@ characterization:
             drive_frequency: 6.058000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:  0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -564,13 +551,11 @@ characterization:
             drive_frequency: 6.120616E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -581,13 +566,11 @@ characterization:
             drive_frequency: 6.101000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.475
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0009597380015034596
             iq_angle: 3.330673312911072
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -598,13 +581,11 @@ characterization:
             drive_frequency: 5.405000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   -0.35
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.00031384816695217467
             iq_angle: 3.217366652143714
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -615,13 +596,11 @@ characterization:
             drive_frequency: 6.084000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.00010808753410035694
             iq_angle: 5.069603506402022
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -632,13 +611,11 @@ characterization:
             drive_frequency: 5.803000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0.235
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0015968256455689796
             iq_angle: 0.34193055438791875
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -649,13 +626,11 @@ characterization:
             drive_frequency: 5.388000E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -666,13 +641,11 @@ characterization:
             drive_frequency: 5.822600E+09
             T1: 0.0
             T2: 0.0
-            sweetspot:   0
-            filter: {}
+            sweetspot: 0.0
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -684,12 +657,10 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -701,12 +672,10 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
+
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -718,12 +687,9 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -735,12 +701,9 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -752,12 +715,9 @@ characterization:
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
-            filter: {}
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-            # required for integration weights (not sure if it should be here)
-            rotation_angle: 0.0
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
