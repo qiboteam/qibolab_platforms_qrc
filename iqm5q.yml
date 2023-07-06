@@ -1,6 +1,8 @@
 nqubits: 5
 description: IQM 5-qubit device, controlled with Zurich Instruments.
 
+#qubit 4 needs a lot of power for rabi and 4us T1 and T2 ???
+
 settings:
     nshots: 4096
     sampling_rate: 2.e+9
@@ -19,7 +21,7 @@ native_gates:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.62
+                amplitude: 0.634
                 frequency: 4_098_114_578 #4_098_014_578
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -27,8 +29,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .55
-                frequency: 5_228_200_000
+                amplitude: .45
+                frequency: 5_230_200_000 #5_230_200_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -91,16 +93,16 @@ native_gates:
         4: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.6272
-                frequency: 4102039843
+                amplitude: 0.55
+                frequency: 4.24704e+9 #4.1017e+9
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .1
-                frequency: 5.5240e+9
+                amplitude: .55
+                frequency: 5.5180e+9
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -127,7 +129,7 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 5_228_200_000  #5_225_200_000
+            readout_frequency: 5_230_200_000
             resonator_polycoef_flux: []
             drive_frequency: 4_098_114_578 #4_098_014_578
             T1: 0.0
@@ -137,8 +139,8 @@ characterization:
             mean_gnd_states: 1.5417+0.1817j
             mean_exc_states: 2.5332-0.5914j
             # parameters for single shot classification
-            threshold: 0.9353
-            iq_angle: 1.335
+            threshold: 1.4946957546937119 #0.7449607016121882
+            iq_angle: 2.74216710911863 #1.343140593384958
             alpha: 217_492_000
         1:
             readout_frequency: 4.9525e+9
@@ -179,9 +181,9 @@ characterization:
             iq_angle: -2.904
             alpha: 214_000_000
         4:
-            readout_frequency: 5.5240e+9
+            readout_frequency: 5.5180e+9 #5.5240e+9
             resonator_polycoef_flux: []
-            drive_frequency: 4.1017e+9
+            drive_frequency: 4.24704e+9 #4.1017e+9
             T1: 0.0
             T2: 0.0
             sweetspot: 0
