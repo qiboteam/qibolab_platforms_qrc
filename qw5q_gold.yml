@@ -159,8 +159,12 @@ characterization:
     single_qubit:
         0:
             readout_frequency: 7_212_299_307
+            bare_resonator_frequency: 7_200_000_000
             drive_frequency: 5_050_304_836
             anharmonicity: 291_463_266
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 107_000_000             
             T1: 5_857
             T2: 0
             sweetspot: 0.5507
@@ -175,8 +179,12 @@ characterization:
             # mean_exc_states: (0.0+0.0j)
         1:
             readout_frequency: 7_452_990_931
+            bare_resonator_frequency: 7_400_000_000            
             drive_frequency: 4_852_833_073
             anharmonicity: 292_584_018
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 114_000_000             
             T1: 1_253
             T2: 0
             sweetspot: 0.2227
@@ -186,8 +194,12 @@ characterization:
             threshold: 0.003488
         2:
             readout_frequency: 7_655_083_068
+            bare_resonator_frequency: 7_600_000_000          
             drive_frequency: 5_795_371_914
             anharmonicity: 276_187_576
+            Ec: 270_000_000
+            Ej: 16_000_000_000
+            g: 83_600_000
             T1: 4_563
             T2: 0
             sweetspot: -0.3780
@@ -197,8 +209,12 @@ characterization:
             threshold: 0.002904
         3:
             readout_frequency: 7_803_441_221
+            bare_resonator_frequency: 7_800_000_000            
             drive_frequency: 6_761_018_001
             anharmonicity: 262_310_994
+            Ec: 270_000_000
+            Ej: 21_200_000_000
+            g: 54_300_000             
             T1: 4_232
             T2: 0
             sweetspot: -0.8899
@@ -208,8 +224,12 @@ characterization:
             threshold: 0.004318
         4:
             readout_frequency: 8_058_947_261
+            bare_resonator_frequency: 8_000_000_000            
             drive_frequency: 6_586_543_060
             anharmonicity: 261_390_626
+            Ec: 270_000_000
+            Ej: 21_200_000_000
+            g: 62_700_000           
             T1: 492
             T2: 0
             sweetspot: 0.5890
@@ -219,8 +239,12 @@ characterization:
             threshold: 0.002323
         5:
             readout_frequency: 7_118_627_658
+            bare_resonator_frequency: 7_000_000_000            
             drive_frequency: 4_700_000_000
             anharmonicity: 300_000_000
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 77_600_000            
             T1: 0
             T2: 0
             sweetspot: 0
