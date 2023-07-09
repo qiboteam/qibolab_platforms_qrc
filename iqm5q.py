@@ -68,7 +68,11 @@ def create(runcard=RUNCARD):
     }
 
     controller = Zurich(
-        "EL_ZURO", descriptor, use_emulation=False, time_of_flight=75, smearing=50, #time_of_flight=280, smearing=100
+        "EL_ZURO",
+        descriptor,
+        use_emulation=False,
+        time_of_flight=75,
+        smearing=50,  # time_of_flight=280, smearing=100
     )
 
     # Create channel objects and map controllers
@@ -114,8 +118,7 @@ def create(runcard=RUNCARD):
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -10
-    channels[f"L4-19"].power_range = 0   
-    
+    channels[f"L4-19"].power_range = 0
 
     # HDAWGS
     # Sets the output voltage range.
