@@ -23,7 +23,7 @@ native_gates:
                 duration: 40
                 amplitude: 0.634
                 frequency: 4_098_114_578 #4_098_014_578
-                shape: Gaussian(5)
+                shape: Gaussian(5) #Drag(5, 0.01)
                 type: qd # qubit drive
                 start: 0
                 phase: 0
@@ -139,9 +139,9 @@ characterization:
             mean_gnd_states: 1.5417+0.1817j
             mean_exc_states: 2.5332-0.5914j
             # parameters for single shot classification
-            threshold: 1.4946957546937119 #0.7449607016121882
-            iq_angle: 2.74216710911863 #1.343140593384958
-            alpha: 217_492_000
+            threshold: 1.459860371191151 #1.4946957546937119 #0.7449607016121882
+            iq_angle:  2.723 #2.739577057708932 #2.74216710911863 #1.343140593384958
+            anharmonicity: 217_492_000
         1:
             readout_frequency: 4.9525e+9
             resonator_polycoef_flux: []
@@ -165,7 +165,7 @@ characterization:
             # parameters for single shot classification
             threshold: -0.6085
             iq_angle: -0.474
-            alpha: 211_604_296
+            anharmonicity: 211_604_296
         3:
             readout_frequency: 5.8060e+9
             resonator_polycoef_flux: []
@@ -179,7 +179,7 @@ characterization:
             # parameters for single shot classificatio
             threshold: 0.1074
             iq_angle: -2.904
-            alpha: 214_000_000
+            anharmonicity: 214_000_000
         4:
             readout_frequency: 5.5180e+9 #5.5240e+9
             resonator_polycoef_flux: []
@@ -193,7 +193,7 @@ characterization:
             # parameters for single shot classification
             threshold: 0.233806
             iq_angle: 0.481
-            alpha: 0
+            anharmonicity: 0
         "c0":
             sweetspot: 0.0
             # filter: {}
