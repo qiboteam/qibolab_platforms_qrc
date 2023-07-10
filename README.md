@@ -16,5 +16,5 @@ export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 The last step needs to executed for every new terminal instance. To avoid having to do this, in linux you can add the above command to your `~/.bashrc`.
 
 The `main` branch of this repository should contain the latest available platforms.
-If your platform is in a branch other than `main`, in addition to the above steps, you need to switch your local `qibolab_platforms_qrc` repository to your branch. 
+If your platform is in a branch other than `main`, in addition to the above steps, you need to switch your local `qibolab_platforms_qrc` repository to your branch.
 If your platform works, you can open a pull request to merge it to main.
