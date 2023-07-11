@@ -1,8 +1,8 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.erasynth import ERA as LocalOscillator
+from qibolab.instruments.rfsoc import RFSoC
 from qibolab.platform import Platform
 
 NAME = "tii_zcu216"
@@ -10,7 +10,8 @@ ADDRESS = "192.168.2.85"
 PORT = 6000
 RUNCARD = pathlib.Path(__file__).parent / "tii_zcu216.yml"
 
-#LO_ADDRESS = "192.168.0.212"
+# LO_ADDRESS = "192.168.0.212"
+
 
 def create(runcard=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
