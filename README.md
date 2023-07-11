@@ -1,5 +1,4 @@
-# qibolab_platforms_qrc
-
+# QRC platforms
 This repository contains platforms that are currently available in the TII QRC Quantum Computing lab.
 
 In order to use these platforms, one needs to:
