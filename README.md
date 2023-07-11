@@ -12,7 +12,7 @@ git clone https://github.com/qiboteam/qibolab_platforms_qrc
 ```sh
 export QIBOLAB_PLATFORMS=~/qibolab_platforms_qrc
 ```
-The last step needs to executed for every new terminal instance. 
+The last step needs to executed for every new terminal instance.
 To avoid having to do this, in linux you can add the above command to your `~/.bashrc`.
 Note that commands added to the `.bashrc` take effect from the next terminal instance, not the current.
 
