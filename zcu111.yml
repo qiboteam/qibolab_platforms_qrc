@@ -1,0 +1,39 @@
+nqubits: 3
+description: 3-qubits of line D (25qw) controlled by a Xilinx ZCU111 board
+qubits: [0, 1, 2]
+settings: {sampling_rate: 6144000000, relaxation_time: 70000, adc_trig_offset: 150,
+    nshots: 1000}
+topology:
+- [2, 1]
+native_gates:
+    single_qubit:
+        0:
+            RX: {duration: 40, amplitude: 0.02, frequency: 5749601799 , shape: Rectangular(),
+                type: qd, start: 0, phase: 0}
+            MZ: {duration: 2000, amplitude: 0.07, frequency: 7110387921, shape: Rectangular(),
+                type: ro, start: 0, phase: 0}
+        1:
+            RX: {duration: 40, amplitude: 0.0484, frequency: 6075467443, shape: Gaussian(5),
+                type: qd, start: 0, phase: 0}
+            MZ: {duration: 2000, amplitude: 0.07, frequency: 7344302434, shape: Rectangular(),
+                type: ro, start: 0, phase: 0}
+        2:
+            RX: {duration: 40, amplitude: 0.01, frequency: 5765142132, shape: Gaussian(5),
+                type: qd, start: 0, phase: 0}
+            MZ: {duration: 2000, amplitude: 0.07, frequency: 7458600000, shape: Rectangular(),
+                type: ro, start: 0, phase: 0}
+    two_qubit:
+        2-1:
+            CZ:
+            - {duration: 30, amplitude: 0.055, shape: Rectangular(), qubit: 2, relative_start: 0,
+                type: qf}
+            - {type: virtual_z, phase: -1.5707963267948966, qubit: 1}
+            - {type: virtual_z, phase: -1.5707963267948966, qubit: 2}
+characterization:
+    single_qubit:
+        0: {readout_frequency: 7110387921, drive_frequency: 5722860285, T1: 0.0, T2: 0.0,
+            sweetspot: 0.122, threshold: 0.0, iq_angle: 0.0}
+        1: {readout_frequency: 7344302434, drive_frequency: 6085931000, T1: 0.0, T2: 0.0,
+            sweetspot: -0.02, threshold: 0.0, iq_angle: 0.0}
+        2: {readout_frequency: 7458621305, drive_frequency: 0.0, T1: 0.0, T2: 0.0,
+            sweetspot: 0.0, threshold: 0.0, iq_angle: 0.0}
