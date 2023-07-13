@@ -6,7 +6,7 @@ settings: {nshots: 1024, relaxation_time: 100000, sampling_rate: 9830400000}
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.77, frequency: 5509784692, shape: Gaussian(5),
+            RX: {duration: 40, amplitude: 0.7645, frequency: 5_509_770_692, shape: Gaussian(5),
                 type: qd, start: 0, phase: 0}
             MZ: {duration: 4000, amplitude: 0.009, frequency: 7371789260, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
