@@ -8,17 +8,17 @@ topology:
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.02, frequency: 5749601799 , shape: Rectangular(),
+            RX: {duration: 300, amplitude: 0.7, frequency: 6541681871, shape: Rectangular(),
                 type: qd, start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.07, frequency: 7110387921, shape: Rectangular(),
+            MZ: {duration: 4000, amplitude: 0.07, frequency: 7110387921, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
         1:
-            RX: {duration: 40, amplitude: 0.0484, frequency: 6075467443, shape: Gaussian(5),
+            RX: {duration: 40, amplitude: 0.68, frequency: 6075435025 , shape: Rectangular(),
                 type: qd, start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.07, frequency: 7344302434, shape: Rectangular(),
+            MZ: {duration: 4000, amplitude: 0.07, frequency: 7344302434, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
         2:
-            RX: {duration: 40, amplitude: 0.01, frequency: 5765142132, shape: Gaussian(5),
+            RX: {duration: 40, amplitude: 1, frequency: 5765142132, shape: Gaussian(5),
                 type: qd, start: 0, phase: 0}
             MZ: {duration: 2000, amplitude: 0.07, frequency: 7458600000, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
@@ -31,9 +31,9 @@ native_gates:
             - {type: virtual_z, phase: -1.5707963267948966, qubit: 2}
 characterization:
     single_qubit:
-        0: {readout_frequency: 7110387921, drive_frequency: 5722860285, T1: 0.0, T2: 0.0,
+        0: {readout_frequency: 7110387921, drive_frequency: 5746394812, T1: 0.0, T2: 0.0,
             sweetspot: 0.122, threshold: 0.0, iq_angle: 0.0}
-        1: {readout_frequency: 7344302434, drive_frequency: 6085931000, T1: 0.0, T2: 0.0,
+        1: {readout_frequency: 7344302434, drive_frequency: 6075504104, T1: 0.0, T2: 0.0,
             sweetspot: -0.02, threshold: 0.0, iq_angle: 0.0}
         2: {readout_frequency: 7458621305, drive_frequency: 0.0, T1: 0.0, T2: 0.0,
             sweetspot: 0.0, threshold: 0.0, iq_angle: 0.0}
