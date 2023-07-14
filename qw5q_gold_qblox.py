@@ -110,7 +110,7 @@ instruments_settings = {
     ),
     "qcm_bb0": ClusterQCM_BB_Settings(
         {
-            "o1": ClusterBB_OutputPort_Settings(
+            "o2": ClusterBB_OutputPort_Settings(
                 channel="L4-5", gain=0.5, offset=0.5507, qubit=0
             )
         }
