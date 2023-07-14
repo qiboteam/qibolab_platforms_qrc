@@ -2,19 +2,24 @@ nqubits: 1
 qubits: [0]
 resonator_type: 3D
 topology: []
-settings: {nshots: 1024, relaxation_time: 100000, sampling_rate: 9830400000, adc_trig_offset: 200,
-    max_gain: 32000}
+settings: {nshots: 1024, relaxation_time: 100000, sampling_rate: 9830400000}
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.206, frequency: 5509466992, shape: Rectangular(),
+            RX: {duration: 40, amplitude: 0.77, frequency: 5509784692, shape: Gaussian(5),
                 type: qd, start: 0, phase: 0}
-            MZ: {duration: 600, amplitude: 0.0255, frequency: 7371678989, shape: Rectangular(),
+            MZ: {duration: 4000, amplitude: 0.009, frequency: 7371789260, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
     two_qubits: {}
 characterization:
     single_qubit:
-        0: {readout_frequency: 7371678989, drive_frequency: 5509466992, pi_pulse_amplitude: 0.206,
-            T1: 11543.451107305236, T2: 4610.783737888784, threshold: -1.8996081723524363,
-            iq_angle: -1.1505466598377718, mean_gnd_states: (-0.48048985465969307-2.8138070055063613j),
-            mean_exc_states: (0.1560962663766765-1.3892691773255315j)}
+        0:
+            readout_frequency: 7369620478
+            drive_frequency: 5509784692
+            pi_pulse_amplitude: 0.704
+            T1: 11543.451107305236
+            T2: 4316.1384768762455
+            threshold: -0.5012565987371872
+            iq_angle: -0.9063401882622614
+            mean_gnd_states: [-0.4159671277461351, -0.7723316517493898]
+            mean_exc_states: [0.02412742066720911, -0.2104633848657445]
