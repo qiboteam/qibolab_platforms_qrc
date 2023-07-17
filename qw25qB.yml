@@ -1,0 +1,200 @@
+nqubits: 5
+description: QuantWare 25-qubit device with 4 witness removed. qw25q_v3_e10
+
+settings:
+    nshots: 1024
+    sampling_rate: 1000000000
+    relaxation_time: 100_000
+
+qubits: [B1, B2, B3, B4, B5]
+
+topology: [[B1, B2], [B1, B3], [B2, B4], [B3, B4], [B4, B5]]
+
+resonator_type: 2D
+
+native_gates:
+    single_qubit:
+        B1:
+            RX:
+                duration: 40
+                amplitude: 0.06508699999999999
+                frequency: 5067881796
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.006
+                frequency: 6926879000.000
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        B2:
+            RX:
+                duration: 40
+                amplitude: 0.15
+                frequency: 6017062942
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.007
+                frequency: 7.135578e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        B3:
+            RX:
+                duration: 40
+                amplitude: 0.1
+                frequency: 6.058000E+09
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.005
+                frequency: 7_344_993_496
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        B4:
+            RX:
+                duration: 40
+                amplitude: 0.1
+                frequency: 6.120616E+09
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.002
+                frequency: 7.749311E+09
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        B5:
+            RX:
+                duration: 40
+                amplitude: 0.101920
+                frequency: 6098281355
+                shape: Gaussian(5)
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.00635
+                frequency: 7.598409e+9
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+
+characterization:
+    single_qubit:
+        B1:
+            readout_frequency: 6.927829E+09
+            drive_frequency: 5.057380E+09
+            anharmonicity: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # parameters for single shot classification
+            threshold: -0.0012829707530760102
+            iq_angle: 1.4306003480740943
+
+            # required for mixers (not sure if it should be here)
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+        B2:
+            readout_frequency: 7.138028E+09
+            drive_frequency: 6.017959E+09
+            anharmonicity: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # parameters for single shot classification
+            threshold: -0.003446505933489241
+            iq_angle: 5.409004218529808
+
+            # required for mixers (not sure if it should be here)
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+        B3:
+            readout_frequency: 7.343333E+09
+            drive_frequency: 6.058000E+09
+            anharmonicity: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # parameters for single shot classification
+            threshold: 0.0
+            iq_angle: 0.0
+
+            # required for mixers (not sure if it should be here)
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+        B4:
+            readout_frequency: 7.748361E+09
+            drive_frequency: 6.120616E+09
+            anharmonicity: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # parameters for single shot classification
+            threshold: 0.0
+            iq_angle: 0.0
+
+            # required for mixers (not sure if it should be here)
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+        B5:
+            readout_frequency: 7.599758E+09
+            drive_frequency: 6.101000E+09
+            anharmonicity: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            # parameters for single shot classification
+            threshold: 0.0009597380015034596
+            iq_angle: 3.330673312911072
+
+            # required for mixers (not sure if it should be here)
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
