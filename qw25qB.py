@@ -41,8 +41,8 @@ def create(runcard=RUNCARD):
         channels |= Channel(f"L1-1{i}", port=controller[(("con3", i),)])
 
     # add gain to feedback channels
-    channels["L2-3H"].gain = 5
-    channels["L2-3L"].gain = 5
+    channels["L2-3H"].gain = -10
+    channels["L2-3L"].gain = -10
 
     # readout
     lo4.frequency = int(7.1e9)
@@ -64,12 +64,13 @@ def create(runcard=RUNCARD):
     lo3.power = 23
     lo3.frequency = int(6e9)
     es7.power = 23
+    es7.frequency = int(6e9)
 
     # twpa
     twpa.frequency = int(6.482e9)
     twpa.power = 10.2
 
-    instruments = [controller, lo4, lo9, twpa]
+    instruments = [controller, lo4, lo9, es7, twpa]
     platform = Platform("qw25qB", runcard, instruments, channels)
 
     # assign channels to qubits
