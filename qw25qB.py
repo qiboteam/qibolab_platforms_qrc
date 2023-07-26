@@ -59,18 +59,32 @@ def create(runcard=RUNCARD):
     channels["L3-9"].local_oscillator = es7  # B3
     channels["L3-19"].local_oscillator = lo2  # B4
     channels["L4-22"].local_oscillator = lo2  # B5
-    lo3.power = 23
-    lo3.frequency = int(4.9e9)
-    es7.power = 23
-    es7.frequency = int(5.9e9)
-    lo2.power = 0
-    lo2.frequency = int(6e9)
+
+    # for B1
+    # lo3.power = 20
+    # lo3.frequency = int(4.8e9)
+
+    # for B2
+    lo3.power = 15
+    lo3.frequency = int(5.8e9)
+
+    # for B3
+    es7.power = 0
+    es7.frequency = int(5.6e9)
+
+    # for B4
+    # lo2.power = 20
+    # lo2.frequency = int(6.6e9)
+
+    # for B5
+    lo2.power = 15
+    lo2.frequency = int(5.8e9)
 
     # twpa
     twpa.frequency = int(6.482e9)
     twpa.power = 2
 
-    instruments = [controller, lo4, lo9, twpa, lo2]
+    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es7]
     platform = Platform("qw25qB", runcard, instruments, channels)
 
     # assign channels to qubits
