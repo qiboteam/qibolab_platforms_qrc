@@ -25,8 +25,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.006
-                frequency: 6_924_059_000
+                amplitude: 0.003
+                frequency: 6_925_189_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -42,8 +42,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.007
-                frequency: 7_134_336_000
+                amplitude: 0.003
+                frequency: 7_136_900_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -60,7 +60,7 @@ native_gates:
             MZ:
                 duration: 1000
                 amplitude: 0.005
-                frequency: 7_341_653_000
+                frequency: 7_342_162_543
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -76,8 +76,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.002
-                frequency: 7_745_525_000
+                amplitude: 0.003
+                frequency: 7_745_503_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -93,8 +93,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.00635
-                frequency: 7_595_119_000
+                amplitude: 0.003
+                frequency: 7_597_369_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -112,7 +112,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.0
+            sweetspot: -0.19
             # parameters for single shot classification
             threshold: -0.0012829707530760102
             iq_angle: 1.4306003480740943
@@ -131,7 +131,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.0
+            sweetspot: -0.024
             # parameters for single shot classification
             threshold: -0.003446505933489241
             iq_angle: 5.409004218529808
@@ -150,7 +150,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.0
+            sweetspot: 0.21
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -169,7 +169,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.0
+            sweetspot: -0.4
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -188,7 +188,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.0
+            sweetspot: -0.1
             # parameters for single shot classification
             threshold: 0.0009597380015034596
             iq_angle: 3.330673312911072

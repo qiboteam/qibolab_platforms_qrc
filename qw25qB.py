@@ -41,8 +41,8 @@ def create(runcard=RUNCARD):
         channels |= Channel(f"L1-1{i}", port=controller[(("con3", i),)])
 
     # add gain to feedback channels
-    channels["L2-3H"].gain = -10
-    channels["L2-3L"].gain = -10
+    channels["L2-3H"].gain = 0
+    channels["L2-3L"].gain = 0
 
     # readout
     lo4.frequency = int(7.1e9)
@@ -54,11 +54,11 @@ def create(runcard=RUNCARD):
     channels["L3-27L"].local_oscillator = lo4
     channels["L2-3L"].local_oscillator = lo4
     # drive
-    channels["L3-7"].local_oscillator = lo3
-    channels["L3-8"].local_oscillator = lo3
-    channels["L3-9"].local_oscillator = es7
-    channels["L3-19"].local_oscillator = lo2
-    channels["L4-22"].local_oscillator = lo2
+    channels["L3-7"].local_oscillator = lo3  # B1
+    channels["L3-8"].local_oscillator = lo3  # B2
+    channels["L3-9"].local_oscillator = es7  # B3
+    channels["L3-19"].local_oscillator = lo2  # B4
+    channels["L4-22"].local_oscillator = lo2  # B5
     lo2.power = 23
     lo2.frequency = int(6e9)
     lo3.power = 23
@@ -68,7 +68,7 @@ def create(runcard=RUNCARD):
 
     # twpa
     twpa.frequency = int(6.482e9)
-    twpa.power = 10.2
+    twpa.power = 2
 
     instruments = [controller, lo4, lo9, es7, twpa]
     platform = Platform("qw25qB", runcard, instruments, channels)
