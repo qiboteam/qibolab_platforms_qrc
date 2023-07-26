@@ -31,11 +31,11 @@ def create(runcard=RUNCARD):
     channels |= Channel("L2-3H", port=controller[(("con1", 2), ("con1", 1))])
     channels |= Channel("L2-3L", port=controller[(("con2", 2), ("con2", 1))])
     # drive
-    channels |= Channel("L3-7", port=controller[(("con1", 2), ("con1", 1))])
-    channels |= Channel("L3-8", port=controller[(("con1", 4), ("con1", 3))])
-    channels |= Channel("L3-9", port=controller[(("con2", 2), ("con2", 1))])
-    channels |= Channel("L3-19", port=controller[(("con1", 6), ("con1", 5))])
-    channels |= Channel("L4-22", port=controller[(("con1", 8), ("con1", 7))])
+    channels |= Channel("L3-7", port=controller[(("con1", 1), ("con1", 2))])
+    channels |= Channel("L3-8", port=controller[(("con1", 3), ("con1", 4))])
+    channels |= Channel("L3-9", port=controller[(("con2", 1), ("con2", 2))])
+    channels |= Channel("L3-19", port=controller[(("con1", 5), ("con1", 6))])
+    channels |= Channel("L4-22", port=controller[(("con1", 7), ("con1", 8))])
     # flux
     for i in range(1, 6):
         channels |= Channel(f"L1-1{i}", port=controller[(("con3", i),)])
@@ -59,18 +59,18 @@ def create(runcard=RUNCARD):
     channels["L3-9"].local_oscillator = es7  # B3
     channels["L3-19"].local_oscillator = lo2  # B4
     channels["L4-22"].local_oscillator = lo2  # B5
-    lo2.power = 23
-    lo2.frequency = int(6e9)
     lo3.power = 23
-    lo3.frequency = int(6e9)
+    lo3.frequency = int(4.9e9)
     es7.power = 23
-    es7.frequency = int(6e9)
+    es7.frequency = int(5.9e9)
+    lo2.power = 0
+    lo2.frequency = int(6e9)
 
     # twpa
     twpa.frequency = int(6.482e9)
     twpa.power = 2
 
-    instruments = [controller, lo4, lo9, es7, twpa]
+    instruments = [controller, lo4, lo9, twpa, lo2]
     platform = Platform("qw25qB", runcard, instruments, channels)
 
     # assign channels to qubits
