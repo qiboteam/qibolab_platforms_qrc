@@ -17,7 +17,7 @@ native_gates:
         B1:
             RX:
                 duration: 40
-                amplitude: 0.06508699999999999
+                amplitude: 0.2
                 frequency: 5_066_863_020
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -34,7 +34,7 @@ native_gates:
         B2:
             RX:
                 duration: 40
-                amplitude: 0.3375
+                amplitude: 0.43
                 frequency: 6_032_073_928
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -51,9 +51,9 @@ native_gates:
         B3:
             RX:
                 duration: 40
-                amplitude: 0.1
+                amplitude: 0.2
                 #frequency: 6_058_000_000
-                frequency: 5_600_000_000
+                frequency: 5_440_200_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -68,8 +68,8 @@ native_gates:
                 phase: 0
         B4:
             RX:
-                duration: 40
-                amplitude: 0.1
+                duration: 68
+                amplitude: 0.46
                 frequency: 6_762_800_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -86,7 +86,7 @@ native_gates:
         B5:
             RX:
                 duration: 40
-                amplitude: 0.3465
+                amplitude: 0.47
                 frequency: 6_122_620_821
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -170,7 +170,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.4
+            sweetspot: -0.402
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0

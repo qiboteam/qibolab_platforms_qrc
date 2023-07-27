@@ -55,29 +55,21 @@ def create(runcard=RUNCARD):
     channels["L2-3L"].local_oscillator = lo4
     # drive
     channels["L3-7"].local_oscillator = lo3  # B1
-    channels["L3-8"].local_oscillator = lo3  # B2
-    channels["L3-9"].local_oscillator = es7  # B3
-    channels["L3-19"].local_oscillator = lo2  # B4
+    channels["L3-8"].local_oscillator = lo2  # B2
+    channels["L3-9"].local_oscillator = lo3  # B3
+    channels["L3-19"].local_oscillator = es7  # B4
     channels["L4-22"].local_oscillator = lo2  # B5
 
-    # for B1
-    # lo3.power = 20
-    # lo3.frequency = int(4.8e9)
-
-    # for B2
-    lo3.power = 15
-    lo3.frequency = int(5.8e9)
-
-    # for B3
-    es7.power = 0
-    es7.frequency = int(5.6e9)
+    # for B1/B3
+    lo3.power = -5
+    lo3.frequency = int(5.3e9)
 
     # for B4
-    # lo2.power = 20
-    # lo2.frequency = int(6.6e9)
+    es7.power = 20
+    es7.frequency = int(6.5e9)
 
-    # for B5
-    lo2.power = 15
+    # for B2/B5
+    lo2.power = 10
     lo2.frequency = int(5.8e9)
 
     # twpa
