@@ -61,16 +61,16 @@ def create(runcard=RUNCARD):
     channels["L4-22"].local_oscillator = lo2  # B5
 
     # for B1/B3
-    lo3.power = -5
-    lo3.frequency = int(5.3e9)
+    lo3.power = 20
+    lo3.frequency = int(5.2e9)
 
     # for B4
     es7.power = 20
-    es7.frequency = int(6.5e9)
+    es7.frequency = int(7.0e9)
 
     # for B2/B5
-    lo2.power = 10
-    lo2.frequency = int(5.8e9)
+    lo2.power = 20
+    lo2.frequency = int(6.3e9)
 
     # twpa
     twpa.frequency = int(6.482e9)
