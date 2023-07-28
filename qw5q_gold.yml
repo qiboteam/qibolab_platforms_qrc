@@ -124,6 +124,12 @@ native_gates:
               qubit: 3
               relative_start: 0
               type: qf
+            - type: virtual_z
+              phase: -0.175
+              qubit: 2
+            - type: virtual_z
+              phase: -0.86
+              qubit: 3
 
         4-2:
             CZ:
@@ -139,12 +145,12 @@ characterization:
     single_qubit:
         0:
             readout_frequency: 7_212_301_152 #7_212_299_307
-            bare_resonator_frequency: 7_200_000_000            
+            bare_resonator_frequency: 7_200_000_000
             drive_frequency: 5_050_351_004
             anharmonicity: 291_463_266
             Ec: 270_000_000
             Ej: 11_400_000_000
-            g: 107_000_000            
+            g: 107_000_000
             T1: 5_857
             T2: 0
             sweetspot: 0.5544
@@ -155,12 +161,12 @@ characterization:
 
         1:
             readout_frequency: 7_453_011_071 #7_452_990_931
-            bare_resonator_frequency: 7_400_000_000            
+            bare_resonator_frequency: 7_400_000_000
             drive_frequency: 4_852_342_447
             anharmonicity: 292_584_018
             Ec: 270_000_000
             Ej: 11_400_000_000
-            g: 114_000_00 
+            g: 114_000_00
             T1: 1_253
             T2: 0
             sweetspot: 0.2244
@@ -175,7 +181,7 @@ characterization:
             anharmonicity: 276_187_576
             Ec: 270_000_000
             Ej: 16_000_000_000
-            g: 83_600_000              
+            g: 83_600_000
             T1: 4_563
             T2: 0
             sweetspot: -0.3762
@@ -190,7 +196,7 @@ characterization:
             anharmonicity: 262_310_994
             Ec: 270_000_000
             Ej: 21_200_000_000
-            g: 54_300_000             
+            g: 54_300_000
             T1: 4_232
             T2: 0
             sweetspot: -0.8893
@@ -205,7 +211,7 @@ characterization:
             anharmonicity: 261_390_626
             Ec: 270_000_000
             Ej: 21_200_000_000
-            g: 62_700_000             
+            g: 62_700_000
             T1: 492
             T2: 0
             sweetspot: 0.5915
@@ -220,7 +226,7 @@ characterization:
             anharmonicity: 300_000_000
             Ec: 270_000_000
             Ej: 11_400_000_000
-            g: 77_600_000            
+            g: 77_600_000
             T1: 0
             T2: 0
             sweetspot: 0
