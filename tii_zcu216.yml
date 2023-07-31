@@ -1,25 +1,127 @@
-nqubits: 1
-qubits: [0]
-resonator_type: 3D
-topology: []
+nqubits: 3
+description: 3-qubits of line D (25qw) controlled by a Xilinx ZCU216 board
+
+qubits: [D1, D2, D3]
+
 settings:
-    nshots: 1024
-    relaxation_time: 100000
-    sampling_rate: 6_881_280_000_000
-    adc_trig_offset: 200
-    max_gain: 32000
+    sampling_rate: 6_144_000_000
+    relaxation_time: 50_000
+    adc_trig_offset: 190
+    nshots: 1000
+
+
+topology: [[D1, D2], [D2, D3]]
+
 
 native_gates:
     single_qubit:
-        0:
-            RX: {duration: 30, amplitude: 0.052326117418228534, frequency: 5542351373,
-                shape: Rectangular(), type: qd, start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.027, frequency: 371342578, shape: Rectangular(),
-                type: ro, start: 0, phase: 0}
-    two_qubits: {}
-characterization:
+        D1:
+            RX:  # TODO
+                duration: 43
+                amplitude: 0.02
+                frequency: 4_939_827_950
+                shape: Rectangular()
+                type: qd
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.1
+                frequency: 6_953_000_000
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        D2:
+            RX:  # TODO
+                duration: 40
+                amplitude: 0.01
+                frequency: 5_765_142_132
+                shape: Rectangular()
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.1
+                frequency: 7_111_200_000
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+        D3:
+            RX:  # TODO
+                duration: 40
+                amplitude: 0.0484
+                frequency: 6_084_974_252
+                shape: Rectangular()
+                type: qd # qubit drive
+                start: 0
+                phase: 0
+            MZ:
+                duration: 1000
+                amplitude: 0.15
+                frequency: 7_344_900_000
+                shape: Rectangular()
+                type: ro # readout
+                start: 0
+                phase: 0
+
+    two_qubit:
+      D1-D2:
+            CZ:
+            - duration: 30
+              amplitude: 0.055
+              shape: Rectangular()
+              qubit: D2
+              relative_start: 0
+              type: qf
+            - type: virtual_z
+              phase: -1.5707963267948966
+              qubit: D1
+            - type: virtual_z
+              phase: -1.5707963267948966
+              qubit: D2
+      D2-D3:
+            CZ:
+            - duration: 30
+              amplitude: 0.055
+              shape: Rectangular()
+              qubit: D2
+              relative_start: 0
+              type: qf
+            - type: virtual_z
+              phase: -1.5707963267948966
+              qubit: D1
+            - type: virtual_z
+              phase: -1.5707963267948966
+              qubit: D2
+
+
+
+characterization:   #TODO No characterization yet
     single_qubit:
-        0: {readout_frequency: 7371342578, drive_frequency: 5542351373, pi_pulse_amplitude: 0.052326117418228534,
-            T1: 12649.629158599057, T2: 4610.783737888784, threshold: -0.7844653066298679,
-            iq_angle: 0.8230259423352915, mean_gnd_states: (-1.8355447154471543+1.2579772357723578j),
-            mean_exc_states: (-0.13880975609756097-0.5715040650406505j)}
+        D1:
+            readout_frequency: 6_953_000_000
+            drive_frequency: 4_939_827_950
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            threshold: 0.0
+            iq_angle: 0.0
+        D2:
+            readout_frequency: 7_111_200_000
+            drive_frequency: 5_765_142_132
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            threshold: 0.0
+            iq_angle: 0.0
+        D3:
+            readout_frequency: 7_345_317_000
+            drive_frequency: 6_085_931_000
+            T1: 0.0
+            T2: 0.0
+            sweetspot: 0.0
+            threshold: 0.0
+            iq_angle: 0.0
