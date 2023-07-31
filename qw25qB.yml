@@ -17,7 +17,7 @@ native_gates:
         B1:
             RX:
                 duration: 40
-                amplitude: 0.20
+                amplitude: 0.105
                 frequency: 5_066_563_020
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -51,7 +51,7 @@ native_gates:
         B3:
             RX:
                 duration: 40
-                amplitude: 0.29
+                amplitude: 0.1325
                 #frequency: 6_058_000_000
                 frequency: 5_440_200_000
                 shape: Gaussian(5)
@@ -60,7 +60,7 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.004
+                amplitude: 0.0035
                 frequency: 7_343_459_543
                 shape: Rectangular()
                 type: ro # readout
@@ -68,8 +68,8 @@ native_gates:
                 phase: 0
         B4:
             RX:
-                duration: 40
-                amplitude: 0.475
+                duration: 48
+                amplitude: 0.5
                 frequency: 6_761_973_284
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -78,7 +78,7 @@ native_gates:
             MZ:
                 duration: 1000
                 amplitude: 0.0015
-                frequency: 7_748_433_000
+                frequency: 7_748_634_111
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -87,7 +87,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.155
-                frequency: 6_122_105_058
+                frequency: 6_123_105_058
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -95,7 +95,7 @@ native_gates:
             MZ:
                 duration: 1000
                 amplitude: 0.003
-                frequency: 7_598_369_000
+                frequency: 7_598_315_552
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -113,7 +113,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.19
+            sweetspot: -0.18
             # parameters for single shot classification
             threshold: -0.0012829707530760102
             iq_angle: 1.4306003480740943
@@ -132,7 +132,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.024
+            sweetspot: -0.09
             # parameters for single shot classification
             threshold: -0.003446505933489241
             iq_angle: 5.409004218529808
@@ -151,7 +151,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.21
+            sweetspot: 0.235
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -170,7 +170,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.402
+            sweetspot: -0.46
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -189,7 +189,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.1
+            sweetspot: -0.22
             # parameters for single shot classification
             threshold: 0.0009597380015034596
             iq_angle: 3.330673312911072
