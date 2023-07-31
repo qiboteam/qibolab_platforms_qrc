@@ -17,6 +17,7 @@ def create(runcard=RUNCARD):
     controller = QMOPX(NAME, ADDRESS, time_of_flight=TIME_OF_FLIGHT)
     lo2 = SGS100A("LO_2", "192.168.0.32")
     lo3 = SGS100A("LO_3", "192.168.0.33")
+    es6 = ERA("ES6", "192.168.0.206", reference_clock_source="external")
     es7 = ERA("ES7", "192.168.0.207", reference_clock_source="external")
     lo4 = SGS100A("LO_04", "192.168.0.34")
     lo9 = SGS100A("LO_09", "192.168.0.39")
@@ -56,17 +57,21 @@ def create(runcard=RUNCARD):
     # drive
     channels["L3-7"].local_oscillator = lo3  # B1
     channels["L3-8"].local_oscillator = lo2  # B2
-    channels["L3-9"].local_oscillator = lo3  # B3
-    channels["L3-19"].local_oscillator = es7  # B4
+    channels["L3-9"].local_oscillator = es7  # B3
+    channels["L3-19"].local_oscillator = es6  # B4
     channels["L4-22"].local_oscillator = lo2  # B5
 
-    # for B1/B3
-    lo3.power = 20
-    lo3.frequency = int(5.2e9)
+    # for B1
+    lo3.power = 5
+    lo3.frequency = int(4.8e9)
+
+    # for B3
+    es7.power = 5
+    es7.frequency = int(5.2e9)
 
     # for B4
-    es7.power = 20
-    es7.frequency = int(7.0e9)
+    es6.power = 20
+    es6.frequency = int(7.0e9)
 
     # for B2/B5
     lo2.power = 20
@@ -76,7 +81,7 @@ def create(runcard=RUNCARD):
     twpa.frequency = int(6.482e9)
     twpa.power = 2
 
-    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es7]
+    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es6, es7]
     platform = Platform("qw25qB", runcard, instruments, channels)
 
     # assign channels to qubits

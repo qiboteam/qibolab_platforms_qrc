@@ -17,15 +17,15 @@ native_gates:
         B1:
             RX:
                 duration: 40
-                amplitude: 0.05
-                frequency: 5_066_863_020
+                amplitude: 0.20
+                frequency: 5_066_563_020
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.003
+                amplitude: 0.0025
                 frequency: 6_926_759_000
                 shape: Rectangular()
                 type: ro # readout
@@ -51,7 +51,7 @@ native_gates:
         B3:
             RX:
                 duration: 40
-                amplitude: 0.10
+                amplitude: 0.29
                 #frequency: 6_058_000_000
                 frequency: 5_440_200_000
                 shape: Gaussian(5)
@@ -60,7 +60,7 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.005
+                amplitude: 0.004
                 frequency: 7_343_459_543
                 shape: Rectangular()
                 type: ro # readout
@@ -68,16 +68,16 @@ native_gates:
                 phase: 0
         B4:
             RX:
-                duration: 80
-                amplitude: 0.4
-                frequency: 6_762_800_000
+                duration: 40
+                amplitude: 0.475
+                frequency: 6_761_973_284
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.003
+                amplitude: 0.0015
                 frequency: 7_748_433_000
                 shape: Rectangular()
                 type: ro # readout
