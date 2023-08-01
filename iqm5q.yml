@@ -22,7 +22,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.634
-                frequency: 4_098_114_578 #4_098_014_578
+                frequency: 4_098_114_578
                 shape: Gaussian(5) #Drag(5, 0.01)
                 type: qd # qubit drive
                 start: 0
@@ -30,7 +30,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: .45
-                frequency: 5_230_200_000 #5_230_200_000
+                frequency: 5_230_200_000
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -132,7 +132,7 @@ characterization:
             readout_frequency: 5_230_200_000
             resonator_polycoef_flux: []
             drive_frequency: 4_098_114_578 #4_098_014_578
-            anharmonicity: 0
+            anharmonicity: 217_492_000
             Ec: 0
             Ej: 0
             g: 0
@@ -145,15 +145,14 @@ characterization:
             # parameters for single shot classification
             threshold: 1.5435
             iq_angle:  2.602
-            anharmonicity: 217_492_000
         1:
             readout_frequency: 4.9525e+9
             resonator_polycoef_flux: []
             drive_frequency: 4.25e+9
             anharmonicity: 0
-            Ec: 0
-            Ej: 0
-            g: 0
+            # Ec: 0
+            # Ej: 0
+            # g: 0
             T1: 0.0
             T2: 0.0
             sweetspot: 0
@@ -164,10 +163,10 @@ characterization:
             readout_frequency: 6.109e+9
             resonator_polycoef_flux: []
             drive_frequency: 4342116873
-            anharmonicity: 0
-            Ec: 0
-            Ej: 0
-            g: 0
+            anharmonicity: 211_604_296
+            # Ec: 0
+            # Ej: 0
+            # g: 0
             T1: 0.0
             T2: 0.0
             sweetspot: -0.1745
@@ -177,15 +176,14 @@ characterization:
             # parameters for single shot classification
             threshold: -0.6085
             iq_angle: -0.474
-            anharmonicity: 211_604_296
         3:
             readout_frequency: 5.8060e+9
             resonator_polycoef_flux: []
             drive_frequency: 4130512577
-            anharmonicity: 0
-            Ec: 0
-            Ej: 0
-            g: 0
+            anharmonicity: 214_000_000
+            # Ec: 0
+            # Ej: 0
+            # g: 0
             T1: 0.0
             T2: 0.0
             sweetspot: 0.0
@@ -195,15 +193,14 @@ characterization:
             # parameters for single shot classificatio
             threshold: 0.1074
             iq_angle: -2.904
-            anharmonicity: 214_000_000
         4:
             readout_frequency: 5.5180e+9 #5.5240e+9
             resonator_polycoef_flux: []
             drive_frequency: 4.24704e+9 #4.1017e+9
             anharmonicity: 0
-            Ec: 0
-            Ej: 0
-            g: 0
+            # Ec: 0
+            # Ej: 0
+            # g: 0
             T1: 0.0
             T2: 0.0
             sweetspot: 0
@@ -213,7 +210,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.233806
             iq_angle: 0.481
-            anharmonicity: 0
         "c0":
             sweetspot: 0.0
             # filter: {}
