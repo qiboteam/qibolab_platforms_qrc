@@ -68,17 +68,17 @@ native_gates:
 
         3-2:
             CZ:
-            - duration: 32
-              amplitude: +0.6038 # +0.8 #
+            - duration: 30
+              amplitude: +0.5803 # +0.8 #
               shape: Exponential(12, 5000, 0.1)
               qubit: 3
               relative_start: 0
               type: qf
             - type: virtual_z
-              phase: 0.14
+              phase: -0.1204
               qubit: 2
             - type: virtual_z
-              phase: 2.48
+              phase: -5.57
               qubit: 3
 
         4-2:
