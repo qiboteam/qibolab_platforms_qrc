@@ -111,23 +111,23 @@ instruments_settings = {
     "qcm_bb0": ClusterQCM_BB_Settings(
         {
             "o2": ClusterBB_OutputPort_Settings(
-                channel="L4-5", gain=0.5, offset=0.5544, qubit=0
+                channel="L4-5", gain=0.5, offset=0.5944, qubit=0
             )
         }
     ),
     "qcm_bb1": ClusterQCM_BB_Settings(
         {
             "o1": ClusterBB_OutputPort_Settings(
-                channel="L4-1", gain=0.5, offset=0.2244, qubit=1                
+                channel="L4-1", gain=0.5, offset=0.2844, qubit=1
             ),
             "o2": ClusterBB_OutputPort_Settings(
-                channel="L4-2", gain=0.5, offset=-0.3762, qubit=2                
+                channel="L4-2", gain=0.5, offset=-0.3562, qubit=2
             ),
             "o3": ClusterBB_OutputPort_Settings(
-                channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
+                channel="L4-3", gain=0.5, offset=-0.74, qubit=3
             ),
             "o4": ClusterBB_OutputPort_Settings(
-                channel="L4-4", gain=0.5, offset=0.5915, qubit=4
+                channel="L4-4", gain=0.5, offset=0.649, qubit=4
 
             ),
         }
