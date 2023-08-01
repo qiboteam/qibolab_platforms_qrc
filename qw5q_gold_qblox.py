@@ -36,11 +36,11 @@ RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
 instruments_settings = {
     "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-    "qrm_rf_a": ClusterQRM_RF_Settings( #q0,q1,q5
+    "qrm_rf_a": ClusterQRM_RF_Settings(  # q0,q1,q5
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_a",
-                attenuation=36, #38
+                attenuation=36,  # 38
                 lo_frequency=7_255_000_000,
                 gain=0.6,
             ),
@@ -51,7 +51,7 @@ instruments_settings = {
             ),
         }
     ),
-    "qrm_rf_b": ClusterQRM_RF_Settings( #q2,q3,q4
+    "qrm_rf_b": ClusterQRM_RF_Settings(  # q2,q3,q4
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_b",
@@ -111,24 +111,33 @@ instruments_settings = {
     "qcm_bb0": ClusterQCM_BB_Settings(
         {
             "o2": ClusterBB_OutputPort_Settings(
-                channel="L4-5", gain=0.5, offset=0.5944, qubit=0
+                channel="L4-5",
+                gain=0.5,
+                qubit=0,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
             )
         }
     ),
     "qcm_bb1": ClusterQCM_BB_Settings(
         {
             "o1": ClusterBB_OutputPort_Settings(
-                channel="L4-1", gain=0.5, offset=0.2844, qubit=1
+                channel="L4-1",
+                gain=0.5,
+                qubit=1,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
             ),
             "o2": ClusterBB_OutputPort_Settings(
-                channel="L4-2", gain=0.5, offset=-0.3562, qubit=2
+                channel="L4-2",
+                gain=0.5,
+                qubit=2,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
             ),
             "o3": ClusterBB_OutputPort_Settings(
-                channel="L4-3", gain=0.5, offset=-0.74, qubit=3
+                channel="L4-3",
+                gain=0.5,
+                qubit=3,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
             ),
             "o4": ClusterBB_OutputPort_Settings(
-                channel="L4-4", gain=0.5, offset=0.649, qubit=4
-
+                channel="L4-4",
+                gain=0.5,
+                qubit=4,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
             ),
         }
     ),
