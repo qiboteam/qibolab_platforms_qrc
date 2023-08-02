@@ -22,8 +22,8 @@ def create(runcard=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
-    controller.cfg.adc_trig_offset = 190
-    controller.cfg.repetition_duration = 50
+    controller.cfg.adc_trig_offset = 200
+    controller.cfg.repetition_duration = 100
     # Create channel objects
     channels = ChannelMap()
 
@@ -31,21 +31,21 @@ def create(runcard=RUNCARD):
 
     # qubit D1
     channels |= Channel("L2-01-0", port=controller[0])  # feedback
-    channels |= Channel("L1-21", port=controller[9])  # flux
+    channels |= Channel("L1-21", port=controller[1])  # flux
     channels |= Channel("L4-28", port=controller[0])  # drive
 
     # qubit D2
     channels |= Channel("L2-01-1", port=controller[1])  # feedback
-    channels |= Channel("L1-22", port=controller[7])  # flux
+    channels |= Channel("L1-22", port=controller[3])  # flux
     channels |= Channel("L4-29", port=controller[4])  # drive
 
     # qubit D3
     channels |= Channel("L2-01-2", port=controller[2])  # feedback
-    channels |= Channel("L1-23", port=controller[8])  # flux
+    channels |= Channel("L1-23", port=controller[5])  # flux
     channels |= Channel("L4-30", port=controller[2])  # drive
 
     twpa_lo = SGS100A("TWPA", TWPA_ADDRESS)
-    twpa_lo.frequency = 5_300_000_000
+    twpa_lo.frequency = 5_300_250_000
     twpa_lo.power = -5
 
     readout_lo = SGS100A("LO", LO_ADDRESS)
@@ -63,16 +63,16 @@ def create(runcard=RUNCARD):
     qubits["D1"].readout = channels["L3-30"]
     qubits["D1"].feedback = channels["L2-01-0"]
     qubits["D1"].drive = channels["L4-28"]
-    # qubits['D1'].flux     = channels["L1-21"]
+    qubits['D1'].flux     = channels["L1-21"]
 
     qubits["D2"].readout = channels["L3-30"]
     qubits["D2"].feedback = channels["L2-01-1"]
     qubits["D2"].drive = channels["L4-29"]
-    # qubits['D2'].flux     = channels["L1-22"]
+    qubits['D2'].flux     = channels["L1-22"]
 
     qubits["D3"].readout = channels["L3-30"]
     qubits["D3"].feedback = channels["L2-01-2"]
     qubits["D3"].drive = channels["L4-30"]
-    # qubits['D3'].flux     = channels["L1-23"]
+    qubits['D3'].flux     = channels["L1-23"]
 
     return platform
