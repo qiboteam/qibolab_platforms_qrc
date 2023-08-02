@@ -19,12 +19,12 @@ def create(runcard=RUNCARD):
     # Instantiate QICK instruments
     controller = RFSoC(NAME, ADDRESS, PORT)
     controller.cfg.adc_trig_offset = 200
-    controller.cfg.repetition_duration = 200
+    controller.cfg.repetition_duration = 70
     # Create channel objects
     channels = ChannelMap()
-    channels |= Channel("L3-18_ro", port=controller[0])  # readout (DAC)
-    channels |= Channel("L2-RO", port=controller[0])  # feedback (readout ADC)
-    channels |= Channel("L3-18_qd", port=controller[1])  # drive
+    channels |= Channel("L3-22_ro", port=controller[1])  # readout (DAC)
+    channels |= Channel("L1-2-RO", port=controller[0])  # feedback (readout ADC)
+    channels |= Channel("L3-22_qd", port=controller[0])  # drive
 
     local_oscillators = []
 
@@ -33,8 +33,8 @@ def create(runcard=RUNCARD):
 
     # assign channels to qubits
     qubits = platform.qubits
-    qubits[0].readout = channels["L3-18_ro"]
-    qubits[0].feedback = channels["L2-RO"]
-    qubits[0].drive = channels["L3-18_qd"]
+    qubits[0].readout = channels["L3-22_ro"]
+    qubits[0].feedback = channels["L1-2-RO"]
+    qubits[0].drive = channels["L3-22_qd"]
 
     return platform
