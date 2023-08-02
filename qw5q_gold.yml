@@ -88,14 +88,13 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 7212301152
-            bare_resonator_frequency: 7200000000
-            drive_frequency: 5050222356
-            anharmonicity: 291463266
-            Ec: 270000000
-            Ej: 11400000000
-            g: 107000000
-            T1: 5857
+            readout_frequency: 7_212_362_551
+            drive_frequency: 5_045_070_000
+            anharmonicity: 291_463_266
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 107_000_000
+            T1: 5_857
             T2: 0
             sweetspot: 0.5944
             iq_angle: 1.87610809139229
@@ -104,14 +103,13 @@ characterization:
             mean_gnd_states: [-0.0016882175134342939, -0.003335126586841177]
             mean_exc_states: [-0.0026015215779867555, -0.006232978138739619]
         1:
-            readout_frequency: 7453011071
-            bare_resonator_frequency: 7400000000
-            drive_frequency: 4851448063
-            anharmonicity: 292584018
-            Ec: 270000000
-            Ej: 11400000000
-            g: 11400000
-            T1: 1253
+            readout_frequency: 7_453_149_599
+            drive_frequency: 4_852_280_321
+            anharmonicity: 292_584_018
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 114_000_000
+            T1: 1_253
             T2: 0
             sweetspot: 0.2844
             iq_angle: 2.6915241733351234
@@ -120,14 +118,13 @@ characterization:
             mean_gnd_states: [-0.002494220030668187, -0.0005834222804035717]
             mean_exc_states: [-0.0058959609760896705, -0.00222693779514737]
         2:
-            readout_frequency: 7655058484
-            bare_resonator_frequency: 7600000000
-            drive_frequency: 5796025841
-            anharmonicity: 276187576
-            Ec: 270000000
-            Ej: 16000000000
-            g: 83600000
-            T1: 4563
+            readout_frequency: 7_655_110_446
+            drive_frequency: 5_794_176_000
+            anharmonicity: 276_187_576
+            Ec: 270_000_000
+            Ej: 16_000_000_000
+            g: 83_600_000
+            T1: 4_563
             T2: 0
             sweetspot: -0.3562
             iq_angle: 2.8523650124575743
@@ -136,14 +133,13 @@ characterization:
             mean_gnd_states: [-0.0014952193335097431, -0.00010921406835205993]
             mean_exc_states: [-0.0040435979524575255, -0.0008675397897668674]
         3:
-            readout_frequency: 7803438073
-            bare_resonator_frequency: 7800000000
-            drive_frequency: 6759863862
-            anharmonicity: 262310994
-            Ec: 270000000
-            Ej: 21200000000
-            g: 54300000
-            T1: 4232
+            readout_frequency: 7_803_377_426
+            drive_frequency: 6_760_050_000
+            anharmonicity: 262_310_994
+            Ec: 270_000_000
+            Ej: 21_200_000_000
+            g: 54_300_000
+            T1: 4_232
             T2: 0
             sweetspot: -0.74
             iq_angle: 1.8964467227666972
@@ -152,21 +148,30 @@ characterization:
             mean_gnd_states: [-0.0015922092755997937, -0.0019741712126146666]
             mean_exc_states: [-0.002783012296958964, -0.005500677651576833]
         4:
-            readout_frequency: 8058917834
-            bare_resonator_frequency: 8000000000
-            drive_frequency: 6590262523
-            anharmonicity: 261390626
-            Ec: 270000000
-            Ej: 21200000000
-            g: 62700000
+            readout_frequency: 8_058_739_833
+            drive_frequency: 6_585_145_857
+            anharmonicity: 261_390_626
+            Ec: 270_000_000
+            Ej: 21_200_000_000
+            g: 62_700_000
             T1: 492
             T2: 0
-            sweetspot: 0.649
-            iq_angle: -1.2566184159402678
-            threshold: 0.002205003071298744
-            pi_pulse_amplitude: 0.56468497579218
-            mean_gnd_states: [0.00040437681074607826, 0.000727654354441459]
-            mean_exc_states: [0.0012474922014940565, 0.0033223320967676277]
-        5: {readout_frequency: 7118627658, bare_resonator_frequency: 7000000000, drive_frequency: 4700000000,
-            anharmonicity: 300000000, Ec: 270000000, Ej: 11400000000, g: 77600000,
-            T1: 0, T2: 0, sweetspot: 0, iq_angle: 0, threshold: 0.002}
+            state0_voltage: 0.0
+            state1_voltage: 0.0
+            mean_gnd_states: (-0.0+0.0j)
+            mean_exc_states: (0.0+0.0j)
+            sweetspot: 0.4555
+        5:
+            readout_frequency: 7_118_627_416
+            drive_frequency: 4_700_000_000
+            anharmonicity: 300_000_000
+            Ec: 270_000_000
+            Ej: 11_400_000_000
+            g: 77_600_000
+            T1: 0
+            T2: 0
+            state0_voltage: 0.0
+            state1_voltage: 0.0
+            mean_gnd_states: (-0.0+0.0j)
+            mean_exc_states: (0.0+0.0j)
+            sweetspot: 0
