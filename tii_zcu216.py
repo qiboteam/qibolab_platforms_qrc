@@ -63,16 +63,16 @@ def create(runcard=RUNCARD):
     qubits["D1"].readout = channels["L3-30"]
     qubits["D1"].feedback = channels["L2-01-0"]
     qubits["D1"].drive = channels["L4-28"]
-    qubits['D1'].flux     = channels["L1-21"]
+    qubits["D1"].flux = channels["L1-21"]
 
     qubits["D2"].readout = channels["L3-30"]
     qubits["D2"].feedback = channels["L2-01-1"]
     qubits["D2"].drive = channels["L4-29"]
-    qubits['D2'].flux     = channels["L1-22"]
+    qubits["D2"].flux = channels["L1-22"]
 
     qubits["D3"].readout = channels["L3-30"]
     qubits["D3"].feedback = channels["L2-01-2"]
     qubits["D3"].drive = channels["L4-30"]
-    qubits['D3'].flux     = channels["L1-23"]
+    qubits["D3"].flux = channels["L1-23"]
 
     return platform
