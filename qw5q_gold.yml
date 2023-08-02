@@ -13,27 +13,27 @@ native_gates:
         0:
             RX: {duration: 40, amplitude: 0.5037576688262035, frequency: 5050222356,
                 shape: 'Drag(5, 0.200)', type: qd, start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.1, frequency: 7212301152, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.1, frequency: 7211801152, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
         1:
             RX: {duration: 40, amplitude: 0.5091870515531648, frequency: 4851448063,
                 shape: 'Drag(5, 0.000)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.2, frequency: 7453011071, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.2, frequency: 7452511071, shape: Rectangular(),
                 type: ro}
         2:
             RX: {duration: 40, amplitude: 0.4961740399301971, frequency: 5796025841,
                 shape: 'Drag(5, -0.100)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.25, frequency: 7655058484, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.25, frequency: 7654558484, shape: Rectangular(),
                 type: ro}
         3:
             RX: {duration: 40, amplitude: 0.4977305637146838, frequency: 6759863862,
                 shape: 'Drag(5, 0.300)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.2, frequency: 7803438073, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.2, frequency: 7802688073, shape: Rectangular(),
                 type: ro}
         4:
             RX: {duration: 40, amplitude: 0.56468497579218, frequency: 6590262523,
                 shape: 'Drag(5, -0.100)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.4, frequency: 8058917834, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.4, frequency: 8058667834, shape: Rectangular(),
                 type: ro}
         5:
             RX: {duration: 40, amplitude: 0.5, frequency: 4700000000, shape: Gaussian(5),
@@ -60,7 +60,7 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 7212301152
+            readout_frequency: 7211801152
             bare_resonator_frequency: 7200000000
             drive_frequency: 5050222356
             anharmonicity: 291463266
@@ -70,13 +70,13 @@ characterization:
             T1: 5857
             T2: 0
             sweetspot: 0.5944
-            iq_angle: 1.87610809139229
-            threshold: 0.00509979815633151
+            iq_angle: -0.148579524296768
+            threshold: 0.0007990538826860181
             pi_pulse_amplitude: 0.5037576688262035
-            mean_gnd_states: [-0.0016882175134342939, -0.003335126586841177]
-            mean_exc_states: [-0.0026015215779867555, -0.006232978138739619]
+            mean_gnd_states: [-0.00013883508598287468, -0.005640561761707512]
+            mean_exc_states: [0.003561478327871411, -0.005086689203458313]
         1:
-            readout_frequency: 7453011071
+            readout_frequency: 7452511071
             bare_resonator_frequency: 7400000000
             drive_frequency: 4851448063
             anharmonicity: 292584018
@@ -86,13 +86,13 @@ characterization:
             T1: 1253
             T2: 0
             sweetspot: 0.2844
-            iq_angle: 2.6915241733351234
-            threshold: 0.004502589232760579
+            iq_angle: 2.253894193244785
+            threshold: 7.747183358255407e-05
             pi_pulse_amplitude: 0.5091870515531648
-            mean_gnd_states: [-0.002494220030668187, -0.0005834222804035717]
-            mean_exc_states: [-0.0058959609760896705, -0.00222693779514737]
+            mean_gnd_states: [-0.0021498122570122943, 0.004163495210640232]
+            mean_exc_states: [-0.005170153943101015, 0.0004520803754986973]
         2:
-            readout_frequency: 7655058484
+            readout_frequency: 7654558484
             bare_resonator_frequency: 7600000000
             drive_frequency: 5796025841
             anharmonicity: 276187576
@@ -102,13 +102,13 @@ characterization:
             T1: 4563
             T2: 0
             sweetspot: -0.3562
-            iq_angle: 2.8523650124575743
-            threshold: 0.0028302188032929727
+            iq_angle: 1.0981956586061878
+            threshold: 0.0003747221663392056
             pi_pulse_amplitude: 0.4961740399301971
-            mean_gnd_states: [-0.0014952193335097431, -0.00010921406835205993]
-            mean_exc_states: [-0.0040435979524575255, -0.0008675397897668674]
+            mean_gnd_states: [-0.0032502870901861803, -0.0003005019519588286]
+            mean_exc_states: [-0.001963329794533328, -0.0028178174763712482]
         3:
-            readout_frequency: 7803438073
+            readout_frequency: 7802688073
             bare_resonator_frequency: 7800000000
             drive_frequency: 6759863862
             anharmonicity: 262310994
@@ -118,13 +118,13 @@ characterization:
             T1: 4232
             T2: 0
             sweetspot: -0.74
-            iq_angle: 1.8964467227666972
-            threshold: 0.004028533776763
+            iq_angle: -0.770460765404966
+            threshold: -0.0038739941293092404
             pi_pulse_amplitude: 0.4977305637146838
-            mean_gnd_states: [-0.0015922092755997937, -0.0019741712126146666]
-            mean_exc_states: [-0.002783012296958964, -0.005500677651576833]
+            mean_gnd_states: [-0.0013981345074770668, -0.0071030005483125715]
+            mean_exc_states: [0.002161072701667074, -0.003648566679982223]
         4:
-            readout_frequency: 8058917834
+            readout_frequency: 8058667834
             bare_resonator_frequency: 8000000000
             drive_frequency: 6590262523
             anharmonicity: 261390626
@@ -134,11 +134,11 @@ characterization:
             T1: 492
             T2: 0
             sweetspot: 0.649
-            iq_angle: -1.2566184159402678
-            threshold: 0.002205003071298744
+            iq_angle: -2.1511606523392626
+            threshold: 0.0009762800008168655
             pi_pulse_amplitude: 0.56468497579218
-            mean_gnd_states: [0.00040437681074607826, 0.000727654354441459]
-            mean_exc_states: [0.0012474922014940565, 0.0033223320967676277]
+            mean_gnd_states: [0.0017193049915526788, 0.0003953334168736091]
+            mean_exc_states: [-2.4065271247218152e-05, 0.003054169401868588]
         5: {readout_frequency: 7118627658, bare_resonator_frequency: 7000000000, drive_frequency: 4700000000,
             anharmonicity: 300000000, Ec: 270000000, Ej: 11400000000, g: 77600000,
             T1: 0, T2: 0, sweetspot: 0, iq_angle: 0, threshold: 0.002}
