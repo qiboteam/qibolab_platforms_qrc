@@ -2,7 +2,7 @@ nqubits: 5
 description: QuantWare 25-qubit device with 4 witness removed. qw25q_v3_e10
 
 settings:
-    nshots: 4000
+    nshots: 1000
     sampling_rate: 1000000000
     relaxation_time: 100_000
 
@@ -18,7 +18,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.105
-                frequency: 5_062_396_353 # 5_058_396_353 # 5_066_563_020
+                frequency: 5_062_396_353 # 5_066_563_020
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -34,7 +34,7 @@ native_gates:
         B2:
             RX:
                 duration: 40
-                amplitude: 0.151
+                amplitude: 0.148
                 frequency: 6_031_970_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -67,7 +67,7 @@ native_gates:
                 phase: 0
         B4:
             RX:
-                duration: 48
+                duration: 52
                 amplitude: 0.5
                 frequency: 6_761_973_284
                 shape: Gaussian(5)
@@ -85,8 +85,8 @@ native_gates:
         B5:
             RX:
                 duration: 40
-                amplitude: 0.155
-                frequency: 6_122_949_998
+                amplitude: 0.152
+                frequency: 6_123_250_998
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
