@@ -11,29 +11,29 @@ resonator_type: 2D
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.5037576688262035, frequency: 5050222356,
+            RX: {duration: 40, amplitude: 0.5088805673637675, frequency: 5049151777,
                 shape: 'Drag(5, 0.200)', type: qd, start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.1, frequency: 7212301152, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.1, frequency: 7211551152, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
         1:
-            RX: {duration: 40, amplitude: 0.5091870515531648, frequency: 4851448063,
+            RX: {duration: 40, amplitude: 0.5127643052160186, frequency: 4850198151,
                 shape: 'Drag(5, 0.000)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.2, frequency: 7453011071, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.2, frequency: 7452511071, shape: Rectangular(),
                 type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.4961740399301971, frequency: 5796025841,
+            RX: {duration: 40, amplitude: 0.5017192729158884, frequency: 5794496812,
                 shape: 'Drag(5, -0.100)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.25, frequency: 7655058484, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.25, frequency: 7654808484, shape: Rectangular(),
                 type: ro}
         3:
-            RX: {duration: 40, amplitude: 0.4977305637146838, frequency: 6759863862,
+            RX: {duration: 40, amplitude: 0.5012372550152853, frequency: 6760504418,
                 shape: 'Drag(5, 0.300)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.2, frequency: 7803438073, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.2, frequency: 7802688073, shape: Rectangular(),
                 type: ro}
         4:
-            RX: {duration: 40, amplitude: 0.56468497579218, frequency: 6590262523,
+            RX: {duration: 40, amplitude: 0.5652737353449859, frequency: 6590544857,
                 shape: 'Drag(5, -0.100)', type: qd}
-            MZ: {duration: 2000, amplitude: 0.4, frequency: 8058917834, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.4, frequency: 8058417834, shape: Rectangular(),
                 type: ro}
         5:
             RX: {duration: 40, amplitude: 0.5, frequency: 4700000000, shape: Gaussian(5),
@@ -47,40 +47,18 @@ native_gates:
                 qubit: 2, relative_start: 0, type: qf}
         1-2:
             CZ:
-            - duration: 32
-              amplitude: 0.1679 # +0.16
-              shape: Exponential(2, 5000, 0.1)
-              qubit: 2
-              relative_start: 0
-              type: qf
-            - type: virtual_z
-              phase: -3.239
-              qubit: 1
-            - type: virtual_z
-              phase: -0.1722
-              qubit: 2
-            - duration: 72
-              amplitude: -0.5544 # +0.16
-              shape: Exponential(12, 5000, 0.1)
-              qubit: 0
-              relative_start: 0
-              type: qf
-
+            - {duration: 20, amplitude: 0.186, shape: 'Exponential(2, 5000, 0.1)',
+                qubit: 2, relative_start: 0, type: qf}
+            - {type: virtual_z, phase: -3.239, qubit: 1}
+            - {type: virtual_z, phase: -0.1722, qubit: 2}
+            - {duration: 72, amplitude: -0.58, shape: 'Exponential(12, 5000, 0.1)',
+                qubit: 0, relative_start: 0, type: qf}
         3-2:
             CZ:
-            - duration: 32
-              amplitude: 0.559186 # 563
-              shape: Exponential(12, 5000, 0.1)
-              qubit: 3
-              relative_start: 0
-              type: qf
-            - type: virtual_z
-              phase: -5.6326
-              qubit: 2
-            - type: virtual_z
-              phase: -1.6398
-              qubit: 3
-
+            - {duration: 32, amplitude: 0.622, shape: 'Exponential(12, 5000, 0.1)',
+                qubit: 3, relative_start: 0, type: qf}
+            - {type: virtual_z, phase: -5.6326, qubit: 2}
+            - {type: virtual_z, phase: -1.6398, qubit: 3}
         4-2:
             CZ:
             - {duration: 40, amplitude: -0.1355, shape: 'Exponential(10, 3000, 0.05)',
@@ -88,90 +66,83 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 7_212_362_551
-            drive_frequency: 5_045_070_000
-            anharmonicity: 291_463_266
-            Ec: 270_000_000
-            Ej: 11_400_000_000
-            g: 107_000_000
-            T1: 5_857
+            readout_frequency: 7211551152
+            drive_frequency: 5049151777
+            anharmonicity: 291463266
+            Ec: 270000000
+            Ej: 11400000000
+            g: 107000000
+            T1: 5857
             T2: 0
-            sweetspot: 0.5944
-            iq_angle: 1.87610809139229
-            threshold: 0.00509979815633151
-            pi_pulse_amplitude: 0.5037576688262035
-            mean_gnd_states: [-0.0016882175134342939, -0.003335126586841177]
-            mean_exc_states: [-0.0026015215779867555, -0.006232978138739619]
+            sweetspot: 0.5825
+            iq_angle: -1.1924147272943912
+            threshold: -0.0021557394780600207
+            pi_pulse_amplitude: 0.5088805673637675
+            mean_gnd_states: [0.0024128846139167075, -0.005052254548492374]
+            mean_exc_states: [0.0036847079207207025, -0.001852999647180155]
         1:
-            readout_frequency: 7_453_149_599
-            drive_frequency: 4_852_280_321
-            anharmonicity: 292_584_018
-            Ec: 270_000_000
-            Ej: 11_400_000_000
-            g: 114_000_000
-            T1: 1_253
+            readout_frequency: 7452511071
+            drive_frequency: 4850198151
+            anharmonicity: 292584018
+            Ec: 270000000
+            Ej: 11400000000
+            g: 114000000
+            T1: 1253
             T2: 0
-            sweetspot: 0.2844
-            iq_angle: 2.6915241733351234
-            threshold: 0.004502589232760579
-            pi_pulse_amplitude: 0.5091870515531648
-            mean_gnd_states: [-0.002494220030668187, -0.0005834222804035717]
-            mean_exc_states: [-0.0058959609760896705, -0.00222693779514737]
+            sweetspot: 0.259
+            iq_angle: 2.022337628465806
+            threshold: -0.0007914653318098342
+            pi_pulse_amplitude: 0.5127643052160186
+            mean_gnd_states: [-0.0018382030529094067, 0.003643860913498073]
+            mean_exc_states: [-0.003789544870881507, -0.00037987740570550395]
         2:
-            readout_frequency: 7_655_110_446
-            drive_frequency: 5_794_176_000
-            anharmonicity: 276_187_576
-            Ec: 270_000_000
-            Ej: 16_000_000_000
-            g: 83_600_000
-            T1: 4_563
+            readout_frequency: 7654808484
+            drive_frequency: 5794496812
+            anharmonicity: 276187576
+            Ec: 270000000
+            Ej: 16000000000
+            g: 83600000
+            T1: 4563
             T2: 0
-            sweetspot: -0.3562
-            iq_angle: 2.8523650124575743
-            threshold: 0.0028302188032929727
-            pi_pulse_amplitude: 0.4961740399301971
-            mean_gnd_states: [-0.0014952193335097431, -0.00010921406835205993]
-            mean_exc_states: [-0.0040435979524575255, -0.0008675397897668674]
+            sweetspot: -0.37
+            iq_angle: 1.8678749919643882
+            threshold: 0.0013984324433131425
+            pi_pulse_amplitude: 0.5017192729158884
+            mean_gnd_states: [-0.00155759015352752, 0.0004936294708889704]
+            mean_exc_states: [-0.0023438796040445367, -0.002074783441978098]
         3:
-            readout_frequency: 7_803_377_426
-            drive_frequency: 6_760_050_000
-            anharmonicity: 262_310_994
-            Ec: 270_000_000
-            Ej: 21_200_000_000
-            g: 54_300_000
-            T1: 4_232
+            readout_frequency: 7802688073
+            drive_frequency: 6760504418
+            anharmonicity: 262310994
+            Ec: 270000000
+            Ej: 21200000000
+            g: 54300000
+            T1: 4232
             T2: 0
-            sweetspot: -0.74
-            iq_angle: 1.8964467227666972
-            threshold: 0.004028533776763
-            pi_pulse_amplitude: 0.4977305637146838
-            mean_gnd_states: [-0.0015922092755997937, -0.0019741712126146666]
-            mean_exc_states: [-0.002783012296958964, -0.005500677651576833]
+            sweetspot: -0.77
+            iq_angle: -0.9179883441132042
+            threshold: -0.003336112990282053
+            pi_pulse_amplitude: 0.5012372550152853
+            mean_gnd_states: [-0.0009084138309619769, -0.00606513745555827]
+            mean_exc_states: [0.0018613247855092819, -0.002442881456772784]
         4:
-            readout_frequency: 8_058_739_833
-            drive_frequency: 6_585_145_857
-            anharmonicity: 261_390_626
-            Ec: 270_000_000
-            Ej: 21_200_000_000
-            g: 62_700_000
+            readout_frequency: 8058417834
+            drive_frequency: 6590544857
+            anharmonicity: 261390626
+            Ec: 270000000
+            Ej: 21200000000
+            g: 62700000
             T1: 492
             T2: 0
             state0_voltage: 0.0
             state1_voltage: 0.0
-            mean_gnd_states: (-0.0+0.0j)
-            mean_exc_states: (0.0+0.0j)
-            sweetspot: 0.4555
-        5:
-            readout_frequency: 7_118_627_416
-            drive_frequency: 4_700_000_000
-            anharmonicity: 300_000_000
-            Ec: 270_000_000
-            Ej: 11_400_000_000
-            g: 77_600_000
-            T1: 0
-            T2: 0
-            state0_voltage: 0.0
-            state1_voltage: 0.0
-            mean_gnd_states: (-0.0+0.0j)
-            mean_exc_states: (0.0+0.0j)
-            sweetspot: 0
+            mean_gnd_states: [0.002209274009560061, 0.0015765070432509634]
+            mean_exc_states: [-0.0006520848599576615, 0.0013895642081229985]
+            sweetspot: 0.64
+            pi_pulse_amplitude: 0.5652737353449859
+            threshold: -0.000801296142501799
+            iq_angle: 3.0763517887784317
+        5: {readout_frequency: 7118627416, drive_frequency: 4700000000, anharmonicity: 300000000,
+            Ec: 270000000, Ej: 11400000000, g: 77600000, T1: 0, T2: 0, state0_voltage: 0.0,
+            state1_voltage: 0.0, mean_gnd_states: (-0.0+0.0j), mean_exc_states: (0.0+0.0j),
+            sweetspot: 0}
