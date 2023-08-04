@@ -4,7 +4,8 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.platform import Platform
+from qibolab.platform import Platform, PlatformSettings
+from qibolab.utils import load_qubits, load_runcard, load_settings
 
 NAME = "qmopx"
 ADDRESS = "192.168.0.101:80"
@@ -12,16 +13,16 @@ TIME_OF_FLIGHT = 280
 RUNCARD = pathlib.Path(__file__).parent / "qw25qB.yml"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """QuantWare 21q chip using Quantum Machines (QM) OPXs and Rohde Schwarz/ERAsynth local oscillators."""
     controller = QMOPX(NAME, ADDRESS, time_of_flight=TIME_OF_FLIGHT)
     lo2 = SGS100A("LO_2", "192.168.0.32")
     lo3 = SGS100A("LO_3", "192.168.0.33")
     es6 = ERA("ES6", "192.168.0.206", reference_clock_source="external")
     es7 = ERA("ES7", "192.168.0.207", reference_clock_source="external")
-    lo4 = SGS100A("LO_04", "192.168.0.34")
-    lo9 = SGS100A("LO_09", "192.168.0.39")
-    twpa = SGS100A("LO_06", "192.168.0.36")
+    lo4 = SGS100A("LO_4", "192.168.0.34")
+    lo9 = SGS100A("LO_9", "192.168.0.39")
+    twpa = SGS100A("LO_6", "192.168.0.36")
 
     # Create channel objects
     channels = ChannelMap()
@@ -81,11 +82,11 @@ def create(runcard=RUNCARD):
     twpa.frequency = int(6.482e9)
     twpa.power = 2
 
-    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es6, es7]
-    platform = Platform("qw25qB", runcard, instruments, channels)
+    # create qubit objects
+    runcard = load_runcard(runcard_path)
+    qubits, pairs = load_qubits(runcard)
 
     # assign channels to qubits
-    qubits = platform.qubits
     # readout low frequency
     for q in ["B1", "B2", "B3"]:
         qubits[q].readout = channels["L3-27L"]
@@ -103,4 +104,10 @@ def create(runcard=RUNCARD):
     for i in range(1, 6):
         qubits[f"B{i}"].flux = channels[f"L1-1{i}"]
 
-    return platform
+    instruments = {
+        inst.name: inst for inst in [controller, lo4, lo9, twpa, lo2, lo3, es6, es7]
+    }
+    settings = PlatformSettings(
+        nshots=1000, relaxation_time=100000, sampling_rate=1000000000
+    )
+    return Platform("qw25qB", qubits, pairs, instruments, settings, resonator_type="2D")

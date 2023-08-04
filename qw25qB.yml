@@ -10,8 +10,6 @@ qubits: [B1, B2, B3, B4, B5]
 
 topology: [[B1, B2], [B1, B3], [B2, B4], [B3, B4], [B4, B5]]
 
-resonator_type: 2D
-
 native_gates:
     single_qubit:
         B1:
