@@ -14,7 +14,7 @@ RUNCARD = pathlib.Path(__file__).parent / "tii_zcu111.yml"
 LO_ADDRESS = "192.168.0.212"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """Platform for ZCU111 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.

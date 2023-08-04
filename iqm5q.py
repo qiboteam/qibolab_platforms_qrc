@@ -13,11 +13,11 @@ RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 TWPA_ADDRESS = "192.168.0.210"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:
-        runcard (str): Path to the runcard file.
+        runcard_path (str): Path to the runcard file.
     """
     # Instantiate Zh set of instruments[They work as one]
     instruments = {
