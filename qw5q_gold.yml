@@ -55,10 +55,10 @@ native_gates:
                 qubit: 0, relative_start: 0, type: qf}
         3-2:
             CZ:
-            - {duration: 32, amplitude: 0.622, shape: 'Exponential(12, 5000, 0.1)',
+            - {duration: 32, amplitude: 0.6208, shape: 'Exponential(12, 5000, 0.1)',
                 qubit: 3, relative_start: 0, type: qf}
-            - {type: virtual_z, phase: -5.6326, qubit: 2}
-            - {type: virtual_z, phase: -1.6398, qubit: 3}
+            - {type: virtual_z, phase: -0.335, qubit: 2}
+            - {type: virtual_z, phase: -1.0301, qubit: 3}
         4-2:
             CZ:
             - {duration: 40, amplitude: -0.1355, shape: 'Exponential(10, 3000, 0.05)',
