@@ -6,17 +6,18 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.zhinst import Zurich
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
 TWPA_ADDRESS = "192.168.0.210"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:
-        runcard (str): Path to the runcard file.
+        runcard_path (str): Path to the runcard file.
     """
     # Instantiate Zh set of instruments[They work as one]
     instruments = {
@@ -161,10 +162,9 @@ def create(runcard=RUNCARD):
     for ch, lo in ch_to_lo.items():
         channels[ch].local_oscillator = local_oscillators[lo]
 
-    instruments = [controller] + local_oscillators
-    platform = Platform("IQM5q", runcard, instruments, channels)
-    platform.resonator_type = "2D"
-
+    # create qubit objects
+    runcard = load_runcard(runcard_path)
+    qubits, pairs = load_qubits(runcard)
     # assign channels to qubits and sweetspots(operating points)
     qubits = platform.qubits
     for q in range(0, 5):
@@ -189,4 +189,7 @@ def create(runcard=RUNCARD):
         qubits[f"c{c}"].flux_coupler = [qubits[c]]
         qubits[f"c{c}"].flux_coupler.append(qubits[2])
 
-    return platform
+    instruments = {controller.name: controller}
+    instruments.update({lo.name: lo for lo in local_oscillators})
+    settings = load_settings(runcard)
+    return Platform("IQM5q", qubits, pairs, instruments, settings, resonator_type="2D")
