@@ -4,7 +4,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.qm import QMOPX
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.platform import Platform, PlatformSettings
+from qibolab.platform import Platform
 from qibolab.utils import load_qubits, load_runcard, load_settings
 
 NAME = "qmopx"
@@ -107,7 +107,5 @@ def create(runcard_path=RUNCARD):
     instruments = {
         inst.name: inst for inst in [controller, lo4, lo9, twpa, lo2, lo3, es6, es7]
     }
-    settings = PlatformSettings(
-        nshots=1000, relaxation_time=100000, sampling_rate=1000000000
-    )
+    settings = load_settings(runcard)
     return Platform("qw25qB", qubits, pairs, instruments, settings, resonator_type="2D")
