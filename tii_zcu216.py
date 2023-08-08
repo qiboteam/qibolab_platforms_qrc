@@ -5,6 +5,7 @@ from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
+from qibolab.utils import load_qubits, load_runcard, load_settings
 
 NAME = "tii_zcu216"
 ADDRESS = "192.168.0.85"
@@ -15,7 +16,7 @@ TWPA_ADDRESS = "192.168.0.31"
 LO_ADDRESS = "192.168.0.35"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
@@ -56,10 +57,11 @@ def create(runcard=RUNCARD):
     local_oscillators = [readout_lo, twpa_lo]
     instruments = [controller] + local_oscillators
 
-    platform = Platform(NAME, runcard, instruments, channels)
+    # create qubit objects
+    runcard = load_runcard(runcard_path)
+    qubits, pairs = load_qubits(runcard)
 
     # assign channels to qubits
-    qubits = platform.qubits
     qubits["D1"].readout = channels["L3-30"]
     qubits["D1"].feedback = channels["L2-01-0"]
     qubits["D1"].drive = channels["L4-28"]
@@ -75,4 +77,10 @@ def create(runcard=RUNCARD):
     qubits["D3"].drive = channels["L4-30"]
     qubits['D3'].flux     = channels["L1-23"]
 
-    return platform
+    instruments = {
+        controller.name: controller,
+        readout_lo.name: readout_lo,
+        twpa_lo.name: twpa_lo
+    }
+    settings = load_settings(runcard)
+    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
