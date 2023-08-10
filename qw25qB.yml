@@ -23,7 +23,7 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 1000
-                amplitude: 0.0025
+                amplitude: 0.003 # 0.0025
                 frequency: 6_926_759_000
                 shape: Rectangular()
                 type: ro # readout
@@ -129,7 +129,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.09
+            sweetspot: -0.29
             # parameters for single shot classification
             threshold: -0.003446505933489241
             iq_angle: 5.409004218529808
@@ -148,7 +148,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0.235
+            sweetspot: 0.1
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -167,7 +167,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.46
+            sweetspot: -0.48
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
@@ -186,7 +186,7 @@ characterization:
             g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.22
+            sweetspot: -0.18
             # parameters for single shot classification
             threshold: 0.0009597380015034596
             iq_angle: 3.330673312911072
