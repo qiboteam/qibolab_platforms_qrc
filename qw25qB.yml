@@ -33,7 +33,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.148
-                frequency: 6_031_500_000
+                frequency: 6_031_500_000 # 5_889_300_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -97,6 +97,15 @@ native_gates:
                 type: ro # readout
                 start: 0
                 phase: 0
+    two_qubit:
+        B1-B2:
+            CZ:
+                duration: 30
+                amplitude: 0.12 #0.17
+                shape: Rectangular()
+                qubit: B2
+                relative_start: 0
+                type: qf
 
 
 characterization:
@@ -112,9 +121,8 @@ characterization:
             T2: 0.0
             sweetspot: -0.172
             # parameters for single shot classification
-            threshold: 0.0002748333287078079
-            iq_angle: 5.378748081368625
-
+            threshold: 0.00026744603781746147
+            iq_angle: -1.1184173569500067
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -131,9 +139,8 @@ characterization:
             T2: 0.0
             sweetspot: -0.3
             # parameters for single shot classification
-            threshold: 0.00027067506746080843
-            iq_angle: 5.567677577605675
-
+            threshold: 0.0002757215173727754
+            iq_angle: 2.1337909141321854
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -152,7 +159,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.0
             iq_angle: 0.0
-
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -169,9 +175,8 @@ characterization:
             T2: 0.0
             sweetspot: -0.485
             # parameters for single shot classification
-            threshold: 0.0002547203797612925
-            iq_angle: 0.19415834270907056
-
+            threshold: 0.0002507097182056527
+            iq_angle: 0.260264322972898
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
@@ -188,9 +193,8 @@ characterization:
             T2: 0.0
             sweetspot: -0.185
             # parameters for single shot classification
-            threshold: 0.00030175021312881076
-            iq_angle: 2.6284521551888114
-
+            threshold: 0.0002957029926621748
+            iq_angle: -0.7338873758792713
             # required for mixers (not sure if it should be here)
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
