@@ -104,8 +104,7 @@ def create(runcard_path=RUNCARD):
     for i in range(1, 6):
         qubits[f"B{i}"].flux = channels[f"L1-1{i}"]
 
-    instruments = {
-        inst.name: inst for inst in [controller, lo4, lo9, twpa, lo2, lo3, es6, es7]
-    }
+    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es6]  # , es7]
+    instruments = {inst.name: inst for inst in instruments}
     settings = load_settings(runcard)
     return Platform("qw25qB", qubits, pairs, instruments, settings, resonator_type="2D")
