@@ -80,7 +80,7 @@ def create(runcard_path=RUNCARD):
 
     # twpa
     twpa.frequency = int(6.482e9)
-    twpa.power = 2
+    twpa.power = 8
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
