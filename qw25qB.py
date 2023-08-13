@@ -104,6 +104,9 @@ def create(runcard_path=RUNCARD):
     for i in range(1, 6):
         qubits[f"B{i}"].flux = channels[f"L1-1{i}"]
 
+    # qubits["B2"].flux.filters = {"feedforward": [1.0684635881381783, -1.0163217174522334], "feedback": [0.947858129314055]}
+    # qubits["B2"].flux.filters = {"feedforward": [1, -1]}
+
     instruments = [controller, lo4, lo9, twpa, lo2, lo3, es6]  # , es7]
     instruments = {inst.name: inst for inst in instruments}
     settings = load_settings(runcard)
