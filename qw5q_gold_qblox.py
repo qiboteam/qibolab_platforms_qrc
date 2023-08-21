@@ -237,7 +237,7 @@ def create(runcard_path=RUNCARD):
     runcard = load_runcard(runcard_path)
     qubits, pairs = load_qubits(runcard)
     # remove witness qubit
-    del qubits[5]
+    # del qubits[5]
     # assign channels to qubits
     for q in [0, 1]:
         qubits[q].readout = channels["L3-25_a"]
