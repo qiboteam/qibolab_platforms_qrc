@@ -104,22 +104,22 @@ native_gates:
                 start: 0
                 phase: 0
 
-    two_qubit:
-        2-3: # qubit numbers
-            CZ:
-            -   duration: 66
-                amplitude: -0.52
-                frequency: 0
-                shape: Rectangular()
-                phase: null
-                qubit: c3
-                type: qf # qubit flux
-            -   type: virtual_z
-                phase: 0.007
-                qubit: 3
-            -   type: virtual_z
-                phase: 0.015
-                qubit: 2
+    # two_qubit:
+    #     2-3: # qubit numbers
+    #         CZ:
+    #         -   duration: 66
+    #             amplitude: -0.52
+    #             frequency: 0
+    #             shape: Rectangular()
+    #             phase: null
+    #             qubit: c3
+    #             type: qf # qubit flux
+    #         -   type: virtual_z
+    #             phase: 0.007
+    #             qubit: 3
+    #         -   type: virtual_z
+    #             phase: 0.015
+    #             qubit: 2
 
 
 characterization:
