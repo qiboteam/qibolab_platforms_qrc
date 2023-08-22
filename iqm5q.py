@@ -166,7 +166,6 @@ def create(runcard_path=RUNCARD):
     runcard = load_runcard(runcard_path)
     qubits, pairs = load_qubits(runcard)
     # assign channels to qubits and sweetspots(operating points)
-    qubits = platform.qubits
     for q in range(0, 5):
         qubits[q].feedback = channels["L3-31"]
         qubits[q].readout = channels["L2-7"]
