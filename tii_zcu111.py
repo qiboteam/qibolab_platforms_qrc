@@ -4,6 +4,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.platform import Platform
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 NAME = "tii_zcu111"
 ADDRESS = "192.168.0.81"
@@ -13,7 +14,7 @@ RUNCARD = pathlib.Path(__file__).parent / "tii_zcu111.yml"
 LO_ADDRESS = "192.168.0.212"
 
 
-def create(runcard=RUNCARD):
+def create(runcard_path=RUNCARD):
     """Platform for ZCU111 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
@@ -40,21 +41,17 @@ def create(runcard=RUNCARD):
     channels |= Channel("L4-31_qd", port=controller[5])  # drive    dac5
     channels |= Channel("L1-24_fl", port=controller[2])  # flux     dac2
 
-    local_oscillators = [
-        ERA("ErasynthLO", LO_ADDRESS, ethernet=True),
-    ]
+    local_oscillator = ERA("ErasynthLO", LO_ADDRESS, ethernet=True)
 
     # Readout local oscillator
-    local_oscillators[0].frequency = 7_500_000_000
-    local_oscillators[0].power = 10
-    channels["L3-30_ro"].local_oscillator = local_oscillators[0]
+    local_oscillator.frequency = 7_500_000_000
+    local_oscillator.power = 10
+    channels["L3-30_ro"].local_oscillator = local_oscillator
 
-    instruments = [controller] + local_oscillators
-
-    platform = Platform(NAME, runcard, instruments, channels)
-
+    # create qubit objects
+    runcard = load_runcard(runcard_path)
+    qubits, pairs = load_qubits(runcard)
     # assign channels to qubits
-    qubits = platform.qubits
     qubits[0].readout = channels["L3-30_ro"]
     qubits[0].feedback = channels["L2-4-RO_0"]
     qubits[0].drive = channels["L4-29_qd"]
@@ -73,4 +70,6 @@ def create(runcard=RUNCARD):
     qubits[2].flux = channels["L1-24_fl"]
     channels["L1-24_fl"].qubit = qubits[2]
 
-    return platform
+    instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
+    settings = load_settings(runcard)
+    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
