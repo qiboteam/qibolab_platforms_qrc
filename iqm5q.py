@@ -185,12 +185,10 @@ def create(runcard_path=RUNCARD):
         channels[f"L4-{6 + q}"].qubit = qubits[q]
 
     # assign channels to couplers and sweetspots(operating points)
-    for c in range(0, 2):
-        qubits[f"c{c}"].flux = channels[f"L4-{11 + c}"]
-        channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-    for c in range(3, 5):
-        qubits[f"c{c}"].flux = channels[f"L4-{10 + c}"]
-        channels[f"L4-{10 + c}"].qubit = qubits[f"c{c}"]
+    for c, coupler in couplers.items():
+        coupler.flux = channels[f"L4-{11 + c}"]
+        # Is this needed ?
+        # channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
 
     # assign qubits to couplers
     for c in itertools.chain(range(0, 2), range(3, 5)):
