@@ -4,7 +4,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import load_qubits, load_runcard, load_settings, register_gates
 
 NAME = "tii_zcu111"
 ADDRESS = "192.168.0.81"
@@ -70,6 +70,7 @@ def create(runcard_path=RUNCARD):
     qubits[2].flux = channels["L1-24_fl"]
     channels["L1-24_fl"].qubit = qubits[2]
 
+    qubits, pairs = register_gates(runcard, qubits, pairs)
     instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")

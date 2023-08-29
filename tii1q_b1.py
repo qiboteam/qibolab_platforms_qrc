@@ -4,7 +4,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.rohde_schwarz import SGS100A as LocalOscillator
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import load_qubits, load_runcard, load_settings, register_gates
 
 NAME = "tii_rfsoc4x2"
 ADDRESS = "192.168.0.72"
@@ -36,5 +36,7 @@ def create(runcard_path=RUNCARD):
     qubits[0].drive = channels["L3-22_qd"]
 
     instruments = {controller.name: controller}
+    qubits, pairs = register_gates(runcard, qubits, pairs)
+
     settings = load_settings(runcard)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="3D")
