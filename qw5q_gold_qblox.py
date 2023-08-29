@@ -232,6 +232,7 @@ def create(runcard_path=RUNCARD):
 
     # TWPA
     channels["L4-26"] = Channel(name="L4-4", port=None)
+    channels["L4-26"].local_oscillator = twpa_pump
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
