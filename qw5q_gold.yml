@@ -69,16 +69,17 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.00042455382813772185, -0.003774480189716998]
-            mean_exc_states: [4.153955398822127e-06, -0.006611563877142362]
+            mean_gnd_states: [-0.0007345424593255905, -0.0033851610490404607]
+            mean_exc_states: [-0.00022768388266126613, -0.006746426594899088]
             resonator_polycoef_flux: []
-            threshold: 0.0050970411096127035
-            iq_angle: 1.4208223369339485
+            threshold: 0.0047939306569503995
+            iq_angle: 1.421129970769001
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars: {}
+            classifiers_hpars:
+                qubit_fit: {}
         1:
             bare_resonator_frequency: 7400000000
             readout_frequency: 7453035641
@@ -96,16 +97,17 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.0017421575771030097, 0.0016997591644106551]
-            mean_exc_states: [-0.004143302290911836, 0.004772437826103919]
+            mean_gnd_states: [-0.0013786207510767749, 0.001756676041819825]
+            mean_exc_states: [-0.004034030061438043, 0.00490006139289245]
             resonator_polycoef_flux: []
-            threshold: 0.004176061157669412
-            iq_angle: -2.234123498605069
+            threshold: 0.004222680659192379
+            iq_angle: -2.2722409996775217
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars: {}
+            classifiers_hpars:
+                qubit_fit: {}
         2:
             bare_resonator_frequency: 7600000000
             readout_frequency: 7655043737
@@ -123,16 +125,17 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.0016395448337760544, -0.00027074364415404656]
-            mean_exc_states: [-0.003989240584968518, -0.001477697608797427]
+            mean_gnd_states: [-0.0015068481479900491, -6.643588015332594e-05]
+            mean_exc_states: [-0.0033550746498968256, -0.0011589779098270575]
             resonator_polycoef_flux: []
-            threshold: 0.0030735633770816785
-            iq_angle: 2.6670737454428486
+            threshold: 0.002448030667411703
+            iq_angle: 2.607720782249141
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars: {}
+            classifiers_hpars:
+                qubit_fit: {}
         3:
             bare_resonator_frequency: 7800000000
             readout_frequency: 7803420774
@@ -150,16 +153,17 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.0013030437019537397, -0.002215170993586481]
-            mean_exc_states: [-0.0018942261901732887, -0.005791650525794863]
+            mean_gnd_states: [-0.0014752192586057935, -0.001920609825870185]
+            mean_exc_states: [-0.0021389499138718595, -0.005743304554281938]
             resonator_polycoef_flux: []
-            threshold: 0.004232677572707378
-            iq_angle: 1.7346123735536059
+            threshold: 0.0039597740132007245
+            iq_angle: 1.7427114215535728
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars: {}
+            classifiers_hpars:
+                qubit_fit: {}
         4:
             bare_resonator_frequency: 8000000000
             readout_frequency: 8058870664
@@ -177,13 +181,14 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.0003953112861216279, 0.0008810885806803995]
-            mean_exc_states: [0.0003453727804578516, 0.003794004018626513]
+            mean_gnd_states: [0.0004887100284627321, 0.0006531678162954823]
+            mean_exc_states: [0.00036202629034824896, 0.0037232681337331965]
             resonator_polycoef_flux: []
-            threshold: 0.0023464319792604717
-            iq_angle: -1.58793847015738
+            threshold: 0.001975520367263288
+            iq_angle: -1.6120366437799305
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars: {}
+            classifiers_hpars:
+                qubit_fit: {}
