@@ -54,8 +54,8 @@ native_gates:
         2: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.477
-                frequency: 4342116873
+                amplitude: 0.35
+                frequency: 4.35267e+9
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 start: 0
@@ -63,7 +63,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: .6
-                frequency: 6.126e+9
+                frequency: 6.115e+9
                 shape: Rectangular()
                 type: ro # readout
                 start: 0
@@ -105,29 +105,53 @@ native_gates:
                 start: 0
                 phase: 0
 
-    # two_qubit:
-    #     2-3: # qubit numbers
-    #         CZ:
-    #         -   duration: 66
-    #             amplitude: -0.52
-    #             frequency: 0
-    #             shape: Rectangular()
-    #             phase: null
-    #             qubit: c3
-    #             type: qf # qubit flux
-    #         -   type: coupler
-    #             duration: 66
-    #             amplitude: -0.52
-    #             frequency: 0
-    #             shape: Rectangular()
-    #             coupler: 3
-    #             relative_start: 0,
-    #         -   type: virtual_z
-    #             phase: 0.007
-    #             qubit: 3
-    #         -   type: virtual_z
-    #             phase: 0.015
-    #             qubit: 2
+    two_qubit:
+        0-2:
+            CZ:
+            - duration: 30
+              amplitude: 0.6025
+              shape: Rectangular()
+              qubit: 2
+              relative_start: 0
+              type: qf
+
+            - type: virtual_z
+              phase: -1
+              qubit: 0
+            - type: virtual_z
+              phase: -3
+              qubit: 2
+
+            - type: coupler
+              phase: -3
+              duration: 50
+              amplitude: 0.8
+              shape: Rectangular()
+              coupler: 0
+              relative_start: 0
+        1-2:
+            CZ:
+            - duration: 30
+              amplitude: 0.6025
+              shape: Rectangular()
+              qubit: 2
+              relative_start: 0
+              type: qf
+
+            - type: virtual_z
+              phase: -1
+              qubit: 1
+            - type: virtual_z
+              phase: -3
+              qubit: 2
+
+            - type: coupler
+              phase: -3
+              duration: 40
+              amplitude: 0.1
+              shape: Rectangular()
+              coupler: 1
+              relative_start: 0
 
 
 characterization:
@@ -173,7 +197,7 @@ characterization:
             # g: 0
             T1: 0.0
             T2: 0.0
-            sweetspot: -0.1745
+            sweetspot: -0.5
             # filter: {}
             mean_gnd_states: -1.8517+0.6431j
             mean_exc_states: -0.8696+1.1473j
