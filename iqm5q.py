@@ -195,9 +195,8 @@ def create(runcard_path=RUNCARD):
         couplers[c].qubits = [qubits[c].name]
         couplers[c].qubits.append(qubits[2].name)
 
-    qubits, pairs = register_gates(RUNCARD, qubits, pairs, couplers)
+    qubits, pairs = register_gates(runcard, qubits, pairs, couplers)
 
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
-    settings = load_settings(runcard)
     return Platform("IQM5q", qubits, pairs, instruments, settings, resonator_type="2D", couplers=couplers)
