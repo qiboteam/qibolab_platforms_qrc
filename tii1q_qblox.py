@@ -105,14 +105,14 @@ def create(runcard_path=RUNCARD):
     # Create channel objects
     channels = {}
     # readout
-    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
+    channels["L3-21_a"] = Channel(name="L3-21_a", port=qrm_rf_a.ports["o1"])
    
 
     # feedback
     channels["L2-5"] = Channel(name="L2-5", port=qrm_rf_a.ports["i1"])
 
     # drive
-    channels["L3-25_b"] = Channel(name="L3-25_b", port=qrm_rf_b.ports["o1"])
+    channels["L3-21_b"] = Channel(name="L3-21_b", port=qrm_rf_b.ports["o1"])
 
 
     # flux (no flux tunable the tii1q_b4)
@@ -128,10 +128,10 @@ def create(runcard_path=RUNCARD):
     # del qubits[5]
     # assign channels to qubits
     
-    qubits[0].readout = channels["L3-25_a"]
+    qubits[0].readout = channels["L3-21_a"]
     qubits[0].feedback = channels["L2-5"]
     qubits[0].twpa = channels["L4-26"]
-    qubits[0].drive = channels["L3-25_b"]
+    qubits[0].drive = channels["L3-21_b"]
 
     instruments = {controller.name: controller, twpa_pump.name: twpa_pump}
     settings = load_settings(runcard)
