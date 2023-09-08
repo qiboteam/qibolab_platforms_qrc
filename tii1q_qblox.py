@@ -12,6 +12,10 @@ from qibolab.instruments.qblox.cluster_qrm_rf import (
     ClusterQRM_RF,
     ClusterQRM_RF_Settings,
 )
+from qibolab.instruments.qblox.cluster_qcm_rf import (
+    ClusterQCM_RF,
+    ClusterQCM_RF_Settings,
+)
 from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.qblox.port import (
     ClusterRF_OutputPort_Settings,
@@ -45,7 +49,7 @@ instruments_settings = {
             ),
         }
     ),
-    "qrm_rf_b": ClusterQRM_RF_Settings(  # q2,q3,q4
+    "qrm_rf_b": ClusterQCM_RF_Settings(  # q2,q3,q4
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-21_b",
@@ -83,7 +87,7 @@ def create(runcard_path=RUNCARD):
         modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.20:16", instruments_settings
     )  # qubits q0
     qrm_rf_b = instantiate_module(
-        modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.20:12", instruments_settings
+        modules, ClusterQCM_RF, "qrm_rf_b", "192.168.0.20:12", instruments_settings
     )  # qubits q0
 
     # DEBUG: debug folder = report folder
@@ -109,7 +113,7 @@ def create(runcard_path=RUNCARD):
    
 
     # feedback
-    channels["L2-5"] = Channel(name="L2-5", port=qrm_rf_a.ports["i1"])
+    channels["L1-01"] = Channel(name="L1-01", port=qrm_rf_a.ports["i1"])
 
     # drive
     channels["L3-21_b"] = Channel(name="L3-21_b", port=qrm_rf_b.ports["o1"])
@@ -129,7 +133,7 @@ def create(runcard_path=RUNCARD):
     # assign channels to qubits
     
     qubits[0].readout = channels["L3-21_a"]
-    qubits[0].feedback = channels["L2-5"]
+    qubits[0].feedback = channels["L1-01"]
     qubits[0].twpa = channels["L4-26"]
     qubits[0].drive = channels["L3-21_b"]
 
