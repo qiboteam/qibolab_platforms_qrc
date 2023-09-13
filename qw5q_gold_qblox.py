@@ -236,6 +236,7 @@ def create(runcard_path=RUNCARD):
     # create qubit objects
     runcard = load_runcard(runcard_path)
     qubits, pairs = load_qubits(runcard)
+    qubits, pairs = register_gates(runcard, qubits, pairs)
     # remove witness qubit
     del qubits[5]
     # assign channels to qubits
@@ -259,8 +260,6 @@ def create(runcard_path=RUNCARD):
     # set maximum allowed bias
     for q in range(5):
         qubits[q].flux.max_bias = 2.5
-
-    qubits, pairs = register_gates(runcard, qubits, pairs)
 
     instruments = {controller.name: controller, twpa_pump.name: twpa_pump}
     settings = load_settings(runcard)
