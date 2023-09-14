@@ -31,7 +31,7 @@ from qibolab.platform import Platform
 from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 NAME = "qblox"
-ADDRESS = "192.168.0.6"
+ADDRESS = "192.168.0.20"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
@@ -162,32 +162,32 @@ def create(runcard_path=RUNCARD):
 
     cluster = Cluster(
         name="cluster",
-        address="192.168.0.6",
+        address="192.168.0.20",
         settings=instruments_settings["cluster"],
     )
 
     qrm_rf_a = instantiate_module(
-        modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.6:10", instruments_settings
+        modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.20:16", instruments_settings
     )  # qubits q0, q1, q5
     qrm_rf_b = instantiate_module(
-        modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.6:12", instruments_settings
+        modules, ClusterQRM_RF, "qrm_rf_b", "192.168.0.20:18", instruments_settings
     )  # qubits q2, q3, q4
 
     qcm_rf0 = instantiate_module(
-        modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.6:8", instruments_settings
+        modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.20:6", instruments_settings
     )  # qubit q0
     qcm_rf1 = instantiate_module(
-        modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.6:3", instruments_settings
+        modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.20:4", instruments_settings
     )  # qubits q1, q2
     qcm_rf2 = instantiate_module(
-        modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.6:4", instruments_settings
+        modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.20:5", instruments_settings
     )  # qubits q3, q4
 
     qcm_bb0 = instantiate_module(
-        modules, ClusterQCM_BB, "qcm_bb0", "192.168.0.6:5", instruments_settings
+        modules, ClusterQCM_BB, "qcm_bb0", "192.168.0.20:9", instruments_settings
     )  # qubit q0
     qcm_bb1 = instantiate_module(
-        modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.6:2", instruments_settings
+        modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.20:2", instruments_settings
     )  # qubits q1, q2, q3, q4
 
     # DEBUG: debug folder = report folder

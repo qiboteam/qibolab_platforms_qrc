@@ -7,7 +7,7 @@ native_gates:
         0:
             RX: {duration: 40, amplitude: 0.4991361195928207, frequency: 5509378347,
                 shape: Gaussian(3), type: qd, start: 0, phase: 0}
-            MZ: {duration: 1000, amplitude: 0.1, frequency: 7255000000, shape: Rectangular(),
+            MZ: {duration: 1000, amplitude: 0.0001, frequency: 7255000000, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
     two_qubits: {}
 characterization:
