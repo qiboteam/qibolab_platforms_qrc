@@ -3,18 +3,19 @@ import pathlib
 import networkx as nx
 import yaml
 from qibolab.channels import Channel, ChannelMap
+from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.qblox.cluster import (
     Cluster,
     Cluster_Settings,
     ReferenceClockSource,
 )
-from qibolab.instruments.qblox.cluster_qrm_rf import (
-    ClusterQRM_RF,
-    ClusterQRM_RF_Settings,
-)
 from qibolab.instruments.qblox.cluster_qcm_rf import (
     ClusterQCM_RF,
     ClusterQCM_RF_Settings,
+)
+from qibolab.instruments.qblox.cluster_qrm_rf import (
+    ClusterQRM_RF,
+    ClusterQRM_RF_Settings,
 )
 from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.qblox.port import (
@@ -22,7 +23,6 @@ from qibolab.instruments.qblox.port import (
     QbloxInputPort_Settings,
 )
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.instruments.erasynth import ERA
 from qibolab.platform import Platform
 from qibolab.serialize import load_qubits, load_runcard, load_settings
 
@@ -110,14 +110,12 @@ def create(runcard_path=RUNCARD):
     channels = {}
     # readout
     channels["L3-21_a"] = Channel(name="L3-21_a", port=qrm_rf_a.ports["o1"])
-   
 
     # feedback
     channels["L1-01"] = Channel(name="L1-01", port=qrm_rf_a.ports["i1"])
 
     # drive
     channels["L3-21_b"] = Channel(name="L3-21_b", port=qrm_rf_b.ports["o1"])
-
 
     # flux (no flux tunable the tii1q_b4)
 
@@ -131,7 +129,7 @@ def create(runcard_path=RUNCARD):
     # remove witness qubit
     # del qubits[5]
     # assign channels to qubits
-    
+
     qubits[0].readout = channels["L3-21_a"]
     qubits[0].feedback = channels["L1-01"]
     qubits[0].twpa = channels["L4-26"]
