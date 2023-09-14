@@ -11,27 +11,27 @@ native_gates:
         0:
             RX: {duration: 40, amplitude: 0.5037576688262035, shape: 'Drag(5, 0.200)',
                 frequency: 5050086650, relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.17, shape: Rectangular(), frequency: 7212245260,
+            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7212285260,
                 relative_start: 0, phase: 0, type: ro}
         1:
             RX: {duration: 40, amplitude: 0.5091870515531648, shape: 'Drag(5, 0.000)',
                 frequency: 4852520440, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.18, shape: Rectangular(), frequency: 7453000000,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 7453035641,
                 relative_start: 0, phase: 0.0, type: ro}
         2:
             RX: {duration: 40, amplitude: 0.4961740399301971, shape: 'Drag(5, -0.100)',
                 frequency: 5797646199, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.18, shape: Rectangular(), frequency: 7654883000,
+            MZ: {duration: 2000, amplitude: 0.25, shape: Rectangular(), frequency: 7655043737,
                 relative_start: 0, phase: 0.0, type: ro}
         3:
             RX: {duration: 40, amplitude: 0.4977305637146838, shape: 'Drag(5, 0.300)',
                 frequency: 6761241415, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.23, shape: Rectangular(), frequency: 7802880000,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 7803420774,
                 relative_start: 0, phase: 0.0, type: ro}
         4:
             RX: {duration: 40, amplitude: 0.56468497579218, shape: 'Drag(5, -0.100)',
                 frequency: 6584637329, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.32, shape: Rectangular(), frequency: 8058670396,
+            MZ: {duration: 2000, amplitude: 0.4, shape: Rectangular(), frequency: 8058870664,
                 relative_start: 0, phase: 0.0, type: ro}
     two_qubit:
         0-2:
