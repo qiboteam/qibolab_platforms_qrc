@@ -29,7 +29,7 @@ from qibolab.serialize import load_qubits, load_runcard, load_settings
 NAME = "tii1qb4_qblox"
 ADDRESS = "192.168.0.20"
 TIME_OF_FLIGHT = 500
-RUNCARD = pathlib.Path(__file__).parent / "tii1q_qblox.yml"
+RUNCARD = pathlib.Path(__file__).parent / "tii1q_b4_qblox.yml"
 TWPA_ADDRESS = "192.168.0.208"
 
 instruments_settings = {
