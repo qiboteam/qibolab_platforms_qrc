@@ -125,35 +125,71 @@ native_gates:
 characterization:
     single_qubit:
         0:
+            bare_resonator_frequency: 0
             readout_frequency: 5_230_200_000
             drive_frequency: 4_098_114_578 #4_098_014_578
             anharmonicity: 217_492_000
             Ec: 0
             Ej: 0
             g: 0
+            flux_to_bias: 0.0
+            asymmetry: 0.0
+            brf: 0.0
+            ssf_brf: 0.0
+            assigment_fidelity: 0.0
+            sweetspot: 0
+            peak_voltage: 0
+            pi_pulse_amplitude: 0.0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0
-            # filter: {}
+            T2_spin_echo: 0
+            state0_voltage: 0
+            state1_voltage: 0
             mean_gnd_states: 1.5417+0.1817j
             mean_exc_states: 2.5332-0.5914j
             # parameters for single shot classification
             threshold: 1.5435
             iq_angle:  2.602
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+            classifiers_hpars:
+                qubit_fit: {}            
         1:
+            bare_resonator_frequency: 0
             readout_frequency: 4.9525e+9
             drive_frequency: 4.25e+9
             anharmonicity: 0
-            # Ec: 0
-            # Ej: 0
-            # g: 0
+            Ec: 0
+            Ej: 0
+            g: 0
+            flux_to_bias: 0.0
+            asymmetry: 0.0
+            brf: 0.0
+            ssf_brf: 0.0
+            assigment_fidelity: 0.0
+            sweetspot: 0
+            peak_voltage: 0
+            pi_pulse_amplitude: 0.0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0
-            # filter: {}
-            mean_gnd_states: (0+0j)
-            mean_exc_states: (0+0j)
+            T2_spin_echo: 0
+            state0_voltage: 0
+            state1_voltage: 0
+            mean_gnd_states: 0.0+0.0j
+            mean_exc_states: 0.0-0.0j
+            # parameters for single shot classification
+            threshold: 0.0
+            iq_angle:  0.0
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+            classifiers_hpars:
+                qubit_fit: {}       
         2:
+            bare_resonator_frequency: 0
             readout_frequency: 6.109e+9
             drive_frequency: 4342116873
             anharmonicity: 211_604_296
