@@ -17,10 +17,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install qibolab
-          export QIBOLAB_PLATFORMS=.
-      - name: Debug
-        run: |
-          ls
       - name: Test platforms
         run: |
+          export QIBOLAB_PLATFORMS=.
           pytest
