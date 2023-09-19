@@ -18,7 +18,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.634
-                frequency: 4_098_114_578
+                frequency: 4_096_695_991 #4_098_114_578
                 shape: Gaussian(5) #Drag(5, 0.01)
                 type: qd # qubit drive
                 relative_start: 0
@@ -110,7 +110,7 @@ characterization:
         0:
             bare_resonator_frequency: 5_223_231_026 #5_223_231_026 #5_222_979_702 #0
             readout_frequency: 5_227_049_975 #5_222_979_702 #5_227_720_022 #5_230_200_000
-            drive_frequency: 4_098_114_578 #4_098_014_578
+            drive_frequency: 4_096_695_991 #4_098_114_578 #4_098_014_578
             anharmonicity: 217_492_000
             Ec: 0
             Ej: 0
@@ -119,20 +119,20 @@ characterization:
             asymmetry: 0.0
             brf: 0.0
             ssf_brf: 0.0
-            assigment_fidelity: 0.0
-            sweetspot: 0
+            assigment_fidelity: 0.933
+            sweetspot: 0.05
             peak_voltage: 0
-            pi_pulse_amplitude: 0.0
+            pi_pulse_amplitude: 0.634
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: 1.5417+0.1817j
-            mean_exc_states: 2.5332-0.5914j
+            mean_gnd_states: -0.162-0.317j #1.5417+0.1817j
+            mean_exc_states: 0.856+0.447j #2.5332-0.5914j
             # parameters for single shot classification
-            threshold: 1.5435
-            iq_angle:  2.602
+            threshold: 0.214726 #1.5435
+            iq_angle:  -0.644 #2.602
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
