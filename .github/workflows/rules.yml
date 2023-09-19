@@ -19,5 +19,5 @@ jobs:
           pip install qibolab
       - name: Test platforms
         run: |
-          export QIBOLAB_PLATFORMS=.
+          echo "QIBOLAB_PLATFORMS=$(realpath .)" >> "$GITHUB_ENV"
           pytest
