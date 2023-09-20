@@ -37,4 +37,4 @@ def create(runcard_path=RUNCARD):
 
     instruments = {controller.name: controller}
     settings = load_settings(runcard)
-    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="3D")
+    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
