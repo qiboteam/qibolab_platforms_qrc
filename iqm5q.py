@@ -3,15 +3,16 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
+from qibolab.instruments.oscillator import LocalOscillator
+
 # from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.zhinst import Zurich
 from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.32" #"192.168.0.210"
+TWPA_ADDRESS = "192.168.0.32"  # "192.168.0.210"
 
 
 def create(runcard_path=RUNCARD):
@@ -113,12 +114,12 @@ def create(runcard_path=RUNCARD):
     # Sets the maximal Range of the Signal Output power.
     # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     # with a resolution of 5 dBm.
-    
+
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
     channels["L3-31"].power_range = -15
     # feedback "gain": play with the power range to calibrate the best RO
-    channels["L2-7"].power_range = 10 #-25
-    
+    channels["L2-7"].power_range = 10  # -25
+
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -10
