@@ -11,7 +11,7 @@ from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.32" #"192.168.0.210"
+TWPA_ADDRESS = "192.168.0.32"
 
 
 def create(runcard_path=RUNCARD):
@@ -169,30 +169,14 @@ def create(runcard_path=RUNCARD):
     runcard = load_runcard(runcard_path)
     qubits, pairs = load_qubits(runcard)
     # assign channels to qubits and sweetspots(operating points)
-    # qubits = platform.qubits
     for q in range(0, 5):
         qubits[q].readout = channels["L3-31"]
         qubits[q].feedback = channels["L2-7"]
-        # qubits[q].feedback = channels["L3-31"]
-        # qubits[q].readout = channels["L2-7"]
 
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
-
-    # assign channels to couplers and sweetspots(operating points)
-    # for c in range(0, 2):
-    #     qubits[f"c{c}"].flux = channels[f"L4-{11 + c}"]
-    #     channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-    # for c in range(3, 5):
-    #     qubits[f"c{c}"].flux = channels[f"L4-{10 + c}"]
-    #     channels[f"L4-{10 + c}"].qubit = qubits[f"c{c}"]
-
-    # # assign qubits to couplers
-    # for c in itertools.chain(range(0, 2), range(3, 5)):
-    #     qubits[f"c{c}"].flux_coupler = [qubits[c]]
-    #     qubits[f"c{c}"].flux_coupler.append(qubits[2])
 
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
