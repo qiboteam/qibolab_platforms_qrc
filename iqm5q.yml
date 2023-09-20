@@ -35,8 +35,8 @@ native_gates:
         1: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.2
-                frequency: 4_250_000_000
+                amplitude: 0.65
+                frequency: 4_251_474_498
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -142,7 +142,7 @@ characterization:
         1:
             bare_resonator_frequency: 4_930_674_725
             readout_frequency: 4_932_200_000
-            drive_frequency: 4_250_000_000
+            drive_frequency: 4_251_474_498
             anharmonicity: 0
             Ec: 0
             Ej: 0
@@ -151,8 +151,8 @@ characterization:
             asymmetry: 0.0
             brf: 0.0
             ssf_brf: 0.0
-            assigment_fidelity: 0.0
-            sweetspot: 0
+            assigment_fidelity: 0.861
+            sweetspot: 0.02
             peak_voltage: 0
             pi_pulse_amplitude: 0.0
             T1: 0.0
@@ -160,11 +160,11 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: 0.0+0.0j
-            mean_exc_states: 0.0-0.0j
+            mean_gnd_states: 0.003-0.024j
+            mean_exc_states: 0.125-0.457j
             # parameters for single shot classification
-            threshold: 0.0
-            iq_angle:  0.0
+            threshold: 0.245539
+            iq_angle:  1.295
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
