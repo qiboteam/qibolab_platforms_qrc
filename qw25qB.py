@@ -68,11 +68,11 @@ def create(runcard_path=RUNCARD):
 
     # for B3
     es7.power = 10
-    es7.frequency = int(5.7e9)
+    es7.frequency = int(5.2e9)
 
     # for B4
     es6.power = 20
-    es6.frequency = int(7.0e9)
+    es6.frequency = int(6.5e9)
 
     # for B2/B5
     lo2.power = 20
@@ -107,7 +107,7 @@ def create(runcard_path=RUNCARD):
     # qubits["B2"].flux.filters = {"feedforward": [1.0684635881381783, -1.0163217174522334], "feedback": [0.947858129314055]}
     # qubits["B2"].flux.filters = {"feedforward": [1, -1]}
 
-    instruments = [controller, lo4, lo9, twpa, lo2, lo3, es6]  # , es7]
+    instruments = [controller, lo4, lo9, twpa, lo3, es6, es7]
     instruments = {inst.name: inst for inst in instruments}
     settings = load_settings(runcard)
     return Platform("qw25qB", qubits, pairs, instruments, settings, resonator_type="2D")
