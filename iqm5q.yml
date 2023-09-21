@@ -61,8 +61,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .6
-                frequency: 6.126e+9
+                amplitude: 0.4 #0.6
+                frequency: 6_126_847_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -112,8 +112,8 @@ characterization:
             readout_frequency: 5_227_049_975 #5_222_979_702 #5_227_720_022 #5_230_200_000
             drive_frequency: 4_096_695_991 #4_098_114_578 #4_098_014_578
             anharmonicity: 217_492_000
-            Ec: 0
-            Ej: 0
+            ec: 0
+            ej: 0
             g: 0
             flux_to_bias: 0.0
             asymmetry: 0.0
@@ -144,8 +144,8 @@ characterization:
             readout_frequency: 4_932_200_000
             drive_frequency: 4_251_474_498
             anharmonicity: 0
-            Ec: 0
-            Ej: 0
+            ec: 0
+            ej: 0
             g: 0
             flux_to_bias: 0.0
             asymmetry: 0.0
@@ -173,18 +173,18 @@ characterization:
                 qubit_fit: {}
         2:
             bare_resonator_frequency: 0
-            readout_frequency: 6.109e+9
+            readout_frequency: 6_126_847_000 #6_125_000_000 #6.109e+9
             drive_frequency: 4342116873
             anharmonicity: 211_604_296
-            Ec: 0
-            Ej: 0
+            ec: 0
+            ej: 0
             g: 0
             flux_to_bias: 0.0
             asymmetry: 0.0
             brf: 0.0
             ssf_brf: 0.0
             assigment_fidelity: 0.0
-            sweetspot: -0.1745
+            sweetspot: 0.0 #-0.1745
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
@@ -206,8 +206,8 @@ characterization:
             readout_frequency: 5.8060e+9
             drive_frequency: 4130512577
             anharmonicity: 214_000_000
-            Ec: 0
-            Ej: 0
+            ec: 0
+            ej: 0
             g: 0
             flux_to_bias: 0.0
             asymmetry: 0.0
@@ -236,8 +236,8 @@ characterization:
             readout_frequency: 5.5180e+9 #5.5240e+9
             drive_frequency: 4.24704e+9 #4.1017e+9
             anharmonicity: 0
-            Ec: 0
-            Ej: 0
+            ec: 0
+            ej: 0
             g: 0
             flux_to_bias: 0.0
             asymmetry: 0.0
