@@ -18,19 +18,19 @@ native_gates:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.64
-                frequency: 4_098_114_578
+                amplitude: 0.634
+                frequency: 4_096_695_991 #4_098_114_578
                 shape: Gaussian(5) #Drag(5, 0.01)
                 type: qd # qubit drive
-                start: 0
+                relative_start: 0
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .45
-                frequency: 5_230_200_000
+                amplitude: 0.2 #0.45 #0.3 #0.7 #0.45
+                frequency: 5_227_049_975 #5_228_231_026 #5_222_979_702 #5_227_720_022
                 shape: Rectangular()
                 type: ro # readout
-                start: 0
+                relative_start: 0
                 phase: 0
 
         1: # qubit number
@@ -157,7 +157,7 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 5_230_200_000
+            readout_frequency: 5_227_049_975
             resonator_polycoef_flux: []
             drive_frequency: 4_098_114_578 #4_098_014_578
             anharmonicity: 217_492_000
@@ -171,8 +171,8 @@ characterization:
             mean_gnd_states: (0+0j)
             mean_exc_states: (0+0j)
             # parameters for single shot classification
-            threshold: 0.864122
-            iq_angle:  2.769
+            threshold: 0.214726 #1.5435
+            iq_angle:  -0.644 #2.602
         1:
             readout_frequency: 4.9525e+9
             resonator_polycoef_flux: []

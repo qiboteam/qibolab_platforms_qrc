@@ -3,7 +3,7 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.zhinst import Zurich
 from qibolab.serialize import (
@@ -16,7 +16,7 @@ from qibolab.serialize import (
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.210"
+TWPA_ADDRESS = "192.168.0.32"
 
 
 def create(runcard_path=RUNCARD):
@@ -121,10 +121,10 @@ def create(runcard_path=RUNCARD):
     # feedback
     channels["L3-31"].power_range = 10
     # readout
-    channels["L2-7"].power_range = -25
+    channels["L2-7"].power_range = -15
     # drive
     for i in range(5, 10):
-        channels[f"L4-1{i}"].power_range = -10
+        channels[f"L4-1{i}"].power_range = -15
     channels[f"L4-17"].power_range = 0
     channels[f"L4-19"].power_range = 0
 
@@ -142,10 +142,10 @@ def create(runcard_path=RUNCARD):
     # Instantiate local oscillators
     local_oscillators = [
         LocalOscillator(f"lo_{kind}", None)
-        for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
+        for kind in ["readout"] + [f"drive_{n}" for n in range(3)]
     ]
 
-    local_oscillators.append(ERA("twpa_fixed", TWPA_ADDRESS))
+    local_oscillators.append(SGS100A("TWPA", TWPA_ADDRESS))
     # TWPA Parameters
     local_oscillators[-1].frequency = 6_690_000_000
     local_oscillators[-1].power = -5.6
