@@ -3,8 +3,8 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.oscillator import LocalOscillator
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
 from qibolab.serialize import (
     load_couplers,
