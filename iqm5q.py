@@ -121,9 +121,12 @@ def create(runcard_path=RUNCARD):
     channels["L2-7"].power_range = 10  # -25
 
     # drive
-    for i in range(5, 10):
-        channels[f"L4-1{i}"].power_range = -10
-    channels[f"L4-19"].power_range = 0
+    # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
+    channels[f"L4-15"].power_range = -10 #q0
+    channels[f"L4-16"].power_range = -10 #q1
+    channels[f"L4-17"].power_range = 10 #q2
+    channels[f"L4-18"].power_range = -10 #q3
+    channels[f"L4-19"].power_range = 0 #q4
 
     # HDAWGS
     # Sets the output voltage range.
