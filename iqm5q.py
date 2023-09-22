@@ -79,7 +79,7 @@ def create(runcard_path=RUNCARD):
         descriptor,
         use_emulation=False,
         time_of_flight=75,
-        smearing=50,  # time_of_flight=280, smearing=100
+        smearing=50,
     )
 
     # Create channel objects and map controllers
@@ -125,9 +125,7 @@ def create(runcard_path=RUNCARD):
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -15
-    channels[f"L4-17"].power_range = 0
-    channels[f"L4-19"].power_range = 0
-
+    
     # HDAWGS
     # Sets the output voltage range.
     # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
@@ -186,7 +184,7 @@ def create(runcard_path=RUNCARD):
         channels[f"L4-{6 + q}"].qubit = qubits[q]
 
     # assign channels to couplers and sweetspots(operating points)
-    for c, coupler in couplers.items():
+    for c, coupler in enumerate(couplers.values()):
         coupler.flux = channels[f"L4-{11 + c}"]
         # Is this needed ?
         # channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
