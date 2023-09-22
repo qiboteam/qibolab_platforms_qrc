@@ -125,7 +125,7 @@ def create(runcard_path=RUNCARD):
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -15
-    
+
     # HDAWGS
     # Sets the output voltage range.
     # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
