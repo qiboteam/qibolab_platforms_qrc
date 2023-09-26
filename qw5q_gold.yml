@@ -6,6 +6,12 @@ topology:
 - [1, 2]
 - [2, 3]
 - [2, 4]
+
+instruments:
+    twpa_pump:
+        frequency: 6_535_900_000
+        power: 4
+
 native_gates:
     single_qubit:
         0:
