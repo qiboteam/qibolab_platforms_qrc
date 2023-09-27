@@ -24,7 +24,12 @@ from qibolab.instruments.qblox.port import (
 )
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import (
+    load_instrument_settings,
+    load_qubits,
+    load_runcard,
+    load_settings,
+)
 
 NAME = "tii1qb4_qblox"
 ADDRESS = "192.168.0.20"
@@ -59,7 +64,6 @@ instruments_settings = {
             ),
         }
     ),
-    "twpa_pump": {"frequency": 6_690_000_000, "power": -5.6},
 }
 
 
@@ -99,12 +103,7 @@ def create(runcard_path=RUNCARD):
     #     modules[name]._debug_folder = folder
 
     controller = QbloxController("qblox_controller", cluster, modules)
-
     twpa_pump = ERA(name="twpa_pump", address=TWPA_ADDRESS)
-    twpa_pump.frequency = instruments_settings["twpa_pump"]["frequency"]
-    twpa_pump.power = instruments_settings["twpa_pump"]["power"]
-
-    instruments = [controller, twpa_pump]
 
     # Create channel objects
     channels = {}
@@ -137,6 +136,7 @@ def create(runcard_path=RUNCARD):
 
     instruments = {controller.name: controller, twpa_pump.name: twpa_pump}
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
     return Platform(
         "tii1qb4_qblox", qubits, pairs, instruments, settings, resonator_type="3D"
     )

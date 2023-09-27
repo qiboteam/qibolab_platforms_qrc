@@ -12,6 +12,19 @@ qubits: [0, 1, 2, 3, 4, "c0", "c1", "c3", "c4"]
 
 topology: [[0, 2], [1, 2], [2, 3], [2, 4]]
 
+instruments:
+    lo_readout: # For SG0 (Readout)
+        frequency: 5_500_000_000
+    lo_drive_0: # For SG1 and SG2 (Drive)
+        frequency: 4_200_000_000
+    lo_drive_1: # For SG3 and SG4 (Drive)
+        frequency: 4_600_000_000
+    lo_drive_2: # For SG5 and SG6 (Drive)
+        frequency: 4_800_000_000
+    twpa_fixed:
+        frequency: 6_690_000_000
+        power: -5.6
+
 native_gates:
     single_qubit:
         0: # qubit number
@@ -126,7 +139,6 @@ characterization:
     single_qubit:
         0:
             readout_frequency: 5_230_200_000
-            resonator_polycoef_flux: []
             drive_frequency: 4_098_114_578 #4_098_014_578
             anharmonicity: 217_492_000
             Ec: 0
@@ -143,7 +155,6 @@ characterization:
             iq_angle:  2.602
         1:
             readout_frequency: 4.9525e+9
-            resonator_polycoef_flux: []
             drive_frequency: 4.25e+9
             anharmonicity: 0
             # Ec: 0
@@ -157,7 +168,6 @@ characterization:
             mean_exc_states: (0+0j)
         2:
             readout_frequency: 6.109e+9
-            resonator_polycoef_flux: []
             drive_frequency: 4342116873
             anharmonicity: 211_604_296
             # Ec: 0
@@ -174,7 +184,6 @@ characterization:
             iq_angle: -0.474
         3:
             readout_frequency: 5.8060e+9
-            resonator_polycoef_flux: []
             drive_frequency: 4130512577
             anharmonicity: 214_000_000
             # Ec: 0
@@ -191,7 +200,6 @@ characterization:
             iq_angle: -2.904
         4:
             readout_frequency: 5.5180e+9 #5.5240e+9
-            resonator_polycoef_flux: []
             drive_frequency: 4.24704e+9 #4.1017e+9
             anharmonicity: 0
             # Ec: 0
