@@ -1,0 +1,28 @@
+name: Tests using qibolab main
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install and configure poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: Install qibolab
+        run: |
+          git clone https://github.com/qiboteam/qibolab
+          cd qibolab
+          poetry install --no-interaction --with tests --all-extras
+      - name: Test platforms
+        run: |
+          cd qibolab
+          QIBOLAB_PLATFORMS=$(realpath ..) poetry run pytest ../tests/

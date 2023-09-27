@@ -2,6 +2,12 @@ nqubits: 1
 qubits: [0]
 topology: []
 settings: {nshots: 1024, relaxation_time: 70000, sampling_rate: 9830400000}
+
+instruments:
+    twpa_pump:
+        frequency: 6_690_000_000
+        power: -5.6
+
 native_gates:
     single_qubit:
         0:

@@ -12,6 +12,11 @@ settings:
 topology: [[2, 1]]
 
 
+instruments:
+    ErasynthLO:
+        frequency: 7_500_000_000
+        power: 10
+
 native_gates:
     single_qubit:
         0: # D1
