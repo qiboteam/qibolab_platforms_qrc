@@ -6,13 +6,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.oscillator import LocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
-from qibolab.serialize import (
-    load_couplers,
-    load_qubits,
-    load_runcard,
-    load_settings,
-    register_gates,
-)
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
@@ -125,7 +119,7 @@ def create(runcard_path=RUNCARD):
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -15
-    
+
     # HDAWGS
     # Sets the output voltage range.
     # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
@@ -169,8 +163,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
-    couplers = load_couplers(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
     settings = load_settings(runcard)
 
     # assign channels to qubits and sweetspots(operating points)
@@ -188,13 +181,6 @@ def create(runcard_path=RUNCARD):
         coupler.flux = channels[f"L4-{11 + c}"]
         # Is this needed ?
         # channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-
-    # assign qubits to couplers
-    for c in itertools.chain(range(0, 2), range(3, 5)):
-        couplers[c].qubits = [qubits[c].name]
-        couplers[c].qubits.append(qubits[2].name)
-
-    qubits, pairs = register_gates(runcard, qubits, pairs, couplers)
 
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
