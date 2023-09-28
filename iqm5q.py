@@ -121,7 +121,7 @@ def create(runcard_path=RUNCARD):
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
     channels["L3-31"].power_range = -15
     # feedback "gain": play with the power range to calibrate the best RO
-    channels["L2-7"].power_range = 10 
+    channels["L2-7"].power_range = 10
 
     # drive
     for i in range(5, 10):
