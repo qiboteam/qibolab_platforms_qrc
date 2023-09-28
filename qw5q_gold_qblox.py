@@ -28,7 +28,7 @@ from qibolab.instruments.qblox.port import (
 )
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings, register_gates
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 NAME = "qblox"
 ADDRESS = "192.168.0.6"
@@ -235,8 +235,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
-    qubits, pairs = register_gates(runcard, qubits, pairs)
+    qubits, couplers, pairs = load_qubits(runcard)
     # remove witness qubit
     del qubits[5]
     # assign channels to qubits

@@ -5,7 +5,7 @@ from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings, register_gates
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 NAME = "tii_zcu216"
 ADDRESS = "192.168.0.85"
@@ -59,7 +59,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
 
     # assign channels to qubits
     qubits["D1"].readout = channels["L3-30"]
@@ -83,6 +83,5 @@ def create(runcard_path=RUNCARD):
         twpa_lo.name: twpa_lo,
     }
 
-    qubits, pairs = register_gates(runcard, qubits, pairs)
     settings = load_settings(runcard)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
