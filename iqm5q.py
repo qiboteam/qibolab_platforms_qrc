@@ -3,8 +3,10 @@ import pathlib
 
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.oscillator import LocalOscillator
+
+# from qibolab.instruments.erasynth import ERA
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
 from qibolab.serialize import (
     load_instrument_settings,
@@ -15,7 +17,7 @@ from qibolab.serialize import (
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.210"
+TWPA_ADDRESS = "192.168.0.32"
 
 
 def create(runcard_path=RUNCARD):
@@ -83,13 +85,13 @@ def create(runcard_path=RUNCARD):
 
     # Create channel objects and map controllers
     channels = ChannelMap()
-    # readout
-    channels |= Channel(
-        "L3-31", port=controller[("device_shfqc", "[QACHANNELS/0/INPUT]")]
-    )
     # feedback
     channels |= Channel(
-        "L2-7", port=controller[("device_shfqc", "[QACHANNELS/0/OUTPUT]")]
+        "L2-7", port=controller[("device_shfqc", "[QACHANNELS/0/INPUT]")]
+    )
+    # readout
+    channels |= Channel(
+        "L3-31", port=controller[("device_shfqc", "[QACHANNELS/0/OUTPUT]")]
     )
     # drive
     channels |= (
@@ -115,16 +117,21 @@ def create(runcard_path=RUNCARD):
 
     # SHFQC
     # Sets the maximal Range of the Signal Output power.
-    # The instrument selects the closest available Range with a resolution of 5 dBm.
+    # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
+    # with a resolution of 5 dBm.
 
-    # feedback
-    channels["L3-31"].power_range = 10
-    # readout
-    channels["L2-7"].power_range = -25
+    # readout "gain": Set to max power range (10 Dbm) if no distorsion
+    channels["L3-31"].power_range = -15
+    # feedback "gain": play with the power range to calibrate the best RO
+    channels["L2-7"].power_range = 10  # -25
+
     # drive
-    for i in range(5, 10):
-        channels[f"L4-1{i}"].power_range = -10
-    channels[f"L4-19"].power_range = 0
+    # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
+    channels[f"L4-15"].power_range = -10  # q0
+    channels[f"L4-16"].power_range = -10  # q1
+    channels[f"L4-17"].power_range = 10  # q2
+    channels[f"L4-18"].power_range = -10  # q3
+    channels[f"L4-19"].power_range = 0  # q4
 
     # HDAWGS
     # Sets the output voltage range.
@@ -140,14 +147,14 @@ def create(runcard_path=RUNCARD):
     # Instantiate local oscillators
     local_oscillators = [
         LocalOscillator(f"lo_{kind}", None)
-        for kind in ["readout"] + [f"drive_{n}" for n in range(4)]
+        for kind in ["readout"] + [f"drive_{n}" for n in range(3)]
     ]
 
-    local_oscillators.append(ERA("twpa_fixed", TWPA_ADDRESS))
+    local_oscillators.append(SGS100A("TWPA", TWPA_ADDRESS))
 
     # Map LOs to channels
     ch_to_lo = {
-        "L2-7": 0,
+        "L3-31": 0,
         "L4-15": 1,
         "L4-16": 1,
         "L4-17": 2,
@@ -163,26 +170,13 @@ def create(runcard_path=RUNCARD):
     qubits, pairs = load_qubits(runcard)
     # assign channels to qubits and sweetspots(operating points)
     for q in range(0, 5):
-        qubits[q].feedback = channels["L3-31"]
-        qubits[q].readout = channels["L2-7"]
+        qubits[q].readout = channels["L3-31"]
+        qubits[q].feedback = channels["L2-7"]
 
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
-
-    # assign channels to couplers and sweetspots(operating points)
-    for c in range(0, 2):
-        qubits[f"c{c}"].flux = channels[f"L4-{11 + c}"]
-        channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-    for c in range(3, 5):
-        qubits[f"c{c}"].flux = channels[f"L4-{10 + c}"]
-        channels[f"L4-{10 + c}"].qubit = qubits[f"c{c}"]
-
-    # assign qubits to couplers
-    for c in itertools.chain(range(0, 2), range(3, 5)):
-        qubits[f"c{c}"].flux_coupler = [qubits[c]]
-        qubits[f"c{c}"].flux_coupler.append(qubits[2])
 
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
