@@ -77,74 +77,74 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-15",
                 attenuation=20,
-                lo_frequency=5_250_304_836,
-                gain=0.470,
-            )
-        }
-    ),
-    "qcm_rf1": ClusterQCM_RF_Settings(
-        {
-            "o1": ClusterRF_OutputPort_Settings(
-                channel="L3-11",
-                attenuation=20,
                 lo_frequency=5_052_833_073,
                 gain=0.570,
             ),
             "o2": ClusterRF_OutputPort_Settings(
-                channel="L3-12",
+                channel="L3-11",
                 attenuation=20,
                 lo_frequency=5_995_371_914,
                 gain=0.655,
             ),
         }
     ),
-    "qcm_rf2": ClusterQCM_RF_Settings(
+    "qcm_rf1": ClusterQCM_RF_Settings(
         {
             "o1": ClusterRF_OutputPort_Settings(
-                channel="L3-13",
+                channel="L3-12",
                 attenuation=20,
                 lo_frequency=6_961_018_001,
                 gain=0.550,
             ),
             "o2": ClusterRF_OutputPort_Settings(
-                channel="L3-14",
+                channel="L3-13",
                 attenuation=20,
                 lo_frequency=6_786_543_060,
                 gain=0.596,
             ),
         }
     ),
+    "qcm_rf2": ClusterQCM_RF_Settings(
+        {
+            "o1": ClusterRF_OutputPort_Settings(
+                channel="L3-14",
+                attenuation=20,
+                lo_frequency=5_250_304_836,
+                gain=0.470,
+            )
+        }
+    ),
     "qcm_bb0": ClusterQCM_BB_Settings(
         {
-            "o2": ClusterBB_OutputPort_Settings(
+            "o1": ClusterBB_OutputPort_Settings(
                 channel="L4-5",
                 gain=0.5,
-                qubit=0,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
-            )
+                qubit=1,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
+            ),
+            "o2": ClusterBB_OutputPort_Settings(
+                channel="L4-1",
+                gain=0.5,
+                qubit=2,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
+            ),
+            "o3": ClusterBB_OutputPort_Settings(
+                channel="L4-2",
+                gain=0.5,
+                qubit=3,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
+            ),
+            "o4": ClusterBB_OutputPort_Settings(
+                channel="L4-3",
+                gain=0.5,
+                qubit=4,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
+            ),
         }
     ),
     "qcm_bb1": ClusterQCM_BB_Settings(
         {
             "o1": ClusterBB_OutputPort_Settings(
-                channel="L4-1",
-                gain=0.5,
-                qubit=1,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
-            ),
-            "o2": ClusterBB_OutputPort_Settings(
-                channel="L4-2",
-                gain=0.5,
-                qubit=2,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
-            ),
-            "o3": ClusterBB_OutputPort_Settings(
-                channel="L4-3",
-                gain=0.5,
-                qubit=3,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
-            ),
-            "o4": ClusterBB_OutputPort_Settings(
                 channel="L4-4",
                 gain=0.5,
-                qubit=4,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
-            ),
+                qubit=0,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
+            )
         }
     ),
 }
@@ -181,17 +181,17 @@ def create(runcard_path=RUNCARD):
         modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.20:6", instruments_settings
     )  # qubit q0
     qcm_rf1 = instantiate_module(
-        modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.20:4", instruments_settings
+        modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.20:8", instruments_settings
     )  # qubits q1, q2
     qcm_rf2 = instantiate_module(
-        modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.20:5", instruments_settings
+        modules, ClusterQCM_RF, "qcm_rf2", "192.168.0.20:10", instruments_settings
     )  # qubits q3, q4
 
     qcm_bb0 = instantiate_module(
-        modules, ClusterQCM_BB, "qcm_bb0", "192.168.0.20:9", instruments_settings
+        modules, ClusterQCM_BB, "qcm_bb0", "192.168.0.20:2", instruments_settings
     )  # qubit q0
     qcm_bb1 = instantiate_module(
-        modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.20:2", instruments_settings
+        modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.20:4", instruments_settings
     )  # qubits q1, q2, q3, q4
 
     # DEBUG: debug folder = report folder
@@ -217,17 +217,17 @@ def create(runcard_path=RUNCARD):
 
     # drive
     channels["L3-15"] = Channel(name="L3-15", port=qcm_rf0.ports["o1"])
-    channels["L3-11"] = Channel(name="L3-11", port=qcm_rf1.ports["o1"])
-    channels["L3-12"] = Channel(name="L3-12", port=qcm_rf1.ports["o2"])
-    channels["L3-13"] = Channel(name="L3-13", port=qcm_rf2.ports["o1"])
-    channels["L3-14"] = Channel(name="L3-14", port=qcm_rf2.ports["o2"])
+    channels["L3-11"] = Channel(name="L3-11", port=qcm_rf0.ports["o2"])
+    channels["L3-12"] = Channel(name="L3-12", port=qcm_rf1.ports["o1"])
+    channels["L3-13"] = Channel(name="L3-13", port=qcm_rf1.ports["o2"])
+    channels["L3-14"] = Channel(name="L3-14", port=qcm_rf2.ports["o1"])
 
     # flux
     channels["L4-5"] = Channel(name="L4-5", port=qcm_bb0.ports["o1"])
-    channels["L4-1"] = Channel(name="L4-1", port=qcm_bb1.ports["o1"])
-    channels["L4-2"] = Channel(name="L4-2", port=qcm_bb1.ports["o2"])
-    channels["L4-3"] = Channel(name="L4-3", port=qcm_bb1.ports["o3"])
-    channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o4"])
+    channels["L4-1"] = Channel(name="L4-1", port=qcm_bb0.ports["o2"])
+    channels["L4-2"] = Channel(name="L4-2", port=qcm_bb0.ports["o3"])
+    channels["L4-3"] = Channel(name="L4-3", port=qcm_bb0.ports["o4"])
+    channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o1"])
 
     # TWPA
     channels["L4-26"] = Channel(name="L4-4", port=None)
