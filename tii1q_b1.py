@@ -29,12 +29,13 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits
     qubits[0].readout = channels["L3-22_ro"]
     qubits[0].feedback = channels["L1-2-RO"]
     qubits[0].drive = channels["L3-22_qd"]
 
     instruments = {controller.name: controller}
+
     settings = load_settings(runcard)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="3D")

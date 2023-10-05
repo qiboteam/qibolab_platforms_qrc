@@ -56,7 +56,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
 
     # assign channels to qubits
     qubits["D1"].readout = channels["L3-30"]
@@ -79,6 +79,7 @@ def create(runcard_path=RUNCARD):
         readout_lo.name: readout_lo,
         twpa_lo.name: twpa_lo,
     }
+
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")

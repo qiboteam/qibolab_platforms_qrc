@@ -138,7 +138,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits and sweetspots(operating points)
     for q in range(0, 1):
         qubits[q].feedback = channels["L3-31"]
