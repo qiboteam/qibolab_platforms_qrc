@@ -33,7 +33,7 @@ jobs:
       matrix:
         platform: ${{ fromJSON(needs.prepare.outputs.matrix) }}
         version: ["main"]
-        fail-fast: false
+      fail-fast: false
     runs-on: self-hosted
     steps:
     - name: Cleanup workspace manually
