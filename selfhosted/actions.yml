@@ -1,0 +1,13 @@
+platform: MYPLATFORM
+
+qubits: [0]
+
+format: csv
+
+actions:
+
+  - id: single shot
+    priority: 0
+    operation: single_shot_classification
+    parameters:
+      nshots: 2000

@@ -1,0 +1,63 @@
+# CI workflow that runs on self hosted cluster
+name: Self-hosted rules
+on: push
+jobs:
+  tests:
+    strategy:
+      matrix:
+        platform: ["dummy"]
+        version: ["main"]
+      fail-fast: false
+    runs-on: self-hosted
+    steps:
+    - name: Cleanup workspace manually
+      run: |
+        rm -rf _work/*
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+    - name: Install and configure poetry
+      uses: snok/install-poetry@v1
+      with:
+        virtualenvs-create: false
+    - name: Install qibo stable
+      if: ${{ matrix.version == 'stable' }}
+      run: |
+        python -m venv testenv
+        source testenv/bin/activate
+        python -m pip install qibolab qibocal
+    - name: Install qibo main
+      if: ${{ matrix.version == 'main' }}
+      run: |
+        python -m venv testenv
+        source testenv/bin/activate
+        git clone https://github.com/qiboteam/qibolab
+        git clone https://github.com/qiboteam/qibocal
+        cd qibolab
+        poetry install --no-interaction --all-extras
+        cd ../qibocal
+        poetry install --no-interaction
+        cd ..
+    - name: Execute on ${{ matrix.platform }} queue
+      run: |
+        source testenv/bin/activate
+        partition="$(python selfhosted/queues.py ${{ matrix.platform }})"
+        # TODO: Fix this when the queues are properly setup
+        # srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
+        python selfhosted/calibration.py ${{ matrix.platform }}
+    - name: Load dumped report
+      id: report
+      run: |
+        content=`cat fidelities.txt`
+        echo "::set-output name=report::$content"
+    - name: Notify the pull Request
+      uses: thollander/actions-comment-pull-request@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        message: |
+          Run on QPU `${{ matrix.platform }}` completed! :atom:
+
+          ${{ steps.report.outputs.report }}
