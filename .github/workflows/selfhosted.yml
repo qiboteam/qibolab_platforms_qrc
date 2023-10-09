@@ -74,9 +74,7 @@ jobs:
       run: |
         source testenv/bin/activate
         partition="$(python selfhosted/queues.py ${{ matrix.platform }})"
-        # TODO: Fix this when the queues are properly setup
-        # srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
-        python selfhosted/calibration.py ${{ matrix.platform }}
+        srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
     - name: Notify the Pull Request
       uses: thollander/actions-comment-pull-request@v2
       env:
