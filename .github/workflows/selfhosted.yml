@@ -10,10 +10,12 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix
+      - name: Read platforms from labels
+        id: set-matrix
         env:
           LABELS: ${{ inputs.used-labels }}
         run: |
+          echo $LABELS
           platforms="["
           combined=""
           shopt -s lastpipe
