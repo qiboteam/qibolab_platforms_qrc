@@ -12,11 +12,11 @@ FOLDER = "single_shot"
 MESSAGE_FILE = "message.txt"
 
 
-def generate_message(fidelities):
+def generate_message(name, fidelities):
     """Generates message that is added to GitHub comments."""
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
-        file.write("Run on QPU `${{ matrix.platform }}` completed! :atom:\n\n")
+        file.write(f"Run on platform `{name}` completed! :atom:\n\n")
         file.write("Readout assignment fidelities:\n")
         for qubit, fidelity in fidelities.items():
             file.write(f"{qubit}: {fidelity}\n")
@@ -39,7 +39,7 @@ def main(name):
     with open(results_path) as file:
         results = json.load(file)
 
-    generate_message(results['"assignment_fidelity"'])
+    generate_message(name, results['"assignment_fidelity"'])
 
 
 if __name__ == "__main__":
