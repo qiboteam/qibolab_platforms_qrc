@@ -70,24 +70,16 @@ jobs:
         cd ../qibocal
         poetry install --no-interaction
         cd ..
-    - name: Execute on ${{ matrix.platform }} queue
+    - name: Execute on ${{ matrix.platform }}
       run: |
         source testenv/bin/activate
         partition="$(python selfhosted/queues.py ${{ matrix.platform }})"
         # TODO: Fix this when the queues are properly setup
         # srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
         python selfhosted/calibration.py ${{ matrix.platform }}
-    - name: Load dumped report
-      id: report
-      run: |
-        content=`cat fidelities.txt`
-        echo "::set-output name=report::$content"
-    - name: Notify the pull Request
+    - name: Notify the Pull Request
       uses: thollander/actions-comment-pull-request@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        message: |
-          Run on QPU `${{ matrix.platform }}` completed! :atom:
-
-          ${{ steps.report.outputs.report }}
+        filePath: message.txt

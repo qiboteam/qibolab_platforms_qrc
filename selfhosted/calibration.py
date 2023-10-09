@@ -9,6 +9,17 @@ from qibolab import create_platform
 
 RUNCARD = pathlib.Path(__file__).parent / "actions.yml"
 FOLDER = "single_shot"
+MESSAGE_FILE = "message.txt"
+
+
+def generate_message(fidelities):
+    """Generates message that is added to GitHub comments."""
+    path = pathlib.Path.cwd() / MESSAGE_FILE
+    with open(path, "w") as file:
+        file.write("Run on QPU `${{ matrix.platform }}` completed! :atom:\n\n")
+        file.write("Readout assignment fidelities:\n")
+        for qubit, fidelity in fidelities.items():
+            file.write(f"{qubit}: {fidelity}\n")
 
 
 @click.command()
@@ -28,9 +39,7 @@ def main(name):
     with open(results_path) as file:
         results = json.load(file)
 
-    with open(pathlib.Path.cwd() / "fidelities.txt", "w") as file:
-        for qubit, fidelity in results['"assignment_fidelity"'].items():
-            file.write(f"{qubit}: {fidelity}\n")
+    generate_message(results['"assignment_fidelity"'])
 
 
 if __name__ == "__main__":
