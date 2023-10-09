@@ -1,11 +1,38 @@
 # CI workflow that runs on self hosted cluster
 name: Self-hosted rules
-on: push
+on:
+  pull_request:
+    types: [labeled]
+
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        env:
+          LABELS: ${{ inputs.used-labels }}
+        run: |
+          platforms="["
+          combined=""
+          shopt -s lastpipe
+          jq -c '.[]' <<< "$LABELS" | while read label; do
+              platform=(${label//-/ })
+              if [ ${platform[0]} == "\"run" ] && [ ${platform[1]} == "on" ]; then
+                platforms="${platforms}${combined:+,}\"${platform[2]}"
+                combined=${platforms}
+              fi
+          done
+          platforms+="]"
+          echo ${platforms}
+          echo matrix="${platforms}" >> $GITHUB_OUTPUT
   tests:
+    needs: prepare
     strategy:
+      strategy:
       matrix:
-        platform: ["dummy"]
+        platform: ${{ fromJSON(needs.prepare.outputs.matrix) }}
         version: ["main"]
       fail-fast: false
     runs-on: self-hosted
