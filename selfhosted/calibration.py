@@ -29,7 +29,7 @@ def main(name):
 
     platform = create_platform(name)
     card["platform"] = name
-    card["qubits"] = qubits = list(platform.qubits)
+    card["qubits"] = list(platform.qubits)
 
     acquisition(card, FOLDER, force=True)
     folder_path = pathlib.Path.cwd() / FOLDER
