@@ -78,13 +78,13 @@ instruments_settings = {
                 channel="L3-15",
                 attenuation=20,
                 lo_frequency=5_052_833_073,
-                gain=0.570,
+                gain=0.470,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L3-11",
                 attenuation=20,
-                lo_frequency=5_995_371_914,
-                gain=0.655,
+                lo_frequency=5_052_833_073,
+                gain=0.570,
             ),
         }
     ),
@@ -93,13 +93,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-12",
                 attenuation=20,
-                lo_frequency=6_961_018_001,
+                lo_frequency=5_995_371_914,
                 gain=0.550,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L3-13",
                 attenuation=20,
-                lo_frequency=6_786_543_060,
+                lo_frequency=6_961_018_001,
                 gain=0.596,
             ),
         }
@@ -109,7 +109,7 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-14",
                 attenuation=20,
-                lo_frequency=5_250_304_836,
+                lo_frequency=6_786_543_060,
                 gain=0.470,
             )
         }
@@ -119,22 +119,22 @@ instruments_settings = {
             "o1": ClusterBB_OutputPort_Settings(
                 channel="L4-5",
                 gain=0.5,
-                qubit=1,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
+                qubit=0,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
             ),
             "o2": ClusterBB_OutputPort_Settings(
                 channel="L4-1",
                 gain=0.5,
-                qubit=2,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
+                qubit=1,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
             ),
             "o3": ClusterBB_OutputPort_Settings(
                 channel="L4-2",
                 gain=0.5,
-                qubit=3,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
+                qubit=2,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
             ),
             "o4": ClusterBB_OutputPort_Settings(
                 channel="L4-3",
                 gain=0.5,
-                qubit=4,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
+                qubit=3,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
             ),
         }
     ),
@@ -143,7 +143,7 @@ instruments_settings = {
             "o1": ClusterBB_OutputPort_Settings(
                 channel="L4-4",
                 gain=0.5,
-                qubit=0,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
+                qubit=4,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
             )
         }
     ),
@@ -203,7 +203,7 @@ def create(runcard_path=RUNCARD):
     #     modules[name]._debug_folder = folder
 
     controller = QbloxController("qblox_controller", cluster, modules)
-    twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.37")
+    twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.36")
 
     # Create channel objects
     channels = {}
@@ -230,8 +230,8 @@ def create(runcard_path=RUNCARD):
     channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o1"])
 
     # TWPA
-    channels["L4-26"] = Channel(name="L4-4", port=None)
-    channels["L4-26"].local_oscillator = twpa_pump
+    channels["L3-28"] = Channel(name="L3-28", port=None)
+    channels["L3-28"].local_oscillator = twpa_pump
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
@@ -242,11 +242,11 @@ def create(runcard_path=RUNCARD):
     for q in [0, 1]:
         qubits[q].readout = channels["L3-25_a"]
         qubits[q].feedback = channels["L2-5_a"]
-        qubits[q].twpa = channels["L4-26"]
+        qubits[q].twpa = channels["L3-28"]
     for q in [2, 3, 4]:
         qubits[q].readout = channels["L3-25_b"]
         qubits[q].feedback = channels["L2-5_b"]
-        qubits[q].twpa = channels["L4-26"]
+        qubits[q].twpa = channels["L3-28"]
 
     qubits[0].drive = channels["L3-15"]
     qubits[0].flux = channels["L4-5"]
