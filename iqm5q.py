@@ -109,7 +109,6 @@ def create(runcard_path=RUNCARD):
         for i in range(11, 14)
     )
     channels |= Channel("L4-14", port=controller[("device_hdawg2", f"SIGOUTS/0")])
-
     # TWPA pump(EraSynth)
     channels |= Channel("L3-32")
 
@@ -173,6 +172,7 @@ def create(runcard_path=RUNCARD):
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
+        qubits[q].twpa = channels[f"L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
 
     # assign channels to couplers and sweetspots(operating points)
@@ -180,7 +180,6 @@ def create(runcard_path=RUNCARD):
         coupler.flux = channels[f"L4-{11 + c}"]
         # Is this needed ?
         # channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
