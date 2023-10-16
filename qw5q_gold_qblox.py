@@ -42,11 +42,11 @@ RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
 instruments_settings = {
     "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-    "qrm_rf_a": ClusterQRM_RF_Settings(  # q0,q1,q5
+    "qrm_rf_a": ClusterQRM_RF_Settings(  # q0,q1,q5, 1-2-4?
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_a",
-                attenuation=36,  # 38
+                attenuation=40,  # 38
                 lo_frequency=7_255_000_000,
                 gain=0.6,
             ),
@@ -61,7 +61,7 @@ instruments_settings = {
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_b",
-                attenuation=32,
+                attenuation=40,  # 32
                 lo_frequency=7_850_000_000,
                 gain=0.6,
             ),
