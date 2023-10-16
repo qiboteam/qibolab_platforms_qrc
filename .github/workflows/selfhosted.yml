@@ -24,7 +24,7 @@ jobs:
           jq -c '.[]' <<< "$LABELS" | while read label; do
               platform=(${label//-/ })
               if [ ${platform[0]} == "\"run" ] && [ ${platform[1]} == "on" ]; then
-                platforms="${platforms}${combined:+,}\"${platform[2]}"
+                platforms+="${combined:+,}\"${platform[2]}"
                 combined=${platforms}
               fi
           done
