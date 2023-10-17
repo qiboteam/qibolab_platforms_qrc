@@ -39,8 +39,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.2
-                frequency: 5_227_049_975
+                amplitude: 0.1
+                frequency: 5_228_049_975
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -94,7 +94,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.6 #0.4 #0.3
-                frequency: 5_782_700_000 #5_783_500_000 #5_806_000_000
+                frequency: 5_810_700_000 #5_782_700_000 #5_783_500_000 #5_806_000_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -169,7 +169,7 @@ characterization:
     single_qubit:
         0:
             bare_resonator_frequency: 5_223_231_026
-            readout_frequency: 5_227_049_975
+            readout_frequency: 5_228_049_975
             drive_frequency: 4_096_695_991
             anharmonicity: 217_492_000
             Ec: 0
@@ -251,7 +251,7 @@ characterization:
                 qubit_fit: {}
         3:
             bare_resonator_frequency: 5_848_800_000
-            readout_frequency: 5_783_400_000 #5_806_000_000
+            readout_frequency: 5_810_700_000 #5_783_400_000 #5_806_000_000
             drive_frequency: 4_130_512_577
             anharmonicity: 214_000_000
             Ec: 0

@@ -15,7 +15,7 @@ from qibolab.serialize import (
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.32"
+TWPA_ADDRESS = "192.168.0.35"
 
 
 def create(runcard_path=RUNCARD):
@@ -137,7 +137,7 @@ def create(runcard_path=RUNCARD):
         channels[f"L4-{i}"].power_range = 0.8
     # flux couplers
     for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 1
 
     # Instantiate local oscillators
     local_oscillators = [
