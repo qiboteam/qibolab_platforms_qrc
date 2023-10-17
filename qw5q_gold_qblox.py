@@ -46,7 +46,7 @@ instruments_settings = {
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_a",
-                attenuation=40,  # 38
+                attenuation=42,  # 38
                 lo_frequency=7_255_000_000,
                 gain=0.6,
             ),
@@ -61,7 +61,7 @@ instruments_settings = {
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_b",
-                attenuation=40,  # 32
+                attenuation=38,  # 32
                 lo_frequency=7_850_000_000,
                 gain=0.6,
             ),
