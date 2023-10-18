@@ -35,7 +35,7 @@ ADDRESS = "192.168.0.6"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "spinq10q.yml"
 
-READOUT_ATTENUATION_FL1 = 32
+READOUT_ATTENUATION_FL1 = 30
 READOUT_ATTENUATION_FL2 = 30
 READOUT_GAIN = 0.5
 DRIVE_ATTENUATION = 20
@@ -216,8 +216,8 @@ instruments_settings = {
             ),
         }
     ),
-    "twpa_pump0": {"frequency": 6_995_000_000, "power": -6},
-    "twpa_pump1": {"frequency": 6_600_000_000, "power": 10},
+    "twpa_pump0": {"frequency": 6_810_000_000, "power": -1.95},
+    "twpa_pump1": {"frequency": 6_380_000_000, "power": 9.15},
 }
 
 
@@ -288,7 +288,7 @@ def create(runcard_path=RUNCARD):
     twpa_pump0.frequency = instruments_settings["twpa_pump0"]["frequency"]
     twpa_pump0.power = instruments_settings["twpa_pump0"]["power"]
 
-    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.31")
+    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")  # via readout line
     twpa_pump1.frequency = instruments_settings["twpa_pump1"]["frequency"]
     twpa_pump1.power = instruments_settings["twpa_pump1"]["power"]
 
