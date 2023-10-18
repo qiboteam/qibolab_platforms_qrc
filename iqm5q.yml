@@ -39,8 +39,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.2
-                frequency: 5_227_720_060
+                amplitude: 0.016
+                frequency: 5_227_920_060
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -57,8 +57,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.1
-                frequency: 4_932_200_000
+                amplitude: 0.14 #0.2 #0.1
+                frequency: 4_931_607_198 #4_928_107_198 #4_931_900_000 #4_932_200_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -75,8 +75,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.4 #0.6
-                frequency: 6_084_241_159
+                amplitude: 0.4 #0.2 #0.6
+                frequency: 6_084_441_159 #6_084_241_159
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -93,8 +93,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.6 #0.4 #0.3
-                frequency: 5_782_700_000 #5_783_500_000 #5_806_000_000
+                amplitude: 0.14 #0.2 #0.4 #0.3
+                frequency: 5_783_400_000 #5_782_700_000 #5_783_500_000 #5_806_000_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -111,8 +111,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: .55
-                frequency: 5.5180e+9
+                amplitude: 0.1
+                frequency: 5_517_000_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -169,7 +169,7 @@ characterization:
     single_qubit:
         0:
             bare_resonator_frequency: 5_225_320_060
-            readout_frequency: 5_227_720_060
+            readout_frequency: 5_227_920_060
             drive_frequency: 4_095_140_800
             anharmonicity: 217_492_000
             Ec: 0
@@ -179,8 +179,8 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.783 #0.933
-            sweetspot: 0.17 #0.05 #0.17
+            assignment_fidelity: 0.884
+            sweetspot: 0.17
             peak_voltage: 0
             pi_pulse_amplitude: 0.634
             T1: 0.0
@@ -188,16 +188,16 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.6897049480531754, -0.5732936002436009]
-            mean_exc_states: [-1.3829736462904438, -1.4491380331073958]
+            mean_gnd_states: [-0.04298370815846622, -0.018833929050303715]
+            mean_exc_states: [-0.7936268586718775, -0.2453652076425133]
             # parameters for single shot classification
-            threshold: 1.7292773030424204
-            iq_angle:  2.240359364700677
+            threshold: 0.5076807085246258
+            iq_angle: 2.8485009603789724
             classifiers_hpars:
                 qubit_fit: {}
         1:
-            bare_resonator_frequency: 4_930_674_725
-            readout_frequency: 4_932_200_000
+            bare_resonator_frequency: 4_928_000_000 #4_930_674_725
+            readout_frequency: 4_928_107_198 #4_931_900_000 #4_932_200_000
             drive_frequency: 4_251_474_498
             anharmonicity: 0
             Ec: 0
