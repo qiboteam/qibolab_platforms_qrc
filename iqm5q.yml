@@ -49,16 +49,16 @@ native_gates:
         1: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.65
-                frequency: 4_251_474_498
+                amplitude: 0.936
+                frequency: 4_241_884_701
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.14 #0.2 #0.1
-                frequency: 4_931_607_198 #4_928_107_198 #4_931_900_000 #4_932_200_000
+                amplitude: 0.1 #0.2 #0.1
+                frequency: 4_932_107_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -75,8 +75,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.4 #0.2 #0.6
-                frequency: 6_084_441_159 #6_084_241_159
+                amplitude: 0.4
+                frequency: 6_084_441_159
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -93,8 +93,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.14 #0.2 #0.4 #0.3
-                frequency: 5_783_400_000 #5_782_700_000 #5_783_500_000 #5_806_000_000
+                amplitude: 0.14
+                frequency: 5_783_400_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -182,7 +182,7 @@ characterization:
             assignment_fidelity: 0.884
             sweetspot: 0.17
             peak_voltage: 0
-            pi_pulse_amplitude: 0.634
+            pi_pulse_amplitude: 0.627
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
@@ -196,9 +196,9 @@ characterization:
             classifiers_hpars:
                 qubit_fit: {}
         1:
-            bare_resonator_frequency: 4_928_000_000 #4_930_674_725
-            readout_frequency: 4_928_107_198 #4_931_900_000 #4_932_200_000
-            drive_frequency: 4_251_474_498
+            bare_resonator_frequency: 4_923_107_000
+            readout_frequency: 4_932_107_000
+            drive_frequency: 4_241_884_701
             anharmonicity: 0
             Ec: 0
             Ej: 0
@@ -207,20 +207,19 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.861
-            sweetspot: 0.02
+            assignment_fidelity: 0.865
+            sweetspot: 0.0
             peak_voltage: 0
-            pi_pulse_amplitude: 0.0
+            pi_pulse_amplitude: 0.936
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: 0.003-0.024j
-            mean_exc_states: 0.125-0.457j
-            # parameters for single shot classification
-            threshold: 0.245539
-            iq_angle:  1.295
+            mean_gnd_states: [-1.3547820407863915, -4.454463927006954]
+            mean_exc_states: [-4.834376431467056, -9.060401747510014]
+            threshold: 7.063757427706553
+            iq_angle: 2.2177816650978484
             classifiers_hpars:
                 qubit_fit: {}
         2:
