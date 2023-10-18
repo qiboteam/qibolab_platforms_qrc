@@ -23,16 +23,16 @@ instruments:
     lo_drive_2: # For SG5 and SG6 (Drive)
         frequency: 4_800_000_000
     TWPA:
-        frequency: 6_690_000_000
-        power: -5.6
+        frequency: 6_710_200_000
+        power: -5.7
 
 native_gates:
     single_qubit:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.634
-                frequency: 4_096_695_991
+                amplitude: 0.627
+                frequency: 4_095_140_800
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -40,7 +40,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.2
-                frequency: 5_227_049_975
+                frequency: 5_227_720_060
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -168,9 +168,9 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            bare_resonator_frequency: 5_223_231_026
-            readout_frequency: 5_227_049_975
-            drive_frequency: 4_096_695_991
+            bare_resonator_frequency: 5_225_320_060
+            readout_frequency: 5_227_720_060
+            drive_frequency: 4_095_140_800
             anharmonicity: 217_492_000
             Ec: 0
             Ej: 0
@@ -179,8 +179,8 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.933
-            sweetspot: 0.05
+            assignment_fidelity: 0.783 #0.933
+            sweetspot: 0.17 #0.05 #0.17
             peak_voltage: 0
             pi_pulse_amplitude: 0.634
             T1: 0.0
@@ -188,11 +188,11 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: -0.162-0.317j
-            mean_exc_states: 0.856+0.447jj
+            mean_gnd_states: [-0.6897049480531754, -0.5732936002436009]
+            mean_exc_states: [-1.3829736462904438, -1.4491380331073958]
             # parameters for single shot classification
-            threshold: 0.214726 #0.214726
-            iq_angle:  -0.644 #-0.644
+            threshold: 1.7292773030424204
+            iq_angle:  2.240359364700677
             classifiers_hpars:
                 qubit_fit: {}
         1:
