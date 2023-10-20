@@ -67,8 +67,8 @@ native_gates:
         2: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.555
-                frequency: 4_321_750_000
+                amplitude: 0.42
+                frequency: 4_539_550_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -225,7 +225,7 @@ characterization:
         2:
             bare_resonator_frequency: 6_163_447_000
             readout_frequency: 6_085_941_000
-            drive_frequency: 4_321_750_000
+            drive_frequency: 4_539_550_000
             anharmonicity: 211_604_296
             Ec: 0
             Ej: 0
