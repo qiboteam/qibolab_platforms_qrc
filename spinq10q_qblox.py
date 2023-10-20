@@ -35,8 +35,8 @@ ADDRESS = "192.168.0.6"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "spinq10q.yml"
 
-READOUT_ATTENUATION_FL1 = 30
-READOUT_ATTENUATION_FL2 = 30
+READOUT_ATTENUATION_FL1 = 34
+READOUT_ATTENUATION_FL2 = 34
 READOUT_GAIN = 0.5
 DRIVE_ATTENUATION = 20
 DRIVE_GAIN = 0.5
@@ -57,7 +57,7 @@ instruments_settings = {
             "i1": QbloxInputPort_Settings(
                 channel="L1-1",
                 acquisition_hold_off=TIME_OF_FLIGHT,
-                acquisition_duration=900,
+                acquisition_duration=1800,
             ),
         }
     ),
@@ -72,7 +72,7 @@ instruments_settings = {
             "i1": QbloxInputPort_Settings(
                 channel="L2-17",
                 acquisition_hold_off=TIME_OF_FLIGHT,
-                acquisition_duration=900,
+                acquisition_duration=1800,
             ),
         }
     ),
