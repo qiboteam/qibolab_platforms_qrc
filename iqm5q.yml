@@ -103,16 +103,16 @@ native_gates:
         4: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.5
-                frequency: 4_286_100_000
+                amplitude: 0.6
+                frequency: 4_353_464_450
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.06
-                frequency: 5_517_200_000
+                amplitude: 0.08
+                frequency: 5_516_000_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -273,9 +273,9 @@ characterization:
             classifiers_hpars:
                 qubit_fit: {}
         4:
-            bare_resonator_frequency: 5_500_000_000
-            readout_frequency: 5_517_200_000
-            drive_frequency: 4_286_100_000
+            bare_resonator_frequency: 5_504_700_000
+            readout_frequency: 5_516_000_000
+            drive_frequency: 4_353_464_450
             anharmonicity: 0
             Ec: 0
             Ej: 0
@@ -287,7 +287,7 @@ characterization:
             assignment_fidelity: 0.0
             T1: 0.0
             T2: 0.0
-            sweetspot: 0
+            sweetspot: -0.025
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
