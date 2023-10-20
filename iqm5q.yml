@@ -86,7 +86,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.98
-                frequency: 4_167_824_000
+                frequency: 4_168_624_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -94,7 +94,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.16
-                frequency: 5_783_600_000
+                frequency: 5_779_400_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -249,8 +249,8 @@ characterization:
                 qubit_fit: {}
         3:
             bare_resonator_frequency: 5_773_100_000
-            readout_frequency: 5_783_600_000
-            drive_frequency: 4_167_824_000
+            readout_frequency: 5_779_400_000
+            drive_frequency: 4_168_624_000
             anharmonicity: 214_000_000
             Ec: 0
             Ej: 0
@@ -259,17 +259,17 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.695
-            sweetspot: 0.08
+            assignment_fidelity: 0.726
+            sweetspot: 0.0
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.5471195472737429, 6.451718064781487]
-            mean_exc_states: [-1.2475304374217056, 10.131318372269442]
-            threshold: 4.536552683576538
-            iq_angle: -1.7588957871371624
+            mean_gnd_states: [0.23460796599699762, 2.245220295976068]
+            mean_exc_states: [-2.1944556540452216, -1.996842152529224]
+            threshold: -2.300243312058717
+            iq_angle: 2.0908354864428422
             classifiers_hpars:
                 qubit_fit: {}
         4:
