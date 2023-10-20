@@ -182,17 +182,16 @@ characterization:
             assignment_fidelity: 0.884
             sweetspot: 0.17
             peak_voltage: 0
-            pi_pulse_amplitude: 0.627
+            pi_pulse_amplitude: 0.924
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.04298370815846622, -0.018833929050303715]
-            mean_exc_states: [-0.7936268586718775, -0.2453652076425133]
-            # parameters for single shot classification
-            threshold: 0.5076807085246258
-            iq_angle: 2.8485009603789724
+            mean_gnd_states: [-0.0051689363924847615, 0.06828212233945871]
+            mean_exc_states: [-0.773457961897901, -0.44969928873718545]
+            threshold: 0.43144500370808087
+            iq_angle: 2.5483919327086055
             classifiers_hpars:
                 qubit_fit: {}
         1:
