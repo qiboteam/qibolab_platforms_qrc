@@ -94,7 +94,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.16
-                frequency: 5_779_400_000
+                frequency: 5_778_270_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -249,7 +249,7 @@ characterization:
                 qubit_fit: {}
         3:
             bare_resonator_frequency: 5_773_100_000
-            readout_frequency: 5_779_400_000
+            readout_frequency: 5_778_270_000
             drive_frequency: 4_168_624_000
             anharmonicity: 214_000_000
             Ec: 0
@@ -266,10 +266,10 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.23460796599699762, 2.245220295976068]
-            mean_exc_states: [-2.1944556540452216, -1.996842152529224]
-            threshold: -2.300243312058717
-            iq_angle: 2.0908354864428422
+            mean_gnd_states: [-1.5157013000200312, 3.600143370559288]
+            mean_exc_states: [-0.8186923372721429, -2.1199756256035918]
+            threshold: -3.295590970178259
+            iq_angle: 1.449541916726749
             classifiers_hpars:
                 qubit_fit: {}
         4:
