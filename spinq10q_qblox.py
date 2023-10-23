@@ -41,8 +41,8 @@ READOUT_GAIN = 0.5
 DRIVE_ATTENUATION = 20
 DRIVE_GAIN = 0.5
 FLUX_GAIN = 0.5
-LOW_FREQ_QUBIT_LO_FREQ = 4_650_000_000
-HIGH_FREQ_QUBIT_LO_FREQ = 5_300_000_000
+# LOW_FREQ_QUBIT_LO_FREQ = 4_700_000_000
+# HIGH_FREQ_QUBIT_LO_FREQ = 5_300_000_000
 
 instruments_settings = {
     "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
@@ -81,13 +81,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-1",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4910500000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-2",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5470900000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -97,13 +97,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-3",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4941000000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-4",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5458000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -113,13 +113,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-5",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4888000000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-6",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5509000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -129,13 +129,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-7",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4839000000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-8",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5485000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -145,13 +145,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-9",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4750000000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-10",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5244000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
