@@ -9,6 +9,14 @@ topology:
 - [D1, D2]
 - [D1, D3]
 
+instruments:
+    readout_lo:
+        frequency: 7_600_000_000
+        power: 10
+    TWPA:
+        frequency: 5_300_250_000
+        power: -5
+
 native_gates:
     single_qubit:
         D1:

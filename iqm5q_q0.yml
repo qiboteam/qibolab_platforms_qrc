@@ -10,6 +10,15 @@ qubits: [0]
 
 topology: []
 
+instruments:
+    lo_readout: # For SG0 (Readout)
+        frequency: 5_500_000_000
+    lo_drive_0: # For SG1 and SG2 (Drive)
+        frequency: 4_200_000_000
+    twpa_fixed:
+        frequency: 6_690_000_000
+        power: -5.6
+
 native_gates:
     single_qubit:
         0: # qubit number
@@ -34,7 +43,6 @@ characterization:
     single_qubit:
         0:
             readout_frequency: 5_230_200_000
-            resonator_polycoef_flux: []
             drive_frequency: 4_098_114_578
             T1: 0.0
             T2: 0.0

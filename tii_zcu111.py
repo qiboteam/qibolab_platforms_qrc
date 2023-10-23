@@ -4,7 +4,12 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.erasynth import ERA
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import (
+    load_instrument_settings,
+    load_qubits,
+    load_runcard,
+    load_settings,
+)
 
 NAME = "tii_zcu111"
 ADDRESS = "192.168.0.81"
@@ -41,16 +46,13 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L4-31_qd", port=controller[5])  # drive    dac5
     channels |= Channel("L1-24_fl", port=controller[2])  # flux     dac2
 
-    local_oscillator = ERA("ErasynthLO", LO_ADDRESS, ethernet=True)
-
     # Readout local oscillator
-    local_oscillator.frequency = 7_500_000_000
-    local_oscillator.power = 10
+    local_oscillator = ERA("ErasynthLO", LO_ADDRESS, ethernet=True)
     channels["L3-30_ro"].local_oscillator = local_oscillator
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits
     qubits[0].readout = channels["L3-30_ro"]
     qubits[0].feedback = channels["L2-4-RO_0"]
@@ -72,4 +74,5 @@ def create(runcard_path=RUNCARD):
 
     instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
     return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
