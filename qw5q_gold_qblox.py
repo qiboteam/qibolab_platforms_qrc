@@ -179,7 +179,7 @@ def create(runcard_path=RUNCARD):
 
     qcm_rf0 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.20:6", instruments_settings
-    )  # qubit q0
+    )  # qubit q0, q1
     qcm_rf1 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.20:8", instruments_settings
     )  # qubits q1, q2
