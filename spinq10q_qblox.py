@@ -28,7 +28,12 @@ from qibolab.instruments.qblox.port import (
 )
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import (
+    load_instrument_settings,
+    load_qubits,
+    load_runcard,
+    load_settings,
+)
 
 NAME = "qblox"
 ADDRESS = "192.168.0.6"
@@ -216,8 +221,6 @@ instruments_settings = {
             ),
         }
     ),
-    "twpa_pump0": {"frequency": 6_810_000_000, "power": -1.95},
-    "twpa_pump1": {"frequency": 6_380_000_000, "power": 9.15},
 }
 
 
@@ -243,10 +246,10 @@ def create(runcard_path=RUNCARD):
 
     qrm_rf0 = instantiate_module(
         modules, ClusterQRM_RF, "qrm_rf0", "192.168.0.6:18", instruments_settings
-    )  # qubits q1,q2,q3,q4,q5
+    )  # qubits q1, q2, q3, q4, q5
     qrm_rf1 = instantiate_module(
         modules, ClusterQRM_RF, "qrm_rf1", "192.168.0.6:20", instruments_settings
-    )  # qubits q6,q7,q8,q9,q10
+    )  # qubits q6, q7, q8, q9, q10
 
     qcm_rf0 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.6:8", instruments_settings
@@ -285,14 +288,7 @@ def create(runcard_path=RUNCARD):
     controller = QbloxController("qblox_controller", cluster, modules)
 
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
-    twpa_pump0.frequency = instruments_settings["twpa_pump0"]["frequency"]
-    twpa_pump0.power = instruments_settings["twpa_pump0"]["power"]
-
     twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")  # via readout line
-    twpa_pump1.frequency = instruments_settings["twpa_pump1"]["frequency"]
-    twpa_pump1.power = instruments_settings["twpa_pump1"]["power"]
-
-    instruments = [controller, twpa_pump0, twpa_pump1]
 
     # Create channel objects
     channels = {}
@@ -336,7 +332,7 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, pairs = load_qubits(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
     # remove witness qubit
     # del qubits[5]
     # assign channels to qubits
@@ -362,6 +358,8 @@ def create(runcard_path=RUNCARD):
         twpa_pump1.name: twpa_pump1,
     }
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
+
     return Platform(
         "spinq10q_qblox", qubits, pairs, instruments, settings, resonator_type="2D"
     )

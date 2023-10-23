@@ -1,6 +1,6 @@
 nqubits: 10
-qubits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 settings: {nshots: 1024, sampling_rate: 1000000000, relaxation_time: 20000}
+qubits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 topology:
 - [1, 2]
 - [2, 3]
@@ -15,6 +15,10 @@ topology:
 - [3, 8]
 - [4, 9]
 - [5, 10]
+instruments:
+    twpa_pump0: {power: -1.9, frequency: 6_810_000_000}
+    twpa_pump1: {power: 9.15, frequency: 6_380_000_000}
+
 native_gates:
     single_qubit:
         1:
@@ -130,7 +134,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.0185
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -141,7 +145,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -150,6 +154,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         2:
             bare_resonator_frequency: 7529000000
             readout_frequency: 7530059539
@@ -158,7 +163,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.0255
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -169,7 +174,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -178,6 +183,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         3:
             bare_resonator_frequency: 7561000000
             readout_frequency: 7563915687
@@ -186,7 +192,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.0455
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -197,7 +203,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -206,6 +212,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         4:
             bare_resonator_frequency: 7590000000
             readout_frequency: 7592130118
@@ -214,7 +221,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.055
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -225,7 +232,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -234,6 +241,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         5:
             bare_resonator_frequency: 7624000000
             readout_frequency: 7625433950
@@ -242,7 +250,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.060
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -253,7 +261,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -262,6 +270,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         6:
             bare_resonator_frequency: 7526000000
             readout_frequency: 7527815726
@@ -270,7 +279,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: 0.018
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -281,7 +290,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -290,6 +299,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         7:
             bare_resonator_frequency: 7558000000
             readout_frequency: 7559922508
@@ -298,7 +308,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.12
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -309,7 +319,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -318,6 +328,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         8:
             bare_resonator_frequency: 7594000000
             readout_frequency: 7595225666
@@ -326,7 +337,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: -0.201
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -337,7 +348,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -346,6 +357,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         9:
             bare_resonator_frequency: 7621000000
             readout_frequency: 7622705441
@@ -354,7 +366,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: 0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -365,7 +377,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -374,6 +386,7 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
         10:
             bare_resonator_frequency: 7655000000
             readout_frequency: 7656126500
@@ -382,7 +395,7 @@ characterization:
             Ec: 300_000_000
             Ej: 12_000_000_000
             g: 100_000_000
-            assigment_fidelity: 0
+            assignment_fidelity: 0
             sweetspot: 0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
@@ -393,7 +406,7 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [0, 0]
             mean_exc_states: [0, 0]
-            resonator_polycoef_flux: []
+            flux_to_bias: 0.0
             threshold: 0.0
             iq_angle: 0.0
             mixer_drive_g: 0.0
@@ -402,3 +415,4 @@ characterization:
             mixer_readout_phi: 0.0
             classifiers_hpars:
                 qubit_fit: {}
+            qutrit_classifiers_hpars: {}
