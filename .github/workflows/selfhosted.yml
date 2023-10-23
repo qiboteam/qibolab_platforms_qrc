@@ -55,10 +55,14 @@ jobs:
     - name: Install qibo stable
       if: ${{ matrix.version == 'stable' }}
       run: |
+        python -m venv testenv
+        source testenv/bin/activate
         python -m pip install qibolab qibocal
     - name: Install qibo main
       if: ${{ matrix.version == 'main' }}
       run: |
+        python -m venv testenv
+        source testenv/bin/activate
         git clone https://github.com/qiboteam/qibolab
         git clone https://github.com/qiboteam/qibocal
         cd qibolab
@@ -68,6 +72,7 @@ jobs:
         cd ..
     - name: Execute on ${{ matrix.platform }}
       run: |
+        source testenv/bin/activate
         partition="$(python selfhosted/queues.py ${{ matrix.platform }})"
         srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
     - name: Notify the Pull Request
