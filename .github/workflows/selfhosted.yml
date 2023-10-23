@@ -72,10 +72,10 @@ jobs:
         cd ..
     - name: Execute on ${{ matrix.platform }}
       run: |
-        export QIBOLAB_PLATFORMS=.
         queues=`cat queues.json`
         platform=${{ matrix.platform }}
         source testenv/bin/activate
+        export QIBOLAB_PLATFORMS=.
         partition="$(jq -r -n --argjson data "$queues" '$data.'$platform)"
         srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
     - name: Notify the Pull Request

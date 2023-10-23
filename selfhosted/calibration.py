@@ -28,11 +28,18 @@ def main(name):
     platform = create_platform(name)
     qubits = platform.qubits
 
+    platform.connect()
+    platform.setup()
+    platform.start()
+
     data, acquisition_time = routine.acquisition(
         params=params, platform=platform, qubits=qubits
     )
-    fit, fit_time = routine.fit(data)
 
+    platform.stop()
+    platform.disconnect()
+
+    fit, fit_time = routine.fit(data)
     generate_message(name, fit.assignment_fidelity, acquisition_time + fit_time)
 
 
