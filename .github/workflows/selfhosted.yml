@@ -65,10 +65,10 @@ jobs:
         source testenv/bin/activate
         git clone https://github.com/qiboteam/qibolab
         git clone https://github.com/qiboteam/qibocal
-        cd qibolab
-        poetry install --no-interaction --all-extras
         cd ../qibocal
         poetry install --no-interaction
+        cd qibolab
+        poetry install --no-interaction --all-extras
         cd ..
     - name: Execute on ${{ matrix.platform }}
       run: |
