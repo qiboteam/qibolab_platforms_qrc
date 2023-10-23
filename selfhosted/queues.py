@@ -1,17 +1,17 @@
+import argparse
+import json
 import pathlib
 
-import click
-import yaml
-
-CONFIG = pathlib.Path(__file__).parent / "queues.yml"
+parser = argparse.ArgumentParser()
+parser.add_argument("name", type=str, help="Name of the platform.")
 
 
-@click.command()
-@click.argument("name", type=str)
 def main(name):
-    data = yaml.safe_load(CONFIG.read_text())
+    with open(pathlib.Path(__file__).parent.parent / "queues.json") as file:
+        data = json.load(file)
     print(data[name])
 
 
 if __name__ == "__main__":
-    main()
+    args = parser.parse_args()
+    main(args.name)
