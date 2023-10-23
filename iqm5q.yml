@@ -23,8 +23,10 @@ instruments:
     lo_drive_2: # For SG5 and SG6 (Drive)
         frequency: 4_800_000_000
     TWPA:
-        frequency: 6_690_000_000
-        power: -5.6
+        frequency: 6_710_200_000
+        power: -5.7
+        # frequency: 6_690_000_000
+        # power: -5.6
 
 native_gates:
     single_qubit:
@@ -49,7 +51,7 @@ native_gates:
         1: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.65
+                amplitude: 0.455
                 frequency: 4_251_474_498
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -67,8 +69,8 @@ native_gates:
         2: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.46
-                frequency: 4_313_080_614
+                amplitude: 0.6
+                frequency: 4_252_000_000  # 4_395_580_614 #4_313_080_614
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -76,7 +78,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.4 #0.6
-                frequency: 6_084_241_159
+                frequency: 6_080_241_159 # 6_104_241_159 #6_084_241_159
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -142,27 +144,49 @@ native_gates:
               coupler: 0
               relative_start: 0
         1-2:
-            CZ:
-            - duration: 30
-              amplitude: 0.6025
+            iSWAP:
+            - duration: 74
+              amplitude: 0.0
               shape: Rectangular()
               qubit: 2
               relative_start: 0
               type: qf
 
             - type: virtual_z
-              phase: -1
+              phase: 0
               qubit: 1
             - type: virtual_z
-              phase: -3
+              phase: 0
               qubit: 2
 
             - type: coupler
-              duration: 40
-              amplitude: 0.1
+              duration: 74
+              amplitude: -0.42
               shape: Rectangular()
               coupler: 1
               relative_start: 0
+
+            # CZ:
+            # - duration: 52
+            #   amplitude: 0.0
+            #   shape: Rectangular()
+            #   qubit: 2
+            #   relative_start: 0
+            #   type: qf
+
+            # - type: virtual_z
+            #   phase: 0
+            #   qubit: 1
+            # - type: virtual_z
+            #   phase: 0
+            #   qubit: 2
+
+            # - type: coupler
+            #   duration: 52
+            #   amplitude: -0.47
+            #   shape: Rectangular()
+            #   coupler: 1
+            #   relative_start: 0
 
 
 characterization:
@@ -225,8 +249,8 @@ characterization:
                 qubit_fit: {}
         2:
             bare_resonator_frequency: 6_163_447_000
-            readout_frequency: 6_084_241_159
-            drive_frequency: 4_313_080_614
+            readout_frequency: 6_080_241_159 #6_104_241_159 #6_084_241_159
+            drive_frequency: 4_252_000_000  #4_395_580_614 #4_344_580_614 #4_313_080_614
             anharmonicity: 211_604_296
             Ec: 0
             Ej: 0
@@ -236,7 +260,7 @@ characterization:
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
             assignment_fidelity: 0.795
-            sweetspot: 0.0 #q2 does not need flux
+            sweetspot: .7
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
@@ -305,7 +329,7 @@ characterization:
         0:
             sweetspot: 0.0
         1:
-            sweetspot: 0.0
+            sweetspot: 0.0 #-0.2
         3:
             sweetspot: 0.0
         4:

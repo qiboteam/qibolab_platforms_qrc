@@ -126,7 +126,7 @@ def create(runcard_path=RUNCARD):
     # drive
     for i in range(5, 10):
         channels[f"L4-1{i}"].power_range = -10
-    channels[f"L4-19"].power_range = -10
+    channels[f"L4-16"].power_range = 0
 
     # HDAWGS
     # Sets the output voltage range.
@@ -134,10 +134,10 @@ def create(runcard_path=RUNCARD):
 
     # flux
     for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 1.5
     # flux couplers
     for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 1.5
 
     # Instantiate local oscillators
     local_oscillators = [
