@@ -1,46 +1,41 @@
-import json
+import argparse
 import pathlib
 
-import click
-import yaml
-from qibocal.cli.acquisition import acquire as acquisition
-from qibocal.cli.fit import fit
+from qibocal.protocols.characterization import Operation
 from qibolab import create_platform
 
-RUNCARD = pathlib.Path(__file__).parent / "actions.yml"
-FOLDER = "single_shot"
 MESSAGE_FILE = "message.txt"
 
+parser = argparse.ArgumentParser()
+parser.add_argument("name", type=str, help="Name of the platform.")
 
-def generate_message(name, fidelities):
+
+def generate_message(name, fidelities, time):
     """Generates message that is added to GitHub comments."""
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
-        file.write(f"Run on platform `{name}` completed! :atom:\n\n")
-        file.write("Readout assignment fidelities:\n")
+        file.write(f"Run on platform `%s` completed in %.2fsec! :atom:" % (name, time))
+        file.write("\n\nReadout assignment fidelities:\n")
         for qubit, fidelity in fidelities.items():
             file.write(f"{qubit}: {fidelity}\n")
 
 
-@click.command()
-@click.argument("name", type=str)
 def main(name):
-    card = yaml.safe_load(RUNCARD.read_text())
+    """Execute single shot classification routine on the given platform."""
+    routine = Operation.single_shot_classification.value
+    params = routine.parameters_type(nshots=5000)
 
     platform = create_platform(name)
-    card["platform"] = name
-    card["qubits"] = list(platform.qubits)
+    qubits = platform.qubits
 
-    acquisition(card, FOLDER, force=True)
-    folder_path = pathlib.Path.cwd() / FOLDER
-    fit(folder_path, update=True)
+    data, acquisition_time = routine.acquisition(
+        params=params, platform=platform, qubits=qubits
+    )
+    fit, fit_time = routine.fit(data)
 
-    results_path = folder_path / "data" / "single shot_0" / "results.json"
-    with open(results_path) as file:
-        results = json.load(file)
-
-    generate_message(name, results['"assignment_fidelity"'])
+    generate_message(name, fit.assignment_fidelity, acquisition_time + fit_time)
 
 
 if __name__ == "__main__":
-    main()
+    args = parser.parse_args()
+    main(args.name)
