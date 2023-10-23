@@ -23,7 +23,7 @@ def generate_message(name, fidelities, time):
 def main(name):
     """Execute single shot classification routine on the given platform."""
     routine = Operation.single_shot_classification.value
-    params = routine.parameters_type(nshots=5000)
+    params = routine.parameters_type.load(dict(nshots=5000))
 
     platform = create_platform(name)
     qubits = platform.qubits
