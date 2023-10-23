@@ -72,8 +72,10 @@ jobs:
         cd ..
     - name: Execute on ${{ matrix.platform }}
       run: |
+        queues=`cat queues.json`
+        platform=${{ matrix.platform }}
         source testenv/bin/activate
-        partition="$(python selfhosted/queues.py ${{ matrix.platform }})"
+        partition="$(jq -r -n --argjson data "$queues" '$data.'$platform)"
         srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
     - name: Notify the Pull Request
       uses: thollander/actions-comment-pull-request@v2
