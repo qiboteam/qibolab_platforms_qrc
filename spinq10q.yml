@@ -23,27 +23,27 @@ native_gates:
         1:
             RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4810500000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7494904994,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7494897173,
                 relative_start: 0, phase: 0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5367400000,
+            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5367900000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7530068427,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7530056935,
                 relative_start: 0, phase: 0, type: ro}
         3:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4841000000,
+            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4843000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7563880947,
+            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7563846494,
                 relative_start: 0, phase: 0, type: ro}
         4:
             RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5355000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7592155940,
+            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7592145820,
                 relative_start: 0, phase: 0, type: ro}
         5:
             RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4789000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7625442179,
+            MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7625460440,
                 relative_start: 0, phase: 0, type: ro}
         6:
             RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5409000000,
@@ -61,7 +61,7 @@ native_gates:
             MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7595456408,
                 relative_start: 0, phase: 0, type: ro}
         9:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4650000000,
+            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4596000000,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7622843712,
                 relative_start: 0, phase: 0, type: ro}
@@ -127,10 +127,10 @@ characterization:
     single_qubit:
         1:
             bare_resonator_frequency: 7493000000
-            readout_frequency: 7494904994
+            readout_frequency: 7494897173
             drive_frequency: 4810500000
             anharmonicity: 300000000
-            sweetspot: -0.0145
+            sweetspot: -0.018
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -160,10 +160,10 @@ characterization:
             qutrit_classifiers_hpars: {}
         2:
             bare_resonator_frequency: 7529000000
-            readout_frequency: 7530068427
-            drive_frequency: 5367400000
+            readout_frequency: 7530056935
+            drive_frequency: 5367900000
             anharmonicity: 300000000
-            sweetspot: -0.021
+            sweetspot: -0.018
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -193,10 +193,10 @@ characterization:
             qutrit_classifiers_hpars: {}
         3:
             bare_resonator_frequency: 7561000000
-            readout_frequency: 7563880947
-            drive_frequency: 4841000000
+            readout_frequency: 7563846494
+            drive_frequency: 4843000000
             anharmonicity: 300000000
-            sweetspot: -0.02
+            sweetspot: -0.026
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -226,10 +226,10 @@ characterization:
             qutrit_classifiers_hpars: {}
         4:
             bare_resonator_frequency: 7590000000
-            readout_frequency: 7592155940
+            readout_frequency: 7592145820
             drive_frequency: 5355000000
             anharmonicity: 300000000
-            sweetspot: -0.035
+            sweetspot: -0.037
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -259,7 +259,7 @@ characterization:
             qutrit_classifiers_hpars: {}
         5:
             bare_resonator_frequency: 7624000000
-            readout_frequency: 7625442179
+            readout_frequency: 7625460440
             drive_frequency: 4789000000
             anharmonicity: 300000000
             sweetspot: -0.05
@@ -295,7 +295,7 @@ characterization:
             readout_frequency: 7527810003
             drive_frequency: 5409000000
             anharmonicity: 300000000
-            sweetspot: 0.015
+            sweetspot: -0.008
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -392,7 +392,7 @@ characterization:
         9:
             bare_resonator_frequency: 7621000000
             readout_frequency: 7622843712
-            drive_frequency: 4650000000
+            drive_frequency: 4596000000
             anharmonicity: 300000000
             sweetspot: 0
             flux_to_bias: 0.0
