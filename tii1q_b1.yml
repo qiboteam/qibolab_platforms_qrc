@@ -1,29 +1,48 @@
 nqubits: 1
+settings: {nshots: 1024, sampling_rate: 9_830_400_000, relaxation_time: 70_000}
 qubits: [0]
 topology: []
-settings: {nshots: 1024, relaxation_time: 70000, sampling_rate: 9830400000}
+instruments:
+    twpa_pump: {power: 2.5, frequency: 6_435_500_000}
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.4991361195928207, frequency: 5509378347,
-                shape: Gaussian(3), type: qd, start: 0, phase: 0}
-            MZ: {duration: 1000, amplitude: 0.02, frequency: 7369805303, shape: Rectangular(),
-                type: ro, start: 0, phase: 0}
-    two_qubits: {}
+            RX: {duration: 40, amplitude: 0.4991361195928207, shape: Gaussian(3),
+                frequency: 5480500000, relative_start: 0, phase: 0, type: qd}
+            MZ: {duration: 1000, amplitude: 0.02, shape: Rectangular(), frequency: 7371646513,
+                relative_start: 0, phase: 0, type: ro}
+    two_qubit: {}
 characterization:
     single_qubit:
         0:
-            readout_frequency: 7369805303
-            drive_frequency: 5509378347
+            bare_resonator_frequency: 0
+            readout_frequency: 7371646513
+            drive_frequency: 5480500000
             anharmonicity: 0
+            sweetspot: 0.0
+            flux_to_bias: 0.0
+            asymmetry: 0.0
+            bare_resonator_frequency_sweetspot: 0.0
+            ssf_brf: 0.0
             Ec: 0
             Ej: 0
             g: 0
+            assignment_fidelity: 0.0
+            readout_fidelity: 0.0
+            peak_voltage: 0
             pi_pulse_amplitude: 0.4991361195928207
             T1: 19905.294436569755
-            T2_spin_echo: 11255.259744766483
             T2: 4654.863660508437
-            threshold: 0.594148378361051
-            iq_angle: -3.012709931343581
+            T2_spin_echo: 11255.259744766483
+            state0_voltage: 0
+            state1_voltage: 0
             mean_gnd_states: [0.1758355048859935, 0.248585667752443]
             mean_exc_states: [-1.2420530944625408, 0.43234560260586313]
+            threshold: 0.594148378361051
+            iq_angle: -3.012709931343581
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
+            classifiers_hpars: {}
+            qutrit_classifiers_hpars: {}
