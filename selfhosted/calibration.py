@@ -85,8 +85,8 @@ def main(name):
 
     fits = []
     fit_time = 0
-    for routine in routines:
-        fit, time = routine.fit(data)
+    for routine, d in zip(routines, data):
+        fit, time = routine.fit(d)
         fits.append(fit)
         fit_time += time
 
