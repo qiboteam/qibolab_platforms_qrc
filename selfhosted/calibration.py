@@ -40,8 +40,20 @@ def main(name):
 
     parameters = [
         routines[0].parameters_type.load(dict(nshots=5000)),
-        routines[1].parameters_type.load(dict()),
-        routines[2].parameters_type.load(dict()),
+        routines[1].parameters_type.load(
+            dict(
+                delay_before_readout_start=50,
+                delay_before_readout_end=250000,
+                delay_before_readout_step=1000,
+            )
+        ),
+        routines[2].parameters_type.load(
+            dict(
+                delay_between_pulses_start=50,
+                delay_between_pulses_end=100000,
+                delay_between_pulses_step=1000,
+            )
+        ),
         routines[3].parameters_type.load(
             dict(
                 depths=[10, 50, 100, 150, 200, 250, 300],
