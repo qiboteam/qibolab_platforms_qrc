@@ -193,8 +193,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.214726 #0.214726
             iq_angle:  -0.644 #-0.644
-            classifiers_hpars:
-                qubit_fit: {}
         1:
             bare_resonator_frequency: 4_930_674_725
             readout_frequency: 4_932_200_000
@@ -221,8 +219,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.245539
             iq_angle:  1.295
-            classifiers_hpars:
-                qubit_fit: {}
         2:
             bare_resonator_frequency: 6_163_447_000
             readout_frequency: 6_084_241_159
@@ -247,8 +243,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.174433
             iq_angle: -0.635
-            classifiers_hpars:
-                qubit_fit: {}
         3:
             bare_resonator_frequency: 5_848_800_000
             readout_frequency: 5_783_400_000 #5_806_000_000
@@ -273,8 +267,6 @@ characterization:
             # parameters for single shot classification
             threshold: 0.1074
             iq_angle: -2.904
-            classifiers_hpars:
-                qubit_fit: {}
         4:
             bare_resonator_frequency: 0
             readout_frequency: 5.5180e+9 #5.5240e+9
@@ -299,8 +291,7 @@ characterization:
             # parameters for single shot classification
             threshold: 0.233806
             iq_angle: 0.481
-            classifiers_hpars:
-                qubit_fit: {}
+           
     coupler:
         0:
             sweetspot: 0.0
