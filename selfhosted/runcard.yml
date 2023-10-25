@@ -1,0 +1,44 @@
+platform: iqm5q
+
+qubits: [0,1,2,3,4]
+
+format: csv
+
+actions:
+
+  - id: t1
+    priority: 00
+    operation: t1
+    main: t2
+    parameters:
+      delay_before_readout_start: 50
+      delay_before_readout_end: 100000
+      delay_before_readout_step: 2500
+      nshots : 1024
+
+  - id: t2
+    priority: 10
+    operation: t2
+    main: single shot classification
+    parameters:
+      delay_before_readout_start: 50
+      delay_before_readout_end: 100000
+      delay_before_readout_step: 2500
+      nshots : 1024
+
+  - id: single shot classification
+    priority: 30
+    main: standard rb bootstrap
+    operation: single_shot_classification
+    parameters:
+      nshots: 5000
+
+  - id: standard rb bootstrap
+    priority: 40
+    operation: standard_rb
+    qubits: [0]
+    parameters:
+      depths: [10, 50, 100, 150, 200, 250, 300]
+      niter: 10
+      nshots: 128
+      n_bootstrap: 10

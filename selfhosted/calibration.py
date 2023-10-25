@@ -43,15 +43,17 @@ def main(name):
         routines[1].parameters_type.load(
             dict(
                 delay_before_readout_start=50,
-                delay_before_readout_end=250000,
-                delay_before_readout_step=1000,
+                delay_before_readout_end=100000,
+                delay_before_readout_step=2500,
+                nshots=1024,
             )
         ),
         routines[2].parameters_type.load(
             dict(
                 delay_between_pulses_start=50,
                 delay_between_pulses_end=100000,
-                delay_between_pulses_step=1000,
+                delay_between_pulses_step=2500,
+                nshots=1024,
             )
         ),
         routines[3].parameters_type.load(
