@@ -32,8 +32,8 @@ def main(name):
     """Execute single shot classification routine on the given platform."""
     routines = [
         Operation.single_shot_classification.value,
-        Operation.t1.value,
-        Operation.t2.value,
+        Operation.t1_msr.value,
+        Operation.t2_msr.value,
         Operation.standard_rb.value,
     ]
 
