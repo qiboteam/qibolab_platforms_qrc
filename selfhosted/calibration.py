@@ -40,8 +40,8 @@ def main(name):
 
     parameters = [
         routines[0].parameters_type.load(dict(nshots=5000)),
-        routines[1].parameters_type.load(),
-        routines[2].parameters_type.load(),
+        routines[1].parameters_type.load(dict()),
+        routines[2].parameters_type.load(dict()),
         routines[3].parameters_type.load(
             dict(
                 depths=[10, 50, 100, 150, 200, 250, 300],
