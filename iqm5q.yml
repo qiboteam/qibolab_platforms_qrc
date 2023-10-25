@@ -23,10 +23,10 @@ instruments:
     lo_drive_2: # For SG5 and SG6 (Drive)
         frequency: 4_800_000_000
     TWPA:
-        frequency: 6_710_200_000
-        power: -5.7
-        # frequency: 6_690_000_000
-        # power: -5.6
+        # frequency: 6_710_200_000
+        # power: -5.7
+        frequency: 6_690_000_000
+        power: -5.6
 
 native_gates:
     single_qubit:
@@ -51,15 +51,15 @@ native_gates:
         1: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.455
-                frequency: 4_251_474_498
+                amplitude: 0.505 # 0.455
+                frequency:  4_251_031_317 #4_251_474_498
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
                 phase: 0
             MZ:
-                duration: 2000
-                amplitude: 0.1
+                duration: 1000
+                amplitude: 0.5
                 frequency: 4_932_200_000
                 shape: Rectangular()
                 type: ro # readout
@@ -243,8 +243,8 @@ characterization:
             mean_gnd_states: [0.003,-0.024]
             mean_exc_states: [0.125,-0.457]
             # parameters for single shot classification
-            threshold: 0.245539
-            iq_angle:  1.295
+            threshold: 0.863061
+            iq_angle:  0.747
             classifiers_hpars:
                 qubit_fit: {}
         2:
@@ -260,7 +260,7 @@ characterization:
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
             assignment_fidelity: 0.795
-            sweetspot: .7
+            sweetspot: #.7
             T1: 0.0
             T2: 0.0
             T2_spin_echo: 0
