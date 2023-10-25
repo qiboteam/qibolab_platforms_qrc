@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", type=str, help="Name of the platform.")
 
 
-def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelities, time):
+def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
     """Generates message that is added to GitHub comments."""
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
@@ -25,8 +25,7 @@ def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelities, time
         for qubit, t2 in t2s.items():
             file.write(f"{qubit}: {t2}\n")
         file.write("\n\nGate fidelities:\n")
-        for qubit, gate_fidelity in gate_fidelities.items():
-            file.write(f"{qubit}: {gate_fidelity}\n")
+        file.write(f" {gate_fidelity}\n")
 
 
 def main(name):
