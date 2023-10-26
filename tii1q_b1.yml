@@ -7,17 +7,17 @@ instruments:
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.4991361195928207, shape: Gaussian(3),
-                frequency: 5480500000, relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 1000, amplitude: 0.02, shape: Rectangular(), frequency: 7371646513,
+            RX: {duration: 40, amplitude: 0.4991361195928207, shape: Gaussian(5),
+                frequency: 5_480_635_274, relative_start: 0, phase: 0, type: qd}
+            MZ: {duration: 1000, amplitude: 0.02, shape: Rectangular(), frequency: 7_371_646_513,
                 relative_start: 0, phase: 0, type: ro}
     two_qubit: {}
 characterization:
     single_qubit:
         0:
-            bare_resonator_frequency: 0
-            readout_frequency: 7371646513
-            drive_frequency: 5480500000
+            bare_resonator_frequency:   7_367_387_354
+            readout_frequency:          7_371_646_513
+            drive_frequency:            5_480_635_274
             anharmonicity: 0
             sweetspot: 0.0
             flux_to_bias: 0.0

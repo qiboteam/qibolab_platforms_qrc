@@ -207,20 +207,20 @@ instruments_settings = {
             ),
         }
     ),
-    "qcm_bb2": ClusterQCM_BB_Settings(
-        {
-            "o1": ClusterBB_OutputPort_Settings(
-                channel="L6-47",
-                gain=FLUX_GAIN,
-                qubit=9,
-            ),
-            "o2": ClusterBB_OutputPort_Settings(
-                channel="L6-48",
-                gain=FLUX_GAIN,
-                qubit=10,
-            ),
-        }
-    ),
+    # "qcm_bb2": ClusterQCM_BB_Settings(
+    #     {
+    #         "o1": ClusterBB_OutputPort_Settings(
+    #             channel="L6-47",
+    #             gain=FLUX_GAIN,
+    #             qubit=9,
+    #         ),
+    #         "o2": ClusterBB_OutputPort_Settings(
+    #             channel="L6-48",
+    #             gain=FLUX_GAIN,
+    #             qubit=10,
+    #         ),
+    #     }
+    # ),
 }
 
 
@@ -273,9 +273,9 @@ def create(runcard_path=RUNCARD):
     qcm_bb1 = instantiate_module(
         modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.6:4", instruments_settings
     )  # qubits q5, q6, q7, q8
-    qcm_bb2 = instantiate_module(
-        modules, ClusterQCM_BB, "qcm_bb2", "192.168.0.6:6", instruments_settings
-    )  # qubits q9, q10
+    # qcm_bb2 = instantiate_module(
+    #     modules, ClusterQCM_BB, "qcm_bb2", "192.168.0.6:6", instruments_settings
+    # )  # qubits q9, q10
 
     # DEBUG: debug folder = report folder
     # import os
@@ -321,8 +321,10 @@ def create(runcard_path=RUNCARD):
     channels["L6-44"] = Channel(name="L6-44", port=qcm_bb1.ports["o2"])
     channels["L6-45"] = Channel(name="L6-45", port=qcm_bb1.ports["o3"])
     channels["L6-46"] = Channel(name="L6-46", port=qcm_bb1.ports["o4"])
-    channels["L6-47"] = Channel(name="L6-47", port=qcm_bb2.ports["o3"])
-    channels["L6-48"] = Channel(name="L6-48", port=qcm_bb2.ports["o4"])
+    # channels["L6-47"] = Channel(name="L6-47", port=qcm_bb2.ports["o3"])
+    # channels["L6-48"] = Channel(name="L6-48", port=qcm_bb2.ports["o4"])
+    channels["L6-47"] = Channel(name="L6-47", port=None)
+    channels["L6-48"] = Channel(name="L6-48", port=None)
 
     # TWPA
     channels["L3-10"] = Channel(name="L3-10", port=None)
