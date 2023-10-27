@@ -1,0 +1,68 @@
+nqubits: 2
+qubits: [0, 1]
+topology:
+- [0, 1]
+
+settings: {nshots: 1024, relaxation_time: 20_000, sampling_rate: 1_000_000_000
+}
+
+#instruments:
+#   twpa_pump:
+#        frequency: 6_554_000_000
+#        power: -1
+
+native_gates:
+    single_qubit:
+        0:
+            RX: {duration: 40, amplitude: 0.1,
+                shape: Gaussian(5), frequency: 4_500_000_000,
+                type: qd, relative_start: 0, phase: 0}
+            MZ: {duration: 2000, amplitude: 0.3, frequency: 7_326_100_000, shape: Rectangular(),
+                type: ro, start: 0, phase: 0}
+        1:
+            RX: {duration: 40, amplitude: 0.49,
+                shape: Gaussian(5), frequency: 5_500_000_000,
+                type: qd, relative_start: 0, phase: 0}
+            MZ: {duration: 2000, amplitude: 0.3, frequency: 7_326_100_000, shape: Rectangular(),
+                type: ro, start: 0, phase: 0}
+    two_qubit:
+        0-1:
+            CZ:
+            - {duration: 40, amplitude: 0.142, shape: 'Exponential(12, 5000, 0.1)',
+                qubit: 0, relative_start: 0, type: qf}
+
+
+characterization:
+    single_qubit:
+        0:
+            readout_frequency: 7_326_100_000
+            drive_frequency: 4_500_000_000
+            anharmonicity: 0
+            sweetspot: 0.02
+            Ec: 0
+            Ej: 0
+            g: 0
+            pi_pulse_amplitude: 0.4991361195928207
+            T1: 19905.294436569755
+            T2_spin_echo: 11255.259744766483
+            T2: 4654.863660508437
+            threshold: 0.594148378361051
+            iq_angle: -3.012709931343581
+            mean_gnd_states: [0.1758355048859935, 0.248585667752443]
+            mean_exc_states: [-1.2420530944625408, 0.43234560260586313]
+        1:
+            readout_frequency: 7_326_100_000
+            drive_frequency: 5_500_000_000
+            anharmonicity: 0
+            sweetspot: 0.02
+            Ec: 0
+            Ej: 0
+            g: 0
+            pi_pulse_amplitude: 0.4991361195928207
+            T1: 19905.294436569755
+            T2_spin_echo: 11255.259744766483
+            T2: 4654.863660508437
+            threshold: 0.594148378361051
+            iq_angle: -3.012709931343581
+            mean_gnd_states: [0.1758355048859935, 0.248585667752443]
+            mean_exc_states: [-1.2420530944625408, 0.43234560260586313]
