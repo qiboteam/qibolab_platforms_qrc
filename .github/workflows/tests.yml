@@ -1,0 +1,41 @@
+name: Test platform creation
+on: push
+jobs:
+  tests:
+    strategy:
+      matrix:
+        version: ["main", "stable"]
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install qibolab stable
+        if: ${{ matrix.version == 'stable' }}
+        run: |
+          python -m venv testenv
+          source testenv/bin/activate
+          pip install pytest
+          pip install qibolab[qblox,zh,qm,rfsoc]
+      - name: Install and configure poetry
+        if: ${{ matrix.version == 'main' }}
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: false
+      - name: Install qibolab main
+        if: ${{ matrix.version == 'main' }}
+        run: |
+          python -m venv testenv
+          source testenv/bin/activate
+          git clone https://github.com/qiboteam/qibolab
+          cd qibolab
+          poetry install --no-interaction --with tests --all-extras
+      - name: Test platforms
+        run: |
+          source testenv/bin/activate
+          QIBOLAB_PLATFORMS=$(realpath .) pytest tests/
