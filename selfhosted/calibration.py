@@ -15,15 +15,16 @@ def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
         file.write(f"Run on platform `%s` completed in %.2fsec! :atom:" % (name, time))
-        file.write("\n\nReadout assignment fidelities:\n")
-        for qubit, fidelity in assigment_fidelities.items():
-            file.write(f"{qubit}: {fidelity}\n")
         file.write("\n\nT1:\n")
         for qubit, t1 in t1s.items():
             file.write(f"{qubit}: {t1}\n")
         file.write("\n\nT2:\n")
         for qubit, t2 in t2s.items():
             file.write(f"{qubit}: {t2}\n")
+        file.write("\n\nReadout assignment fidelities:\n")
+        for qubit, fidelity in assigment_fidelities.items():
+            file.write(f"{qubit}: {fidelity}\n")
+        # FIXME: several gate fidelities when RB data gets changed
         file.write("\n\nGate fidelities:\n")
         file.write(f" {gate_fidelity}\n")
 
@@ -57,9 +58,9 @@ def main(name):
         ),
         routines[3].parameters_type.load(
             dict(
-                depths=[10, 50, 100, 150, 200, 250, 300],
-                niter=10,
-                nshots=128,
+                depths=[10, 100, 150, 200, 250, 300],
+                niter=8,
+                nshots=256,
             )
         ),
     ]
