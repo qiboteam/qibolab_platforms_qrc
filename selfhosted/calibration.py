@@ -17,16 +17,16 @@ def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
         file.write(f"Run on platform `%s` completed in %.2fsec! :atom:" % (name, time))
         file.write("\n\nT1:\n")
         for qubit, t1 in t1s.items():
-            file.write(f"{qubit}: {t1}\n")
+            file.write(f"{qubit}: {t1/1000:.2f} us\n")
         file.write("\n\nT2:\n")
         for qubit, t2 in t2s.items():
-            file.write(f"{qubit}: {t2}\n")
+            file.write(f"{qubit}: {t2/1000:.2f} us\n")
         file.write("\n\nReadout assignment fidelities:\n")
         for qubit, fidelity in assigment_fidelities.items():
-            file.write(f"{qubit}: {fidelity}\n")
+            file.write(f"{qubit}: {fidelity:.3f}\n")
         # FIXME: several gate fidelities when RB data gets changed
         file.write("\n\nGate fidelities:\n")
-        file.write(f" {gate_fidelity}\n")
+        file.write(f" {gate_fidelity:.3f}\n")
 
 
 def main(name):
@@ -43,7 +43,7 @@ def main(name):
         routines[1].parameters_type.load(
             dict(
                 delay_before_readout_start=50,
-                delay_before_readout_end=100000,
+                delay_before_readout_end=200000,
                 delay_before_readout_step=2500,
                 nshots=1024,
             )
@@ -51,7 +51,7 @@ def main(name):
         routines[2].parameters_type.load(
             dict(
                 delay_between_pulses_start=50,
-                delay_between_pulses_end=100000,
+                delay_between_pulses_end=200000,
                 delay_between_pulses_step=2500,
                 nshots=1024,
             )
