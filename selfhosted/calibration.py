@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", type=str, help="Name of the platform.")
 
 
-def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
+def generate_message(name, assigment_fidelities, qnds, t1s, t2s, gate_fidelity, time):
     """Generates message that is added to GitHub comments."""
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
@@ -24,6 +24,9 @@ def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
         file.write("\n\nReadout assignment fidelities:\n")
         for qubit, fidelity in assigment_fidelities.items():
             file.write(f"{qubit}: {fidelity:.3f}\n")
+        file.write("\n\nReadout QND:\n")
+        for qubit, qund in qnds.items():
+            file.write(f"{qubit}: {qnd:.3f}\n")
         # FIXME: several gate fidelities when RB data gets changed
         file.write("\n\nGate fidelities:\n")
         file.write(f" {gate_fidelity:.3f}\n")
@@ -32,14 +35,14 @@ def generate_message(name, assigment_fidelities, t1s, t2s, gate_fidelity, time):
 def main(name):
     """Execute single shot classification routine on the given platform."""
     routines = [
-        Operation.single_shot_classification.value,
+        Operation.readout_characterization.value,
         Operation.t1_msr.value,
         Operation.t2_msr.value,
         Operation.standard_rb.value,
     ]
 
     parameters = [
-        routines[0].parameters_type.load(dict(nshots=5000)),
+        routines[0].parameters_type.load(dict(nshots=10000)),
         routines[1].parameters_type.load(
             dict(
                 delay_before_readout_start=50,
@@ -92,7 +95,8 @@ def main(name):
 
     generate_message(
         name,
-        fits[0].assignment_fidelity,
+        fits[0].fidelity,
+        fits[0].qnd,
         fits[1].t1,
         fits[2].t2,
         fits[3].pulse_fidelity,

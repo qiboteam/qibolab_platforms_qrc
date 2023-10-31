@@ -24,8 +24,7 @@ actions:
       delay_before_readout_step: 2500
       nshots : 1024
 
-  - id: single shot classification
-    priority: 30
-    operation: single_shot_classification
+  - id: readout characterization
+    operation: readout_characterization
     parameters:
-      nshots: 5000
+      nshots: 10000

@@ -24,12 +24,12 @@ actions:
       delay_before_readout_step: 2500
       nshots: 1024
 
-  - id: single shot classification
+  - id: readout characterization
     priority: 30
     main: standard rb bootstrap
-    operation: single_shot_classification
+    operation: readout_characterization
     parameters:
-      nshots: 5000
+      nshots: 10000
 
   - id: standard rb bootstrap
     priority: 40
