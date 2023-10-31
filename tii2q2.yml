@@ -15,15 +15,15 @@ native_gates:
     single_qubit:
         0:
             RX: {duration: 40, amplitude: 0.1,
-                shape: Gaussian(5), frequency: 4_500_000_000,
+                shape: Gaussian(5), frequency: 5_250_000_000,
                 type: qd, relative_start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.3, frequency: 7_326_100_000, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.4, frequency: 7_326_100_000, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
         1:
             RX: {duration: 40, amplitude: 0.49,
                 shape: Gaussian(5), frequency: 5_500_000_000,
                 type: qd, relative_start: 0, phase: 0}
-            MZ: {duration: 2000, amplitude: 0.3, frequency: 7_326_100_000, shape: Rectangular(),
+            MZ: {duration: 2000, amplitude: 0.4, frequency: 7_326_100_000, shape: Rectangular(),
                 type: ro, start: 0, phase: 0}
     two_qubit:
         0-1:
@@ -35,10 +35,10 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            readout_frequency: 7_326_100_000
+            readout_frequency: 7_328_200_000
             drive_frequency: 4_500_000_000
             anharmonicity: 0
-            sweetspot: 0.02
+            sweetspot: -0.02
             Ec: 0
             Ej: 0
             g: 0
@@ -51,10 +51,10 @@ characterization:
             mean_gnd_states: [0.1758355048859935, 0.248585667752443]
             mean_exc_states: [-1.2420530944625408, 0.43234560260586313]
         1:
-            readout_frequency: 7_326_100_000
+            readout_frequency: 7_328_200_000
             drive_frequency: 5_500_000_000
             anharmonicity: 0
-            sweetspot: 0.02
+            sweetspot: -0.02
             Ec: 0
             Ej: 0
             g: 0

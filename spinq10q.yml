@@ -21,52 +21,52 @@ instruments:
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4810310325,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.1845, shape: Gaussian(5),
+                frequency: 4810310325, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7494897308,
                 relative_start: 0, phase: 0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5369798920,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.2568, shape: Gaussian(5),
+                frequency: 5369798920, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7530060976,
                 relative_start: 0, phase: 0, type: ro}
         3:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4842572822,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.1587, shape: Gaussian(5),
+                frequency: 4842572822, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7563865631,
                 relative_start: 0, phase: 0, type: ro}
         4:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5354812395,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.336, shape: Gaussian(5),
+                frequency: 5354812395, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7592146160,
                 relative_start: 0, phase: 0, type: ro}
         5:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4788348783,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.2899, shape: Gaussian(5),
+                frequency: 4788348783, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7625528036,
                 relative_start: 0, phase: 0, type: ro}
         6:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5409640000,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.372, shape: Gaussian(5),
+                frequency: 5409640000, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7527854379,
                 relative_start: 0, phase: 0, type: ro}
         7:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4739000000,
+            RX: {duration: 80, amplitude: 0.4, shape: Gaussian(5), frequency: 4739000000,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7560271224,
                 relative_start: 0, phase: 0, type: ro}
         8:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5385000000,
+            RX: {duration: 80, amplitude: 0.4, shape: Gaussian(5), frequency: 5385000000,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7595456408,
                 relative_start: 0, phase: 0, type: ro}
         9:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 4595594399,
-                relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 80, amplitude: 0.1908, shape: Gaussian(5),
+                frequency: 4595594399, relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7622841421,
                 relative_start: 0, phase: 0, type: ro}
         10:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5144000000,
+            RX: {duration: 80, amplitude: 0.4, shape: Gaussian(5), frequency: 5144000000,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7656180571,
                 relative_start: 0, phase: 0, type: ro}
@@ -155,9 +155,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         2:
             bare_resonator_frequency: 7529000000
             readout_frequency: 7530060976
@@ -188,9 +185,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         3:
             bare_resonator_frequency: 7561000000
             readout_frequency: 7563865631
@@ -221,9 +215,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         4:
             bare_resonator_frequency: 7590000000
             readout_frequency: 7592146160
@@ -254,9 +245,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         5:
             bare_resonator_frequency: 7624000000
             readout_frequency: 7625528036
@@ -287,9 +275,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         6:
             bare_resonator_frequency: 7526000000
             readout_frequency: 7527854379
@@ -320,9 +305,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         7:
             bare_resonator_frequency: 7558000000
             readout_frequency: 7560271224
@@ -353,9 +335,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         8:
             bare_resonator_frequency: 7594000000
             readout_frequency: 7595456408
@@ -386,9 +365,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         9:
             bare_resonator_frequency: 7621000000
             readout_frequency: 7622841421
@@ -419,9 +395,6 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
         10:
             bare_resonator_frequency: 7655000000
             readout_frequency: 7656180571
@@ -452,6 +425,3 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-            classifiers_hpars:
-                qubit_fit: {}
-            qutrit_classifiers_hpars: {}
