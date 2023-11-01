@@ -19,9 +19,9 @@ actions:
     operation: t2
     main: single shot classification
     parameters:
-      delay_before_readout_start: 50
-      delay_before_readout_end: 100000
-      delay_before_readout_step: 2500
+      delay_between_readout_start: 50
+      delay_between_readout_end: 100000
+      delay_between_readout_step: 2500
       nshots: 1024
 
   - id: readout characterization
