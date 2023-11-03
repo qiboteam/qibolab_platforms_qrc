@@ -122,31 +122,38 @@ native_gates:
     coupler:
         0: # coupler number
             CP:
-                duration: 2000
-
+                type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 0
+                relative_start: 0
 
         1: # coupler number
             CP:
-                duration: 40
-                amplitude: 0.5
-                shape: Rectangular()
                 type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 1
                 relative_start: 0
 
         3: # coupler number
             CP:
-                duration: 40
-                amplitude: 0.5
-                shape: Rectangular()
                 type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 3
                 relative_start: 0
 
         4: # coupler number
             CP:
-                duration: 40
-                amplitude: 0.5
-                shape: Rectangular()
                 type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 4
                 relative_start: 0
 
     two_qubit:
