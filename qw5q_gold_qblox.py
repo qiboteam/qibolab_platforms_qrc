@@ -26,10 +26,6 @@ ADDRESS = "192.168.0.20"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
-instruments_settings = {
-    "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-}
-
 
 def create(runcard_path=RUNCARD):
     """QuantWare 5q-chip controlled using qblox cluster.
@@ -43,8 +39,8 @@ def create(runcard_path=RUNCARD):
 
     cluster = Cluster(
         name="cluster",
-        address="192.168.0.20",
-        settings=instruments_settings["cluster"],
+        address=ADDRESS,
+        settings=Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
     )
 
     # DEBUG: debug folder = report folder
@@ -90,56 +86,56 @@ def create(runcard_path=RUNCARD):
     # Create channel objects
     channels = {}
 
-    def instanciate_channels(channel_name: str, module, module_port_name: str):
+    def instantiate_channels(channel_name: str, module, module_port_name: str):
         module.channels.append(channel_name)
         module._port_channel_map[module_port_name] = channel_name
         module._channel_port_map[channel_name] = module_port_name
         return Channel(name=channel_name, port=module.ports[module_port_name])
 
     # readout
-    channels["L3-25_a"] = instanciate_channels(
+    channels["L3-25_a"] = instantiate_channels(
         channel_name="L3-25_a", module=qrm_rf_a, module_port_name="o1"
     )
-    channels["L3-25_b"] = instanciate_channels(
+    channels["L3-25_b"] = instantiate_channels(
         channel_name="L3-25_b", module=qrm_rf_b, module_port_name="o1"
     )
     # feedback
-    channels["L2-5_a"] = instanciate_channels(
+    channels["L2-5_a"] = instantiate_channels(
         channel_name="L2-5_a", module=qrm_rf_a, module_port_name="i1"
     )
-    channels["L2-5_b"] = instanciate_channels(
+    channels["L2-5_b"] = instantiate_channels(
         channel_name="L2-5_b", module=qrm_rf_b, module_port_name="i1"
     )
     # drive
-    channels["L3-15"] = instanciate_channels(
+    channels["L3-15"] = instantiate_channels(
         channel_name="L3-15", module=qcm_rf0, module_port_name="o1"
     )
-    channels["L3-11"] = instanciate_channels(
+    channels["L3-11"] = instantiate_channels(
         channel_name="L3-11", module=qcm_rf0, module_port_name="o2"
     )
-    channels["L3-12"] = instanciate_channels(
+    channels["L3-12"] = instantiate_channels(
         channel_name="L3-12", module=qcm_rf1, module_port_name="o1"
     )
-    channels["L3-13"] = instanciate_channels(
+    channels["L3-13"] = instantiate_channels(
         channel_name="L3-13", module=qcm_rf1, module_port_name="o2"
     )
-    channels["L3-14"] = instanciate_channels(
+    channels["L3-14"] = instantiate_channels(
         channel_name="L3-14", module=qcm_rf2, module_port_name="o1"
     )
     # flux
-    channels["L4-5"] = instanciate_channels(
+    channels["L4-5"] = instantiate_channels(
         channel_name="L4-5", module=qcm_bb0, module_port_name="o1"
     )
-    channels["L4-1"] = instanciate_channels(
+    channels["L4-1"] = instantiate_channels(
         channel_name="L4-1", module=qcm_bb0, module_port_name="o2"
     )
-    channels["L4-2"] = instanciate_channels(
+    channels["L4-2"] = instantiate_channels(
         channel_name="L4-2", module=qcm_bb0, module_port_name="o3"
     )
-    channels["L4-3"] = instanciate_channels(
+    channels["L4-3"] = instantiate_channels(
         channel_name="L4-3", module=qcm_bb0, module_port_name="o4"
     )
-    channels["L4-4"] = instanciate_channels(
+    channels["L4-4"] = instantiate_channels(
         channel_name="L4-4", module=qcm_bb1, module_port_name="o1"
     )
     # TWPA
