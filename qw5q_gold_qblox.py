@@ -38,11 +38,6 @@ def create(runcard_path=RUNCARD):
         runcard_path (str): Path to the runcard file.
     """
 
-    def instantiate_module(modules, cls, name, address, settings):
-        module_settings = settings[name]
-        modules[name] = cls(name=name, address=address, settings=module_settings)
-        return modules[name]
-
     runcard = load_runcard(runcard_path)
     modules = {}
 
@@ -91,30 +86,62 @@ def create(runcard_path=RUNCARD):
     modules["qcm_rf2"] = qcm_rf2
     modules["qrm_rf_a"] = qrm_rf_a
     modules["qrm_rf_b"] = qrm_rf_b
+
     # Create channel objects
     channels = {}
+
+    def instanciate_channels(channel_name: str, module, module_port_name: str):
+        module.channels.append(channel_name)
+        module._port_channel_map[module_port_name] = channel_name
+        module._channel_port_map[channel_name] = module_port_name
+        return Channel(name=channel_name, port=module.ports[module_port_name])
+
     # readout
-    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
-    channels["L3-25_b"] = Channel(name="L3-25_b", port=qrm_rf_b.ports["o1"])
-
+    channels["L3-25_a"] = instanciate_channels(
+        channel_name="L3-25_a", module=qrm_rf_a, module_port_name="o1"
+    )
+    channels["L3-25_b"] = instanciate_channels(
+        channel_name="L3-25_b", module=qrm_rf_b, module_port_name="o1"
+    )
     # feedback
-    channels["L2-5_a"] = Channel(name="L2-5_a", port=qrm_rf_a.ports["i1"])
-    channels["L2-5_b"] = Channel(name="L2-5_b", port=qrm_rf_b.ports["i1"])
-
+    channels["L2-5_a"] = instanciate_channels(
+        channel_name="L2-5_a", module=qrm_rf_a, module_port_name="i1"
+    )
+    channels["L2-5_b"] = instanciate_channels(
+        channel_name="L2-5_b", module=qrm_rf_b, module_port_name="i1"
+    )
     # drive
-    channels["L3-15"] = Channel(name="L3-15", port=qcm_rf0.ports["o1"])
-    channels["L3-11"] = Channel(name="L3-11", port=qcm_rf0.ports["o2"])
-    channels["L3-12"] = Channel(name="L3-12", port=qcm_rf1.ports["o1"])
-    channels["L3-13"] = Channel(name="L3-13", port=qcm_rf1.ports["o2"])
-    channels["L3-14"] = Channel(name="L3-14", port=qcm_rf2.ports["o1"])
-
+    channels["L3-15"] = instanciate_channels(
+        channel_name="L3-15", module=qcm_rf0, module_port_name="o1"
+    )
+    channels["L3-11"] = instanciate_channels(
+        channel_name="L3-11", module=qcm_rf0, module_port_name="o2"
+    )
+    channels["L3-12"] = instanciate_channels(
+        channel_name="L3-12", module=qcm_rf1, module_port_name="o1"
+    )
+    channels["L3-13"] = instanciate_channels(
+        channel_name="L3-13", module=qcm_rf1, module_port_name="o2"
+    )
+    channels["L3-14"] = instanciate_channels(
+        channel_name="L3-14", module=qcm_rf2, module_port_name="o1"
+    )
     # flux
-    channels["L4-5"] = Channel(name="L4-5", port=qcm_bb0.ports["o1"])
-    channels["L4-1"] = Channel(name="L4-1", port=qcm_bb0.ports["o2"])
-    channels["L4-2"] = Channel(name="L4-2", port=qcm_bb0.ports["o3"])
-    channels["L4-3"] = Channel(name="L4-3", port=qcm_bb0.ports["o4"])
-    channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o1"])
-
+    channels["L4-5"] = instanciate_channels(
+        channel_name="L4-5", module=qcm_bb0, module_port_name="o1"
+    )
+    channels["L4-1"] = instanciate_channels(
+        channel_name="L4-1", module=qcm_bb0, module_port_name="o2"
+    )
+    channels["L4-2"] = instanciate_channels(
+        channel_name="L4-2", module=qcm_bb0, module_port_name="o3"
+    )
+    channels["L4-3"] = instanciate_channels(
+        channel_name="L4-3", module=qcm_bb0, module_port_name="o4"
+    )
+    channels["L4-4"] = instanciate_channels(
+        channel_name="L4-4", module=qcm_bb1, module_port_name="o1"
+    )
     # TWPA
     channels["L3-28"] = Channel(name="L3-28", port=None)
     channels["L3-28"].local_oscillator = twpa_pump
@@ -148,7 +175,6 @@ def create(runcard_path=RUNCARD):
 
     settings = load_settings(runcard)
 
-    # print(instruments)
     return Platform(
         "qw5q_gold_qblox", qubits, pairs, instruments, settings, resonator_type="2D"
     )
