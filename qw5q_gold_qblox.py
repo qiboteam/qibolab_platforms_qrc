@@ -83,8 +83,26 @@ def create(runcard_path=RUNCARD):
     modules["qrm_rf_a"] = qrm_rf_a
     modules["qrm_rf_b"] = qrm_rf_b
 
-    # Create channel objects
-    channels = {}
+    channels_config = [
+        # readout
+        ("L3-25_a", qrm_rf_a, "o1"),
+        ("L3-25_b", qrm_rf_b, "o1"),
+        # feedback
+        ("L2-5_a", qrm_rf_a, "i1"),
+        ("L2-5_b", qrm_rf_b, "i1"),
+        # drive
+        ("L3-15", qcm_rf0, "o1"),
+        ("L3-11", qcm_rf0, "o2"),
+        ("L3-12", qcm_rf1, "o1"),
+        ("L3-13", qcm_rf1, "o2"),
+        ("L3-14", qcm_rf2, "o1"),
+        # flux
+        ("L4-5", qcm_bb0, "o1"),
+        ("L4-1", qcm_bb0, "o2"),
+        ("L4-2", qcm_bb0, "o3"),
+        ("L4-3", qcm_bb0, "o4"),
+        ("L4-4", qcm_bb1, "o1"),
+    ]
 
     def instantiate_channels(channel_name: str, module, module_port_name: str):
         module.channels.append(channel_name)
@@ -92,59 +110,20 @@ def create(runcard_path=RUNCARD):
         module._channel_port_map[channel_name] = module_port_name
         return Channel(name=channel_name, port=module.ports[module_port_name])
 
-    # readout
-    channels["L3-25_a"] = instantiate_channels(
-        channel_name="L3-25_a", module=qrm_rf_a, module_port_name="o1"
-    )
-    channels["L3-25_b"] = instantiate_channels(
-        channel_name="L3-25_b", module=qrm_rf_b, module_port_name="o1"
-    )
-    # feedback
-    channels["L2-5_a"] = instantiate_channels(
-        channel_name="L2-5_a", module=qrm_rf_a, module_port_name="i1"
-    )
-    channels["L2-5_b"] = instantiate_channels(
-        channel_name="L2-5_b", module=qrm_rf_b, module_port_name="i1"
-    )
-    # drive
-    channels["L3-15"] = instantiate_channels(
-        channel_name="L3-15", module=qcm_rf0, module_port_name="o1"
-    )
-    channels["L3-11"] = instantiate_channels(
-        channel_name="L3-11", module=qcm_rf0, module_port_name="o2"
-    )
-    channels["L3-12"] = instantiate_channels(
-        channel_name="L3-12", module=qcm_rf1, module_port_name="o1"
-    )
-    channels["L3-13"] = instantiate_channels(
-        channel_name="L3-13", module=qcm_rf1, module_port_name="o2"
-    )
-    channels["L3-14"] = instantiate_channels(
-        channel_name="L3-14", module=qcm_rf2, module_port_name="o1"
-    )
-    # flux
-    channels["L4-5"] = instantiate_channels(
-        channel_name="L4-5", module=qcm_bb0, module_port_name="o1"
-    )
-    channels["L4-1"] = instantiate_channels(
-        channel_name="L4-1", module=qcm_bb0, module_port_name="o2"
-    )
-    channels["L4-2"] = instantiate_channels(
-        channel_name="L4-2", module=qcm_bb0, module_port_name="o3"
-    )
-    channels["L4-3"] = instantiate_channels(
-        channel_name="L4-3", module=qcm_bb0, module_port_name="o4"
-    )
-    channels["L4-4"] = instantiate_channels(
-        channel_name="L4-4", module=qcm_bb1, module_port_name="o1"
-    )
+    # Create channel objects
+    channels = {}
+    channels = {
+        name: instantiate_channels(name, module, port)
+        for name, module, port in channels_config
+    }
+
     # TWPA
     channels["L3-28"] = Channel(name="L3-28", port=None)
     channels["L3-28"].local_oscillator = twpa_pump
 
     # create qubit objects
-
     qubits, couplers, pairs = load_qubits(runcard)
+
     # remove witness qubit
     # del qubits[5]
     # assign channels to qubits
