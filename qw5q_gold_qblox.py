@@ -42,13 +42,13 @@ RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
 instruments_settings = {
     "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-    "qrm_rf_a": ClusterQRM_RF_Settings(  # q0,q1,q5, 1-2-4?
+    "qrm_rf_a": ClusterQRM_RF_Settings(  # q0,q1,q5
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_a",
-                attenuation=36,  # 38
+                attenuation=38,
                 lo_frequency=7_300_000_000,
-                gain=0.6,
+                gain=1,
             ),
             "i1": QbloxInputPort_Settings(
                 channel="L2-5_a",
@@ -61,9 +61,9 @@ instruments_settings = {
         {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-25_b",
-                attenuation=36,  # 32
+                attenuation=38,
                 lo_frequency=7_850_000_000,
-                gain=0.6,
+                gain=1,
             ),
             "i1": QbloxInputPort_Settings(
                 channel="L2-5_b",
@@ -77,14 +77,14 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-15",
                 attenuation=20,
-                lo_frequency=5_052_833_073,
-                gain=0.470,
+                lo_frequency=5_141_132_868,
+                gain=1,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L3-11",
                 attenuation=20,
-                lo_frequency=5_052_833_073,
-                gain=0.570,
+                lo_frequency=4_952_007_272,
+                gain=1,
             ),
         }
     ),
@@ -93,14 +93,14 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-12",
                 attenuation=20,
-                lo_frequency=5_995_371_914,
-                gain=0.550,
+                lo_frequency=5_891_033_225,
+                gain=1,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L3-13",
                 attenuation=20,
-                lo_frequency=6_961_018_001,
-                gain=0.596,
+                lo_frequency=6_859_947_957,
+                gain=1,
             ),
         }
     ),
@@ -109,8 +109,8 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-14",
                 attenuation=20,
-                lo_frequency=6_786_543_060,
-                gain=0.470,
+                lo_frequency=6_688_063_150,
+                gain=1,
             )
         }
     ),
@@ -118,23 +118,23 @@ instruments_settings = {
         {
             "o1": ClusterBB_OutputPort_Settings(
                 channel="L4-5",
-                gain=0.5,
-                qubit=0,  # channel="L4-1", gain=0.5, offset=0.2244, qubit=1
+                gain=1,
+                qubit=0,
             ),
             "o2": ClusterBB_OutputPort_Settings(
                 channel="L4-1",
-                gain=0.5,
-                qubit=1,  # channel="L4-2", gain=0.5, offset=-0.3762, qubit=2
+                gain=1,
+                qubit=1,
             ),
             "o3": ClusterBB_OutputPort_Settings(
                 channel="L4-2",
-                gain=0.5,
-                qubit=2,  # channel="L4-3", gain=0.5, offset=-0.8893, qubit=3
+                gain=1,
+                qubit=2,
             ),
             "o4": ClusterBB_OutputPort_Settings(
                 channel="L4-3",
-                gain=0.5,
-                qubit=3,  # channel="L4-4", gain=0.5, offset=0.5915, qubit=4
+                gain=1,
+                qubit=3,
             ),
         }
     ),
@@ -142,8 +142,8 @@ instruments_settings = {
         {
             "o1": ClusterBB_OutputPort_Settings(
                 channel="L4-4",
-                gain=0.5,
-                qubit=4,  # channel="L4-5", gain=0.5, offset=0.5544, qubit=0
+                gain=1,
+                qubit=4,
             )
         }
     ),
@@ -179,7 +179,7 @@ def create(runcard_path=RUNCARD):
 
     qcm_rf0 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.20:6", instruments_settings
-    )  # qubit q0
+    )  # qubit q0, q1
     qcm_rf1 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf1", "192.168.0.20:8", instruments_settings
     )  # qubits q1, q2
@@ -194,16 +194,10 @@ def create(runcard_path=RUNCARD):
         modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.20:4", instruments_settings
     )  # qubits q1, q2, q3, q4
 
-    # DEBUG: debug folder = report folder
-    # import os
-    # folder = os.path.dirname(runcard) + "/debug/"
-    # if not os.path.exists(folder):
-    #     os.makedirs(folder)
-    # for name in modules:
-    #     modules[name]._debug_folder = folder
-
     controller = QbloxController("qblox_controller", cluster, modules)
-    twpa_pump = SGS100A(name="twpa_pump", address="192.168.0.36")
+    twpa_pump = SGS100A(
+        name="twpa_pump", address="192.168.0.36"
+    )  # Datasheet_TWPA_11-11
 
     # Create channel objects
     channels = {}
