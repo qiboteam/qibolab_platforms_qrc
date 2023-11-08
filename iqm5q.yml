@@ -31,7 +31,7 @@ native_gates:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.627
+                amplitude: 0.62
                 frequency: 4_095_140_800
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -39,7 +39,7 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.016
+                amplitude: 0.1
                 frequency: 5_227_920_060
                 shape: Rectangular()
                 type: ro # readout
@@ -85,7 +85,7 @@ native_gates:
         3: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.98
+                amplitude: 0.6
                 frequency: 4_168_624_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -93,7 +93,7 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.16
+                amplitude: 0.6
                 frequency: 5_778_270_000
                 shape: Rectangular()
                 type: ro # readout
@@ -117,6 +117,44 @@ native_gates:
                 type: ro # readout
                 relative_start: 0
                 phase: 0
+
+    # Pulses to activate the coupler
+    coupler:
+        0: # coupler number
+            CP:
+                type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 0
+                relative_start: 0
+
+        1: # coupler number
+            CP:
+                type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 1
+                relative_start: 0
+
+        3: # coupler number
+            CP:
+                type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 3
+                relative_start: 0
+
+        4: # coupler number
+            CP:
+                type: coupler
+                duration: 1000
+                amplitude: .5
+                shape: Rectangular()
+                coupler: 4
+                relative_start: 0
 
     two_qubit:
         0-2:
