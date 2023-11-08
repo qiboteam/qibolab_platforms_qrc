@@ -10,7 +10,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", type=str, help="Name of the platform.")
 
 
-def generate_message(name, assigment_fidelities, qnds, t1s, t2s, gate_fidelity, time):
+def generate_message(name, assigment_fidelities, qnds, t1s, t2s, time):
+    # def generate_message(name, assigment_fidelities, qnds, t1s, t2s, gate_fidelity, time):
     """Generates message that is added to GitHub comments."""
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
@@ -25,11 +26,11 @@ def generate_message(name, assigment_fidelities, qnds, t1s, t2s, gate_fidelity, 
         for qubit, fidelity in assigment_fidelities.items():
             file.write(f"{qubit}: {fidelity:.3f}\n")
         file.write("\n\nReadout QND:\n")
-        for qubit, qund in qnds.items():
-            file.write(f"{qubit}: {qnd:.3f}\n")
-        # FIXME: several gate fidelities when RB data gets changed
-        file.write("\n\nGate fidelities:\n")
-        file.write(f" {gate_fidelity:.3f}\n")
+        # for qubit, qund in qnds.items():
+        #     file.write(f"{qubit}: {qnd:.3f}\n")
+        # # FIXME: several gate fidelities when RB data gets changed
+        # file.write("\n\nGate fidelities:\n")
+        # file.write(f" {gate_fidelity:.3f}\n")
 
 
 def main(name):
@@ -38,7 +39,7 @@ def main(name):
         Operation.readout_characterization.value,
         Operation.t1_msr.value,
         Operation.t2_msr.value,
-        Operation.standard_rb.value,
+        # Operation.standard_rb.value,
     ]
 
     parameters = [
@@ -59,13 +60,13 @@ def main(name):
                 nshots=1024,
             )
         ),
-        routines[3].parameters_type.load(
-            dict(
-                depths=[10, 100, 150, 200, 250, 300],
-                niter=8,
-                nshots=256,
-            )
-        ),
+        # routines[3].parameters_type.load(
+        #     dict(
+        #         depths=[10, 100, 150, 200, 250, 300],
+        #         niter=8,
+        #         nshots=256,
+        #     )
+        # ),
     ]
 
     data = []
@@ -99,7 +100,7 @@ def main(name):
         fits[0].qnd,
         fits[1].t1,
         fits[2].t2,
-        fits[3].pulse_fidelity,
+        # fits[3].pulse_fidelity,
         acquisition_time + fit_time,
     )
 
