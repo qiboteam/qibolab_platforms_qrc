@@ -53,22 +53,22 @@ native_gates:
         7:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4127000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7551000000,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7552419886,
                 relative_start: 0, phase: 0, type: ro}
         8:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4731000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7582000000,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7582619523,
                 relative_start: 0, phase: 0, type: ro}
         9:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4229000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7443000000,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7441118631,
                 relative_start: 0, phase: 0, type: ro}
         10:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4764000000,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7626000000,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7627191691,
                 relative_start: 0, phase: 0, type: ro}
     two_qubit:
         1-2:
@@ -317,13 +317,13 @@ characterization:
             drive_frequency: 4127000000
             anharmonicity: 300000000
             sweetspot: -0.2
-            flux_to_bias: 0.0
-            asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
+            flux_to_bias: 0.3703033075501269
+            asymmetry: 0.03846063238221964
+            bare_resonator_frequency_sweetspot: 7551278196
             ssf_brf: 0.0
-            Ec: 300000000
-            Ej: 12000000000
-            g: 100000000
+            Ec: 0.0009246451339489379
+            Ej: 5.562311176695407
+            g: 0.0916007392206866
             assignment_fidelity: 0
             readout_fidelity: 0.0
             effective_temperature: 0.0
@@ -347,14 +347,14 @@ characterization:
             readout_frequency: 7582000000
             drive_frequency: 4731000000
             anharmonicity: 300000000
-            sweetspot: -0.55
-            flux_to_bias: 0.0
-            asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
+            sweetspot: -0.6
+            flux_to_bias: 0.4995172960641154
+            asymmetry: 0.2075344332925857
+            bare_resonator_frequency_sweetspot: 7581851516
             ssf_brf: 0.0
-            Ec: 300000000
-            Ej: 12000000000
-            g: 100000000
+            Ec: 0.33019201147898763
+            Ej: 11.890449189962764
+            g: 0.04231188420111357
             assignment_fidelity: 0
             readout_fidelity: 0.0
             effective_temperature: 0.0
@@ -379,13 +379,13 @@ characterization:
             drive_frequency: 4229000000
             anharmonicity: 300000000
             sweetspot: 0
-            flux_to_bias: 0.0
-            asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
+            flux_to_bias: 10.000130322312259
+            asymmetry: 1.3920288326762917
+            bare_resonator_frequency_sweetspot: 7436783114
             ssf_brf: 0.0
-            Ec: 300000000
-            Ej: 12000000000
-            g: 100000000
+            Ec: 0.3031215235846714
+            Ej: 11.98896584756633
+            g: 0.10132930078089977
             assignment_fidelity: 0
             readout_fidelity: 0.0
             effective_temperature: 0.0
@@ -410,13 +410,13 @@ characterization:
             drive_frequency: 4764000000
             anharmonicity: 300000000
             sweetspot: 0
-            flux_to_bias: 0.0
-            asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
+            flux_to_bias: 10.000712581827976
+            asymmetry: 0.017944091505718254
+            bare_resonator_frequency_sweetspot: 7622592997
             ssf_brf: 0.0
-            Ec: 300000000
-            Ej: 12000000000
-            g: 100000000
+            Ec: 0.3029667450053242
+            Ej: 11.99519574096561
+            g: 0.10837183302651561
             assignment_fidelity: 0
             readout_fidelity: 0.0
             effective_temperature: 0.0
