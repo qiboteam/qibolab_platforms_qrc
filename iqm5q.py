@@ -56,9 +56,9 @@ def create(runcard_path=RUNCARD):
 
     pqsc = [
         "internal_clock_signal",
-        {"to": "device_hdawg2", "port": "ZSYNCS/4"},
-        {"to": "device_hdawg", "port": "ZSYNCS/2"},
-        {"to": "device_shfqc", "port": "ZSYNCS/0"},
+        {"to": "device_hdawg2", "port": "ZSYNCS/1"},
+        {"to": "device_hdawg", "port": "ZSYNCS/0"},
+        {"to": "device_shfqc", "port": "ZSYNCS/2"},
     ]
 
     connections = {
