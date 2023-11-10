@@ -46,8 +46,6 @@ READOUT_GAIN = 0.5
 DRIVE_ATTENUATION = 20
 DRIVE_GAIN = 0.5
 FLUX_GAIN = 0.5
-# LOW_FREQ_QUBIT_LO_FREQ = 4_700_000_000
-# HIGH_FREQ_QUBIT_LO_FREQ = 5_300_000_000
 
 instruments_settings = {
     "cluster": Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
@@ -56,7 +54,7 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-20",
                 attenuation=READOUT_ATTENUATION_FL1,
-                lo_frequency=7_300_000_000,
+                lo_frequency=7_650_000_000,
                 gain=READOUT_GAIN,
             ),
             "i1": QbloxInputPort_Settings(
@@ -71,7 +69,7 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-21",
                 attenuation=READOUT_ATTENUATION_FL2,
-                lo_frequency=7_300_000_000,
+                lo_frequency=7_640_000_000,
                 gain=READOUT_GAIN,
             ),
             "i1": QbloxInputPort_Settings(
@@ -86,13 +84,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-1",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=4910500000,  # LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_416_000_000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-2",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=5470900000,  # HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5_041_000_000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -102,13 +100,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-3",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=4941000000,  # LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_466_000_000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-4",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=5458000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=5_041_000_000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -118,13 +116,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-5",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=4888000000,  # LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_307_000_000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-6",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=5509000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_994_000_000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -134,13 +132,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-7",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=4839000000,  # LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_327_000_000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-8",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=5485000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_931_000_000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -150,13 +148,13 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L6-9",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=4750000000,  # LOW_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_429_000_000,  # LOW_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
             "o2": ClusterRF_OutputPort_Settings(
                 channel="L6-10",
                 attenuation=DRIVE_ATTENUATION,
-                lo_frequency=5244000000,  # HIGH_FREQ_QUBIT_LO_FREQ,
+                lo_frequency=4_964_000_000,  # HIGH_FREQ_QUBIT_LO_FREQ,
                 gain=DRIVE_GAIN,
             ),
         }
@@ -207,20 +205,20 @@ instruments_settings = {
             ),
         }
     ),
-    # "qcm_bb2": ClusterQCM_BB_Settings(
-    #     {
-    #         "o1": ClusterBB_OutputPort_Settings(
-    #             channel="L6-47",
-    #             gain=FLUX_GAIN,
-    #             qubit=9,
-    #         ),
-    #         "o2": ClusterBB_OutputPort_Settings(
-    #             channel="L6-48",
-    #             gain=FLUX_GAIN,
-    #             qubit=10,
-    #         ),
-    #     }
-    # ),
+    "qcm_bb2": ClusterQCM_BB_Settings(
+        {
+            "o1": ClusterBB_OutputPort_Settings(
+                channel="L6-47",
+                gain=FLUX_GAIN,
+                qubit=9,
+            ),
+            "o2": ClusterBB_OutputPort_Settings(
+                channel="L6-48",
+                gain=FLUX_GAIN,
+                qubit=10,
+            ),
+        }
+    ),
 }
 
 
@@ -273,9 +271,9 @@ def create(runcard_path=RUNCARD):
     qcm_bb1 = instantiate_module(
         modules, ClusterQCM_BB, "qcm_bb1", "192.168.0.6:4", instruments_settings
     )  # qubits q5, q6, q7, q8
-    # qcm_bb2 = instantiate_module(
-    #     modules, ClusterQCM_BB, "qcm_bb2", "192.168.0.6:6", instruments_settings
-    # )  # qubits q9, q10
+    qcm_bb2 = instantiate_module(
+        modules, ClusterQCM_BB, "qcm_bb2", "192.168.0.6:6", instruments_settings
+    )  # qubits q9, q10
 
     # DEBUG: debug folder = report folder
     import os
@@ -291,7 +289,7 @@ def create(runcard_path=RUNCARD):
     controller = QbloxController("qblox_controller", cluster, modules)
 
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
-    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")  # via readout line
+    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")
 
     # Create channel objects
     channels = {}
