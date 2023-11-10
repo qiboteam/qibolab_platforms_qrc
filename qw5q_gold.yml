@@ -9,38 +9,38 @@ topology:
 
 instruments:
     twpa_pump:
-        frequency: 6545500000
-        power: 1.4
+        frequency: 6532000000
+        power: 3.2
 
     qcm_bb0:
         o1:
             qubit: 0
-            offset: 0.1
+            offset: 0.0
 
         o2:
             qubit: 1
-            offset: 0.11
+            offset: 0.0
 
         o3:
             qubit: 2
-            offset: 0.12
+            offset: 0.0
 
         o4:
             qubit: 3
-            offset: 0.13
+            offset: 0.0
 
     qcm_bb1:
         o1:
             qubit: 4
-            offset: 0.14
+            offset: 0.0
 
     qcm_rf0:
         o1:
             attenuation: 20
-            lo_frequency: 5_252_833_073
+            lo_frequency: 5_141_132_868
         o2:
             attenuation: 20
-            lo_frequency: 5_652_833_073
+            lo_frequency: 4_952_007_272
 
     qcm_rf1:
         o1:
@@ -57,7 +57,7 @@ instruments:
 
     qrm_rf_a:
         o1:
-            attenuation: 36
+            attenuation: 38
             lo_frequency: 7_300_000_000
         i1:
             acquisition_hold_off: 500
@@ -75,9 +75,9 @@ instruments:
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.7857641001738979, shape: Gaussian(5),
-                frequency: 5041132868, relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 7211719220,
+            RX: {duration: 40, amplitude: 0.3351567498479054, shape: Gaussian(5),
+                frequency: 5033365096, relative_start: 0, phase: 0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7212339385,
                 relative_start: 0, phase: 0, type: ro}
         1:
             RX: {duration: 40, amplitude: 0.5091870515531648, shape: 'Drag(5, 0.000)',
@@ -120,8 +120,8 @@ characterization:
     single_qubit:
         0:
             bare_resonator_frequency: 7200000000
-            readout_frequency: 7211719220
-            drive_frequency: 5041132868
+            readout_frequency: 7212339385
+            drive_frequency: 5046865096
             anharmonicity: 291463266
             Ec: 270000000
             Ej: 11400000000
@@ -131,7 +131,7 @@ characterization:
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
             assignment_fidelity: 0.859
-            sweetspot: 0.219
+            sweetspot: -0.026
             peak_voltage: 0
             pi_pulse_amplitude: 0.5037576688262035
             T1: 5662.122123503363
