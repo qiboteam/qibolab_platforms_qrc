@@ -117,8 +117,10 @@ def create(runcard_path=RUNCARD):
     # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     # with a resolution of 5 dBm.
 
+    # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
+
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = 0  # -15
+    channels["L3-31"].power_range = -15  # -15
     # feedback "gain": play with the power range to calibrate the best RO
     channels["L2-7"].power_range = 10
 
@@ -127,7 +129,7 @@ def create(runcard_path=RUNCARD):
     channels[f"L4-15"].power_range = -10  # q0
     channels[f"L4-16"].power_range = -5  # q1
     channels[f"L4-17"].power_range = -10  # q2
-    channels[f"L4-18"].power_range = 10  # q3
+    channels[f"L4-18"].power_range = -5  # q3
     channels[f"L4-19"].power_range = -10  # q4
 
     # HDAWGS
