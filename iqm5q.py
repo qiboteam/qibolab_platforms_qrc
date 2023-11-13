@@ -15,7 +15,7 @@ from qibolab.serialize import (
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
-TWPA_ADDRESS = "192.168.0.32"
+TWPA_ADDRESS = "192.168.0.35"
 
 
 def create(runcard_path=RUNCARD):
@@ -56,9 +56,9 @@ def create(runcard_path=RUNCARD):
 
     pqsc = [
         "internal_clock_signal",
-        {"to": "device_hdawg2", "port": "ZSYNCS/4"},
-        {"to": "device_hdawg", "port": "ZSYNCS/2"},
-        {"to": "device_shfqc", "port": "ZSYNCS/0"},
+        {"to": "device_hdawg2", "port": "ZSYNCS/1"},
+        {"to": "device_hdawg", "port": "ZSYNCS/0"},
+        {"to": "device_shfqc", "port": "ZSYNCS/2"},
     ]
 
     connections = {
@@ -109,7 +109,6 @@ def create(runcard_path=RUNCARD):
         for i in range(11, 14)
     )
     channels |= Channel("L4-14", port=controller[("device_hdawg2", f"SIGOUTS/0")])
-
     # TWPA pump(EraSynth)
     channels |= Channel("L3-32")
 
@@ -118,15 +117,20 @@ def create(runcard_path=RUNCARD):
     # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     # with a resolution of 5 dBm.
 
+    # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
+
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -15
+    channels["L3-31"].power_range = -15  # -15
     # feedback "gain": play with the power range to calibrate the best RO
     channels["L2-7"].power_range = 10
 
     # drive
-    for i in range(5, 10):
-        channels[f"L4-1{i}"].power_range = -10
-    channels[f"L4-19"].power_range = 0
+    # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
+    channels[f"L4-15"].power_range = -10  # q0
+    channels[f"L4-16"].power_range = -5  # q1
+    channels[f"L4-17"].power_range = -10  # q2
+    channels[f"L4-18"].power_range = -5  # q3
+    channels[f"L4-19"].power_range = -10  # q4
 
     # HDAWGS
     # Sets the output voltage range.
@@ -173,14 +177,12 @@ def create(runcard_path=RUNCARD):
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
+        qubits[q].twpa = channels[f"L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
 
     # assign channels to couplers and sweetspots(operating points)
     for c, coupler in enumerate(couplers.values()):
         coupler.flux = channels[f"L4-{11 + c}"]
-        # Is this needed ?
-        # channels[f"L4-{11 + c}"].qubit = qubits[f"c{c}"]
-
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
