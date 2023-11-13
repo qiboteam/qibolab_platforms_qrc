@@ -1,6 +1,9 @@
 import itertools
 import pathlib
 
+from laboneq.dsl.device import create_connection
+from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
+from laboneq.simple import DeviceSetup
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.oscillator import LocalOscillator
@@ -12,10 +15,6 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
-
-from laboneq.simple import DeviceSetup
-from laboneq.dsl.device import create_connection
-from laboneq.dsl.device.instruments import HDAWG, SHFQC, PQSC
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
