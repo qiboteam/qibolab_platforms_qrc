@@ -13,9 +13,15 @@ from qibolab.serialize import (
     load_settings,
 )
 
+from laboneq.simple import DeviceSetup
+from laboneq.dsl.device import create_connection
+from laboneq.dsl.device.instruments import HDAWG, SHFQC, PQSC
+
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 
 TWPA_ADDRESS = "192.168.0.35"
+
+N_QUBITS = 5
 
 
 def create(runcard_path=RUNCARD):
@@ -24,58 +30,70 @@ def create(runcard_path=RUNCARD):
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    # Instantiate Zh set of instruments[They work as one]
-    instruments = {
-        "SHFQC": [{"address": "DEV12146", "uid": "device_shfqc"}],
-        "HDAWG": [
-            {"address": "DEV8660", "uid": "device_hdawg"},
-            {"address": "DEV8673", "uid": "device_hdawg2"},
+
+    device_setup = DeviceSetup("EL_ZURO")
+    # Dataserver
+    device_setup.add_dataserver(host="localhost", port=8004)
+    # Instruments
+    device_setup.add_instruments(
+        HDAWG("device_hdawg", address="DEV8660"),
+        HDAWG("device_hdawg2", address="DEV8673"),
+        PQSC("device_pqsc", address="10055"),
+        SHFQC(
+            "device_shfqc", address="device_shfqc", reference_clock_source="internal"
+        ),
+    )
+    device_setup.add_connections(
+        "device_shfqc",
+        *[
+            create_connection(
+                to_signal=f"q{i}/drive_line", ports=[f"SGCHANNELS/{i}/OUTPUT"]
+            )
+            for i in range(N_QUBITS)
         ],
-        "PQSC": [{"address": "DEV10055", "uid": "device_pqsc"}],
-    }
+        *[
+            create_connection(
+                to_signal=f"q{i}/measure_line", ports=["QACHANNELS/0/OUTPUT"]
+            )
+            for i in range(N_QUBITS)
+        ],
+        *[
+            create_connection(
+                to_signal=f"q{i}/acquire_line", ports=["QACHANNELS/0/INPUT"]
+            )
+            for i in range(N_QUBITS)
+        ],
+    )
+    device_setup.add_connections(
+        "device_hdawg",
+        *[
+            create_connection(to_signal=f"q{i}/flux_line", ports=f"SIGOUTS/{i}")
+            for i in range(N_QUBITS)
+        ],
+        *[
+            create_connection(to_signal=f"qc{c}/flux_line", ports=f"SIGOUTS/{i}")
+            for c, i in zip(itertools.chain(range(0, 2), range(3, 4)), range(5, 8))
+        ],
+    )
 
-    shfqc = []
-    for i in range(5):
-        shfqc.append(
-            {"iq_signal": f"q{i}/drive_line", "ports": f"SGCHANNELS/{i}/OUTPUT"}
-        )
-        shfqc.append(
-            {"iq_signal": f"q{i}/measure_line", "ports": ["QACHANNELS/0/OUTPUT"]}
-        )
-        shfqc.append(
-            {"acquire_signal": f"q{i}/acquire_line", "ports": ["QACHANNELS/0/INPUT"]}
-        )
+    device_setup.add_connections(
+        "device_hdawg2",
+        create_connection(to_signal="qc4/flux_line", ports=["SIGOUTS/0"]),
+    )
 
-    hdawg = []
-    for i in range(5):
-        hdawg.append({"rf_signal": f"q{i}/flux_line", "ports": f"SIGOUTS/{i}"})
-    for c, i in zip(itertools.chain(range(0, 2), range(3, 4)), range(5, 8)):
-        hdawg.append({"rf_signal": f"qc{c}/flux_line", "ports": f"SIGOUTS/{i}"})
+    device_setup.add_connections(
+        "device_pqsc",
+        create_connection(to_instrument="device_hdawg2", ports="ZSYNCS/1"),
+        create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
+        create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
+    )
 
-    hdawg2 = [{"rf_signal": "qc4/flux_line", "ports": f"SIGOUTS/0"}]
-
-    pqsc = [
-        "internal_clock_signal",
-        {"to": "device_hdawg2", "port": "ZSYNCS/1"},
-        {"to": "device_hdawg", "port": "ZSYNCS/0"},
-        {"to": "device_shfqc", "port": "ZSYNCS/2"},
-    ]
-
-    connections = {
-        "device_shfqc": shfqc,
-        "device_hdawg": hdawg,
-        "device_hdawg2": hdawg2,
-        "device_pqsc": pqsc,
-    }
-
-    descriptor = {
-        "instruments": instruments,
-        "connections": connections,
-    }
-
+    # FIXME: Zurich should be modified to accommodate for device_setup instead of
+    # descriptor
     controller = Zurich(
         "EL_ZURO",
-        descriptor,
+        # descriptor,
+        device_setup=device_setup,
         use_emulation=False,
         time_of_flight=75,
         smearing=50,
@@ -108,7 +126,7 @@ def create(runcard_path=RUNCARD):
         Channel(f"L4-{i}", port=controller[("device_hdawg", f"SIGOUTS/{i-11+5}")])
         for i in range(11, 14)
     )
-    channels |= Channel("L4-14", port=controller[("device_hdawg2", f"SIGOUTS/0")])
+    channels |= Channel("L4-14", port=controller[("device_hdawg2", "SIGOUTS/0")])
     # TWPA pump(EraSynth)
     channels |= Channel("L3-32")
 
@@ -126,11 +144,11 @@ def create(runcard_path=RUNCARD):
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels[f"L4-15"].power_range = -10  # q0
-    channels[f"L4-16"].power_range = -5  # q1
-    channels[f"L4-17"].power_range = -10  # q2
-    channels[f"L4-18"].power_range = -5  # q3
-    channels[f"L4-19"].power_range = -10  # q4
+    channels["L4-15"].power_range = -10  # q0
+    channels["L4-16"].power_range = -5  # q1
+    channels["L4-17"].power_range = -10  # q2
+    channels["L4-18"].power_range = -5  # q3
+    channels["L4-19"].power_range = -10  # q4
 
     # HDAWGS
     # Sets the output voltage range.
@@ -177,7 +195,7 @@ def create(runcard_path=RUNCARD):
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
-        qubits[q].twpa = channels[f"L3-32"]
+        qubits[q].twpa = channels["L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
 
     # assign channels to couplers and sweetspots(operating points)
