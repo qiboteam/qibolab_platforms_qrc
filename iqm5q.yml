@@ -31,8 +31,8 @@ native_gates:
         0: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.62
-                frequency: 4_095_140_800
+                amplitude: 0.6
+                frequency: 4_105_991_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -40,7 +40,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.1
-                frequency: 5_227_920_060
+                frequency: 5_227_820_060
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -206,9 +206,9 @@ native_gates:
 characterization:
     single_qubit:
         0:
-            bare_resonator_frequency: 5_225_320_060
-            readout_frequency: 5_227_920_060
-            drive_frequency: 4_095_140_800
+            bare_resonator_frequency: 5_286_470_000
+            readout_frequency: 5_227_820_060
+            drive_frequency: 4_105_991_000
             anharmonicity: 217_492_000
             Ec: 0
             Ej: 0
@@ -217,19 +217,25 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.884
-            sweetspot: 0.17
+            assignment_fidelity: 0.8608399090544336
+            readout_fidelity: 0.7216798181088673
+            effective_temperature: 0.0
+            sweetspot: -0.11 #-0.17
             peak_voltage: 0
-            pi_pulse_amplitude: 0.924
+            pi_pulse_amplitude: 0.62
             T1: 11961
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.0051689363924847615, 0.06828212233945871]
-            mean_exc_states: [-0.773457961897901, -0.44969928873718545]
-            threshold: 0.43144500370808087
-            iq_angle: 2.5483919327086055
+            mean_gnd_states: [0.043775121737275074, -0.020909480912086567]
+            mean_exc_states: [0.7954653512297457, -0.2667722080278617]
+            threshold: 0.5298444835661786
+            iq_angle: 0.3161119002040043
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0            
 
         1:
             bare_resonator_frequency: 4_923_107_000
