@@ -187,7 +187,7 @@ def create(runcard_path=RUNCARD):
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(
-        "IQM5q",
+        "iqm5q",
         qubits,
         pairs,
         instruments,

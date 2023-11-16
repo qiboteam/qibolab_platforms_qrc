@@ -35,7 +35,6 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "qblox"
 ADDRESS = "192.168.0.20"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
