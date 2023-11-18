@@ -54,7 +54,7 @@ instruments_settings = {
             "o1": ClusterRF_OutputPort_Settings(
                 channel="L3-20",
                 attenuation=READOUT_ATTENUATION_FL1,
-                lo_frequency=7_650_000_000,
+                lo_frequency=7_385_000_000,
                 gain=READOUT_GAIN,
             ),
             "i1": QbloxInputPort_Settings(
