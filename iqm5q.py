@@ -38,9 +38,7 @@ def create(runcard_path=RUNCARD):
         HDAWG("device_hdawg", address="DEV8660"),
         HDAWG("device_hdawg2", address="DEV8673"),
         PQSC("device_pqsc", address="DEV10055", reference_clock_source="internal"),
-        SHFQC(
-            "device_shfqc", address="DEV12146"
-        ),
+        SHFQC("device_shfqc", address="DEV12146"),
     )
     device_setup.add_connections(
         "device_shfqc",
