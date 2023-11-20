@@ -83,40 +83,26 @@ def create(runcard_path=RUNCARD):
     modules["qrm_rf_a"] = qrm_rf_a
     modules["qrm_rf_b"] = qrm_rf_b
 
-    channels_config = [
-        # readout
-        ("L3-25_a", qrm_rf_a, "o1"),
-        ("L3-25_b", qrm_rf_b, "o1"),
-        # feedback
-        ("L2-5_a", qrm_rf_a, "i1"),
-        ("L2-5_b", qrm_rf_b, "i1"),
-        # drive
-        ("L3-15", qcm_rf0, "o1"),
-        ("L3-11", qcm_rf0, "o2"),
-        ("L3-12", qcm_rf1, "o1"),
-        ("L3-13", qcm_rf1, "o2"),
-        ("L3-14", qcm_rf2, "o1"),
-        # flux
-        ("L4-5", qcm_bb0, "o1"),
-        ("L4-1", qcm_bb0, "o2"),
-        ("L4-2", qcm_bb0, "o3"),
-        ("L4-3", qcm_bb0, "o4"),
-        ("L4-4", qcm_bb1, "o1"),
-    ]
-
-    def instantiate_channels(channel_name: str, module, module_port_name: str):
-        module.channels.append(channel_name)
-        module._port_channel_map[module_port_name] = channel_name
-        module._channel_port_map[channel_name] = module_port_name
-        return Channel(name=channel_name, port=module.ports[module_port_name])
-
     # Create channel objects
     channels = {}
-    channels = {
-        name: instantiate_channels(name, module, port)
-        for name, module, port in channels_config
-    }
-
+    # Readout
+    channels["L3-25_a"] = Channel(name="L3-25_a", port=qrm_rf_a.ports["o1"])
+    channels["L3-25_b"] = Channel(name="L3-25_b", port=qrm_rf_b.ports["o1"])
+    # Feedback
+    channels["L2-5_a"] = Channel(name="L2-5_a", port=qrm_rf_a.ports["i1"])
+    channels["L2-5_b"] = Channel(name="L2-5_b", port=qrm_rf_b.ports["i1"])
+    # Drive
+    channels["L3-15"] = Channel(name="L3-15", port=qcm_rf0.ports["o1"])
+    channels["L3-11"] = Channel(name="L3-11", port=qcm_rf0.ports["o2"])
+    channels["L3-12"] = Channel(name="L3-12", port=qcm_rf1.ports["o1"])
+    channels["L3-13"] = Channel(name="L3-13", port=qcm_rf1.ports["o2"])
+    channels["L3-14"] = Channel(name="L3-14", port=qcm_rf2.ports["o1"])
+    # Flux
+    channels["L4-5"] = Channel(name="L4-5", port=qcm_bb0.ports["o1"])
+    channels["L4-1"] = Channel(name="L4-1", port=qcm_bb0.ports["o2"])
+    channels["L4-2"] = Channel(name="L4-2", port=qcm_bb0.ports["o3"])
+    channels["L4-3"] = Channel(name="L4-3", port=qcm_bb0.ports["o4"])
+    channels["L4-4"] = Channel(name="L4-4", port=qcm_bb1.ports["o1"])
     # TWPA
     channels["L3-28"] = Channel(name="L3-28", port=None)
     channels["L3-28"].local_oscillator = twpa_pump
