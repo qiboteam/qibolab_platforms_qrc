@@ -37,9 +37,9 @@ def create(runcard_path=RUNCARD):
     device_setup.add_instruments(
         HDAWG("device_hdawg", address="DEV8660"),
         HDAWG("device_hdawg2", address="DEV8673"),
-        PQSC("device_pqsc", address="10055"),
+        PQSC("device_pqsc", address="DEV10055", reference_clock_source="internal"),
         SHFQC(
-            "device_shfqc", address="device_shfqc", reference_clock_source="internal"
+            "device_shfqc", address="DEV12146"
         ),
     )
     device_setup.add_connections(
@@ -87,11 +87,8 @@ def create(runcard_path=RUNCARD):
         create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
     )
 
-    # FIXME: Zurich should be modified to accommodate for device_setup instead of
-    # descriptor
     controller = Zurich(
         "EL_ZURO",
-        # descriptor,
         device_setup=device_setup,
         use_emulation=False,
         time_of_flight=75,
