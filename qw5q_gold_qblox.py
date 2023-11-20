@@ -75,13 +75,11 @@ def create(runcard_path=RUNCARD):
 
     instruments = load_instrument_settings(runcard, instruments)
 
-    modules["qcm_bb0"] = qcm_bb0
-    modules["qcm_bb1"] = qcm_bb1
-    modules["qcm_rf0"] = qcm_rf0
-    modules["qcm_rf1"] = qcm_rf1
-    modules["qcm_rf2"] = qcm_rf2
-    modules["qrm_rf_a"] = qrm_rf_a
-    modules["qrm_rf_b"] = qrm_rf_b
+    modules = {
+        name: instrument
+        for name, instrument in instruments.items()
+        if isinstance(instrument, (ClusterQCM_RF, ClusterQCM_BB, ClusterQRM_RF))
+    }
 
     # Create channel objects
     channels = {}
