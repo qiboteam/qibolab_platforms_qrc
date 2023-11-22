@@ -120,16 +120,16 @@ def create(runcard_path=RUNCARD):
     # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
 
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -15  # -15
+    channels["L3-31"].power_range = -5
     # feedback "gain": play with the power range to calibrate the best RO
     channels["L2-7"].power_range = 10
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels[f"L4-15"].power_range = -10  # q0
-    channels[f"L4-16"].power_range = -5  # q1
+    channels[f"L4-15"].power_range = -15 # q0
+    channels[f"L4-16"].power_range = 5  # q1
     channels[f"L4-17"].power_range = -10  # q2
-    channels[f"L4-18"].power_range = -5  # q3
+    channels[f"L4-18"].power_range = 10 # q3
     channels[f"L4-19"].power_range = -10  # q4
 
     # HDAWGS
@@ -183,11 +183,12 @@ def create(runcard_path=RUNCARD):
     # assign channels to couplers and sweetspots(operating points)
     for c, coupler in enumerate(couplers.values()):
         coupler.flux = channels[f"L4-{11 + c}"]
+        
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(
-        "IQM5q",
+        "iqm5q",
         qubits,
         pairs,
         instruments,
