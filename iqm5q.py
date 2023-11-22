@@ -126,10 +126,10 @@ def create(runcard_path=RUNCARD):
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels[f"L4-15"].power_range = -15 # q0
+    channels[f"L4-15"].power_range = -15  # q0
     channels[f"L4-16"].power_range = 5  # q1
     channels[f"L4-17"].power_range = -10  # q2
-    channels[f"L4-18"].power_range = 10 # q3
+    channels[f"L4-18"].power_range = 10  # q3
     channels[f"L4-19"].power_range = -10  # q4
 
     # HDAWGS
@@ -183,7 +183,7 @@ def create(runcard_path=RUNCARD):
     # assign channels to couplers and sweetspots(operating points)
     for c, coupler in enumerate(couplers.values()):
         coupler.flux = channels[f"L4-{11 + c}"]
-        
+
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
