@@ -127,7 +127,7 @@ def create(runcard_path=RUNCARD):
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     channels[f"L4-15"].power_range = -10 # q0
-    channels[f"L4-16"].power_range = -5  # q1
+    channels[f"L4-16"].power_range = 5   # q1
     channels[f"L4-17"].power_range = -10  # q2
     channels[f"L4-18"].power_range = -5  # q3
     channels[f"L4-19"].power_range = -10  # q4
