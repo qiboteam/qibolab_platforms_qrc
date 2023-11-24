@@ -2,7 +2,7 @@ import pathlib
 
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.rfsoc import RFSoC
-from qibolab.instruments.rohde_schwarz import SGS100A 
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
 from qibolab.serialize import load_qubits, load_runcard, load_settings
 
@@ -12,6 +12,7 @@ PORT = 6000
 RUNCARD = pathlib.Path(__file__).parent / "tii1q_b1.yml"
 
 TWPA_ADDRESS = "192.168.0.31"
+
 
 def create(runcard_path=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
@@ -33,7 +34,7 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L3-22_qd", port=controller[0])  # drive
 
     # TWPA
-    channels["L3-24"] = Channel(name="L3-24", port=None) 
+    channels["L3-24"] = Channel(name="L3-24", port=None)
     channels["L3-24"].local_oscillator = twpa_lo
 
     # create qubit objects
