@@ -32,10 +32,8 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L1-2-RO", port=controller[0])  # feedback (readout ADC)
     channels |= Channel("L3-22_qd", port=controller[0])  # drive
 
-
-
     # TWPA
-    channels["L3-24"] = Channel(name="L3-29", port=None) 
+    channels["L3-24"] = Channel(name="L3-24", port=None) 
     channels["L3-24"].local_oscillator = twpa_lo
 
     # create qubit objects
