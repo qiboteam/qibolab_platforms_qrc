@@ -49,7 +49,7 @@ native_gates:
         1: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.628
+                amplitude: 0.645
                 frequency: 4_253_385_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -57,8 +57,8 @@ native_gates:
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.1
-                frequency: 4_930_469_000
+                amplitude: 0.06 #0.1
+                frequency: 4_930_069_000 #4_930_469_000 4_931_269_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -250,7 +250,7 @@ characterization:
             ssf_brf: 0.0
             assignment_fidelity: 0.7789220275511569
             readout_fidelity: 0.5578440551023138
-            sweetspot: 0.035
+            sweetspot: 0.0049 #0.035
             peak_voltage: 0
             pi_pulse_amplitude: 0.628
             T1: 10100
