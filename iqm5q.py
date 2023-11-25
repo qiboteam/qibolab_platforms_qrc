@@ -120,8 +120,8 @@ def create(runcard_path=RUNCARD):
     # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
 
     # readout "gain": play with the power range to calibrate the best RO
-    channels["L3-31"].power_range = -15
-    # feedback "gain": play with the power range to calibrate the best RO
+    channels["L3-31"].power_range = -5 #-10 #-15
+    # feedback "gain": set to max
     channels["L2-7"].power_range = 10
 
     # drive
