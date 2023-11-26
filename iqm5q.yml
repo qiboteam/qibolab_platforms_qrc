@@ -23,8 +23,8 @@ instruments:
     lo_drive_2: # For SG5 and SG6 (Drive)
         frequency: 4_800_000_000
     TWPA:
-        frequency:  6_710_200_000
-        power: -5.7
+        frequency:  6_673_000_000 #6_720_000_000 #6_712_000_000 #6_710_200_000
+        power: -3.9 #-4 #-4.2 #-6 #-5.7
 
 native_gates:
     single_qubit:
@@ -279,17 +279,22 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.799
-            sweetspot: -0.05 #0.015
+            assignment_fidelity: 0.8875994694960212
+            readout_fidelity: 0.7751989389920424
+            sweetspot: -0.05
             T1: 8343
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.1741377634001174, 0.2917017948399187]
-            mean_exc_states: [-1.644348910967934, 0.5699327364542519]
-            threshold: 0.6334573745826475
-            iq_angle: -2.9897686869193305
+            mean_gnd_states: [-0.4994903181388, -3.342617864747052]
+            mean_exc_states: [0.5312790921632118, 0.23435066617920264]
+            threshold: -0.49383590891622553
+            iq_angle: -1.2902292145542222
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
 
         3:
             bare_resonator_frequency: 5_773_100_000
