@@ -67,8 +67,8 @@ native_gates:
         2: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.413 #0.42
-                frequency: 4_535_050_000 #4_539_550_000
+                amplitude: 0.413
+                frequency: 4_535_050_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
@@ -76,7 +76,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.33
-                frequency: 6_083_141_000 #6_085_941_000
+                frequency: 6_083_141_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -84,17 +84,17 @@ native_gates:
 
         3: # qubit number
             RX:
-                duration: 40
-                amplitude: 0.6
-                frequency: 4_168_624_000
+                duration: 50 #40
+                amplitude: 1 #0.6
+                frequency: 4_165_124_000 #4_168_624_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
                 phase: 0
             MZ:
                 duration: 2000
-                amplitude: 0.6
-                frequency: 5_778_270_000
+                amplitude: 0.15 #0.6
+                frequency: 5_782_870_000 #5_778_270_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -265,11 +265,10 @@ characterization:
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
-
         2:
             bare_resonator_frequency: 6_163_447_000
-            readout_frequency: 6_083_141_000 #6_085_941_000
-            drive_frequency: 4_535_050_000 #4_539_550_000
+            readout_frequency: 6_083_141_000
+            drive_frequency: 4_535_050_000
             anharmonicity: 211_604_296
             Ec: 0
             Ej: 0
@@ -293,12 +292,11 @@ characterization:
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
-            mixer_readout_phi: 0.0
-
+            mixer_readout_phi: 0.
         3:
             bare_resonator_frequency: 5_773_100_000
-            readout_frequency: 5_778_270_000
-            drive_frequency: 4_168_624_000
+            readout_frequency: 5_782_870_000
+            drive_frequency:  4_165_124_000
             anharmonicity: 214_000_000
             Ec: 0
             Ej: 0
@@ -318,7 +316,6 @@ characterization:
             mean_exc_states: [-0.8186923372721429, -2.1199756256035918]
             threshold: -3.295590970178259
             iq_angle: 1.449541916726749
-
         4:
             bare_resonator_frequency: 5_504_700_000
             readout_frequency: 5_514_950_000
