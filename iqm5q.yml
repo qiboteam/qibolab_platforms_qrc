@@ -305,17 +305,22 @@ characterization:
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
-            assignment_fidelity: 0.887
-            sweetspot: -0.15 #0.0
+            assignment_fidelity: 0.6800397877984085
+            readout_fidelity: 0.3600795755968169
+            sweetspot: -0.15
             T1: 10490
             T2: 0.0
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-1.5157013000200312, 3.600143370559288]
-            mean_exc_states: [-0.8186923372721429, -2.1199756256035918]
-            threshold: -3.295590970178259
-            iq_angle: 1.449541916726749
+            mean_gnd_states: [0.0498980533033663, 0.06254636463089971]
+            mean_exc_states: [0.2586905359421249, 0.8436764447433481]
+            threshold: 0.5012655319171134
+            iq_angle: -1.3096070288021406
+            mixer_drive_g: 0.0
+            mixer_drive_phi: 0.0
+            mixer_readout_g: 0.0
+            mixer_readout_phi: 0.0
         4:
             bare_resonator_frequency: 5_504_700_000
             readout_frequency: 5_514_950_000
