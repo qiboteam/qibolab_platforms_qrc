@@ -3,6 +3,8 @@ description: IQM 5-qubit device, controlled with Zurich Instruments.
 
 #qubit 4 needs a lot of power for rabi and 4us T1 and T2 ???
 
+kernel_path: "qibolab_platforms_qrc/iqm5q_kernels"
+
 settings:
     nshots: 4096
     sampling_rate: 2.e+9
@@ -228,8 +230,8 @@ characterization:
             state1_voltage: 0
             mean_gnd_states: [-0.0051689363924847615, 0.06828212233945871]
             mean_exc_states: [-0.773457961897901, -0.44969928873718545]
-            threshold: 0.43144500370808087
-            iq_angle: 2.5483919327086055
+            threshold: 0.501546
+            iq_angle: 2.672
 
         1:
             bare_resonator_frequency: 4_923_107_000
