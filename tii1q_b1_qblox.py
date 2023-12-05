@@ -1,7 +1,7 @@
 import pathlib
+
 import networkx as nx
 import yaml
-
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.qblox.cluster import (
     Cluster,
@@ -35,7 +35,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-#from qibolab.instruments.rfsoc import RFSoC
+# from qibolab.instruments.rfsoc import RFSoC
 
 
 NAME = "tii1q_b1_qblox"
@@ -71,7 +71,7 @@ instruments_settings = {
                 lo_frequency=5_300_000_000,
                 gain=1,
             ),
-            "o2": ClusterRF_OutputPort_Settings( # Not used
+            "o2": ClusterRF_OutputPort_Settings(  # Not used
                 channel="L3-13",
                 attenuation=20,
                 lo_frequency=6_961_018_001,
@@ -80,6 +80,8 @@ instruments_settings = {
         }
     ),
 }
+
+
 def create(runcard_path=RUNCARD):
     """Platform for Qblox.
 
@@ -90,20 +92,20 @@ def create(runcard_path=RUNCARD):
         module_settings = settings[name]
         modules[name] = cls(name=name, address=address, settings=module_settings)
         return modules[name]
-    
+
     modules = {}
 
     cluster = Cluster(
         name="cluster",
         address="192.168.0.6",
         settings=instruments_settings["cluster"],
-    )   
+    )
     qrm_rf_a = instantiate_module(
         modules, ClusterQRM_RF, "qrm_rf_a", "192.168.0.6:20", instruments_settings
     )
     qcm_rf0 = instantiate_module(
         modules, ClusterQCM_RF, "qcm_rf0", "192.168.0.6:16", instruments_settings
-    )  
+    )
 
     controller = QbloxController("qblox_controller", cluster, modules)
 
@@ -116,15 +118,12 @@ def create(runcard_path=RUNCARD):
     # drive
     channels["L3-22_b"] = Channel(name="L3-22_b", port=qcm_rf0.ports["o1"])
 
-
-
-
     # TWPA
 
     twpa_lo = SGS100A("twpa_lo", TWPA_ADDRESS)
     twpa_lo.frequency = 6_433_500_000
     twpa_lo.power = 2.5
-    channels["L3-24"] = Channel(name="L3-24", port=None) 
+    channels["L3-24"] = Channel(name="L3-24", port=None)
     channels["L3-24"].local_oscillator = twpa_lo
 
     # create qubit objects
