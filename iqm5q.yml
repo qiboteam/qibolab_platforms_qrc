@@ -3,8 +3,6 @@ description: IQM 5-qubit device, controlled with Zurich Instruments.
 
 #qubit 4 needs a lot of power for rabi and 4us T1 and T2 ???
 
-kernel_path: "qibolab_platforms_qrc/iqm5q_kernels"
-
 settings:
     nshots: 4096
     sampling_rate: 2.e+9
