@@ -21,6 +21,7 @@ RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 TWPA_ADDRESS = "192.168.0.35"
 
 N_QUBITS = 5
+KERNEL_FOLDER = "qibolab_platforms_qrc/iqm5q_kernels/"
 
 
 def create(runcard_path=RUNCARD):
@@ -206,4 +207,5 @@ def create(runcard_path=RUNCARD):
         settings,
         resonator_type="2D",
         couplers=couplers,
+        kernel_folder=KERNEL_FOLDER,
     )
