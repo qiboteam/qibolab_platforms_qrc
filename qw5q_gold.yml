@@ -7,43 +7,101 @@ topology:
 - [2, 3]
 - [2, 4]
 instruments:
-    twpa_pump: {power: 1.4, frequency: 6545500000}
+    twpa_pump:
+        frequency: 6532000000
+        power: 3.2
+
+    qcm_bb0:
+        o1:
+            offset: 0.0
+
+        o2:
+            offset: 0.0
+
+        o3:
+            offset: 0.0
+
+        o4:
+            offset: 0.0
+
+    qcm_bb1:
+        o1:
+            offset: 0.0
+
+    qcm_rf0:
+        o1:
+            attenuation: 20
+            lo_frequency: 5_141_132_868
+        o2:
+            attenuation: 20
+            lo_frequency: 4_952_007_272
+
+    qcm_rf1:
+        o1:
+            attenuation: 20
+            lo_frequency: 5_995_371_914
+        o2:
+            attenuation: 20
+            lo_frequency: 6_961_018_001
+
+    qcm_rf2:
+        o1:
+            attenuation: 20
+            lo_frequency: 6_786_543_060
+
+    qrm_rf_a:
+        o1:
+            attenuation: 38
+            lo_frequency: 7_300_000_000
+        i1:
+            acquisition_hold_off: 500
+            acquisition_duration: 900
+
+
+    qrm_rf_b:
+        o1:
+            attenuation: 38
+            lo_frequency: 7_850_000_000
+        i1:
+            acquisition_hold_off: 500
+            acquisition_duration: 900
+
 native_gates:
     single_qubit:
         0:
-            RX: {duration: 40, amplitude: 0.7857641001738979, shape: Gaussian(5),
-                frequency: 5041132868, relative_start: 0, phase: 0, type: qd}
-            RX12: {duration: 40, amplitude: 0.5987848683582333, shape: 'Drag(5, -0.100)',
-                frequency: 5041564317, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 7211719220,
+            RX: {duration: 40, amplitude: 0.351, shape: Gaussian(5),
+                frequency: 5045254780, relative_start: 0, phase: 0, type: qd}
+            RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 5041564317,
+                relative_start: 0, phase: 0.0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7212279385,
                 relative_start: 0, phase: 0, type: ro}
         1:
-            RX: {duration: 40, amplitude: 0.4948140333980767, shape: Gaussian(5),
-                frequency: 4852007272, relative_start: 0, phase: 0.0, type: qd}
-            RX12: {duration: 40, amplitude: 0.3288755497886648, shape: 'Drag(5, 0.000)',
-                frequency: 4551209776, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 7452288659,
+            RX: {duration: 40, amplitude: 0.25, shape: Gaussian(5),
+                frequency: 4846038837, relative_start: 0, phase: 0.0, type: qd}
+            RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 4551209776,
+                relative_start: 0, phase: 0.0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.15, shape: Rectangular(), frequency: 7452705296,
                 relative_start: 0, phase: 0.0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.5739756219966101, shape: Gaussian(5),
-                frequency: 5791033225, relative_start: 0, phase: 0.0, type: qd}
-            RX12: {duration: 40, amplitude: 0.5987848683582333, shape: 'Drag(5, -0.100)',
-                frequency: 5790889285, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 7654623915,
+            RX: {duration: 40, amplitude: 0.252, shape: Gaussian(5),
+                frequency: 5790689946, relative_start: 0, phase: 0.0, type: qd}
+            RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 5790889285,
+                relative_start: 0, phase: 0.0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.15, shape: Rectangular(), frequency: 7655000646,
                 relative_start: 0, phase: 0.0, type: ro}
         3:
-            RX: {duration: 40, amplitude: 0.4862715490329436, shape: Gaussian(5),
-                frequency: 6759947957, relative_start: 0, phase: 0.0, type: qd}
-            RX12: {duration: 40, amplitude: 0.35366451808433585, shape: 'Drag(5, 0.300)',
-                frequency: 6455188644, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 7802878098,
+            RX: {duration: 40, amplitude: 0.242, shape: Gaussian(5),
+                frequency: 6753510818, relative_start: 0, phase: 0.0, type: qd}
+            RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 6455088644,
+                relative_start: 0, phase: 0.0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7803766077,
                 relative_start: 0, phase: 0.0, type: ro}
         4:
-            RX: {duration: 40, amplitude: 0.6510099424437265, shape: Gaussian(5),
-                frequency: 6588063150, relative_start: 0, phase: 0.0, type: qd}
-            RX12: {duration: 40, amplitude: 0.3910866301682921, shape: 'Drag(5, -0.100)',
-                frequency: 6286920753, relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.3, shape: Rectangular(), frequency: 8058657525,
+            RX: {duration: 40, amplitude: 0.25, shape: Gaussian(5),
+                frequency: 6587593856, relative_start: 0, phase: 0.0, type: qd}
+            RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 6286920753,
+                relative_start: 0, phase: 0.0, type: qd}
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 8058856895,
                 relative_start: 0, phase: 0.0, type: ro}
     two_qubit:
         0-2:
@@ -66,10 +124,10 @@ characterization:
     single_qubit:
         0:
             bare_resonator_frequency: 7200000000
-            readout_frequency: 7211719220
-            drive_frequency: 5041132868
+            readout_frequency: 7212339385
+            drive_frequency: 5046865096
             anharmonicity: 291463266
-            sweetspot: 0.219
+            sweetspot: 0.035
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -77,8 +135,8 @@ characterization:
             Ec: 270000000
             Ej: 11400000000
             g: 107000000
-            assignment_fidelity: 0.7964516129032259
-            readout_fidelity: 0.5929032258064517
+            assignment_fidelity: 0.8657498362802882
+            readout_fidelity: 0.7314996725605764
             peak_voltage: 0
             pi_pulse_amplitude: 0.5037576688262035
             T1: 5662.122123503363
@@ -86,20 +144,20 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.009050922106950392, 0.0015359164753137027]
-            mean_exc_states: [0.00784854345812475, 0.005070611245060088]
-            threshold: 0.00034890493471258184
-            iq_angle: -1.8986825263836642
+            mean_gnd_states: [0.0008617683994626808, -0.004676019861904006]
+            mean_exc_states: [0.002844894239536648, -0.0073367863858283975]
+            threshold: 0.006131810689009896
+            iq_angle: 0.9302963468967169
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
         1:
             bare_resonator_frequency: 7400000000
-            readout_frequency: 7452288659
-            drive_frequency: 4852007272
+            readout_frequency: 7453095296
+            drive_frequency: 4851539649
             anharmonicity: 292584018
-            sweetspot: 0.243
+            sweetspot: 0.182
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -107,8 +165,8 @@ characterization:
             Ec: 270000000
             Ej: 11400000000
             g: 11400000
-            assignment_fidelity: 0.9106451612903226
-            readout_fidelity: 0.8212903225806452
+            assignment_fidelity: 0.8842501637197119
+            readout_fidelity: 0.7685003274394238
             peak_voltage: 0
             pi_pulse_amplitude: 0.5091870515531648
             T1: 3246.261636989574
@@ -116,29 +174,29 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.009245204478233559, -0.002504811909183683]
-            mean_exc_states: [0.00808938756428237, 0.0035853020330477523]
-            threshold: -0.0018653227541758585
-            iq_angle: -1.7583514915133016
+            mean_gnd_states: [-0.0007361571568675495, -0.001881304447954196]
+            mean_exc_states: [-0.0004619412588283601, -0.00470789641418373]
+            threshold: 0.0033018055661896725
+            iq_angle: 1.474086060375114
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
         2:
             bare_resonator_frequency: 7600000000
-            readout_frequency: 7654623915
-            drive_frequency: 5791033225
+            readout_frequency: 7655221646
+            drive_frequency: 5795147317
             anharmonicity: 276187576
-            sweetspot: -0.249
-            flux_to_bias: 0.0
+            sweetspot: -0.182
+            flux_to_bias: 0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
             ssf_brf: 0.0
             Ec: 270000000
             Ej: 16000000000
             g: 83600000
-            assignment_fidelity: 0.854516129032258
-            readout_fidelity: 0.7090322580645162
+            assignment_fidelity: 0.9012770137524557
+            readout_fidelity: 0.8025540275049116
             peak_voltage: 0
             pi_pulse_amplitude: 0.4961740399301971
             T1: 3094.334599720453
@@ -146,20 +204,20 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.0037324709022594515, -0.0019909745452589772]
-            mean_exc_states: [0.004076415700570638, 0.0016605274262711594]
-            threshold: -1.4157202143450635e-05
-            iq_angle: -1.4768807292719275
+            mean_gnd_states: [-0.00028945860027575643, -0.0011747202165858872]
+            mean_exc_states: [0.00018316328273493987, -0.0035482269412032]
+            threshold: 0.0024918824314666905
+            iq_angle: 1.3742433257845965
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
         3:
             bare_resonator_frequency: 7800000000
-            readout_frequency: 7802878098
-            drive_frequency: 6759947957
+            readout_frequency: 7803855179
+            drive_frequency: 6759941306
             anharmonicity: 262310994
-            sweetspot: 0.514
+            sweetspot: 0.56
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -167,8 +225,8 @@ characterization:
             Ec: 270000000
             Ej: 21200000000
             g: 54300000
-            assignment_fidelity: 0.9064516129032258
-            readout_fidelity: 0.8129032258064517
+            assignment_fidelity: 0.9060248853962017
+            readout_fidelity: 0.8120497707924035
             peak_voltage: 0
             pi_pulse_amplitude: 0.4977305637146838
             T1: 2776.2707299721433
@@ -176,20 +234,20 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.0009596075664717493, 0.007530427278990469]
-            mean_exc_states: [-0.002786348410909922, 0.0038024552058874618]
-            threshold: -0.004074409710963071
-            iq_angle: 2.3586007040933947
+            mean_gnd_states: [0.0020972308956002865, -0.0015568020627093552]
+            mean_exc_states: [0.005775768387804019, -0.0022975233365684507]
+            threshold: 0.004089528995105353
+            iq_angle: 0.19870577399385211
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
         4:
             bare_resonator_frequency: 8000000000
-            readout_frequency: 8058657525
-            drive_frequency: 6588063150
+            readout_frequency: 8059247040
+            drive_frequency: 6587593856
             anharmonicity: 261390626
-            sweetspot: -0.592
+            sweetspot: 0.586
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0.0
@@ -197,8 +255,8 @@ characterization:
             Ec: 270000000
             Ej: 21200000000
             g: 62700000
-            assignment_fidelity: 0.8109677419354839
-            readout_fidelity: 0.6219354838709678
+            assignment_fidelity: 0.8867059593975115
+            readout_fidelity: 0.7734119187950229
             peak_voltage: 0
             pi_pulse_amplitude: 0.56468497579218
             T1: 1424.3422193259726
@@ -206,10 +264,10 @@ characterization:
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0.002449701684811943, 0.0005948857135459497]
-            mean_exc_states: [0.0008888283054316743, 0.0019769152514476133]
-            threshold: -0.0002757408968659526
-            iq_angle: -2.416891077130921
+            mean_gnd_states: [-0.0001474911672074461, -0.0010644981377049623]
+            mean_exc_states: [0.0006954978296718497, -0.0034473196835722677]
+            threshold: 0.002332818342122121
+            iq_angle: 1.2307600934217797
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
