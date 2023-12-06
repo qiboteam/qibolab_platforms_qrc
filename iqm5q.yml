@@ -11,8 +11,6 @@ settings:
 qubits: [0, 1, 2, 3, 4]
 couplers: [0, 1, 3, 4]
 
-kernel_folder: "qibolab_platforms_qrc/iqm5q_kernels/"
-
 topology: {0: [0, 2], 1: [1, 2], 3: [2, 3], 4: [2, 4]}
 
 instruments:
