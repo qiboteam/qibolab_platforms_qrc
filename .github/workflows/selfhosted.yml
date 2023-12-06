@@ -77,7 +77,7 @@ jobs:
         source testenv/bin/activate
         export QIBOLAB_PLATFORMS=.
         partition="$(jq -r -n --argjson data "$queues" '$data.'$platform)"
-        QIBOCAL_LOG_LEVEL=4 QIBO_LOG_LEVEL=3 srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
+        srun -p $partition python selfhosted/calibration.py ${{ matrix.platform }}
     - name: Notify the Pull Request
       uses: thollander/actions-comment-pull-request@v2
       env:
