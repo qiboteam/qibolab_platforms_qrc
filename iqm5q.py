@@ -17,7 +17,7 @@ from qibolab.serialize import (
 )
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
-KERNEL_FOLDER = pathlib.Path(__file__).parent / "iqm5q/"
+FOLDER = pathlib.Path(__file__).parent / "iqm5q/"
 
 TWPA_ADDRESS = "192.168.0.35"
 
