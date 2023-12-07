@@ -65,7 +65,7 @@ def main(name):
     platform = create_platform(name)
     qubits = platform.qubits
 
-    max_time = max(int(10 * max(qubit.T1 for qubit in qubits.values())), 10000)
+    max_time = max(int(10 * max(qubit.T1 for qubit in qubits.values())), 20000)
     step = max_time // 50
     experiments = [
         Experiment(
