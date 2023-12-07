@@ -7,7 +7,65 @@ topology:
 - [2, 3]
 - [2, 4]
 instruments:
-    twpa_pump: {power: 3.2, frequency: 6532000000}
+    twpa_pump:
+        frequency: 6532000000
+        power: 3.2
+
+    qcm_bb0:
+        o1:
+            offset: 0.0
+
+        o2:
+            offset: 0.0
+
+        o3:
+            offset: 0.0
+
+        o4:
+            offset: 0.0
+
+    qcm_bb1:
+        o1:
+            offset: 0.0
+
+    qcm_rf0:
+        o1:
+            attenuation: 20
+            lo_frequency: 5_141_132_868
+        o2:
+            attenuation: 20
+            lo_frequency: 4_952_007_272
+
+    qcm_rf1:
+        o1:
+            attenuation: 20
+            lo_frequency: 5_995_371_914
+        o2:
+            attenuation: 20
+            lo_frequency: 6_961_018_001
+
+    qcm_rf2:
+        o1:
+            attenuation: 20
+            lo_frequency: 6_786_543_060
+
+    qrm_rf_a:
+        o1:
+            attenuation: 38
+            lo_frequency: 7_300_000_000
+        i1:
+            acquisition_hold_off: 500
+            acquisition_duration: 900
+
+
+    qrm_rf_b:
+        o1:
+            attenuation: 38
+            lo_frequency: 7_850_000_000
+        i1:
+            acquisition_hold_off: 500
+            acquisition_duration: 900
+
 native_gates:
     single_qubit:
         0:
