@@ -60,71 +60,72 @@ def convert_to_us(x):
     return f"{x / 1000:.2f} us"
 
 
-EXPERIMENTS = [
-    Experiment(
-        Operation.readout_characterization.value,
-        dict(nshots=10000),
-        [
-            Result("Readout assignment fidelities", "assignment_fidelity"),
-            Result("Readout QND", "qnd"),
-        ],
-    ),
-    Experiment(
-        Operation.t1_signal.value,
-        dict(
-            delay_before_readout_start=50,
-            delay_before_readout_end=200000,
-            delay_before_readout_step=2500,
-            nshots=1024,
-        ),
-        [Result("T1", "t1", convert_to_us)],
-    ),
-    Experiment(
-        Operation.t2_signal.value,
-        dict(
-            delay_between_pulses_start=50,
-            delay_between_pulses_end=200000,
-            delay_between_pulses_step=2500,
-            nshots=1024,
-        ),
-        [
-            Result("T2", "t2", convert_to_us),
-        ],
-    )
-    # Experiment(
-    #     "Gate fidelities",
-    #     Operation.standard_rb.value,
-    #     dict(
-    #         depths=[10, 100, 150, 200, 250, 300],
-    #         niter=8,
-    #         nshots=256,
-    #     )
-    # )
-]
-
-
 def main(name):
     """Execute single shot classification routine on the given platform."""
     platform = create_platform(name)
     qubits = platform.qubits
 
+    max_time = max(int(10 * max(qubit.T1 for qubit in qubits.values())), 10000)
+    step = max_time // 50
+    experiments = [
+        Experiment(
+            Operation.readout_characterization.value,
+            dict(nshots=10000),
+            [
+                Result("Readout assignment fidelities", "assignment_fidelity"),
+                Result("Readout QND", "qnd"),
+            ],
+        ),
+        Experiment(
+            Operation.t1_signal.value,
+            dict(
+                delay_before_readout_start=50,
+                delay_before_readout_end=max_time,
+                delay_before_readout_step=step,
+                nshots=5000,
+            ),
+            [Result("T1", "t1", convert_to_us)],
+        ),
+        Experiment(
+            Operation.t2_signal.value,
+            dict(
+                delay_between_pulses_start=50,
+                delay_between_pulses_end=max_time,
+                delay_between_pulses_step=step,
+                nshots=5000,
+            ),
+            [
+                Result("T2", "t2", convert_to_us),
+            ],
+        )
+        # Experiment(
+        #     "Gate fidelities",
+        #     Operation.standard_rb.value,
+        #     dict(
+        #         depths=[10, 100, 150, 200, 250, 300],
+        #         niter=8,
+        #         nshots=256,
+        #     )
+        # )
+    ]
+
     platform.connect()
     platform.setup()
     platform.start()
 
-    for experiment in EXPERIMENTS:
+    for experiment in experiments:
         experiment(platform, qubits)
 
     platform.stop()
     platform.disconnect()
 
-    total_time = sum(experiment.total_time for experiment in EXPERIMENTS)
+    total_time = sum(experiment.total_time for experiment in experiments)
     path = pathlib.Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
         file.write(
             f"Run on platform `%s` completed in %.2fsec! :atom:\n" % (name, total_time)
         )
-        for experiment in EXPERIMENTS:
+        for experiment in experiments:
             experiment.report(file)
 
 
