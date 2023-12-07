@@ -16,19 +16,27 @@ topology:
 - [4, 9]
 - [5, 10]
 instruments:
-    twpa_pump0: {power: -1.82, frequency: 6810000000}
-    twpa_pump1: {power: 2.3, frequency: 6380000000}
+    twpa_pump0: {power: -2.24, frequency: 6803000000}
+    twpa_pump1: {power:  2.30, frequency: 6380000000}
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.287, shape: Gaussian(5), frequency: 4228384733,
-                relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433801331,
+            RX: {duration: 40, amplitude: 0.294, shape: Gaussian(5),
+                frequency: 4228472634, relative_start: 0, phase: 0, type: qd}
+            # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433510045,
+            #     relative_start: 0, phase: 0, type: ro}
+            # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433310045,
+            #     relative_start: 0, phase: 0, type: ro}
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433670045,
                 relative_start: 0, phase: 0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.434, shape: Gaussian(5), frequency: 4853973449,
-                relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511749813,
+            RX: {duration: 40, amplitude: 0.473, shape: Gaussian(5),
+                frequency: 4852154170, relative_start: 0, phase: 0, type: qd}
+            # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511633427,
+            #     relative_start: 0, phase: 0, type: ro}
+            # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511384427,
+            #     relative_start: 0, phase: 0, type: ro}
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511744427,
                 relative_start: 0, phase: 0, type: ro}
         3:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4277000000,
@@ -73,8 +81,10 @@ native_gates:
     two_qubit:
         1-2:
             CZ:
-            - {duration: 40, amplitude: 0.01, shape: Rectangular(), qubit: 2, relative_start: 0,
+            - {duration: 37, amplitude: 0.0462, shape: Rectangular(), qubit: 2, relative_start: 0,
                 type: qf}
+            # - {duration: 37, amplitude: 0.1433, shape: Rectangular(), qubit: 2, relative_start: 0,
+            #     type: qf}
         2-3:
             CZ:
             - {duration: 40, amplitude: 0.01, shape: Rectangular(), qubit: 2, relative_start: 0,
@@ -126,11 +136,13 @@ native_gates:
 characterization:
     single_qubit:
         1:
-            bare_resonator_frequency: 7434000000
-            readout_frequency: 7433801331
-            drive_frequency: 4228384733
-            anharmonicity: 300000000
-            sweetspot: 0.094
+            bare_resonator_frequency: 7432188457
+            # readout_frequency: 7433510045 # amplitude crossing
+            # readout_frequency: 7433310045 # best
+            readout_frequency: 7433670045 # state |0>
+            drive_frequency: 4228472634
+            anharmonicity: 197369466
+            sweetspot: 0.093
             # sweetspot: -0.158 # parking
             flux_to_bias: 2.1464325851437356
             asymmetry: 0.984279103491614
@@ -139,30 +151,32 @@ characterization:
             Ec: 0.61296396978099
             Ej: 9.875969349720506
             g: 0.2014594078657114
-            assignment_fidelity: 0
-            readout_fidelity: 0.0
+            assignment_fidelity: 0.8028814669286182
+            readout_fidelity: 0.6057629338572365
             effective_temperature: 0.0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
-            T1: 14894
-            T2: 120
+            T1: 12873
+            T2: 785
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0, 0]
-            mean_exc_states: [0, 0]
-            threshold: 0.0
-            iq_angle: 0.0
+            mean_gnd_states: [-0.00011575942692992972, -0.0006337769535653254]
+            mean_exc_states: [0.0005769238972340342, -0.0012913685311429653]
+            threshold: 0.000782982509151255
+            iq_angle: 0.7594154177084199
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
             mixer_readout_phi: 0.0
         2:
-            bare_resonator_frequency: 7511000000
-            readout_frequency: 7511749813
-            drive_frequency: 4853973449
-            anharmonicity: 300000000
-            sweetspot: 0.099
+            bare_resonator_frequency: 7510648480
+            # readout_frequency: 7511633427 # amplitude crossing
+            # readout_frequency: 7511384427 # best
+            readout_frequency: 7511744427 # state |0>
+            drive_frequency: 4852154170
+            anharmonicity: 196746898
+            sweetspot: 0.097
             # sweetspot: -0.155 # parking
             flux_to_bias: 2.2550167892785895
             asymmetry: 0.1330056186090635
@@ -171,20 +185,20 @@ characterization:
             Ec: 0.6428551085357185
             Ej: 11.668920202591062
             g: 0.02056941968868565
-            assignment_fidelity: 0
-            readout_fidelity: 0.0
+            assignment_fidelity: 0.768172888015717
+            readout_fidelity: 0.5363457760314341
             effective_temperature: 0.0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
-            T1: 11184
-            T2: 99
+            T1: 11227
+            T2: 303
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [0, 0]
-            mean_exc_states: [0, 0]
-            threshold: 0.0
-            iq_angle: 0.0
+            mean_gnd_states: [-0.000218976929604843, -0.0007902204522382746]
+            mean_exc_states: [0.00038942514803734843, -0.0014059448695309504]
+            threshold: 0.0007538027759686947
+            iq_angle: 0.7913797775118259
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
