@@ -59,8 +59,8 @@ def main(name):
     platform = create_platform(name)
     qubits = platform.qubits
 
-    max_time = max(int(10 * max(qubit.T1 for qubit in qubits.values())), 20000)
-    step = max_time // 50
+    max_time = max(int(5 * max(qubit.T1 for qubit in qubits.values())), 20000)
+    step = max_time // 25
     experiments = [
         Experiment(
             Operation.readout_characterization.value,
@@ -74,7 +74,7 @@ def main(name):
                 delay_before_readout_start=50,
                 delay_before_readout_end=max_time,
                 delay_before_readout_step=step,
-                nshots=5000,
+                nshots=2000,
             ),
             header="T1",
             attribute="t1",
@@ -86,7 +86,7 @@ def main(name):
                 delay_between_pulses_start=50,
                 delay_between_pulses_end=max_time,
                 delay_between_pulses_step=step,
-                nshots=5000,
+                nshots=2000,
             ),
             header="T2",
             attribute="t2",
