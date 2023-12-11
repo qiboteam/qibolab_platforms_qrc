@@ -19,7 +19,7 @@ instruments:
     lo_drive_0: # For SG1 and SG2 (Drive)
         frequency: 4_200_000_000
     lo_drive_1: # For SG3 and SG4 (Drive)
-        frequency: 4_600_000_000
+        frequency: 4_700_000_000 #4_600_000_000
     lo_drive_2: # For SG5 and SG6 (Drive)
         frequency: 4_800_000_000
     TWPA:
@@ -67,16 +67,16 @@ native_gates:
         2: # qubit number
             RX:
                 duration: 40
-                amplitude: 0.7
-                frequency: 4_535_350_000 #4_534_550_000
+                amplitude: 0.413
+                frequency: 4_535_050_000
                 shape: Gaussian(5)
                 type: qd # qubit drive
                 relative_start: 0
                 phase: 0
             MZ:
-                duration: 1000
-                amplitude: 0.7
-                frequency: 6_100_000_000
+                duration: 2000
+                amplitude: 0.3 #0.1
+                frequency: 6_100_000_000 #6_084_000_000 #6_158_000_000 #6_084_000_000 #6_100_000_000
                 shape: Rectangular()
                 type: ro # readout
                 relative_start: 0
@@ -267,7 +267,7 @@ characterization:
             mixer_readout_phi: 0.0
         2:
             bare_resonator_frequency: 6_163_447_000
-            readout_frequency: 6_084_241_000 #6_086_141_000 #6_083_141_000
+            readout_frequency: 6_100_000_000
             drive_frequency: 4_535_050_000
             anharmonicity: 211_604_296
             Ec: 0
@@ -279,7 +279,7 @@ characterization:
             ssf_brf: 0.0
             assignment_fidelity: 0.6823607427055702
             readout_fidelity: 0.3647214854111406
-            sweetspot: -0.05
+            sweetspot: -0.066 #-0.05
             T1: 7400
             T2: 2563
             T2_spin_echo: 0
@@ -307,7 +307,7 @@ characterization:
             ssf_brf: 0.0
             assignment_fidelity: 0.6644562334217506
             readout_fidelity: 0.3289124668435013
-            sweetspot: -0.15
+            sweetspot: 0.0 #-0.15
             T1: 13000
             T2: 740
             T2_spin_echo: 0
