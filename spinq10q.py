@@ -91,14 +91,9 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L6-44", port=modules["qcm_bb1"].ports["o2"])
     channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports["o3"])
     channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports["o4"])
-    # Added since qubit 9-10 are not connected to flux
-    dummy_qcm_bb = ClusterQCM_BB("dummy", f"{ADDRESS}:22", cluster)
-    channels |= Channel(
-        name="L6-47", port=QbloxOutputPort(dummy_qcm_bb, 0, 0, "dummy_o1")
-    )
-    channels |= Channel(
-        name="L6-48", port=QbloxOutputPort(dummy_qcm_bb, 0, 0, "dummy_o2")
-    )
+    # Qubit 9-10 are not connected to flux
+    channels |= Channel(name="L6-47", port=None)
+    channels |= Channel(name="L6-48", port=None)
 
     # TWPA
     channels |= Channel(name="L3-10", port=None)
