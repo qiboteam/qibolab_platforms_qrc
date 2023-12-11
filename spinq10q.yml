@@ -20,85 +20,85 @@ instruments:
     twpa_pump1: {power:  2.30, frequency: 6380000000}
 
     qrm_rf0:  # q1, q2, q3, q4, q5
-            o1:
-                attenuation: 38
-                lo_frequency: 7_385_000_000
-            i1:
-                acquisition_hold_off: 500 #ToF
-                acquisition_duration: 1800
+        o1:
+            attenuation: 38
+            lo_frequency: 7_385_000_000
+        i1:
+            acquisition_hold_off: 500 #ToF
+            acquisition_duration: 1800
 
     qrm_rf1:  # q6, q7, q8, q9, q10
-            o1:
-                attenuation: 36
-                lo_frequency: 7_640_000_000
-            i1:
-                acquisition_hold_off: 500
-                acquisition_duration: 1800
+        o1:
+            attenuation: 36
+            lo_frequency: 7_640_000_000
+        i1:
+            acquisition_hold_off: 500
+            acquisition_duration: 1800
 
     qcm_rf0:
-            o1:
-                attenuation: 20
-                lo_frequency: 4_428_338_000  # LOW_FREQ_QUBIT_LO_FREQ,
+        o1:
+            attenuation: 20
+            lo_frequency: 4_428_338_000  # LOW_FREQ_QUBIT_LO_FREQ,
 
-            o2:
-                attenuation: 20
-                lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+        o2:
+            attenuation: 20
+            lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_rf1:
-            o1:
-                attenuation: 20
-                lo_frequency: 4_466_000_000 # LOW_FREQ_QUBIT_LO_FREQ,
-            o2:
-                attenuation: 20
-                lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+        o1:
+            attenuation: 20
+            lo_frequency: 4_466_000_000 # LOW_FREQ_QUBIT_LO_FREQ,
+        o2:
+            attenuation: 20
+            lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_rf2:
-            o1:
-                attenuation: 20
-                lo_frequency: 4_307_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
-            o2:
-                attenuation: 20
-                lo_frequency: 4_994_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+        o1:
+            attenuation: 20
+            lo_frequency: 4_307_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+        o2:
+            attenuation: 20
+            lo_frequency: 4_994_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_rf3:
-            o1:
-                attenuation: 20
-                lo_frequency: 4_327_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
-            o2:
-                attenuation: 20
-                lo_frequency: 4_931_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+        o1:
+            attenuation: 20
+            lo_frequency: 4_327_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+        o2:
+            attenuation: 20
+            lo_frequency: 4_931_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_rf4:
-            o1:
-                attenuation: 20
-                lo_frequency: 4_029_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
-            o2:
-                attenuation: 20
-                lo_frequency: 4_564_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+        o1:
+            attenuation: 20
+            lo_frequency: 4_029_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+        o2:
+            attenuation: 20
+            lo_frequency: 4_564_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_bb0:
-            o1:
-                offset: 0.0
-            o2:
-                offset: 0.0
-            o3:
-                offset: 0.0
-            o4:
-                offset: 0.0
+        o1:
+            offset: 0.0
+        o2:
+            offset: 0.0
+        o3:
+            offset: 0.0
+        o4:
+            offset: 0.0
     qcm_bb1:
-            o1:
-                offset: 0.0
-            o2:
-                offset: 0.0
-            o3:
-                offset: 0.0
-            o4:
-                offset: 0.0
+        o1:
+            offset: 0.0
+        o2:
+            offset: 0.0
+        o3:
+            offset: 0.0
+        o4:
+            offset: 0.0
     qcm_bb2:
-            o1:
-                offset: 0.0
-            o2:
-                offset: 0.0
+        o1:
+            offset: 0.0
+        o2:
+            offset: 0.0
 
 native_gates:
     single_qubit:
