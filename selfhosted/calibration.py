@@ -16,17 +16,12 @@ parser.add_argument("name", type=str, help="Name of the platform.")
 
 
 @dataclass
-class Result:
-    header: str
-    attribute: str
-    formatter: Callable = field(default=lambda x: f"{x:.3f}")
-
-
-@dataclass
 class Experiment:
     routine: Routine
     params: dict
-    results: List[Result]
+    header: str
+    attribute: str
+    formatter: Callable = field(default=lambda x: f"{x:.3f}")
     fit: Optional["test"] = None
     acquisition_time: float = 0
     fit_time: float = 0
@@ -46,14 +41,13 @@ class Experiment:
             logging.error(traceback.format_exc())
 
     def report(self, file):
-        for result in self.results:
-            file.write(f"\n{result.header}:")
-            if self.fit is None:
-                file.write(" execution failed :worried:")
-            else:
-                file.write("\n")
-                for qubit, value in getattr(self.fit, result.attribute).items():
-                    file.write(f"{qubit}: {result.formatter(value)}\n")
+        file.write(f"\n{self.header}:")
+        if self.fit is None:
+            file.write(" execution failed :worried:")
+        else:
+            file.write("\n")
+            for qubit, value in getattr(self.fit, self.attribute).items():
+                file.write(f"{qubit}: {self.formatter(value)}\n")
 
 
 def convert_to_us(x):
@@ -71,10 +65,8 @@ def main(name):
         Experiment(
             Operation.readout_characterization.value,
             dict(nshots=10000),
-            [
-                Result("Readout assignment fidelities", "assignment_fidelity"),
-                Result("Readout QND", "qnd"),
-            ],
+            header="Readout assignment fidelities",
+            attribute="assignment_fidelity",
         ),
         Experiment(
             Operation.t1_signal.value,
@@ -84,7 +76,9 @@ def main(name):
                 delay_before_readout_step=step,
                 nshots=5000,
             ),
-            [Result("T1", "t1", convert_to_us)],
+            header="T1",
+            attribute="t1",
+            formatter=convert_to_us,
         ),
         Experiment(
             Operation.t2_signal.value,
@@ -94,18 +88,18 @@ def main(name):
                 delay_between_pulses_step=step,
                 nshots=5000,
             ),
-            [
-                Result("T2", "t2", convert_to_us),
-            ],
+            header="T2",
+            attribute="t2",
+            formatter=convert_to_us,
         )
         # Experiment(
-        #     "Gate fidelities",
         #     Operation.standard_rb.value,
         #     dict(
         #         depths=[10, 100, 150, 200, 250, 300],
         #         niter=8,
         #         nshots=256,
         #     )
+        #     "Gate fidelities",
         # )
     ]
 
