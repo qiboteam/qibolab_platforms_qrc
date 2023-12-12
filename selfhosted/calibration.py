@@ -43,7 +43,7 @@ class Experiment:
     def report(self, file):
         file.write(f"\n{self.header}:")
         if self.fit is None:
-            file.write(" execution failed :worried:")
+            file.write(" execution failed :worried:\n")
         else:
             file.write("\n")
             for qubit, value in getattr(self.fit, self.attribute).items():
