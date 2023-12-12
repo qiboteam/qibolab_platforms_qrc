@@ -148,15 +148,8 @@ def main(name):
         # )
     ]
 
-    platform.connect()
-    platform.setup()
-    platform.start()
-
     for experiment in experiments:
         experiment(platform.name, list(qubits))
-
-    platform.stop()
-    platform.disconnect()
 
     total_time = sum(experiment.total_time for experiment in experiments)
     path = Path.cwd() / MESSAGE_FILE
