@@ -1,12 +1,20 @@
 import argparse
+import getpass
+import io
+import json
 import logging
-import pathlib
+import time
 import traceback
 from dataclasses import dataclass, field
-from typing import Callable, List, Optional
+from pathlib import Path
+from typing import Callable, Optional
 
-from qibocal.auto.operation import Routine
-from qibocal.protocols.characterization import Operation
+from qibo.config import log
+from qibocal.auto.runcard import Runcard
+from qibocal.cli.acquisition import acquire
+from qibocal.cli.fit import fit
+from qibocal.cli.report import report
+from qibocal.cli.upload import upload_report
 from qibolab import create_platform
 
 MESSAGE_FILE = "message.txt"
@@ -15,39 +23,76 @@ parser = argparse.ArgumentParser()
 parser.add_argument("name", type=str, help="Name of the platform.")
 
 
+def get_report_url(output):
+    return output.split("\n")[-2]
+
+
 @dataclass
 class Experiment:
-    routine: Routine
+    routine: str
     params: dict
     header: str
     attribute: str
     formatter: Callable = field(default=lambda x: f"{x:.3f}")
-    fit: Optional["test"] = None
     acquisition_time: float = 0
     fit_time: float = 0
+
+    @property
+    def data_path(self):
+        """Path to qibocal output folder."""
+        return Path.cwd() / self.routine
+
+    @property
+    def report_path(self):
+        return self.data_path / "index.html"
+
+    @property
+    def fit_path(self):
+        """Path to file containing fit results."""
+        return self.data_path / "data" / f"{self.routine}_0" / "results.json"
 
     @property
     def total_time(self):
         return self.acquisition_time + self.fit_time
 
     def __call__(self, platform, qubits):
-        params = self.routine.parameters_type.load(self.params)
+        action = {
+            "id": self.routine,
+            "operation": self.routine,
+            "priority": 0,
+            "parameters": self.params,
+        }
+        runcard = Runcard.load(
+            {
+                "platform": platform,
+                "qubits": qubits,
+                "actions": [action],
+            }
+        )
         try:
-            data, self.acquisition_time = self.routine.acquisition(
-                params=params, platform=platform, qubits=qubits
-            )
-            self.fit, self.fit_time = self.routine.fit(data)
+            start_time = time.time()
+            acquire(runcard, self.routine, force=True)
+            self.acquisition_time = time.time() - start_time
+            start_time = time.time()
+            fit(Path.cwd() / self.routine, update=False)
+            self.fit_time = time.time() - start_time
+            report(self.data_path)
         except:
             logging.error(traceback.format_exc())
 
     def report(self, file):
-        file.write(f"\n{self.header}:")
-        if self.fit is None:
-            file.write(" execution failed :worried:")
-        else:
+        file.write(f"\n{self.header}: ")
+        if self.report_path.exists():
+            output = io.StringIO()
+            log.addHandler(logging.StreamHandler(output))
+            upload_report(self.data_path, tag="CI", author=getpass.getuser())
+            file.write(get_report_url(output.getvalue()))
             file.write("\n")
-            for qubit, value in getattr(self.fit, self.attribute).items():
+            data = json.loads(self.fit_path.read_text())
+            for qubit, value in data[f'"{self.attribute}"'].items():
                 file.write(f"{qubit}: {self.formatter(value)}\n")
+        else:
+            file.write("execution failed :worried:")
 
 
 def convert_to_us(x):
@@ -63,13 +108,13 @@ def main(name):
     step = max_time // 25
     experiments = [
         Experiment(
-            Operation.readout_characterization.value,
+            "readout_characterization",
             dict(nshots=10000),
             header="Readout assignment fidelities",
             attribute="assignment_fidelity",
         ),
         Experiment(
-            Operation.t1_signal.value,
+            "t1_signal",
             dict(
                 delay_before_readout_start=50,
                 delay_before_readout_end=max_time,
@@ -81,7 +126,7 @@ def main(name):
             formatter=convert_to_us,
         ),
         Experiment(
-            Operation.t2_signal.value,
+            "t2_signal",
             dict(
                 delay_between_pulses_start=50,
                 delay_between_pulses_end=max_time,
@@ -108,13 +153,13 @@ def main(name):
     platform.start()
 
     for experiment in experiments:
-        experiment(platform, qubits)
+        experiment(platform.name, list(qubits))
 
     platform.stop()
     platform.disconnect()
 
     total_time = sum(experiment.total_time for experiment in experiments)
-    path = pathlib.Path.cwd() / MESSAGE_FILE
+    path = Path.cwd() / MESSAGE_FILE
     with open(path, "w") as file:
         file.write(
             f"Run on platform `%s` completed in %.2fsec! :atom:\n" % (name, total_time)
