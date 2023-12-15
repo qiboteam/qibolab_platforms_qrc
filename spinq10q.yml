@@ -1,5 +1,5 @@
 nqubits: 10
-settings: {nshots: 1024, sampling_rate: 1000000000, relaxation_time: 20000}
+settings: {nshots: 1024, sampling_rate: 1_000_000_000, relaxation_time: 50_000}
 qubits: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 topology:
 - [1, 2]
@@ -16,33 +16,33 @@ topology:
 - [4, 9]
 - [5, 10]
 instruments:
-    twpa_pump0: {power: -2.24, frequency: 6803000000}
+    twpa_pump0: {power: -1.7, frequency: 6802000000}
     twpa_pump1: {power:  2.30, frequency: 6380000000}
 
     qrm_rf0:  # q1, q2, q3, q4, q5
         o1:
-            attenuation: 38
+            attenuation: 44
             lo_frequency: 7_385_000_000
         i1:
             acquisition_hold_off: 500 #ToF
-            acquisition_duration: 1800
+            acquisition_duration: 2500
 
     qrm_rf1:  # q6, q7, q8, q9, q10
         o1:
-            attenuation: 36
+            attenuation: 42
             lo_frequency: 7_640_000_000
         i1:
             acquisition_hold_off: 500
-            acquisition_duration: 1800
+            acquisition_duration: 2500
 
     qcm_rf0:
         o1:
             attenuation: 20
-            lo_frequency: 4_428_338_000  # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_478_384_733  # LOW_FREQ_QUBIT_LO_FREQ,
 
         o2:
             attenuation: 20
-            lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 5_103_973_449  # HIGH_FREQ_QUBIT_LO_FREQ,
 
     qcm_rf1:
         o1:
@@ -51,7 +51,6 @@ instruments:
         o2:
             attenuation: 20
             lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
-
     qcm_rf2:
         o1:
             attenuation: 20
@@ -59,7 +58,6 @@ instruments:
         o2:
             attenuation: 20
             lo_frequency: 4_994_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
-
     qcm_rf3:
         o1:
             attenuation: 20
@@ -67,7 +65,6 @@ instruments:
         o2:
             attenuation: 20
             lo_frequency: 4_931_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
-
     qcm_rf4:
         o1:
             attenuation: 20
@@ -75,7 +72,6 @@ instruments:
         o2:
             attenuation: 20
             lo_frequency: 4_564_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
-
     qcm_bb0:
         o1:
             offset: 0.0
@@ -103,22 +99,22 @@ instruments:
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.294, shape: Gaussian(5),
-                frequency: 4228472634, relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 40, amplitude: 0.153, shape: Gaussian(5),
+                frequency: 4228432634, relative_start: 0, phase: 0, type: qd}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433510045,
             #     relative_start: 0, phase: 0, type: ro}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433310045,
             #     relative_start: 0, phase: 0, type: ro}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433670045,
+            MZ: {duration: 3000, amplitude: 0.1, shape: Rectangular(), frequency: 7433687756,
                 relative_start: 0, phase: 0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.473, shape: Gaussian(5),
-                frequency: 4852154170, relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 40, amplitude: 0.252, shape: Gaussian(5),
+                frequency: 4852423170, relative_start: 0, phase: 0, type: qd}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511633427,
             #     relative_start: 0, phase: 0, type: ro}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511384427,
             #     relative_start: 0, phase: 0, type: ro}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7511744427,
+            MZ: {duration: 3000, amplitude: 0.1, shape: Rectangular(), frequency: 7511744592,
                 relative_start: 0, phase: 0, type: ro}
         3:
             RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4277000000,
@@ -221,8 +217,8 @@ characterization:
             bare_resonator_frequency: 7432188457
             # readout_frequency: 7433510045 # amplitude crossing
             # readout_frequency: 7433310045 # best
-            readout_frequency: 7433670045 # state |0>
-            drive_frequency: 4228472634
+            readout_frequency: 7433687756 # state |0>
+            drive_frequency: 4228432634
             anharmonicity: 197369466
             sweetspot: 0.093
             # sweetspot: -0.158 # parking
@@ -238,15 +234,15 @@ characterization:
             effective_temperature: 0.0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
-            T1: 12873
-            T2: 785
+            T1: 15129
+            T2: 196
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.00011575942692992972, -0.0006337769535653254]
-            mean_exc_states: [0.0005769238972340342, -0.0012913685311429653]
-            threshold: 0.000782982509151255
-            iq_angle: 0.7594154177084199
+            mean_gnd_states: [-0.0003112398899152899, -0.000717386297942263]
+            mean_exc_states: [0.00017426947132405176, -0.0015797049550935402]
+            threshold: 0.0009079956241350644
+            iq_angle: 1.0580060302295742
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
@@ -255,8 +251,8 @@ characterization:
             bare_resonator_frequency: 7510648480
             # readout_frequency: 7511633427 # amplitude crossing
             # readout_frequency: 7511384427 # best
-            readout_frequency: 7511744427 # state |0>
-            drive_frequency: 4852154170
+            readout_frequency: 7511744592 # state |0>
+            drive_frequency: 4852423170
             anharmonicity: 196746898
             sweetspot: 0.097
             # sweetspot: -0.155 # parking
@@ -272,15 +268,15 @@ characterization:
             effective_temperature: 0.0
             peak_voltage: 0
             pi_pulse_amplitude: 0.5
-            T1: 11227
-            T2: 303
+            T1: 10512
+            T2: 67
             T2_spin_echo: 0
             state0_voltage: 0
             state1_voltage: 0
-            mean_gnd_states: [-0.000218976929604843, -0.0007902204522382746]
-            mean_exc_states: [0.00038942514803734843, -0.0014059448695309504]
-            threshold: 0.0007538027759686947
-            iq_angle: 0.7913797775118259
+            mean_gnd_states: [-0.0006582150635892548, -0.0008782887473393575]
+            mean_exc_states: [-0.00023341571661601062, -0.0018102474232029855]
+            threshold: 0.0010960291642042833
+            iq_angle: 1.1431184204878473
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
