@@ -159,10 +159,14 @@ native_gates:
     two_qubit:
         1-2:
             CZ:
-            - {duration: 37, amplitude: 0.0462, shape: Rectangular(), qubit: 2, relative_start: 0,
+            - {duration: 36, amplitude: 0.0465, shape: Rectangular(), qubit: 2, relative_start: 0,
                 type: qf}
-            # - {duration: 37, amplitude: 0.1433, shape: Rectangular(), qubit: 2, relative_start: 0,
-            #     type: qf}
+            - {duration: 20, amplitude: 0.0, shape: Rectangular(), qubit: 2, relative_start: 36,
+                type: qf}
+            - {type: virtual_z, phase: -1.1627, qubit: 2}
+            - {duration: 56, amplitude: 0.0, shape: Rectangular(), qubit: 1, relative_start: 0,
+                type: qf}
+            - {type: virtual_z, phase: -1.1627, qubit: 1}
         2-3:
             CZ:
             - {duration: 40, amplitude: 0.01, shape: Rectangular(), qubit: 2, relative_start: 0,
