@@ -283,10 +283,10 @@ characterization:
             assignment_fidelity: 0.674602113146984
             readout_fidelity: 0.34920422629396813
             # sweetspot: -0.096 #(real ss)
-            # sweetspot: -0.89712 #(bias value for interaction point q2-q0 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver) 
-            # sweetspot: -0.756 #(bias value for interaction point q2-q1 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver)             
-            sweetspot: -0.843 #(bias value for interaction point q2-q3 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver)           
-            # sweetspot: -0.90972 #(bias value for interaction point q2-q4 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver) 
+            # sweetspot: -0.89712 #(bias value for interaction point q2-q0 (-0.178 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit) 
+            # sweetspot: -0.756 #(bias value for interaction point q2-q1 (-0.15 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)             
+            sweetspot: -0.843 #(bias value for interaction point q2-q3 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)           
+            # sweetspot: -0.90972 #(bias value for interaction point q2-q4 (-0.1805 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit) 
             T1: 7400
             T2: 2563
             T2_spin_echo: 0
