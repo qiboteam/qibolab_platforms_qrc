@@ -38,40 +38,40 @@ instruments:
     qcm_rf0:
         o1:
             attenuation: 20
-            lo_frequency: 4_478_384_733  # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_478_384_733  # q1,
 
         o2:
             attenuation: 20
-            lo_frequency: 5_103_973_449  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 5_041_973_449  # q2, # IF -250 MHz
 
     qcm_rf1:
         o1:
             attenuation: 20
-            lo_frequency: 4_466_000_000 # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_466_000_000 # q3,
         o2:
             attenuation: 20
-            lo_frequency: 5_041_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 5_041_000_000  # q4,
     qcm_rf2:
         o1:
             attenuation: 20
-            lo_frequency: 4_307_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_307_000_000  # q5,
         o2:
             attenuation: 20
-            lo_frequency: 4_994_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_994_000_000  # q6,
     qcm_rf3:
         o1:
             attenuation: 20
-            lo_frequency: 4_327_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_327_000_000  # q7,
         o2:
             attenuation: 20
-            lo_frequency: 4_931_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_931_000_000  # q8,
     qcm_rf4:
         o1:
             attenuation: 20
-            lo_frequency: 4_029_000_000  # LOW_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_029_000_000  # q9,
         o2:
             attenuation: 20
-            lo_frequency: 4_564_000_000  # HIGH_FREQ_QUBIT_LO_FREQ,
+            lo_frequency: 4_564_000_000  # q10,
     qcm_bb0:
         o1:
             offset: 0.0
@@ -258,7 +258,7 @@ characterization:
             readout_frequency: 7511744592 # state |0>
             drive_frequency: 4852423170
             anharmonicity: 196746898
-            sweetspot: 0.097
+            sweetspot: 0.089
             # sweetspot: -0.155 # parking
             flux_to_bias: 2.2550167892785895
             asymmetry: 0.1330056186090635
@@ -354,8 +354,8 @@ characterization:
             readout_frequency: 7611334128
             drive_frequency: 4047000000
             anharmonicity: 300000000
-            # sweetspot: 0.05
-            sweetspot: -0.215 # parking
+            sweetspot: 0.08
+            # sweetspot: -0.215 # parking
             flux_to_bias: 1.8005567966516272
             asymmetry: 0.5788018934069338
             bare_resonator_frequency_sweetspot: 7606660235
