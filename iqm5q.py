@@ -95,14 +95,17 @@ def create(runcard_path=RUNCARD):
 
     # Create channel objects and map controllers
     channels = ChannelMap()
+
     # feedback
     channels |= Channel(
         "L2-7", port=controller[("device_shfqc", "[QACHANNELS/0/INPUT]")]
     )
+
     # readout
     channels |= Channel(
         "L3-31", port=controller[("device_shfqc", "[QACHANNELS/0/OUTPUT]")]
     )
+
     # drive
     channels |= (
         Channel(
@@ -110,18 +113,21 @@ def create(runcard_path=RUNCARD):
         )
         for i in range(15, 20)
     )
+
     # flux qubits (CAREFUL WITH THIS !!!)
     channels |= (
         Channel(f"L4-{i}", port=controller[("device_hdawg", f"SIGOUTS/{i-6}")])
         for i in range(6, 11)
     )
+
     # flux couplers
     channels |= (
         Channel(f"L4-{i}", port=controller[("device_hdawg", f"SIGOUTS/{i-11+5}")])
         for i in range(11, 14)
     )
     channels |= Channel("L4-14", port=controller[("device_hdawg2", "SIGOUTS/0")])
-    # TWPA pump(EraSynth)
+    
+    # TWPA pump(R&S)
     channels |= Channel("L3-32")
 
     # SHFQC
@@ -129,31 +135,39 @@ def create(runcard_path=RUNCARD):
     # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     # with a resolution of 5 dBm.
 
-    # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
-
     # readout "gain": play with the power range to calibrate the best RO
-    channels["L3-31"].power_range = -15
+    channels["L3-31"].power_range = -15 #power range RO from chip to electronics
     # feedback "gain": set to max
-    channels["L2-7"].power_range = 10
+    channels["L2-7"].power_range = 10 #power range from electronics to chip
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
     channels[f"L4-15"].power_range = -5  # q0
-    channels[f"L4-16"].power_range = 10  # q1
-    channels[f"L4-17"].power_range = -15  # q2
+    channels[f"L4-16"].power_range = 5 # q1
+    channels[f"L4-17"].power_range = -5 # q2
     channels[f"L4-18"].power_range = 10  # q3
-    channels[f"L4-19"].power_range = -10  # q4
+    channels[f"L4-19"].power_range = 0  # q4
 
     # HDAWGS
     # Sets the output voltage range.
-    # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
+    # The instrument selects the next higher available Range  with a resolution of 0.4 Volts.
 
     # flux
-    for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 0.8
+    channels[f"L4-6"].power_range = 9    #flux q0
+    channels[f"L4-7"].power_range = 9    #flux q1
+    channels[f"L4-8"].power_range = 9    #flux q2
+    channels[f"L4-9"].power_range = 9    #flux q3
+    channels[f"L4-10"].power_range = 9   #flux q4
+
     # flux couplers
-    for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
+    channels[f"L4-11"].power_range = 0.8 #coupler flux 0
+    channels[f"L4-12"].power_range = 0.8 #coupler flux 1
+    channels[f"L4-13"].power_range = 0.8 #coupler flux 3
+    channels[f"L4-14"].power_range = 0.8 #coupler flux 4
+
+    # # flux couplers
+    # for i in range(11, 15):
+    #     channels[f"L4-{i}"].power_range = 0.8
 
     # Instantiate local oscillators
     local_oscillators = [
@@ -165,13 +179,13 @@ def create(runcard_path=RUNCARD):
 
     # Map LOs to channels
     ch_to_lo = {
-        "L3-31": 0,
-        "L4-15": 1,
-        "L4-16": 1,
-        "L4-17": 2,
-        "L4-18": 2,
-        "L4-19": 3,
-        "L3-32": 4,
+        "L3-31": 0, #RO
+        "L4-15": 1, #q0
+        "L4-16": 1, #q1
+        "L4-17": 2, #q2
+        "L4-18": 2, #q3
+        "L4-19": 3, #q4
+        "L3-32": 4, #TWPA
     }
     for ch, lo in ch_to_lo.items():
         channels[ch].local_oscillator = local_oscillators[lo]
