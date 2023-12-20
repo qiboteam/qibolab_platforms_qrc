@@ -6,7 +6,7 @@ from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
 from laboneq.simple import DeviceSetup
 from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.oscillator import LocalOscillator
+from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
 from qibolab.serialize import (
@@ -158,7 +158,7 @@ def create(runcard_path=RUNCARD):
 
     # Instantiate local oscillators
     local_oscillators = [
-        LocalOscillator(f"lo_{kind}", None)
+        DummyLocalOscillator(f"lo_{kind}", None)
         for kind in ["readout"] + [f"drive_{n}" for n in range(3)]
     ]
 
