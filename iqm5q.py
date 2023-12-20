@@ -160,10 +160,10 @@ def create(runcard_path=RUNCARD):
     channels[f"L4-10"].power_range = 9   #flux q4
 
     # flux couplers
-    channels[f"L4-11"].power_range = 0.8 #coupler flux 0
-    channels[f"L4-12"].power_range = 0.8 #coupler flux 1
-    channels[f"L4-13"].power_range = 0.8 #coupler flux 3
-    channels[f"L4-14"].power_range = 0.8 #coupler flux 4
+    channels[f"L4-11"].power_range = 9 #coupler flux 0
+    channels[f"L4-12"].power_range = 9 #coupler flux 1
+    channels[f"L4-13"].power_range = 9 #coupler flux 3
+    channels[f"L4-14"].power_range = 9 #coupler flux 4
 
     # # flux couplers
     # for i in range(11, 15):
