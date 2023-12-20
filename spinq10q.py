@@ -1,13 +1,6 @@
 import pathlib
 
-import networkx as nx
-import yaml
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.qblox.cluster import (
-    Cluster,
-    Cluster_Settings,
-    ReferenceClockSource,
-)
 from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
 from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
 from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
@@ -34,24 +27,19 @@ def create(runcard_path=RUNCARD):
         runcard_path (str): Path to the runcard file.
     """
     runcard = load_runcard(runcard_path)
-    cluster = Cluster(
-        name="cluster",
-        address="192.168.0.6",
-        settings=Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-    )
     modules = {
-        "qrm_rf0": ClusterQRM_RF("qrm_rf0", f"{ADDRESS}:18", cluster),
-        "qrm_rf1": ClusterQRM_RF("qrm_rf1", f"{ADDRESS}:20", cluster),
-        "qcm_rf0": ClusterQCM_RF("qcm_rf0", f"{ADDRESS}:8", cluster),
-        "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10", cluster),
-        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12", cluster),
-        "qcm_rf3": ClusterQCM_RF("qcm_rf3", f"{ADDRESS}:14", cluster),
-        "qcm_rf4": ClusterQCM_RF("qcm_rf4", f"{ADDRESS}:16", cluster),
-        "qcm_bb0": ClusterQCM_BB("qcm_bb0", f"{ADDRESS}:2", cluster),
-        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4", cluster),
-        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),
+        "qrm_rf0": ClusterQRM_RF("qrm_rf0", f"{ADDRESS}:18"),
+        "qrm_rf1": ClusterQRM_RF("qrm_rf1", f"{ADDRESS}:20"),
+        "qcm_rf0": ClusterQCM_RF("qcm_rf0", f"{ADDRESS}:8"),
+        "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10"),
+        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12"),
+        "qcm_rf3": ClusterQCM_RF("qcm_rf3", f"{ADDRESS}:14"),
+        "qcm_rf4": ClusterQCM_RF("qcm_rf4", f"{ADDRESS}:16"),
+        "qcm_bb0": ClusterQCM_BB("qcm_bb0", f"{ADDRESS}:2"),
+        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4"),
+        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6"),
     }
-    controller = QbloxController("qblox_controller", cluster, modules)
+    controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
     twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")
 
