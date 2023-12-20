@@ -27,7 +27,7 @@ def create(runcard_path=RUNCARD):
     IPs and other instrument related parameters are hardcoded in.
     """
     # Instantiate QICK instruments
-    controller = RFSoC(NAME, ADDRESS, PORT)
+    controller = RFSoC(NAME, ADDRESS, PORT, sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 200
     # Create channel objects

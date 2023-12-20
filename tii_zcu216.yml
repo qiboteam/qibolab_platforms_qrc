@@ -3,7 +3,7 @@ description: 3-qubits of line D (25qw) controlled by a Xilinx ZCU216 board
 
 qubits: [D1, D2, D3]
 
-settings: {sampling_rate: 6144000000, relaxation_time: 200_000, nshots: 1000}
+settings: {relaxation_time: 200_000, nshots: 1000}
 
 topology:
 - [D1, D2]
