@@ -122,5 +122,5 @@ def create(runcard_path=RUNCARD):
     settings = load_settings(runcard)
 
     return Platform(
-        "qw5q_gold_qblox", qubits, pairs, instruments, settings, resonator_type="2D"
+        "qw5q_gold", qubits, pairs, instruments, settings, resonator_type="2D"
     )
