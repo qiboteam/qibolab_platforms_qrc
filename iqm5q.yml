@@ -5,7 +5,6 @@ description: IQM 5-qubit device, controlled with Zurich Instruments.
 
 settings:
     nshots: 4096
-    sampling_rate: 2.e+9
     relaxation_time: 300_000
 
 qubits: [0, 1, 2, 3, 4]
@@ -40,7 +39,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.11
-                frequency: 5_233_650_000 
+                frequency: 5_233_650_000
                 #frequency: 5_232_500_000 (dispersive shift value. Worst fidelity)
                 shape: Rectangular()
                 type: ro # readout
@@ -69,7 +68,7 @@ native_gates:
             RX:
                 duration: 40
                 amplitude: 0.2
-                frequency: 4_149_438_000 #(q2 freq at interaction point with q3) 
+                frequency: 4_149_438_000 #(q2 freq at interaction point with q3)
                 # frequency: 4_533_538_000 #(real qubit freq at sweetspot)
                 shape: Gaussian(5)
                 type: qd # qubit drive
@@ -78,7 +77,7 @@ native_gates:
             MZ:
                 duration: 2000
                 amplitude: 0.9
-                frequency: 6_080_000_000  # (tracking q2 to find avoided crossing with q3) 
+                frequency: 6_080_000_000  # (tracking q2 to find avoided crossing with q3)
                 # frequency: 6_089_000_000 # (RO freq at ss)
                 shape: Rectangular()
                 type: ro # readout
@@ -283,10 +282,10 @@ characterization:
             assignment_fidelity: 0.674602113146984
             readout_fidelity: 0.34920422629396813
             # sweetspot: -0.096 #(real ss)
-            # sweetspot: -0.89712 #(bias value for interaction point q2-q0 (-0.178 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit) 
-            # sweetspot: -0.756 #(bias value for interaction point q2-q1 (-0.15 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)             
-            sweetspot: -0.843 #(bias value for interaction point q2-q3 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)           
-            # sweetspot: -0.90972 #(bias value for interaction point q2-q4 (-0.1805 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit) 
+            # sweetspot: -0.89712 #(bias value for interaction point q2-q0 (-0.178 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)
+            # sweetspot: -0.756 #(bias value for interaction point q2-q1 (-0.15 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)
+            sweetspot: -0.843 #(bias value for interaction point q2-q3 (-0.167 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)
+            # sweetspot: -0.90972 #(bias value for interaction point q2-q4 (-0.1805 x 5.04 to fix the bug in the flux offset ZH driver. Value extracted from qubit flux, tracking the qubit)
             T1: 0 #(at ss. The RO signal is too bad so, and the classsifcation of the signal into probabilities is too bad)
             # T1: 11400 # (at interaction point q2-q3)
             T2: 929 # (at ss)
@@ -348,7 +347,7 @@ characterization:
             readout_fidelity: 0.8221211715928849
             T1: 5800
             T2: 366
-            sweetspot: 0.0 # (set to 0.0 while calibrating to reduce crosstalk with q2 and q3) 
+            sweetspot: 0.0 # (set to 0.0 while calibrating to reduce crosstalk with q2 and q3)
             #sweetspot: 0.48 (real ss)
             T2_spin_echo: 0
             state0_voltage: 0
