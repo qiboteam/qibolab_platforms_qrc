@@ -166,9 +166,6 @@ def create(runcard_path=RUNCARD):
     channels[f"L4-13"].power_range = 9  # coupler flux 3
     channels[f"L4-14"].power_range = 9  # coupler flux 4
 
-    # # flux couplers
-    # for i in range(11, 15):
-    #     channels[f"L4-{i}"].power_range = 0.8
 
     # Instantiate local oscillators
     local_oscillators = [
