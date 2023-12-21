@@ -125,7 +125,7 @@ native_gates:
         0: # coupler number
             CP:
                 type: coupler
-                duration: 1000
+                duration: 0
                 amplitude: 0
                 shape: Rectangular()
                 coupler: 0
@@ -134,7 +134,7 @@ native_gates:
         1: # coupler number
             CP:
                 type: coupler
-                duration: 1000
+                duration: 0
                 amplitude: 0 #.5
                 shape: Rectangular()
                 coupler: 1
@@ -152,7 +152,7 @@ native_gates:
         4: # coupler number
             CP:
                 type: coupler
-                duration: 1000
+                duration: 0
                 amplitude: 0 #.5
                 shape: Rectangular()
                 coupler: 4
