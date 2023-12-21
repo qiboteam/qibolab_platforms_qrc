@@ -144,8 +144,8 @@ native_gates:
         3: # coupler number
             CP:
                 type: coupler
-                duration: 0
-                amplitude: 0 #.5
+                duration: 10
+                amplitude: 1 #.5
                 shape: Rectangular()
                 coupler: 3
                 relative_start: 0
