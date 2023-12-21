@@ -1,89 +1,61 @@
 nqubits: 5
-settings: {nshots: 1024, sampling_rate: 1_000_000_000, relaxation_time: 50_000}
+settings: {nshots: 1024, sampling_rate: 1000000000, relaxation_time: 50000}
 qubits: [6, 7, 8, 9, 10]
 topology:
 - [6, 7]
 - [7, 8]
 - [8, 9]
 - [9, 10]
-
 instruments:
-    twpa_pump1: {power:  2.50, frequency: 6380000000}
-
-    qrm_rf1:  # q6, q7, q8, q9, q10
-        o1:
-            attenuation: 42
-            lo_frequency: 7_640_000_000
-        i1:
-            acquisition_hold_off: 500
-            acquisition_duration: 2500
-
+    twpa_pump1: {power: 2.5, frequency: 6380000000}
+    qrm_rf1:
+        o1: {attenuation: 42, lo_frequency: 7640000000}
+        i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
     qcm_rf2:
-        o1:
-            attenuation: 24
-            lo_frequency: 4_307_000_000  # q5,
-        o2:
-            attenuation: 24
-            lo_frequency: 5_057_000_000  # q6,
+        o1: {attenuation: 24, lo_frequency: 4307000000}
+        o2: {attenuation: 24, lo_frequency: 5057000000}
     qcm_rf3:
-        o1:
-            attenuation: 24
-            lo_frequency: 4_377_000_000  # q7,
-        o2:
-            attenuation: 24
-            lo_frequency: 4_990_000_000  # q8,
+        o1: {attenuation: 24, lo_frequency: 4377000000}
+        o2: {attenuation: 24, lo_frequency: 4990000000}
     qcm_rf4:
-        o1:
-            attenuation: 24
-            lo_frequency: 4_081_000_000  # q9, -300MHz
-        o2:
-            attenuation: 24
-            lo_frequency: 4_598_000_000  # q10, -300MHz
-
+        o1: {attenuation: 24, lo_frequency: 4081000000}
+        o2: {attenuation: 24, lo_frequency: 4598000000}
     qcm_bb1:
-        o1:
-            offset: 0.0
-        o2:
-            offset: 0.0
-        o3:
-            offset: 0.0
-        o4:
-            offset: 0.0
+        o1: {offset: 0.0}
+        o2: {offset: 0.0}
+        o3: {offset: 0.0}
+        o4: {offset: 0.0}
     qcm_bb2:
-        o1:
-            offset: 0.0
-        o2:
-            offset: 0.0
-
+        o1: {offset: 0.0}
+        o2: {offset: 0.0}
 native_gates:
     single_qubit:
         6:
-            RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4807000000,
+            RX: {duration: 40, amplitude: 0.484, shape: Gaussian(5), frequency: 4801782000,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7492871912,
                 relative_start: 0, phase: 0, type: ro}
         7:
-            RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4138000000,
+            RX: {duration: 40, amplitude: 0.236, shape: Gaussian(5), frequency: 4135329574,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.05, shape: Rectangular(), frequency: 7552523695,
                 relative_start: 0, phase: 0, type: ro}
         8:
-            RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4740000000,
+            RX: {duration: 40, amplitude: 0.367, shape: Gaussian(5), frequency: 4740188957,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7582597778,
                 relative_start: 0, phase: 0, type: ro}
         9:
-            RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 3781000000,
+            RX: {duration: 40, amplitude: 0.358, shape: Gaussian(5), frequency: 3779672519,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7442112987,
                 relative_start: 0, phase: 0, type: ro}
         10:
-            RX: {duration: 40, amplitude: 0.2, shape: Gaussian(5), frequency: 4298000000,
+            RX: {duration: 40, amplitude: 0.306, shape: Gaussian(5), frequency: 4292535008,
                 relative_start: 0, phase: 0, type: qd}
             MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7625805244,
                 relative_start: 0, phase: 0, type: ro}
     two_qubit:
-
         6-7:
             CZ:
             - {duration: 40, amplitude: 0.01, shape: Rectangular(), qubit: 6, relative_start: 0,
@@ -100,16 +72,14 @@ native_gates:
             CZ:
             - {duration: 40, amplitude: 0.01, shape: Rectangular(), qubit: 10, relative_start: 0,
                 type: qf}
-
 characterization:
     single_qubit:
         6:
             bare_resonator_frequency: 7492000000
             readout_frequency: 7492871912
-            drive_frequency: 4807000000
+            drive_frequency: 4801782000
             anharmonicity: 300000000
             sweetspot: -0.101
-            # sweetspot: 0.208 # parking
             flux_to_bias: 1.6665895049327701
             asymmetry: 0.5535122935186866
             bare_resonator_frequency_sweetspot: 7489207877
@@ -131,6 +101,7 @@ characterization:
             mean_exc_states: [0, 0]
             threshold: 0.0
             iq_angle: 0.0
+            kernel_path: null
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
@@ -138,10 +109,9 @@ characterization:
         7:
             bare_resonator_frequency: 7551000000
             readout_frequency: 7552523695
-            drive_frequency: 4138000000
+            drive_frequency: 4135329574
             anharmonicity: 300000000
             sweetspot: -0.7
-            # sweetspot: 1 # parking
             flux_to_bias: 0.3703033075501269
             asymmetry: 0.03846063238221964
             bare_resonator_frequency_sweetspot: 7551278196
@@ -163,6 +133,7 @@ characterization:
             mean_exc_states: [0, 0]
             threshold: 0.0
             iq_angle: 0.0
+            kernel_path: null
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
@@ -170,10 +141,9 @@ characterization:
         8:
             bare_resonator_frequency: 7582000000
             readout_frequency: 7582597778
-            drive_frequency: 4740000000
+            drive_frequency: 4740188957
             anharmonicity: 300000000
             sweetspot: -0.632
-            # sweetspot: 1 # parking
             flux_to_bias: 0.4995172960641154
             asymmetry: 0.2075344332925857
             bare_resonator_frequency_sweetspot: 7581851516
@@ -195,6 +165,7 @@ characterization:
             mean_exc_states: [0, 0]
             threshold: 0.0
             iq_angle: 0.0
+            kernel_path: null
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
@@ -202,7 +173,7 @@ characterization:
         9:
             bare_resonator_frequency: 7443000000
             readout_frequency: 7442112987
-            drive_frequency: 3781000000
+            drive_frequency: 3779672519
             anharmonicity: 300000000
             sweetspot: 0
             flux_to_bias: 10.000130322312259
@@ -226,6 +197,7 @@ characterization:
             mean_exc_states: [0, 0]
             threshold: 0.0
             iq_angle: 0.0
+            kernel_path: null
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
@@ -233,7 +205,7 @@ characterization:
         10:
             bare_resonator_frequency: 7626000000
             readout_frequency: 7625805244
-            drive_frequency: 4298000000
+            drive_frequency: 4292535008
             anharmonicity: 300000000
             sweetspot: 0.0
             flux_to_bias: 10.000712581827976
@@ -257,6 +229,7 @@ characterization:
             mean_exc_states: [0, 0]
             threshold: 0.0
             iq_angle: 0.0
+            kernel_path: null
             mixer_drive_g: 0.0
             mixer_drive_phi: 0.0
             mixer_readout_g: 0.0
