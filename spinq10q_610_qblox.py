@@ -3,11 +3,6 @@ import pathlib
 import networkx as nx
 import yaml
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.qblox.cluster import (
-    Cluster,
-    Cluster_Settings,
-    ReferenceClockSource,
-)
 from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
 from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
 from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
@@ -35,24 +30,18 @@ def create(runcard_path=RUNCARD):
     """
 
     runcard = load_runcard(runcard_path)
-    cluster = Cluster(
-        name="cluster",
-        address="192.168.0.6",
-        settings=Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
-    )
+
     modules = {
         "qrm_rf1": ClusterQRM_RF(
-            "qrm_rf1", f"{ADDRESS}:20", cluster
+            "qrm_rf1", f"{ADDRESS}:20"
         ),  # qubits q6, q7, q8, q9, q10
-        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12", cluster),  # qubits q5, q6
-        "qcm_rf3": ClusterQCM_RF("qcm_rf3", f"{ADDRESS}:14", cluster),  # qubits q7, q8
-        "qcm_rf4": ClusterQCM_RF("qcm_rf4", f"{ADDRESS}:16", cluster),  # qubits q9, q10
-        "qcm_bb1": ClusterQCM_BB(
-            "qcm_bb1", f"{ADDRESS}:4", cluster
-        ),  # qubits q5, q6, q7, q8
-        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),  # qubits q9, q10
+        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12"),  # qubits q5, q6
+        "qcm_rf3": ClusterQCM_RF("qcm_rf3", f"{ADDRESS}:14"),  # qubits q7, q8
+        "qcm_rf4": ClusterQCM_RF("qcm_rf4", f"{ADDRESS}:16"),  # qubits q9, q10
+        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4"),  # qubits q5, q6, q7, q8
+        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6"),  # qubits q9, q10
     }
-    controller = QbloxController("qblox_controller", cluster, modules)
+    controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")
 
     instruments = {
