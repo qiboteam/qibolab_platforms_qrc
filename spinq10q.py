@@ -49,7 +49,6 @@ def create(runcard_path=RUNCARD):
         twpa_pump1.name: twpa_pump1,
     }
     instruments.update(modules)
-    instruments = load_instrument_settings(runcard, instruments)
 
     # Create channel objects
     channels = ChannelMap()
@@ -111,6 +110,7 @@ def create(runcard_path=RUNCARD):
         qubits[q].flux.max_bias = 2.5
 
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
         "spinq10q", qubits, pairs, instruments, settings, resonator_type="2D"
