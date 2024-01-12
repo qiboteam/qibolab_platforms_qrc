@@ -23,9 +23,9 @@ def create(runcard_path=RUNCARD):
     controller.cfg.repetition_duration = 70
     # Create channel objects
     channels = ChannelMap()
-    channels |= Channel("L3-22_ro", port=controller[1])  # readout (DAC)
-    channels |= Channel("L1-2-RO", port=controller[0])  # feedback (readout ADC)
-    channels |= Channel("L3-22_qd", port=controller[0])  # drive
+    channels |= Channel("L3-22_ro", port=controller.ports(1))  # readout (DAC)
+    channels |= Channel("L1-2-RO", port=controller.ports(0))  # feedback (readout ADC)
+    channels |= Channel("L3-22_qd", port=controller.ports(0))  # drive
 
     # create qubit objects
     runcard = load_runcard(runcard_path)

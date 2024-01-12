@@ -32,19 +32,19 @@ def create(runcard_path=RUNCARD):
 
     # Create channel objects
     channels = ChannelMap()
-    channels |= Channel("L3-30_ro", port=controller[6])  # readout  dac6
+    channels |= Channel("L3-30_ro", port=controller.ports(6))  # readout  dac6
     # QUBIT 0
-    channels |= Channel("L2-4-RO_0", port=controller[0])  # feedback adc0
-    channels |= Channel("L4-29_qd", port=controller[3])  # drive    dac3
-    channels |= Channel("L1-22_fl", port=controller[0])  # flux     dac0
+    channels |= Channel("L2-4-RO_0", port=controller.ports(0))  # feedback adc0
+    channels |= Channel("L4-29_qd", port=controller.ports(3))  # drive    dac3
+    channels |= Channel("L1-22_fl", port=controller.ports(0))  # flux     dac0
     # QUBIT 1
-    channels |= Channel("L2-4-RO_1", port=controller[1])  # feedback adc1
-    channels |= Channel("L4-30_qd", port=controller[4])  # drive    dac4
-    channels |= Channel("L1-23_fl", port=controller[1])  # flux     dac1
+    channels |= Channel("L2-4-RO_1", port=controller.ports(1))  # feedback adc1
+    channels |= Channel("L4-30_qd", port=controller.ports(4))  # drive    dac4
+    channels |= Channel("L1-23_fl", port=controller.ports(1))  # flux     dac1
     # QUBIT 2
-    channels |= Channel("L2-4-RO_2", port=controller[2])  # feedback adc2
-    channels |= Channel("L4-31_qd", port=controller[5])  # drive    dac5
-    channels |= Channel("L1-24_fl", port=controller[2])  # flux     dac2
+    channels |= Channel("L2-4-RO_2", port=controller.ports(2))  # feedback adc2
+    channels |= Channel("L4-31_qd", port=controller.ports(5))  # drive    dac5
+    channels |= Channel("L1-24_fl", port=controller.ports(2))  # flux     dac2
 
     # Readout local oscillator
     local_oscillator = ERA("ErasynthLO", LO_ADDRESS, ethernet=True)
