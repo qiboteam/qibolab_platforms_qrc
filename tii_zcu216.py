@@ -33,22 +33,22 @@ def create(runcard_path=RUNCARD):
     # Create channel objects
     channels = ChannelMap()
 
-    channels |= Channel("L3-30", port=controller[6])  # readout
+    channels |= Channel("L3-30", port=controller.ports(6))  # readout
 
     # qubit D1
-    channels |= Channel("L2-01-0", port=controller[0])  # feedback
-    channels |= Channel("L1-21", port=controller[1])  # flux
-    channels |= Channel("L4-28", port=controller[0])  # drive
+    channels |= Channel("L2-01-0", port=controller.ports(0))  # feedback
+    channels |= Channel("L1-21", port=controller.ports(1))  # flux
+    channels |= Channel("L4-28", port=controller.ports(0))  # drive
 
     # qubit D2
-    channels |= Channel("L2-01-1", port=controller[1])  # feedback
-    channels |= Channel("L1-22", port=controller[3])  # flux
-    channels |= Channel("L4-29", port=controller[4])  # drive
+    channels |= Channel("L2-01-1", port=controller.ports(1))  # feedback
+    channels |= Channel("L1-22", port=controller.ports(3))  # flux
+    channels |= Channel("L4-29", port=controller.ports(4))  # drive
 
     # qubit D3
-    channels |= Channel("L2-01-2", port=controller[2])  # feedback
-    channels |= Channel("L1-23", port=controller[5])  # flux
-    channels |= Channel("L4-30", port=controller[2])  # drive
+    channels |= Channel("L2-01-2", port=controller.ports(2))  # feedback
+    channels |= Channel("L1-23", port=controller.ports(5))  # flux
+    channels |= Channel("L4-30", port=controller.ports(2))  # drive
 
     twpa_lo = SGS100A("TWPA", TWPA_ADDRESS)
     readout_lo = SGS100A("readout_lo", LO_ADDRESS)
