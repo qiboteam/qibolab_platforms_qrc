@@ -49,36 +49,35 @@ def create(runcard_path=RUNCARD):
         twpa_pump1.name: twpa_pump1,
     }
     instruments.update(modules)
-    instruments = load_instrument_settings(runcard, instruments)
 
     # Create channel objects
     channels = ChannelMap()
     # Readout
-    channels |= Channel(name="L3-20", port=modules["qrm_rf0"].ports["o1"])
-    channels |= Channel(name="L3-21", port=modules["qrm_rf1"].ports["o1"])
+    channels |= Channel(name="L3-20", port=modules["qrm_rf0"].ports("o1"))
+    channels |= Channel(name="L3-21", port=modules["qrm_rf1"].ports("o1"))
     # Feedback
-    channels |= Channel(name="L1-1", port=modules["qrm_rf0"].ports["i1"])
-    channels |= Channel(name="L2-17", port=modules["qrm_rf1"].ports["i1"])
+    channels |= Channel(name="L1-1", port=modules["qrm_rf0"].ports("i1", out=False))
+    channels |= Channel(name="L2-17", port=modules["qrm_rf1"].ports("i1", out=False))
     # Drive
-    channels |= Channel(name="L6-1", port=modules["qcm_rf0"].ports["o1"])
-    channels |= Channel(name="L6-2", port=modules["qcm_rf0"].ports["o2"])
-    channels |= Channel(name="L6-3", port=modules["qcm_rf1"].ports["o1"])
-    channels |= Channel(name="L6-4", port=modules["qcm_rf1"].ports["o2"])
-    channels |= Channel(name="L6-5", port=modules["qcm_rf2"].ports["o1"])
-    channels |= Channel(name="L6-6", port=modules["qcm_rf2"].ports["o2"])
-    channels |= Channel(name="L6-7", port=modules["qcm_rf3"].ports["o1"])
-    channels |= Channel(name="L6-8", port=modules["qcm_rf3"].ports["o2"])
-    channels |= Channel(name="L6-9", port=modules["qcm_rf4"].ports["o1"])
-    channels |= Channel(name="L6-10", port=modules["qcm_rf4"].ports["o2"])
+    channels |= Channel(name="L6-1", port=modules["qcm_rf0"].ports("o1"))
+    channels |= Channel(name="L6-2", port=modules["qcm_rf0"].ports("o2"))
+    channels |= Channel(name="L6-3", port=modules["qcm_rf1"].ports("o1"))
+    channels |= Channel(name="L6-4", port=modules["qcm_rf1"].ports("o2"))
+    channels |= Channel(name="L6-5", port=modules["qcm_rf2"].ports("o1"))
+    channels |= Channel(name="L6-6", port=modules["qcm_rf2"].ports("o2"))
+    channels |= Channel(name="L6-7", port=modules["qcm_rf3"].ports("o1"))
+    channels |= Channel(name="L6-8", port=modules["qcm_rf3"].ports("o2"))
+    channels |= Channel(name="L6-9", port=modules["qcm_rf4"].ports("o1"))
+    channels |= Channel(name="L6-10", port=modules["qcm_rf4"].ports("o2"))
     # Flux
-    channels |= Channel(name="L6-39", port=modules["qcm_bb0"].ports["o1"])
-    channels |= Channel(name="L6-40", port=modules["qcm_bb0"].ports["o2"])
-    channels |= Channel(name="L6-41", port=modules["qcm_bb0"].ports["o3"])
-    channels |= Channel(name="L6-42", port=modules["qcm_bb0"].ports["o4"])
-    channels |= Channel(name="L6-43", port=modules["qcm_bb1"].ports["o1"])
-    channels |= Channel(name="L6-44", port=modules["qcm_bb1"].ports["o2"])
-    channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports["o3"])
-    channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports["o4"])
+    channels |= Channel(name="L6-39", port=modules["qcm_bb0"].ports("o1"))
+    channels |= Channel(name="L6-40", port=modules["qcm_bb0"].ports("o2"))
+    channels |= Channel(name="L6-41", port=modules["qcm_bb0"].ports("o3"))
+    channels |= Channel(name="L6-42", port=modules["qcm_bb0"].ports("o4"))
+    channels |= Channel(name="L6-43", port=modules["qcm_bb1"].ports("o1"))
+    channels |= Channel(name="L6-44", port=modules["qcm_bb1"].ports("o2"))
+    channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports("o3"))
+    channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports("o4"))
     # Qubit 9-10 are not connected to flux
     channels |= Channel(name="L6-47", port=None)
     channels |= Channel(name="L6-48", port=None)
@@ -111,6 +110,7 @@ def create(runcard_path=RUNCARD):
         qubits[q].flux.max_bias = 2.5
 
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
         "spinq10q", qubits, pairs, instruments, settings, resonator_type="2D"
