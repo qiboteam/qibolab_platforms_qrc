@@ -184,9 +184,9 @@ def create(runcard_path=RUNCARD):
     qubits, couplers, pairs = load_qubits(runcard)
     if (FOLDER / "kernels.npz").is_file():
         kernels = Kernels.load(path=FOLDER / "kernels.npz")
-        for q in kernels.data.keys():
+        for q in kernels.data:
             # To handle Kernel.save() using strings
-            if q in qubits.keys():
+            if q in qubits:
                 qubits[q].kernel = kernels[q]
             else:
                 qubits[int(q)].kernel = kernels[q]
