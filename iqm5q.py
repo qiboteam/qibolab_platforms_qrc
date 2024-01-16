@@ -15,6 +15,7 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
+from qibolab.kernels import Kernels
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 FOLDER = pathlib.Path(__file__).parent / "iqm5q/"
@@ -24,7 +25,7 @@ TWPA_ADDRESS = "192.168.0.35"
 N_QUBITS = 5
 
 
-def create(runcard_path=RUNCARD):
+def create(runcard_path=RUNCARD, with_kernels: bool = True):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:
@@ -180,7 +181,11 @@ def create(runcard_path=RUNCARD):
 
     # create qubit objects
     runcard = load_runcard(runcard_path)
-    qubits, couplers, pairs = load_qubits(runcard, FOLDER)
+    qubits, couplers, pairs = load_qubits(runcard)
+    if with_kernels and (FOLDER / "kernels.npz").is_file():
+        kernels = Kernels.load(path=FOLDER / "kernels.npz")
+        for q in kernels.data.keys():
+            qubits[q].kernel = kernels[str(q)]
     settings = load_settings(runcard)
 
     # assign channels to qubits and sweetspots(operating points)
