@@ -186,7 +186,7 @@ def create(runcard_path=RUNCARD, with_kernels: bool = True):
         kernels = Kernels.load(path=FOLDER / "kernels.npz")
         for q in kernels.data.keys():
             # To handle Kernel.save() using strings
-            if q in qubits.keys():
+            if q in qubits:
                 qubits[q].kernel = kernels[q]
             else:
                 qubits[int(q)].kernel = kernels[q]
