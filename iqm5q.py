@@ -25,7 +25,7 @@ TWPA_ADDRESS = "192.168.0.35"
 N_QUBITS = 5
 
 
-def create(runcard_path=RUNCARD, with_kernels: bool = True):
+def create(runcard_path=RUNCARD):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:
@@ -182,7 +182,7 @@ def create(runcard_path=RUNCARD, with_kernels: bool = True):
     # create qubit objects
     runcard = load_runcard(runcard_path)
     qubits, couplers, pairs = load_qubits(runcard)
-    if with_kernels and (FOLDER / "kernels.npz").is_file():
+    if (FOLDER / "kernels.npz").is_file():
         kernels = Kernels.load(path=FOLDER / "kernels.npz")
         for q in kernels.data.keys():
             # To handle Kernel.save() using strings
