@@ -9,13 +9,13 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
+from qibolab.kernels import Kernels
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
     load_runcard,
     load_settings,
 )
-from qibolab.kernels import Kernels
 
 RUNCARD = pathlib.Path(__file__).parent / "iqm5q.yml"
 FOLDER = pathlib.Path(__file__).parent / "iqm5q/"
