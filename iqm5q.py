@@ -180,16 +180,8 @@ def create(runcard_path=RUNCARD):
         channels[ch].local_oscillator = local_oscillators[lo]
 
     # create qubit objects
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(runcard_path, FOLDER)
     qubits, couplers, pairs = load_qubits(runcard)
-    if (FOLDER / "kernels.npz").is_file():
-        kernels = Kernels.load(path=FOLDER / "kernels.npz")
-        for q in kernels.data:
-            # To handle Kernel.save() using strings
-            if q in qubits:
-                qubits[q].kernel = kernels[q]
-            else:
-                qubits[int(q)].kernel = kernels[q]
     settings = load_settings(runcard)
 
     # assign channels to qubits and sweetspots(operating points)
