@@ -14,19 +14,19 @@ from qibolab.serialize import (
 NAME = "tii_zcu111"
 ADDRESS = "192.168.0.81"
 PORT = 6000
-RUNCARD = pathlib.Path(__file__).parent / "tii_zcu111.yml"
-
 LO_ADDRESS = "192.168.0.212"
 
+FOLDER = pathlib.Path(__file__).parent
 
-def create(runcard_path=RUNCARD):
+
+def create(folder: pathlib.Path = FOLDER):
     """Platform for ZCU111 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
 
     # Instantiate QICK instruments
-    controller = RFSoC("tii_zcu111", ADDRESS, PORT, sampling_rate=6.144)
+    controller = RFSoC(str(folder), ADDRESS, PORT, sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 100
 
@@ -51,7 +51,7 @@ def create(runcard_path=RUNCARD):
     channels["L3-30_ro"].local_oscillator = local_oscillator
 
     # create qubit objects
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(folder)
     qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits
     qubits[0].readout = channels["L3-30_ro"]
@@ -75,4 +75,4 @@ def create(runcard_path=RUNCARD):
     instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
-    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
+    return Platform(str(folder), qubits, pairs, instruments, settings, resonator_type="2D")

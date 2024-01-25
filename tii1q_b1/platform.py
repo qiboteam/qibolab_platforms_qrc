@@ -6,19 +6,18 @@ from qibolab.instruments.rohde_schwarz import SGS100A as LocalOscillator
 from qibolab.platform import Platform
 from qibolab.serialize import load_qubits, load_runcard, load_settings
 
-NAME = "tii_rfsoc4x2"
 ADDRESS = "192.168.0.72"
 PORT = 6000
-RUNCARD = pathlib.Path(__file__).parent / "tii1q_b1.yml"
+FOLDER = pathlib.Path(__file__).parent
 
 
-def create(runcard_path=RUNCARD):
+def create(folder=FOLDER):
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
     # Instantiate QICK instruments
-    controller = RFSoC(NAME, ADDRESS, PORT, sampling_rate=9.8304)
+    controller = RFSoC(str(folder), ADDRESS, PORT, sampling_rate=9.8304)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 70
     # Create channel objects
@@ -28,7 +27,7 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L3-22_qd", port=controller.ports(0))  # drive
 
     # create qubit objects
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(folder)
     qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits
     qubits[0].readout = channels["L3-22_ro"]
@@ -38,4 +37,4 @@ def create(runcard_path=RUNCARD):
     instruments = {controller.name: controller}
 
     settings = load_settings(runcard)
-    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="3D")
+    return Platform(str(folder), qubits, pairs, instruments, settings, resonator_type="3D")

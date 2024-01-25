@@ -17,16 +17,16 @@ from qibolab.serialize import (
 
 NAME = "qblox"
 ADDRESS = "192.168.0.6"
-RUNCARD = pathlib.Path(__file__).parent / "spinq10q.yml"
+FOLDER = pathlib.Path(__file__).parent
 
 
-def create(runcard_path=RUNCARD):
+def create(folder : pathlib.Path = FOLDER):
     """QuantWare 5q-chip controlled using qblox cluster.
 
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(folder)
     modules = {
         "qrm_rf0": ClusterQRM_RF("qrm_rf0", f"{ADDRESS}:18"),
         "qrm_rf1": ClusterQRM_RF("qrm_rf1", f"{ADDRESS}:20"),
@@ -113,5 +113,5 @@ def create(runcard_path=RUNCARD):
     instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
-        "spinq10q", qubits, pairs, instruments, settings, resonator_type="2D"
+        str(folder), qubits, pairs, instruments, settings, resonator_type="2D"
     )
