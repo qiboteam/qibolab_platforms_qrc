@@ -20,13 +20,13 @@ ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
 
 
-def create(folder: pathlib.Path = FOLDER):
+def create():
     """QuantWare 5q-chip controlled using qblox cluster.
 
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    runcard = load_runcard(folder)
+    runcard = load_runcard(FOLDER)
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),
         "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:20"),
@@ -113,5 +113,5 @@ def create(folder: pathlib.Path = FOLDER):
     instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
-        str(folder), qubits, pairs, instruments, settings, resonator_type="2D"
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D"
     )

@@ -11,13 +11,13 @@ PORT = 6000
 FOLDER = pathlib.Path(__file__).parent
 
 
-def create(folder=FOLDER):
+def create():
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
     # Instantiate QICK instruments
-    controller = RFSoC(str(folder), ADDRESS, PORT, sampling_rate=9.8304)
+    controller = RFSoC(str(FOLDER), ADDRESS, PORT, sampling_rate=9.8304)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 70
     # Create channel objects
@@ -27,7 +27,7 @@ def create(folder=FOLDER):
     channels |= Channel("L3-22_qd", port=controller.ports(0))  # drive
 
     # create qubit objects
-    runcard = load_runcard(folder)
+    runcard = load_runcard(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard)
     # assign channels to qubits
     qubits[0].readout = channels["L3-22_ro"]
@@ -38,5 +38,5 @@ def create(folder=FOLDER):
 
     settings = load_settings(runcard)
     return Platform(
-        str(folder), qubits, pairs, instruments, settings, resonator_type="3D"
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="3D"
     )

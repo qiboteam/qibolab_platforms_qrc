@@ -24,8 +24,8 @@ TWPA_ADDRESS = "192.168.0.35"
 N_QUBITS = 5
 
 
-def create(folder: pathlib.Path = FOLDER):
-    """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
+def create():
+    """IQM 5q-chip controlled Zurich Instruments (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:
         runcard_path (str): Path to the runcard file.
@@ -179,8 +179,8 @@ def create(folder: pathlib.Path = FOLDER):
         channels[ch].local_oscillator = local_oscillators[lo]
 
     # create qubit objects
-    runcard = load_runcard(folder)
-    kernels = Kernels.load(folder)
+    runcard = load_runcard(FOLDER)
+    kernels = Kernels.load(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard, kernels)
     settings = load_settings(runcard)
 
@@ -202,7 +202,7 @@ def create(folder: pathlib.Path = FOLDER):
     instruments.update({lo.name: lo for lo in local_oscillators})
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(
-        str(folder),
+        str(FOLDER),
         qubits,
         pairs,
         instruments,
