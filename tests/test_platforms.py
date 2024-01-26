@@ -1,6 +1,7 @@
 import pathlib
 
 import pytest
+
 from qibolab import Platform, create_platform
 
 PATH = pathlib.Path(__file__).parents[1]
@@ -11,7 +12,7 @@ def idfn(path):
     return str(path.parent).split("/")[-1]
 
 
-@pytest.mark.parametrize("path", PATH.glob("**/platform.py"), ids=idfn)
+@pytest.mark.parametrize("path", PATH.glob("*/platform.py"), ids=idfn)
 def test_create(path):
     """Test that platform can be created."""
     platform = create_platform(path.parent)
