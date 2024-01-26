@@ -210,13 +210,8 @@ characterization:
             drive_frequency: 4_095_140_800
             anharmonicity: 217_492_000
             Ec: 0
-            Ej: 0
             g: 0
-            flux_to_bias: 0.0
             asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
-            ssf_brf: 0.0
-            assignment_fidelity: 0.884
             sweetspot: -0.15
             peak_voltage: 0
             pi_pulse_amplitude: 0.924
@@ -229,7 +224,6 @@ characterization:
             mean_exc_states: [-0.773457961897901, -0.44969928873718545]
             threshold: 0.501546
             iq_angle: 2.672
-            kernel_path: "kernel_q0.npz"
 
         1:
             bare_resonator_frequency: 4_923_107_000
@@ -237,12 +231,8 @@ characterization:
             drive_frequency: 4_241_884_701
             anharmonicity: 0
             Ec: 0
-            Ej: 0
             g: 0
-            flux_to_bias: 0.0
             asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
-            ssf_brf: 0.0
             assignment_fidelity: 0.865
             sweetspot: 0.0
             peak_voltage: 0
@@ -256,7 +246,6 @@ characterization:
             mean_exc_states: [-3.7071945265824735, -9.35587044417559]
             threshold: 3.9350260175625893
             iq_angle: 2.176067198433465
-            kernel_path: "kernel_q1.npz"
 
         2:
             bare_resonator_frequency: 6_163_447_000
@@ -264,12 +253,8 @@ characterization:
             drive_frequency: 4_539_550_000
             anharmonicity: 211_604_296
             Ec: 0
-            Ej: 0
             g: 0
-            flux_to_bias: 0.0
             asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
-            ssf_brf: 0.0
             assignment_fidelity: 0.799
             sweetspot: 0.015 #q2 does not need flux
             T1: 8343
@@ -281,7 +266,6 @@ characterization:
             mean_exc_states: [-1.644348910967934, 0.5699327364542519]
             threshold: 0.6334573745826475
             iq_angle: -2.9897686869193305
-            kernel_path: "kernel_q2.npz"
 
         3:
             bare_resonator_frequency: 5_773_100_000
@@ -289,12 +273,8 @@ characterization:
             drive_frequency: 4_168_624_000
             anharmonicity: 214_000_000
             Ec: 0
-            Ej: 0
             g: 0
-            flux_to_bias: 0.0
             asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
-            ssf_brf: 0.0
             assignment_fidelity: 0.887
             sweetspot: 0.0
             T1: 10490
@@ -306,7 +286,6 @@ characterization:
             mean_exc_states: [-0.8186923372721429, -2.1199756256035918]
             threshold: -3.295590970178259
             iq_angle: 1.449541916726749
-            kernel_path: "kernel_q3.npz"
 
         4:
             bare_resonator_frequency: 5_504_700_000
@@ -314,12 +293,8 @@ characterization:
             drive_frequency: 4_353_464_450
             anharmonicity: 0
             Ec: 0
-            Ej: 0
             g: 0
-            flux_to_bias: 0.0
             asymmetry: 0.0
-            bare_resonator_frequency_sweetspot: 0.0
-            ssf_brf: 0.0
             assignment_fidelity: 0.967
             T1: 9891
             T2: 0.0
@@ -331,7 +306,6 @@ characterization:
             mean_exc_states: [15.22772730837784, -2.1649515770198255]
             threshold: 1.7944859713165011
             iq_angle: 0.1377432252403901
-            kernel_path: "kernel_q4.npz"
 
     coupler:
         0:

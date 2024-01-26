@@ -1,9 +1,9 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
-from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
-from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
+from qibolab.instruments.qblox.cluster_qcm_bb import QcmBb
+from qibolab.instruments.qblox.cluster_qcm_rf import QcmRf
+from qibolab.instruments.qblox.cluster_qrm_rf import QrmRf
 from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.qblox.port import QbloxOutputPort
 from qibolab.instruments.rohde_schwarz import SGS100A
@@ -17,27 +17,27 @@ from qibolab.serialize import (
 
 NAME = "qblox"
 ADDRESS = "192.168.0.6"
-RUNCARD = pathlib.Path(__file__).parent / "spinq10q.yml"
+FOLDER = pathlib.Path(__file__).parent
 
 
-def create(runcard_path=RUNCARD):
+def create():
     """QuantWare 5q-chip controlled using qblox cluster.
 
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(FOLDER)
     modules = {
-        "qrm_rf0": ClusterQRM_RF("qrm_rf0", f"{ADDRESS}:18"),
-        "qrm_rf1": ClusterQRM_RF("qrm_rf1", f"{ADDRESS}:20"),
-        "qcm_rf0": ClusterQCM_RF("qcm_rf0", f"{ADDRESS}:8"),
-        "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10"),
-        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12"),
-        "qcm_rf3": ClusterQCM_RF("qcm_rf3", f"{ADDRESS}:14"),
-        "qcm_rf4": ClusterQCM_RF("qcm_rf4", f"{ADDRESS}:16"),
-        "qcm_bb0": ClusterQCM_BB("qcm_bb0", f"{ADDRESS}:2"),
-        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4"),
-        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6"),
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),
+        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:20"),
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),
+        "qcm_rf2": QcmRf("qcm_rf2", f"{ADDRESS}:12"),
+        "qcm_rf3": QcmRf("qcm_rf3", f"{ADDRESS}:14"),
+        "qcm_rf4": QcmRf("qcm_rf4", f"{ADDRESS}:16"),
+        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),
+        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),
+        "qcm_bb2": QcmBb("qcm_bb2", f"{ADDRESS}:6"),
     }
     controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
@@ -113,5 +113,5 @@ def create(runcard_path=RUNCARD):
     instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
-        "spinq10q", qubits, pairs, instruments, settings, resonator_type="2D"
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D"
     )
