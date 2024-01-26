@@ -5,11 +5,11 @@ from laboneq.dsl.device import create_connection
 from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
 from laboneq.simple import DeviceSetup
 from qibolab import Platform
-from qibolab.kernels import Kernels
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
+from qibolab.kernels import Kernels
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
@@ -24,7 +24,7 @@ TWPA_ADDRESS = "192.168.0.35"
 N_QUBITS = 5
 
 
-def create(folder : pathlib.Path = FOLDER):
+def create(folder: pathlib.Path = FOLDER):
     """IQM 5q-chip controlled Zurich Instrumetns (Zh) SHFQC, HDAWGs and PQSC.
 
     Args:

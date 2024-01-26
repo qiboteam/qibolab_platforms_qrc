@@ -37,4 +37,6 @@ def create(folder=FOLDER):
     instruments = {controller.name: controller}
 
     settings = load_settings(runcard)
-    return Platform(str(folder), qubits, pairs, instruments, settings, resonator_type="3D")
+    return Platform(
+        str(folder), qubits, pairs, instruments, settings, resonator_type="3D"
+    )

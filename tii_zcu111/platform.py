@@ -75,4 +75,6 @@ def create(folder: pathlib.Path = FOLDER):
     instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
-    return Platform(str(folder), qubits, pairs, instruments, settings, resonator_type="2D")
+    return Platform(
+        str(folder), qubits, pairs, instruments, settings, resonator_type="2D"
+    )

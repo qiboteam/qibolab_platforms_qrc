@@ -19,6 +19,7 @@ LO_ADDRESS = "192.168.0.35"
 
 FOLDER = pathlib.Path(__file__).parent
 
+
 def create(folder: pathlib.Path = FOLDER):
     """Platform for RFSoC4x2 board running qibosoq.
 
@@ -80,4 +81,6 @@ def create(folder: pathlib.Path = FOLDER):
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
-    return Platform(str(folder), qubits, pairs, instruments, settings, resonator_type="2D")
+    return Platform(
+        str(folder), qubits, pairs, instruments, settings, resonator_type="2D"
+    )
