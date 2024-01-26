@@ -1,7 +1,6 @@
 import pathlib
 
 import pytest
-
 from qibolab import Platform, create_platform
 
 PATH = pathlib.Path(__file__).parents[1]
