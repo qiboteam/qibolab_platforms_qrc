@@ -38,4 +38,4 @@ jobs:
       - name: Test platforms
         run: |
           source testenv/bin/activate
-          QIBOLAB_PLATFORMS=$(realpath .) pytest tests/
+          QIBOLAB_PLATFORMS=$(realpath .) pytest _tests/
