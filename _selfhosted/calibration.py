@@ -91,7 +91,7 @@ def main(name):
             header="T2",
             attribute="t2",
             formatter=convert_to_us,
-        )
+        ),
         # Experiment(
         #     Operation.standard_rb.value,
         #     dict(
