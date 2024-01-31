@@ -29,7 +29,60 @@
             4
         ]
     ],
-    "instruments": {},
+    "instruments": {
+        "twpa_pump": {
+            "power": 3.2,
+            "frequency": 6532000000
+        },
+
+        "qrm_rf_a": {
+            "o1": {
+                "attenuation": 38,
+                "lo_frequency": 7300000000
+            },
+            "i1": {
+                "acquisition_hold_off": 500,
+                "acquisition_duration": 900
+            }
+        },
+        "qrm_rf_b": {
+            "o1": {
+                "attenuation": 38,
+                "lo_frequency": 7850000000
+            },
+            "i1": {
+                "acquisition_hold_off": 500,
+                "acquisition_duration": 900
+            }
+        },
+        "qcm_rf0": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 5141132868
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 4952007272
+            }
+        },
+        "qcm_rf1": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 5995371914
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 6961018001
+            }
+        },
+        "qcm_rf2": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 6786543060
+            }
+        }
+    },
+
     "native_gates": {
         "single_qubit": {
             "0": {
