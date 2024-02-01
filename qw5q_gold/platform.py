@@ -64,11 +64,11 @@ def create():
     channels |= Channel(name="L2-5_a", port=modules["qrm_rf_a"].ports("i1", out=False))
     channels |= Channel(name="L2-5_b", port=modules["qrm_rf_b"].ports("i1", out=False))
     # Drive
-    channels |= Channel(name="L3-15", port=modules["qcm_rf0"].ports("o1"))
+    channels |= Channel(name="L4-28", port=modules["qcm_rf0"].ports("o1"))
     channels |= Channel(name="L3-11", port=modules["qcm_rf0"].ports("o2"))
     channels |= Channel(name="L3-12", port=modules["qcm_rf1"].ports("o1"))
     channels |= Channel(name="L3-13", port=modules["qcm_rf1"].ports("o2"))
-    channels |= Channel(name="L3-14", port=modules["qcm_rf2"].ports("o1"))
+    channels |= Channel(name="L4-22", port=modules["qcm_rf2"].ports("o1"))
     # Flux
     channels |= Channel(name="L4-5", port=modules["qcm_bb0"].ports("o1"))
     channels |= Channel(name="L4-1", port=modules["qcm_bb0"].ports("o2"))
@@ -76,8 +76,8 @@ def create():
     channels |= Channel(name="L4-3", port=modules["qcm_bb0"].ports("o4"))
     channels |= Channel(name="L4-4", port=modules["qcm_bb1"].ports("o1"))
     # TWPA
-    channels |= Channel(name="L3-28", port=None)
-    channels["L3-28"].local_oscillator = twpa_pump
+    channels |= Channel(name="L2-22", port=None)
+    channels["L2-22"].local_oscillator = twpa_pump
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
@@ -88,16 +88,20 @@ def create():
     for q in [0, 1]:
         qubits[q].readout = channels["L3-25_a"]
         qubits[q].feedback = channels["L2-5_a"]
-        qubits[q].twpa = channels["L3-28"]
+        qubits[q].twpa = channels["L2-22"]
     for q in [2, 3, 4]:
         qubits[q].readout = channels["L3-25_b"]
         qubits[q].feedback = channels["L2-5_b"]
-        qubits[q].twpa = channels["L3-28"]
+        qubits[q].twpa = channels["L2-22"]
 
-    qubits[0].drive = channels["L3-15"]
+    qubits[0].drive = channels["L4-28"]
     qubits[0].flux = channels["L4-5"]
     channels["L4-5"].qubit = qubits[0]
-    for q in range(1, 5):
+
+    qubits[4].drive = channels["L4-22"]
+    qubits[4].flux = channels["L4-4"]
+    channels["L4-4"].qubit = qubits[4]
+    for q in range(1, 4):
         qubits[q].drive = channels[f"L3-{10 + q}"]
         qubits[q].flux = channels[f"L4-{q}"]
         channels[f"L4-{q}"].qubit = qubits[q]
