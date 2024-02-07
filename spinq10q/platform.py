@@ -14,7 +14,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "spinq10q_qblox"
+NAME = "spinq10q"
 ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
 
@@ -67,13 +67,13 @@ def create():
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
 
-    for q in [1, 2, 3, 4, 5]:
+    for q in range(5):
         qubits[q].readout = channels["L3-20"]
         qubits[q].feedback = channels["L1-1"]
         qubits[q].twpa = channels["L3-10"]
-        qubits[q].drive = channels[f"L6-{q}"]
-        qubits[q].flux = channels[f"L6-{38+q}"]
-        channels[f"L6-{38+q}"].qubit = qubits[q]
+        qubits[q].drive = channels[f"L6-{q+1}"]
+        qubits[q].flux = channels[f"L6-{39+q}"]
+        channels[f"L6-{39+q}"].qubit = qubits[q]
         qubits[q].flux.max_bias = 2.5
 
     settings = load_settings(runcard)
