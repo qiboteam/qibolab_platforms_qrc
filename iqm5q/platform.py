@@ -140,11 +140,11 @@ def create():
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels["L4-15"].power_range = -10  # q0
-    channels["L4-16"].power_range = -5  # q1
-    channels["L4-17"].power_range = -10  # q2
-    channels["L4-18"].power_range = -5  # q3
-    channels["L4-19"].power_range = -10  # q4
+    channels["L4-15"].power_range = -5  # q0
+    channels["L4-16"].power_range = 5  # q1
+    channels["L4-17"].power_range = -5  # q2
+    channels["L4-18"].power_range = 10  # q3
+    channels["L4-19"].power_range = 0  # q4
 
     # HDAWGS
     # Sets the output voltage range.
@@ -152,10 +152,11 @@ def create():
 
     # flux
     for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 9
+
     # flux couplers
     for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 9
 
     # Instantiate local oscillators
     local_oscillators = [
