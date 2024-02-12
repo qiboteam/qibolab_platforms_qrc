@@ -28,7 +28,7 @@ def create():
     runcard = load_runcard(FOLDER)
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:15"), #readout  o=L3-31r, i=L2-1 
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:13"), #drive L-3-31d
+        "qcm_rf0": QrmRf("qcm_rf0", f"{ADDRESS}:13"), #drive L-3-31d
           }
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
@@ -46,6 +46,8 @@ def create():
     channels |= Channel(name="L2-1", port=modules["qrm_rf0"].ports("i1", out=False))
     # Drive
     channels |= Channel(name="L3-31d", port=modules["qcm_rf0"].ports("o1"))
+    
+    channels |= Channel(name="L99", port=modules["qcm_rf0"].ports("i1", out=False))
    
     # create qubit objects
     qubits,couplers, pairs = load_qubits(runcard)
