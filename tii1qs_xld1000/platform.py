@@ -27,16 +27,16 @@ def create():
     """
     runcard = load_runcard(FOLDER)
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:15"), #readout  o=L3-31r, i=L2-1 
-        "qcm_rf0": QrmRf("qcm_rf0", f"{ADDRESS}:13"), #drive L-3-31d
-          }
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:15"),  # readout  o=L3-31r, i=L2-1
+        "qcm_rf0": QrmRf("qcm_rf0", f"{ADDRESS}:13"),  # drive L-3-31d
+    }
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
-   # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
+    # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
 
     instruments = {
         controller.name: controller,
-   #     twpa_pump0.name: twpa_pump0,
+        #     twpa_pump0.name: twpa_pump0,
     }
     instruments.update(modules)
     channels = ChannelMap()
@@ -48,15 +48,13 @@ def create():
     channels |= Channel(name="L3-31d", port=modules["qcm_rf0"].ports("o1"))
 
     channels |= Channel(name="L99", port=modules["qcm_rf0"].ports("i1", out=False))
-   
-    # create qubit objects
-    qubits,couplers, pairs = load_qubits(runcard)
 
+    # create qubit objects
+    qubits, couplers, pairs = load_qubits(runcard)
 
     qubits[0].readout = channels["L3-31r"]
     qubits[0].feedback = channels["L2-1"]
     qubits[0].drive = channels["L3-31d"]
-    
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
