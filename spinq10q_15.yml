@@ -8,23 +8,70 @@ topology:
 - [4, 5]
 
 instruments:
-    readout_lo:
-        frequency: 7_385_000_000
-        power: 10
-    TWPA:
-        frequency: 6_803_250_000
-        power: -2.24
+    twpa_pump0: {power: -1.7, frequency: 6802000000}
+
+    qrm_rf0:  # q1, q2, q3, q4, q5
+        o1:
+            attenuation: 44
+            lo_frequency: 7_385_000_000
+        i1:
+            acquisition_hold_off: 500 #ToF
+            acquisition_duration: 2500
+
+    qcm_rf0:
+        o1:
+            attenuation: 20
+            lo_frequency: 4_478_384_733  # q1,
+
+        o2:
+            attenuation: 20
+            lo_frequency: 5_041_973_449  # q2, # IF -250 MHz
+
+    qcm_rf1:
+        o1:
+            attenuation: 20
+            lo_frequency: 4_466_000_000 # q3,
+        o2:
+            attenuation: 20
+            lo_frequency: 5_041_000_000  # q4,
+
+    qcm_rf2:
+        o1:
+            attenuation: 20
+            lo_frequency: 4_307_000_000  # q5,
+        o2:
+            attenuation: 20
+            lo_frequency: 4_994_000_000  # q6,
+
+    qcm_bb0:
+        o1:
+            offset: 0.0
+        o2:
+            offset: 0.0
+        o3:
+            offset: 0.0
+        o4:
+            offset: 0.0
+    qcm_bb1:
+        o1:
+            offset: 0.0
+        o2:
+            offset: 0.0
+        o3:
+            offset: 0.0
+        o4:
+            offset: 0.0
 
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.294, shape: Gaussian(5),
-                frequency: 4228472634, relative_start: 0, phase: 0, type: qd}
+            RX: {duration: 40, amplitude: 0.152, shape: Gaussian(5),
+                frequency: 4229120634, relative_start: 0, phase: 0, type: qd}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433510045,
             #     relative_start: 0, phase: 0, type: ro}
             # MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433310045,
             #     relative_start: 0, phase: 0, type: ro}
-            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433670045,
+            MZ: {duration: 2500, amplitude: 0.1, shape: Rectangular(), frequency: 7433707184,
                 relative_start: 0, phase: 0, type: ro}
         2:
             RX: {duration: 40, amplitude: 0.473, shape: Gaussian(5),
@@ -77,10 +124,10 @@ characterization:
             bare_resonator_frequency: 7432188457
             # readout_frequency: 7433510045 # amplitude crossing
             # readout_frequency: 7433310045 # best
-            readout_frequency: 7433670045 # state |0>
-            drive_frequency: 4228472634
+            readout_frequency: 7433707184 # state |0>
+            drive_frequency: 4229120634
             anharmonicity: 197369466
-            sweetspot: 0.093
+            sweetspot: 0.1045
             # sweetspot: -0.158 # parking
             flux_to_bias: 2.1464325851437356
             asymmetry: 0.984279103491614
@@ -114,8 +161,8 @@ characterization:
             readout_frequency: 7511744427 # state |0>
             drive_frequency: 4852154170
             anharmonicity: 196746898
-            sweetspot: 0.097
-            # sweetspot: -0.155 # parking
+            # sweetspot: 0.097
+            sweetspot: -0.135 # parking
             flux_to_bias: 2.2550167892785895
             asymmetry: 0.1330056186090635
             bare_resonator_frequency_sweetspot: 7510937955
@@ -147,7 +194,7 @@ characterization:
             drive_frequency: 4277000000
             anharmonicity: 300000000
             # sweetspot: 0.099
-            sweetspot: -0.191 # parking
+            sweetspot: -0.181 # parking
             flux_to_bias: 1.68108721142153
             asymmetry: 0.5666990319994453
             bare_resonator_frequency_sweetspot: 7543683087
@@ -179,7 +226,7 @@ characterization:
             drive_frequency: 4848000000
             anharmonicity: 300000000
             # sweetspot: 0.072
-            sweetspot: -0.186 # parking
+            sweetspot: -0.166 # parking
             flux_to_bias: 0.0
             asymmetry: 0.0
             bare_resonator_frequency_sweetspot: 0
@@ -211,7 +258,7 @@ characterization:
             drive_frequency: 4047000000
             anharmonicity: 300000000
             # sweetspot: 0.05
-            sweetspot: -0.215 # parking
+            sweetspot: -0.195 # parking
             flux_to_bias: 1.8005567966516272
             asymmetry: 0.5788018934069338
             bare_resonator_frequency_sweetspot: 7606660235

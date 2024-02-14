@@ -7,7 +7,7 @@ topology:
 - [2, 3]
 - [2, 4]
 instruments:
-    twpa_pump: {power: 3.5, frequency: 6532000000}
+    twpa_pump: {power: 0, frequency: 6550000000}
     qcm_bb0:
         o1: {offset: 0.0}
         o2: {offset: 0.0}
@@ -24,10 +24,10 @@ instruments:
     qcm_rf2:
         o1: {attenuation: 20, lo_frequency: 6786543060}
     qrm_rf_a:
-        o1: {attenuation: 40, lo_frequency: 7300000000}
+        o1: {attenuation: 0, lo_frequency: 7300000000}
         i1: {acquisition_hold_off: 500, acquisition_duration: 1500}
     qrm_rf_b:
-        o1: {attenuation: 40, lo_frequency: 7850000000}
+        o1: {attenuation: 0, lo_frequency: 7850000000}
         i1: {acquisition_hold_off: 500, acquisition_duration: 1500}
 native_gates:
     single_qubit:
@@ -36,21 +36,21 @@ native_gates:
                 relative_start: 0, phase: 0, type: qd}
             RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 5041564317,
                 relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7212339385,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 7212339385,
                 relative_start: 0, phase: 0, type: ro}
         1:
             RX: {duration: 40, amplitude: 0.23053363515581182, shape: Gaussian(5),
                 frequency: 4851539649, relative_start: 0, phase: 0.0, type: qd}
             RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 4551209776,
                 relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7453095296,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 7453095296,
                 relative_start: 0, phase: 0.0, type: ro}
         2:
             RX: {duration: 40, amplitude: 0.333, shape: Gaussian(5), frequency: 5790779884,
                 relative_start: 0, phase: 0.0, type: qd}
             RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 5790889285,
                 relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.1, shape: Rectangular(), frequency: 7655221646,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 7655221646,
                 relative_start: 0, phase: 0.0, type: ro}
         3:
             RX: {duration: 40, amplitude: 0.305, shape: Gaussian(5), frequency: 6753555018,
@@ -64,7 +64,7 @@ native_gates:
                 frequency: 6587593856, relative_start: 0, phase: 0.0, type: qd}
             RX12: {duration: 40, amplitude: 0.5, shape: 'Drag(5, 0.000)', frequency: 6286920753,
                 relative_start: 0, phase: 0.0, type: qd}
-            MZ: {duration: 2000, amplitude: 0.4, shape: Rectangular(), frequency: 8059247040,
+            MZ: {duration: 2000, amplitude: 0.2, shape: Rectangular(), frequency: 8059247040,
                 relative_start: 0, phase: 0.0, type: ro}
     two_qubit:
         0-2:

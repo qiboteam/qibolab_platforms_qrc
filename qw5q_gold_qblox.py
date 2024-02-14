@@ -21,7 +21,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-ADDRESS = "192.168.0.20"
+ADDRESS = "192.168.0.3"
 TIME_OF_FLIGHT = 500
 RUNCARD = pathlib.Path(__file__).parent / "qw5q_gold.yml"
 
