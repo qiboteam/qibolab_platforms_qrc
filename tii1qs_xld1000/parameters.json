@@ -9,24 +9,25 @@
       0
     ],
     "instruments": {
-      "qrm_rf0": {
-        "o1": {
-          "attenuation": 46,
-          "lo_frequency": 7095000000
-        },
+      "con1": {
         "i1": {
-          "acquisition_hold_off": 500,
-          "acquisition_duration": 1800
+            "gain": 0
+        },
+        "i2": {
+            "gain": 0
         }
       },
-      "qcm_rf0": {
+      "octave1": {
         "o1": {
-          "attenuation": 4,
-          "lo_frequency": 5600000000
+            "lo_frequency": 4700000000,
+            "gain": 0
+        },
+        "o5": {
+            "lo_frequency": 7300000000,
+            "gain": 0
         },
         "i1": {
-          "acquisition_hold_off": 500,
-          "acquisition_duration": 1800
+            "lo_frequency": 7300000000
         }
       }
     },
