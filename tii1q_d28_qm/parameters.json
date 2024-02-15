@@ -1,0 +1,99 @@
+{
+  "nqubits": 1,
+  "settings": {
+      "nshots": 4024,
+      "relaxation_time": 100000
+  },
+  "qubits": [
+      0
+  ],
+  "topology": [],
+  "instruments": {
+      "con1": {
+          "i1": {
+              "gain": 0
+          },
+          "i2": {
+              "gain": 0
+          }
+      },
+      "octave1": {
+          "o1": {
+              "lo_frequency": 7200000000,
+              "gain": -10
+          },
+          "o5": {
+              "lo_frequency": 5700000000,
+              "gain": 0
+          },
+          "i1": {
+              "lo_frequency": 7200000000
+          }
+      }
+  },
+  "native_gates": {
+      "single_qubit": {
+          "0": {
+              "RX": {
+                  "duration": 80,
+                  "amplitude": 0.00214,
+                  "shape": "Gaussian(5)",
+                  "frequency": 5796353976,
+                  "relative_start": 0,
+                  "phase": 0,
+                  "type": "qd"
+              },
+              "MZ": {
+                  "duration": 2500,
+                  "amplitude": 0.004,
+                  "shape": "Rectangular()",
+                  "frequency": 7292027169,
+                  "relative_start": 0,
+                  "phase": 0,
+                  "type": "ro"
+              }
+          }
+      },
+      "two_qubit": {}
+  },
+  "characterization": {
+      "single_qubit": {
+          "0": {
+              "bare_resonator_frequency": 7292500000,
+              "readout_frequency": 7292027169,
+              "drive_frequency": 5796353976,
+              "anharmonicity": 0,
+              "sweetspot": 0,
+              "asymmetry": 0,
+              "crosstalk_matrix": {},
+              "Ec": 0,
+              "Ej": 0.0,
+              "g": 0,
+              "assignment_fidelity": 0.947,
+              "readout_fidelity": 0.895,
+              "effective_temperature": 0,
+              "peak_voltage": 0,
+              "pi_pulse_amplitude": 0.442,
+              "T1": 16155,
+              "T2": 0,
+              "T2_spin_echo": 0,
+              "state0_voltage": 0,
+              "state1_voltage": 0,
+              "mean_gnd_states": [
+                  0,
+                  0
+              ],
+              "mean_exc_states": [
+                  0,
+                  0
+              ],
+              "threshold": -0.000602,
+              "iq_angle": 1.497,
+              "mixer_drive_g": 0,
+              "mixer_drive_phi": 0,
+              "mixer_readout_g": 0,
+              "mixer_readout_phi": 0
+          }
+      }
+  }
+}
