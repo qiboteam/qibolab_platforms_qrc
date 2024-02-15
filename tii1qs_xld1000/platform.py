@@ -28,6 +28,7 @@ def create():
         opxs=[opx],
         octaves=[octave],
         time_of_flight=280,
+        calibration_path=FOLDER,
     )
     # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
 
@@ -56,5 +57,5 @@ def create():
 
     settings = load_settings(runcard)
     return Platform(
-        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="3D"
+        FOLDER.name, qubits, pairs, instruments, settings, resonator_type="3D"
     )
