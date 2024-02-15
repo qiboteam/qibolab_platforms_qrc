@@ -19,15 +19,15 @@
       },
       "octave1": {
         "o1": {
-            "lo_frequency": 4700000000,
+            "lo_frequency": 7200000000,
             "gain": 0
         },
         "o5": {
-            "lo_frequency": 7300000000,
+            "lo_frequency": 5700000000,
             "gain": 0
         },
         "i1": {
-            "lo_frequency": 7300000000
+            "lo_frequency": 7200000000
         }
       }
     },
@@ -36,7 +36,7 @@
         "0": {
           "RX": {
             "duration": 80,
-            "amplitude": 0.214,
+            "amplitude": 0.00214,
             "shape": "Gaussian(5)",
             "frequency": 5796353976,
             "relative_start": 0,
@@ -45,7 +45,7 @@
           },
           "MZ": {
             "duration": 2500,
-            "amplitude": 0.4,
+            "amplitude": 0.004,
             "shape": "Rectangular()",
             "frequency": 7292027169,
             "relative_start": 0,
