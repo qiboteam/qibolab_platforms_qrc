@@ -35,16 +35,16 @@
         "0": {
           "RX": {
             "duration": 80,
-            "amplitude": 0.214,
+            "amplitude": 0.2165,
             "shape": "Gaussian(5)",
-            "frequency": 5796353976,
+            "frequency": 5796379723,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
           },
           "MZ": {
-            "duration": 2500,
-            "amplitude": 0.4,
+            "duration": 2000,
+            "amplitude": 0.5,
             "shape": "Rectangular()",
             "frequency": 7292027169,
             "relative_start": 0,
@@ -61,7 +61,7 @@
         "0": {
           "bare_resonator_frequency": 7292500000,
           "readout_frequency": 7292027169,
-          "drive_frequency": 5796353976,
+          "drive_frequency": 5796379723,
           "anharmonicity": 0,
           "sweetspot": 0,
           "asymmetry": 0,
@@ -71,7 +71,7 @@
           "readout_fidelity": 0.895,
           "effective_temperature": 0,
           "peak_voltage": 0,
-          "pi_pulse_amplitude": 0.442,
+          "pi_pulse_amplitude": 0.2196,
           "T1": 16155,
           "T2": 0,
           "T2_spin_echo": 0,
@@ -85,8 +85,8 @@
             0,
             0
           ],
-          "threshold": -0.000602,
-          "iq_angle": 1.497,
+          "threshold": -0.000544,
+          "iq_angle": 0.32,
           "mixer_drive_g": 0,
           "mixer_drive_phi": 0,
           "mixer_readout_g": 0,
