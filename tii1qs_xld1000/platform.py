@@ -3,6 +3,7 @@ import pathlib
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.qm import Octave, OPXplus, QMController
 from qibolab.instruments.rohde_schwarz import SGS100A
+from qibolab.kernels import Kernels
 from qibolab.platform import Platform
 from qibolab.serialize import (
     load_instrument_settings,
@@ -29,6 +30,7 @@ def create():
         octaves=[octave],
         time_of_flight=100,
         calibration_path=FOLDER,
+        # script_file_name="qua_script.py",
     )
     # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
 
@@ -44,7 +46,8 @@ def create():
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard)
+    # kernels = Kernels.load(FOLDER)
+    qubits, couplers, pairs = load_qubits(runcard)  # , kernels)
 
     qubits[0].readout = channels["L3-31r"]
     qubits[0].feedback = channels["L2-1"]
