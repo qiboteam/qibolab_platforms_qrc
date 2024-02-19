@@ -27,7 +27,7 @@ def create():
         "192.168.0.101:80",
         opxs=[opx],
         octaves=[octave],
-        time_of_flight=100,
+        time_of_flight=264,
         calibration_path=FOLDER,
     )
     # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
