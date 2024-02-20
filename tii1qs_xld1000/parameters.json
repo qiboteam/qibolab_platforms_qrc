@@ -11,10 +11,10 @@
     "instruments": {
       "con1": {
         "i1": {
-            "gain": 16
+            "gain": 12
         },
         "i2": {
-            "gain": 16
+            "gain": 12
         }
       },
       "octave1": {
@@ -36,9 +36,9 @@
         "0": {
           "RX": {
             "duration": 80,
-            "amplitude": 0.1344,
+            "amplitude": 0.1368,
             "shape": "Gaussian(5)",
-            "frequency": 5796204441,
+            "frequency": 5796217441,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -62,19 +62,19 @@
         "0": {
           "bare_resonator_frequency": 7292500000,
           "readout_frequency": 7292127169,
-          "drive_frequency": 5796204441,
+          "drive_frequency": 5796217441,
           "anharmonicity": 0,
           "sweetspot": 0,
           "asymmetry": 0,
           "Ec": 0,
           "g": 0,
-          "assignment_fidelity": 0.947,
-          "readout_fidelity": 0.895,
+          "assignment_fidelity": 0.924,
+          "readout_fidelity": 0.847,
           "effective_temperature": 0,
           "peak_voltage": 0,
-          "pi_pulse_amplitude": 0.135,
-          "T1": 10365,
-          "T2": 8738,
+          "pi_pulse_amplitude": 0.1368,
+          "T1": 9322,
+          "T2": 11078,
           "T2_spin_echo": 0,
           "state0_voltage": 0,
           "state1_voltage": 0,
@@ -86,8 +86,8 @@
             0,
             0
           ],
-          "threshold": -0.00189,
-          "iq_angle": 1.761,
+          "threshold": -0.001261,
+          "iq_angle": 0.209,
           "mixer_drive_g": 0,
           "mixer_drive_phi": 0,
           "mixer_readout_g": 0,
