@@ -11,16 +11,16 @@
     "instruments": {
       "con1": {
         "i1": {
-            "gain": 20
+            "gain": 16
         },
         "i2": {
-            "gain": 20
+            "gain": 16
         }
       },
       "octave1": {
         "o1": {
             "lo_frequency": 7200000000,
-            "gain": -20
+            "gain": -12
         },
         "o5": {
             "lo_frequency": 5700000000,
@@ -45,9 +45,9 @@
           },
           "MZ": {
             "duration": 2000,
-            "amplitude": 0.012,
+            "amplitude": 0.017,
             "shape": "Rectangular()",
-            "frequency": 7292027169,
+            "frequency": 7292127169,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -61,7 +61,7 @@
       "single_qubit": {
         "0": {
           "bare_resonator_frequency": 7292500000,
-          "readout_frequency": 7292027169,
+          "readout_frequency": 7292127169,
           "drive_frequency": 5796204441,
           "anharmonicity": 0,
           "sweetspot": 0,
@@ -86,8 +86,8 @@
             0,
             0
           ],
-          "threshold": -0.001867,
-          "iq_angle": 0.9,
+          "threshold": -0.00189,
+          "iq_angle": 1.761,
           "mixer_drive_g": 0,
           "mixer_drive_phi": 0,
           "mixer_readout_g": 0,

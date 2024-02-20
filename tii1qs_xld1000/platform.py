@@ -28,7 +28,7 @@ def create():
         "192.168.0.101:80",
         opxs=[opx],
         octaves=[octave],
-        time_of_flight=264,
+        time_of_flight=224,
         calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
