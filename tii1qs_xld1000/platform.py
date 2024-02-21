@@ -61,8 +61,8 @@ def create():
         "EL_ZURO",
         device_setup=device_setup,
         use_emulation=False,
-        time_of_flight=0, #TODO: Calibrate this
-        smearing=0, #TODO: Calibrate this
+        time_of_flight=0,  # TODO: Calibrate this
+        smearing=0,  # TODO: Calibrate this
     )
 
     # Create channel objects and map controllers
@@ -77,10 +77,9 @@ def create():
     )
     # drive
     channels |= Channel(
-            f"L3-31d",
-            port=controller.ports(("device_shfqc", f"SGCHANNELS/{0}/OUTPUT"))
+        f"L3-31d", port=controller.ports(("device_shfqc", f"SGCHANNELS/{0}/OUTPUT"))
     )
-    
+
     # SHFQC
     # Sets the maximal Range of the Signal Output power.
 
@@ -91,13 +90,13 @@ def create():
 
     # drive
     channels["L3-31d"].power_range = -10  # q0
-    
+
     # Instantiate local oscillators
     local_oscillators = [
         DummyLocalOscillator(f"lo_{kind}", None)
         for kind in ["readout"] + [f"drive_{n}" for n in range(1)]
     ]
-    
+
     # Map LOs to channels
     ch_to_lo = {
         "L3-31r": 0,
