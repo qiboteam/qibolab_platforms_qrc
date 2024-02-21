@@ -8,6 +8,12 @@
     "qubits": [
       0
     ],
+    "instruments": {
+        "twpa_pump": {
+          "power": 3,
+          "frequency": 7100000000
+        }
+    },
     "native_gates": {
       "single_qubit": {
         "0": {
@@ -22,7 +28,7 @@
           },
           "MZ": {
             "duration": 2000,
-            "amplitude": 0.017,
+            "amplitude": 0.9,
             "shape": "Rectangular()",
             "frequency": 7292127169,
             "relative_start": 0,
