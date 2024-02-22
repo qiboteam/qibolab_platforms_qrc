@@ -24,16 +24,16 @@
                     "duration": 80,
                     "amplitude": 0.358,
                     "shape": "Gaussian(5)",
-                    "frequency": 5796244499,
+                    "frequency": 5796209439,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 1500,
-                    "amplitude": 0.8,
-                    "shape": "GaussianSquare(5, 0.9)",
-                    "frequency": 7291827169,
+                    "duration": 1164,
+                    "amplitude": 0.7291232720981866,
+                    "shape": "Rectangular()",
+                    "frequency": 7290750000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -47,7 +47,7 @@
             "0": {
                 "bare_resonator_frequency": 7292500000,
                 "readout_frequency": 7291827169,
-                "drive_frequency": 5796244499,
+                "drive_frequency": 5796209439,
                 "anharmonicity": 0,
                 "sweetspot": 0,
                 "asymmetry": 0,
@@ -71,8 +71,8 @@
                     0,
                     0
                 ],
-                "threshold": -0.313438,
-                "iq_angle": -1.19,
+                "threshold": -0.284807,
+                "iq_angle": 0.106,
                 "mixer_drive_g": 0,
                 "mixer_drive_phi": 0,
                 "mixer_readout_g": 0,

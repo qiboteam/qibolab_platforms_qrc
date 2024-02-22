@@ -86,7 +86,7 @@ def create():
     # with a resolution of 5 dBm.
 
     # readout "gain": play with the power range to calibrate the best RO
-    channels["L3-31r"].power_range = -25  # -30
+    channels["L3-31r"].power_range = -20  # -30
     # feedback "gain": set to max power range (10 Dbm) if no distorsion
     channels["L2-1"].power_range = 10
 
