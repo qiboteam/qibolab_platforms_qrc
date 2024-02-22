@@ -110,7 +110,7 @@ def create():
     # create qubit objects
     runcard = load_runcard(FOLDER)
     # kernels = Kernels.load(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard) #kernels)
+    qubits, couplers, pairs = load_qubits(runcard)  # kernels)
     settings = load_settings(runcard)
 
     # assign channels to qubits
