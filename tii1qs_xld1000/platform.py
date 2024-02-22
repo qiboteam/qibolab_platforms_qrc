@@ -84,12 +84,12 @@ def create():
     # Sets the maximal Range of the Signal Output power.
 
     # readout "gain": play with the power range to calibrate the best RO
-    channels["L3-31r"].power_range = -15  # -15
+    channels["L3-31r"].power_range = -30  # -15
     # feedback "gain": set to max power range (10 Dbm) if no distorsion
     channels["L2-1"].power_range = 10
 
     # drive
-    channels["L3-31d"].power_range = 5  # q0
+    channels["L3-31d"].power_range = -5  # q0
 
     # Instantiate local oscillators
     local_oscillators = [
