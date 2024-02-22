@@ -89,7 +89,7 @@ def create():
     channels["L2-1"].power_range = 10
 
     # drive
-    channels["L3-31d"].power_range = -5  # q0
+    channels["L3-31d"].power_range = 0  # q0
 
     # Instantiate local oscillators
     local_oscillators = [
@@ -125,6 +125,6 @@ def create():
         pairs,
         instruments,
         settings,
-        resonator_type="2D",
+        resonator_type="3D",
         couplers=couplers,
     )
