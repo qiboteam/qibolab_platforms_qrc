@@ -22,18 +22,18 @@
         "0": {
           "RX": {
             "duration": 80,
-            "amplitude": 0.6,
+            "amplitude": 0.7375,
             "shape": "Gaussian(5)",
-            "frequency": 5796217441,
+            "frequency": 5796244499,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
           },
           "MZ": {
             "duration": 2000,
-            "amplitude": 0.5,
-            "shape":   "Rectangular()",
-            "frequency": 7292127169,
+            "amplitude": 0.3,
+            "shape": "GaussianSquare(5, 0.8)",
+            "frequency": 7291827169,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -47,8 +47,8 @@
       "single_qubit": {
         "0": {
           "bare_resonator_frequency": 7292500000,
-          "readout_frequency": 7292127169,
-          "drive_frequency": 5796217441,
+          "readout_frequency": 7291827169,
+          "drive_frequency": 5796244499,
           "anharmonicity": 0,
           "sweetspot": 0,
           "asymmetry": 0,

@@ -82,14 +82,16 @@ def create():
 
     # SHFQC
     # Sets the maximal Range of the Signal Output power.
+    # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
+    # with a resolution of 5 dBm.
 
     # readout "gain": play with the power range to calibrate the best RO
-    channels["L3-31r"].power_range = -30  # -15
+    channels["L3-31r"].power_range = -30  # -30
     # feedback "gain": set to max power range (10 Dbm) if no distorsion
     channels["L2-1"].power_range = 10
 
     # drive
-    channels["L3-31d"].power_range = 0  # q0
+    channels["L3-31d"].power_range = 10  # q0
 
     # Instantiate local oscillators
     local_oscillators = [
