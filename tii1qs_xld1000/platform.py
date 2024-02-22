@@ -61,7 +61,7 @@ def create():
         "EL_ZURO",
         device_setup=device_setup,
         use_emulation=False,
-        time_of_flight=0,  # TODO: Calibrate this
+        time_of_flight=200,  # TODO: Calibrate this
         smearing=0,  # TODO: Calibrate this
     )
 
@@ -89,7 +89,7 @@ def create():
     channels["L2-1"].power_range = 10
 
     # drive
-    channels["L3-31d"].power_range = -10  # q0
+    channels["L3-31d"].power_range = 5  # q0
 
     # Instantiate local oscillators
     local_oscillators = [
