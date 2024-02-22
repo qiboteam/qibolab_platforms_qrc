@@ -2,83 +2,82 @@
     "nqubits": 1,
     "description": "1-qubit device, controlled with Zurich Instruments.",
     "settings": {
-      "nshots": 4096,
-      "relaxation_time": 100000
+        "nshots": 4096,
+        "relaxation_time": 100000
     },
     "topology": [],
     "qubits": [
-      0
+        0
     ],
     "instruments": {
-      "lo_readout": {
-        "frequency": 7000000000
-    },
-    "lo_drive_0": {
-        "frequency": 5500000000
-    }
+        "lo_readout": {
+            "frequency": 7000000000
+        },
+        "lo_drive_0": {
+            "frequency": 5500000000
+        }
     },
     "native_gates": {
-      "single_qubit": {
-        "0": {
-          "RX": {
-            "duration": 80,
-            "amplitude": 0.358,
-            "shape": "Gaussian(5)",
-            "frequency": 5796244499,
-            "relative_start": 0,
-            "phase": 0,
-            "type": "qd"
-          },
-          "MZ": {
-            "duration": 2000,
-            "amplitude": 0.5,
-            "shape": "GaussianSquare(5, 0.8)",
-            "frequency": 7291827169,
-            "relative_start": 0,
-            "phase": 0,
-            "type": "ro"
-          }
-        }
-      },
-      "two_qubits": {}
+        "single_qubit": {
+            "0": {
+                "RX": {
+                    "duration": 80,
+                    "amplitude": 0.358,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5796244499,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 1500,
+                    "amplitude": 0.8,
+                    "shape": "GaussianSquare(5, 0.9)",
+                    "frequency": 7291827169,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            }
+        },
+        "two_qubits": {}
     },
-
     "characterization": {
-      "single_qubit": {
-        "0": {
-          "bare_resonator_frequency": 7292500000,
-          "readout_frequency": 7291827169,
-          "drive_frequency": 5796244499,
-          "anharmonicity": 0,
-          "sweetspot": 0,
-          "asymmetry": 0,
-          "Ec": 0,
-          "g": 0,
-          "assignment_fidelity": 0.924,
-          "readout_fidelity": 0.847,
-          "effective_temperature": 0,
-          "peak_voltage": 0,
-          "pi_pulse_amplitude": 0.1368,
-          "T1": 9322,
-          "T2": 11078,
-          "T2_spin_echo": 0,
-          "state0_voltage": 0,
-          "state1_voltage": 0,
-          "mean_gnd_states": [
-            0,
-            0
-          ],
-          "mean_exc_states": [
-            0,
-            0
-          ],
-          "threshold": -0.001261,
-          "iq_angle": 0.209,
-          "mixer_drive_g": 0,
-          "mixer_drive_phi": 0,
-          "mixer_readout_g": 0,
-          "mixer_readout_phi": 0
+        "single_qubit": {
+            "0": {
+                "bare_resonator_frequency": 7292500000,
+                "readout_frequency": 7291827169,
+                "drive_frequency": 5796244499,
+                "anharmonicity": 0,
+                "sweetspot": 0,
+                "asymmetry": 0,
+                "Ec": 0,
+                "g": 0,
+                "assignment_fidelity": 0.924,
+                "readout_fidelity": 0.847,
+                "effective_temperature": 0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0.1368,
+                "T1": 9322,
+                "T2": 11078,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": -0.313438,
+                "iq_angle": -1.19,
+                "mixer_drive_g": 0,
+                "mixer_drive_phi": 0,
+                "mixer_readout_g": 0,
+                "mixer_readout_phi": 0
+            }
         }
-      }
     }
-  }
+}
