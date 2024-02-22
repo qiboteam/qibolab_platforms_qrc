@@ -1,14 +1,13 @@
 {
     "nqubits": 1,
-    "description": "1-qubit device, controlled with Zurich Instruments.",
     "settings": {
         "nshots": 4096,
         "relaxation_time": 100000
     },
-    "topology": [],
     "qubits": [
         0
     ],
+    "topology": [],
     "instruments": {
         "lo_readout": {
             "frequency": 7000000000
@@ -30,17 +29,17 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 1164,
-                    "amplitude": 0.7291232720981866,
-                    "shape": "Rectangular()",
-                    "frequency": 7290750000,
+                    "duration": 1200,
+                    "amplitude": 0.73,
+                    "shape": "Rectangular",
+                    "frequency": 7291827169,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
                 }
             }
         },
-        "two_qubits": {}
+        "two_qubit": {}
     },
     "characterization": {
         "single_qubit": {
@@ -51,7 +50,9 @@
                 "anharmonicity": 0,
                 "sweetspot": 0,
                 "asymmetry": 0,
+                "crosstalk_matrix": {},
                 "Ec": 0,
+                "Ej": 0.0,
                 "g": 0,
                 "assignment_fidelity": 0.924,
                 "readout_fidelity": 0.847,
@@ -71,8 +72,8 @@
                     0,
                     0
                 ],
-                "threshold": -0.284807,
-                "iq_angle": 0.106,
+                "threshold": -0.313438,
+                "iq_angle": -1.19,
                 "mixer_drive_g": 0,
                 "mixer_drive_phi": 0,
                 "mixer_readout_g": 0,
