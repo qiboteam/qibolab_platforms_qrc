@@ -50,28 +50,28 @@ def create():
     channels |= Channel("L3-21-10", port=controller.ports(14))  # readout probe
     # qubit 6
     channels |= Channel("L2-17-6", port=controller.ports(4))  # feedback
-    channels |= Channel("L6-44", port=controller.ports(1))  # flux
-    channels |= Channel("L6-6", port=controller.ports(9))  # drive
+    channels |= Channel("L6-44", port=controller.ports(0))  # flux
+    channels |= Channel("L6-6", port=controller.ports(5))  # drive
 
     # qubit 7
     channels |= Channel("L2-17-7", port=controller.ports(5))  # feedback
-    channels |= Channel("L6-45", port=controller.ports(3))  # flux
-    channels |= Channel("L6-7", port=controller.ports(10))  # drive
+    channels |= Channel("L6-45", port=controller.ports(1))  # flux
+    channels |= Channel("L6-7", port=controller.ports(6))  # drive
 
     # qubit 8
     channels |= Channel("L2-17-8", port=controller.ports(6))  # feedback
-    channels |= Channel("L6-46", port=controller.ports(5))  # flux
-    channels |= Channel("L6-8", port=controller.ports(11))  # drive
+    channels |= Channel("L6-46", port=controller.ports(2))  # flux
+    channels |= Channel("L6-8", port=controller.ports(7))  # drive
 
     # qubit 9
     channels |= Channel("L2-17-9", port=controller.ports(7))  # feedback
-    channels |= Channel("L6-47", port=controller.ports(0))  # flux
-    channels |= Channel("L6-9", port=controller.ports(12))  # drive
+    channels |= Channel("L6-47", port=controller.ports(3))  # flux
+    channels |= Channel("L6-9", port=controller.ports(8))  # drive
 
     # qubit 10
     channels |= Channel("L2-17-10", port=controller.ports(0))  # feedback
-    channels |= Channel("L6-48", port=controller.ports(0))  # flux
-    channels |= Channel("L6-10", port=controller.ports(13))  # drive    
+    channels |= Channel("L6-48", port=controller.ports(4))  # flux
+    channels |= Channel("L6-10", port=controller.ports(9))  # drive    
     # TWPA
     channels |= Channel(name="L3-23", port=None)
     channels["L3-23"].local_oscillator = twpa_pump
@@ -90,3 +90,30 @@ def create():
 
     qubits[7].readout = channels["L3-21-7"]
     qubits[7].feedback = channels["L2-17-7"]
+    qubits[7].twpa = channels["L3-23"]    
+    qubits[7].drive = channels["L6-7"]
+    qubits[7].flux = channels["L6-45"]
+
+    qubits[8].readout = channels["L3-21-8"]
+    qubits[8].feedback = channels["L2-17-8"]
+    qubits[8].twpa = channels["L3-23"]   
+    qubits[8].drive = channels["L6-8"]
+    qubits[8].flux = channels["L6-46"]
+
+    qubits[9].readout = channels["L3-21-9"]
+    qubits[9].feedback = channels["L2-17-9"]
+    qubits[9].twpa = channels["L3-23"]    
+    qubits[9].drive = channels["L6-9"]
+    qubits[9].flux = channels["L6-47"]
+
+    qubits[10].readout = channels["L3-21-10"]
+    qubits[10].feedback = channels["L2-17-10"]
+    qubits[10].twpa = channels["L3-23"]
+    qubits[10].drive = channels["L6-10"]
+    qubits[10].flux = channels["L6-48"]
+
+
+
+    settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
+    return Platform(str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D")
