@@ -2,7 +2,7 @@
     "nqubits": 5,
     "settings": {
       "nshots": 1024,
-      "relaxation_time": 20000
+      "relaxation_time": 2000
     },
     "qubits": [
       6,
@@ -31,7 +31,7 @@
     ],
     "instruments": {
       "twpa_pump": {
-        "power": 2.3,
+        "power": 2.8,
         "frequency": 6380000000
       }
     },
@@ -42,7 +42,7 @@
             "duration": 40,
             "amplitude": 0.294,
             "shape": "Gaussian(5)",
-            "frequency": 4228472634,
+            "frequency": 4807400000,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -51,7 +51,7 @@
             "duration": 2500,
             "amplitude": 0.1,
             "shape": "Rectangular()",
-            "frequency": 7492670045,
+            "frequency": 7492200000,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -62,7 +62,7 @@
             "duration": 40,
             "amplitude": 0.473,
             "shape": "Gaussian(5)",
-            "frequency": 4852154170,
+            "frequency": 4138154170,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -71,7 +71,7 @@
             "duration": 2500,
             "amplitude": 0.1,
             "shape": "Rectangular()",
-            "frequency": 7552744427,
+            "frequency": 7551700000,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -82,7 +82,7 @@
             "duration": 40,
             "amplitude": 0.2,
             "shape": "Gaussian(5)",
-            "frequency": 4277000000,
+            "frequency": 4740000000,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -91,7 +91,7 @@
             "duration": 2500,
             "amplitude": 0.1,
             "shape": "Rectangular()",
-            "frequency": 7582119105,
+            "frequency": 7582400000,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -102,7 +102,7 @@
             "duration": 40,
             "amplitude": 0.9,
             "shape": "Gaussian(5)",
-            "frequency": 7549119105,
+            "frequency": 3936119105,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -111,7 +111,7 @@
             "duration": 2500,
             "amplitude": 0.1,
             "shape": "Rectangular()",
-            "frequency": 7442409835,
+            "frequency": 7438900000,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -122,7 +122,7 @@
             "duration": 40,
             "amplitude": 0.2,
             "shape": "Gaussian(5)",
-            "frequency": 4047000000,
+            "frequency": 4443000000,
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
@@ -196,7 +196,7 @@
           "readout_frequency": 7433670045,
           "drive_frequency": 4228472634,
           "anharmonicity": 197369466,
-          "sweetspot": 0.093,
+          "sweetspot": -0.117,
           "asymmetry": 0.984279103491614,
           "Ec": 0.61296396978099,
           "g": 0.2014594078657114,
@@ -230,7 +230,7 @@
           "readout_frequency": 7511744427,
           "drive_frequency": 4852154170,
           "anharmonicity": 196746898,
-          "sweetspot": 0.097,
+          "sweetspot": -0.49,
           "asymmetry": 0.1330056186090635,
           "Ec": 0.6428551085357185,
           "g": 0.02056941968868565,
@@ -264,7 +264,7 @@
           "readout_frequency": 7549119105,
           "drive_frequency": 4277000000,
           "anharmonicity": 300000000,
-          "sweetspot": -0.191,
+          "sweetspot": -0.44,
           "asymmetry": 0.5666990319994453,
           "Ec": 0.002442676501640139,
           "g": 0.19588166298004064,
@@ -298,7 +298,7 @@
           "readout_frequency": 7584409835,
           "drive_frequency": 4848000000,
           "anharmonicity": 300000000,
-          "sweetspot": -0.186,
+          "sweetspot": 0.0,
           "asymmetry": 0,
           "Ec": 0.61296396978099,
           "g": 0.2014594078657114,

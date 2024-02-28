@@ -51,12 +51,12 @@ def create():
     # qubit 6
     channels |= Channel("L2-17-6", port=controller.ports(4))  # feedback
     channels |= Channel("L6-44", port=controller.ports(0))  # flux
-    channels |= Channel("L6-6", port=controller.ports(5))  # drive
+    channels |= Channel("L6-6", port=controller.ports(8))  # drive
 
     # qubit 7
     channels |= Channel("L2-17-7", port=controller.ports(5))  # feedback
     channels |= Channel("L6-45", port=controller.ports(1))  # flux
-    channels |= Channel("L6-7", port=controller.ports(6))  # drive
+    channels |= Channel("L6-7", port=controller.ports(9))  # drive
 
     # qubit 8
     channels |= Channel("L2-17-8", port=controller.ports(6))  # feedback
@@ -66,12 +66,12 @@ def create():
     # qubit 9
     channels |= Channel("L2-17-9", port=controller.ports(7))  # feedback
     channels |= Channel("L6-47", port=controller.ports(3))  # flux
-    channels |= Channel("L6-9", port=controller.ports(8))  # drive
+    channels |= Channel("L6-9", port=controller.ports(5))  # drive
 
     # qubit 10
     channels |= Channel("L2-17-10", port=controller.ports(0))  # feedback
     channels |= Channel("L6-48", port=controller.ports(4))  # flux
-    channels |= Channel("L6-10", port=controller.ports(9))  # drive    
+    channels |= Channel("L6-10", port=controller.ports(6))  # drive    
     # TWPA
     channels |= Channel(name="L3-23", port=None)
     channels["L3-23"].local_oscillator = twpa_pump
