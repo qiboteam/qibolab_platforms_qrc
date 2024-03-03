@@ -11,16 +11,16 @@
     "instruments": {
       "con1": {
         "i1": {
-            "gain": 12
+            "gain": 16
         },
         "i2": {
-            "gain": 12
+            "gain": 16
         }
       },
       "octave1": {
         "o1": {
             "lo_frequency": 7200000000,
-            "gain": -12
+            "gain": -20
         },
         "o5": {
             "lo_frequency": 5700000000,
@@ -36,18 +36,18 @@
         "0": {
           "RX": {
             "duration": 80,
-            "amplitude": 0.1368,
+            "amplitude": 0.1495,
             "shape": "Gaussian(5)",
-            "frequency": 5796217441,
+            "frequency": 5783737200, 
             "relative_start": 0,
             "phase": 0,
             "type": "qd"
           },
           "MZ": {
-            "duration": 2000,
-            "amplitude": 0.017,
+            "duration": 1600,
+            "amplitude": 0.12,
             "shape": "Rectangular()",
-            "frequency": 7292127169,
+            "frequency": 7292427169,
             "relative_start": 0,
             "phase": 0,
             "type": "ro"
@@ -61,8 +61,8 @@
       "single_qubit": {
         "0": {
           "bare_resonator_frequency": 7292500000,
-          "readout_frequency": 7292127169,
-          "drive_frequency": 5796217441,
+          "readout_frequency": 7292427169,
+          "drive_frequency": 5783737200,
           "anharmonicity": 0,
           "sweetspot": 0,
           "asymmetry": 0,
@@ -72,7 +72,7 @@
           "readout_fidelity": 0.847,
           "effective_temperature": 0,
           "peak_voltage": 0,
-          "pi_pulse_amplitude": 0.1368,
+          "pi_pulse_amplitude": 0.1495,
           "T1": 9322,
           "T2": 11078,
           "T2_spin_echo": 0,
@@ -86,8 +86,8 @@
             0,
             0
           ],
-          "threshold": -0.001261,
-          "iq_angle": 0.209,
+          "threshold": -0.008292,
+          "iq_angle": 0.14,
           "mixer_drive_g": 0,
           "mixer_drive_phi": 0,
           "mixer_readout_g": 0,
