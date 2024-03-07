@@ -60,7 +60,7 @@
         "RX": {
             "duration": 40,
             "amplitude": 0.32,
-            "frequency": 4098324000,
+            "frequency": 4102174000,
             "shape": "Gaussian(5)",
             "type": "qd",
             "relative_start": 0,
@@ -68,8 +68,8 @@
         },
         "MZ": {
             "duration": 2000,
-            "amplitude": 0.11,
-            "frequency": 5233650000,
+            "amplitude": 0.05,
+            "frequency": 5228650000,
             "shape": "Rectangular()",
             "type": "ro",
             "relative_start": 0,
@@ -120,7 +120,7 @@
         "RX": {
             "duration": 60,
             "amplitude": 1,
-            "frequency": 4149221000,
+            "frequency": 4102174000,
             "shape": "Gaussian(5)",
             "type": "qd",
             "relative_start": 0,
@@ -128,7 +128,7 @@
         },
         "MZ": {
             "duration": 2000,
-            "amplitude": 0.1,
+            "amplitude": 0.06,
             "frequency": 5803500000,
             "shape": "Rectangular()",
             "type": "ro",
@@ -266,15 +266,15 @@
 "single_qubit": {
     "0": {
         "bare_resonator_frequency": 5221992000,
-        "readout_frequency": 5233650000,
-        "drive_frequency": 4098324000,
+        "readout_frequency": 5228650000,
+        "drive_frequency": 4102174000,
         "anharmonicity": 217492000,
         "Ec": 0,
         "g": 0,
         "asymmetry": 0.0,
         "assignment_fidelity": 0.8594356025143775,
         "readout_fidelity": 0.7188712050287548,
-        "sweetspot": 0.0,
+        "sweetspot": -0.072,
         "peak_voltage": 0,
         "pi_pulse_amplitude": 0.32,
         "T1": 12406,

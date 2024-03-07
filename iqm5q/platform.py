@@ -134,7 +134,7 @@ def create():
     # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
 
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -15  # -15
+    channels["L3-31"].power_range = -10  # -15
     # feedback "gain": play with the power range to calibrate the best RO
     channels["L2-7"].power_range = 10
 
