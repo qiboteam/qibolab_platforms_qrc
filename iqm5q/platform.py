@@ -144,7 +144,7 @@ def create():
     channels["L4-16"].power_range = 5  # q1
     channels["L4-17"].power_range = -5  # q2
     channels["L4-18"].power_range = 10  # q3
-    channels["L4-19"].power_range = 0  # q4
+    channels["L4-19"].power_range = -10  # q4
 
     # HDAWGS
     # Sets the output voltage range.
