@@ -4,7 +4,7 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.rfsoc import RFSoC
 from qibolab.instruments.rohde_schwarz import SGS100A 
 from qibolab.platform import Platform
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import load_qubits, load_runcard, load_settings, load_instrument_settings
 
 ADDRESS = "192.168.0.68"
 PORT = 6000
@@ -42,6 +42,7 @@ def create():
     qubits[0].drive = channels["L3-22_qd"]
 
     settings = load_settings(runcard)
+    instruments = load_instrument_settings(runcard, instruments)
     return Platform(
         str(FOLDER), qubits, pairs, instruments, settings, resonator_type="3D"
     )
