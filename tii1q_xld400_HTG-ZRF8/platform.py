@@ -29,9 +29,13 @@ def create():
     }
     # Create channel objects
     channels = ChannelMap()
-    channels |= Channel("L3-22_ro", port=controller.ports(1))  # readout (DAC)
-    channels |= Channel("L1-2-RO", port=controller.ports(0))  # feedback (readout ADC)
-    channels |= Channel("L3-22_qd", port=controller.ports(0))  # drive
+    channels |= Channel("L3-22_ro", port=controller.ports(0))  # readout (DAC)
+    channels |= Channel("L1-2-RO", port=controller.ports(1))  # feedback (readout ADC)
+    channels |= Channel("L3-22_qd", port=controller.ports(1))  # drive
+
+    # TWPA
+    channels |= Channel(name="L3-24", port=None)
+    channels["L3-24"].local_oscillator = twpa_pump
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
@@ -40,6 +44,7 @@ def create():
     qubits[0].readout = channels["L3-22_ro"]
     qubits[0].feedback = channels["L1-2-RO"]
     qubits[0].drive = channels["L3-22_qd"]
+    qubits[0].twpa = channels["L3-24"]
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)

@@ -4,6 +4,12 @@
         0
     ],
     "topology": [],
+    "instruments": {
+        "twpa_pump": {
+          "power": 2.5,
+          "frequency": 6433000000
+        }
+    },
     "settings": {
         "nshots": 1024,
         "relaxation_time": 2000
@@ -14,16 +20,16 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.4991361195928207,
-                    "frequency": 5509378347,
-                    "shape": "Gaussian(3)",
+                    "frequency": 7000000000,
+                    "shape": "Gaussian(5)",
                     "type": "qd",
                     "start": 0,
                     "phase": 0
                 },
                 "MZ": {
                     "duration": 1000,
-                    "amplitude": 0.02,
-                    "frequency": 7369805303,
+                    "amplitude": 0.1,
+                    "frequency": 7368000000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "start": 0,
@@ -36,8 +42,8 @@
     "characterization": {
         "single_qubit": {
             "0": {
-                "readout_frequency": 7369805303,
-                "drive_frequency": 5509378347,
+                "readout_frequency": 7368000000,
+                "drive_frequency": 7000000000,
                 "anharmonicity": 0,
                 "Ec": 0,
                 "Ej": 0,
