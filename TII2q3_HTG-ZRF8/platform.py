@@ -56,14 +56,14 @@ def create():
     qubits, couplers, pairs = load_qubits(runcard)
 
     # assign channels to qubits
-    qubits["1"].readout = channels["L3-27"]
-    qubits["1"].feedback = channels["L2-03-1"]
-    qubits["1"].drive = channels["L3-5"]
-    qubits["1"].flux = channels["L1-6"]
+    qubits[1].readout = channels["L3-27"]
+    qubits[1].feedback = channels["L2-03-1"]
+    qubits[1].drive = channels["L3-5"]
+    qubits[1].flux = channels["L1-6"]
 
-    qubits["2"].readout = channels["L3-27"]
-    qubits["2"].feedback = channels["L2-03-2"]
-    qubits["2"].drive = channels["L3-6"]
+    qubits[2].readout = channels["L3-27"]
+    qubits[2].feedback = channels["L2-03-2"]
+    qubits[2].drive = channels["L3-6"]
     #qubits["2"].flux = channels["L1-22"]
     
     # TWPA

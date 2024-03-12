@@ -2,16 +2,16 @@
     "nqubits": 2,
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 200000
+        "relaxation_time": 2000
     },
     "qubits": [
-        "1",
-        "2"
+        1,
+        2
     ],
     "topology": [
         [
-            "1",
-            "2"
+            1,
+            2
         ]
     ],
     "instruments": {"twpa_pump": {
@@ -20,7 +20,7 @@
       }},
     "native_gates": {
         "single_qubit": {
-            "\"1\"": {
+            "1": {
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.535,
@@ -40,7 +40,7 @@
                     "type": "ro"
                 }
             },
-            "\"2\"": {
+            "2": {
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.551,
@@ -61,12 +61,24 @@
                 }
             }
 
-        }
- 
-    },
+        },
+        "two_qubit": {
+            "1-2": {
+              "CZ": [
+                {
+                  "duration": 37,
+                  "amplitude": 0.0462,
+                  "shape": "Rectangular()",
+                  "qubit": 1,
+                  "relative_start": 0,
+                  "type": "qf"
+                }
+              ]
+            }
+    }},
     "characterization": {
         "single_qubit": {
-            "\"1\"": {
+            "1": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 6952500000,
                 "drive_frequency": 4940357493,
@@ -102,7 +114,7 @@
                 "mixer_readout_g": 0.0,
                 "mixer_readout_phi": 0.0
             },
-            "\"2\"": {
+            "2": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7110500000,
                 "drive_frequency": 5756009488,
