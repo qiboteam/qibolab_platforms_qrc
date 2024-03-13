@@ -15,8 +15,8 @@
         ]
     ],
     "instruments": {"twpa_pump": {
-        "power": -2.24,
-        "frequency": 7300000000
+        "power": 1.42,
+        "frequency": 6542000000
       }},
     "native_gates": {
         "single_qubit": {
@@ -31,10 +31,10 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 4000,
-                    "amplitude": 0.105,
+                    "duration": 2000,
+                    "amplitude": 0.08,
                     "shape": "Rectangular()",
-                    "frequency": 6952316555,
+                    "frequency": 7322000000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -45,16 +45,16 @@
                     "duration": 40,
                     "amplitude": 0.551,
                     "shape": "Gaussian(2)",
-                    "frequency": 5755933959,
+                    "frequency": 4155933959,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 4000,
-                    "amplitude": 0.14,
+                    "duration": 8000,
+                    "amplitude": 0.08,
                     "shape": "Rectangular()",
-                    "frequency": 7110360000,
+                    "frequency": 7322000000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -79,8 +79,8 @@
     "characterization": {
         "single_qubit": {
             "1": {
-                "bare_resonator_frequency": 0,
-                "readout_frequency": 6952500000,
+                "bare_resonator_frequency": 7313000000,
+                "readout_frequency": 7322000000,
                 "drive_frequency": 4940357493,
                 "anharmonicity": 0.0,
                 "sweetspot": -0.037,
@@ -115,8 +115,8 @@
                 "mixer_readout_phi": 0.0
             },
             "2": {
-                "bare_resonator_frequency": 0,
-                "readout_frequency": 7110500000,
+                "bare_resonator_frequency": 7313000000,
+                "readout_frequency":7322000000,
                 "drive_frequency": 5756009488,
                 "anharmonicity": 0,
                 "sweetspot": -0.1105,
