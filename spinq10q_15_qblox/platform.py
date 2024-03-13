@@ -14,7 +14,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "spinq10q"
+NAME = "spinq10q_15_qblox"
 ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
 
@@ -34,6 +34,17 @@ def create():
         "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),
         "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),
     }
+
+    # # DEBUG: debug folder = report folder
+    # import os
+    # from datetime import datetime
+
+    # QPU = "spinq10q"
+    # debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
+    # if not os.path.exists(debug_folder):
+    #     os.makedirs(debug_folder)
+    # for name in modules:
+    #     modules[name]._debug_folder = debug_folder
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
@@ -68,13 +79,13 @@ def create():
     qubits, couplers, pairs = load_qubits(runcard)
 
     for q in range(5):
-        qubits[q].readout = channels["L3-20"]
-        qubits[q].feedback = channels["L1-1"]
-        qubits[q].twpa = channels["L3-10"]
-        qubits[q].drive = channels[f"L6-{q+1}"]
-        qubits[q].flux = channels[f"L6-{39+q}"]
-        channels[f"L6-{39+q}"].qubit = qubits[q]
-        qubits[q].flux.max_bias = 2.5
+        qubits[q + 1].readout = channels["L3-20"]
+        qubits[q + 1].feedback = channels["L1-1"]
+        qubits[q + 1].twpa = channels["L3-10"]
+        qubits[q + 1].drive = channels[f"L6-{q+1}"]
+        qubits[q + 1].flux = channels[f"L6-{39+q}"]
+        channels[f"L6-{39+q}"].qubit = qubits[q + 1]
+        qubits[q + 1].flux.max_bias = 2.5
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)

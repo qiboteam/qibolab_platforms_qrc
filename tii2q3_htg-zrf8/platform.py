@@ -47,7 +47,7 @@ def create():
 
     # qubit 2
     channels |= Channel("L2-03-2", port=controller.ports(0))  # feedback
-    #channels |= Channel("L1-22", port=controller.ports(3))  # flux
+    # channels |= Channel("L1-22", port=controller.ports(3))  # flux
     channels |= Channel("L3-6", port=controller.ports(2))  # drive
 
     # TWPA
@@ -69,12 +69,7 @@ def create():
     qubits[2].feedback = channels["L2-03-2"]
     qubits[2].drive = channels["L3-6"]
     qubits[2].twpa = channels["L3-16"]
-    #qubits["2"].flux = channels["L1-22"]
-    
-
-
-
-
+    # qubits["2"].flux = channels["L1-22"]
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)

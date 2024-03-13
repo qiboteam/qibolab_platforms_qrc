@@ -36,18 +36,18 @@
           "0": {
               "RX": {
                   "duration": 80,
-                  "amplitude": 0.00214,
+                  "amplitude": 0.1531,
                   "shape": "Gaussian(5)",
-                  "frequency": 5796353976,
+                  "frequency": 5784188545,
                   "relative_start": 0,
                   "phase": 0,
                   "type": "qd"
               },
               "MZ": {
-                  "duration": 2500,
-                  "amplitude": 0.004,
+                  "duration": 5000,
+                  "amplitude": 0.01,
                   "shape": "Rectangular()",
-                  "frequency": 7292027169,
+                  "frequency": 7293032926,
                   "relative_start": 0,
                   "phase": 0,
                   "type": "ro"
@@ -60,8 +60,8 @@
       "single_qubit": {
           "0": {
               "bare_resonator_frequency": 7292500000,
-              "readout_frequency": 7292027169,
-              "drive_frequency": 5796353976,
+              "readout_frequency": 7293032926,
+              "drive_frequency": 5784188545,
               "anharmonicity": 0,
               "sweetspot": 0,
               "asymmetry": 0,
@@ -74,7 +74,7 @@
               "effective_temperature": 0,
               "peak_voltage": 0,
               "pi_pulse_amplitude": 0.442,
-              "T1": 16155,
+              "T1": 12800,
               "T2": 0,
               "T2_spin_echo": 0,
               "state0_voltage": 0,
