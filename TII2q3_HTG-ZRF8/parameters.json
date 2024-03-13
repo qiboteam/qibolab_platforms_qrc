@@ -15,8 +15,8 @@
         ]
     ],
     "instruments": {"twpa_pump": {
-        "power": 1.42,
-        "frequency": 6542000000
+        "power": 6.2,
+        "frequency": 6592000000
       }},
     "native_gates": {
         "single_qubit": {
@@ -32,9 +32,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.08,
+                    "amplitude": 0.05,
                     "shape": "Rectangular()",
-                    "frequency": 7322000000,
+                    "frequency": 7321700000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -45,16 +45,16 @@
                     "duration": 40,
                     "amplitude": 0.551,
                     "shape": "Gaussian(2)",
-                    "frequency": 4155933959,
+                    "frequency": 6055933959,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 8000,
-                    "amplitude": 0.08,
+                    "amplitude": 0.05,
                     "shape": "Rectangular()",
-                    "frequency": 7322000000,
+                    "frequency": 7321700000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"

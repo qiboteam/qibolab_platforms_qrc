@@ -41,15 +41,18 @@ def create():
     channels |= Channel("L3-27", port=controller.ports(0))  # readout
 
     # qubit 1
-    channels |= Channel("L2-03-1", port=controller.ports(1))  # feedback
+    channels |= Channel("L2-03-1", port=controller.ports(0))  # feedback
     channels |= Channel("L1-6", port=controller.ports(3))  # flux
     channels |= Channel("L3-5", port=controller.ports(1))  # drive
 
     # qubit 2
-    channels |= Channel("L2-03-2", port=controller.ports(1))  # feedback
+    channels |= Channel("L2-03-2", port=controller.ports(0))  # feedback
     #channels |= Channel("L1-22", port=controller.ports(3))  # flux
     channels |= Channel("L3-6", port=controller.ports(2))  # drive
 
+    # TWPA
+    channels |= Channel(name="L3-16", port=None)
+    channels["L3-16"].local_oscillator = twpa_pump
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
@@ -60,15 +63,15 @@ def create():
     qubits[1].feedback = channels["L2-03-1"]
     qubits[1].drive = channels["L3-5"]
     qubits[1].flux = channels["L1-6"]
+    qubits[1].twpa = channels["L3-16"]
 
     qubits[2].readout = channels["L3-27"]
     qubits[2].feedback = channels["L2-03-2"]
     qubits[2].drive = channels["L3-6"]
+    qubits[2].twpa = channels["L3-16"]
     #qubits["2"].flux = channels["L1-22"]
     
-    # TWPA
-    channels |= Channel(name="L3-16", port=None)
-    channels["L3-16"].local_oscillator = twpa_pump
+
 
 
 
