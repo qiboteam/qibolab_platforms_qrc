@@ -45,14 +45,14 @@
         "octave2": {
             "o1": {
                 "lo_frequency": 4500000000.0,
-                "gain": 20
+                "gain": -10
             },
             "o2": {
-                "lo_frequency": 4500000000.0,
-                "gain": 15
+                "lo_frequency": 5000000000.0,
+                "gain": -10
             },
             "o3": {
-                "lo_frequency": 5400000000.0,
+                "lo_frequency": 5800000000.0,
                 "gain": 20
             },
             "o4": {
@@ -97,9 +97,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.025,
+                    "amplitude": 0.02,
                     "shape": "Rectangular()",
-                    "frequency": 7208122442,
+                    "frequency": 7208504956,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -128,7 +128,7 @@
                     "duration": 2000,
                     "amplitude": 0.008,
                     "shape": "Rectangular()",
-                    "frequency": 7338888801,
+                    "frequency": 7336409801,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -137,7 +137,7 @@
             "2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.46,
+                    "amplitude": 0.47,
                     "shape": "Gaussian(5)",
                     "frequency": 5516557347,
                     "relative_start": 0,
@@ -166,7 +166,7 @@
             "3": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.45,
+                    "amplitude": 0.47,
                     "shape": "Gaussian(5)",
                     "frequency": 6324092832,
                     "relative_start": 0,
@@ -186,7 +186,7 @@
                     "duration": 2000,
                     "amplitude": 0.018,
                     "shape": "Rectangular()",
-                    "frequency": 7668140933,
+                    "frequency": 7668521933,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -280,7 +280,7 @@
                 "readout_frequency": 7208522442,
                 "drive_frequency": 4768813556,
                 "anharmonicity": 291463266,
-                "sweetspot": 0.284,
+                "sweetspot": 0.299,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {},
                 "Ec": 270000000,
@@ -316,7 +316,7 @@
                 "readout_frequency": 7339038801,
                 "drive_frequency": 4806156312,
                 "anharmonicity": 292584018,
-                "sweetspot": 0.13,
+                "sweetspot": -0.25,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {},
                 "Ec": 270000000,
@@ -352,7 +352,7 @@
                 "readout_frequency": 7495432958,
                 "drive_frequency": 5516457347,
                 "anharmonicity": 276187576,
-                "sweetspot": 0.252,
+                "sweetspot": 0.282,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {},
                 "Ec": 270000000,
@@ -376,8 +376,8 @@
                     0.00018316328273493987,
                     -0.0035482269412032
                 ],
-                "threshold": 0.0024918824314666905,
-                "iq_angle": 1.3742433257845965,
+                "threshold": 0.004732,
+                "iq_angle": -1.651,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -388,7 +388,7 @@
                 "readout_frequency": 7668540933,
                 "drive_frequency": 6323107832,
                 "anharmonicity": 262310994,
-                "sweetspot": 0.286,
+                "sweetspot": 0.306,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {},
                 "Ec": 270000000,
@@ -412,8 +412,8 @@
                     0.005775768387804019,
                     -0.0022975233365684507
                 ],
-                "threshold": -0.00344,
-                "iq_angle": -2.34,
+                "threshold": 0.003997,
+                "iq_angle": -0.202,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
