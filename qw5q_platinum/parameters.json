@@ -72,7 +72,14 @@
             "i1": {
                 "lo_frequency": 7550000000
             }
-        }
+        },
+        "con4": {
+            "o4": {
+                "filter": {
+                    "feedforward": [1.0684635881381783, -1.0163217174522334],
+                    "feedback": [0.947858129314055]
+            }
+        }}
     },
     "native_gates": {
         "single_qubit": {
@@ -226,8 +233,8 @@
             "2-3": {
                 "CZ": [
                     {
-                        "duration": 32,
-                        "amplitude": -0.265,
+                        "duration": 30,
+                        "amplitude": -0.2557,
                         "shape": "Rectangular()",
                         "qubit": 3,
                         "relative_start": 0,
@@ -322,8 +329,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 83600000,
-                "assignment_fidelity": 0.9012770137524557,
-                "readout_fidelity": 0.8025540275049116,
+                "assignment_fidelity": 0.9735856626989434,
+                "readout_fidelity": 0.9471713253978868,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.4961740399301971,
@@ -340,8 +347,8 @@
                     0.00018316328273493987,
                     -0.0035482269412032
                 ],
-                "threshold": 0.004732,
-                "iq_angle": -1.651,
+                "threshold": 0.004295297535759622,
+                "iq_angle": 0.5722733267761365,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -358,8 +365,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 54300000,
-                "assignment_fidelity": 0.9060248853962017,
-                "readout_fidelity": 0.8120497707924035,
+                "assignment_fidelity": 0.9454326601578174,
+                "readout_fidelity": 0.8908653203156346,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.4977305637146838,
@@ -376,8 +383,8 @@
                     0.005775768387804019,
                     -0.0022975233365684507
                 ],
-                "threshold": 0.003997,
-                "iq_angle": -0.202,
+                "threshold": 0.004152778982802315,
+                "iq_angle": -2.267445016883879,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
