@@ -144,7 +144,7 @@
             "2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.47,
+                    "amplitude": 0.4364,
                     "shape": "Gaussian(5)",
                     "frequency": 5516557347,
                     "relative_start": 0,
@@ -173,7 +173,7 @@
             "3": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.47,
+                    "amplitude": 0.4364,
                     "shape": "Gaussian(5)",
                     "frequency": 6324092832,
                     "relative_start": 0,
@@ -234,11 +234,21 @@
                 "CZ": [
                     {
                         "duration": 30,
-                        "amplitude": -0.2557,
+                        "amplitude": -0.261,
                         "shape": "Rectangular()",
                         "qubit": 3,
                         "relative_start": 0,
                         "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -0.88,
+                        "qubit": 2
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -1.32,
+                        "qubit": 3
                     }
                 ]
             }
@@ -347,8 +357,8 @@
                     0.00018316328273493987,
                     -0.0035482269412032
                 ],
-                "threshold": 0.004295297535759622,
-                "iq_angle": 0.5722733267761365,
+                "threshold": 0.004305715027089353,
+                "iq_angle": 0.5776588494128347,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -383,8 +393,8 @@
                     0.005775768387804019,
                     -0.0022975233365684507
                 ],
-                "threshold": 0.004152778982802315,
-                "iq_angle": -2.267445016883879,
+                "threshold": 0.004220417698603996,
+                "iq_angle": -2.2724379198439424,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
