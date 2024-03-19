@@ -41,8 +41,11 @@ def create():
     # Feedback
     channels |= Channel(name="feedback", port=octave3.ports(1, output=False))
     # Drive
-    for q in range(5):
-        channels |= Channel(name=f"drive{q}", port=octave2.ports(q + 1))
+    channels |= Channel(name=f"drive0", port=octave2.ports(3))
+    channels |= Channel(name=f"drive1", port=octave2.ports(2))
+    channels |= Channel(name=f"drive2", port=octave2.ports(1))
+    channels |= Channel(name=f"drive3", port=octave2.ports(4))
+    channels |= Channel(name=f"drive4", port=octave2.ports(5))
     # Flux
     for q in range(5):
         channels |= Channel(name=f"flux{q}", port=opxs[2].ports(q + 1))
