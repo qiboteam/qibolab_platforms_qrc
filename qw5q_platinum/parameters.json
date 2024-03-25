@@ -92,9 +92,9 @@
             "0": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.338,
+                    "amplitude": 0.3304,
                     "shape": "Gaussian(5)",
-                    "frequency": 4769001556,
+                    "frequency": 4768978556,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -150,9 +150,9 @@
             "2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.428,
+                    "amplitude": 0.4255,
                     "shape": "Gaussian(5)",
-                    "frequency": 5516438000,
+                    "frequency": 5516506000,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -179,9 +179,9 @@
             "3": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.452,
+                    "amplitude": 0.4514,
                     "shape": "Gaussian(5)",
-                    "frequency": 6324511000,
+                    "frequency": 6324582000,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -240,7 +240,7 @@
                 "CZ": [
                     {
                         "duration": 30,
-                        "amplitude": -0.24985,
+                        "amplitude": -0.2486,
                         "shape": "Rectangular()",
                         "qubit": 3,
                         "relative_start": 0,
@@ -248,12 +248,12 @@
                     },
                     {
                         "type": "virtual_z",
-                        "phase": 0.1,
+                        "phase": 0.05,
                         "qubit": 2
                     },
                     {
                         "type": "virtual_z",
-                        "phase": 2.2,
+                        "phase": 2.6,
                         "qubit": 3
                     }
                 ]
@@ -262,7 +262,7 @@
                 "CZ": [
                     {
                         "duration": 30,
-                        "amplitude": -0.2254,
+                        "amplitude": -0.2252,
                         "shape": "Rectangular()",
                         "qubit": 2,
                         "relative_start": 0,
@@ -270,12 +270,12 @@
                     },
                     {
                         "type": "virtual_z",
-                        "phase": -0.24,
+                        "phase": -0.21,
                         "qubit": 0
                     },
                     {
                         "type": "virtual_z",
-                        "phase": 3.14,
+                        "phase": 3.19,
                         "qubit": 2
                     }
                 ]
@@ -300,8 +300,8 @@
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.5037576688262035,
-                "T1": 42644,
-                "T2": 12433,
+                "T1": 50919,
+                "T2": 20040,
                 "T2_spin_echo": 21217,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
@@ -313,8 +313,8 @@
                     0.002844894239536648,
                     -0.0073367863858283975
                 ],
-                "threshold": 0.006137,
-                "iq_angle": -0.2,
+                "threshold": 0.0062,
+                "iq_angle": -0.093,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -372,8 +372,8 @@
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.448,
-                "T1": 3094.334599720453,
-                "T2": 268.42971432925475,
+                "T1": 46191,
+                "T2": 12603,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
@@ -385,8 +385,8 @@
                     0.00018316328273493987,
                     -0.0035482269412032
                 ],
-                "threshold": 0.007974,
-                "iq_angle": 1.399,
+                "threshold": 0.008298,
+                "iq_angle": 1.502,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -408,8 +408,8 @@
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.448,
-                "T1": 28503,
-                "T2": 19017,
+                "T1": 28558,
+                "T2": 20572,
                 "T2_spin_echo": 24769,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
@@ -421,8 +421,8 @@
                     0.005775768387804019,
                     -0.0022975233365684507
                 ],
-                "threshold": 0.003299,
-                "iq_angle": -2.531,
+                "threshold": 0.003165,
+                "iq_angle": -2.43,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
