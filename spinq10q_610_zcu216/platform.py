@@ -29,8 +29,8 @@ def create():
     runcard = load_runcard(FOLDER)
     # Instantiate QICK instruments
     controller = RFSoC("ZCU216", ADDRESS, PORT)
-    controller.cfg.adc_trig_offset = 200
-    controller.cfg.repetition_duration = 200
+    controller.cfg.ro_time_of_flight = 200
+    controller.cfg.relaxation_time = 200
     #
     twpa_pump = SGS100A(name="twpa_pump", address=TWPA_ADDRESS)
     #
@@ -56,7 +56,7 @@ def create():
     # qubit 7
     channels |= Channel("L2-17-7", port=controller.ports(5))  # feedback
     channels |= Channel("L6-45", port=controller.ports(1))  # flux
-    channels |= Channel("L6-7", port=controller.ports(9))  # drive
+    channels |= Channel("L6-7", port=controller.ports(6))  # drive
 
     # qubit 8
     channels |= Channel("L2-17-8", port=controller.ports(6))  # feedback
@@ -66,12 +66,12 @@ def create():
     # qubit 9
     channels |= Channel("L2-17-9", port=controller.ports(7))  # feedback
     channels |= Channel("L6-47", port=controller.ports(3))  # flux
-    channels |= Channel("L6-9", port=controller.ports(5))  # drive
+    channels |= Channel("L6-9", port=controller.ports(8))  # drive
 
     # qubit 10
     channels |= Channel("L2-17-10", port=controller.ports(0))  # feedback
     channels |= Channel("L6-48", port=controller.ports(4))  # flux
-    channels |= Channel("L6-10", port=controller.ports(6))  # drive    
+    channels |= Channel("L6-10", port=controller.ports(9))  # drive    
     # TWPA
     channels |= Channel(name="L3-23", port=None)
     channels["L3-23"].local_oscillator = twpa_pump
