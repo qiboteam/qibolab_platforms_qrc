@@ -89,7 +89,6 @@ def create():
     controller = Zurich(
         "EL_ZURO",
         device_setup=device_setup,
-        use_emulation=False,
         time_of_flight=75,
         smearing=50,
     )
@@ -152,11 +151,11 @@ def create():
 
     # flux
     for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 9
+        channels[f"L4-{i}"].power_range = 1
 
     # flux couplers
     for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 9
+        channels[f"L4-{i}"].power_range = 1
 
     # Instantiate local oscillators
     local_oscillators = [
