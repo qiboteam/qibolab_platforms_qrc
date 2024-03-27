@@ -43,15 +43,15 @@ def create():
     # Create channel objects
     channels = ChannelMap()
 
-    channels |= Channel("L3-20-1", port=controller.ports(8))  # readout probe
+    channels |= Channel("L3-20-1", port=controller.ports(10))  # readout probe
     channels |= Channel("L3-20-2", port=controller.ports(11))  # readout probe
     channels |= Channel("L3-20-3", port=controller.ports(12))  # readout probe
     channels |= Channel("L3-20-4", port=controller.ports(13))  # readout probe
     channels |= Channel("L3-20-5", port=controller.ports(14))  # readout probe
     # qubit 1
     channels |= Channel("L1-1-1", port=controller.ports(4))  # feedback
-    channels |= Channel("L6-39", port=controller.ports(12))  # flux
-    channels |= Channel("L6-1", port=controller.ports(10))  # drive
+    channels |= Channel("L6-39", port=controller.ports(0))  # flux
+    channels |= Channel("L6-1", port=controller.ports(8))  # drive
 
     # qubit 2
     channels |= Channel("L1-1-2", port=controller.ports(5))  # feedback
