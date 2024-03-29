@@ -30,16 +30,16 @@ def create():
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:16"),
     }
 
-    # # DEBUG: debug folder = report folder
-    # import os
-    # from datetime import datetime
+    # DEBUG: debug folder = report folder
+    import os
+    from datetime import datetime
 
-    # QPU = "spinq10q"
-    # debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
-    # if not os.path.exists(debug_folder):
-    #     os.makedirs(debug_folder)
-    # for name in modules:
-    #     modules[name]._debug_folder = debug_folder
+    QPU = "tii2qs3f"
+    debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
+    if not os.path.exists(debug_folder):
+        os.makedirs(debug_folder)
+    for name in modules:
+        modules[name]._debug_folder = debug_folder
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
 
@@ -81,5 +81,5 @@ def create():
     instruments = load_instrument_settings(runcard, instruments)
 
     return Platform(
-        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D"
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="3D"
     )
