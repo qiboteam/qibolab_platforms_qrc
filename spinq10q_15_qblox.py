@@ -1,7 +1,5 @@
 import pathlib
 
-import networkx as nx
-import yaml
 from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.qblox.cluster import (
     Cluster,
@@ -12,7 +10,6 @@ from qibolab.instruments.qblox.cluster_qcm_bb import ClusterQCM_BB
 from qibolab.instruments.qblox.cluster_qcm_rf import ClusterQCM_RF
 from qibolab.instruments.qblox.cluster_qrm_rf import ClusterQRM_RF
 from qibolab.instruments.qblox.controller import QbloxController
-from qibolab.instruments.qblox.port import QbloxOutputPort
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
 from qibolab.serialize import (
@@ -28,7 +25,7 @@ RUNCARD = pathlib.Path(__file__).parent / "spinq10q_15.yml"
 
 
 def create(runcard_path=RUNCARD):
-    """SpinQ 10q-chip controlled using qblox cluster.
+    """SpinQ 10q-chip controlled using qblox cluster 6.
 
     Args:
         runcard_path (str): Path to the runcard file.
@@ -38,7 +35,7 @@ def create(runcard_path=RUNCARD):
     cluster = Cluster(
         name="cluster",
         address="192.168.0.6",
-        settings=Cluster_Settings(reference_clock_source=ReferenceClockSource.INTERNAL),
+        settings=Cluster_Settings(reference_clock_source=ReferenceClockSource.EXTERNAL),
     )
     modules = {
         "qrm_rf0": ClusterQRM_RF(
@@ -46,13 +43,11 @@ def create(runcard_path=RUNCARD):
         ),  # qubits q1, q2, q3, q4, q5
         "qcm_rf0": ClusterQCM_RF("qcm_rf0", f"{ADDRESS}:8", cluster),  # qubits q1, q2
         "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10", cluster),  # qubits q3, q4
-        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12", cluster),  # qubits q5, q6
+        "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12", cluster),  # qubits q5
         "qcm_bb0": ClusterQCM_BB(
             "qcm_bb0", f"{ADDRESS}:2", cluster
         ),  # qubits q1, q2, q3, q4
-        "qcm_bb1": ClusterQCM_BB(
-            "qcm_bb1", f"{ADDRESS}:4", cluster
-        ),  # qubits q5, q6, q7, q8
+        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4", cluster),  # qubits q5
     }
     controller = QbloxController("qblox_controller", cluster, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
@@ -64,7 +59,7 @@ def create(runcard_path=RUNCARD):
     instruments.update(modules)
     instruments = load_instrument_settings(runcard, instruments)
 
-    # DEBUG: debug folder = report folder
+    # DEBUG: debug folder = report folder ###################################################################
     import os
     from datetime import datetime
 
@@ -74,6 +69,7 @@ def create(runcard_path=RUNCARD):
         os.makedirs(debug_folder)
     for name in modules:
         modules[name]._debug_folder = debug_folder
+    #########################################################################################################
 
     # Create channel objects
     channels = {}
