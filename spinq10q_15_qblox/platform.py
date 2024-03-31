@@ -27,7 +27,7 @@ def create():
     """
     runcard = load_runcard(FOLDER)
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:19"),
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),
         "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),
         "qcm_rf2": QcmRf("qcm_rf2", f"{ADDRESS}:12"),
@@ -35,16 +35,16 @@ def create():
         "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),
     }
 
-    # # DEBUG: debug folder = report folder
-    # import os
-    # from datetime import datetime
+    # DEBUG: debug folder = report folder
+    import os
+    from datetime import datetime
 
-    # QPU = "spinq10q"
-    # debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
-    # if not os.path.exists(debug_folder):
-    #     os.makedirs(debug_folder)
-    # for name in modules:
-    #     modules[name]._debug_folder = debug_folder
+    QPU = "spinq10q"
+    debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
+    if not os.path.exists(debug_folder):
+        os.makedirs(debug_folder)
+    for name in modules:
+        modules[name]._debug_folder = debug_folder
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")

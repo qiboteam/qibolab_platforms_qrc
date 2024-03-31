@@ -39,7 +39,7 @@ def create(runcard_path=RUNCARD):
     )
     modules = {
         "qrm_rf0": ClusterQRM_RF(
-            "qrm_rf0", f"{ADDRESS}:18", cluster
+            "qrm_rf0", f"{ADDRESS}:19", cluster
         ),  # qubits q1, q2, q3, q4, q5
         "qcm_rf0": ClusterQCM_RF("qcm_rf0", f"{ADDRESS}:8", cluster),  # qubits q1, q2
         "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10", cluster),  # qubits q3, q4

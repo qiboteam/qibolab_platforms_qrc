@@ -66,7 +66,7 @@ instruments:
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.172, shape: Gaussian(5), frequency: 4230100000,
+            RX: {duration: 40, amplitude: 0.172, shape: Gaussian(5), frequency: 4230_350_000,
                 relative_start: 0, phase: 0, type: qd}
             RX12: {duration: 200, amplitude: 0.038, shape: Gaussian(5), frequency: 4_045_520_000, # 4_042_979_000,
                 relative_start: 0, phase: 0, type: qd}
@@ -134,9 +134,9 @@ characterization:
             # readout_frequency:  # amplitude crossing
             # readout_frequency:  # best
             readout_frequency: 7432754278 # state |0>
-            drive_frequency: 4230100000
+            drive_frequency: 4230490000
             anharmonicity: 200000000
-            sweetspot: 0.0990 # sweetspot
+            sweetspot: 0.1010 # sweetspot
             # sweetspot: 0.00 # most sensitive
             flux_to_bias: 2.1464325851437356
             asymmetry: 0.3
