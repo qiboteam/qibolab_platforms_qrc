@@ -14,7 +14,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "spinq10q_15_qblox"
+NAME = "spinq10q"
 ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
 
