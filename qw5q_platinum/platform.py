@@ -31,23 +31,19 @@ def create():
         octaves=[octave2, octave3],
         time_of_flight=224,
         calibration_path=FOLDER,
-        # script_file_name="qua_script.py",
+        script_file_name="qua_script.py",
     )
     twpa = SGS100A(name="twpa", address="192.168.0.38")
 
     channels = ChannelMap()
-    # Readout
-    channels |= Channel(name="readout", port=octave3.ports(1))
-    # Feedback
-    channels |= Channel(name="feedback", port=octave3.ports(1, output=False))
-    # Drive
-    channels |= Channel(name=f"drive0", port=octave2.ports(3))
-    channels |= Channel(name=f"drive1", port=octave2.ports(2))
-    channels |= Channel(name=f"drive2", port=octave2.ports(1))
-    channels |= Channel(name=f"drive3", port=octave2.ports(4))
-    channels |= Channel(name=f"drive4", port=octave2.ports(5))
-    # Flux
-    for q in range(5):
+    for q, drive_port in zip(range(5), [3, 2, 1, 4, 5]):
+        # Readout
+        channels |= Channel(name=f"readout{q}", port=octave3.ports(1))
+        # Feedback
+        channels |= Channel(name=f"feedback{q}", port=octave3.ports(1, output=False))
+        # Drive
+        channels |= Channel(name=f"drive{q}", port=octave2.ports(drive_port))
+        # Flux
         channels |= Channel(name=f"flux{q}", port=opxs[2].ports(q + 1))
 
     # channels |= Channel(name="L99", port=modules["qcm_rf0"].ports("i1", output=False))
@@ -58,8 +54,8 @@ def create():
     qubits, couplers, pairs = load_qubits(runcard)  # , kernels)
 
     for q, qubit in qubits.items():
-        qubit.readout = channels["readout"]
-        qubit.feedback = channels["feedback"]
+        qubit.readout = channels[f"readout{q}"]
+        qubit.feedback = channels[f"feedback{q}"]
         qubit.drive = channels[f"drive{q}"]
         qubit.flux = channels[f"flux{q}"]
 

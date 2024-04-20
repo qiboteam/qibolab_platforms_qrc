@@ -93,28 +93,22 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.3304,
-                    "shape": "Gaussian(5)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 4768978556,
-                    "relative_start": 0,
-                    "phase": 0,
                     "type": "qd"
                 },
                 "RX12": {
                     "duration": 40,
                     "amplitude": 0.18,
-                    "shape": "Drag(5, 0.000)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 4768813556,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.02,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "frequency": 7208473956,
-                    "relative_start": 0,
-                    "phase": 0,
                     "type": "ro"
                 }
             },
@@ -122,28 +116,22 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.25,
-                    "shape": "Gaussian(5)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 4809217873,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "RX12": {
                     "duration": 40,
                     "amplitude": 0.5,
-                    "shape": "Drag(5, 0.000)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 4809217873,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.008,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "frequency": 7336409801,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "ro"
                 }
             },
@@ -151,28 +139,22 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.4255,
-                    "shape": "Gaussian(5)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 5516506000,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "RX12": {
                     "duration": 40,
                     "amplitude": 0.2245,
-                    "shape": "Drag(5, 0.000)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 5516538000,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.012,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "frequency": 7495382958,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "ro"
                 }
             },
@@ -180,28 +162,22 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.4514,
-                    "shape": "Gaussian(5)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 6324582000,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "RX12": {
                     "duration": 40,
                     "amplitude": 0.226,
-                    "shape": "Drag(5, 0.000)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 6324611000,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.018,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "frequency": 7668471933,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "ro"
                 }
             },
@@ -209,28 +185,22 @@
                 "RX": {
                     "duration": 40,
                     "amplitude": 0.25,
-                    "shape": "Gaussian(5)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 6223351170,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "RX12": {
                     "duration": 40,
                     "amplitude": 0.5,
-                    "shape": "Drag(5, 0.000)",
+                    "envelope": {"kind": "gaussian", "rel_sigma": 0.2},
                     "frequency": 6223351170,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.01,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "frequency": 7803378235,
-                    "relative_start": 0,
-                    "phase": 0.0,
                     "type": "ro"
                 }
             }
@@ -241,18 +211,17 @@
                     {
                         "duration": 30,
                         "amplitude": -0.2486,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular" },
                         "qubit": 3,
-                        "relative_start": 0,
                         "type": "qf"
                     },
                     {
-                        "type": "virtual_z",
+                        "type": "vz",
                         "phase": 0.05,
                         "qubit": 2
                     },
                     {
-                        "type": "virtual_z",
+                        "type": "vz",
                         "phase": 2.6,
                         "qubit": 3
                     }
@@ -263,18 +232,17 @@
                     {
                         "duration": 30,
                         "amplitude": -0.2252,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular" },
                         "qubit": 2,
-                        "relative_start": 0,
                         "type": "qf"
                     },
                     {
-                        "type": "virtual_z",
+                        "type": "vz",
                         "phase": -0.21,
                         "qubit": 0
                     },
                     {
-                        "type": "virtual_z",
+                        "type": "vz",
                         "phase": 3.19,
                         "qubit": 2
                     }
