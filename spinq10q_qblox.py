@@ -38,7 +38,7 @@ def create(runcard_path=RUNCARD):
     )
     modules = {
         "qrm_rf0": ClusterQRM_RF(
-            "qrm_rf0", f"{ADDRESS}:18", cluster
+            "qrm_rf0", f"{ADDRESS}:19", cluster
         ),  # qubits q1, q2, q3, q4, q5
         "qrm_rf1": ClusterQRM_RF(
             "qrm_rf1", f"{ADDRESS}:20", cluster
@@ -108,8 +108,8 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L6-44", port=modules["qcm_bb1"].ports["o2"])
     channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports["o3"])
     channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports["o4"])
-    channels |= Channel(name="L6-47", port=modules["qcm_bb2"].ports["o3"])
-    channels |= Channel(name="L6-48", port=modules["qcm_bb2"].ports["o4"])
+    channels |= Channel(name="L6-47", port=modules["qcm_bb2"].ports["o4"])
+    channels |= Channel(name="L6-48", port=modules["qcm_bb2"].ports["o3"])
 
     # TWPA
     channels |= Channel(name="L3-10", port=None)
