@@ -224,7 +224,7 @@
                     {
                         "type": "coupler",
                         "duration": 100,
-                        "amplitude": 0.28,
+                        "amplitude": 0.2,
                         "shape": "Rectangular()",
                         "coupler": 0,
                         "relative_start": 0
@@ -260,7 +260,67 @@
                         "relative_start": 0
                     }
                 ]
-            }
+            },
+            "2-3": {
+                "CZ": [
+                    {
+                        "duration": 100,
+                        "amplitude": -0.82,
+                        "shape": "Rectangular()",
+                        "qubit": 2,
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -1,
+                        "qubit": 1
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -3,
+                        "qubit": 2
+                    },
+                    {
+                        "type": "coupler",
+                        "duration": 100,
+                        "amplitude": 0.4,
+                        "shape": "Rectangular()",
+                        "coupler": 1,
+                        "relative_start": 0
+                    }
+                ]
+            },
+            "2-4": {
+                "CZ": [
+                    {
+                        "duration": 100,
+                        "amplitude": -0.586,
+                        "shape": "Rectangular()",
+                        "qubit": 2,
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -1,
+                        "qubit": 1
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": -3,
+                        "qubit": 2
+                    },
+                    {
+                        "type": "coupler",
+                        "duration": 100,
+                        "amplitude": 0.2,
+                        "shape": "Rectangular()",
+                        "coupler": 1,
+                        "relative_start": 0
+                    }
+                ]
+            }                        
         }
     },
 
