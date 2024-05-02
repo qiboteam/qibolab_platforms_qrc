@@ -142,7 +142,7 @@
                     "duration": 40,
                     "amplitude": 0.55,
                     "frequency": 4358819000,
-                    "shape": "Drag(5, 0.000)",
+                    "shape": "Gaussian(5)",
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -150,7 +150,7 @@
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.04,
-                    "frequency": 5521000000,
+                    "frequency": 5526000000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0,
@@ -422,8 +422,8 @@
                 "Ec": 0,
                 "g": 0,
                 "asymmetry": 0.0,
-                "assignment_fidelity": 0.8692657482947707,
-                "readout_fidelity": 0.7385314965895413,
+                "assignment_fidelity": 0.8807676875752307,
+                "readout_fidelity": 0.7615353751504614,
                 "T1": 5800,
                 "T2": 366,
                 "sweetspot": 0.0,
@@ -431,15 +431,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    0.3195583600644675,
-                    0.13156357302438035
+                    0.2114832605222194,
+                    0.37574095922380507
                 ],
                 "mean_exc_states": [
-                    1.1885306750008457,
-                    -0.081465797952825
+                    1.1462852737115254,
+                    0.7113144908155714
                 ],
-                "threshold": 0.7694321123882739,
-                "iq_angle": 0.24040965105904746,
+                "threshold": 0.8632619334641307,
+                "iq_angle": -0.3446507063696821,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
