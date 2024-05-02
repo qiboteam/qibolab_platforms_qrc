@@ -60,9 +60,9 @@
             "0": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.343,
-                    "frequency": 4103174000,
-                    "shape": "Drag(5, 0.000)",
+                    "amplitude": 0.720,
+                    "frequency": 3992200247,
+                    "shape": "Gaussian(5)",
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -70,7 +70,7 @@
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.05,
-                    "frequency": 5228650000,
+                    "frequency": 5228950000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0,
@@ -288,32 +288,32 @@
         "single_qubit": {
             "0": {
                 "bare_resonator_frequency": 5221992000,
-                "readout_frequency": 5228650000,
-                "drive_frequency": 4103174000,
+                "readout_frequency": 5228950000,
+                "drive_frequency": 3992200247,
                 "anharmonicity": 217492000,
                 "Ec": 0,
                 "g": 0,
                 "asymmetry": 0.0,
-                "assignment_fidelity": 0.8053363648522135,
-                "readout_fidelity": 0.610672729704427,
-                "sweetspot": -0.072,
+                "assignment_fidelity": 0.9249030359769961,
+                "readout_fidelity": 0.8498060719539923,
+                "sweetspot": 0,
                 "peak_voltage": 0,
-                "pi_pulse_amplitude": 0.343,
+                "pi_pulse_amplitude": 0.720,
                 "T1": 19000,
                 "T2": 10000,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    0.0028820295664896954,
-                    -0.15826360127865877
+                    0.06484172199851693,
+                    -0.16180694255643766
                 ],
                 "mean_exc_states": [
-                    -0.003999636446637287,
-                    -0.6543708853744394
+                    -0.154094686088713,
+                    -1.251290029486678
                 ],
-                "threshold": 0.3967265634871901,
-                "iq_angle": 1.5846667635110743,
+                "threshold": 0.6731864066267139,
+                "iq_angle": 1.7691093997451495,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
