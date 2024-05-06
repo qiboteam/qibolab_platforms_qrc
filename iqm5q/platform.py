@@ -7,19 +7,15 @@ from laboneq.simple import DeviceSetup
 from qibolab import Platform
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import (
-    ZIChannel,
     ZIAcquisitionChannel,
-    ZurichAcquisitionChannelConfig,
-    ZurichIQChannelConfig,
-    ZurichDCChannelConfig,
+    ZIChannel,
     Zurich,
+    ZurichAcquisitionChannelConfig,
+    ZurichDCChannelConfig,
+    ZurichIQChannelConfig,
 )
 from qibolab.kernels import Kernels
-from qibolab.serialize import (
-    load_qubits,
-    load_runcard,
-    load_settings,
-)
+from qibolab.serialize import load_qubits, load_runcard, load_settings
 
 FOLDER = pathlib.Path(__file__).parent
 
