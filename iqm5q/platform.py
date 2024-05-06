@@ -5,11 +5,11 @@ from laboneq.dsl.device import create_connection
 from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
 from laboneq.simple import DeviceSetup
 from qibolab import Platform
-from qibolab.channel import AcquisitionChannelConfig
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import (
     ZIChannel,
     ZIAcquisitionChannel,
+    ZurichAcquisitionChannelConfig,
     ZurichIQChannelConfig,
     ZurichDCChannelConfig,
     Zurich,
@@ -63,7 +63,7 @@ def create():
         # acquisition. wire "L2-7"
         qubits[q].acquisition = ZIAcquisitionChannel(
             f"qubit_{q}/acquire",
-            AcquisitionChannelConfig(**channel_configs[f"qubit_{q}/acquire"]),
+            ZurichAcquisitionChannelConfig(**channel_configs[f"qubit_{q}/acquire"]),
             "device_shfqc",
             "[QACHANNELS/0/INPUT]",
             twpa_pump,
