@@ -211,7 +211,7 @@
                     "duration": 40,
                     "amplitude": 0.62,
                     "frequency": 4095140800,
-                    "shape": "Gaussian(5)",
+                    "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -220,7 +220,7 @@
                     "duration": 2000,
                     "amplitude": 0.1,
                     "frequency": 5227920060,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "type": "ro",
                     "relative_start": 0,
                     "phase": 0
@@ -231,7 +231,7 @@
                     "duration": 40,
                     "amplitude": 0.936,
                     "frequency": 4241884701,
-                    "shape": "Gaussian(5)",
+                    "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -240,7 +240,7 @@
                     "duration": 2000,
                     "amplitude": 0.1,
                     "frequency": 4932107000,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "type": "ro",
                     "relative_start": 0,
                     "phase": 0
@@ -251,7 +251,7 @@
                     "duration": 40,
                     "amplitude": 0.42,
                     "frequency": 4539550000,
-                    "shape": "Gaussian(5)",
+                    "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -260,7 +260,7 @@
                     "duration": 2000,
                     "amplitude": 0.2,
                     "frequency": 6085941000,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "type": "ro",
                     "relative_start": 0,
                     "phase": 0
@@ -271,7 +271,7 @@
                     "duration": 40,
                     "amplitude": 0.6,
                     "frequency": 4168624000,
-                    "shape": "Gaussian(5)",
+                    "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -280,7 +280,7 @@
                     "duration": 2000,
                     "amplitude": 0.6,
                     "frequency": 5778270000,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "type": "ro",
                     "relative_start": 0,
                     "phase": 0
@@ -291,7 +291,7 @@
                     "duration": 40,
                     "amplitude": 0.6,
                     "frequency": 4353464450,
-                    "shape": "Gaussian(5)",
+                    "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
@@ -300,7 +300,7 @@
                     "duration": 2000,
                     "amplitude": 0.08,
                     "frequency": 5514950000,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "type": "ro",
                     "relative_start": 0,
                     "phase": 0
@@ -310,40 +310,40 @@
         "coupler": {
             "0": {
                 "CP": {
-                    "type": "coupler",
+                    "type": "cf",
                     "duration": 1000,
                     "amplitude": 0.5,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "coupler": 0,
                     "relative_start": 0
                 }
             },
             "1": {
                 "CP": {
-                    "type": "coupler",
+                    "type": "cf",
                     "duration": 1000,
                     "amplitude": 0.5,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "coupler": 1,
                     "relative_start": 0
                 }
             },
             "3": {
                 "CP": {
-                    "type": "coupler",
+                    "type": "cf",
                     "duration": 1000,
                     "amplitude": 0.5,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "coupler": 3,
                     "relative_start": 0
                 }
             },
             "4": {
                 "CP": {
-                    "type": "coupler",
+                    "type": "cf",
                     "duration": 1000,
                     "amplitude": 0.5,
-                    "shape": "Rectangular()",
+                    "envelope": { "kind": "rectangular" },
                     "coupler": 4,
                     "relative_start": 0
                 }
@@ -355,7 +355,7 @@
                     {
                         "duration": 30,
                         "amplitude": 0.6025,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular" },
                         "qubit": 2,
                         "relative_start": 0,
                         "type": "qf"
@@ -374,7 +374,7 @@
                         "type": "coupler",
                         "duration": 50,
                         "amplitude": 0.8,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular" },
                         "coupler": 0,
                         "relative_start": 0
                     }
@@ -385,7 +385,7 @@
                     {
                         "duration": 30,
                         "amplitude": 0.6025,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular" },
                         "qubit": 2,
                         "relative_start": 0,
                         "type": "qf"
@@ -404,7 +404,7 @@
                         "type": "coupler",
                         "duration": 40,
                         "amplitude": 0.1,
-                        "shape": "Rectangular()",
+                        "envelope": { "kind": "rectangular"},
                         "coupler": 1,
                         "relative_start": 0
                     }
