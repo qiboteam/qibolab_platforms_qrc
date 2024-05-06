@@ -5,13 +5,17 @@ from laboneq.dsl.device import create_connection
 from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
 from laboneq.simple import DeviceSetup
 from qibolab import Platform
-from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.dummy import DummyLocalOscillator
+from qibolab.channel import AcquisitionChannelConfig
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.instruments.zhinst import Zurich
+from qibolab.instruments.zhinst import (
+    ZIChannel,
+    ZIAcquisitionChannel,
+    ZurichIQChannelConfig,
+    ZurichDCChannelConfig,
+    Zurich,
+)
 from qibolab.kernels import Kernels
 from qibolab.serialize import (
-    load_instrument_settings,
     load_qubits,
     load_runcard,
     load_settings,
@@ -22,14 +26,11 @@ FOLDER = pathlib.Path(__file__).parent
 TWPA_ADDRESS = "192.168.0.35"
 
 N_QUBITS = 5
+N_COUPLERS = 4
 
 
 def create():
-    """IQM 5q-chip controlled Zurich Instruments (Zh) SHFQC, HDAWGs and PQSC.
-
-    Args:
-        runcard_path (str): Path to the runcard file.
-    """
+    """IQM 5q-chip controlled Zurich Instruments SHFQC, HDAWGs and PQSC."""
 
     device_setup = DeviceSetup("EL_ZURO")
     # Dataserver
@@ -41,43 +42,6 @@ def create():
         PQSC("device_pqsc", address="DEV10055", reference_clock_source="internal"),
         SHFQC("device_shfqc", address="DEV12146"),
     )
-    device_setup.add_connections(
-        "device_shfqc",
-        *[
-            create_connection(
-                to_signal=f"q{i}/drive_line", ports=[f"SGCHANNELS/{i}/OUTPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(
-                to_signal=f"q{i}/measure_line", ports=["QACHANNELS/0/OUTPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(
-                to_signal=f"q{i}/acquire_line", ports=["QACHANNELS/0/INPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-    )
-    device_setup.add_connections(
-        "device_hdawg",
-        *[
-            create_connection(to_signal=f"q{i}/flux_line", ports=f"SIGOUTS/{i}")
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(to_signal=f"qc{c}/flux_line", ports=f"SIGOUTS/{i}")
-            for c, i in zip(itertools.chain(range(0, 2), range(3, 4)), range(5, 8))
-        ],
-    )
-
-    device_setup.add_connections(
-        "device_hdawg2",
-        create_connection(to_signal="qc4/flux_line", ports=["SIGOUTS/0"]),
-    )
 
     device_setup.add_connections(
         "device_pqsc",
@@ -86,120 +50,76 @@ def create():
         create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
     )
 
+    runcard = load_runcard(FOLDER)
+    kernels = Kernels.load(FOLDER)
+    qubits, couplers, pairs = load_qubits(runcard, kernels)
+    channel_configs = runcard["channels"]
+    settings = load_settings(runcard)
+
+    twpa_pump = SGS100A("TWPA", TWPA_ADDRESS)
+
+    zi_channels = []
+    for q in range(N_QUBITS):
+        # acquisition. wire "L2-7"
+        qubits[q].acquisition = ZIAcquisitionChannel(
+            f"qubit_{q}/acquire",
+            AcquisitionChannelConfig(**channel_configs[f"qubit_{q}/acquire"]),
+            "device_shfqc",
+            "[QACHANNELS/0/INPUT]",
+            twpa_pump,
+        )
+        zi_channels.append(qubits[q].acquisition)
+        # readout. wire "L3-31"
+        qubits[q].readout = ZIChannel(
+            f"qubit_{q}/measure",
+            ZurichIQChannelConfig(**channel_configs[f"qubit_{q}/measure"]),
+            "device_shfqc",
+            "[QACHANNELS/0/OUTPUT]",
+        )
+        zi_channels.append(qubits[q].readout)
+        # drive. wire f"L4-{15+q}"
+        qubits[q].drive = ZIChannel(
+            f"qubit_{q}/drive",
+            ZurichIQChannelConfig(**channel_configs[f"qubit_{q}/drive"]),
+            "device_shfqc",
+            f"SGCHANNELS/{q}/OUTPUT",
+        )
+        zi_channels.append(qubits[q].drive)
+        # flux qubits. wire f"L4-{6+q}"
+        qubits[q].flux = ZIChannel(
+            f"qubit_{q}/flux",
+            ZurichDCChannelConfig(**channel_configs[f"qubit_{q}/flux"]),
+            "device_hdawg",
+            f"SIGOUTS/{q}",
+        )
+        zi_channels.append(qubits[q].flux)
+
+    # coupler flux. wires f"L4-{i}" for i in range(11, 15)
+    for c, i in zip(itertools.chain(range(0, 2), range(3, 4)), range(5, 8)):
+        couplers[c].flux = ZIChannel(
+            f"coupler_{c}/flux",
+            ZurichDCChannelConfig(**channel_configs[f"coupler_{c}/flux"]),
+            "device_hdawg",
+            f"SIGOUTS/{i}",
+        )
+        zi_channels.append(couplers[c].flux)
+    couplers[4].flux = ZIChannel(
+        "coupler_4/flux",
+        ZurichDCChannelConfig(**channel_configs["coupler_4/flux"]),
+        "device_hdawg2",
+        "SIGOUTS/0",
+    )
+    zi_channels.append(couplers[4].flux)
+
     controller = Zurich(
         "EL_ZURO",
         device_setup=device_setup,
+        channels=zi_channels,
         time_of_flight=75,
         smearing=50,
     )
 
-    # Create channel objects and map controllers
-    channels = ChannelMap()
-    # feedback
-    channels |= Channel(
-        "L2-7", port=controller.ports(("device_shfqc", "[QACHANNELS/0/INPUT]"))
-    )
-    # readout
-    channels |= Channel(
-        "L3-31", port=controller.ports(("device_shfqc", "[QACHANNELS/0/OUTPUT]"))
-    )
-    # drive
-    channels |= (
-        Channel(
-            f"L4-{i}",
-            port=controller.ports(("device_shfqc", f"SGCHANNELS/{i-5}/OUTPUT")),
-        )
-        for i in range(15, 20)
-    )
-    # flux qubits (CAREFUL WITH THIS !!!)
-    channels |= (
-        Channel(f"L4-{i}", port=controller.ports(("device_hdawg", f"SIGOUTS/{i-6}")))
-        for i in range(6, 11)
-    )
-    # flux couplers
-    channels |= (
-        Channel(f"L4-{i}", port=controller.ports(("device_hdawg", f"SIGOUTS/{i-11+5}")))
-        for i in range(11, 14)
-    )
-    channels |= Channel("L4-14", port=controller.ports(("device_hdawg2", "SIGOUTS/0")))
-    # TWPA pump(EraSynth)
-    channels |= Channel("L3-32")
-
-    # SHFQC
-    # Sets the maximal Range of the Signal Output power.
-    # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    # with a resolution of 5 dBm.
-
-    # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
-
-    # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -15  # -15
-    # feedback "gain": play with the power range to calibrate the best RO
-    channels["L2-7"].power_range = 10
-
-    # drive
-    # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels["L4-15"].power_range = -10  # q0
-    channels["L4-16"].power_range = -5  # q1
-    channels["L4-17"].power_range = -10  # q2
-    channels["L4-18"].power_range = -5  # q3
-    channels["L4-19"].power_range = -10  # q4
-
-    # HDAWGS
-    # Sets the output voltage range.
-    # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
-
-    # flux
-    for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 0.8
-    # flux couplers
-    for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
-
-    # Instantiate local oscillators
-    local_oscillators = [
-        DummyLocalOscillator(f"lo_{kind}", None)
-        for kind in ["readout"] + [f"drive_{n}" for n in range(3)]
-    ]
-
-    local_oscillators.append(SGS100A("TWPA", TWPA_ADDRESS))
-
-    # Map LOs to channels
-    ch_to_lo = {
-        "L3-31": 0,
-        "L4-15": 1,
-        "L4-16": 1,
-        "L4-17": 2,
-        "L4-18": 2,
-        "L4-19": 3,
-        "L3-32": 4,
-    }
-    for ch, lo in ch_to_lo.items():
-        channels[ch].local_oscillator = local_oscillators[lo]
-
-    # create qubit objects
-    runcard = load_runcard(FOLDER)
-    kernels = Kernels.load(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard, kernels)
-    settings = load_settings(runcard)
-
-    # assign channels to qubits and sweetspots(operating points)
-    for q in range(0, 5):
-        qubits[q].readout = channels["L3-31"]
-        qubits[q].feedback = channels["L2-7"]
-
-    for q in range(0, 5):
-        qubits[q].drive = channels[f"L4-{15 + q}"]
-        qubits[q].flux = channels[f"L4-{6 + q}"]
-        qubits[q].twpa = channels["L3-32"]
-        channels[f"L4-{6 + q}"].qubit = qubits[q]
-
-    # assign channels to couplers and sweetspots(operating points)
-    for c, coupler in enumerate(couplers.values()):
-        coupler.flux = channels[f"L4-{11 + c}"]
     instruments = {controller.name: controller}
-    instruments.update({lo.name: lo for lo in local_oscillators})
-    instruments = load_instrument_settings(runcard, instruments)
     return Platform(
         str(FOLDER),
         qubits,
