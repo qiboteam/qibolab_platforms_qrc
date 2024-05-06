@@ -195,11 +195,11 @@
             "offset": 0.0,
             "power_range": 0.8
         },
-        "coupler_2/flux": {
+        "coupler_3/flux": {
             "offset": 0.0,
             "power_range": 0.8
         },
-        "coupler_3/flux": {
+        "coupler_4/flux": {
             "offset": 0.0,
             "power_range": 0.8
         }
@@ -351,64 +351,80 @@
         },
         "two_qubit": {
             "0-2": {
-                "CZ": [
-                    {
-                        "duration": 30,
-                        "amplitude": 0.6025,
-                        "envelope": { "kind": "rectangular" },
-                        "qubit": 2,
-                        "relative_start": 0,
-                        "type": "qf"
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": -1,
-                        "qubit": 0
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": -3,
-                        "qubit": 2
-                    },
-                    {
-                        "type": "coupler",
-                        "duration": 50,
-                        "amplitude": 0.8,
-                        "envelope": { "kind": "rectangular" },
-                        "coupler": 0,
-                        "relative_start": 0
-                    }
-                ]
+                "CZ": {
+                    "coupler_0/flux": [
+                        {
+                            "type": "cf",
+                            "duration": 50,
+                            "amplitude": 0.8,
+                            "envelope": { "kind": "rectangular" },
+                            "coupler": 0,
+                            "relative_start": 0
+                        }
+                    ],
+                    "qubit_2/flux": [
+                        {
+                            "duration": 30,
+                            "amplitude": 0.6025,
+                            "envelope": { "kind": "rectangular" },
+                            "qubit": 2,
+                            "relative_start": 0,
+                            "type": "qf"
+                        }
+                    ],
+                    "qubit_0/drive": [
+                        {
+                            "type": "vz",
+                            "phase": -1,
+                            "qubit": 0
+                        }
+                    ],
+                    "qubit_2/drive": [
+                        {
+                            "type": "vz",
+                            "phase": -3,
+                            "qubit": 2
+                        }
+                    ]
+                }
             },
             "1-2": {
-                "CZ": [
-                    {
-                        "duration": 30,
-                        "amplitude": 0.6025,
-                        "envelope": { "kind": "rectangular" },
-                        "qubit": 2,
-                        "relative_start": 0,
-                        "type": "qf"
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": -1,
-                        "qubit": 1
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": -3,
-                        "qubit": 2
-                    },
-                    {
-                        "type": "coupler",
-                        "duration": 40,
-                        "amplitude": 0.1,
-                        "envelope": { "kind": "rectangular"},
-                        "coupler": 1,
-                        "relative_start": 0
-                    }
-                ]
+                "CZ":{
+                    "coupler_1/flux": [
+                        {
+                            "type": "cf",
+                            "duration": 40,
+                            "amplitude": 0.1,
+                            "envelope": { "kind": "rectangular"},
+                            "coupler": 1,
+                            "relative_start": 0
+                        }
+                    ],
+                    "qubit_2/flux": [
+                        {
+                            "duration": 30,
+                            "amplitude": 0.6025,
+                            "envelope": { "kind": "rectangular" },
+                            "qubit": 2,
+                            "relative_start": 0,
+                            "type": "qf"
+                        }
+                    ],
+                    "qubit_1/drive": [
+                        {
+                            "type": "vz",
+                            "phase": -1,
+                            "qubit": 1
+                        }
+                    ],
+                    "qubit_2/drive": [
+                        {
+                            "type": "vz",
+                            "phase": -3,
+                            "qubit": 2
+                        }
+                    ]
+                }
             }
         }
     },
