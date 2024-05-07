@@ -212,18 +212,14 @@
                     "amplitude": 0.62,
                     "frequency": 4095140800,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
-                    "type": "qd",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.1,
                     "frequency": 5227920060,
                     "envelope": { "kind": "rectangular" },
-                    "type": "ro",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "ro"
                 }
             },
             "1": {
@@ -232,18 +228,14 @@
                     "amplitude": 0.936,
                     "frequency": 4241884701,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
-                    "type": "qd",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.1,
                     "frequency": 4932107000,
                     "envelope": { "kind": "rectangular" },
-                    "type": "ro",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "ro"
                 }
             },
             "2": {
@@ -252,18 +244,14 @@
                     "amplitude": 0.42,
                     "frequency": 4539550000,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
-                    "type": "qd",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.2,
                     "frequency": 6085941000,
                     "envelope": { "kind": "rectangular" },
-                    "type": "ro",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "ro"
                 }
             },
             "3": {
@@ -272,18 +260,14 @@
                     "amplitude": 0.6,
                     "frequency": 4168624000,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
-                    "type": "qd",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.6,
                     "frequency": 5778270000,
                     "envelope": { "kind": "rectangular" },
-                    "type": "ro",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "ro"
                 }
             },
             "4": {
@@ -292,18 +276,14 @@
                     "amplitude": 0.6,
                     "frequency": 4353464450,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
-                    "type": "qd",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
                     "amplitude": 0.08,
                     "frequency": 5514950000,
                     "envelope": { "kind": "rectangular" },
-                    "type": "ro",
-                    "relative_start": 0,
-                    "phase": 0
+                    "type": "ro"
                 }
             }
         },
@@ -314,8 +294,7 @@
                     "duration": 1000,
                     "amplitude": 0.5,
                     "envelope": { "kind": "rectangular" },
-                    "coupler": 0,
-                    "relative_start": 0
+                    "coupler": 0
                 }
             },
             "1": {
@@ -324,8 +303,7 @@
                     "duration": 1000,
                     "amplitude": 0.5,
                     "envelope": { "kind": "rectangular" },
-                    "coupler": 1,
-                    "relative_start": 0
+                    "coupler": 1
                 }
             },
             "3": {
@@ -334,8 +312,7 @@
                     "duration": 1000,
                     "amplitude": 0.5,
                     "envelope": { "kind": "rectangular" },
-                    "coupler": 3,
-                    "relative_start": 0
+                    "coupler": 3
                 }
             },
             "4": {
@@ -344,8 +321,7 @@
                     "duration": 1000,
                     "amplitude": 0.5,
                     "envelope": { "kind": "rectangular" },
-                    "coupler": 4,
-                    "relative_start": 0
+                    "coupler": 4
                 }
             }
         },
@@ -358,8 +334,7 @@
                             "duration": 50,
                             "amplitude": 0.8,
                             "envelope": { "kind": "rectangular" },
-                            "coupler": 0,
-                            "relative_start": 0
+                            "coupler": 0
                         }
                     ],
                     "qubit_2/flux": [
@@ -368,7 +343,6 @@
                             "amplitude": 0.6025,
                             "envelope": { "kind": "rectangular" },
                             "qubit": 2,
-                            "relative_start": 0,
                             "type": "qf"
                         }
                     ],
@@ -396,8 +370,7 @@
                             "duration": 40,
                             "amplitude": 0.1,
                             "envelope": { "kind": "rectangular"},
-                            "coupler": 1,
-                            "relative_start": 0
+                            "coupler": 1
                         }
                     ],
                     "qubit_2/flux": [
@@ -406,7 +379,6 @@
                             "amplitude": 0.6025,
                             "envelope": { "kind": "rectangular" },
                             "qubit": 2,
-                            "relative_start": 0,
                             "type": "qf"
                         }
                     ],
