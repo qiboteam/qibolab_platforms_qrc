@@ -61,7 +61,7 @@ def create():
             f"qubit_{q}/acquire",
             ZurichAcquisitionChannelConfig(**channel_configs[f"qubit_{q}/acquire"]),
             "device_shfqc",
-            "[QACHANNELS/0/INPUT]",
+            "QACHANNELS/0/INPUT",
             twpa_pump,
         )
         zi_channels.append(qubits[q].acquisition)
@@ -70,7 +70,7 @@ def create():
             f"qubit_{q}/measure",
             ZurichIQChannelConfig(**channel_configs[f"qubit_{q}/measure"]),
             "device_shfqc",
-            "[QACHANNELS/0/OUTPUT]",
+            "QACHANNELS/0/OUTPUT",
         )
         zi_channels.append(qubits[q].readout)
         # drive. wire f"L4-{15+q}"
