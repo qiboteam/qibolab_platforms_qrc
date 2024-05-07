@@ -49,8 +49,9 @@ def create():
     # Flux
     for q in range(5):
         channels |= Channel(name=f"flux{q}", port=opxs[2].ports(q + 1))
-
-    # channels |= Channel(name="L99", port=modules["qcm_rf0"].ports("i1", output=False))
+    # TWPA
+    channels |= Channel(name="twpa", port=None)
+    channels["twpa"].local_oscillator = twpa
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
@@ -62,6 +63,7 @@ def create():
         qubit.feedback = channels["feedback"]
         qubit.drive = channels[f"drive{q}"]
         qubit.flux = channels[f"flux{q}"]
+        qubit.twpa = channels["twpa"]
 
     instruments = {controller.name: controller, twpa.name: twpa}
     instruments.update(controller.opxs)
