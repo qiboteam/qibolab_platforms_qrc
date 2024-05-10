@@ -14,53 +14,51 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "spinq10q"
+
+QPU_NAME = "spinq10q"
 ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
 
 
 def create():
-    """QuantWare 5q-chip controlled using qblox cluster.
+    """SpinQ 10Q controlled using qblox cluster.
 
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    runcard = load_runcard(FOLDER)
+    runcard = load_runcard(FOLDER) #Load parameters
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"), # qubits q1, q2, q3, q4, q5
-        "qrm_rf1": QcmRf("qcm_rf0", f"{ADDRESS}:20"), # qubits q6, q7, q8, q9, q10
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:20"), # qubits q1, q2, q3, q4, q5
 
-        "qcm_rf0": QcmRf("qcm_rf1", f"{ADDRESS}:8"),
-        "qcm_rf1": QcmRf("qcm_rf2", f"{ADDRESS}:10"),
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"), #q1, q2
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),
         "qcm_rf2": QcmRf("qcm_rf2", f"{ADDRESS}:12"),
-        "qcm_rf3": QcmRf("qcm_rf2", f"{ADDRESS}:14"),
-        "qcm_rf4": QcmRf("qcm_rf2", f"{ADDRESS}:16"),
 
-        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),
-        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),
-        "qcm_bb2": QcmBb("qcm_bb1", f"{ADDRESS}:6"),
+        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"), # qubits q1, q2, q3, q4
+        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"), # qubits q5, q6, q7, q8
     }
+
+    # modules["qrm_rf0"]._execution_time = 30
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
-    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")
+
+
 
     instruments = {
         controller.name: controller,
         twpa_pump0.name: twpa_pump0,
-        twpa_pump1.name: twpa_pump1,
     }
+
     instruments.update(modules)
     instruments = load_instrument_settings(runcard, instruments)
 
     channels = ChannelMap()
     # Readout
     channels |= Channel(name="L3-20", port=modules["qrm_rf0"].ports("o1"))
-    channels |= Channel(name="L3-21", port=modules["qrm_rf1"].ports("o1"))
     
     # Feedback
     channels |= Channel(name="L1-1",  port=modules["qrm_rf0"].ports("i1", out=False))
-    channels |= Channel(name="L2-17", port=modules["qrm_rf1"].ports("i1", out=False))
 
     # Drive
     channels |= Channel(name="L6-1", port=modules["qcm_rf0"].ports("o1"))
@@ -70,10 +68,11 @@ def create():
     channels |= Channel(name="L6-5", port=modules["qcm_rf2"].ports("o1"))
 
     channels |= Channel(name="L6-6", port=modules["qcm_rf2"].ports("o2"))
-    channels |= Channel(name="L6-7", port=modules["qcm_rf3"].ports("o1"))
-    channels |= Channel(name="L6-8", port=modules["qcm_rf3"].ports("o2"))
-    channels |= Channel(name="L6-9", port=modules["qcm_rf4"].ports("o1"))
-    channels |= Channel(name="L6-10", port=modules["qcm_rf4"].ports("o2"))
+    
+    # channels |= Channel(name="L6-7", port=modules["qcm_rf3"].ports("o1"))
+    # channels |= Channel(name="L6-8", port=modules["qcm_rf3"].ports("o2"))
+    # channels |= Channel(name="L6-9", port=modules["qcm_rf4"].ports("o1"))
+    # channels |= Channel(name="L6-10", port=modules["qcm_rf4"].ports("o2"))
 
     # Flux
     channels |= Channel(name="L6-39", port=modules["qcm_bb0"].ports("o1"))
@@ -83,41 +82,32 @@ def create():
     channels |= Channel(name="L6-43", port=modules["qcm_bb1"].ports("o1"))
 
     channels |= Channel(name="L6-44", port=modules["qcm_bb1"].ports("o2"))
-    channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports("o3"))
-    channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports("o4"))
-    #channels |= Channel(name="L6-47", port=modules["qcm_bb0"].ports("o3"))
-    #channels |= Channel(name="L6-48", port=modules["qcm_bb1"].ports("o4"))
-    channels |= Channel(name="L6-47", port=None)
-    channels |= Channel(name="L6-48", port=None)
+    # channels |= Channel(name="L6-45", port=modules["qcm_bb1"].ports("o3"))
+    # channels |= Channel(name="L6-46", port=modules["qcm_bb1"].ports("o4"))
+    # #channels |= Channel(name="L6-47", port=modules["qcm_bb0"].ports("o3"))
+    # #channels |= Channel(name="L6-48", port=modules["qcm_bb1"].ports("o4"))
+    # channels |= Channel(name="L6-47", port=None)
+    # channels |= Channel(name="L6-48", port=None)
 
     # TWPA
     channels |= Channel(name="L3-10", port=None)
     channels["L3-10"].local_oscillator = twpa_pump0
 
-    channels |= Channel(name="L3-23", port=None)
-    channels["L3-23"].local_oscillator = twpa_pump1
+    # channels |= Channel(name="L3-23", port=None)
+    # channels["L3-23"].local_oscillator = twpa_pump1
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
 
     for q in range(5):
         qubits[q].readout = channels["L3-20"]
-        qubits[q].feedback = channels["L2-17"]
-        qubits[q].twpa = channels["L3-23"]
-        qubits[q].drive = channels[f"L6-{q+1}"]
-        qubits[q].flux = channels[f"L6-{39+q}"]
-        channels[f"L6-{39+q}"].qubit = qubits[q]
-        qubits[q].flux.max_bias = 2.5
-
-    for q in range(5,10):
-        qubits[q].readout = channels["L3-21"]
         qubits[q].feedback = channels["L1-1"]
         qubits[q].twpa = channels["L3-10"]
         qubits[q].drive = channels[f"L6-{q+1}"]
         qubits[q].flux = channels[f"L6-{39+q}"]
         channels[f"L6-{39+q}"].qubit = qubits[q]
         qubits[q].flux.max_bias = 2.5
-
+        
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
 
