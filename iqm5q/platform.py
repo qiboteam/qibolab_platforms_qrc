@@ -89,7 +89,6 @@ def create():
     controller = Zurich(
         "EL_ZURO",
         device_setup=device_setup,
-        use_emulation=False,
         time_of_flight=75,
         smearing=50,
     )
@@ -134,16 +133,16 @@ def create():
     # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
 
     # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -15  # -15
+    channels["L3-31"].power_range = -10  # -15
     # feedback "gain": play with the power range to calibrate the best RO
     channels["L2-7"].power_range = 10
 
     # drive
     # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels["L4-15"].power_range = -10  # q0
-    channels["L4-16"].power_range = -5  # q1
-    channels["L4-17"].power_range = -10  # q2
-    channels["L4-18"].power_range = -5  # q3
+    channels["L4-15"].power_range = -5  # q0
+    channels["L4-16"].power_range = 5  # q1
+    channels["L4-17"].power_range = -5  # q2
+    channels["L4-18"].power_range = 10  # q3
     channels["L4-19"].power_range = -10  # q4
 
     # HDAWGS
@@ -152,10 +151,11 @@ def create():
 
     # flux
     for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 1
+
     # flux couplers
     for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 0.8
+        channels[f"L4-{i}"].power_range = 1
 
     # Instantiate local oscillators
     local_oscillators = [
