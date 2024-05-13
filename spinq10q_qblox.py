@@ -69,15 +69,15 @@ def create(runcard_path=RUNCARD):
     instruments = load_instrument_settings(runcard, instruments)
 
     # DEBUG: debug folder = report folder ###################################################################
-    import os
-    from datetime import datetime
+    # import os
+    # from datetime import datetime
 
-    QPU = "spinq10q"
-    debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
-    if not os.path.exists(debug_folder):
-        os.makedirs(debug_folder)
-    for name in modules:
-        modules[name]._debug_folder = debug_folder
+    # QPU = "spinq10q"
+    # debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
+    # if not os.path.exists(debug_folder):
+    #     os.makedirs(debug_folder)
+    # for name in modules:
+    #     modules[name]._debug_folder = debug_folder
     #########################################################################################################
 
     # Create channel objects
