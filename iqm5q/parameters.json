@@ -1,6 +1,6 @@
 {
     "nqubits": 5,
-    "description": "IQM 5-qubit device, controlled with Zurich Instruments.",
+    "description": "IQM 5q-chip controlled using qblox cluster 6",
     "settings": {
     "nshots": 4096,
     "relaxation_time": 300000
@@ -37,19 +37,53 @@
         ]
     },
     "instruments": {
-        "lo_readout": {
-            "frequency": 5500000000
+        "qrm_rf0": {
+            "o1": {
+                "attenuation": 36,
+                "lo_frequency": 5100000000
+            },
+            "i1": {
+                "acquisition_hold_off": 500,
+                "acquisition_duration": 2500
+            }
         },
-        "lo_drive_0": {
-            "frequency": 4200000000
+        "qrm_rf1": {
+            "o1": {
+                "attenuation": 36,
+                "lo_frequency": 5840000000
+            },
+            "i1": {
+                "acquisition_hold_off": 500,
+                "acquisition_duration": 2500
+            }
         },
-        "lo_drive_1": {
-            "frequency": 4600000000
+        "qcm_rf0": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 4452836000
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 4738318000
+            }
         },
-        "lo_drive_2": {
-            "frequency": 4800000000
+        "qcm_rf1": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 4384721000
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 4578819000
+            }
         },
-        "TWPA": {
+        "qcm_rf2": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 4303174000
+            }
+        },
+        "twpa_pump0": {
             "frequency": 6710000000,
             "power": -4
         }

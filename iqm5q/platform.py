@@ -1,15 +1,12 @@
-import itertools
 import pathlib
 
-from laboneq.dsl.device import create_connection
-from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
-from laboneq.simple import DeviceSetup
-from qibolab import Platform
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.dummy import DummyLocalOscillator
+from qibolab.instruments.qblox.cluster_qcm_bb import QcmBb
+from qibolab.instruments.qblox.cluster_qcm_rf import QcmRf
+from qibolab.instruments.qblox.cluster_qrm_rf import QrmRf
+from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.instruments.zhinst import Zurich
-from qibolab.kernels import Kernels
+from qibolab.platform import Platform
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
@@ -17,196 +14,86 @@ from qibolab.serialize import (
     load_settings,
 )
 
+NAME = "iqm5q_qblox"
+ADDRESS = "192.168.0.6"
 FOLDER = pathlib.Path(__file__).parent
-
-TWPA_ADDRESS = "192.168.0.35"
-
-N_QUBITS = 5
 
 
 def create():
-    """IQM 5q-chip controlled Zurich Instruments (Zh) SHFQC, HDAWGs and PQSC.
+    """IQM 5q-chip controlled using qblox cluster 6.
 
     Args:
         runcard_path (str): Path to the runcard file.
     """
-
-    device_setup = DeviceSetup("EL_ZURO")
-    # Dataserver
-    device_setup.add_dataserver(host="localhost", port=8004)
-    # Instruments
-    device_setup.add_instruments(
-        HDAWG("device_hdawg", address="DEV8660"),
-        HDAWG("device_hdawg2", address="DEV8673"),
-        PQSC("device_pqsc", address="DEV10055", reference_clock_source="internal"),
-        SHFQC("device_shfqc", address="DEV12146"),
-    )
-    device_setup.add_connections(
-        "device_shfqc",
-        *[
-            create_connection(
-                to_signal=f"q{i}/drive_line", ports=[f"SGCHANNELS/{i}/OUTPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(
-                to_signal=f"q{i}/measure_line", ports=["QACHANNELS/0/OUTPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(
-                to_signal=f"q{i}/acquire_line", ports=["QACHANNELS/0/INPUT"]
-            )
-            for i in range(N_QUBITS)
-        ],
-    )
-    device_setup.add_connections(
-        "device_hdawg",
-        *[
-            create_connection(to_signal=f"q{i}/flux_line", ports=f"SIGOUTS/{i}")
-            for i in range(N_QUBITS)
-        ],
-        *[
-            create_connection(to_signal=f"qc{c}/flux_line", ports=f"SIGOUTS/{i}")
-            for c, i in zip(itertools.chain(range(0, 2), range(3, 4)), range(5, 8))
-        ],
-    )
-
-    device_setup.add_connections(
-        "device_hdawg2",
-        create_connection(to_signal="qc4/flux_line", ports=["SIGOUTS/0"]),
-    )
-
-    device_setup.add_connections(
-        "device_pqsc",
-        create_connection(to_instrument="device_hdawg2", ports="ZSYNCS/1"),
-        create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
-        create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
-    )
-
-    controller = Zurich(
-        "EL_ZURO",
-        device_setup=device_setup,
-        time_of_flight=75,
-        smearing=50,
-    )
-
-    # Create channel objects and map controllers
-    channels = ChannelMap()
-    # feedback
-    channels |= Channel(
-        "L2-7", port=controller.ports(("device_shfqc", "[QACHANNELS/0/INPUT]"))
-    )
-    # readout
-    channels |= Channel(
-        "L3-31", port=controller.ports(("device_shfqc", "[QACHANNELS/0/OUTPUT]"))
-    )
-    # drive
-    channels |= (
-        Channel(
-            f"L4-{i}",
-            port=controller.ports(("device_shfqc", f"SGCHANNELS/{i-5}/OUTPUT")),
-        )
-        for i in range(15, 20)
-    )
-    # flux qubits (CAREFUL WITH THIS !!!)
-    channels |= (
-        Channel(f"L4-{i}", port=controller.ports(("device_hdawg", f"SIGOUTS/{i-6}")))
-        for i in range(6, 11)
-    )
-    # flux couplers
-    channels |= (
-        Channel(f"L4-{i}", port=controller.ports(("device_hdawg", f"SIGOUTS/{i-11+5}")))
-        for i in range(11, 14)
-    )
-    channels |= Channel("L4-14", port=controller.ports(("device_hdawg2", "SIGOUTS/0")))
-    # TWPA pump(EraSynth)
-    channels |= Channel("L3-32")
-
-    # SHFQC
-    # Sets the maximal Range of the Signal Output power.
-    # The instrument selects the closest available Range [-50. -30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    # with a resolution of 5 dBm.
-
-    # WE DON'T WANT BIG NUMBERS HERE AT THE EXPENSE OF AMPLITUDES IN THE ORDER 10-2 !!!
-
-    # readout "gain": Set to max power range (10 Dbm) if no distorsion
-    channels["L3-31"].power_range = -10  # -15
-    # feedback "gain": play with the power range to calibrate the best RO
-    channels["L2-7"].power_range = 10
-
-    # drive
-    # The instrument selects the closest available Range [-30. -25. -20. -15. -10.  -5.   0.   5.  10.]
-    channels["L4-15"].power_range = -5  # q0
-    channels["L4-16"].power_range = 5  # q1
-    channels["L4-17"].power_range = -5  # q2
-    channels["L4-18"].power_range = 10  # q3
-    channels["L4-19"].power_range = -10  # q4
-
-    # HDAWGS
-    # Sets the output voltage range.
-    # The instrument selects the next higher available Range with a resolution of 0.4 Volts.
-
-    # flux
-    for i in range(6, 11):
-        channels[f"L4-{i}"].power_range = 1
-
-    # flux couplers
-    for i in range(11, 15):
-        channels[f"L4-{i}"].power_range = 1
-
-    # Instantiate local oscillators
-    local_oscillators = [
-        DummyLocalOscillator(f"lo_{kind}", None)
-        for kind in ["readout"] + [f"drive_{n}" for n in range(3)]
-    ]
-
-    local_oscillators.append(SGS100A("TWPA", TWPA_ADDRESS))
-
-    # Map LOs to channels
-    ch_to_lo = {
-        "L3-31": 0,
-        "L4-15": 1,
-        "L4-16": 1,
-        "L4-17": 2,
-        "L4-18": 2,
-        "L4-19": 3,
-        "L3-32": 4,
+    runcard = load_runcard(FOLDER)
+    modules = {
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:19"),  # q0 & q1
+        "qrm_rf1": QrmRf("qrm_rf0", f"{ADDRESS}:20"),  # q2, q3, q4
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # q1, q2
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),  # q3, q4
+        "qcm_rf2": QcmRf("qcm_rf2", f"{ADDRESS}:12"),  # q0
+        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),  # q0, q1, q2, q3
+        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),  # q4, c0, c1, c3
+        "qcm_bb2": QcmBb("qcm_bb1", f"{ADDRESS}:6"),  # c4
     }
-    for ch, lo in ch_to_lo.items():
-        channels[ch].local_oscillator = local_oscillators[lo]
+
+    controller = QbloxController("qblox_controller", ADDRESS, modules)
+    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
+
+    instruments = {
+        controller.name: controller,
+        twpa_pump0.name: twpa_pump0,
+    }
+    instruments.update(modules)
+    channels = ChannelMap()
+    # Readout
+    channels |= Channel(name="L3-31a", port=modules["qrm_rf0"].ports("o1"))
+    channels |= Channel(name="L3-31b", port=modules["qrm_rf1"].ports("o1"))
+    # Feedback
+    channels |= Channel(name="L2-7a", port=modules["qrm_rf0"].ports("i1", out=False))
+    channels |= Channel(name="L2-7b", port=modules["qrm_rf1"].ports("i1", out=False))
+    # Drive
+    channels |= Channel(name="L4-16", port=modules["qcm_rf0"].ports("o1"))
+    channels |= Channel(name="L4-17", port=modules["qcm_rf0"].ports("o2"))
+    channels |= Channel(name="L4-18", port=modules["qcm_rf1"].ports("o1"))
+    channels |= Channel(name="L4-19", port=modules["qcm_rf1"].ports("o2"))
+    channels |= Channel(name="L4-15", port=modules["qcm_rf2"].ports("o1"))
+    # Flux - Qubits
+    channels |= Channel(name="L4-6", port=modules["qcm_bb0"].ports("o1"))
+    channels |= Channel(name="L4-7", port=modules["qcm_bb0"].ports("o2"))
+    channels |= Channel(name="L4-8", port=modules["qcm_bb0"].ports("o3"))
+    channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports("o4"))
+    channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports("o1"))
+    # Flux - Couplers
+    channels |= Channel(name="L4-11", port=modules["qcm_bb1"].ports("o2"))
+    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o3"))
+    channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports("o4"))
+    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports("o2"))
+    # TWPA
+    channels |= Channel(name="L3-32", port=None)
+    channels["L3-32"].local_oscillator = twpa_pump0
 
     # create qubit objects
-    runcard = load_runcard(FOLDER)
-    kernels = Kernels.load(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard, kernels)
-    settings = load_settings(runcard)
+    qubits, couplers, pairs = load_qubits(runcard)
 
     # assign channels to qubits and sweetspots(operating points)
-    for q in range(0, 5):
-        qubits[q].readout = channels["L3-31"]
-        qubits[q].feedback = channels["L2-7"]
+    for q in range(0, 2):  # q0, q1
+        qubits[q].readout = channels["L3-31a"]
+        qubits[q].feedback = channels["L2-7a"]
+    for q in range(2, 5):  # q2, q3, q4
+        qubits[q].readout = channels["L3-31b"]
+        qubits[q].feedback = channels["L2-7b"]
 
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
         qubits[q].twpa = channels["L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
+        qubits[q].flux.max_bias = 2.5
 
-    # assign channels to couplers and sweetspots(operating points)
-    for c, coupler in enumerate(couplers.values()):
-        coupler.flux = channels[f"L4-{11 + c}"]
-    instruments = {controller.name: controller}
-    instruments.update({lo.name: lo for lo in local_oscillators})
+    settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
+
     return Platform(
-        str(FOLDER),
-        qubits,
-        pairs,
-        instruments,
-        settings,
-        resonator_type="2D",
-        couplers=couplers,
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D"
     )
