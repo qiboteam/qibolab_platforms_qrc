@@ -11,14 +11,14 @@ topology:
 instruments:
   qrm_rf0: # q0, q1
     o1:
-      attenuation: 36
+      attenuation: 4 # 36
       lo_frequency: 5100000000
     i1:
       acquisition_hold_off: 500
       acquisition_duration: 2500
   qrm_rf1: # q2, q3, q4
     o1:
-      attenuation: 36
+      attenuation: 4 # 36
       lo_frequency: 5840000000
     i1:
       acquisition_hold_off: 500
@@ -45,6 +45,34 @@ instruments:
     o2:
       attenuation: 60
       lo_frequency: 10000000000
+
+  qcm_bb0:
+    o1:
+        offset: 0.0
+    o2:
+        offset: 0.0
+    o3:
+        offset: 0.0
+    o4:
+        offset: 0.0
+  qcm_bb1:
+    o1:
+        offset: 0.0
+    o2:
+        offset: 0.0
+    o3:
+        offset: 0.0
+    o4:
+        offset: 0.0
+  qcm_bb2:
+    o1:
+        offset: 0.0
+    o2:
+        offset: 0.0
+    o3:
+        offset: 0.0
+    o4:
+        offset: 0.0
 
   twpa_pump0:
     frequency: 6710000000

@@ -47,13 +47,11 @@ def create(runcard_path=RUNCARD):
         "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),  # c4
     }
     controller = QbloxController("qblox_controller", cluster, modules)
-    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
-    twpa_pump1 = SGS100A(name="twpa_pump1", address="192.168.0.39")
+    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
 
     instruments = {
         controller.name: controller,
         twpa_pump0.name: twpa_pump0,
-        twpa_pump1.name: twpa_pump1,
     }
     instruments.update(modules)
     instruments = load_instrument_settings(runcard, instruments)
@@ -73,28 +71,28 @@ def create(runcard_path=RUNCARD):
     # Create channel objects
     channels = ChannelMap()
     # Readout
-    channels |= Channel(name="L3-31a", port=modules["qrm_rf0"].ports("o1"))
-    channels |= Channel(name="L3-31b", port=modules["qrm_rf1"].ports("o1"))
+    channels |= Channel(name="L3-31a", port=modules["qrm_rf0"].ports["o1"])
+    channels |= Channel(name="L3-31b", port=modules["qrm_rf1"].ports["o1"])
     # Feedback
-    channels |= Channel(name="L2-7a", port=modules["qrm_rf0"].ports("i1", out=False))
-    channels |= Channel(name="L2-7b", port=modules["qrm_rf1"].ports("i1", out=False))
+    channels |= Channel(name="L2-7a", port=modules["qrm_rf0"].ports["i1"])
+    channels |= Channel(name="L2-7b", port=modules["qrm_rf1"].ports["i1"])
     # Drive
-    channels |= Channel(name="L4-16", port=modules["qcm_rf0"].ports("o1"))
-    channels |= Channel(name="L4-17", port=modules["qcm_rf0"].ports("o2"))
-    channels |= Channel(name="L4-18", port=modules["qcm_rf1"].ports("o1"))
-    channels |= Channel(name="L4-19", port=modules["qcm_rf1"].ports("o2"))
-    channels |= Channel(name="L4-15", port=modules["qcm_rf2"].ports("o1"))
+    channels |= Channel(name="L4-16", port=modules["qcm_rf0"].ports["o1"])
+    channels |= Channel(name="L4-17", port=modules["qcm_rf0"].ports["o2"])
+    channels |= Channel(name="L4-18", port=modules["qcm_rf1"].ports["o1"])
+    channels |= Channel(name="L4-19", port=modules["qcm_rf1"].ports["o2"])
+    channels |= Channel(name="L4-15", port=modules["qcm_rf2"].ports["o1"])
     # Flux - Qubits
-    channels |= Channel(name="L4-6", port=modules["qcm_bb0"].ports("o1"))
-    channels |= Channel(name="L4-7", port=modules["qcm_bb0"].ports("o2"))
-    channels |= Channel(name="L4-8", port=modules["qcm_bb0"].ports("o3"))
-    channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports("o4"))
-    channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports("o1"))
+    channels |= Channel(name="L4-6", port=modules["qcm_bb0"].ports["o1"])
+    channels |= Channel(name="L4-7", port=modules["qcm_bb0"].ports["o2"])
+    channels |= Channel(name="L4-8", port=modules["qcm_bb0"].ports["o3"])
+    channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports["o4"])
+    channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports["o1"])
     # Flux - Couplers
-    channels |= Channel(name="L4-11", port=modules["qcm_bb1"].ports("o2"))
-    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o3"))
-    channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports("o4"))
-    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports("o2"))
+    channels |= Channel(name="L4-11", port=modules["qcm_bb1"].ports["o2"])
+    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports["o3"])
+    channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports["o4"])
+    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o2"])
     # TWPA
     channels |= Channel(name="L3-32", port=None)
     channels["L3-32"].local_oscillator = twpa_pump0
