@@ -9,7 +9,6 @@ from qibolab.channels import Channel, ChannelMap
 from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
-from qibolab.kernels import Kernels
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
