@@ -1,4 +1,3 @@
-
 import pathlib
 
 from laboneq.dsl.device import create_connection
@@ -7,11 +6,11 @@ from laboneq.simple import DeviceSetup
 from qibolab import Platform
 from qibolab.instruments.zhinst import (
     ZiAcquisitionChannel,
-    ZiChannel,
-    Zurich,
     ZiAcquisitionConfig,
+    ZiChannel,
     ZiDcConfig,
     ZiIqConfig,
+    Zurich,
 )
 from qibolab.serialize import (
     load_channel_configs,
@@ -44,7 +43,6 @@ def create():
         create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
         create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
     )
-
 
     runcard = load_runcard(FOLDER)
     qubits, _, pairs = load_qubits(runcard)
@@ -86,7 +84,6 @@ def create():
     )
     channels.append(qubits[q].flux)
 
-
     controller = Zurich(
         "EL_ZURO",
         device_setup=device_setup,
@@ -104,5 +101,5 @@ def create():
         instruments,
         settings,
         resonator_type="3D",
-        couplers={}
+        couplers={},
     )
