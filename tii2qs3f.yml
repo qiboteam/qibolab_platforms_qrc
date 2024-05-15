@@ -6,49 +6,29 @@ settings:
 qubits: [1, 2]
 topology:
 - [1, 2]
-instruments:
-  qrm_rf0:
-    o1:
-      attenuation: 28
-      lo_frequency: 7427380000
-    i1:
-      acquisition_hold_off: 500
-      acquisition_duration: 1800
-  qcm_rf0:
-    o1:
-      attenuation: 0
-      lo_frequency: 4978000000
-    o2:
-      attenuation: 0
-      lo_frequency: 5205000000
-  qcm_bb0:
-      o1:
-          offset: 0.0 # q1
-      o2:
-          offset: 0.0 # q2
-      o3:
-          offset: 0.0 #
-      o4:
-          offset: 0.0 #
+instruments: {}
+
 
 native_gates:
     single_qubit:
         1:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency:  4778000000,
+            RX: {duration: 200, amplitude: 0.5, shape: Gaussian(5), frequency:  5101000000,
                 relative_start: 0, phase: 0, type: qd}
             RX12: {duration: 200, amplitude: 0.043, shape: Gaussian(5), frequency: 4037838000,
                 relative_start: 0, phase: 0, type: qd}
 
-            MZ: {duration: 2000, amplitude: 0.01, shape: Rectangular(), frequency:  7333276000,    # state |0>
+            MZ: {duration: 2000, amplitude: 0.125, shape: Rectangular(), frequency:  7332496000,    # state |0>
                 relative_start: 0, phase: 0, type: ro}
         2:
-            RX: {duration: 40, amplitude: 0.5, shape: Gaussian(5), frequency: 5005000000,
+            RX: {duration: 200, amplitude: 0.5, shape: Gaussian(5), frequency: 6101000000,
                 relative_start: 0, phase: 0, type: qd}
             RX12: {duration: 200, amplitude: 0.067, shape: Gaussian(5), frequency: 4671958000,
                 relative_start: 0, phase: 0, type: qd}
 
-            MZ: {duration: 2000, amplitude: 0.01, shape: Rectangular(), frequency: 7333276000,     # state |0>
+            MZ: {duration: 2000, amplitude: 0.125, shape: Rectangular(), frequency: 7332496000,     # state |0>
                 relative_start: 0, phase: 0, type: ro}
+            # MZ: {duration: 2000, amplitude: 1, shape: Rectangular(), frequency: 7332496000,     # state |0>
+            #     relative_start: 0, phase: 0, type: ro}
     two_qubit:
         1-2:
             CZ:
@@ -59,9 +39,9 @@ native_gates:
 characterization:
   single_qubit:
     1:
-      bare_resonator_frequency: 7314129228
-      readout_frequency: 7333276000
-      drive_frequency: 4778000000
+      bare_resonator_frequency: 7332000000
+      readout_frequency: 7332496000
+      drive_frequency: 5101000000
       anharmonicity: 0
       sweetspot: 0
       asymmetry: 0
@@ -87,11 +67,11 @@ characterization:
       mixer_readout_g: 0
       mixer_readout_phi: 0
     2:
-      bare_resonator_frequency: 7314129228
-      readout_frequency: 7333276000
-      drive_frequency: 5005000000
+      bare_resonator_frequency: 7332000000
+      readout_frequency: 7332496000
+      drive_frequency: 5101000000
       anharmonicity: 0
-      sweetspot: 0.13
+      sweetspot: 0 # -0.11
       asymmetry: 0
       Ec: 0
       Ej: 0
