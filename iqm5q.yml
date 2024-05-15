@@ -9,7 +9,7 @@ topology:
     4: [2, 4]
 
 instruments:
-  twpa_pump0: {power: -4, frequency: 6710000000}
+  twpa_pump0: {power: -3.5, frequency: 671000000}
   qrm_rf0: # q0, q1
     o1: {attenuation: 28, lo_frequency: 5100000000}
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
@@ -46,17 +46,17 @@ native_gates:
     0:
       RX: {duration: 40, amplitude: 0.345, frequency: 4103174000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.200, frequency: 5234050000,
+      MZ: {duration: 2000, amplitude: 0.26, frequency: 5228950000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     1:
-      RX: {duration: 40, amplitude: 0.315, frequency: 4257836000,
+      RX: {duration: 40, amplitude: 0.315, frequency: 4252836000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.226, frequency: 4934692000,
+      MZ: {duration: 2000, amplitude: 0.9, frequency: 4933092000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     2:
       RX: {duration: 40, amplitude: 0.325, frequency: 4537518000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.200, frequency: 6104600000,
+      MZ: {duration: 2000, amplitude: 0.28, frequency: 6108000000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     3:
       RX: {duration: 40, amplitude: 0.600, frequency: 4164721000,
@@ -66,7 +66,7 @@ native_gates:
     4:
       RX: {duration: 40, amplitude: 0.353, frequency: 4358219000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.200, frequency: 5529400000,
+      MZ: {duration: 2000, amplitude: 0.39, frequency: 5529400000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
   coupler:
     0:
@@ -192,54 +192,46 @@ characterization:
       Ec: 0
       g: 0
       asymmetry: 0
-      assignment_fidelity: 0.8235254781329411
-      readout_fidelity: 0.647050956265882
+      assignment_fidelity: 0.8588337568543534
+      readout_fidelity: 0.7176675137087067
       sweetspot: -0.038
       peak_voltage: 0
-      pi_pulse_amplitude: 0.343
-      T1: 19000
+      pi_pulse_amplitude: 0.345
+      T1: 16783
       T2: 10000
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states:
-      - 0.008990299081327669
-      - -0.13795440297100842
-      mean_exc_states:
-      - -0.013563900756884918
-      - -0.6799738475896464
-      threshold: 0.4291967610471135
-      iq_angle: 1.6123837568374026
+      mean_gnd_states: [0.00040052861178495693, -0.0005980396999113156]
+      mean_exc_states: [0.0002779781723061623, -0.0011502144436555456]
+      threshold: 0.0008086055280582881
+      iq_angle: 1.789197656273191
       mixer_drive_g: 0
       mixer_drive_phi: 0
       mixer_readout_g: 0
       mixer_readout_phi: 0
     1:
       bare_resonator_frequency: 4927992000
-      readout_frequency: 4934692000
-      drive_frequency: 4257836000
+      readout_frequency: 4933092000
+      drive_frequency: 4252836000
       anharmonicity: 0
       Ec: 0
       g: 0
       asymmetry: 0
-      assignment_fidelity: 0.9436939949177479
-      readout_fidelity: 0.8873879898354956
+      assignment_fidelity: 0.9115286879764612
+      readout_fidelity: 0.8230573759529224
       sweetspot: -0.006
       peak_voltage: 0
-      pi_pulse_amplitude: 0.31
+      pi_pulse_amplitude: 0.315
       T1: 11100
       T2: 1488
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states:
-      - 0.3086286922524001
-      - 0.3501121786999083
-      mean_exc_states:
-      - 1.2805441216673568
-      - 0.609922008846668
-      threshold: 0.8551625645029178
-      iq_angle: -0.26120975191722795
+      mean_gnd_states: [-0.0005038166168287308, 0.0006576136324748031]
+      mean_exc_states: [-0.0007978584317097083, 0.0020114395300122124]
+      threshold: 0.0012293656806961692
+      iq_angle: -1.7846678633202842
       mixer_drive_g: 0
       mixer_drive_phi: 0
       mixer_readout_g: 0
@@ -252,22 +244,18 @@ characterization:
       Ec: 0
       g: 0
       asymmetry: 0
-      assignment_fidelity: 0.8756185635950248
-      readout_fidelity: 0.7512371271900495
+      assignment_fidelity: 0.8788284071151531
+      readout_fidelity: 0.7576568142303063
       sweetspot: -0.027
       T1: 10089
       T2: 972
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states:
-      - -0.7586969973442823
-      - 0.5051551402524129
-      mean_exc_states:
-      - -0.31880069533071576
-      - 1.1772893361182941
-      threshold: 0.4235257714240157
-      iq_angle: -0.9912803389513075
+      mean_gnd_states: [-0.0005011047768117854, 0.0006328617902006581]
+      mean_exc_states: [2.281586672014661e-05, 0.0009195403797831352]
+      threshold: 0.00017876885898245094
+      iq_angle: -0.5006751133049074
       mixer_drive_g: 0
       mixer_drive_phi: 0
       mixer_readout_g: 0
@@ -280,22 +268,18 @@ characterization:
       Ec: 0
       g: 0
       asymmetry: 0
-      assignment_fidelity: 0.883977531095359
-      readout_fidelity: 0.7679550621907183
-      sweetspot: -0.01
+      assignment_fidelity: 0.8707369265748295
+      readout_fidelity: 0.741473853149659
+      sweetspot: 0.0 #-0.01
       T1: 29900
       T2: 160
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states:
-      - 1.4002000069575335
-      - -0.39723082005461263
-      mean_exc_states:
-      - 1.349140858399147
-      - -1.4593310552154481
-      threshold: 0.856009455710305
-      iq_angle: 1.618833100813461
+      mean_gnd_states: [-0.0013542195466227228, -2.152635191827621e-05]
+      mean_exc_states: [-0.001491705571732468, 0.0008280536978438798]
+      threshold: 0.0006970322994059178
+      iq_angle: -1.7312336622271007
       mixer_drive_g: 0
       mixer_drive_phi: 0
       mixer_readout_g: 0
@@ -308,22 +292,18 @@ characterization:
       Ec: 0
       g: 0
       asymmetry: 0
-      assignment_fidelity: 0.8692657482947707
-      readout_fidelity: 0.7385314965895413
+      assignment_fidelity: 0.8946101377557845
+      readout_fidelity: 0.7892202755115688
       T1: 5800
       T2: 366
       sweetspot: -0.010
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states:
-      - 0.3195583600644675
-      - 0.13156357302438035
-      mean_exc_states:
-      - 1.1885306750008457
-      - -0.081465797952825
-      threshold: 0.7694321123882739
-      iq_angle: 0.24040965105904746
+      mean_gnd_states: [-0.0007434470067724555, -0.0004455560966236685]
+      mean_exc_states: [-0.0010108252769819661, 0.0002887285869142163]
+      threshold: 0.00025224745313677635
+      iq_angle: -1.9200070804805964
       mixer_drive_g: 0
       mixer_drive_phi: 0
       mixer_readout_g: 0
