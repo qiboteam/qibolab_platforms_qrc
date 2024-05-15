@@ -1,4 +1,3 @@
-
 import pathlib
 
 from laboneq.dsl.device import create_connection
@@ -59,7 +58,6 @@ def create():
         create_connection(to_signal="q1/flux_line", ports=f"SIGOUTS/0"),
     )
 
-
     device_setup.add_connections(
         "device_pqsc",
         create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
@@ -108,10 +106,9 @@ def create():
 
     # Instantiate local oscillators
     local_oscillators = [
-        DummyLocalOscillator("lo_readout", None), 
-        DummyLocalOscillator("lo_drive", None)
-        ]
-
+        DummyLocalOscillator("lo_readout", None),
+        DummyLocalOscillator("lo_drive", None),
+    ]
 
     # Map LOs to channels
     ch_to_lo = {
@@ -134,7 +131,6 @@ def create():
         qubits[i].drive = channels[f"L3-{3 + i}"]
     qubits[1].flux = channels["L1-5"]
     channels["L1-5"].qubit = qubits[1]
-
 
     instruments = {controller.name: controller}
     instruments.update({lo.name: lo for lo in local_oscillators})
