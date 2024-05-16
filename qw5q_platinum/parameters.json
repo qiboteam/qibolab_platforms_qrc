@@ -112,7 +112,7 @@
                     "duration": 40,
                     "amplitude": 0.31777294944115,
                     "shape": "Drag(5, 0.5)",
-                    "frequency": 4768963028,
+                    "frequency": 4768981761,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -150,7 +150,6 @@
                     "duration": 40,
                     "amplitude": 0.5,
                     "shape": "Drag(5, 0.000)",
-                    "frequency": null,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -170,7 +169,7 @@
                     "duration": 40,
                     "amplitude": 0.450206988783801,
                     "shape": "Drag(5, -0.5)",
-                    "frequency": 5516524888,
+                    "frequency": 5516504106,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -208,7 +207,6 @@
                     "duration": 40,
                     "amplitude": 0.226,
                     "shape": "Drag(5, 0.000)",
-                    "frequency": null,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -305,11 +303,13 @@
             "0": {
                 "bare_resonator_frequency": 7203315020,
                 "readout_frequency": 7208379936,
-                "drive_frequency": 4768963028,
+                "drive_frequency": 4768981761,
                 "anharmonicity": -286373266,
-                "sweetspot": 0.288,
+                "sweetspot": 0.2874671605016401,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 0.0001249781229855927
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 107000000,
@@ -379,11 +379,13 @@
             "2": {
                 "bare_resonator_frequency": 7488602714,
                 "readout_frequency": 7495403662,
-                "drive_frequency": 5516524888,
+                "drive_frequency": 5516504106,
                 "anharmonicity": -310651789,
-                "sweetspot": 0.268,
+                "sweetspot": 0.26774682639475283,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "2": 0.0001267615778423949
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 83600000,
