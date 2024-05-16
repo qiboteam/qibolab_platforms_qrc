@@ -130,7 +130,7 @@
                     "duration": 2000,
                     "amplitude": 0.03,
                     "shape": "Rectangular()",
-                    "frequency": 7208379936,
+                    "frequency": 7208304207,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -150,6 +150,7 @@
                     "duration": 40,
                     "amplitude": 0.5,
                     "shape": "Drag(5, 0.000)",
+                    "frequency": 0,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -187,7 +188,7 @@
                     "duration": 2000,
                     "amplitude": 0.01,
                     "shape": "Rectangular()",
-                    "frequency": 7495403662,
+                    "frequency": 7495403671,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -207,6 +208,7 @@
                     "duration": 40,
                     "amplitude": 0.226,
                     "shape": "Drag(5, 0.000)",
+                    "frequency": 0,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -301,8 +303,8 @@
     "characterization": {
         "single_qubit": {
             "0": {
-                "bare_resonator_frequency": 7203315020,
-                "readout_frequency": 7208379936,
+                "bare_resonator_frequency": 7205778630,
+                "readout_frequency": 7208304207,
                 "drive_frequency": 4768981761,
                 "anharmonicity": -286373266,
                 "sweetspot": 0.2874671605016401,
@@ -312,7 +314,7 @@
                 },
                 "Ec": 270000000,
                 "Ej": 0.0,
-                "g": 107000000,
+                "g": 0.07844946274034684,
                 "assignment_fidelity": 0.9537602976348658,
                 "readout_fidelity": 0.9075205952697316,
                 "effective_temperature": 0.0,
@@ -377,8 +379,8 @@
                 "mixer_readout_phi": 0.0
             },
             "2": {
-                "bare_resonator_frequency": 7488602714,
-                "readout_frequency": 7495403662,
+                "bare_resonator_frequency": 7492916758,
+                "readout_frequency": 7495403671,
                 "drive_frequency": 5516504106,
                 "anharmonicity": -310651789,
                 "sweetspot": 0.26774682639475283,
@@ -388,7 +390,7 @@
                 },
                 "Ec": 270000000,
                 "Ej": 0.0,
-                "g": 83600000,
+                "g": 0.07010824150725814,
                 "assignment_fidelity": 0.9735856626989434,
                 "readout_fidelity": 0.9471713253978868,
                 "effective_temperature": 0.0,
