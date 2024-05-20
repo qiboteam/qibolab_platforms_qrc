@@ -18,7 +18,8 @@ instruments:
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
   qcm_rf0: # q1, q2
     o1: {attenuation: 10, lo_frequency: 4452836000}
-    o2: {attenuation: 26, lo_frequency: 4738318000}
+    # o2: {attenuation: 26, lo_frequency: 4338318000}  # q2->q0
+    o2: {attenuation: 26, lo_frequency: 4738318000}  # normal
   qcm_rf1: # q3, q4
     o1: {attenuation: 0, lo_frequency: 4384721000}
     o2: {attenuation: 26, lo_frequency: 4578819000}
@@ -54,9 +55,10 @@ native_gates:
       MZ: {duration: 2000, amplitude: 0.5, frequency: 4926692000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     2:
-      RX: {duration: 40, amplitude: 0.3201, frequency: 4537685653, # 4537518000,
+      # RX: {duration: 40, amplitude: 0.3201, frequency: 4250000000, # q2->q0
+      RX: {duration: 40, amplitude: 0.3201, frequency: 4537685653, # normal
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.21, frequency: 6105400000,
+      MZ: {duration: 2000, amplitude: 0.21, frequency: 6105400000, # highest fidelity
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     3:
       RX: {duration: 40, amplitude: 0.3761, frequency: 4156921000,
@@ -103,85 +105,176 @@ native_gates:
         relative_start: 0
   two_qubit:
     0-2:
+      iSWAP:
+        - duration: 100
+          amplitude: 0.248
+          shape: Custom([ 1 , 0.76, 0.71, 0.66, 0.65, 0.67, 0.66, 0.63, 0.64, 0.63,
+                        0.63, 0.63, 0.63, 0.63, 0.63, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61])
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: coupler
+          duration: 100
+          amplitude: 0.01
+          shape: Rectangular()
+          coupler: 0
+          relative_start: 0
       CZ:
-      - duration: 100
-        amplitude: -0.88
-        shape: Rectangular()
-        qubit: 2
-        relative_start: 0
-        type: qf
-      - type: virtual_z
-        phase: -1
-        qubit: 0
-      - type: virtual_z
-        phase: -3
-        qubit: 2
-      - type: coupler
-        duration: 100
-        amplitude: 0.2
-        shape: Rectangular()
-        coupler: 0
-        relative_start: 0
+        - duration: 100
+          amplitude: -0.88
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: virtual_z
+          phase: -1
+          qubit: 0
+        - type: virtual_z
+          phase: -3
+          qubit: 2
+        - type: coupler
+          duration: 100
+          amplitude: 0.2
+          shape: Rectangular()
+          coupler: 0
+          relative_start: 0
     1-2:
+      iSWAP:
+        - duration: 100
+          amplitude: 0.198
+          shape: Custom([ 1 , 0.76, 0.71, 0.66, 0.65, 0.67, 0.66, 0.63, 0.64, 0.63,
+                        0.63, 0.63, 0.63, 0.63, 0.63, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61])
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: coupler
+          duration: 100
+          amplitude: 0.01
+          shape: Custom([ 1 , 0.76, 0.71, 0.66, 0.65, 0.67, 0.66, 0.63, 0.64, 0.63,
+                        0.63, 0.63, 0.63, 0.63, 0.63, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62, 0.62,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61,
+                        0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61, 0.61])
+          coupler: 1
+          relative_start: 0
       CZ:
-      - duration: 100
-        amplitude: -0.73
-        shape: Rectangular()
-        qubit: 2
-        relative_start: 0
-        type: qf
-      - type: virtual_z
-        phase: -1
-        qubit: 1
-      - type: virtual_z
-        phase: -3
-        qubit: 2
-      - type: coupler
-        duration: 100
-        amplitude: 0.26
-        shape: Rectangular()
-        coupler: 1
-        relative_start: 0
+        - duration: 100
+          amplitude: -0.73
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: virtual_z
+          phase: -1
+          qubit: 1
+        - type: virtual_z
+          phase: -3
+          qubit: 2
+        - type: coupler
+          duration: 100
+          amplitude: 0.26
+          shape: Rectangular()
+          coupler: 1
+          relative_start: 0
     2-3:
+      iSWAP:
+        - duration: 100
+          amplitude: 0.235
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: coupler
+          duration: 100
+          amplitude: 0.01
+          shape: Rectangular()
+          coupler: 3
+          relative_start: 0
       CZ:
-      - duration: 100
-        amplitude: -0.82
-        shape: Rectangular()
-        qubit: 2
-        relative_start: 0
-        type: qf
-      - type: virtual_z
-        phase: -1
-        qubit: 1
-      - type: virtual_z
-        phase: -3
-        qubit: 2
-      - type: coupler
-        duration: 100
-        amplitude: 0.4
-        shape: Rectangular()
-        coupler: 1
-        relative_start: 0
+        - duration: 100
+          amplitude: -0.82
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: virtual_z
+          phase: -1
+          qubit: 1
+        - type: virtual_z
+          phase: -3
+          qubit: 2
+        - type: coupler
+          duration: 100
+          amplitude: 0.4
+          shape: Rectangular()
+          coupler: 1
+          relative_start: 0
     2-4:
+      iSWAP:
+        - duration: 100
+          amplitude: 0.1543
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: coupler
+          duration: 100
+          amplitude: 0.01
+          shape: Rectangular()
+          coupler: 4
+          relative_start: 0
       CZ:
-      - duration: 100
-        amplitude: -0.586
-        shape: Rectangular()
-        qubit: 2
-        relative_start: 0
-        type: qf
-      - type: virtual_z
-        phase: -1
-        qubit: 1
-      - type: virtual_z
-        phase: -3
-        qubit: 2
-      - type: coupler
-        duration: 100
-        amplitude: 0.2
-        shape: Rectangular()
-        coupler: 1
-        relative_start: 0
+        - duration: 100
+          amplitude: -0.586
+          shape: Rectangular()
+          qubit: 2
+          relative_start: 0
+          type: qf
+        - type: virtual_z
+          phase: -1
+          qubit: 1
+        - type: virtual_z
+          phase: -3
+          qubit: 2
+        - type: coupler
+          duration: 100
+          amplitude: 0.2
+          shape: Rectangular()
+          coupler: 1
+          relative_start: 0
 characterization:
   single_qubit:
     0:
@@ -252,7 +345,9 @@ characterization:
       bare_resonator_frequency: 6078000000
       readout_frequency: 6105400000
       drive_frequency: 4537685653
-      anharmonicity: 211604296
+      # anharmonicity: 600_000_000 # q2->q0
+      anharmonicity: 50_000_000
+      # sweetspot: 0.385 # q2->q0
       sweetspot: -0.027
       flux_to_bias: 0.0
       asymmetry: 0
@@ -346,10 +441,10 @@ characterization:
       mixer_readout_phi: 0
   coupler:
     0:
-      sweetspot: 0.03
+      sweetspot: 0
     1:
-      sweetspot: 0.03
+      sweetspot: 0
     3:
-      sweetspot: 0.03
+      sweetspot: 0
     4:
-      sweetspot: 0.03
+      sweetspot: 0
