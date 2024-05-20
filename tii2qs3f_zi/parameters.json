@@ -24,7 +24,7 @@
                 "power": null
             },
             "mixer_config": null,
-            "power_range": -10
+            "power_range": 5
         },
         "qubit_1/drive": {
             "frequency": 5705000000,
@@ -33,20 +33,20 @@
                 "power": null
             },
             "mixer_config": null,
-            "power_range": -5
+            "power_range": 5
         },
         "qubit_1/flux": {
             "offset": 0.09,
             "power_range": 0.8
         },
         "qubit_0/measure": {
-            "frequency": 7323590000,
+            "frequency": 7320000000,
             "lo_config": {
                 "frequency": 7300000000,
                 "power": null
             },
             "mixer_config": null,
-            "power_range": -15
+            "power_range": 1
         },
         "qubit_1/measure": {
             "frequency": 7322300000,
@@ -55,22 +55,16 @@
                 "power": null
             },
             "mixer_config": null,
-            "power_range": -15
+            "power_range": -5
         },
         "qubit_0/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
+            "twpa_pump_config": null,
             "power_range": 10
         },
         "qubit_1/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
+            "twpa_pump_config": null,
             "power_range": 10
         }
     },
@@ -86,8 +80,8 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.2,
-                    "frequency": 7323590000,
+                    "amplitude": 0.1,
+                    "frequency": 7320000000,
                     "envelope": { "kind": "rectangular" },
                     "type": "ro"
                 }
@@ -111,13 +105,10 @@
         },
         "two_qubit": { }
     },
-
     "characterization": {
         "single_qubit": {
             "0": {
                 "bare_resonator_frequency": 7314400000,
-                "readout_frequency": 7338070000,
-                "drive_frequency": 4810000000,
                 "anharmonicity": 0,
                 "asymmetry": 0,
                 "Ec": 0,
@@ -140,8 +131,6 @@
             },
             "1": {
                 "bare_resonator_frequency": 7314400000,
-                "readout_frequency":   7322300000,
-                "drive_frequency": 5700000000,
                 "anharmonicity": 0,
                 "asymmetry": 0,
                 "Ec": 0,
