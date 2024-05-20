@@ -37,6 +37,17 @@ def create():
         "qcm_bb2": QcmBb("qcm_bb2", f"{ADDRESS}:6"),   # c4
     }
 
+    # DEBUG: debug folder = report folder ###################################################################
+    import os
+    from datetime import datetime
+ 
+    QPU = "iqm5q"
+    debug_folder = f"/home/users/david.fuentes/report_debugs/"
+    if not os.path.exists(debug_folder):
+        os.makedirs(debug_folder)
+    for name in modules:
+        modules[name]._debug_folder = debug_folder
+    #########################################################################################################
     controller = QbloxController("qblox_controller", ADDRESS, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
 
