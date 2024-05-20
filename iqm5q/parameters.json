@@ -36,6 +36,19 @@
             4
         ]
     },
+    "instruments": {
+        "EL_ZURO": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 250,
+                "instructions": 1000000
+            }
+        },
+        "TWPA_PUMP": {
+            "frequency": 6710000000,
+            "power": -4
+        }
+    },
     "channels": {
         "qubit_0/drive": {
             "frequency": 4095140800,
@@ -149,42 +162,22 @@
         },
         "qubit_0/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
             "power_range": 10
         },
         "qubit_1/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
             "power_range": 10
         },
         "qubit_2/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
             "power_range": 10
         },
         "qubit_3/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
             "power_range": 10
         },
         "qubit_4/acquire": {
             "type": "AcquisitionType.INTEGRATION",
-            "twpa_pump_config": {
-                "frequency": 6710200000,
-                "power": -5.7
-            },
             "power_range": 10
         },
         "coupler_0/flux": {
@@ -225,15 +218,15 @@
             "1": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.936,
-                    "frequency": 4241884701,
+                    "amplitude": 0.6,
+                    "frequency": 4252836000,
                     "envelope": { "kind": "gaussian", "rel_sigma": 5.0 },
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.1,
-                    "frequency": 4932107000,
+                    "amplitude": 0.09,
+                    "frequency": 4933092000,
                     "envelope": { "kind": "rectangular" },
                     "type": "ro"
                 }

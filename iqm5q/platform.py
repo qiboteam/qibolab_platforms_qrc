@@ -15,7 +15,7 @@ from qibolab.instruments.zhinst import (
     ZurichIQChannelConfig,
 )
 from qibolab.kernels import Kernels
-from qibolab.serialize import load_qubits, load_runcard, load_settings
+from qibolab.serialize import load_qubits, load_runcard, load_settings, load_channel_configs, load_instrument_settings
 
 FOLDER = pathlib.Path(__file__).parent
 
@@ -49,10 +49,8 @@ def create():
     runcard = load_runcard(FOLDER)
     kernels = Kernels.load(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard, kernels)
-    channel_configs = runcard["channels"]
+    channel_configs = load_channel_configs(runcard)
     settings = load_settings(runcard)
-
-    twpa_pump = SGS100A("TWPA", TWPA_ADDRESS)
 
     zi_channels = []
     for q in range(N_QUBITS):
@@ -62,7 +60,6 @@ def create():
             ZurichAcquisitionChannelConfig(**channel_configs[f"qubit_{q}/acquire"]),
             "device_shfqc",
             "QACHANNELS/0/INPUT",
-            twpa_pump,
         )
         zi_channels.append(qubits[q].acquisition)
         # readout. wire "L3-31"
@@ -115,7 +112,10 @@ def create():
         smearing=50,
     )
 
-    instruments = {controller.name: controller}
+    twpa_pump = SGS100A("TWPA_PUMP", TWPA_ADDRESS)
+
+    instruments = {controller.name: controller, twpa_pump.name: twpa_pump}
+    instruments = load_instrument_settings(runcard, instruments)
     return Platform(
         str(FOLDER),
         qubits,
