@@ -15,7 +15,13 @@ from qibolab.instruments.zhinst import (
     ZurichIQChannelConfig,
 )
 from qibolab.kernels import Kernels
-from qibolab.serialize import load_qubits, load_runcard, load_settings, load_channel_configs, load_instrument_settings
+from qibolab.serialize import (
+    load_channel_configs,
+    load_instrument_settings,
+    load_qubits,
+    load_runcard,
+    load_settings,
+)
 
 FOLDER = pathlib.Path(__file__).parent
 
