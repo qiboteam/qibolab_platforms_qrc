@@ -82,7 +82,7 @@ def create():
         "device_hdawg",
         "SIGOUTS/0",
     )
-    channels.append(qubits[q].flux)
+    channels.append(qubits[1].flux)
 
     controller = Zurich(
         "EL_ZURO",
