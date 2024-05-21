@@ -28,7 +28,7 @@ N_QUBITS = 2
 def create():
     """Tii 2q chip"""
 
-    device_setup = DeviceSetup("ZURO_BLANCO")
+    device_setup = DeviceSetup()
     # Dataserver
     device_setup.add_dataserver(host="localhost", port=8004)
     # Instruments
@@ -85,7 +85,7 @@ def create():
     channels.append(qubits[1].flux)
 
     controller = Zurich(
-        "EL_ZURO",
+        "ZURO_BLANCO",
         device_setup=device_setup,
         channels=channels,
         time_of_flight=75,

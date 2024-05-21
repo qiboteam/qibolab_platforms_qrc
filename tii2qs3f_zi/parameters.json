@@ -16,6 +16,15 @@
             1
         ]
     ],
+    "instruments": {
+        "ZURO_BLANCO": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 250,
+                "instructions": 1000000
+            }
+        }
+    },
     "channels": {
         "qubit_0/drive": {
             "frequency": 4833726197,
@@ -70,34 +79,50 @@
         "single_qubit": {
             "0": {
                 "RX": {
-                    "duration": 40,
-                    "amplitude": 0.5,
-                    "frequency": 4833726197,
-                    "envelope": { "kind": "gaussian", "rel_sigma": 2.0 },
-                    "type": "qd"
+                    "qubit_0/drive": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.5,
+                            "frequency": 4833726197,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 2.0 },
+                            "type": "qd"
+                        }
+                    ]
                 },
                 "MZ": {
-                    "duration": 2000,
-                    "amplitude": 0.1,
-                    "frequency": 7320000000,
-                    "envelope": { "kind": "rectangular" },
-                    "type": "ro"
+                    "qubit_0/measure": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.1,
+                            "frequency": 7320000000,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
                 }
             },
             "1": {
                 "RX": {
-                    "duration": 40,
-                    "amplitude": 0.5,
-                    "frequency": 5705000000,
-                    "envelope": { "kind": "gaussian", "rel_sigma": 2.0 },
-                    "type": "qd"
+                    "qubit_1/drive": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.5,
+                            "frequency": 5705000000,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 2.0 },
+                            "type": "qd"
+                        }
+                    ]
                 },
                 "MZ": {
-                    "duration": 2000,
-                    "amplitude": 0.2,
-                    "frequency": 7322300000,
-                    "envelope": { "kind": "rectangular" },
-                    "type": "ro"
+                    "qubit_1/measure": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.2,
+                            "frequency": 7322300000,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
                 }
             }
         },
