@@ -315,6 +315,7 @@
                 "g": 107000000,
                 "assignment_fidelity": 0.9537602976348658,
                 "readout_fidelity": 0.9075205952697316,
+                "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.5037576688262035,
@@ -352,6 +353,7 @@
                 "g": 11400000,
                 "assignment_fidelity": 0.8842501637197119,
                 "readout_fidelity": 0.7685003274394238,
+                "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.5091870515531648,
@@ -389,6 +391,7 @@
                 "g": 83600000,
                 "assignment_fidelity": 0.9735856626989434,
                 "readout_fidelity": 0.9471713253978868,
+                "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.448,
@@ -426,6 +429,7 @@
                 "g": 54300000,
                 "assignment_fidelity": 0.9201435025245814,
                 "readout_fidelity": 0.8402870050491629,
+                "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.448,
@@ -463,6 +467,7 @@
                 "g": 62700000,
                 "assignment_fidelity": 0.8867059593975115,
                 "readout_fidelity": 0.7734119187950229,
+                "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.56468497579218,
@@ -486,6 +491,25 @@
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
                 "mixer_readout_phi": 0.0
+            }
+        },
+
+        "two_qubit":{
+            "0-2": {
+                "twoq_fidelity": 0.0,
+                "CZ_fidelity": 0.0
+            },
+            "1-2": {
+                "twoq_fidelity": 0.0,
+                "CZ_fidelity": 0.0
+            },
+            "3-2": {
+                "twoq_fidelity": 0.0,
+                "CZ_fidelity": 0.0
+            },
+            "4-2": {
+                "twoq_fidelity": 0.0,
+                "CZ_fidelity": 0.0
             }
         }
     }
