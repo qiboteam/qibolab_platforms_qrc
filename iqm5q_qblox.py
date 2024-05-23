@@ -61,7 +61,7 @@ def create(runcard_path=RUNCARD):
     from datetime import datetime
 
     QPU = "iqm5q"
-    debug_folder = f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/debug/"
+    debug_folder = f"/home/users/david.fuentes/report_debugs/"
     if not os.path.exists(debug_folder):
         os.makedirs(debug_folder)
     for name in modules:
