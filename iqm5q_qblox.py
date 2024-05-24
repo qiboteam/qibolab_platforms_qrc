@@ -47,11 +47,11 @@ def create(runcard_path=RUNCARD):
         "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),  # c4
     }
     controller = QbloxController("qblox_controller", cluster, modules)
-    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
+    # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
 
     instruments = {
         controller.name: controller,
-        twpa_pump0.name: twpa_pump0,
+        # twpa_pump0.name: twpa_pump0,
     }
     instruments.update(modules)
     instruments = load_instrument_settings(runcard, instruments)
@@ -94,8 +94,8 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports["o4"])  # c3
     channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o2"])  # c4
     # TWPA
-    channels |= Channel(name="L3-32", port=None)
-    channels["L3-32"].local_oscillator = twpa_pump0
+    # channels |= Channel(name="L3-32", port=None)
+    # channels["L3-32"].local_oscillator = twpa_pump0
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
@@ -111,7 +111,7 @@ def create(runcard_path=RUNCARD):
     for q in range(0, 5):
         qubits[q].drive = channels[f"L4-{15 + q}"]
         qubits[q].flux = channels[f"L4-{6 + q}"]
-        qubits[q].twpa = channels["L3-32"]
+        # qubits[q].twpa = channels["L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
         qubits[q].flux.max_bias = 2.5
 

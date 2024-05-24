@@ -9,7 +9,7 @@ topology:
     4: [2, 4]
 
 instruments:
-  twpa_pump0: {power: -3.5, frequency: 671000000}
+  # twpa_pump0: {power: -20, frequency: 671000000} # power: -5 (best for q0 and q4)
   qrm_rf0: # q0, q1
     o1: {attenuation: 28, lo_frequency: 5100000000}
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
@@ -45,12 +45,12 @@ instruments:
 native_gates:
   single_qubit:
     0:
-      RX: {duration: 40, amplitude: 0.3432, frequency: 4103506606,
+      RX: {duration: 40, amplitude: 0.3232, frequency: 4103506606,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       MZ: {duration: 2000, amplitude: 0.22, frequency: 5233550000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     1:
-      RX: {duration: 40, amplitude: 0.3385, frequency: 4257855657,
+      RX: {duration: 40, amplitude: 0.3, frequency: 4257855657,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       MZ: {duration: 2000, amplitude: 0.5, frequency: 4926692000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
@@ -66,9 +66,9 @@ native_gates:
       MZ: {duration: 2000, amplitude: 0.084, frequency: 5805000000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     4:
-      RX: {duration: 40, amplitude: 0.3442, frequency: 4358556260,
+      RX: {duration: 40, amplitude: 0.303, frequency: 4358556000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.35, frequency: 5529900000,
+      MZ: {duration: 2000, amplitude: 0.315, frequency: 5529900000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
   coupler:
     0:
@@ -413,8 +413,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8550889394142036
-      readout_fidelity: 0.7101778788284072
+      assignment_fidelity: 0.8734117961749365
+      readout_fidelity: 0.746823592349873
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0.345
@@ -423,10 +423,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.000565923319602007, -0.00015981190657070413]
-      mean_exc_states: [0.0008479467827702086, -0.0005891580753195986]
-      threshold: 0.0007071828202269457
-      iq_angle: 0.9896086100616678
+      mean_gnd_states: [0.0005300083943842386, 4.5611396829563134e-05]
+      mean_exc_states: [0.0009513015226829101, -0.0003092851754009472]
+      threshold: 0.0006569630901532189
+      iq_angle: 0.7000642381482431
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -445,8 +445,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8835763006553431
-      readout_fidelity: 0.7671526013106862
+      assignment_fidelity: 0.8930052159957202
+      readout_fidelity: 0.7860104319914405
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0.315
@@ -455,10 +455,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.0007220178523039046, 0.000571526848685039]
-      mean_exc_states: [-0.00011487486882913818, 8.40154719057348e-06]
-      threshold: -0.00048382238403820626
-      iq_angle: 0.7478025607794145
+      mean_gnd_states: [-0.0009213968094326721, 0.0002947460973126481]
+      mean_exc_states: [-9.608722244062734e-05, -2.0764593246352843e-05]
+      threshold: -0.000511074738460811
+      iq_angle: 0.36514980053220936
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -479,8 +479,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8500066871740003
-      readout_fidelity: 0.7000133743480006
+      assignment_fidelity: 0.8560920155142437
+      readout_fidelity: 0.7121840310284874
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -489,10 +489,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0004640735095324979, -0.000599649432020259]
-      mean_exc_states: [1.4294100671141324e-05, -0.001062487920128161]
-      threshold: 0.0004341978409771409
-      iq_angle: 2.3418859958383083
+      mean_gnd_states: [0.0005946959985469756, 0.00017735326694927602]
+      mean_exc_states: [0.0008521435969835265, -0.00028489948560049143]
+      threshold: 0.0004099388870381512
+      iq_angle: 1.062639610833923
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -511,8 +511,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.833623110873345
-      readout_fidelity: 0.6672462217466898
+      assignment_fidelity: 0.9200882706968034
+      readout_fidelity: 0.8401765413936071
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -521,10 +521,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0006561021368048916, 0.0009838746651613392]
-      mean_exc_states: [0.0012458470558695635, 0.0006249172270291968]
-      threshold: 0.0004613342172394979
-      iq_angle: 0.5467669043633354
+      mean_gnd_states: [0.0002931088579617843, 0.001379486883441829]
+      mean_exc_states: [0.0012666605206953206, 0.0011355366096151946]
+      threshold: 0.00048379879551986647
+      iq_angle: 0.2455222462708445
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -543,8 +543,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8721412331148857
-      readout_fidelity: 0.7442824662297713
+      assignment_fidelity: 0.8918683964156747
+      readout_fidelity: 0.7837367928313494
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -553,10 +553,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.001202135330824907, -0.0011940225126904455]
-      mean_exc_states: [-0.0021359160699880183, -8.429584319122502e-05]
-      threshold: 0.0004444075063984317
-      iq_angle: -2.2703063359197593
+      mean_gnd_states: [-0.0005148642161108135, -0.0012402055614370298]
+      mean_exc_states: [-0.001608609238335774, -0.0006639473770695208]
+      threshold: 0.000407888317201157
+      iq_angle: -2.6566831621127442
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -564,7 +564,7 @@ characterization:
       mixer_readout_phi: 0
   coupler:
     0:
-      sweetspot: 1
+      sweetspot: 0
     1:
       sweetspot: 0
     3:
