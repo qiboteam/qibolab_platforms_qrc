@@ -66,7 +66,7 @@ native_gates:
       MZ: {duration: 2000, amplitude: 0.084, frequency: 5805000000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     4:
-      RX: {duration: 40, amplitude: 0.3455, frequency: 4358819000,
+      RX: {duration: 40, amplitude: 0.3455, frequency: 4358343000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       MZ: {duration: 2000, amplitude: 0.315, frequency: 5526000000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
@@ -420,7 +420,7 @@ characterization:
     1:
       bare_resonator_frequency: 4927992000
       readout_frequency: 4926692000
-      drive_frequency: 4253005657
+      drive_frequency: 4257855657
       anharmonicity: 0
       sweetspot: -0.007
       flux_to_bias: 0.0
@@ -515,8 +515,8 @@ characterization:
       mixer_readout_phi: 0
     4:
       bare_resonator_frequency: 5516492000
-      readout_frequency: 5522000000
-      drive_frequency: 4358556260
+      readout_frequency: 5526000000
+      drive_frequency: 4358343000
       anharmonicity: 0
       sweetspot: -0.0109
       flux_to_bias: 0.0
