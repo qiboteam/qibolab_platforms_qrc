@@ -47,38 +47,38 @@ native_gates:
     0:
       RX: {duration: 40, amplitude: 0.3441, frequency: 4103506606,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.22, frequency: 5233550000,
+      MZ: {duration: 2000, amplitude: 0.22, frequency: 5233350000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.2, frequency: 3884565000,
+      RX12: {duration: 80, amplitude: 0.047, frequency: 3884565000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     1:
       RX: {duration: 40, amplitude: 0.309, frequency: 4257855657,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.5, frequency: 4926692000,
+      MZ: {duration: 2000, amplitude: 0.5, frequency: 4930492000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.2, frequency: 4044256343,
+      RX12: {duration: 80, amplitude: 0.167, frequency: 4044256343,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     2:
       # RX: {duration: 40, amplitude: 0.3153, frequency: 4250000000, # q2->q0
       RX: {duration: 40, amplitude: 0.3153, frequency: 4537685653, # normal
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.21, frequency: 6105400000, # highest fidelity
+      MZ: {duration: 2000, amplitude: 0.21, frequency: 6105600000, # highest fidelity
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.2, frequency: 4318486347,
+      RX12: {duration: 80, amplitude: 0.07, frequency: 4318486347,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     3:
       RX: {duration: 40, amplitude: 0.3742, frequency: 4156921000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.084, frequency: 5805000000,
+      MZ: {duration: 2000, amplitude: 0.084, frequency: 5805400000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.2, frequency: 3942721000,
+      RX12: {duration: 80, amplitude: 0.107, frequency: 3942721000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     4:
       RX: {duration: 40, amplitude: 0.3455, frequency: 4358343000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.315, frequency: 5526000000,
+      MZ: {duration: 2000, amplitude: 0.315, frequency: 5527400000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.2, frequency: 4147743000,
+      RX12: {duration: 80, amplitude: 0.034, frequency: 4147743000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
   coupler:
     0:
@@ -397,7 +397,7 @@ characterization:
   single_qubit:
     0:
       bare_resonator_frequency: 5221992000
-      readout_frequency: 5233550000
+      readout_frequency: 5233350000
       drive_frequency: 4103506606
       anharmonicity: 218_941_606
       sweetspot: -0.0395
@@ -429,7 +429,7 @@ characterization:
       mixer_readout_phi: 0
     1:
       bare_resonator_frequency: 4927992000
-      readout_frequency: 4926692000
+      readout_frequency: 4930492000
       drive_frequency: 4257855657
       anharmonicity: 213_599_314
       sweetspot: -0.007
@@ -461,7 +461,7 @@ characterization:
       mixer_readout_phi: 0
     2:
       bare_resonator_frequency: 6078000000
-      readout_frequency: 6105400000
+      readout_frequency: 6105600000
       drive_frequency: 4537685653
       anharmonicity: 219_199_306
       sweetspot: -0.0275
@@ -493,7 +493,7 @@ characterization:
       mixer_readout_phi: 0
     3:
       bare_resonator_frequency: 5778500000
-      readout_frequency: 5805000000
+      readout_frequency: 5805400000
       drive_frequency: 4156921000
       anharmonicity: 214_200_000
       sweetspot: 0.0178
@@ -525,7 +525,7 @@ characterization:
       mixer_readout_phi: 0
     4:
       bare_resonator_frequency: 5516492000
-      readout_frequency: 5526000000
+      readout_frequency: 5527400000
       drive_frequency: 4358343000
       anharmonicity: 210_600_000
       sweetspot: -0.0109
