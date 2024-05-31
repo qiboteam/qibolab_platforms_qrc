@@ -43,8 +43,8 @@ def create(runcard_path=RUNCARD):
         "qcm_rf1": ClusterQCM_RF("qcm_rf1", f"{ADDRESS}:10", cluster),  # qubits q3, q4
         "qcm_rf2": ClusterQCM_RF("qcm_rf2", f"{ADDRESS}:12", cluster),  # qubits q0
         "qcm_bb0": ClusterQCM_BB("qcm_bb0", f"{ADDRESS}:2", cluster),  # q0, q1, q2, q3
-        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4", cluster),  # q4, c0, c1, c3
-        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),  # c4
+        "qcm_bb1": ClusterQCM_BB("qcm_bb1", f"{ADDRESS}:4", cluster),  # q4, c1, c3
+        "qcm_bb2": ClusterQCM_BB("qcm_bb2", f"{ADDRESS}:6", cluster),  # c4, c0
     }
     controller = QbloxController("qblox_controller", cluster, modules)
     twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.35")
@@ -89,10 +89,10 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports["o4"])
     channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports["o1"])
     # Flux - Couplers
-    channels |= Channel(name="L4-11", port=modules["qcm_bb1"].ports["o2"])  # c0
     channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports["o3"])  # c1
     channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports["o4"])  # c3
     channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o2"])  # c4
+    channels |= Channel(name="L4-11", port=modules["qcm_bb2"].ports["o3"])  # c0
     # TWPA
     channels |= Channel(name="L3-32", port=None)
     channels["L3-32"].local_oscillator = twpa_pump0
