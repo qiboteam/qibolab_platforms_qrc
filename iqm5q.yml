@@ -9,12 +9,15 @@ topology:
     4: [2, 4]
 
 instruments:
-  twpa_pump0: {power: -2.1, frequency: 6708000000}
+  twpa_pump0: {power: 5, frequency: 6700000000}
+  # twpa_pump0: {power: -2.1, frequency: 6520000000}
   qrm_rf0: # q0, q1
     o1: {attenuation: 28, lo_frequency: 5100000000}
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
   qrm_rf1: # q2, q3, q4
-    o1: {attenuation: 28, lo_frequency: 5840000000}
+    o1: {attenuation: 28, lo_frequency: 5840000000} # normal
+    # o1: {attenuation: 28, lo_frequency: 5840000000, mixer_calibration:[-8.1, -3.8]} # normal
+    # o1: {attenuation: 28, lo_frequency: 5950000000} #q3
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
   qcm_rf0: # q1, q2
     o1: {attenuation: 10, lo_frequency: 4452836000}
@@ -24,7 +27,7 @@ instruments:
     o1: {attenuation: 0, lo_frequency: 4384721000}
     o2: {attenuation: 26, lo_frequency: 4578819000}
   qcm_rf2: # q0
-    o1: {attenuation: 26, lo_frequency: 4303174000}
+    o1: {attenuation: 26, lo_frequency: 4303174000, mixer_calibration: [2.62, -2.79]}
     o2: {attenuation: 60, lo_frequency: 10000000000}
   qcm_bb0:
     o1: {offset: 0.0}
@@ -47,14 +50,14 @@ native_gates:
     0:
       RX: {duration: 40, amplitude: 0.3441, frequency: 4103506606,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.22, frequency: 5233350000,
+      MZ: {duration: 2000, amplitude: 0.1952, frequency: 5233350000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.047, frequency: 3884565000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     1:
       RX: {duration: 40, amplitude: 0.309, frequency: 4257855657,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.5, frequency: 4930492000,
+      MZ: {duration: 2000, amplitude: 0.5238, frequency: 4930492000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.167, frequency: 4044256343,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
@@ -62,21 +65,21 @@ native_gates:
       # RX: {duration: 40, amplitude: 0.3153, frequency: 4250000000, # q2->q0
       RX: {duration: 40, amplitude: 0.3153, frequency: 4537685653, # normal
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.21, frequency: 6105600000, # highest fidelity
+      MZ: {duration: 2000, amplitude: 0.2016, frequency: 6105600000, # highest fidelity
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.07, frequency: 4318486347,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     3:
       RX: {duration: 40, amplitude: 0.3742, frequency: 4156921000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.084, frequency: 5805400000,
+      MZ: {duration: 2000, amplitude: 0.0661, frequency: 5805400000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.107, frequency: 3942721000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
     4:
       RX: {duration: 40, amplitude: 0.3455, frequency: 4358343000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.315, frequency: 5527400000,
+      MZ: {duration: 2000, amplitude: 0.2912, frequency: 5527400000,
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.034, frequency: 4147743000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
@@ -408,8 +411,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8962150595158487
-      readout_fidelity: 0.7924301190316972
+      assignment_fidelity: 0.9109937140564397
+      readout_fidelity: 0.8219874281128795
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0.345
@@ -418,10 +421,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0003234826713791765, -0.0006677471289640936]
-      mean_exc_states: [7.185235503843464e-05, -0.0013128358785865306]
-      threshold: 0.0008527994925614244
-      iq_angle: 1.9427138948265208
+      mean_gnd_states: [-0.0015492049816160575, 0.00018059332913018838]
+      mean_exc_states: [-0.0024693207810906658, 0.0012479490564747033]
+      threshold: 0.0016322870702012186
+      iq_angle: -2.28224553710783
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -440,8 +443,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8944763942757791
-      readout_fidelity: 0.7889527885515581
+      assignment_fidelity: 0.8961481877758459
+      readout_fidelity: 0.7922963755516919
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0.315
@@ -450,10 +453,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-5.797905800164302e-05, 0.00017867449770224276]
-      mean_exc_states: [4.7649345633726295e-05, -0.0006460968889515526]
-      threshold: 0.00027944643178590334
-      iq_angle: 1.443419794865429
+      mean_gnd_states: [0.0008143178181276503, 0.00011901957592222783]
+      mean_exc_states: [-0.0021941003509933286, 0.0009652118115812473]
+      threshold: -9.843558710817027e-05
+      iq_angle: -2.8674022153551944
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -472,8 +475,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.9182158619767287
-      readout_fidelity: 0.8364317239534573
+      assignment_fidelity: 0.9414872274976596
+      readout_fidelity: 0.882974454995319
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -482,10 +485,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.0008591759996586909, -0.00015063859205000427]
-      mean_exc_states: [-0.0011004888399331, 0.0005466703525071728]
-      threshold: 0.0004790534991115458
-      iq_angle: -1.9039595193362295
+      mean_gnd_states: [0.0021655186332667133, -0.0014411281969295127]
+      mean_exc_states: [0.001050865265433113, -0.003530473644661399]
+      threshold: 0.0010048406261840153
+      iq_angle: 2.0608787712763115
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -504,8 +507,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.902099772636084
-      readout_fidelity: 0.804199545272168
+      assignment_fidelity: 0.91299986625652
+      readout_fidelity: 0.82599973251304
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -514,10 +517,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0005906596549607432, -0.0014854392986406507]
-      mean_exc_states: [-0.00031414363762272607, -0.001813300138989989]
-      threshold: 0.00038781538007384166
-      iq_angle: 2.7939530069616136
+      mean_gnd_states: [-0.001480862576715565, 0.0027069729494588403]
+      mean_exc_states: [0.0002538061323247665, 0.003510472702511442]
+      threshold: 0.0003783134872210677
+      iq_angle: -0.4337772383122055
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -536,8 +539,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8407115153136284
-      readout_fidelity: 0.681423030627257
+      assignment_fidelity: 0.9081182292363248
+      readout_fidelity: 0.8162364584726494
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -546,10 +549,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0010840495984923198, -3.753821613717938e-05]
-      mean_exc_states: [0.0011939954077702824, -0.0010374421765258425]
-      threshold: 0.0005338401818399855
-      iq_angle: 1.4612799091622637
+      mean_gnd_states: [-0.002697471937710516, 0.0002050308251893346]
+      mean_exc_states: [-0.0029727163954152394, 0.0033101295430069504]
+      threshold: 0.000907709891356456
+      iq_angle: -1.6592079839142881
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
