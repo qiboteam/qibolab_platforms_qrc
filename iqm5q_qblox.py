@@ -92,7 +92,7 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L4-11", port=modules["qcm_bb1"].ports["o2"])  # c0
     channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports["o3"])  # c1
     channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports["o4"])  # c3
-    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o2"])  # c4
+    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o3"])  # c4
     # TWPA
     channels |= Channel(name="L3-32", port=None)
     channels["L3-32"].local_oscillator = twpa_pump0
