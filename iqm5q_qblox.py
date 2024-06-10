@@ -96,7 +96,7 @@ def create(runcard_path=RUNCARD):
     channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports["o3"])  # c1
     channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports["o4"])  # c3
     channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports["o2"])  # c4
-    channels |= Channel(name="L4-11", port=modules["qcm_bb2"].ports["o3"])  # c0
+    channels |= Channel(name="L4-5", port=modules["qcm_bb2"].ports["o4"])  # c0
     # TWPA
     channels |= Channel(name="L3-32", port=None)
     channels["L3-32"].local_oscillator = twpa_pump0
@@ -120,7 +120,9 @@ def create(runcard_path=RUNCARD):
         qubits[q].flux.max_bias = 2.5
 
     for i, coupler in enumerate(couplers):
-        couplers[coupler].flux = channels[f"L4-{11 + i}"]
+        couplers[coupler].flux = (
+            channels[f"L4-{11 + i}"] if i > 0 else channels[f"L4-5"]
+        )
         couplers[coupler].flux.max_bias = 2.5
 
     settings = load_settings(runcard)
