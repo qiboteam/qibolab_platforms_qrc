@@ -16,11 +16,7 @@ FOLDER = pathlib.Path(__file__).parent
 
 
 def create():
-    """QuantWare 5q-chip controlled using qblox cluster.
-
-    Args:
-        runcard_path (str): Path to the runcard file.
-    """
+    """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines."""
     opxs = [
         OPXplus("con5"),
         OPXplus("con6"),
