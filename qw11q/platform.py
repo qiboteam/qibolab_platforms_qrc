@@ -21,7 +21,13 @@ def create():
     Args:
         runcard_path (str): Path to the runcard file.
     """
-    opxs = [OPXplus("con5"), OPXplus("con6"), OPXplus("con8"), OPXplus("con7"), OPXplus("con9")]
+    opxs = [
+        OPXplus("con5"),
+        OPXplus("con6"),
+        OPXplus("con8"),
+        OPXplus("con7"),
+        OPXplus("con9"),
+    ]
     octaves = [
         Octave("octave4", port=103, connectivity=opxs[0]),
         Octave("octave5", port=104, connectivity=opxs[1]),
@@ -37,7 +43,7 @@ def create():
         # script_file_name="qua_script.py",
     )
     # TODO: Add TWPA pumps
-    #twpa = SGS100A(name="twpa", address="192.168.0.38")
+    # twpa = SGS100A(name="twpa", address="192.168.0.38")
 
     channels = ChannelMap()
     # Readout
@@ -65,8 +71,8 @@ def create():
     channels |= Channel(name=f"fluxA6", port=opxs[3].ports(8))
 
     # TWPA
-    #channels |= Channel(name="twpa", port=None)
-    #channels["twpa"].local_oscillator = twpa
+    # channels |= Channel(name="twpa", port=None)
+    # channels["twpa"].local_oscillator = twpa
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
@@ -84,7 +90,7 @@ def create():
         qubit.flux = channels[f"flux{q}"]
         # qubit.twpa = channels["twpa"]
 
-    instruments = {controller.name: controller} # , twpa.name: twpa}
+    instruments = {controller.name: controller}  # , twpa.name: twpa}
     instruments.update(controller.opxs)
     instruments.update(controller.octaves)
     instruments = load_instrument_settings(runcard, instruments)
