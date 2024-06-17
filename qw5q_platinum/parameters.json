@@ -128,9 +128,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.03,
+                    "amplitude": 0.025,
                     "shape": "Rectangular()",
-                    "frequency": 7208379936,
+                    "frequency": 7202069936,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -157,9 +157,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.008,
+                    "amplitude": 0.01,
                     "shape": "Rectangular()",
-                    "frequency": 7336409801,
+                    "frequency": 7332469801,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -188,7 +188,7 @@
                     "duration": 1300,
                     "amplitude": 0.016,
                     "shape": "Rectangular()",
-                    "frequency": 7495403662,
+                    "frequency": 7492383662,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -215,9 +215,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.01,
+                    "amplitude": 0.015,
                     "shape": "Rectangular()",
-                    "frequency": 7668622000,
+                    "frequency": 7658922000,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -246,7 +246,7 @@
                     "duration": 2000,
                     "amplitude": 0.01,
                     "shape": "Rectangular()",
-                    "frequency": 7803378235,
+                    "frequency": 7793708235,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -309,7 +309,13 @@
                 "anharmonicity": -286373266,
                 "sweetspot": 0.288,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 1,
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 107000000,
@@ -347,7 +353,13 @@
                 "anharmonicity": 292584018,
                 "sweetspot": -0.25,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 0,
+                    "3": 0,
+                    "4": 0
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 11400000,
@@ -385,7 +397,13 @@
                 "anharmonicity": -310651789,
                 "sweetspot": 0.268,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 0,
+                    "2": 1,
+                    "3": 0,
+                    "4": 0
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 83600000,
@@ -423,7 +441,13 @@
                 "anharmonicity": 262310994,
                 "sweetspot": 0.292,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 0,
+                    "2": 0,
+                    "3": 1,
+                    "4": 0
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 54300000,
@@ -459,9 +483,15 @@
                 "readout_frequency": 7803378235,
                 "drive_frequency": 6223351170,
                 "anharmonicity": 261390626,
-                "sweetspot": -0.49,
+                "sweetspot": -0.1,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {},
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 0,
+                    "2": 0,
+                    "3": 0,
+                    "4": 1
+                },
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 62700000,
