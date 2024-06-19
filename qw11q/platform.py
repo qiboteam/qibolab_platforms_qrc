@@ -38,8 +38,8 @@ def create():
         calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
-    # TODO: Add TWPA pumps
-    # twpa = SGS100A(name="twpa", address="192.168.0.38")
+    twpa_a = SGS100A(name="twpaA", address="192.168.0.33")
+    twpa_d = SGS100A(name="twpaD", address="192.168.0.34")
 
     channels = ChannelMap()
     # Readout
@@ -48,6 +48,11 @@ def create():
     # Feedback
     channels |= Channel(name="feedbackA", port=octaves[0].ports(1, output=False))
     channels |= Channel(name="feedbackD", port=octaves[1].ports(1, output=False))
+    # TWPA
+    channels |= Channel(name="twpaA", port=None)
+    channels["twpaA"].local_oscillator = twpa_a
+    channels |= Channel(name="twpaD", port=None)
+    channels["twpaD"].local_oscillator = twpa_d
     # Drive
     channels |= Channel(name=f"driveA1", port=octaves[0].ports(2))
     channels |= Channel(name=f"driveA2", port=octaves[0].ports(4))
@@ -66,10 +71,6 @@ def create():
         channels |= Channel(name=f"fluxD{q}", port=opxs[4].ports(q + 2))
     channels |= Channel(name=f"fluxA6", port=opxs[3].ports(8))
 
-    # TWPA
-    # channels |= Channel(name="twpa", port=None)
-    # channels["twpa"].local_oscillator = twpa
-
     # create qubit objects
     runcard = load_runcard(FOLDER)
     # kernels = Kernels.load(FOLDER)
@@ -79,14 +80,19 @@ def create():
         if "A" in q:
             qubit.readout = channels["readoutA"]
             qubit.feedback = channels["feedbackA"]
+            qubit.twpa = channels["twpaA"]
         else:
             qubit.readout = channels["readoutD"]
             qubit.feedback = channels["feedbackD"]
+            qubit.twpa = channels["twpaD"]
         qubit.drive = channels[f"drive{q}"]
         qubit.flux = channels[f"flux{q}"]
-        # qubit.twpa = channels["twpa"]
 
-    instruments = {controller.name: controller}  # , twpa.name: twpa}
+    instruments = {
+        controller.name: controller,
+        twpa_a.name: twpa_a,
+        twpa_d.name: twpa_d,
+    }
     instruments.update(controller.opxs)
     instruments.update(controller.octaves)
     instruments = load_instrument_settings(runcard, instruments)
