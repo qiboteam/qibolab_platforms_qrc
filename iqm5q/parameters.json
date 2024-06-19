@@ -75,7 +75,6 @@
         "qcm_rf1": {
             "o1": {
                 "attenuation": 0,
-                "gain": 32,
                 "lo_frequency": 4336921000
             },
             "o2": {
@@ -201,8 +200,8 @@
             "3": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.315,
-                    "frequency": 4159141000,
+                    "amplitude": 0.335,
+                    "frequency": 4164755000,
                     "shape": "Gaussian(5)",
                     "type": "qd",
                     "relative_start": 0,
@@ -219,8 +218,8 @@
                 },                    
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.0795,
-                    "frequency": 5807000000,
+                    "amplitude": 0.0661,
+                    "frequency": 5801000000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0,
@@ -470,9 +469,9 @@
                 "sweetspot": -0.023,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.358,
-                "T1": 23900,
-                "T2": 10000,
-                "T2_spin_echo": 0,
+                "T1": 23723,
+                "T2": 25067,
+                "T2_spin_echo": 23316,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
@@ -493,7 +492,7 @@
             "1": {
                 "bare_resonator_frequency": 4927992000,
                 "readout_frequency": 4934492000,
-                "drive_frequency": 4254689000,
+                "drive_frequency": 4254289000,
                 "anharmonicity": 213599314,
                 "Ec": 0,
                 "g": 0,
@@ -503,9 +502,9 @@
                 "sweetspot": 0.0403,
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.291,
-                "T1": 16450,
-                "T2": 1488,
-                "T2_spin_echo": 0,
+                "T1": 17791,
+                "T2": 2524,
+                "T2_spin_echo": 8740,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
@@ -525,7 +524,7 @@
             },
             "2": {
                 "bare_resonator_frequency": 6078000000,
-                "readout_frequency": 6105600000,
+                "readout_frequency": 6106000000,
                 "drive_frequency": 4546286000,
                 "anharmonicity": 219199306,
                 "Ec": 0,
@@ -534,9 +533,9 @@
                 "assignment_fidelity": 0.9358700013374348,
                 "readout_fidelity": 0.8717400026748696,
                 "sweetspot": 0.005,
-                "T1": 10300,
-                "T2": 972,
-                "T2_spin_echo": 0,
+                "T1": 14542,
+                "T2": 2317,
+                "T2_spin_echo": 5622,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
@@ -556,8 +555,8 @@
             },
             "3": {
                 "bare_resonator_frequency": 5778500000,
-                "readout_frequency": 5810000000,
-                "drive_frequency":  4159341000,
+                "readout_frequency": 5801000000,
+                "drive_frequency":  4164755000,
                 "anharmonicity": 214000000,
                 "Ec": 0,
                 "g": 0,
@@ -565,9 +564,9 @@
                 "assignment_fidelity": 0.8934733181757389,
                 "readout_fidelity": 0.7869466363514779,
                 "sweetspot": 0.0178,
-                "T1": 29900,
-                "T2": 160,
-                "T2_spin_echo": 0,
+                "T1": 13399,
+                "T2": 6296,
+                "T2_spin_echo": 2267,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
@@ -595,10 +594,10 @@
                 "asymmetry": 0.0,
                 "assignment_fidelity": 0.931723953457269,
                 "readout_fidelity": 0.863447906914538,
-                "T1": 3610,
-                "T2": 366,
                 "sweetspot": 0.023,
-                "T2_spin_echo": 0,
+                "T1": 6833,
+                "T2": 4292,
+                "T2_spin_echo": 5361,                
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
