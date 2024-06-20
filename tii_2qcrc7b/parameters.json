@@ -19,8 +19,8 @@
     "instruments": {
         "qrm_rf0": {
             "o1": {
-                "attenuation": 45,
-                "lo_frequency": 7000000000
+                "attenuation": 40,
+                "lo_frequency": 6720000000
             },
             "i1": {
                 "acquisition_hold_off": 500,
@@ -29,11 +29,11 @@
         },
         "qcm_rf0": {
             "o1": {
-                "attenuation": 9,
+                "attenuation": 10,
                 "lo_frequency": 5600000000
             },
             "o2": {
-                "attenuation": 9,
+                "attenuation": 10,
                 "lo_frequency": 5840000000
             }
         }
@@ -44,8 +44,8 @@
             "0": {
                 "RX": {
                     "duration": 80,
-                    "amplitude": 0.6,
-                    "frequency": 5716528000,
+                    "amplitude": 0.8,
+                    "frequency": 5721549000,
                     "shape": "Gaussian(5)",
                     "type": "qd",
                     "relative_start": 0,
@@ -53,8 +53,8 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.05,
-                    "frequency": 6857996000,
+                    "amplitude": 0.2,
+                    "frequency": 6858236000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0,
@@ -64,8 +64,8 @@
             "1": {
                 "RX": {
                     "duration": 80,
-                    "amplitude": 0.45,
-                    "frequency": 5965684000,
+                    "amplitude": 0.2,
+                    "frequency": 5968217000,
                     "shape":"Gaussian(5)",
                     "type": "qd",
                     "relative_start": 0,
@@ -73,8 +73,8 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.03,
-                    "frequency": 6962702000,
+                    "amplitude": 0.2,
+                    "frequency": 6962918000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0
