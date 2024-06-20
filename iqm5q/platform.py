@@ -72,10 +72,10 @@ def create():
     channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports("o1")) #q4
     
     # Flux - Couplers
-    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o3")) #c1
+    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o2")) #c1
     channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports("o4")) #c3
     channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports("o2")) #c4
-    channels |= Channel(name="L4-5", port=modules["qcm_bb2"].ports("o4"))  #c0
+    channels |= Channel(name="L4-5", port=modules["qcm_bb3"].ports("o1"))  #c0
 
     # TWPA
     channels |= Channel(name="L3-32", port=None)
