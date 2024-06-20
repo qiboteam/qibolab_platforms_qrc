@@ -43,10 +43,14 @@
         },
         "octave4": {
             "o1": {
-                "lo_frequency": 7500000000,
+                "lo_frequency": 7520000000,
                 "gain": 0
             },
             "o2": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
+            "o3": {
                 "lo_frequency": 4900000000,
                 "gain": 0
             },
@@ -54,8 +58,20 @@
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
+            "o5": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
             "i1": {
-                "lo_frequency": 7500000000
+                "lo_frequency": 7520000000
+            }
+        },
+        "con5": {
+            "i1": {
+                "gain": 0
+            },
+            "i2": {
+                "gain": 0
             }
         },
         "octave5": {
@@ -67,7 +83,15 @@
                 "lo_frequency": 4900000000,
                 "gain": 0
             },
+            "o3": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
             "o4": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o5": {
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
@@ -75,12 +99,32 @@
                 "lo_frequency": 7500000000
             }
         },
+        "con6": {
+            "i1": {
+                "gain": 0
+            },
+            "i2": {
+                "gain": 0
+            }
+        },
         "octave6": {
+            "o1": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
             "o2": {
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
+            "o3": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
             "o4": {
+                "lo_frequency": 6500000000,
+                "gain": 0
+            },
+            "o5": {
                 "lo_frequency": 6500000000,
                 "gain": 0
             }
@@ -109,9 +153,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.005,
+                    "amplitude": 0.05,
                     "shape": "Rectangular()",
-                    "frequency": 7190000000,
+                    "frequency": 7132250000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -140,7 +184,7 @@
                     "duration": 2000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7440000000,
+                    "frequency": 7398400000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -169,7 +213,7 @@
                     "duration": 2000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7560000000,
+                    "frequency": 7489650000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -198,7 +242,7 @@
                     "duration": 2000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7320000000,
+                    "frequency": 7241600000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -227,7 +271,7 @@
                     "duration": 2000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7680000000,
+                    "frequency": 7639000000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -256,7 +300,7 @@
                     "duration": 2000,
                     "amplitude": 0.005,
                     "shape": "Rectangular()",
-                    "frequency": 7800000000,
+                    "frequency": 7739800000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
