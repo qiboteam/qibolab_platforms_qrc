@@ -52,9 +52,10 @@ def create():
         qubits[q].feedback = channels["W7"]
 
     # assign drive channels to qubits
-    for q in range(0, 2):
-        qubits[q].drive = channels[f"W{3 + q}"]
-        channels[f"W{3 + q}"].qubit = qubits[q]
+    qubits[0].drive = channels[f"W3"]
+    qubits[1].drive = channels[f"W4"]
+    channels[f"W3"].qubit = qubits[0]
+    channels[f"W4"].qubit = qubits[1]
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
