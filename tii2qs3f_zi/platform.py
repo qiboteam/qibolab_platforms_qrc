@@ -52,27 +52,38 @@ def create():
     drive_lo = "qubit_1_2/drive/lo"
     measure_lo = "qubit_1_2/measure/lo"
     components[drive_lo] = load_component_config(runcard, drive_lo, OscillatorConfig)
-    components[measure_lo] = load_component_config(runcard, measure_lo, OscillatorConfig)
+    components[measure_lo] = load_component_config(
+        runcard, measure_lo, OscillatorConfig
+    )
     zi_channels = []
     for q in range(N_QUBITS):
         measure_name = f"qubit_{q}/measure"
         acquisition_name = f"qubit_{q}/acquire"
-        components[acquisition_name] = load_component_config(runcard, acquisition_name, ZiAcquisitionConfig)
+        components[acquisition_name] = load_component_config(
+            runcard, acquisition_name, ZiAcquisitionConfig
+        )
         qubits[q].acquisition = AcquireChannel(
             name=acquisition_name,
             twpa_pump=None,
             measure=measure_name,
         )
-        zi_channels.append(ZiChannel(qubits[q].acquisition, device="device_shfqc", path="QACHANNELS/0/INPUT"))
-
-        components[measure_name] = load_component_config(runcard, measure_name, ZiIqConfig)
-        qubits[q].measure = IqChannel(
-            name=measure_name,
-            lo=measure_lo,
-            mixer=None,
-            acquisition=acquisition_name
+        zi_channels.append(
+            ZiChannel(
+                qubits[q].acquisition, device="device_shfqc", path="QACHANNELS/0/INPUT"
+            )
         )
-        zi_channels.append(ZiChannel(qubits[q].measure, device="device_shfqc", path="QACHANNELS/0/OUTPUT"))
+
+        components[measure_name] = load_component_config(
+            runcard, measure_name, ZiIqConfig
+        )
+        qubits[q].measure = IqChannel(
+            name=measure_name, lo=measure_lo, mixer=None, acquisition=acquisition_name
+        )
+        zi_channels.append(
+            ZiChannel(
+                qubits[q].measure, device="device_shfqc", path="QACHANNELS/0/OUTPUT"
+            )
+        )
 
         drive_name = f"qubit_{q}/drive"
         components[drive_name] = load_component_config(runcard, drive_name, ZiIqConfig)
@@ -81,14 +92,20 @@ def create():
             mixer=None,
             lo=drive_lo,
         )
-        zi_channels.append(ZiChannel(qubits[q].drive, device="device_shfqc", path=f"SGCHANNELS/{q}/OUTPUT"))
+        zi_channels.append(
+            ZiChannel(
+                qubits[q].drive, device="device_shfqc", path=f"SGCHANNELS/{q}/OUTPUT"
+            )
+        )
 
     flux_name = "qubit_1/flux"
     components[flux_name] = load_component_config(runcard, flux_name, ZiDcConfig)
     qubits[1].flux = DcChannel(
         name=flux_name,
     )
-    zi_channels.append(ZiChannel(qubits[1].flux, device="device_hdawg", path="SIGOUTS/0"))
+    zi_channels.append(
+        ZiChannel(qubits[1].flux, device="device_hdawg", path="SIGOUTS/0")
+    )
 
     controller = Zurich(
         "ZURO_BLANCO",
