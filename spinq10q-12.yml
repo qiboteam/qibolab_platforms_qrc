@@ -3,9 +3,10 @@ settings: {nshots: 1024, sampling_rate: 1_000_000_000, relaxation_time: 50_000}
 qubits: [1, 2]
 topology:
 - [1, 2]
-instruments: {}
-    # twpa_pump0: {power: -1.90, frequency: 6803000000}
-
+instruments: # {}
+    twpa_pump0: {power: -1.90, frequency: 6803000000}
+    local_oscillator: {power: 10, frequency: 7400000000}
+    # physical attenuation 20dB on readout port
 native_gates:
     single_qubit:
         1:
@@ -73,7 +74,7 @@ characterization:
             readout_frequency: 7511552000 # state |0>
             drive_frequency: 4866050275
             anharmonicity: -388_988_000
-            sweetspot: -0.4 # 0
+            sweetspot: -0.45 # 0
             # sweetspot: 0.22 # all sweetspot
             # sweetspot: 0.206 # 1&2 ss rest parked
             # sweetspot: -0.07 # parked
