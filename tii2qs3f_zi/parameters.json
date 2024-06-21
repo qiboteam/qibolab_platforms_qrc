@@ -25,24 +25,18 @@
             }
         }
     },
-    "channels": {
+    "components": {
         "qubit_0/drive": {
             "frequency": 4833726197,
-            "lo_config": {
-                "frequency": 5200000000,
-                "power": null
-            },
-            "mixer_config": null,
             "power_range": 5
         },
         "qubit_1/drive": {
             "frequency": 5705000000,
-            "lo_config": {
-                "frequency": 5200000000,
-                "power": null
-            },
-            "mixer_config": null,
             "power_range": 5
+        },
+        "qubit_1_2/drive/lo": {
+            "frequency": 5200000000,
+            "power": null
         },
         "qubit_1/flux": {
             "offset": 0.09,
@@ -50,28 +44,24 @@
         },
         "qubit_0/measure": {
             "frequency": 7320000000,
-            "lo_config": {
-                "frequency": 7300000000,
-                "power": null
-            },
-            "mixer_config": null,
             "power_range": 1
         },
         "qubit_1/measure": {
             "frequency": 7322300000,
-            "lo_config": {
-                "frequency": 7300000000,
-                "power": null
-            },
-            "mixer_config": null,
             "power_range": -5
         },
+        "qubit_1_2/measure/lo": {
+            "frequency": 7300000000,
+            "power": null
+        },
         "qubit_0/acquire": {
-            "twpa_pump_config": null,
+            "delay": 0,
+            "smearing": 0,
             "power_range": 10
         },
         "qubit_1/acquire": {
-            "twpa_pump_config": null,
+            "delay": 0,
+            "smearing": 0,
             "power_range": 10
         }
     },
