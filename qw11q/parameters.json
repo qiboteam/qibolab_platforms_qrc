@@ -80,11 +80,11 @@
                 "gain": 0
             },
             "o2": {
-                "lo_frequency": 4900000000,
+                "lo_frequency": 5100000000,
                 "gain": 0
             },
             "o3": {
-                "lo_frequency": 4900000000,
+                "lo_frequency": 5100000000,
                 "gain": 0
             },
             "o4": {
@@ -121,11 +121,11 @@
                 "gain": 0
             },
             "o4": {
-                "lo_frequency": 6500000000,
+                "lo_frequency": 6400000000,
                 "gain": 0
             },
             "o5": {
-                "lo_frequency": 6500000000,
+                "lo_frequency": 6400000000,
                 "gain": 0
             }
         }
@@ -309,9 +309,9 @@
             "\"D1\"": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.05,
+                    "amplitude": 0.042,
                     "shape": "Gaussian(5)",
-                    "frequency": 4900000000,
+                    "frequency": 4955950000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -338,7 +338,7 @@
             "\"D2\"": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.055,
+                    "amplitude": 0.054,
                     "shape": "Gaussian(5)",
                     "frequency": 5563861427,
                     "relative_start": 0,
@@ -396,9 +396,9 @@
             "\"D4\"": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.05,
+                    "amplitude": 0.08,
                     "shape": "Gaussian(5)",
-                    "frequency": 6500000000,
+                    "frequency": 6249000000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -425,7 +425,7 @@
             "\"D5\"": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.064,
+                    "amplitude": 0.065,
                     "shape": "Gaussian(5)",
                     "frequency": 5526550919,
                     "relative_start": 0,
@@ -546,7 +546,7 @@
                 }
             },
             "\"D1\"": {
-                "sweetspot": 0.03,
+                "sweetspot": 0.044,
                 "crosstalk_matrix": {
                     "\"A1\"": 0.0,
                     "\"A2\"": 0.0,
@@ -594,7 +594,7 @@
                 }
             },
             "\"D4\"": {
-                "sweetspot": 0.18,
+                "sweetspot": 0.186,
                 "crosstalk_matrix": {
                     "\"A1\"": 0.0,
                     "\"A2\"": 0.0,
