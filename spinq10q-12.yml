@@ -5,19 +5,19 @@ topology:
 - [1, 2]
 instruments: # {}
     twpa_pump0: {power: -1.90, frequency: 6803000000}
-    local_oscillator: {power: 10, frequency: 7400000000}
+    local_oscillator: {power: 10, frequency: 7300000000}
     # physical attenuation 20dB on readout port
 native_gates:
     single_qubit:
         1:
             RX: {duration: 40, amplitude: 0.1581, shape: Gaussian(5), frequency: 4236503117,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency:  7432400829,    # state |0>
+            MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency:  7416400829,    # state |0>
                 relative_start: 0, phase: 0, type: ro}
         2:
             RX: {duration: 40, amplitude: 0.2638, shape: Gaussian(5), frequency: 4866050275,
                 relative_start: 0, phase: 0, type: qd}
-            MZ: {duration: 2500, amplitude: 0.3, shape: Rectangular(), frequency: 7511552000,     # state |0>
+            MZ: {duration: 2500, amplitude: 0.2, shape: Rectangular(), frequency: 7511552000,     # state |0>
                 relative_start: 0, phase: 0, type: ro}
 
     two_qubit:
@@ -37,7 +37,7 @@ characterization:
             readout_frequency: 7432400829 # state |0>
             drive_frequency: 4236503117
             anharmonicity: -397_538_000
-            sweetspot: 0 # 0
+            sweetspot: 0.2 # 0
             # sweetspot: -0.800 # 0
             # sweetspot: -0.17 # all sweetspot
             # sweetspot: -0.17 # 1&2 ss rest parked
@@ -74,7 +74,7 @@ characterization:
             readout_frequency: 7511552000 # state |0>
             drive_frequency: 4866050275
             anharmonicity: -388_988_000
-            sweetspot: -0.45 # 0
+            sweetspot: -0.14 # 0.143
             # sweetspot: 0.22 # all sweetspot
             # sweetspot: 0.206 # 1&2 ss rest parked
             # sweetspot: -0.07 # parked
