@@ -16,7 +16,14 @@ FOLDER = pathlib.Path(__file__).parent
 
 
 def create():
-    """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines."""
+    """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines.
+
+    Current status (check before using):
+    Line A (6 qubits) is NOT calibrated because signal is very noisy at low readout power,
+    possibly due to not using the TWPA pump.
+    Line D (5 qubits): is calibrated (also without TWPA pump) up to the details provided in
+    https://github.com/qiboteam/qibolab_platforms_qrc/pull/144#issuecomment-2182658507
+    """
     opxs = [
         OPXplus("con5"),
         OPXplus("con6"),
