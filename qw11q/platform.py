@@ -38,8 +38,8 @@ def create():
         calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
-    twpa_a = SGS100A(name="twpaA", address="192.168.0.33")
-    twpa_d = SGS100A(name="twpaD", address="192.168.0.34")
+    twpa_a = SGS100A(name="twpaA", address="192.168.0.34")
+    twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
     channels = ChannelMap()
     # Readout
