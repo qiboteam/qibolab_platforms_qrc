@@ -24,7 +24,6 @@ def create(runcard_path=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC(str(FOLDER), ADDRESS, PORT)
-    # controller = RFSoC(str(FOLDER), ADDRESS, PORT, sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 200 # tProc clock ticks?!!
     controller.cfg.repetition_duration = 100 # in us !!
 
