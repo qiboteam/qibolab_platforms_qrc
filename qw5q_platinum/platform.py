@@ -16,10 +16,16 @@ FOLDER = pathlib.Path(__file__).parent
 
 
 def create():
-    """QuantWare 5q-chip controlled using qblox cluster.
+    """QuantWare 5q-chip controlled with Quantum Machines.
 
-    Args:
-        runcard_path (str): Path to the runcard file.
+    Current status (check before using):
+    Qubits 0 and 2 are calibrated up to single shot.
+    Qubit 1 cannot be put at the sweetspot because then Qubit 2 is not working.
+    Qubit 3 sweetspot cannot be reach by QM.
+    Qubit 4 does not show good Rabi.
+
+    Some reports:
+    https://github.com/qiboteam/qibolab_platforms_qrc/pull/147#pullrequestreview-2146505676
     """
     opxs = [OPXplus("con2"), OPXplus("con3"), OPXplus("con4")]
     octave2 = Octave("octave2", port=101, connectivity=opxs[0])
