@@ -1,0 +1,680 @@
+{
+    "nqubits": 11,
+    "settings": {
+        "nshots": 2048,
+        "relaxation_time": 100000
+    },
+    "qubits": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+    ],
+    "topology": [
+        ["A1", "A2"],
+        ["A1", "A3"],
+        ["A1", "D5"],
+        ["A2", "A4"],
+        ["A3", "A4"],
+        ["A2", "A6"],
+        ["A3", "D4"],
+        ["A4", "A5"],
+        ["A6", "D3"],
+        ["D1", "D2"],
+        ["D1", "D3"],
+        ["D2", "D4"],
+        ["D3", "D4"],
+        ["D4", "D5"]
+    ],
+    "instruments": {
+        "qm": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 30,
+                "instructions": 1000000
+            }
+        },
+        "octave4": {
+            "o1": {
+                "lo_frequency": 7520000000,
+                "gain": 0
+            },
+            "o2": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
+            "o3": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
+            "o4": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o5": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "i1": {
+                "lo_frequency": 7520000000
+            }
+        },
+        "con5": {
+            "i1": {
+                "gain": 0
+            },
+            "i2": {
+                "gain": 0
+            }
+        },
+        "octave5": {
+            "o1": {
+                "lo_frequency": 7450000000,
+                "gain": 0
+            },
+            "o2": {
+                "lo_frequency": 5100000000,
+                "gain": 0
+            },
+            "o3": {
+                "lo_frequency": 5100000000,
+                "gain": 0
+            },
+            "o4": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o5": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "i1": {
+                "lo_frequency": 7450000000
+            }
+        },
+        "con6": {
+            "i1": {
+                "gain": 0
+            },
+            "i2": {
+                "gain": 0
+            }
+        },
+        "octave6": {
+            "o1": {
+                "lo_frequency": 4900000000,
+                "gain": 0
+            },
+            "o2": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o3": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o4": {
+                "lo_frequency": 6400000000,
+                "gain": 0
+            },
+            "o5": {
+                "lo_frequency": 6400000000,
+                "gain": 0
+            }
+        }
+    },
+    "native_gates": {
+        "single_qubit": {
+            "\"A1\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4900000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4900000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7134250000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"A2\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7400400000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"A3\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7490250000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"A4\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4900000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4900000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7242800000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"A5\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7640000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"A6\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 6500000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 6500000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7742200000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"D1\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.042,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4957511346,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 4900000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.0015,
+                    "shape": "Rectangular()",
+                    "frequency": 7137520000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"D2\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.054,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5563745712,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7379568000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"D3\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.071,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5652307573,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.0012,
+                    "shape": "Rectangular()",
+                    "frequency": 7490960000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"D4\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.08,
+                    "shape": "Gaussian(5)",
+                    "frequency": 6249230083,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 6500000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.003,
+                    "shape": "Rectangular()",
+                    "frequency": 7706570000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "\"D5\"": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.065,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5526500884,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.05,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5700000000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.002,
+                    "shape": "Rectangular()",
+                    "frequency": 7636110000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            }
+        }
+    },
+    "characterization": {
+        "single_qubit": {
+            "\"A1\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 1.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"A2\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 1.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"A3\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 1.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"A4\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 1.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"A5\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 1.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"A6\"": {
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 1.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                }
+            },
+            "\"D1\"": {
+                "sweetspot": 0.044,
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 1.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                },
+                "mean_gnd_states": [
+                    -2.227998773785137e-05,
+                    -0.00032053568844748955
+                ],
+                "mean_exc_states": [
+                    0.00011551545620745829,
+                    -0.000798039024221685
+                ],
+                "threshold": 0.0005563599637558058,
+                "iq_angle": 1.2898540166236718
+            },
+            "\"D2\"": {
+                "sweetspot": 0.014,
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 1.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                },
+                "mean_gnd_states": [
+                    0.000136887537550454,
+                    -0.0006681669696078059
+                ],
+                "mean_exc_states": [
+                    0.0005938430738127038,
+                    -0.0013434195648632187
+                ],
+                "threshold": 0.001064614506217867,
+                "iq_angle": 0.9758674013891115
+            },
+            "\"D3\"": {
+                "sweetspot": 0.046,
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 1.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 0.0
+                },
+                "mean_gnd_states": [
+                    0.0002818557511899726,
+                    0.00036650351020276633
+                ],
+                "mean_exc_states": [
+                    0.0008939621877635212,
+                    0.0010231161893402589
+                ],
+                "threshold": 0.0009148641279213464,
+                "iq_angle": -0.8204634503257164
+            },
+            "\"D4\"": {
+                "sweetspot": 0.186,
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 1.0,
+                    "\"D5\"": 0.0
+                },
+                "mean_gnd_states": [
+                    0.00039612338448020827,
+                    -0.0003971036255684492
+                ],
+                "mean_exc_states": [
+                    0.0014993317247879957,
+                    -0.0006236687832709636
+                ],
+                "threshold": 0.001079923013219866,
+                "iq_angle": 0.2025530059940501
+            },
+            "\"D5\"": {
+                "sweetspot": -0.15,
+                "crosstalk_matrix": {
+                    "\"A1\"": 0.0,
+                    "\"A2\"": 0.0,
+                    "\"A3\"": 0.0,
+                    "\"A4\"": 0.0,
+                    "\"A5\"": 0.0,
+                    "\"A6\"": 0.0,
+                    "\"D1\"": 0.0,
+                    "\"D2\"": 0.0,
+                    "\"D3\"": 0.0,
+                    "\"D4\"": 0.0,
+                    "\"D5\"": 1.0
+                },
+                "mean_gnd_states": [
+                    -0.00043121492384945193,
+                    -0.0002555292568656179
+                ],
+                "mean_exc_states": [
+                    -0.0009367253072833861,
+                    -0.000980560075288886
+                ],
+                "threshold": 0.0009152869278979846,
+                "iq_angle": 2.1796581616628923
+            }
+    }
+}
+}
