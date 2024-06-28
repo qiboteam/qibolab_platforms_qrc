@@ -29,12 +29,12 @@ def create():
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:19"),  # RO: q0, q1
         "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:20"),  # RO: q2, q3, q4
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),   # Drive: q1, q2
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # Drive: q1, q2
         "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),  # Drive: q3, q4
         "qcm_rf2": QcmRf("qcm_rf2", f"{ADDRESS}:12"),  # Drive: q0
-        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),   # Flux: q0, q1, q2, q3
-        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),   # Flux/Coupler: q4, c1, c3
-        "qcm_bb2": QcmBb("qcm_bb2", f"{ADDRESS}:6"),   # Flux/Coupler: c4
+        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),  # Flux: q0, q1, q2, q3
+        "qcm_bb1": QcmBb("qcm_bb1", f"{ADDRESS}:4"),  # Flux/Coupler: q4, c1, c3
+        "qcm_bb2": QcmBb("qcm_bb2", f"{ADDRESS}:6"),  # Flux/Coupler: c4
         "qcm_bb3": QcmBb("qcm_bb3", f"{ADDRESS}:17"),  # Flux/Coupler: c0
     }
 
@@ -52,30 +52,36 @@ def create():
     channels = ChannelMap()
 
     # Readout
-    channels |= Channel(name="L3-31a", port=modules["qrm_rf0"].ports("o1")) #q0, q1
-    channels |= Channel(name="L3-31b", port=modules["qrm_rf1"].ports("o1")) #q2, q3, q4
+    channels |= Channel(name="L3-31a", port=modules["qrm_rf0"].ports("o1"))  # q0, q1
+    channels |= Channel(
+        name="L3-31b", port=modules["qrm_rf1"].ports("o1")
+    )  # q2, q3, q4
     # Feedback
-    channels |= Channel(name="L2-7a", port=modules["qrm_rf0"].ports("i1", out=False)) #q0, q1
-    channels |= Channel(name="L2-7b", port=modules["qrm_rf1"].ports("i1", out=False)) #q2, q3, q4
+    channels |= Channel(
+        name="L2-7a", port=modules["qrm_rf0"].ports("i1", out=False)
+    )  # q0, q1
+    channels |= Channel(
+        name="L2-7b", port=modules["qrm_rf1"].ports("i1", out=False)
+    )  # q2, q3, q4
     # Drive
-    channels |= Channel(name="L4-16", port=modules["qcm_rf0"].ports("o1")) #q1
-    channels |= Channel(name="L4-17", port=modules["qcm_rf0"].ports("o2")) #q2
-    channels |= Channel(name="L4-18", port=modules["qcm_rf1"].ports("o1")) #q3
-    channels |= Channel(name="L4-19", port=modules["qcm_rf1"].ports("o2")) #q4
-    channels |= Channel(name="L4-15", port=modules["qcm_rf2"].ports("o1")) #q0
+    channels |= Channel(name="L4-16", port=modules["qcm_rf0"].ports("o1"))  # q1
+    channels |= Channel(name="L4-17", port=modules["qcm_rf0"].ports("o2"))  # q2
+    channels |= Channel(name="L4-18", port=modules["qcm_rf1"].ports("o1"))  # q3
+    channels |= Channel(name="L4-19", port=modules["qcm_rf1"].ports("o2"))  # q4
+    channels |= Channel(name="L4-15", port=modules["qcm_rf2"].ports("o1"))  # q0
 
     # Flux - Qubits
-    channels |= Channel(name="L4-6", port=modules["qcm_bb0"].ports("o1"))  #q0
-    channels |= Channel(name="L4-7", port=modules["qcm_bb0"].ports("o2"))  #q1
-    channels |= Channel(name="L4-8", port=modules["qcm_bb0"].ports("o3"))  #q2
-    channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports("o4"))  #q3
-    channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports("o1")) #q4
-    
+    channels |= Channel(name="L4-6", port=modules["qcm_bb0"].ports("o1"))  # q0
+    channels |= Channel(name="L4-7", port=modules["qcm_bb0"].ports("o2"))  # q1
+    channels |= Channel(name="L4-8", port=modules["qcm_bb0"].ports("o3"))  # q2
+    channels |= Channel(name="L4-9", port=modules["qcm_bb0"].ports("o4"))  # q3
+    channels |= Channel(name="L4-10", port=modules["qcm_bb1"].ports("o1"))  # q4
+
     # Flux - Couplers
-    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o2")) #c1
-    channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports("o4")) #c3
-    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports("o2")) #c4
-    channels |= Channel(name="L4-5", port=modules["qcm_bb3"].ports("o1"))  #c0
+    channels |= Channel(name="L4-12", port=modules["qcm_bb1"].ports("o2"))  # c1
+    channels |= Channel(name="L4-13", port=modules["qcm_bb1"].ports("o4"))  # c3
+    channels |= Channel(name="L4-14", port=modules["qcm_bb2"].ports("o2"))  # c4
+    channels |= Channel(name="L4-5", port=modules["qcm_bb3"].ports("o1"))  # c0
 
     # TWPA
     channels |= Channel(name="L3-32", port=None)
@@ -98,7 +104,7 @@ def create():
         qubits[q].twpa = channels["L3-32"]
         channels[f"L4-{6 + q}"].qubit = qubits[q]
         qubits[q].flux.max_bias = 2.5
-    
+
     for i, coupler in enumerate(couplers):
         couplers[coupler].flux = (
             channels[f"L4-{11 + i}"] if i > 0 else channels[f"L4-5"]
