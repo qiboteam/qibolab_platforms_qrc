@@ -101,10 +101,10 @@
         },
         "con6": {
             "i1": {
-                "gain": 0
+                "gain": 10
             },
             "i2": {
-                "gain": 0
+                "gain": 10
             }
         },
         "octave6": {
@@ -128,6 +128,10 @@
                 "lo_frequency": 6400000000,
                 "gain": 0
             }
+        },
+        "twpaD": {
+            "frequency": 6149000000,
+            "power": -2.6
         }
     },
     "native_gates": {
@@ -385,7 +389,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.0012,
+                    "amplitude": 0.0011,
                     "shape": "Rectangular()",
                     "frequency": 7490960000,
                     "relative_start": 0,
@@ -414,7 +418,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.003,
+                    "amplitude": 0.002,
                     "shape": "Rectangular()",
                     "frequency": 7706570000,
                     "relative_start": 0,
@@ -427,7 +431,7 @@
                     "duration": 40,
                     "amplitude": 0.065,
                     "shape": "Gaussian(5)",
-                    "frequency": 5526500884,
+                    "frequency": 5526780884,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -443,7 +447,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.002,
+                    "amplitude": 0.0018,
                     "shape": "Rectangular()",
                     "frequency": 7636110000,
                     "relative_start": 0,

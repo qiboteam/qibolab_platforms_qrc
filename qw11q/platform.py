@@ -98,7 +98,7 @@ def create():
     instruments = {
         controller.name: controller,
         # twpa_a.name: twpa_a,
-        # twpa_d.name: twpa_d,
+        twpa_d.name: twpa_d,
     }
     instruments.update(controller.opxs)
     instruments.update(controller.octaves)
