@@ -24,11 +24,11 @@
         "LO": {
             "frequency": 7385000000,
             "power": 11
-        }
+        },
         "twpa_pump0": {
             "power": -2.21,
             "frequency": 6803000000
-          },
+          }
     },
 
     "native_gates": {
@@ -47,7 +47,7 @@
                     "duration": 4000,
                     "amplitude": 0.105,
                     "shape": "Rectangular()",
-                    "frequency": 6952316555,
+                    "frequency": 7432316555,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -67,7 +67,7 @@
                     "duration": 4000,
                     "amplitude": 0.14,
                     "shape": "Rectangular()",
-                    "frequency": 7110360000,
+                    "frequency": 7510360000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -87,7 +87,7 @@
                     "duration": 4000,
                     "amplitude": 0.1,
                     "shape": "Rectangular()",
-                    "frequency": 7342853000,
+                    "frequency": 7547853000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -101,19 +101,19 @@
                         "duration": 30,
                         "amplitude": 0.055,
                         "shape": "Rectangular()",
-                        "qubit": "D2",
+                        "qubit": 2,
                         "relative_start": 0,
                         "type": "qf"
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": "D2"
+                        "qubit": 2
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": "D1"
+                        "qubit": 1
                     }
                 ]
             },
@@ -123,19 +123,19 @@
                         "duration": 30,
                         "amplitude": 0.207,
                         "shape": "Rectangular()",
-                        "qubit": "D3",
+                        "qubit": 3,
                         "relative_start": 0,
                         "type": "qf"
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": "D3"
+                        "qubit": 3
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": "D1"
+                        "qubit": 1
                     }
                 ]
             }
