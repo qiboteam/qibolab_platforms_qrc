@@ -30,8 +30,6 @@ def create():
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 100
 
-    #TWPA
-    twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
 
     # Create channel objects
     channels = ChannelMap()
@@ -43,7 +41,7 @@ def create():
     # QUBIT 2
     channels |= Channel("L1-1-RO_1", port=controller.ports(1))  # feedback adc1
     channels |= Channel("L6-2_qd", port=controller.ports(4))  # drive    dac4
-    channels |= Channel("L6-40-fl", port=controller.ports(1))  # flux     dac1
+    channels |= Channel("L6-40_fl", port=controller.ports(1))  # flux     dac1
     # QUBIT 3
     channels |= Channel("L1-1-RO_2", port=controller.ports(2))  # feedback adc2
     channels |= Channel("L6-3_qd", port=controller.ports(5))  # drive    dac5
@@ -51,8 +49,10 @@ def create():
 
     # Readout local oscillator
     local_oscillator = SGS100A(name="LO", address=LO_ADDRESS)
-    channels["L3-30_ro"].local_oscillator = local_oscillator
-
+    channels["L3-20_ro"].local_oscillator = local_oscillator
+    #TWPA
+    twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
+    #channels["L3-10"].twpa_pump0 = twpa_pump0 
     # create qubit objects
     runcard = load_runcard(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard)
@@ -61,21 +61,21 @@ def create():
     qubits[1].feedback = channels["L1-1-RO_0"]
     qubits[1].drive = channels["L6-1_qd"]
     qubits[1].flux = channels["L6-39_fl"]
-    qubits[1].twpa = channels["L3-10"]
+    #qubits[1].twpa = channels["L3-10"]
     channels["L6-39_fl"].qubit = qubits[1]
 
     qubits[2].readout = channels["L3-20_ro"]
     qubits[2].feedback = channels["L1-1-RO_1"]
     qubits[2].drive = channels["L6-2_qd"]
     qubits[2].flux = channels["L6-40_fl"]
-    qubits[2].twpa = channels["L3-10"]
+    #qubits[2].twpa = channels["L3-10"]
     channels["L6-40_fl"].qubit = qubits[2]
 
     qubits[3].readout = channels["L3-20_ro"]
     qubits[3].feedback = channels["L1-1-RO_2"]
     qubits[3].drive = channels["L6-3_qd"]
     qubits[3].flux = channels["L6-41_fl"]
-    qubits[3].twpa = channels["L3-10"]
+    #qubits[3].twpa = channels["L3-10"]
     channels["L6-41_fl"].qubit = qubits[3]
 
     instruments = {controller.name: controller, 
