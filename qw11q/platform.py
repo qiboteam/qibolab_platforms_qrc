@@ -21,8 +21,8 @@ def create():
     Current status (check before using):
     Line A (6 qubits) is NOT calibrated because signal is very noisy at low readout power,
     possibly due to not using the TWPA pump.
-    Line D (5 qubits): is calibrated (also without TWPA pump) up to the details provided in
-    https://github.com/qiboteam/qibolab_platforms_qrc/pull/144#issuecomment-2182658507
+    Line D (5 qubits): calibrated with TWPA and latest status in:
+    https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
     opxs = [
         OPXplus("con5"),
@@ -98,7 +98,7 @@ def create():
     instruments = {
         controller.name: controller,
         # twpa_a.name: twpa_a,
-        # twpa_d.name: twpa_d,
+        twpa_d.name: twpa_d,
     }
     instruments.update(controller.opxs)
     instruments.update(controller.octaves)
