@@ -51,8 +51,12 @@ def create():
     twpa_pump_channel = Channel("twpa_pump")
     measure_path = "QACHANNELS/0/OUTPUT"
     acquire_path = "QACHANNELS/0/INPUT"
-    measure_channel = Channel(f"measure", controller.ports(("device_shfqc", measure_path)))
-    acquire_channel = Channel(f"acquire", controller.ports(("device_shfqc", acquire_path)))
+    measure_channel = Channel(
+        f"measure", controller.ports(("device_shfqc", measure_path))
+    )
+    acquire_channel = Channel(
+        f"acquire", controller.ports(("device_shfqc", acquire_path))
+    )
     for i in range(5):
         drive_path = f"SGCHANNELS/{i}/OUTPUT"
         device_setup.add_connections(
@@ -65,13 +69,17 @@ def create():
         flux_path = f"SIGOUTS/{i}"
         device_setup.add_connections(
             "device_hdawg",
-            create_connection(to_signal=f"q{i}/flux_line", ports=[flux_path])
+            create_connection(to_signal=f"q{i}/flux_line", ports=[flux_path]),
         )
 
-        qubits[i].drive = Channel(f"q{i}/drive", controller.ports(("device_shfqc", drive_path)))
+        qubits[i].drive = Channel(
+            f"q{i}/drive", controller.ports(("device_shfqc", drive_path))
+        )
         qubits[i].readout = measure_channel
         qubits[i].feedback = acquire_channel
-        qubits[i].flux = Channel(f"q{i}/flux", controller.ports(("device_hdawg", flux_path)))
+        qubits[i].flux = Channel(
+            f"q{i}/flux", controller.ports(("device_hdawg", flux_path))
+        )
 
         qubits[i].twpa = twpa_pump_channel
 
