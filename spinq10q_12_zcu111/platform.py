@@ -45,7 +45,7 @@ def create():
     channels |= Channel("L6-40_fl", port=controller.ports(0))  # flux     dac1
     # QUBIT 3
     channels |= Channel("L1-1-RO_2", port=controller.ports(2))  # feedback adc2
-    channels |= Channel("L6-3_qd", port=controller.ports(5))  # drive    dac5
+    channels |= Channel("L6-3_qd", port=controller.ports(3 ))  # drive    dac5
     channels |= Channel("L6-41_fl", port=controller.ports(1))  # flux     dac2
 
     # Readout local oscillator
