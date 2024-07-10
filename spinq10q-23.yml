@@ -5,7 +5,8 @@ topology:
 - [2, 3]
 instruments: # {}
     twpa_pump0: {power: -1.90, frequency: 6803000000}
-    local_oscillator: {power: 10, frequency: 7300000000}
+    local_oscillator: {power: 10, frequency: 7385000000}
+    # local_oscillator: {power: 10, frequency: 7300000000}
     # physical attenuation 20dB on readout port
 native_gates:
     single_qubit:

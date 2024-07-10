@@ -11,7 +11,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-ADDRESS = "192.168.1.81"
+ADDRESS = "192.168.0.81"
 PORT = 6000
 
 FOLDER = pathlib.Path(__file__).parent
@@ -40,7 +40,9 @@ def create(runcard_path=RUNCARD):
 
     # readout
     channels |= Channel("L3-20", port=controller.ports(6))  # probe
-    channels |= Channel("L1-1", port=controller.ports(0))  # feedback
+    channels |= Channel("L1-1-1", port=controller.ports(0))  # feedback
+    channels |= Channel("L1-1-2", port=controller.ports(1))  # feedback
+    channels |= Channel("L1-1-3", port=controller.ports(2))  # feedback
 
     # # qubit 1
     # channels |= Channel("L6-1", port=controller.ports(3))  # drive
@@ -55,7 +57,9 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L6-41", port=controller.ports(1))  # flux
 
     channels["L3-20"].local_oscillator = local_oscillator
-    channels["L1-1"].local_oscillator = local_oscillator
+    channels["L1-1-1"].local_oscillator = local_oscillator
+    channels["L1-1-2"].local_oscillator = local_oscillator
+    channels["L1-1-3"].local_oscillator = local_oscillator
 
     # TWPA
     channels |= Channel(name="twpa", port=None)
@@ -68,19 +72,19 @@ def create(runcard_path=RUNCARD):
 
     # assign channels to qubits
     # qubits[1].readout = channels["L3-20"]
-    # qubits[1].feedback = channels["L1-1"]
+    # qubits[1].feedback = channels["L1-1-1"]
     # qubits[1].drive = channels["L6-1"]
     # qubits[1].flux = channels["L6-39"]
     # qubits[1].twpa = channels["twpa"]
 
     qubits[2].readout = channels["L3-20"]
-    qubits[2].feedback = channels["L1-1"]
+    qubits[2].feedback = channels["L1-1-2"]
     qubits[2].drive = channels["L6-2"]
     qubits[2].flux = channels["L6-40"]
     qubits[2].twpa = channels["twpa"]
 
     qubits[3].readout = channels["L3-20"]
-    qubits[3].feedback = channels["L1-1"]
+    qubits[3].feedback = channels["L1-1-3"]
     qubits[3].drive = channels["L6-3"]
     qubits[3].flux = channels["L6-41"]
     qubits[3].twpa = channels["twpa"]
