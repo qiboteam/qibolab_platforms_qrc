@@ -1,28 +1,28 @@
 {
     "nqubits": 3,
-    "description": "qubits 1-3  of spinq10q controlled by a Xilinx ZCU111 board",
+    "description": "qubits 2-4  of spinq10q controlled by a Xilinx ZCU111 board",
     "settings": {
         "nshots": 1024,
         "relaxation_time": 50000
     },
     "qubits": [
-        1,
         2,
-        3
+        3,
+        4
     ],
     "topology": [
         [
-            1,
-            2
-        ],
-        [
             2,
             3
+        ],
+        [
+            3,
+            4
         ]
     ],
     "instruments": {
         "LO": {
-            "frequency": 7385000000,
+            "frequency": 7390000000,
             "power": 10
         },
         "twpa": {
@@ -33,12 +33,12 @@
 
     "native_gates": {
         "single_qubit": {
-            "1": {
+            "4": {
                 "RX": {
                     "duration": 80,
                     "amplitude": 0.535,
                     "shape": "Gaussian(5)",
-                    "frequency": 4228357493,
+                    "frequency": 4848357493,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -47,7 +47,7 @@
                     "duration": 2500,
                     "amplitude": 0.105,
                     "shape": "Rectangular()",
-                    "frequency": 7433700000, 
+                    "frequency": 7583700000, 
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -95,25 +95,25 @@
             }
         },
         "two_qubit": {
-            "1-2": {
+            "3-4": {
                 "CZ": [
                     {
                         "duration": 30,
                         "amplitude": 0.055,
                         "shape": "Rectangular()",
-                        "qubit": 2,
+                        "qubit": 4,
                         "relative_start": 0,
                         "type": "qf"
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": 2
+                        "qubit": 4
                     },
                     {
                         "type": "virtual_z",
                         "phase": 0.0,
-                        "qubit": 1
+                        "qubit": 3
                     }
                 ]
             },
@@ -143,14 +143,14 @@
     },
     "characterization": {
         "single_qubit": {
-            "1": {
+            "4": {
                 "bare_resonator_frequency": 0,
-                "readout_frequency": 6952500000,
-                "drive_frequency": 4940357493,
+                "readout_frequency": 7583500000,
+                "drive_frequency": 4228357493,
                 "anharmonicity": 0.0,
                 "sweetspot": -0.037,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {"1": 1, "2": 0, "3": 0},
+                "crosstalk_matrix": {"2": 0, "3": 0, "4":1},
                 "Ec": 0.0,
                 "Ej": 0.0,
                 "g": 0.0,
@@ -186,7 +186,7 @@
                 "anharmonicity": 0,
                 "sweetspot": -0.14,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {"1": 0, "2": 1, "3": 0},
+                "crosstalk_matrix": {"4": 0, "2": 1, "3": 0},
                 "Ec": 0.0,
                 "Ej": 0.0,
                 "g": 0.0,
@@ -216,7 +216,7 @@
                 "anharmonicity": 286200000,
                 "sweetspot": 0.193,
                 "asymmetry": 0.0,
-                "crosstalk_matrix": {"1": 0, "2": 0, "3": 1},
+                "crosstalk_matrix": {"4": 0, "2": 0, "3": 1},
                 "Ec": 0.0,
                 "Ej": 0.0,
                 "g": 0.0,
