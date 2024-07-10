@@ -97,7 +97,7 @@ def create():
     acquire_channel.power_range = 10
     for qb in qubits.values():
         qb.drive.power_range = -5
-        qb.flux.power_range = 0.8
+        qb.flux.power_range = 3.0
 
     instruments = {controller.name: controller}
     for qb in qubits.values():
