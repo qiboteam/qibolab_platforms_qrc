@@ -26,8 +26,8 @@ def create():
 
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:2"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:10"),  # q1, q2, qw for now
-        #"qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:2"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:10"),  # q1, q2,  for now
+        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:1"),  # feedline
     }
 
     controller = QbloxController("qblox_controller", ADDRESS, modules)
@@ -44,7 +44,10 @@ def create():
      # Drive
     channels |= Channel(name="W3", port=modules["qcm_rf0"].ports("o1"))
     channels |= Channel(name="W4", port=modules["qcm_rf0"].ports("o2"))
-    #channels |= Channel(name="W6", port=modules["qcm_rf0"].ports("o2"))
+    channels |= Channel(name="W6", port=modules["qrm_rf1"].ports("o1"))
+
+    # Disconnected
+    channels |= Channel(name="WX", port=modules["qrm_rf1"].ports("i1", out=False))
 
     # create qubit objects
     qubits, _ , pairs = load_qubits(runcard)
@@ -57,11 +60,11 @@ def create():
     # assign drive channels to qubits
     qubits[0].drive = channels[f"W3"]
     qubits[1].drive = channels[f"W4"]
-    qubits[2].drive = channels[f"W4"] #W6
+    qubits[2].drive = channels[f"W6"] #W6
 
     channels[f"W3"].qubit = qubits[0]
     channels[f"W4"].qubit = qubits[1]
-    #channels[f"W6"].qubit = qubits[2]
+    channels[f"W6"].qubit = qubits[2]
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
