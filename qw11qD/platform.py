@@ -48,7 +48,6 @@ def create():
     configs = {
         "twpaD": OscillatorConfig(**components["twpaD"]),
         "readoutD_lo": OscillatorConfig(**components["readoutD_lo"]),
-        "acquireD": QmAcquisitionConfig(**components["acquireD"]),
     }
     configs |= {n: OscillatorConfig(**components[n]) for n in set(lo_map.values())}
 
@@ -56,8 +55,6 @@ def create():
 
     # Create logical channels and assign to qubits
     for q, qubit in qubits.items():
-        # TODO: I'd prefer measure -> readout
-        # TODO: Do we really need channels if they are only just strings?
         qubit.measure = IqChannel(
             f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}"
         )
@@ -67,10 +64,9 @@ def create():
         )
         qubit.drive = IqChannel(f"drive{q}", mixer=None, lo=lo_map[q])
         qubit.flux = DcChannel(f"flux{q}")
-        # TODO: add ``qubit.twpa``?
 
         configs[f"readout{q}"] = IqConfig(**components[f"readout{q}"])
-        configs[f"acquire{q}"] = configs["acquireD"]
+        configs[f"acquire{q}"] = QmAcquisitionConfig(**components["acquireD"])
         configs[f"drive{q}"] = IqConfig(**components[f"drive{q}"])
         configs[f"flux{q}"] = OpxDcConfig(**components[f"flux{q}"])
 
@@ -81,7 +77,7 @@ def create():
     ]
     # Acquire
     channels.extend(
-        QmChannel(qubit.acquisition, "octave5", port=1, output=True)
+        QmChannel(qubit.acquisition, "octave5", port=1, output=False)
         for qubit in qubits.values()
     )
     # Drive
@@ -96,7 +92,7 @@ def create():
     )
     # Flux
     channels.extend(
-        QmChannel(qubits[f"D{q}"].flux, "con9", port=q + 1) for q in range(1, 6)
+        QmChannel(qubits[f"D{q}"].flux, "con9", port=q + 2) for q in range(1, 6)
     )
 
     octaves = {
@@ -107,9 +103,11 @@ def create():
         "qm",
         "192.168.0.101:80",
         octaves=octaves,
+        # TODO: Maybe do the conversion below internally in the driver
+        # but do we really need this conversion?
         channels={channel.logical_channel.name: channel for channel in channels},
         calibration_path=FOLDER,
-        # script_file_name="qua_script.py",
+        script_file_name="qua_script.py",
     )
     instruments = {
         controller.name: controller,

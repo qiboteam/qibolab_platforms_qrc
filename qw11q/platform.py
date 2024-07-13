@@ -39,7 +39,7 @@ def create():
         octaves=list(octaves.values()),
         time_of_flight=224,
         calibration_path=FOLDER,
-        # script_file_name="qua_script.py",
+        script_file_name="qua_script.py",
     )
     twpa_b = SGS100A(name="twpaB", address="192.168.0.34")
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
