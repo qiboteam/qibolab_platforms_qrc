@@ -1,7 +1,19 @@
 import pathlib
 
-from qibolab.components import IqChannel, DcChannel, AcquireChannel, IqConfig, OscillatorConfig
-from qibolab.instruments.qm import Octave, QmController, QmChannel, QmAcquisitionConfig, OpxDcConfig
+from qibolab.components import (
+    AcquireChannel,
+    DcChannel,
+    IqChannel,
+    IqConfig,
+    OscillatorConfig,
+)
+from qibolab.instruments.qm import (
+    Octave,
+    OpxDcConfig,
+    QmAcquisitionConfig,
+    QmChannel,
+    QmController,
+)
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.kernels import Kernels
 from qibolab.platform import Platform
@@ -36,12 +48,9 @@ def create():
     configs = {
         "twpaD": OscillatorConfig(**components["twpaD"]),
         "readoutD_lo": OscillatorConfig(**components["readoutD_lo"]),
-        "acquireD": QmAcquisitionConfig(**components["acquireD"])
+        "acquireD": QmAcquisitionConfig(**components["acquireD"]),
     }
-    configs |= {
-        n: OscillatorConfig(**components[n])
-        for n in set(lo_map.values())
-    }
+    configs |= {n: OscillatorConfig(**components[n]) for n in set(lo_map.values())}
 
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
@@ -49,9 +58,13 @@ def create():
     for q, qubit in qubits.items():
         # TODO: I'd prefer measure -> readout
         # TODO: Do we really need channels if they are only just strings?
-        qubit.measure = IqChannel(f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}")
+        qubit.measure = IqChannel(
+            f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}"
+        )
         # TODO: twpa_pump -> twpa
-        qubit.acquisition = AcquireChannel(f"acquire{q}", twpa_pump=twpa_d.name, measure=f"readout{q}")
+        qubit.acquisition = AcquireChannel(
+            f"acquire{q}", twpa_pump=twpa_d.name, measure=f"readout{q}"
+        )
         qubit.drive = IqChannel(f"drive{q}", mixer=None, lo=lo_map[q])
         qubit.flux = DcChannel(f"flux{q}")
         # TODO: add ``qubit.twpa``?
@@ -63,19 +76,28 @@ def create():
 
     # Connect logical channels to instrument channels (ports)
     # Readout
-    channels = [QmChannel(qubit.measure, "octave5", port=1) for qubit in qubits.values()]
+    channels = [
+        QmChannel(qubit.measure, "octave5", port=1) for qubit in qubits.values()
+    ]
     # Acquire
-    channels.extend(QmChannel(qubit.acquisition, "octave5", port=1, output=True) for qubit in qubits.values())
+    channels.extend(
+        QmChannel(qubit.acquisition, "octave5", port=1, output=True)
+        for qubit in qubits.values()
+    )
     # Drive
-    channels.extend([
-        QmChannel(qubits["D1"].drive, "octave5", port=2),
-        QmChannel(qubits["D2"].drive, "octave5", port=4),
-        QmChannel(qubits["D3"].drive, "octave5", port=5),
-        QmChannel(qubits["D4"].drive, "octave6", port=5),
-        QmChannel(qubits["D5"].drive, "octave6", port=3),
-    ])
+    channels.extend(
+        [
+            QmChannel(qubits["D1"].drive, "octave5", port=2),
+            QmChannel(qubits["D2"].drive, "octave5", port=4),
+            QmChannel(qubits["D3"].drive, "octave5", port=5),
+            QmChannel(qubits["D4"].drive, "octave6", port=5),
+            QmChannel(qubits["D5"].drive, "octave6", port=3),
+        ]
+    )
     # Flux
-    channels.extend(QmChannel(qubits[f"D{q}"].flux, "con9", port=q + 1) for q in range(1, 6))
+    channels.extend(
+        QmChannel(qubits[f"D{q}"].flux, "con9", port=q + 1) for q in range(1, 6)
+    )
 
     octaves = {
         "octave5": Octave("octave5", port=104, connectivity="con6"),
