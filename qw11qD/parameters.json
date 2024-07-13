@@ -1,0 +1,329 @@
+{
+    "nqubits": 5,
+    "settings": {
+        "nshots": 2048,
+        "relaxation_time": 100000
+    },
+    "qubits": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5"
+    ],
+    "topology": [
+        ["D1", "D2"],
+        ["D1", "D3"],
+        ["D2", "D4"],
+        ["D3", "D4"],
+        ["D4", "D5"]
+    ],
+    "instruments": {
+        "qm": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 30,
+                "instructions": 1000000
+            }
+        }
+    },
+    "components": {
+        "twpaD": {
+            "frequency": 6149000000,
+            "power": -2.6
+        },
+        "readoutD_lo": {
+            "frequency": 7450000000,
+            "power": 0
+        },
+        "driveD1_lo": {
+            "frequency": 5100000000,
+            "power": 0
+        },
+        "driveD2D3_lo": {
+            "frequency": 5700000000,
+            "power": 0
+        },
+        "driveD4_lo": {
+            "frequency": 6400000000,
+            "power": 0
+        },
+        "driveD5_lo": {
+            "frequency": 5700000000,
+            "power": 0
+        },
+        "acquireD": {
+            "delay": 224,
+            "smearing": 0,
+            "gain": 10
+        },
+        "readoutD1": {
+            "frequency": 7137520000
+        },
+        "readoutD2": {
+            "frequency": 7379568000
+        },
+        "readoutD3": {
+            "frequency": 7490960000
+        },
+        "readoutD4": {
+            "frequency": 7706570000
+        },
+        "readoutD5": {
+            "frequency": 7636110000
+        },
+        "driveD1": {
+            "frequency": 4957511346
+        },
+        "driveD2": {
+            "frequency": 5563745712
+        },
+        "driveD3": {
+            "frequency": 5652307573
+        },
+        "driveD4": {
+            "frequency": 6249230083
+        },
+        "driveD5": {
+            "frequency": 5526780884
+        },
+        "fluxD1": {
+            "offset": -0.13
+        },
+        "fluxD2": {
+            "offset": 0.134
+        },
+        "fluxD3": {
+            "offset": -0.438
+        },
+        "fluxD4": {
+            "offset": -0.002
+        },
+        "fluxD5": {
+            "offset": -0.031
+        }
+    },
+    "native_gates": {
+        "single_qubit": {
+            "D1": {
+                "RX": {
+                    "driveD1": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.042,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 0.2 },
+                            "type": "qd"
+                        }
+                    ]
+
+                },
+                "MZ": {
+                    "readoutD1": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.0015,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
+                }
+            },
+            "D2": {
+                "RX": {
+                    "driveD2": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.054,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 0.2 },
+                            "type": "qd"
+                        }
+                    ]
+
+                },
+                "MZ": {
+                    "readoutD2": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.002,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
+                }
+            },
+            "D3": {
+                "RX": {
+                    "driveD3": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.071,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 0.2 },
+                            "type": "qd"
+                        }
+                    ]
+
+                },
+                "MZ": {
+                    "readoutD3": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.0011,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
+                }
+            },
+            "D4": {
+                "RX": {
+                    "driveD4": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.08,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 0.2 },
+                            "type": "qd"
+                        }
+                    ]
+
+                },
+                "MZ": {
+                    "readoutD4": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.002,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
+                }
+            },
+            "D5": {
+                "RX": {
+                    "driveD5": [
+                        {
+                            "duration": 40,
+                            "amplitude": 0.065,
+                            "envelope": { "kind": "gaussian", "rel_sigma": 0.2 },
+                            "type": "qd"
+                        }
+                    ]
+
+                },
+                "MZ": {
+                    "readoutD5": [
+                        {
+                            "duration": 2000,
+                            "amplitude": 0.0018,
+                            "envelope": { "kind": "rectangular" },
+                            "type": "ro"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "characterization": {
+        "single_qubit": {
+            "D1": {
+                "anharmonicity": -200000000,
+                "crosstalk_matrix": {
+                    "D1": 1.0,
+                    "D2": 0.0,
+                    "D3": 0.0,
+                    "D4": 0.0,
+                    "D5": 0.0
+                },
+                "mean_gnd_states": [
+                    0.001992031283182428,
+                    -0.000325345583423471
+                ],
+                "mean_exc_states": [
+                    0.005025109834944132,
+                    0.0003529515561332705
+                ],
+                "threshold": 0.003026542294327842,
+                "iq_angle": -0.22001314648659737
+            },
+            "D2": {
+                "anharmonicity": -200000000,
+                "crosstalk_matrix": {
+                    "D1": 0.0,
+                    "D2": 1.0,
+                    "D3": 0.0,
+                    "D4": 0.0,
+                    "D5": 0.0
+                },
+                "mean_gnd_states": [
+                    0.004696562248437499,
+                    -4.3912766327744516e-05
+                ],
+                "mean_exc_states": [
+                    0.010156050527719184,
+                    0.002509718619598908
+                ],
+                "threshold": 0.005892566768128606,
+                "iq_angle": -0.4375097377654063
+            },
+            "D3": {
+                "anharmonicity": -200000000,
+                "crosstalk_matrix": {
+                    "D1": 0.0,
+                    "D2": 0.0,
+                    "D3": 1.0,
+                    "D4": 0.0,
+                    "D5": 0.0
+                },
+                "mean_gnd_states": [
+                    -0.0013642692370220146,
+                    0.0016837434202658437
+                ],
+                "mean_exc_states": [
+                    -0.004314054200774259,
+                    0.0051153198281153325
+                ],
+                "threshold": 0.004217569263661005,
+                "iq_angle": -2.2808376665428676
+            },
+            "D4": {
+                "anharmonicity": -200000000,
+                "crosstalk_matrix": {
+                    "D1": 0.0,
+                    "D2": 0.0,
+                    "D3": 0.0,
+                    "D4": 1.0,
+                    "D5": 0.0
+                },
+                "mean_gnd_states": [
+                    0.0013641450005960675,
+                    0.0005875023773427056
+                ],
+                "mean_exc_states": [
+                    0.0014104750174299128,
+                    0.0038869878501636675
+                ],
+                "threshold": 0.002040883664708299,
+                "iq_angle": -1.556755661160481
+            },
+            "D5": {
+                "anharmonicity": -200000000,
+                "crosstalk_matrix": {
+                    "D1": 0.0,
+                    "D2": 0.0,
+                    "D3": 0.0,
+                    "D4": 0.0,
+                    "D5": 1.0
+                },
+                "mean_gnd_states": [
+                    0.0007043536140906688,
+                    -0.0016253897985863144
+                ],
+                "mean_exc_states": [
+                    0.002178737116705786,
+                    -0.0022289164611461634
+                ],
+                "threshold": 0.001988641627008587,
+                "iq_angle": 0.388533543740939
+            }
+        }
+    }
+}
