@@ -77,8 +77,7 @@ def create():
     ]
     # Acquire
     channels.extend(
-        QmChannel(qubit.acquisition, "octave5", port=1, output=False)
-        for qubit in qubits.values()
+        QmChannel(qubit.acquisition, "octave5", port=1) for qubit in qubits.values()
     )
     # Drive
     channels.extend(
