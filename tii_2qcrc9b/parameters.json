@@ -48,18 +48,18 @@
         "single_qubit": {
             "0": {
                 "RX": {
-                    "duration": 80,
-                    "amplitude": 0.8,
-                    "frequency": 5632000000,
-                    "shape": "Gaussian(5)",
+                    "duration": 894,
+                    "amplitude": 0.6,
+                    "frequency": 5224185399,
+                    "shape": "Drag(5, 0.5)",
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
                 },
                 "MZ": {
-                    "duration": 2000,
-                    "amplitude": 0.15,
-                    "frequency": 6848698000,
+                    "duration": 1000,
+                    "amplitude": 0.07,
+                    "frequency": 6851582613,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0,
@@ -68,18 +68,18 @@
             },
             "1": {
                 "RX": {
-                    "duration": 600,
-                    "amplitude": 0.4,
-                    "frequency": 7172645000,
+                    "duration": 448,
+                    "amplitude": 0.65,
+                    "frequency": 5488624757,
                     "shape":"Drag(5, 0.5)",
                     "type": "qd",
                     "relative_start": 0,
                     "phase": 0
                 },
                 "MZ": {
-                    "duration": 2000,
-                    "amplitude": 0.3,
-                    "frequency": 6951683000,
+                    "duration": 1000,
+                    "amplitude": 0.1,
+                    "frequency": 6959860000,
                     "shape": "Rectangular()",
                     "type": "ro",
                     "relative_start": 0
