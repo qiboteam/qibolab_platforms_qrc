@@ -18,20 +18,62 @@
         "D5"
     ],
     "topology": [
-        ["A1", "A2"],
-        ["A1", "A3"],
-        ["A1", "D5"],
-        ["A2", "A4"],
-        ["A3", "A4"],
-        ["A2", "A6"],
-        ["A3", "D4"],
-        ["A4", "A5"],
-        ["A6", "D3"],
-        ["D1", "D2"],
-        ["D1", "D3"],
-        ["D2", "D4"],
-        ["D3", "D4"],
-        ["D4", "D5"]
+        [
+            "A1",
+            "A2"
+        ],
+        [
+            "A1",
+            "A3"
+        ],
+        [
+            "A1",
+            "D5"
+        ],
+        [
+            "A2",
+            "A4"
+        ],
+        [
+            "A2",
+            "A6"
+        ],
+        [
+            "A3",
+            "A4"
+        ],
+        [
+            "A3",
+            "D4"
+        ],
+        [
+            "A4",
+            "A5"
+        ],
+        [
+            "A6",
+            "D3"
+        ],
+        [
+            "D1",
+            "D2"
+        ],
+        [
+            "D1",
+            "D3"
+        ],
+        [
+            "D2",
+            "D4"
+        ],
+        [
+            "D3",
+            "D4"
+        ],
+        [
+            "D4",
+            "D5"
+        ]
     ],
     "instruments": {
         "qm": {
@@ -39,6 +81,26 @@
                 "waveforms": 40000,
                 "readout": 30,
                 "instructions": 1000000
+            }
+        },
+        "twpaD": {
+            "power": -2.6,
+            "frequency": 6149000000
+        },
+        "con5": {
+            "i1": {
+                "gain": 0
+            },
+            "i2": {
+                "gain": 0
+            }
+        },
+        "con6": {
+            "i1": {
+                "gain": 10
+            },
+            "i2": {
+                "gain": 10
             }
         },
         "octave4": {
@@ -50,10 +112,6 @@
                 "lo_frequency": 4900000000,
                 "gain": 0
             },
-            "o3": {
-                "lo_frequency": 4900000000,
-                "gain": 0
-            },
             "o4": {
                 "lo_frequency": 5700000000,
                 "gain": 0
@@ -62,16 +120,12 @@
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
-            "i1": {
-                "lo_frequency": 7520000000
-            }
-        },
-        "con5": {
-            "i1": {
+            "o3": {
+                "lo_frequency": 4900000000,
                 "gain": 0
             },
-            "i2": {
-                "gain": 0
+            "i1": {
+                "lo_frequency": 7520000000
             }
         },
         "octave5": {
@@ -83,40 +137,24 @@
                 "lo_frequency": 5100000000,
                 "gain": 0
             },
-            "o3": {
-                "lo_frequency": 5100000000,
-                "gain": 0
-            },
             "o4": {
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
             "o5": {
                 "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o3": {
+                "lo_frequency": 5100000000,
                 "gain": 0
             },
             "i1": {
                 "lo_frequency": 7450000000
             }
         },
-        "con6": {
-            "i1": {
-                "gain": 10
-            },
-            "i2": {
-                "gain": 10
-            }
-        },
         "octave6": {
-            "o1": {
-                "lo_frequency": 4900000000,
-                "gain": 0
-            },
             "o2": {
-                "lo_frequency": 5700000000,
-                "gain": 0
-            },
-            "o3": {
                 "lo_frequency": 5700000000,
                 "gain": 0
             },
@@ -127,11 +165,15 @@
             "o5": {
                 "lo_frequency": 6400000000,
                 "gain": 0
+            },
+            "o3": {
+                "lo_frequency": 5700000000,
+                "gain": 0
+            },
+            "o1": {
+                "lo_frequency": 4900000000,
+                "gain": 0
             }
-        },
-        "twpaD": {
-            "frequency": 6149000000,
-            "power": -2.6
         }
     },
     "native_gates": {
@@ -400,8 +442,8 @@
             "D4": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.08,
-                    "shape": "Gaussian(5)",
+                    "amplitude": 0.07883018611598064,
+                    "shape": "Drag(5, 0.4)",
                     "frequency": 6249230083,
                     "relative_start": 0,
                     "phase": 0,
@@ -455,11 +497,61 @@
                     "type": "ro"
                 }
             }
+        },
+        "two_qubit": {
+            "D1-D2": {
+                "CZ": [
+                    {
+                        "duration": 70,
+                        "amplitude": 0.2,
+                        "shape": "GaussianSquare(5, 0.9)",
+                        "qubit": "D2",
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0.16321897638979893,
+                        "qubit": "D1"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 2.1407579546444087,
+                        "qubit": "D2"
+                    }
+                ],
+                "iSWAP": [
+                    {
+                        "duration": 80,
+                        "amplitude": 0.25,
+                        "shape": "Rectangular()",
+                        "qubit": "D2",
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0,
+                        "qubit": "D1"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0,
+                        "qubit": "D2"
+                    }
+                ]
+            }
         }
     },
     "characterization": {
         "single_qubit": {
             "A1": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 1.0,
                     "A2": 0.0,
@@ -472,9 +564,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "A2": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 1.0,
@@ -487,9 +614,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "A3": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -502,9 +664,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "A4": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -517,9 +714,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "A5": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -532,9 +764,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "A6": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 0,
+                "sweetspot": 0.0,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -547,12 +814,44 @@
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
-                }
+                },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0,
+                    0
+                ],
+                "mean_exc_states": [
+                    0,
+                    0
+                ],
+                "threshold": null,
+                "iq_angle": 0.0,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "D1": {
-                "sweetspot": -0.13,
-                "drive_frequency":  4957511346,
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 4957511346,
                 "anharmonicity": -200000000,
+                "sweetspot": -0.13,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -566,6 +865,21 @@
                     "D4": 0.0,
                     "D5": 0.0
                 },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
                 "mean_gnd_states": [
                     0.001992031283182428,
                     -0.000325345583423471
@@ -575,12 +889,19 @@
                     0.0003529515561332705
                 ],
                 "threshold": 0.003026542294327842,
-                "iq_angle": -0.22001314648659737
+                "iq_angle": -0.22001314648659737,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "D2": {
-                "sweetspot": 0.134,
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 5563745712,
                 "anharmonicity": -200000000,
-                "drive_frequency":  5563745712,
+                "sweetspot": 0.134,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -594,6 +915,21 @@
                     "D4": 0.0,
                     "D5": 0.0
                 },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
                 "mean_gnd_states": [
                     0.004696562248437499,
                     -4.3912766327744516e-05
@@ -603,12 +939,19 @@
                     0.002509718619598908
                 ],
                 "threshold": 0.005892566768128606,
-                "iq_angle": -0.4375097377654063
+                "iq_angle": -0.4375097377654063,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "D3": {
-                "sweetspot": -0.438,
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 5652307573,
                 "anharmonicity": -200000000,
-                "drive_frequency":  5652307573,
+                "sweetspot": -0.438,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -622,6 +965,21 @@
                     "D4": 0.0,
                     "D5": 0.0
                 },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
                 "mean_gnd_states": [
                     -0.0013642692370220146,
                     0.0016837434202658437
@@ -631,12 +989,19 @@
                     0.0051153198281153325
                 ],
                 "threshold": 0.004217569263661005,
-                "iq_angle": -2.2808376665428676
+                "iq_angle": -2.2808376665428676,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "D4": {
-                "sweetspot": -0.002,
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 6249230083,
                 "anharmonicity": -200000000,
-                "drive_frequency":  6249230083,
+                "sweetspot": -0.002,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -650,6 +1015,21 @@
                     "D4": 1.0,
                     "D5": 0.0
                 },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
                 "mean_gnd_states": [
                     0.0013641450005960675,
                     0.0005875023773427056
@@ -659,12 +1039,19 @@
                     0.0038869878501636675
                 ],
                 "threshold": 0.002040883664708299,
-                "iq_angle": -1.556755661160481
+                "iq_angle": -1.556755661160481,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             },
             "D5": {
-                "sweetspot": -0.031,
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
                 "drive_frequency": 5526500884,
                 "anharmonicity": -200000000,
+                "sweetspot": -0.031,
+                "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
                     "A2": 0.0,
@@ -678,6 +1065,21 @@
                     "D4": 0.0,
                     "D5": 1.0
                 },
+                "Ec": 0.0,
+                "Ej": 0.0,
+                "g": 0.0,
+                "assignment_fidelity": 0.0,
+                "readout_fidelity": 0.0,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
                 "mean_gnd_states": [
                     0.0007043536140906688,
                     -0.0016253897985863144
@@ -687,8 +1089,126 @@
                     -0.0022289164611461634
                 ],
                 "threshold": 0.001988641627008587,
-                "iq_angle": 0.388533543740939
+                "iq_angle": 0.388533543740939,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
             }
+        },
+        "two_qubit": {
+            "A1-A2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A2-A1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A1-A3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A3-A1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A1-D5": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D5-A1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A2-A4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A4-A2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A2-A6": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A6-A2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A3-A4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A4-A3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A3-D4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D4-A3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A4-A5": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A5-A4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "A6-D3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D3-A6": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D1-D2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D2-D1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D1-D3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D3-D1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D2-D4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D4-D2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D3-D4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D4-D3": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D4-D5": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "D5-D4": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            }
+        }
     }
-}
 }
