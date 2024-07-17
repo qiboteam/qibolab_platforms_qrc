@@ -444,7 +444,7 @@
                     "duration": 40,
                     "amplitude": 0.07883018611598064,
                     "shape": "Drag(5, 0.4)",
-                    "frequency": 6249230083,
+                    "frequency": 6249322200,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -460,7 +460,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.002,
+                    "amplitude": 0.003000000000000001,
                     "shape": "Rectangular()",
                     "frequency": 7706570000,
                     "relative_start": 0,
@@ -998,7 +998,7 @@
             "D4": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 0,
-                "drive_frequency": 6249230083,
+                "drive_frequency": 6249322200,
                 "anharmonicity": -200000000,
                 "sweetspot": -0.002,
                 "asymmetry": 0.0,
@@ -1025,8 +1025,8 @@
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0,
                 "resonator_depletion_time": 0,
-                "T1": 0,
-                "T2": 0,
+                "T1": 20628,
+                "T2": 23891,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
@@ -1038,8 +1038,8 @@
                     0.0014104750174299128,
                     0.0038869878501636675
                 ],
-                "threshold": 0.002040883664708299,
-                "iq_angle": -1.556755661160481,
+                "threshold": 0.003274773677515552,
+                "iq_angle": -1.3361825906898714,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
