@@ -19,63 +19,67 @@ def create():
     """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines.
 
     Current status (check before using):
-    Line A (6 qubits) is NOT calibrated because signal is very noisy at low readout power,
-    possibly due to not using the TWPA pump.
+    Line A (6 qubits) is NOT calibrated because signal is very noisy at low readout power.
+    We could not calibrate the TWPA neither with QM nor with VNA.
+    Line B (5 qubits): calibrated with TWAP and latest status in:
+    https://github.com/qiboteam/qibolab_platforms_qrc/pull/151
     Line D (5 qubits): calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
-    opxs = [
-        OPXplus("con5"),
-        OPXplus("con6"),
-        OPXplus("con8"),
-        OPXplus("con7"),
-        OPXplus("con9"),
-    ]
-    octaves = [
-        Octave("octave4", port=103, connectivity=opxs[0]),
-        Octave("octave5", port=104, connectivity=opxs[1]),
-        Octave("octave6", port=105, connectivity=opxs[2]),
-    ]
+    opxs = {i: OPXplus(f"con{i}") for i in range(2, 10)}
+    octave_to_opx = {2: 2, 3: 3, 4: 5, 5: 6, 6: 8}
+    octaves = {
+        i: Octave(f"octave{i}", port=99 + i, connectivity=opxs[octave_to_opx[i]])
+        for i in range(2, 7)
+    }
     controller = QMController(
         "qm",
         "192.168.0.101:80",
-        opxs=opxs,
-        octaves=octaves,
+        opxs=list(opxs.values()),
+        octaves=list(octaves.values()),
         time_of_flight=224,
         calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
-    twpa_a = SGS100A(name="twpaA", address="192.168.0.34")
+    twpa_b = SGS100A(name="twpaB", address="192.168.0.34")
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
     channels = ChannelMap()
     # Readout
-    channels |= Channel(name="readoutA", port=octaves[0].ports(1))
-    channels |= Channel(name="readoutD", port=octaves[1].ports(1))
+    channels |= Channel(name="readoutA", port=octaves[4].ports(1))
+    channels |= Channel(name="readoutB", port=octaves[2].ports(1))
+    channels |= Channel(name="readoutD", port=octaves[5].ports(1))
     # Feedback
-    channels |= Channel(name="feedbackA", port=octaves[0].ports(1, output=False))
-    channels |= Channel(name="feedbackD", port=octaves[1].ports(1, output=False))
+    channels |= Channel(name="feedbackA", port=octaves[4].ports(1, output=False))
+    channels |= Channel(name="feedbackB", port=octaves[2].ports(1, output=False))
+    channels |= Channel(name="feedbackD", port=octaves[5].ports(1, output=False))
     # TWPA
-    channels |= Channel(name="twpaA", port=None)
-    channels["twpaA"].local_oscillator = twpa_a
+    channels |= Channel(name="twpaB", port=None)
+    channels["twpaB"].local_oscillator = twpa_b
     channels |= Channel(name="twpaD", port=None)
     channels["twpaD"].local_oscillator = twpa_d
     # Drive
-    channels |= Channel(name=f"driveA1", port=octaves[0].ports(2))
-    channels |= Channel(name=f"driveA2", port=octaves[0].ports(4))
-    channels |= Channel(name=f"driveA3", port=octaves[0].ports(5))
-    channels |= Channel(name=f"driveA4", port=octaves[0].ports(3))
-    channels |= Channel(name=f"driveA5", port=octaves[2].ports(2))
-    channels |= Channel(name=f"driveA6", port=octaves[2].ports(4))
-    channels |= Channel(name=f"driveD1", port=octaves[1].ports(2))
-    channels |= Channel(name=f"driveD2", port=octaves[1].ports(4))
-    channels |= Channel(name=f"driveD3", port=octaves[1].ports(5))
-    channels |= Channel(name=f"driveD4", port=octaves[2].ports(5))
-    channels |= Channel(name=f"driveD5", port=octaves[2].ports(3))
+    channels |= Channel(name=f"driveA1", port=octaves[4].ports(2))
+    channels |= Channel(name=f"driveA2", port=octaves[4].ports(4))
+    channels |= Channel(name=f"driveA3", port=octaves[4].ports(5))
+    channels |= Channel(name=f"driveA4", port=octaves[4].ports(3))
+    channels |= Channel(name=f"driveA5", port=octaves[6].ports(2))
+    channels |= Channel(name=f"driveA6", port=octaves[6].ports(4))
+    channels |= Channel(name=f"driveB1", port=octaves[2].ports(2))
+    channels |= Channel(name=f"driveB2", port=octaves[2].ports(4))
+    channels |= Channel(name=f"driveB3", port=octaves[3].ports(1))
+    channels |= Channel(name=f"driveB4", port=octaves[3].ports(4))
+    channels |= Channel(name=f"driveB5", port=octaves[3].ports(3))
+    channels |= Channel(name=f"driveD1", port=octaves[5].ports(2))
+    channels |= Channel(name=f"driveD2", port=octaves[5].ports(4))
+    channels |= Channel(name=f"driveD3", port=octaves[5].ports(5))
+    channels |= Channel(name=f"driveD4", port=octaves[6].ports(5))
+    channels |= Channel(name=f"driveD5", port=octaves[6].ports(3))
     # Flux
     for q in range(1, 6):
-        channels |= Channel(name=f"fluxA{q}", port=opxs[3].ports(q + 2))
-        channels |= Channel(name=f"fluxD{q}", port=opxs[4].ports(q + 2))
+        channels |= Channel(name=f"fluxA{q}", port=opxs[7].ports(q + 2))
+        channels |= Channel(name=f"fluxB{q}", port=opxs[4].ports(q))
+        channels |= Channel(name=f"fluxD{q}", port=opxs[9].ports(q + 2))
     channels |= Channel(name=f"fluxA6", port=opxs[3].ports(8))
 
     # create qubit objects
@@ -87,7 +91,11 @@ def create():
         if "A" in q:
             qubit.readout = channels["readoutA"]
             qubit.feedback = channels["feedbackA"]
-            qubit.twpa = channels["twpaA"]
+            # qubit.twpa = channels["twpaA"]
+        elif "B" in q:
+            qubit.readout = channels["readoutB"]
+            qubit.feedback = channels["feedbackB"]
+            qubit.twpa = channels["twpaB"]
         else:
             qubit.readout = channels["readoutD"]
             qubit.feedback = channels["feedbackD"]
@@ -97,7 +105,7 @@ def create():
 
     instruments = {
         controller.name: controller,
-        # twpa_a.name: twpa_a,
+        twpa_b.name: twpa_b,
         twpa_d.name: twpa_d,
     }
     instruments.update(controller.opxs)
