@@ -98,7 +98,7 @@ def create():
     for qb in qubits.values():
         qb.drive.power_range = 10 #-10 #-5 #0
         qb.flux.power_range = 4
-         #5
+         
 
     instruments = {controller.name: controller}
     for qb in qubits.values():
