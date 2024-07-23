@@ -9,7 +9,7 @@ from qibolab.components import (
 )
 from qibolab.instruments.qm import (
     Octave,
-    OpxDcConfig,
+    OpxOutputConfig,
     QmAcquisitionConfig,
     QmChannel,
     QmController,
@@ -68,7 +68,7 @@ def create():
         configs[f"readout{q}"] = IqConfig(**components[f"readout{q}"])
         configs[f"acquire{q}"] = QmAcquisitionConfig(**components["acquireD"])
         configs[f"drive{q}"] = IqConfig(**components[f"drive{q}"])
-        configs[f"flux{q}"] = OpxDcConfig(**components[f"flux{q}"])
+        configs[f"flux{q}"] = OpxOutputConfig(**components[f"flux{q}"])
 
     # Connect logical channels to instrument channels (ports)
     # Readout
