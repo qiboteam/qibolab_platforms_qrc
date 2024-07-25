@@ -22,7 +22,7 @@
     ],
     "instruments": {
         "LO": {
-            "frequency": 7390000000,
+            "frequency": 7430000000,
             "power": 10
         },
         "twpa": {
@@ -36,8 +36,8 @@
 
             "2": {
                 "RX": {
-                    "duration": 120,
-                    "amplitude": 0.31,
+                    "duration": 200,
+                    "amplitude": 0.19,
                     "shape": "Gaussian(5)",
                     "frequency": 4867347000,  
                     "relative_start": 0,
@@ -56,10 +56,10 @@
             },
             "3": {
                 "RX": {
-                    "duration": 120,
-                    "amplitude": 0.45,
+                    "duration": 200,
+                    "amplitude": 0.79,
                     "shape": "Gaussian(5)",
-                    "frequency": 4190233000,
+                    "frequency": 4190183000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -76,10 +76,10 @@
             },
             "4": {
                 "RX": {
-                    "duration": 120,
-                    "amplitude": 0.9,
+                    "duration": 200,
+                    "amplitude": 0.65,
                     "shape": "Gaussian(5)",
-                    "frequency": 4855057493,
+                    "frequency": 4854257493,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -99,8 +99,8 @@
             "3-4": {
                 "CZ": [
                     {
-                        "duration": 30,
-                        "amplitude": 0.055,
+                        "duration": 40,
+                        "amplitude": 0.1,
                         "shape": "Rectangular()",
                         "qubit": 4,
                         "relative_start": 0,
@@ -122,7 +122,7 @@
                 "CZ": [
                     {
                         "duration": 40,
-                        "amplitude": 0.5,
+                        "amplitude": 0.077,
                         "shape": "Rectangular()",
                         "qubit": 2,
                         "relative_start": 0,
@@ -130,12 +130,12 @@
                     },
                     {
                         "type": "virtual_z",
-                        "phase": -1.5,
+                        "phase": 0.0,
                         "qubit": 2
                     },
                     {
                         "type": "virtual_z",
-                        "phase": -1.5,
+                        "phase": 0.0,
                         "qubit": 3
                     }
                 ]
@@ -210,7 +210,7 @@
                 "readout_frequency": 7588000000,
                 "drive_frequency": 4857057493,
                 "anharmonicity": 0.0,
-                "sweetspot": -0.185,
+                "sweetspot": -0.184,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {"2": 0, "3": 0, "4":1},
                 "Ec": 0.0,
