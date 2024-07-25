@@ -1,8 +1,8 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.rfsoc import RFSoC
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
 from qibolab.serialize import (
     load_instrument_settings,
@@ -10,7 +10,8 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
-#from qibolab.kernels import Kernels
+
+# from qibolab.kernels import Kernels
 
 NAME = "spinq10q_12__zcu111"
 ADDRESS = "192.168.0.81"
@@ -30,7 +31,6 @@ def create():
     controller = RFSoC(str(FOLDER), ADDRESS, PORT, sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 100
-
 
     # Create channel objects
     channels = ChannelMap()
@@ -52,15 +52,13 @@ def create():
     local_oscillator = SGS100A(name="LO", address=LO_ADDRESS)
     channels["L3-20_ro"].local_oscillator = local_oscillator
 
-    #TWPA
+    # TWPA
     twpa = SGS100A(name="twpa", address=TWPA_ADDRESS)
     channels |= Channel(name="twpa", port=None)
     channels["twpa"].local_oscillator = twpa
 
-
     runcard = load_runcard(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard)
- 
 
     qubits[2].readout = channels["L3-20_ro"]
     qubits[2].feedback = channels["L1-1-RO_1"]
@@ -76,7 +74,7 @@ def create():
     qubits[3].twpa = channels["twpa"]
     channels["L6-41_fl"].qubit = qubits[3]
 
-   # assign channels to qubits
+    # assign channels to qubits
     qubits[4].readout = channels["L3-20_ro"]
     qubits[4].feedback = channels["L1-1-RO_0"]
     qubits[4].drive = channels["L6-4_qd"]
@@ -84,9 +82,11 @@ def create():
     qubits[4].twpa = channels["twpa"]
     channels["L6-42_fl"].qubit = qubits[4]
 
-    instruments = {controller.name: controller, 
-                    twpa.name: twpa,
-                    local_oscillator.name: local_oscillator}
+    instruments = {
+        controller.name: controller,
+        twpa.name: twpa,
+        local_oscillator.name: local_oscillator,
+    }
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(
