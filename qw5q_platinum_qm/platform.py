@@ -16,7 +16,7 @@ FOLDER = pathlib.Path(__file__).parent
 
 
 def create():
-    """QuantWare 5q-chip controlled using qblox cluster.
+    """QuantWare 5q-chip controlled using QM.
 
     Args:
         runcard_path (str): Path to the runcard file.
