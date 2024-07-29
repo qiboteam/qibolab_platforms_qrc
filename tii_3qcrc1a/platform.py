@@ -14,7 +14,7 @@ from qibolab.serialize import (
     load_settings,
 )
 
-NAME = "tii_3qcrc01a"
+NAME = "tii_3qcrc1a"
 ADDRESS = "192.168.0.20"
 FOLDER = pathlib.Path(__file__).parent
 
