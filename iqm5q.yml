@@ -452,7 +452,7 @@ native_gates:
     2-3:
       iSWAP:
         - duration: 71 #180 #use 180ns for running the iSWAP chevron and fit the amp and duration of the iSWAP gate
-          amplitude: 0.238 
+          amplitude: 0.238
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -535,7 +535,7 @@ native_gates:
           relative_start: 0
       CZ:
         - duration: 52 #52 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
-          amplitude: 0.158 #0.154 
+          amplitude: 0.158 #0.154
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -583,7 +583,7 @@ native_gates:
         #   qubit: 3
         - type: coupler
           duration: 52 #52 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
-          amplitude: 0.107 
+          amplitude: 0.107
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,

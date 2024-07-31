@@ -17,18 +17,19 @@ PORT = 6000
 FOLDER = pathlib.Path(__file__).parent
 RUNCARD = pathlib.Path(__file__).parent / "spinq10q-12.yml"
 
+
 def create(runcard_path=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
     # Instantiate QICK instruments
-    controller = RFSoC(str(FOLDER), ADDRESS, PORT)#, sampling_rate=6.144)
+    controller = RFSoC(str(FOLDER), ADDRESS, PORT)  # , sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 350
     controller.cfg.repetition_duration = 200
 
     # TURN ON MANUALLY!!!!!!!!!!!!!!!!!!!!!
-    # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37") 
+    # twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
     instruments = {
         controller.name: controller,
         # twpa_pump0.name: twpa_pump0,
@@ -47,7 +48,6 @@ def create(runcard_path=RUNCARD):
     # qubit 2
     channels |= Channel("L6-2", port=controller.ports(1))  # drive
     channels |= Channel("L6-40", port=controller.ports(5))  # flux
-
 
     # create qubit objects
     # runcard = load_runcard(FOLDER)
