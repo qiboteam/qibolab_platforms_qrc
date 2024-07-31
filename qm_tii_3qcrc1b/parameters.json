@@ -1,0 +1,137 @@
+{
+    "nqubits": 1,
+    "settings": {
+        "nshots": 2048,
+        "relaxation_time": 200000
+    },
+    "qubits": [
+        0
+    ],
+    "topology": [
+    ],
+    "instruments": {
+        "qm": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 30,
+                "instructions": 1000000
+            }
+        },
+
+        "con5": {
+            "o4": {
+                "filter": {
+                    "feedforward": [
+                        1.0684635881381783,
+                        -1.0163217174522334
+                    ],
+                    "feedback": [
+                        0.947858129314055
+                    ]
+                }
+            },
+            "o1": {
+                "filter": {
+                    "feedforward": [
+                        1.0684635881381783,
+                        -1.0163217174522334
+                    ],
+                    "feedback": [
+                        0.947858129314055
+                    ]
+                }
+            }
+        },
+        "octave4": {
+            "o1": {
+                "lo_frequency": 7050000000.0,
+                "gain": -20
+            },
+            "i1": {
+                "lo_frequency": 7050000000.0
+            },
+            "o4": {
+                "lo_frequency": 5500000000.0,
+                "gain": -20
+            }
+        }
+    },
+    "native_gates": {
+        "single_qubit": {
+            "0": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.31777294944115,
+                    "shape": "Drag(5, 0.5)",
+                    "frequency": 5600000000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX12": {
+                    "duration": 40,
+                    "amplitude": 0.18,
+                    "shape": "Drag(5, 0.000)",
+                    "frequency": 4482584846,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.003,
+                    "shape": "Rectangular()",
+                    "frequency": 7143504000,
+                    "relative_start": 500,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            }
+        },
+        "two_qubit": {
+        }
+    },
+    "characterization": {
+        "single_qubit": {
+            "0": {
+                "bare_resonator_frequency": 7203315020,
+                "readout_frequency": 7208379936,
+                "drive_frequency": 4768963028,
+                "anharmonicity": -286373266,
+                "sweetspot": 0.288,
+                "asymmetry": 0.0,
+                "crosstalk_matrix": {
+                    "0": 1
+                },
+                "Ec": 270000000,
+                "Ej": 0.0,
+                "g": 107000000,
+                "assignment_fidelity": 0.9537602976348658,
+                "readout_fidelity": 0.9075205952697316,
+                "effective_temperature": 0.0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0.5037576688262035,
+                "resonator_depletion_time": 0,
+                "T1": 43890,
+                "T2": 21028,
+                "T2_spin_echo": 21217,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0.009601331799664152,
+                    0.0006182046827942667
+                ],
+                "mean_exc_states": [
+                    0.014703962990507748,
+                    0.003463007678004804
+                ],
+                "threshold": 0.011708838195149535,
+                "iq_angle": -0.5085960004195781,
+                "mixer_drive_g": 0.0,
+                "mixer_drive_phi": 0.0,
+                "mixer_readout_g": 0.0,
+                "mixer_readout_phi": 0.0
+            }
+        }
+    }
+}

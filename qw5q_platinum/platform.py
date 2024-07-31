@@ -62,7 +62,7 @@ def create():
     # create qubit objects
     runcard = load_runcard(FOLDER)
     # kernels = Kernels.load(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard)  # , kernels)
+    qubits, _, pairs = load_qubits(runcard)  # , kernels)
 
     for q, qubit in qubits.items():
         qubit.readout = channels["readout"]
