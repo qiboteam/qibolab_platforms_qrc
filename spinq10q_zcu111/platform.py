@@ -16,6 +16,7 @@ PORT = 6000
 
 FOLDER = pathlib.Path(__file__).parent
 
+
 def create():
     """Platform for ZCU111 board running qibosoq.
 
@@ -23,12 +24,12 @@ def create():
     """
     # Instantiate QICK instruments
     controller = RFSoC(str(FOLDER), ADDRESS, PORT, sampling_rate=6.144)
-    controller.cfg.adc_trig_offset = 200 # tProc clock ticks?!!
-    controller.cfg.repetition_duration = 100 # in us !!
+    controller.cfg.adc_trig_offset = 200  # tProc clock ticks?!!
+    controller.cfg.repetition_duration = 100  # in us !!
 
     # TURN ON MANUALLY!!!!!!!!!!!!!!!!!!!!!
-    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37") 
-    local_oscillator  = SGS100A(name="local_oscillator", address="192.168.0.31") 
+    twpa_pump0 = SGS100A(name="twpa_pump0", address="192.168.0.37")
+    local_oscillator = SGS100A(name="local_oscillator", address="192.168.0.31")
     instruments = {
         controller.name: controller,
         local_oscillator.name: local_oscillator,

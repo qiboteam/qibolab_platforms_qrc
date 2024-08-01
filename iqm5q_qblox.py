@@ -64,6 +64,7 @@ def create(runcard_path=RUNCARD):
     QPU = "iqm5q"
     report_folder = os.environ.get(
         "REPORT_FOLDER",
+        # f"/home/users/david.fuentes/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/",
         f"/home/users/alvaro.orgaz/reports/{datetime.now().strftime('%Y%m%d')}_{QPU}_/",
     )
     debug_folder = f"{report_folder}/debug/"

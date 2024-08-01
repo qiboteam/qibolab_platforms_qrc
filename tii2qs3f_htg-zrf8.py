@@ -16,13 +16,14 @@ PORT = 6000
 FOLDER = pathlib.Path(__file__).parent
 RUNCARD = pathlib.Path(__file__).parent / "tii2qs3f.yml"
 
+
 def create(runcard_path=RUNCARD):
     """Platform for RFSoC4x2 board running qibosoq.
 
     IPs and other instrument related parameters are hardcoded in.
     """
     # Instantiate QICK instruments
-    controller = RFSoC(str(FOLDER), ADDRESS, PORT)#, sampling_rate=6.144)
+    controller = RFSoC(str(FOLDER), ADDRESS, PORT)  # , sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 350
     controller.cfg.repetition_duration = 200
 

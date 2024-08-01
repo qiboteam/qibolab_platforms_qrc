@@ -22,6 +22,7 @@ FOLDER = pathlib.Path(__file__).parent
 NAME = str(FOLDER)
 RUNCARD = FOLDER
 
+
 def create(runcard_path=RUNCARD):
     """Platform for ZCU216 board running qibosoq.
 
@@ -29,10 +30,10 @@ def create(runcard_path=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC("ZCU216", ADDRESS, PORT)
-    controller.cfg.ro_time_of_flight = 167 # tProc clock ticks?!!
-    controller.cfg.relaxation_time = 100 # in us !!
+    controller.cfg.ro_time_of_flight = 167  # tProc clock ticks?!!
+    controller.cfg.relaxation_time = 100  # in us !!
 
-    twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS) 
+    twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
     instruments = {
         controller.name: controller,
         twpa_pump0.name: twpa_pump0,
@@ -100,6 +101,4 @@ def create(runcard_path=RUNCARD):
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
 
-    return Platform(
-        NAME, qubits, pairs, instruments, settings, resonator_type="2D"
-    )
+    return Platform(NAME, qubits, pairs, instruments, settings, resonator_type="2D")
