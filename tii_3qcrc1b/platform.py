@@ -54,9 +54,9 @@ def create():
     channels |= Channel(name="W5", port=modules["qrm_rf0"].ports("i1",out=False))
 
      # Drive
-    channels |= Channel(name="V5", port=modules["qrm_rf1"].ports("o1")) #q1
-    channels |= Channel(name="V6", port=modules["qcm_rf0"].ports("o1")) #q2
-    channels |= Channel(name="V7", port=modules["qcm_rf0"].ports("o2")) #q3
+    channels |= Channel(name="V5", port=modules["qrm_rf1"].ports("o1")) #q3 5.9
+    channels |= Channel(name="V6", port=modules["qcm_rf0"].ports("o1")) #q2 5.6
+    channels |= Channel(name="V7", port=modules["qcm_rf0"].ports("o2")) #q1 5.3
     channels |= Channel(name="dummy", port=modules["qrm_rf2"].ports("o1")) #qw (not connected)
 
     channels |= Channel(name="dummy2", port=modules["qrm_rf1"].ports("i1",out=False))
@@ -70,9 +70,9 @@ def create():
         qubits[q].readout = channels["V2"]
         qubits[q].feedback = channels["W5"]
     
-    qubits[0].drive = channels[f"V5"]
+    qubits[0].drive = channels[f"V7"]
     qubits[1].drive = channels[f"V6"]
-    qubits[2].drive = channels[f"V7"]
+    qubits[2].drive = channels[f"V5"]
     qubits[3].drive = channels[f"dummy"]
 
     channels[f"V5"].qubit = qubits[0]

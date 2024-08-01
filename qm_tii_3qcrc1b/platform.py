@@ -39,8 +39,12 @@ def create():
     channels |= Channel(name="readout", port=octave4.ports(1))
     # Feedback
     channels |= Channel(name="feedback", port=octave4.ports(1, output=False))
+
     # Drive
-    channels |= Channel(name=f"drive0", port=octave4.ports(4))
+    channels |= Channel(name=f"drive2", port=octave4.ports(2)) #V5
+    channels |= Channel(name=f"drive1", port=octave4.ports(4)) #V6
+    channels |= Channel(name=f"drive0", port=octave4.ports(3)) #V7
+    
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
@@ -51,6 +55,10 @@ def create():
         qubit.readout = channels["readout"]
         qubit.feedback = channels["feedback"]
         qubit.drive = channels[f"drive{q}"]
+
+    channels[f"drive2"].qubit = qubits[2]
+    channels[f"drive1"].qubit = qubits[1]
+    channels[f"drive0"].qubit = qubits[0]
 
     instruments = {controller.name: controller}
     instruments.update(controller.opxs)
