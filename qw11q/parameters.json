@@ -178,11 +178,11 @@
             "o5": {
                 "filter": {
                     "feedforward": [
-                        1.0668,
-                        -1.0162
+                        1.0684635881381783,
+                        -1.0163217174522334
                     ],
                     "feedback": [
-                        0.948
+                        0.947858129314055
                     ]
                 }
             },
@@ -831,7 +831,7 @@
             "D1-D3": {
                 "CZ": [
                     {
-                        "duration": 50,
+                        "duration": 48,
                         "amplitude": 0.225,
                         "shape": "Rectangular()",
                         "qubit": "D3",
@@ -873,8 +873,8 @@
             "D2-D4": {
                 "CZ": [
                     {
-                        "duration": 50,
-                        "amplitude": 0.213,
+                        "duration": 38,
+                        "amplitude": 0.217,
                         "shape": "Rectangular()",
                         "qubit": "D4",
                         "relative_start": 0,
@@ -923,8 +923,8 @@
             "D3-D4": {
                 "CZ": [
                     {
-                        "duration": 37,
-                        "amplitude": 0.194,
+                        "duration": 38,
+                        "amplitude": 0.196,
                         "shape": "Rectangular()",
                         "qubit": "D4",
                         "relative_start": 0,
