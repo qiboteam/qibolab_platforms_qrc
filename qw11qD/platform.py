@@ -55,12 +55,12 @@ def create():
 
     # Create logical channels and assign to qubits
     for q, qubit in qubits.items():
-        qubit.measure = IqChannel(
+        qubit.probe = IqChannel(
             f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}"
         )
         # TODO: twpa_pump -> twpa
         qubit.acquisition = AcquireChannel(
-            f"acquire{q}", twpa_pump=twpa_d.name, measure=f"readout{q}"
+            f"acquire{q}", twpa_pump=twpa_d.name, probe=f"readout{q}"
         )
         qubit.drive = IqChannel(f"drive{q}", mixer=None, lo=lo_map[q])
         qubit.flux = DcChannel(f"flux{q}")
@@ -72,9 +72,7 @@ def create():
 
     # Connect logical channels to instrument channels (ports)
     # Readout
-    channels = [
-        QmChannel(qubit.measure, "octave5", port=1) for qubit in qubits.values()
-    ]
+    channels = [QmChannel(qubit.probe, "octave5", port=1) for qubit in qubits.values()]
     # Acquire
     channels.extend(
         QmChannel(qubit.acquisition, "octave5", port=1) for qubit in qubits.values()
