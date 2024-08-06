@@ -88,19 +88,19 @@
             "frequency": 5526780884
         },
         "fluxD1": {
-            "offset": -0.13
+            "offset": 0.106
         },
         "fluxD2": {
-            "offset": 0.134
+            "offset": -0.094
         },
         "fluxD3": {
-            "offset": -0.438
+            "offset": 0.145
         },
         "fluxD4": {
-            "offset": -0.002
+            "offset": -0.015
         },
         "fluxD5": {
-            "offset": -0.031
+            "offset": 0.398
         }
     },
     "native_gates": {
@@ -144,7 +144,7 @@
                     "readoutD2": [
                         {
                             "duration": 2000,
-                            "amplitude": 0.002,
+                            "amplitude": 0.0012,
                             "envelope": { "kind": "rectangular" },
                             "type": "ro"
                         }
@@ -167,7 +167,7 @@
                     "readoutD3": [
                         {
                             "duration": 2000,
-                            "amplitude": 0.0011,
+                            "amplitude": 0.0009,
                             "envelope": { "kind": "rectangular" },
                             "type": "ro"
                         }
