@@ -66,7 +66,7 @@ def create():
         qubit.flux = DcChannel(f"flux{q}")
 
         configs[f"readout{q}"] = IqConfig(**components[f"readout{q}"])
-        configs[f"acquire{q}"] = QmAcquisitionConfig(**components["acquireD"])
+        configs[f"acquire{q}"] = QmAcquisitionConfig(**components[f"acquire{q}"])
         configs[f"drive{q}"] = IqConfig(**components[f"drive{q}"])
         configs[f"flux{q}"] = OpxOutputConfig(**components[f"flux{q}"])
 
