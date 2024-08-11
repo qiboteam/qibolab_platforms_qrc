@@ -58,7 +58,6 @@ def create():
         qubit.probe = IqChannel(
             f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}"
         )
-        # TODO: twpa_pump -> twpa
         qubit.acquisition = AcquireChannel(
             f"acquire{q}", twpa_pump=twpa_d.name, probe=f"readout{q}"
         )
@@ -100,9 +99,7 @@ def create():
         "qm",
         "192.168.0.101:80",
         octaves=octaves,
-        # TODO: Maybe do the conversion below internally in the driver
-        # but do we really need this conversion?
-        channels={channel.logical_channel.name: channel for channel in channels},
+        channels=channels,
         calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
