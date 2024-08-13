@@ -74,8 +74,8 @@
         "acquireD1": {
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.003026542294327842,
-            "iq_angle": -0.22001314648659737,
+            "threshold": 0.001991798128011722,
+            "iq_angle": -0.7088818070239516,
             "gain": 10,
             "offset": 0.0
         },
@@ -83,7 +83,7 @@
             "frequency": 4957511346
         },
         "fluxD1": {
-            "offset": 0.106,
+            "offset": 0.31394651971665033,
             "filter": {}
         },
         "readoutD2": {
@@ -92,8 +92,8 @@
         "acquireD2": {
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.005892566768128606,
-            "iq_angle": -0.4375097377654063,
+            "threshold": 0.002578995377684328,
+            "iq_angle": -0.8174919819731508,
             "gain": 10,
             "offset": 0.0
         },
@@ -101,7 +101,7 @@
             "frequency": 5563745712
         },
         "fluxD2": {
-            "offset": -0.094,
+            "offset": -0.2693102674878147,
             "filter": {}
         },
         "readoutD3": {
@@ -110,8 +110,8 @@
         "acquireD3": {
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.004217569263661005,
-            "iq_angle": -2.2808376665428676,
+            "threshold": 0.002421164775577672,
+            "iq_angle": -2.6686105138809664,
             "gain": 10,
             "offset": 0.0
         },
@@ -119,7 +119,7 @@
             "frequency": 5652307573
         },
         "fluxD3": {
-            "offset": 0.145,
+            "offset": -0.17830274314573707,
             "filter": {}
         },
         "readoutD4": {
@@ -128,8 +128,8 @@
         "acquireD4": {
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.002040883664708299,
-            "iq_angle": -1.556755661160481,
+            "threshold": 0.0015434116678446636,
+            "iq_angle": -1.778196646998974,
             "gain": 10,
             "offset": 0.0
         },
@@ -137,7 +137,7 @@
             "frequency": 6249230083
         },
         "fluxD4": {
-            "offset": -0.015,
+            "offset": -0.4329726183619601,
             "filter": {}
         },
         "readoutD5": {
@@ -147,15 +147,15 @@
             "delay": 224,
             "smearing": 0,
             "gain": 10,
-            "threshold": 0.001988641627008587,
-            "iq_angle": 0.388533543740939,
+            "threshold": 0.0033522577119041714,
+            "iq_angle": 0.8468743612250454,
             "offset": 0.0
         },
         "driveD5": {
             "frequency": 5526780884
         },
         "fluxD5": {
-            "offset": 0.398,
+            "offset": -0.5,
             "filter": {}
         }
     },
@@ -166,7 +166,7 @@
                     ["driveD1",
                         {
                             "duration": 40.0,
-                            "amplitude": 0.042,
+                            "amplitude": 0.041440192558470756,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -193,7 +193,7 @@
                     ["driveD2",
                         {
                             "duration": 40.0,
-                            "amplitude": 0.054,
+                            "amplitude": 0.05515511034194706,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -220,7 +220,7 @@
                     ["driveD3",
                         {
                             "duration": 40.0,
-                            "amplitude": 0.071,
+                            "amplitude": 0.07072246628636102,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -247,7 +247,7 @@
                     ["driveD4",
                         {
                             "duration": 40.0,
-                            "amplitude": 0.08,
+                            "amplitude": 0.08027867962133999,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
