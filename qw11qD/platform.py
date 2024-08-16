@@ -1,28 +1,10 @@
 import pathlib
 
-from qibolab.components import (
-    AcquireChannel,
-    DcChannel,
-    IqChannel,
-    IqConfig,
-    OscillatorConfig,
-)
-from qibolab.instruments.qm import (
-    Octave,
-    OpxOutputConfig,
-    QmAcquisitionConfig,
-    QmChannel,
-    QmController,
-)
+from qibolab.components import AcquireChannel, DcChannel, IqChannel
+from qibolab.instruments.qm import Octave, QmChannel, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.kernels import Kernels
 from qibolab.platform import Platform
-from qibolab.serialize import (
-    load_instrument_settings,
-    load_qubits,
-    load_runcard,
-    load_settings,
-)
+from qibolab.qubits import Qubit
 
 FOLDER = pathlib.Path(__file__).parent
 
@@ -36,38 +18,25 @@ def create():
     Line D (5 qubits): calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
-    # create qubit objects
-    runcard = load_runcard(FOLDER)
-    # kernels = Kernels.load(FOLDER)
-    qubits, couplers, pairs = load_qubits(runcard)  # , kernels)
-
     lo_map = {q: f"drive{q}_lo" for q in ["D1", "D4", "D5"]}
     lo_map["D2"] = lo_map["D3"] = "driveD2D3_lo"
 
-    components = runcard["components"]
-    configs = {
-        "twpaD": OscillatorConfig(**components["twpaD"]),
-        "readoutD_lo": OscillatorConfig(**components["readoutD_lo"]),
-    }
-    configs |= {n: OscillatorConfig(**components[n]) for n in set(lo_map.values())}
-
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
-    # Create logical channels and assign to qubits
-    for q, qubit in qubits.items():
-        qubit.probe = IqChannel(
-            f"readout{q}", mixer=None, lo="readoutD_lo", acquisition=f"acquire{q}"
+    qubits = {}
+    for i in range(1, 6):
+        q = f"D{i}"
+        qubits[q] = Qubit(
+            name=q,
+            probe=IqChannel(
+                f"probe{q}", mixer=None, lo="probeD_lo", acquisition=f"acquire{q}"
+            ),
+            acquisition=AcquireChannel(
+                f"acquire{q}", twpa_pump=twpa_d.name, probe=f"probe{q}"
+            ),
+            drive=IqChannel(f"drive{q}", mixer=None, lo=lo_map[q]),
+            flux=DcChannel(f"flux{q}"),
         )
-        qubit.acquisition = AcquireChannel(
-            f"acquire{q}", twpa_pump=twpa_d.name, probe=f"readout{q}"
-        )
-        qubit.drive = IqChannel(f"drive{q}", mixer=None, lo=lo_map[q])
-        qubit.flux = DcChannel(f"flux{q}")
-
-        configs[f"readout{q}"] = IqConfig(**components[f"readout{q}"])
-        configs[f"acquire{q}"] = QmAcquisitionConfig(**components[f"acquire{q}"])
-        configs[f"drive{q}"] = IqConfig(**components[f"drive{q}"])
-        configs[f"flux{q}"] = OpxOutputConfig(**components[f"flux{q}"])
 
     # Connect logical channels to instrument channels (ports)
     # Readout
@@ -103,10 +72,4 @@ def create():
         calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
-    instruments = {
-        controller.name: controller,
-        twpa_d.name: twpa_d,
-    }
-    instruments = load_instrument_settings(runcard, instruments)
-    settings = load_settings(runcard)
-    return Platform(FOLDER.name, qubits, pairs, configs, instruments, settings)
+    return Platform.load(path=FOLDER, instruments=[controller, twpa_d], qubits=qubits)
