@@ -6,6 +6,7 @@
     },
     "configs": {
         "qm/bounds": {
+            "kind": "bounds",
             "waveforms": 40000,
             "readout": 30,
             "instructions": 1000000
@@ -45,7 +46,7 @@
             "frequency": 7137520000
         },
         "acquireD1": {
-            "kind": "qm-acquisition",
+            "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.001991798128011722,
@@ -58,7 +59,7 @@
             "frequency": 4957511346
         },
         "fluxD1": {
-            "kind": "opx-output",
+            "kind": "dc",
             "offset": 0.31394651971665033,
             "filter": {}
         },
@@ -67,7 +68,7 @@
             "frequency": 7379568000
         },
         "acquireD2": {
-            "kind": "qm-acquisition",
+            "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.002578995377684328,
@@ -80,7 +81,7 @@
             "frequency": 5563745712
         },
         "fluxD2": {
-            "kind": "opx-output",
+            "kind": "dc",
             "offset": -0.2693102674878147,
             "filter": {}
         },
@@ -89,7 +90,7 @@
             "frequency": 7490960000
         },
         "acquireD3": {
-            "kind": "qm-acquisition",
+            "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.002421164775577672,
@@ -102,7 +103,7 @@
             "frequency": 5652307573
         },
         "fluxD3": {
-            "kind": "opx-output",
+            "kind": "dc",
             "offset": -0.17830274314573707,
             "filter": {}
         },
@@ -111,7 +112,7 @@
             "frequency": 7706570000
         },
         "acquireD4": {
-            "kind": "qm-acquisition",
+            "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.0015434116678446636,
@@ -124,7 +125,7 @@
             "frequency": 6249230083
         },
         "fluxD4": {
-            "kind": "opx-output",
+            "kind": "dc",
             "offset": -0.4329726183619601,
             "filter": {}
         },
@@ -133,7 +134,7 @@
             "frequency": 7636110000
         },
         "acquireD5": {
-            "kind": "qm-acquisition",
+            "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
             "gain": 10,
@@ -146,7 +147,7 @@
             "frequency": 5526780884
         },
         "fluxD5": {
-            "kind": "opx-output",
+            "kind": "dc",
             "offset": -0.5,
             "filter": {}
         }
