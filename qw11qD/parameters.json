@@ -4,74 +4,48 @@
         "nshots": 2048,
         "relaxation_time": 100000
     },
-    "qubits": [
-        "D1",
-        "D2",
-        "D3",
-        "D4",
-        "D5"
-    ],
-    "topology": [
-        [
-            "D1",
-            "D2"
-        ],
-        [
-            "D1",
-            "D3"
-        ],
-        [
-            "D2",
-            "D4"
-        ],
-        [
-            "D3",
-            "D4"
-        ],
-        [
-            "D4",
-            "D5"
-        ]
-    ],
-    "instruments": {
-        "qm": {
-            "bounds": {
-                "waveforms": 40000,
-                "readout": 30,
-                "instructions": 1000000
-            }
+    "configs": {
+        "qm/bounds": {
+            "waveforms": 40000,
+            "readout": 30,
+            "instructions": 1000000
         },
-        "twpaD": {}
-    },
-    "components": {
         "twpaD": {
+            "kind": "oscillator",
             "frequency": 6149000000,
             "power": -2.6
         },
-        "readoutD_lo": {
+        "probeD_lo": {
+            "kind": "oscillator",
             "frequency": 7450000000,
             "power": 0
         },
         "driveD5_lo": {
+            "kind": "oscillator",
             "frequency": 5700000000,
             "power": 0
         },
         "driveD2D3_lo": {
+            "kind": "oscillator",
             "frequency": 5700000000,
             "power": 0
         },
         "driveD4_lo": {
+            "kind": "oscillator",
             "frequency": 6400000000,
             "power": 0
         },
         "driveD1_lo": {
+            "kind": "oscillator",
             "frequency": 5100000000,
             "power": 0
         },
-        "readoutD1": {
+        "probeD1": {
+            "kind": "iq",
             "frequency": 7137520000
         },
         "acquireD1": {
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.001991798128011722,
@@ -80,16 +54,20 @@
             "offset": 0.0
         },
         "driveD1": {
+            "kind": "iq",
             "frequency": 4957511346
         },
         "fluxD1": {
+            "kind": "opx-output",
             "offset": 0.31394651971665033,
             "filter": {}
         },
-        "readoutD2": {
+        "probeD2": {
+            "kind": "iq",
             "frequency": 7379568000
         },
         "acquireD2": {
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.002578995377684328,
@@ -98,16 +76,20 @@
             "offset": 0.0
         },
         "driveD2": {
+            "kind": "iq",
             "frequency": 5563745712
         },
         "fluxD2": {
+            "kind": "opx-output",
             "offset": -0.2693102674878147,
             "filter": {}
         },
-        "readoutD3": {
+        "probeD3": {
+            "kind": "iq",
             "frequency": 7490960000
         },
         "acquireD3": {
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.002421164775577672,
@@ -116,16 +98,20 @@
             "offset": 0.0
         },
         "driveD3": {
+            "kind": "iq",
             "frequency": 5652307573
         },
         "fluxD3": {
+            "kind": "opx-output",
             "offset": -0.17830274314573707,
             "filter": {}
         },
-        "readoutD4": {
+        "probeD4": {
+            "kind": "iq",
             "frequency": 7706570000
         },
         "acquireD4": {
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.0015434116678446636,
@@ -134,16 +120,20 @@
             "offset": 0.0
         },
         "driveD4": {
+            "kind": "iq",
             "frequency": 6249230083
         },
         "fluxD4": {
+            "kind": "opx-output",
             "offset": -0.4329726183619601,
             "filter": {}
         },
-        "readoutD5": {
+        "probeD5": {
+            "kind": "iq",
             "frequency": 7636110000
         },
         "acquireD5": {
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "gain": 10,
@@ -152,9 +142,11 @@
             "offset": 0.0
         },
         "driveD5": {
+            "kind": "iq",
             "frequency": 5526780884
         },
         "fluxD5": {
+            "kind": "opx-output",
             "offset": -0.5,
             "filter": {}
         }
@@ -170,20 +162,18 @@
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
-                            },
-                            "type": "qd"
+                            }
                         }
                     ]
                 ],
                 "MZ": [
-                    ["readoutD1",
+                    ["probeD1",
                         {
                             "duration": 2000.0,
                             "amplitude": 0.0015,
                             "envelope": {
                                 "kind": "rectangular"
-                            },
-                            "type": "ro"
+                            }
                         }
                     ]
                 ]
@@ -197,20 +187,18 @@
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
-                            },
-                            "type": "qd"
+                            }
                         }
                     ]
                 ],
                 "MZ": [
-                    ["readoutD2",
+                    ["probeD2",
                         {
                             "duration": 2000.0,
                             "amplitude": 0.0012,
                             "envelope": {
                                 "kind": "rectangular"
-                            },
-                            "type": "ro"
+                            }
                         }
                     ]
                 ]
@@ -224,20 +212,18 @@
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
-                            },
-                            "type": "qd"
+                            }
                         }
                     ]
                     ],
                 "MZ": [
-                    ["readoutD3",
+                    ["probeD3",
                         {
                             "duration": 2000.0,
                             "amplitude": 0.0009,
                             "envelope": {
                                 "kind": "rectangular"
-                            },
-                            "type": "ro"
+                            }
                         }
                     ]
                 ]
@@ -251,20 +237,18 @@
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
-                            },
-                            "type": "qd"
+                            }
                         }
                     ]
                 ],
                 "MZ": [
-                    ["readoutD4",
+                    ["probeD4",
                         {
                             "duration": 2000.0,
                             "amplitude": 0.002,
                             "envelope": {
                                 "kind": "rectangular"
-                            },
-                            "type": "ro"
+                            }
                         }
                     ]
                 ]
@@ -278,20 +262,18 @@
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
-                            },
-                            "type": "qd"
+                            }
                         }
                     ]
                 ],
                 "MZ": [
-                    ["readoutD5",
+                    ["probeD5",
                         {
                             "duration": 2000.0,
                             "amplitude": 0.0018,
                             "envelope": {
                                 "kind": "rectangular"
-                            },
-                            "type": "ro"
+                            }
                         }
                     ]
                 ]
