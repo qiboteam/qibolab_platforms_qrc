@@ -93,6 +93,7 @@ def create():
     arbitrary_qubit.readout.local_oscillator = DummyLocalOscillator("readout/lo", None)
     arbitrary_qubit.twpa.local_oscillator = SGS100A("twpa", "192.168.0.38")
 
+<<<<<<< HEAD
     measure_channel.power_range= -10
     acquire_channel.power_range = 0
 
@@ -114,6 +115,14 @@ def create():
     qubits[4].drive.power_range = 7
     qubits[4].flux.power_range = 4
          
+=======
+    measure_channel.power_range = -10
+    acquire_channel.power_range = 10
+    for qb in qubits.values():
+        qb.drive.power_range = 10
+        qb.flux.power_range = 3.0
+    qubits[3].drive.power_range = -5
+>>>>>>> 8e47971f9bb75748f46d1ed48ea78c91007d6ab3
 
     instruments = {controller.name: controller}
     for qb in qubits.values():
