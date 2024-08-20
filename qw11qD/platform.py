@@ -29,13 +29,16 @@ def create():
         qubits[q] = Qubit(
             name=q,
             probe=IqChannel(
-                f"probe{q}", mixer=None, lo="probeD_lo", acquisition=f"acquire{q}"
+                name=f"{q}/probe",
+                mixer=None,
+                lo="probeD_lo",
+                acquisition=f"{q}/acquisition",
             ),
             acquisition=AcquireChannel(
-                f"acquire{q}", twpa_pump=twpa_d.name, probe=f"probe{q}"
+                name=f"{q}/acquisition", twpa_pump=twpa_d.name, probe=f"{q}/probe"
             ),
-            drive=IqChannel(f"drive{q}", mixer=None, lo=lo_map[q]),
-            flux=DcChannel(f"flux{q}"),
+            drive=IqChannel(name=f"{q}/drive", mixer=None, lo=lo_map[q]),
+            flux=DcChannel(name=f"{q}/flux"),
         )
 
     # Connect logical channels to instrument channels (ports)
