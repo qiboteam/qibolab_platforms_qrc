@@ -21,7 +21,7 @@ def create():
     lo_map = {q: f"{q}/drive_lo" for q in ["D1", "D4", "D5"]}
     lo_map["D2"] = lo_map["D3"] = "D2D3/drive_lo"
 
-    twpa_d = SGS100A(name="D/twpa", address="192.168.0.33")
+    twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
     qubits = {}
     for i in range(1, 6):
