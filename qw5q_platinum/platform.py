@@ -1,5 +1,5 @@
 import pathlib
- 
+
 from laboneq.dsl.device import create_connection
 from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
 from laboneq.simple import DeviceSetup
@@ -15,13 +15,13 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
- 
+
 FOLDER = pathlib.Path(__file__).parent
- 
- 
+
+
 def create():
     """"""
- 
+
     device_setup = DeviceSetup("EL_ZURO")
     device_setup.add_dataserver(host="localhost", port=8004)
     device_setup.add_instruments(
@@ -34,20 +34,20 @@ def create():
         create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
         create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
     )
- 
+
     controller = Zurich(
         "EL_ZURO",
         device_setup=device_setup,
         time_of_flight=75,
         smearing=50,
     )
- 
+
     # create qubit objects
     runcard = load_runcard(FOLDER)
     kernels = Kernels.load(FOLDER)
     qubits, _, pairs = load_qubits(runcard, kernels)
     settings = load_settings(runcard)
- 
+
     twpa_pump_channel = Channel("twpa_pump")
     measure_path = "QACHANNELS/0/OUTPUT"
     acquire_path = "QACHANNELS/0/INPUT"
@@ -65,13 +65,13 @@ def create():
             create_connection(to_signal=f"q{i}/measure_line", ports=[measure_path]),
             create_connection(to_signal=f"q{i}/acquire_line", ports=[acquire_path]),
         )
- 
+
         flux_path = f"SIGOUTS/{i}"
         device_setup.add_connections(
             "device_hdawg",
             create_connection(to_signal=f"q{i}/flux_line", ports=[flux_path]),
         )
- 
+
         qubits[i].drive = Channel(
             f"q{i}/drive", controller.ports(("device_shfqc", drive_path))
         )
@@ -80,45 +80,44 @@ def create():
         qubits[i].flux = Channel(
             f"q{i}/flux", controller.ports(("device_hdawg", flux_path))
         )
- 
+
         qubits[i].twpa = twpa_pump_channel
- 
+
     qubits[0].drive.local_oscillator = DummyLocalOscillator("q_0_1/drive/lo", None)
     qubits[1].drive.local_oscillator = qubits[0].drive.local_oscillator
     qubits[2].drive.local_oscillator = DummyLocalOscillator("q_2_3/drive/lo", None)
     qubits[3].drive.local_oscillator = qubits[2].drive.local_oscillator
     qubits[4].drive.local_oscillator = DummyLocalOscillator("q_4/drive/lo", None)
- 
+
     arbitrary_qubit = next(iter(qubits.values()))
     arbitrary_qubit.readout.local_oscillator = DummyLocalOscillator("readout/lo", None)
     arbitrary_qubit.twpa.local_oscillator = SGS100A("twpa", "192.168.0.38")
- 
-    measure_channel.power_range= -10
+
+    measure_channel.power_range = -10
     acquire_channel.power_range = 0
-    
+
     qubits[0].drive.power_range = 5
     qubits[0].flux.power_range = 1
- 
+
     qubits[1].drive.power_range = 5
     qubits[1].flux.power_range = 1
- 
+
     qubits[2].drive.power_range = 0
     qubits[2].flux.power_range = 2
- 
+
     qubits[3].drive.power_range = 5
     qubits[3].flux.power_range = 2
 
     qubits[4].drive.power_range = 5
     qubits[4].flux.power_range = 2
-         
- 
+
     instruments = {controller.name: controller}
     for qb in qubits.values():
         instruments[qb.drive.local_oscillator.name] = qb.drive.local_oscillator
         instruments[qb.readout.local_oscillator.name] = qb.readout.local_oscillator
         instruments[qb.twpa.local_oscillator.name] = qb.twpa.local_oscillator
     instruments = load_instrument_settings(runcard, instruments)
- 
+
     return Platform(
         str(FOLDER),
         qubits,
