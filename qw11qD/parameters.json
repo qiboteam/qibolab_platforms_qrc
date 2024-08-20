@@ -11,41 +11,41 @@
             "readout": 30,
             "instructions": 1000000
         },
-        "twpaD": {
+        "D/twpa": {
             "kind": "oscillator",
             "frequency": 6149000000,
             "power": -2.6
         },
-        "probeD_lo": {
+        "D/probe_lo": {
             "kind": "oscillator",
             "frequency": 7450000000,
             "power": 0
         },
-        "driveD5_lo": {
+        "D5/drive_lo": {
             "kind": "oscillator",
             "frequency": 5700000000,
             "power": 0
         },
-        "driveD2D3_lo": {
+        "D2D3/drive_lo": {
             "kind": "oscillator",
             "frequency": 5700000000,
             "power": 0
         },
-        "driveD4_lo": {
+        "D4/drive_lo": {
             "kind": "oscillator",
             "frequency": 6400000000,
             "power": 0
         },
-        "driveD1_lo": {
+        "D1/drive_lo": {
             "kind": "oscillator",
             "frequency": 5100000000,
             "power": 0
         },
-        "probeD1": {
+        "D1/probe": {
             "kind": "iq",
             "frequency": 7137520000
         },
-        "acquireD1": {
+        "D1/acquisition": {
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
@@ -54,20 +54,20 @@
             "gain": 10,
             "offset": 0.0
         },
-        "driveD1": {
+        "D1/drive": {
             "kind": "iq",
             "frequency": 4957511346
         },
-        "fluxD1": {
+        "D1/flux": {
             "kind": "dc",
             "offset": 0.31394651971665033,
             "filter": {}
         },
-        "probeD2": {
+        "D2/probe": {
             "kind": "iq",
             "frequency": 7379568000
         },
-        "acquireD2": {
+        "D2/acquisition": {
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
@@ -76,20 +76,20 @@
             "gain": 10,
             "offset": 0.0
         },
-        "driveD2": {
+        "D2/drive": {
             "kind": "iq",
             "frequency": 5563745712
         },
-        "fluxD2": {
+        "D2/flux": {
             "kind": "dc",
             "offset": -0.2693102674878147,
             "filter": {}
         },
-        "probeD3": {
+        "D3/probe": {
             "kind": "iq",
             "frequency": 7490960000
         },
-        "acquireD3": {
+        "D3/acquisition": {
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
@@ -98,20 +98,20 @@
             "gain": 10,
             "offset": 0.0
         },
-        "driveD3": {
+        "D3/drive": {
             "kind": "iq",
             "frequency": 5652307573
         },
-        "fluxD3": {
+        "D3/flux": {
             "kind": "dc",
             "offset": -0.17830274314573707,
             "filter": {}
         },
-        "probeD4": {
+        "D4/probe": {
             "kind": "iq",
             "frequency": 7706570000
         },
-        "acquireD4": {
+        "D4/acquisition": {
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
@@ -120,20 +120,20 @@
             "gain": 10,
             "offset": 0.0
         },
-        "driveD4": {
+        "D4/drive": {
             "kind": "iq",
             "frequency": 6249230083
         },
-        "fluxD4": {
+        "D4/flux": {
             "kind": "dc",
             "offset": -0.4329726183619601,
             "filter": {}
         },
-        "probeD5": {
+        "D5/probe": {
             "kind": "iq",
             "frequency": 7636110000
         },
-        "acquireD5": {
+        "D5/acquisition": {
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
@@ -142,11 +142,11 @@
             "iq_angle": 0.8468743612250454,
             "offset": 0.0
         },
-        "driveD5": {
+        "D5/drive": {
             "kind": "iq",
             "frequency": 5526780884
         },
-        "fluxD5": {
+        "D5/flux": {
             "kind": "dc",
             "offset": -0.5,
             "filter": {}
@@ -156,7 +156,7 @@
         "single_qubit": {
             "D1": {
                 "RX": [
-                    ["driveD1",
+                    ["D1/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -169,7 +169,7 @@
                     ]
                 ],
                 "MZ": [
-                    ["probeD1",
+                    ["D1/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -180,7 +180,7 @@
                         }
                     ],
                     [
-                        "acquireD1",
+                        "D1/acquisition",
                         {
                           "kind": "acquisition",
                           "duration": 2000.0
@@ -190,7 +190,7 @@
             },
             "D2": {
                 "RX": [
-                    ["driveD2",
+                    ["D2/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -203,7 +203,7 @@
                     ]
                 ],
                 "MZ": [
-                    ["probeD2",
+                    ["D2/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -214,7 +214,7 @@
                         }
                     ],
                     [
-                        "acquireD2",
+                        "D2/acquisition",
                         {
                           "kind": "acquisition",
                           "duration": 2000.0
@@ -224,7 +224,7 @@
             },
             "D3": {
                 "RX": [
-                    ["driveD3",
+                    ["D3/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -237,7 +237,7 @@
                     ]
                     ],
                 "MZ": [
-                    ["probeD3",
+                    ["D3/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -248,7 +248,7 @@
                         }
                     ],
                     [
-                        "acquireD3",
+                        "D3/acquisition",
                         {
                           "kind": "acquisition",
                           "duration": 2000.0
@@ -258,7 +258,7 @@
             },
             "D4": {
                 "RX": [
-                    ["driveD4",
+                    ["D4/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -271,7 +271,7 @@
                     ]
                 ],
                 "MZ": [
-                    ["probeD4",
+                    ["D4/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -282,7 +282,7 @@
                         }
                     ],
                     [
-                        "acquireD4",
+                        "D4/acquisition",
                         {
                           "kind": "acquisition",
                           "duration": 2000.0
@@ -292,7 +292,7 @@
             },
             "D5": {
                 "RX": [
-                    ["driveD5",
+                    ["D5/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -305,7 +305,7 @@
                     ]
                 ],
                 "MZ": [
-                    ["probeD5",
+                    ["D5/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -316,7 +316,7 @@
                         }
                     ],
                     [
-                        "acquireD5",
+                        "D5/acquisition",
                         {
                           "kind": "acquisition",
                           "duration": 2000.0

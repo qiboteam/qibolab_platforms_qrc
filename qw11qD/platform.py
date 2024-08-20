@@ -18,10 +18,10 @@ def create():
     Line D (5 qubits): calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
-    lo_map = {q: f"drive{q}_lo" for q in ["D1", "D4", "D5"]}
-    lo_map["D2"] = lo_map["D3"] = "driveD2D3_lo"
+    lo_map = {q: f"{q}/drive_lo" for q in ["D1", "D4", "D5"]}
+    lo_map["D2"] = lo_map["D3"] = "D2D3/drive_lo"
 
-    twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
+    twpa_d = SGS100A(name="D/twpa", address="192.168.0.33")
 
     qubits = {}
     for i in range(1, 6):
@@ -31,7 +31,7 @@ def create():
             probe=IqChannel(
                 name=f"{q}/probe",
                 mixer=None,
-                lo="probeD_lo",
+                lo=f"D/probe_lo",
                 acquisition=f"{q}/acquisition",
             ),
             acquisition=AcquireChannel(
