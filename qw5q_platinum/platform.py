@@ -8,7 +8,7 @@ from qibolab.channels import Channel
 from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
-from qibolab.kernels import Kernels
+from qibolab.kernels import KERNELS, Kernels
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
@@ -44,7 +44,8 @@ def create():
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
-    kernels = Kernels.load(FOLDER)
+
+    kernels = Kernels.load(FOLDER) if (FOLDER / KERNELS).exists() else None
     qubits, _, pairs = load_qubits(runcard, kernels)
     settings = load_settings(runcard)
 
@@ -94,22 +95,22 @@ def create():
     arbitrary_qubit.twpa.local_oscillator = SGS100A("twpa", "192.168.0.38")
 
     measure_channel.power_range = -10
-    acquire_channel.power_range = 10
+    acquire_channel.power_range = 0
 
-    qubits[0].drive.power_range = 10
-    qubits[0].flux.power_range = 4.0
+    qubits[0].drive.power_range = 5
+    qubits[0].flux.power_range = 1
 
-    qubits[1].drive.power_range = 0
-    qubits[1].flux.power_range = 4.0
+    qubits[1].drive.power_range = 5
+    qubits[1].flux.power_range = 1
 
-    qubits[2].drive.power_range = 10
-    qubits[2].flux.power_range = 4.0
+    qubits[2].drive.power_range = 0
+    qubits[2].flux.power_range = 2
 
     qubits[3].drive.power_range = 5
-    qubits[3].flux.power_range = 4.0
+    qubits[3].flux.power_range = 2
 
-    qubits[4].drive.power_range = 0
-    qubits[4].flux.power_range = 4.0
+    qubits[4].drive.power_range = 5
+    qubits[4].flux.power_range = 2
 
     instruments = {controller.name: controller}
     for qb in qubits.values():
