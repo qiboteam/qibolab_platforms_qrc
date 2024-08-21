@@ -8,7 +8,7 @@ from qibolab.channels import Channel
 from qibolab.instruments.dummy import DummyLocalOscillator
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.zhinst import Zurich
-from qibolab.kernels import Kernels
+from qibolab.kernels import KERNELS, Kernels
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
@@ -44,7 +44,8 @@ def create():
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
-    kernels = Kernels.load(FOLDER)
+
+    kernels = Kernels.load(FOLDER) if (FOLDER / KERNELS).exists() else None
     qubits, _, pairs = load_qubits(runcard, kernels)
     settings = load_settings(runcard)
 
