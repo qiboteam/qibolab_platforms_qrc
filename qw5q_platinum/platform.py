@@ -44,8 +44,7 @@ def create():
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
-    kernels = Kernels.load(FOLDER)
-    qubits, _, pairs = load_qubits(runcard, kernels)
+    qubits, _, pairs = load_qubits(runcard)
     settings = load_settings(runcard)
 
     twpa_pump_channel = Channel("twpa_pump")
