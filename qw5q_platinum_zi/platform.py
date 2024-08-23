@@ -96,7 +96,7 @@ def create():
     measure_channel.power_range = -30
     acquire_channel.power_range = 0
 
-    qubits[0].drive.power_range = 0
+    qubits[0].drive.power_range = 10
     qubits[1].drive.power_range = 10
     qubits[2].drive.power_range = 10
     qubits[3].drive.power_range = 0

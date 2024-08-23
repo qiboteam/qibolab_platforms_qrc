@@ -2,7 +2,7 @@
     "nqubits": 5,
     "settings": {
         "nshots": 4048,
-        "relaxation_time": 4000000
+        "relaxation_time": 40000
     },
     "qubits": [
         0,
@@ -37,31 +37,44 @@
                 "instructions": 1000000
             }
         },
+        "q_0_1/drive/lo": {
+            "power": 0,
+            "frequency": 4500000000
+        },
+        "readout/lo": {
+            "power": 0,
+            "frequency": 7700000000
+        },
         "twpa": {
             "power": 1.42,
             "frequency": 6542230000
         },
-        "q_0_1/drive/lo": {
-            "frequency": 5100000000
-        },
         "q_2_3/drive/lo": {
-            "frequency": 6000000000
+            "power": 0,
+            "frequency": 5700000000
         },
         "q_4/drive/lo": {
+            "power": 0,
             "frequency": 6500000000
-        },
-        "readout/lo": {
-            "frequency": 7300000000
         }
     },
     "native_gates": {
         "single_qubit": {
             "0": {
                 "RX": {
-                    "duration": 40,
-                    "amplitude": 0.5,
-                    "shape": "Gaussian(5)",
-                    "frequency": 4.773927e9,
+                    "duration": 344,
+                    "amplitude": 0.462,
+                    "shape": "Drag(2, -0.06)",
+                    "frequency": 4.774006e9,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "RX90": {
+                    "duration": 172,
+                    "amplitude": 0.472208,
+                    "shape": "Drag(2, -0.06)",
+                    "frequency": 4773823010 ,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -211,7 +224,7 @@
                 "readout_frequency": 7202700000,
                 "drive_frequency": 4731758000,
                 "anharmonicity": -286373266,
-                "sweetspot": 0.37,
+                "sweetspot": 0.498,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 1,
@@ -255,7 +268,7 @@
                 "readout_frequency": 7335100000,
                 "drive_frequency": 4967079000,
                 "anharmonicity": 292584018,
-                "sweetspot": 0.6,
+                "sweetspot": -0.47,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -299,7 +312,7 @@
                 "readout_frequency": 7493218000,
                 "drive_frequency": 5509505000,
                 "anharmonicity": -310651789,
-                "sweetspot": 0.74,
+                "sweetspot": 0.935,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -343,7 +356,7 @@
                 "readout_frequency": 7660176000,
                 "drive_frequency": 6426032000,
                 "anharmonicity": 262310994,
-                "sweetspot": -1.33,
+                "sweetspot": -1.2,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -387,7 +400,7 @@
                 "readout_frequency": 7793745000,
                 "drive_frequency": 6232252000,
                 "anharmonicity": 261390626,
-                "sweetspot": -0.397,
+                "sweetspot": 1.1,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
