@@ -1,7 +1,9 @@
 import pathlib
+from typing import cast
 
-from qibolab.components import AcquireChannel, DcChannel, IqChannel
-from qibolab.instruments.qm import Octave, QmChannel, QmConfigs, QmController
+from qibolab.components import AcquireChannel, Channel, DcChannel, IqChannel
+from qibolab.instruments.qm import Octave, QmConfigs, QmController
+from qibolab.identifier import ChannelId
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.parameters import ConfigKinds
 from qibolab.platform import Platform
@@ -27,53 +29,61 @@ def create():
 
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
-    qubits = {}
-    for i in range(1, 6):
-        q = f"D{i}"
-        qubits[q] = Qubit(
-            name=q,
-            probe=IqChannel(
-                name=f"{q}/probe",
-                mixer=None,
-                lo=f"D/probe_lo",
-                acquisition=f"{q}/acquisition",
-            ),
-            acquisition=AcquireChannel(
-                name=f"{q}/acquisition", twpa_pump=twpa_d.name, probe=f"{q}/probe"
-            ),
-            drive=IqChannel(name=f"{q}/drive", mixer=None, lo=lo_map[q]),
-            flux=DcChannel(name=f"{q}/flux"),
+    qubits = {
+        f"D{i}": Qubit(
+            drive=f"qubit_D{i}/drive",
+            flux=f"qubit_D{i}/flux",
+            probe=f"qubit_D{i}/probe",
+            acquisition=f"qubit_D{i}/acquisition",
         )
+        for i in range(1, 6)
+    }
 
     # Connect logical channels to instrument channels (ports)
     # Readout
-    channels = [QmChannel(qubit.probe, "octave5", port=1) for qubit in qubits.values()]
+    channels = {
+        q.probe: IqChannel(device="octave5", path="1", mixer=None, lo="D/probe_lo")
+        for q in qubits.values()
+    }
     # Acquire
-    channels.extend(
-        QmChannel(qubit.acquisition, "octave5", port=1) for qubit in qubits.values()
-    )
+    channels |= {
+        q.acquisition: AcquireChannel(
+            device="octave5", path="1", twpa_pump=twpa_d.name, probe=q.probe
+        )
+        for q in qubits.values()
+    }
     # Drive
-    channels.extend(
-        [
-            QmChannel(qubits["D1"].drive, "octave5", port=2),
-            QmChannel(qubits["D2"].drive, "octave5", port=4),
-            QmChannel(qubits["D3"].drive, "octave5", port=5),
-            QmChannel(qubits["D4"].drive, "octave6", port=5),
-            QmChannel(qubits["D5"].drive, "octave6", port=3),
-        ]
-    )
+    channels |= {
+        qubits["D1"].drive: IqChannel(
+            device="octave5", path="2", mixer=None, lo=lo_map["D1"]
+        ),
+        qubits["D2"].drive: IqChannel(
+            device="octave5", path="4", mixer=None, lo=lo_map["D2"]
+        ),
+        qubits["D3"].drive: IqChannel(
+            device="octave5", path="5", mixer=None, lo=lo_map["D3"]
+        ),
+        qubits["D4"].drive: IqChannel(
+            device="octave6", path="5", mixer=None, lo=lo_map["D4"]
+        ),
+        qubits["D5"].drive: IqChannel(
+            device="octave6", path="3", mixer=None, lo=lo_map["D5"]
+        ),
+    }
     # Flux
-    channels.extend(
-        QmChannel(qubits[f"D{q}"].flux, "con9", port=q + 2) for q in range(1, 6)
-    )
+    channels |= {
+        qubits[f"D{q}"].flux: DcChannel(device="con9", path=str(q + 2))
+        for q in range(1, 6)
+    }
+    channels = cast(dict[ChannelId, Channel], channels)
 
     octaves = {
         "octave5": Octave("octave5", port=104, connectivity="con6"),
         "octave6": Octave("octave6", port=105, connectivity="con8"),
     }
     controller = QmController(
-        "qm",
-        "192.168.0.101:80",
+        name="qm",
+        address="192.168.0.101:80",
         octaves=octaves,
         channels=channels,
         calibration_path=FOLDER,
