@@ -56,12 +56,20 @@
         },
         "D1/drive": {
             "kind": "iq",
-            "frequency": 4957511346
+            "frequency": 4958286116
         },
         "D1/flux": {
             "kind": "dc",
-            "offset": 0.31394651971665033,
-            "filter": {}
+            "offset": 0.224,
+            "filter": {
+                "feedforward": [
+                    1.0684635881381783,
+                    -1.0163217174522334
+                ],
+                "feedback": [
+                    0.947858129314055
+                ]
+            }
         },
         "D2/probe": {
             "kind": "iq",
@@ -78,12 +86,20 @@
         },
         "D2/drive": {
             "kind": "iq",
-            "frequency": 5563745712
+            "frequency": 5564026190
         },
         "D2/flux": {
             "kind": "dc",
-            "offset": -0.2693102674878147,
-            "filter": {}
+            "offset": -0.395,
+            "filter": {
+                "feedforward": [
+                    1.0668,
+                    -1.0162
+                ],
+                "feedback": [
+                    0.948
+                ]
+            }
         },
         "D3/probe": {
             "kind": "iq",
@@ -100,12 +116,20 @@
         },
         "D3/drive": {
             "kind": "iq",
-            "frequency": 5652307573
+            "frequency": 5652743158
         },
         "D3/flux": {
             "kind": "dc",
-            "offset": -0.17830274314573707,
-            "filter": {}
+            "offset": -0.243,
+            "filter": {
+                "feedforward": [
+                    1.0684635881381783,
+                    -1.0163217174522334
+                ],
+                "feedback": [
+                    0.947858129314055
+                ]
+            }
         },
         "D4/probe": {
             "kind": "iq",
@@ -122,12 +146,20 @@
         },
         "D4/drive": {
             "kind": "iq",
-            "frequency": 6249230083
+            "frequency": 6249324670
         },
         "D4/flux": {
             "kind": "dc",
-            "offset": -0.4329726183619601,
-            "filter": {}
+            "offset": 0.0,
+            "filter": {
+                "feedforward": [
+                    1.0668,
+                    -1.0162
+                ],
+                "feedback": [
+                    0.948
+                ]
+            }
         },
         "D5/probe": {
             "kind": "iq",
@@ -148,7 +180,7 @@
         },
         "D5/flux": {
             "kind": "dc",
-            "offset": -0.5,
+            "offset": 0.0,
             "filter": {}
         }
     },
@@ -160,7 +192,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.041440192558470756,
+                            "amplitude": 0.040881590572425984,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -194,7 +226,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.05515511034194706,
+                            "amplitude": 0.05480563813123633,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -228,7 +260,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.07072246628636102,
+                            "amplitude": 0.06848719114205952,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -262,7 +294,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.08027867962133999,
+                            "amplitude": 0.07876150680762735,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
