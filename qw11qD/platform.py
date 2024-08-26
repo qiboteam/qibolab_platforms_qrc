@@ -31,10 +31,10 @@ def create():
 
     qubits = {
         f"D{i}": Qubit(
-            drive=f"qubit_D{i}/drive",
-            flux=f"qubit_D{i}/flux",
-            probe=f"qubit_D{i}/probe",
-            acquisition=f"qubit_D{i}/acquisition",
+            drive=f"D{i}/drive",
+            flux=f"D{i}/flux",
+            probe=f"D{i}/probe",
+            acquisition=f"D{i}/acquisition",
         )
         for i in range(1, 6)
     }
