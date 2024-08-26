@@ -46,7 +46,7 @@
             "frequency": 7137520000
         },
         "D1/acquisition": {
-            "kind": "acquisition",
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.002100861788865835,
@@ -59,7 +59,7 @@
             "frequency": 4958294808
         },
         "D1/flux": {
-            "kind": "dc",
+            "kind": "opx-output",
             "offset": 0.2205,
             "filter": {}
         },
@@ -68,7 +68,7 @@
             "frequency": 7379568000
         },
         "D2/acquisition": {
-            "kind": "acquisition",
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.0024749776365672765,
@@ -81,7 +81,7 @@
             "frequency": 5564028148
         },
         "D2/flux": {
-            "kind": "dc",
+            "kind": "opx-output",
             "offset": -0.421,
             "filter": {}
         },
@@ -90,7 +90,7 @@
             "frequency": 7490960000
         },
         "D3/acquisition": {
-            "kind": "acquisition",
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.0022565651549393286,
@@ -103,7 +103,7 @@
             "frequency": 5652497594
         },
         "D3/flux": {
-            "kind": "dc",
+            "kind": "opx-output",
             "offset": -0.2095,
             "filter": {
                 "feedforward": [
@@ -120,7 +120,7 @@
             "frequency": 7706570000
         },
         "D4/acquisition": {
-            "kind": "acquisition",
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "threshold": 0.0016417382238347856,
@@ -133,7 +133,7 @@
             "frequency": 6150032162
         },
         "D4/flux": {
-            "kind": "dc",
+            "kind": "opx-output",
             "offset": 0.0,
             "filter": {}
         },
@@ -142,7 +142,7 @@
             "frequency": 7636110000
         },
         "D5/acquisition": {
-            "kind": "acquisition",
+            "kind": "qm-acquisition",
             "delay": 224,
             "smearing": 0,
             "gain": 10,
@@ -155,7 +155,7 @@
             "frequency": 5421335411
         },
         "D5/flux": {
-            "kind": "dc",
+            "kind": "opx-output",
             "offset": -0.04,
             "filter": {}
         }
