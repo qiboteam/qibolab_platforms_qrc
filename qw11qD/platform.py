@@ -1,5 +1,4 @@
 import pathlib
-from typing import cast
 
 from qibolab.components import AcquireChannel, Channel, DcChannel, IqChannel
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
@@ -7,6 +6,7 @@ from qibolab.identifier import ChannelId
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.parameters import ConfigKinds
 from qibolab.platform import Platform
+from qibolab.platform.platform import QubitMap
 from qibolab.qubits import Qubit
 
 FOLDER = pathlib.Path(__file__).parent
@@ -24,12 +24,9 @@ def create():
     calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
-    lo_map = {q: f"{q}/drive_lo" for q in ["D1", "D4", "D5"]}
-    lo_map["D2"] = lo_map["D3"] = "D2D3/drive_lo"
-
     twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
 
-    qubits = {
+    qubits: QubitMap = {
         f"D{i}": Qubit(
             drive=f"D{i}/drive",
             flux=f"D{i}/flux",
@@ -38,44 +35,43 @@ def create():
         )
         for i in range(1, 6)
     }
+    for q in qubits.values():
+        assert q.probe is not None
 
     # Connect logical channels to instrument channels (ports)
     # Readout
-    channels = {
-        q.probe: IqChannel(device="octave5", path="1", mixer=None, lo="D/probe_lo")
-        for q in qubits.values()
-    }
+    channels: dict[ChannelId, Channel] = {}
+    for q in qubits.values():
+        assert q.probe is not None
+        channels[q.probe] = IqChannel(
+            device="octave5", path="1", mixer=None, lo="D/probe_lo"
+        )
+
     # Acquire
-    channels |= {
-        q.acquisition: AcquireChannel(
+    for q in qubits.values():
+        assert q.acquisition is not None
+        channels[q.acquisition] = AcquireChannel(
             device="octave5", path="1", twpa_pump=twpa_d.name, probe=q.probe
         )
-        for q in qubits.values()
-    }
+
     # Drive
-    channels |= {
-        qubits["D1"].drive: IqChannel(
-            device="octave5", path="2", mixer=None, lo=lo_map["D1"]
-        ),
-        qubits["D2"].drive: IqChannel(
-            device="octave5", path="4", mixer=None, lo=lo_map["D2"]
-        ),
-        qubits["D3"].drive: IqChannel(
-            device="octave5", path="5", mixer=None, lo=lo_map["D3"]
-        ),
-        qubits["D4"].drive: IqChannel(
-            device="octave6", path="5", mixer=None, lo=lo_map["D4"]
-        ),
-        qubits["D5"].drive: IqChannel(
-            device="octave6", path="3", mixer=None, lo=lo_map["D5"]
-        ),
-    }
+    def define_drive(q: str, device: str, port: int, lo: str):
+        drive = qubits[q].drive
+        assert drive is not None
+        channels[drive] = IqChannel(device=device, path=str(port), mixer=None, lo=lo)
+
+    define_drive("D1", "octave5", 2, "D1/drive_lo")
+    define_drive("D2", "octave5", 4, "D2D3/drive_lo")
+    define_drive("D3", "octave5", 5, "D2D3/drive_lo")
+    define_drive("D4", "octave6", 5, "D4/drive_lo")
+    define_drive("D4", "octave6", 5, "D4/drive_lo")
+    define_drive("D5", "octave6", 3, "D5/drive_lo")
+
     # Flux
-    channels |= {
-        qubits[f"D{q}"].flux: DcChannel(device="con9", path=str(q + 2))
-        for q in range(1, 6)
-    }
-    channels = cast(dict[ChannelId, Channel], channels)
+    for q in range(1, 6):
+        qubit = qubits[f"D{q}"]
+        assert qubit.flux is not None
+        channels[qubit.flux] = DcChannel(device="con9", path=str(q + 2))
 
     octaves = {
         "octave5": Octave("octave5", port=104, connectivity="con6"),
