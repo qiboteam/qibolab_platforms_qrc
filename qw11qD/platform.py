@@ -38,7 +38,7 @@ def create():
     for q in qubits.values():
         assert q.probe is not None
 
-    # Connect logical channels to instrument channels (ports)
+    # Create channels and connect to instrument ports
     # Readout
     channels: dict[ChannelId, Channel] = {}
     for q in qubits.values():
