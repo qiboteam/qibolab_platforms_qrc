@@ -49,27 +49,19 @@
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.00206660062562288,
-            "iq_angle": -0.6014910275672222,
+            "threshold": 0.00209610109064509,
+            "iq_angle": -0.5260011098397979,
             "gain": 10,
             "offset": 0.0
         },
         "D1/drive": {
             "kind": "iq",
-            "frequency": 4958286116
+            "frequency": 4958293490
         },
         "D1/flux": {
             "kind": "dc",
             "offset": 0.224,
-            "filter": {
-                "feedforward": [
-                    1.0684635881381783,
-                    -1.0163217174522334
-                ],
-                "feedback": [
-                    0.947858129314055
-                ]
-            }
+            "filter": {}
         },
         "D2/probe": {
             "kind": "iq",
@@ -79,27 +71,19 @@
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.002621696461984542,
-            "iq_angle": 3.092543662384623,
+            "threshold": 0.0025015659636487284,
+            "iq_angle": -3.0946975615294967,
             "gain": 10,
             "offset": 0.0
         },
         "D2/drive": {
             "kind": "iq",
-            "frequency": 5564026190
+            "frequency": 5564034271
         },
         "D2/flux": {
             "kind": "dc",
-            "offset": -0.395,
-            "filter": {
-                "feedforward": [
-                    1.0668,
-                    -1.0162
-                ],
-                "feedback": [
-                    0.948
-                ]
-            }
+            "offset": -0.418,
+            "filter": {}
         },
         "D3/probe": {
             "kind": "iq",
@@ -109,18 +93,18 @@
             "kind": "acquisition",
             "delay": 224,
             "smearing": 0,
-            "threshold": 0.0022953048928512146,
-            "iq_angle": -2.8573465860910017,
+            "threshold": 0.0022538295691222833,
+            "iq_angle": -2.76076826956182,
             "gain": 10,
             "offset": 0.0
         },
         "D3/drive": {
             "kind": "iq",
-            "frequency": 5652743158
+            "frequency": 5652497820
         },
         "D3/flux": {
             "kind": "dc",
-            "offset": -0.243,
+            "offset": -0.2081,
             "filter": {
                 "feedforward": [
                     1.0684635881381783,
@@ -151,15 +135,7 @@
         "D4/flux": {
             "kind": "dc",
             "offset": 0.0,
-            "filter": {
-                "feedforward": [
-                    1.0668,
-                    -1.0162
-                ],
-                "feedback": [
-                    0.948
-                ]
-            }
+            "filter": {}
         },
         "D5/probe": {
             "kind": "iq",
@@ -176,7 +152,7 @@
         },
         "D5/drive": {
             "kind": "iq",
-            "frequency": 5526780884
+            "frequency": 5426780884
         },
         "D5/flux": {
             "kind": "dc",
@@ -192,7 +168,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.040881590572425984,
+                            "amplitude": 0.04173995865652576,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -226,7 +202,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.05480563813123633,
+                            "amplitude": 0.05568230713165704,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -260,7 +236,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.06848719114205952,
+                            "amplitude": 0.06922856464450258,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
