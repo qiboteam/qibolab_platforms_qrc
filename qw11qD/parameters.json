@@ -164,7 +164,8 @@
         "single_qubit": {
             "D1": {
                 "RX": [
-                    ["D1/drive",
+                    [
+                        "D1/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -177,7 +178,8 @@
                     ]
                 ],
                 "MZ": [
-                    ["D1/probe",
+                    [
+                        "D1/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -190,15 +192,16 @@
                     [
                         "D1/acquisition",
                         {
-                          "kind": "acquisition",
-                          "duration": 2000.0
+                            "kind": "acquisition",
+                            "duration": 2000.0
                         }
                     ]
                 ]
             },
             "D2": {
                 "RX": [
-                    ["D2/drive",
+                    [
+                        "D2/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -211,7 +214,8 @@
                     ]
                 ],
                 "MZ": [
-                    ["D2/probe",
+                    [
+                        "D2/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -224,15 +228,16 @@
                     [
                         "D2/acquisition",
                         {
-                          "kind": "acquisition",
-                          "duration": 2000.0
+                            "kind": "acquisition",
+                            "duration": 2000.0
                         }
                     ]
                 ]
             },
             "D3": {
                 "RX": [
-                    ["D3/drive",
+                    [
+                        "D3/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -243,9 +248,10 @@
                             }
                         }
                     ]
-                    ],
+                ],
                 "MZ": [
-                    ["D3/probe",
+                    [
+                        "D3/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -258,15 +264,16 @@
                     [
                         "D3/acquisition",
                         {
-                          "kind": "acquisition",
-                          "duration": 2000.0
+                            "kind": "acquisition",
+                            "duration": 2000.0
                         }
                     ]
                 ]
             },
             "D4": {
                 "RX": [
-                    ["D4/drive",
+                    [
+                        "D4/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -279,7 +286,8 @@
                     ]
                 ],
                 "MZ": [
-                    ["D4/probe",
+                    [
+                        "D4/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -292,15 +300,16 @@
                     [
                         "D4/acquisition",
                         {
-                          "kind": "acquisition",
-                          "duration": 2000.0
+                            "kind": "acquisition",
+                            "duration": 2000.0
                         }
                     ]
                 ]
             },
             "D5": {
                 "RX": [
-                    ["D5/drive",
+                    [
+                        "D5/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -313,7 +322,8 @@
                     ]
                 ],
                 "MZ": [
-                    ["D5/probe",
+                    [
+                        "D5/probe",
                         {
                             "kind": "pulse",
                             "duration": 2000.0,
@@ -326,8 +336,8 @@
                     [
                         "D5/acquisition",
                         {
-                          "kind": "acquisition",
-                          "duration": 2000.0
+                            "kind": "acquisition",
+                            "duration": 2000.0
                         }
                     ]
                 ]
