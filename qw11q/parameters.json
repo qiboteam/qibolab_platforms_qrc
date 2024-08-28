@@ -153,47 +153,14 @@
             }
         },
         "con9": {
-            "o3": {
-                "filter": {
-                    "feedforward": [
-                        1.0684635881381783,
-                        -1.0163217174522334
-                    ],
-                    "feedback": [
-                        0.947858129314055
-                    ]
-                }
-            },
             "o4": {
                 "filter": {
                     "feedforward": [
-                        1.0668,
-                        -1.0162
-                    ],
-                    "feedback": [
-                        0.948
-                    ]
-                }
-            },
-            "o5": {
-                "filter": {
-                    "feedforward": [
                         1.0684635881381783,
                         -1.0163217174522334
                     ],
                     "feedback": [
                         0.947858129314055
-                    ]
-                }
-            },
-            "o6": {
-                "filter": {
-                    "feedforward": [
-                        1.0668,
-                        -1.0162
-                    ],
-                    "feedback": [
-                        0.948
                     ]
                 }
             }
@@ -790,8 +757,8 @@
                 "CZ": [
                     {
                         "duration": 45,
-                        "amplitude": 0.1,
-                        "shape": "GaussianSquare(5, 0.9)",
+                        "amplitude": 0.207,
+                        "shape": "Rectangular()",
                         "qubit": "D2",
                         "relative_start": 0,
                         "type": "qf"
