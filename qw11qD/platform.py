@@ -1,8 +1,8 @@
 import pathlib
 
 from qibolab.components import AcquireChannel, Channel, DcChannel, IqChannel
-from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.identifier import ChannelId
+from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.parameters import ConfigKinds
 from qibolab.platform import Platform
