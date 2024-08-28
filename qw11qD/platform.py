@@ -1,8 +1,7 @@
 import pathlib
 
 from qibolab.components import AcquireChannel, DcChannel, IqChannel
-from qibolab.instruments.qm import Octave, QmChannel, QmController
-from qibolab.instruments.qm.components.configs import QmConfig
+from qibolab.instruments.qm import Octave, QmChannel, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.parameters import ConfigKinds
 from qibolab.platform import Platform
@@ -11,7 +10,7 @@ from qibolab.qubits import Qubit
 FOLDER = pathlib.Path(__file__).parent
 
 # Register QM-specific configurations for parameters loading
-ConfigKinds.extend([QmConfig])
+ConfigKinds.extend([QmConfigs])
 
 
 def create():
