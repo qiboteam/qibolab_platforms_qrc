@@ -1,21 +1,25 @@
 import pathlib
 
 from qibolab.components import AcquireChannel, DcChannel, IqChannel
-from qibolab.instruments.qm import Octave, QmChannel, QmController
+from qibolab.instruments.qm import Octave, QmChannel, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
+from qibolab.parameters import ConfigKinds
 from qibolab.platform import Platform
 from qibolab.qubits import Qubit
 
 FOLDER = pathlib.Path(__file__).parent
 
+# Register QM-specific configurations for parameters loading
+ConfigKinds.extend([QmConfigs])
+
 
 def create():
     """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines.
 
-    Current status (check before using):
-    Line A (6 qubits) is NOT calibrated because signal is very noisy at low readout power,
-    possibly due to not using the TWPA pump.
-    Line D (5 qubits): calibrated with TWPA and latest status in:
+    Current status (check before using): Line A (6 qubits) is NOT
+    calibrated because signal is very noisy at low readout power,
+    possibly due to not using the TWPA pump. Line D (5 qubits):
+    calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
     lo_map = {q: f"{q}/drive_lo" for q in ["D1", "D4", "D5"]}
