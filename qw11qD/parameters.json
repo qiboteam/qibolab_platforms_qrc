@@ -178,21 +178,21 @@
                 ],
                 "MZ": [
                     [
-                        "D1/probe",
-                        {
-                            "kind": "pulse",
-                            "duration": 2000.0,
-                            "amplitude": 0.003,
-                            "envelope": {
-                                "kind": "rectangular"
-                            }
-                        }
-                    ],
-                    [
                         "D1/acquisition",
                         {
-                            "kind": "acquisition",
-                            "duration": 2000.0
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.003,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                }
+                            }
                         }
                     ]
                 ]
@@ -214,21 +214,21 @@
                 ],
                 "MZ": [
                     [
-                        "D2/probe",
-                        {
-                            "kind": "pulse",
-                            "duration": 2000.0,
-                            "amplitude": 0.0024,
-                            "envelope": {
-                                "kind": "rectangular"
-                            }
-                        }
-                    ],
-                    [
                         "D2/acquisition",
                         {
-                            "kind": "acquisition",
-                            "duration": 2000.0
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.0024,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                }
+                            }
                         }
                     ]
                 ]
@@ -250,21 +250,21 @@
                 ],
                 "MZ": [
                     [
-                        "D3/probe",
-                        {
-                            "kind": "pulse",
-                            "duration": 2000.0,
-                            "amplitude": 0.0018,
-                            "envelope": {
-                                "kind": "rectangular"
-                            }
-                        }
-                    ],
-                    [
                         "D3/acquisition",
                         {
-                            "kind": "acquisition",
-                            "duration": 2000.0
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.0018,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                }
+                            }
                         }
                     ]
                 ]
@@ -286,21 +286,21 @@
                 ],
                 "MZ": [
                     [
-                        "D4/probe",
-                        {
-                            "kind": "pulse",
-                            "duration": 2000.0,
-                            "amplitude": 0.004,
-                            "envelope": {
-                                "kind": "rectangular"
-                            }
-                        }
-                    ],
-                    [
                         "D4/acquisition",
                         {
-                            "kind": "acquisition",
-                            "duration": 2000.0
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                }
+                            }
                         }
                     ]
                 ]
@@ -322,21 +322,21 @@
                 ],
                 "MZ": [
                     [
-                        "D5/probe",
-                        {
-                            "kind": "pulse",
-                            "duration": 2000.0,
-                            "amplitude": 0.0036,
-                            "envelope": {
-                                "kind": "rectangular"
-                            }
-                        }
-                    ],
-                    [
                         "D5/acquisition",
                         {
-                            "kind": "acquisition",
-                            "duration": 2000.0
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.0036,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                }
+                            }
                         }
                     ]
                 ]
