@@ -64,7 +64,6 @@ def create():
     define_drive("D2", "octave5", 4, "D2D3/drive_lo")
     define_drive("D3", "octave5", 5, "D2D3/drive_lo")
     define_drive("D4", "octave6", 5, "D4/drive_lo")
-    define_drive("D4", "octave6", 5, "D4/drive_lo")
     define_drive("D5", "octave6", 3, "D5/drive_lo")
 
     # Flux
