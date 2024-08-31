@@ -720,7 +720,7 @@
                     "duration": 40,
                     "amplitude": 0.07876150680762735,
                     "shape": "Gaussian(5)",
-                    "frequency": 7225851657,
+                    "frequency": 6500000000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -779,7 +779,7 @@
                 "CZ": [
                     {
                         "duration": 47,
-                        "amplitude": 0.2034,
+                        "amplitude": 0.2003,
                         "shape": "Rectangular()",
                         "qubit": "D2",
                         "relative_start": 0,
@@ -787,12 +787,12 @@
                     },
                     {
                         "type": "virtual_z",
-                        "phase": -1.4041143104848266,
+                        "phase": -0.7254065997497625,
                         "qubit": "D2"
                     },
                     {
                         "type": "virtual_z",
-                        "phase": -0.5147305724189518,
+                        "phase": -0.5038349717463788,
                         "qubit": "D1"
                     }
                 ],
@@ -1678,9 +1678,9 @@
             "D4": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7704602807,
-                "drive_frequency": 7225851657,
+                "drive_frequency": 6500000000,
                 "anharmonicity": -211000000,
-                "sweetspot": 55.04880734832356,
+                "sweetspot": 0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
