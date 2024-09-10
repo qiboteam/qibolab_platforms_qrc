@@ -18,11 +18,11 @@ PORT = 6000
 LO_ADDRESS = "192.168.0.31"
 #TWPA_ADDRESS = "192.168.0.37"
 FOLDER = pathlib.Path(__file__).parent
-
+print(FOLDER)
 
 def create():
-    """Platform for qubits 2 and 3 on tii3qw81 chip using the  ZCU111 board running qibosoq.
-
+    """Platform for qubits 2, 3 and witness on tii3qw81 chipusing the  ZCU111 board running qibosoq.
+       The chip has fixed-frequency transmons without flux lines
     IPs and other instrument related parameters are hardcoded in.
     """
 
@@ -39,15 +39,20 @@ def create():
     # QUBIT 2
     channels |= Channel("L1-2-RO_1", port=controller.ports(1))  # feedback adc1
     channels |= Channel("L4-31_qd", port=controller.ports(3))  # drive    dac3
+    channels |= Channel("L1-22_fl", port=controller.ports(0))  # Not Used flux     dac0
 
     # QUBIT 3
     channels |= Channel("L1-2-RO_2", port=controller.ports(2))  # feedback adc2
     channels |= Channel("L4-32_qd", port=controller.ports(4))  # drive    dac4
-
+    channels |= Channel("L1-23_fl", port=controller.ports(1))  # Not Usedflux     dac1
+    # QUBIT Witness
+    channels |= Channel("L1-2-RO_3", port=controller.ports(3))  # feedback adc1
+    channels |= Channel("L4-28_qd", port=controller.ports(5))  # drive    dac3
+    channels |= Channel("L1-24_fl", port=controller.ports(2))  # Not Used flux     dac2
 
     # Readout local oscillator
     local_oscillator = SGS100A(name="LO", address=LO_ADDRESS)
-    channels["L3-20_ro"].local_oscillator = local_oscillator
+    channels["L3-28_ro"].local_oscillator = local_oscillator
 
 
 
@@ -56,17 +61,23 @@ def create():
     qubits, couplers, pairs = load_qubits(runcard)
  
 
-    qubits[2].readout = channels["L3-20_ro"]
-    qubits[2].feedback = channels["L1-1-RO_1"]
-    qubits[2].drive = channels["L6-2_qd"]
+    qubits[2].readout = channels["L3-28_ro"]
+    qubits[2].feedback = channels["L1-2-RO_1"]
+    qubits[2].drive = channels["L4-31_qd"]
+    qubits[2].flux = channels["L1-22_fl"] # Not Used
+    channels["L1-22_fl"].qubit = qubits[2]
 
+    qubits[3].readout = channels["L3-28_ro"]
+    qubits[3].feedback = channels["L1-2-RO_2"]
+    qubits[3].drive = channels["L4-32_qd"]
+    qubits[3].flux = channels["L1-23_fl"] # Not Used
+    channels["L1-23_fl"].qubit = qubits[3]
 
-    qubits[3].readout = channels["L3-20_ro"]
-    qubits[3].feedback = channels["L1-1-RO_2"]
-    qubits[3].drive = channels["L6-3_qd"]
-
-
-
+    qubits[4].readout = channels["L3-28_ro"]
+    qubits[4].feedback = channels["L1-2-RO_3"]
+    qubits[4].drive = channels["L4-28_qd"]
+    qubits[4].flux = channels["L1-24_fl"] # Not Used
+    channels["L1-24_fl"].qubit = qubits[4]
 
     instruments = {controller.name: controller, 
                     local_oscillator.name: local_oscillator}
