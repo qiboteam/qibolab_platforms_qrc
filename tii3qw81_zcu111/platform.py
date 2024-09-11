@@ -1,8 +1,8 @@
 import pathlib
 
 from qibolab.channels import Channel, ChannelMap
-from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.instruments.rfsoc import RFSoC
+from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
 from qibolab.serialize import (
     load_instrument_settings,
@@ -10,15 +10,17 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
-#from qibolab.kernels import Kernels
+
+# from qibolab.kernels import Kernels
 
 NAME = "tii3qw81__zcu111"
 ADDRESS = "192.168.0.81"
 PORT = 6000
 LO_ADDRESS = "192.168.0.31"
-#TWPA_ADDRESS = "192.168.0.37"
+# TWPA_ADDRESS = "192.168.0.37"
 FOLDER = pathlib.Path(__file__).parent
 print(FOLDER)
+
 
 def create():
     """Platform for qubits 2, 3 and witness on tii3qw81 chipusing the  ZCU111 board running qibosoq.
@@ -30,7 +32,6 @@ def create():
     controller = RFSoC(str(FOLDER), ADDRESS, PORT, sampling_rate=6.144)
     controller.cfg.adc_trig_offset = 200
     controller.cfg.repetition_duration = 100
-
 
     # Create channel objects
     channels = ChannelMap()
@@ -54,33 +55,28 @@ def create():
     local_oscillator = SGS100A(name="LO", address=LO_ADDRESS)
     channels["L3-28_ro"].local_oscillator = local_oscillator
 
-
-
-
     runcard = load_runcard(FOLDER)
     qubits, couplers, pairs = load_qubits(runcard)
- 
 
     qubits[2].readout = channels["L3-28_ro"]
     qubits[2].feedback = channels["L1-2-RO_1"]
     qubits[2].drive = channels["L4-31_qd"]
-    qubits[2].flux = channels["L1-22_fl"] # Not Used
+    qubits[2].flux = channels["L1-22_fl"]  # Not Used
     channels["L1-22_fl"].qubit = qubits[2]
 
     qubits[3].readout = channels["L3-28_ro"]
     qubits[3].feedback = channels["L1-2-RO_2"]
     qubits[3].drive = channels["L4-32_qd"]
-    qubits[3].flux = channels["L1-23_fl"] # Not Used
+    qubits[3].flux = channels["L1-23_fl"]  # Not Used
     channels["L1-23_fl"].qubit = qubits[3]
 
     qubits[4].readout = channels["L3-28_ro"]
     qubits[4].feedback = channels["L1-2-RO_3"]
     qubits[4].drive = channels["L4-28_qd"]
-    qubits[4].flux = channels["L1-24_fl"] # Not Used
+    qubits[4].flux = channels["L1-24_fl"]  # Not Used
     channels["L1-24_fl"].qubit = qubits[4]
 
-    instruments = {controller.name: controller, 
-                    local_oscillator.name: local_oscillator}
+    instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
     return Platform(
