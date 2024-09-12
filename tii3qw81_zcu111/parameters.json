@@ -31,14 +31,13 @@
                     "duration": 130,
                     "amplitude": 0.23,
                     "shape": "Gaussian(5)",
-                    "frequency": 5074652000,  
+                    "frequency": 5074652000,
                     "relative_start": 0,
                     "phase": 0,
-                    "type": "qd"
                 },
                 "MZ": {
                     "duration": 2500,
-                    "amplitude": 0.16,
+                    "amplitude": 0.22,
                     "shape": "Rectangular()",
                     "frequency": 7016395000,
                     "relative_start": 0,
@@ -58,7 +57,7 @@
                 },
                 "MZ": {
                     "duration": 2500,
-                    "amplitude": 0.16,
+                    "amplitude": 0.2,
                     "shape": "Rectangular()",
                     "frequency": 7143720000,
                     "relative_start": 0,
@@ -86,7 +85,7 @@
                     "type": "ro"
                 }
             }
-          
+
         },
         "two_qubit": {
             "2-3": {
@@ -206,7 +205,7 @@
                 "mixer_readout_g": 0.0,
                 "mixer_readout_phi": 0.0
             }
- 
+
         }
     }
 }
