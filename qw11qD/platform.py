@@ -1,6 +1,6 @@
 import pathlib
 
-from qibolab.components import AcquireChannel, Channel, DcChannel, IqChannel
+from qibolab.components import AcquisitionChannel, Channel, DcChannel, IqChannel
 from qibolab.identifier import ChannelId
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
@@ -24,7 +24,7 @@ def create():
     calibrated with TWPA and latest status in:
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
     """
-    twpa_d = SGS100A(name="twpaD", address="192.168.0.33")
+    twpa_d = SGS100A(address="192.168.0.33")
 
     qubits: QubitMap = {
         f"D{i}": Qubit(
@@ -50,8 +50,8 @@ def create():
     # Acquire
     for q in qubits.values():
         assert q.acquisition is not None
-        channels[q.acquisition] = AcquireChannel(
-            device="octave5", path="1", twpa_pump=twpa_d.name, probe=q.probe
+        channels[q.acquisition] = AcquisitionChannel(
+            device="octave5", path="1", twpa_pump="twpaD", probe=q.probe
         )
 
     # Drive
@@ -73,15 +73,15 @@ def create():
         channels[qubit.flux] = DcChannel(device="con9", path=str(q + 2))
 
     octaves = {
-        "octave5": Octave("octave5", port=104, connectivity="con6"),
-        "octave6": Octave("octave6", port=105, connectivity="con8"),
+        "octave5": Octave("octave5", port=11104, connectivity="con6"),
+        "octave6": Octave("octave6", port=11105, connectivity="con8"),
     }
     controller = QmController(
-        name="qm",
         address="192.168.0.101:80",
         octaves=octaves,
         channels=channels,
         calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
-    return Platform.load(path=FOLDER, instruments=[controller, twpa_d], qubits=qubits)
+    instruments = {"qm": controller, "twpaD": twpa_d}
+    return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
