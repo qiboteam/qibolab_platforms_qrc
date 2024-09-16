@@ -16,13 +16,12 @@ instruments:
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
   qrm_rf1: # q2, q3, q4
     # o1: {attenuation: 28, lo_frequency: 5840000000} # normal
-    o1: {attenuation: 28, lo_frequency: 5840000000, mixer_calibration: [-8.1, -3.8]} # normal
+    o1: {attenuation: 28, lo_frequency: 5840000000, mixer_calibration": [-8.1, -3.8]} # normal
     # o1: {attenuation: 28, lo_frequency: 5_655_000_000} #q3
     i1: {acquisition_hold_off: 500, acquisition_duration: 2500}
   qcm_rf0: # q1, q2
     o1: {attenuation: 26, lo_frequency: 4410592000} # Alvaro
-    # o1: {attenuation: 26, lo_frequency: 4384721000} # David
-    # o2: {attenuation: 26, lo_frequency: 4338318000}  # q2->q0
+    # o2: {attenuation: 26, lo_frequency: 4338318000}  # q2->q0 or q2->q3
     o2: {attenuation: 26, lo_frequency: 4738318000}  # normal
   qcm_rf1: # q3, q4
     o1: {attenuation: 0, lo_frequency: 4336921000}
@@ -54,18 +53,18 @@ instruments:
 native_gates:
   single_qubit:
     0:
-      RX: {duration: 40, amplitude: 0.358, frequency: 4105142000,
+      RX: {duration: 40, amplitude: 0.363, frequency: 4105223000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.102, frequency: 3886398000,
+      RX12: {duration: 80, amplitude: 0.102, frequency: 3995623000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       # MZ: {duration: 2000, amplitude: 0.1952, frequency: 5232350000, # qutrit
       #      shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
       MZ: {duration: 2000, amplitude: 0.1952, frequency: 5232350000, # highest fidelity
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     1:
-      RX: {duration: 40, amplitude: 0.341, frequency: 4254689000,
+      RX: {duration: 40, amplitude: 0.334, frequency: 4259199000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
-      RX12: {duration: 80, amplitude: 0.078, frequency: 4040549547,
+      RX12: {duration: 80, amplitude: 0.078, frequency: 41521410000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       # MZ: {duration: 2000, amplitude: 0.5238, frequency: 4934492000, # qutrit
       #      shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
@@ -73,16 +72,18 @@ native_gates:
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     2:
       # RX: {duration: 40, amplitude: 0.3153, frequency: 4250000000, # q2->q0
-      RX: {duration: 40, amplitude: 0.309, frequency: 4546165000, # normal
+      # RX: {duration: 40, amplitude: 0.305, frequency: 4450000000, # q2->q1
+      # RX: {duration: 40, amplitude: 0.3153, frequency: 4239646000, # q2->q3
+      RX: {duration: 40, amplitude: 0.305, frequency: 4539646000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.073, frequency: 4337630000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       # MZ: {duration: 2000, amplitude: 0.2016, frequency: 6105600000, # qutrit
       #      shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
-      MZ: {duration: 2000, amplitude: 0.2016, frequency: 6102100000, # highest fidelity
+      MZ: {duration: 2000, amplitude: 0.2016, frequency: 6106000000, #best readout signal 6100500000, # highest fidelity 6106000000
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     3:
-      RX: {duration: 40, amplitude: 0.335, frequency: 4164954786,
+      RX: {duration: 40, amplitude: 0.333, frequency: 4164954786,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.084, frequency: 3948921000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
@@ -91,7 +92,7 @@ native_gates:
       MZ: {duration: 2000, amplitude: 0.0661, frequency: 5801000000, # highest fidelity
            shape: Rectangular(), type: ro, relative_start: 0, phase: 0}
     4:
-      RX: {duration: 40, amplitude: 0.342, frequency: 4353927000,
+      RX: {duration: 40, amplitude: 0.342, frequency: 4353727000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
       RX12: {duration: 80, amplitude: 0.076, frequency: 4143343000,
            shape: Gaussian(5), type: qd, relative_start: 0, phase: 0}
@@ -275,8 +276,8 @@ native_gates:
           relative_start: 0
     1-2:
       iSWAP:
-        - duration: 85 #180
-          amplitude: 0.2085
+        - duration: 84 #180
+          amplitude: 0.201 #0.2085 #0.210
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -313,14 +314,12 @@ native_gates:
                         0.96689485, 0.96686318, 0.9668321 , 0.96680161, 0.96677168,
                         0.96674232, 0.96671351, 0.96668523, 0.96665749, 0.96663026,
                         0.        , 0.        , 0.        , 0.        , 0.        ])
-          # amplitude: 0.198
-          # shape: Rectangular()
           qubit: 2
           relative_start: 0
           type: qf
         - type: coupler
-          duration: 85 #180
-          amplitude: 0.098
+          duration: 84 #180
+          amplitude: 0.099
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -362,8 +361,8 @@ native_gates:
           relative_start: 0
       CZ:
         - type: qf
-          duration: 57 #180
-          amplitude: 0.1095 #0.109 # CZ02
+          duration: 59 #59 #180
+          amplitude: 0.098 #0.1095 #0.0975 #0.109 # CZ02
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -402,15 +401,15 @@ native_gates:
                         0.        , 0.        , 0.        , 0.        , 0.        ])
           qubit: 2
           relative_start: 0
-        - type: virtual_z
-          phase: -1.8387428178957057
-          qubit: 2
-        - type: virtual_z
-          phase: -1.9093429040212593
-          qubit: 1
+        # - type: virtual_z
+        #   phase: -1.8387428178957057
+        #   qubit: 2
+        # - type: virtual_z
+        #   phase: -1.9093429040212593
+        #   qubit: 1
         - type: coupler
-          duration: 57 #180
-          amplitude: 0.095
+          duration: 59 #59 #180
+          amplitude: 0.099
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -451,8 +450,8 @@ native_gates:
           relative_start: 0
     2-3:
       iSWAP:
-        - duration: 71 #180 #use 180ns for running the iSWAP chevron and fit the amp and duration of the iSWAP gate
-          amplitude: 0.238
+        - duration: 75 #75 #180 #use 180ns for running the iSWAP chevron and fit the amp and duration of the iSWAP gate
+          amplitude: 0.2325
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -493,8 +492,8 @@ native_gates:
           relative_start: 0
           type: qf
         - type: coupler
-          duration: 71 #180 #use 180ns for running the iSWAP chevron and fit the amp and duration of the iSWAP gate
-          amplitude: 0.107
+          duration: 75 #75 #180 #use 180ns for running the iSWAP chevron and fit the amp and duration of the iSWAP gate
+          amplitude: 0.104 #0.107
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -534,8 +533,8 @@ native_gates:
           coupler: 3
           relative_start: 0
       CZ:
-        - duration: 52 #52 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
-          amplitude: 0.158 #0.154
+        - duration: 51 #180 #51 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
+          amplitude: 0.153 #0.154
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -582,8 +581,8 @@ native_gates:
         #   phase: 0 #landscape fit not working
         #   qubit: 3
         - type: coupler
-          duration: 52 #52 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
-          amplitude: 0.107
+          duration: 51 #180 #51 #use 180ns for running the iSWAP chevron and fit the amp and duration of the CZ gate
+          amplitude: 0.104
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -624,8 +623,8 @@ native_gates:
           relative_start: 0
     2-4:
       iSWAP:
-        - duration: 73 #180
-          amplitude: 0.1705
+        - duration: 75 #180
+          amplitude: 0.164 #0.1705
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -666,8 +665,8 @@ native_gates:
           relative_start: 0
           type: qf
         - type: coupler
-          duration: 73 #180
-          amplitude: 0.206 #0.196
+          duration: 75 #180
+          amplitude: 0.213 #0.206 #0.196
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -707,8 +706,8 @@ native_gates:
           coupler: 4
           relative_start: 0
       CZ:
-        - duration: 52 #180 #use 180ns to fit the CZ using the chevron
-          amplitude: 0.246
+        - duration: 50 #180 #use 180ns to fit the CZ using the chevron
+          amplitude: 0.243 #0.246
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -755,8 +754,8 @@ native_gates:
         #   phase: 0 #landscape fit not working
         #   qubit: 4
         - type: coupler
-          duration: 52 #180 #use 180ns to fit the CZ using the chevron
-          amplitude: 0.206 #-0.206 #coupler enabled for iSAWP amp=0.206
+          duration: 50 #180 #use 180ns to fit the CZ using the chevron
+          amplitude: 0.213 #-0.206 #coupler enabled for iSAWP amp=0.206
           shape: Custom([0.        , 0.        , 0.        , 0.        , 0.        ,
                         1.        , 0.99934855, 0.9987093 , 0.99808201, 0.99746647,
                         0.99686246, 0.99626975, 0.99568814, 0.99511741, 0.99455737,
@@ -801,9 +800,9 @@ characterization:
     0:
       bare_resonator_frequency: 5221992000
       readout_frequency: 5232350000
-      drive_frequency: 4105142000
+      drive_frequency: 4105223000
       anharmonicity: 218941606
-      sweetspot: -0.0230
+      sweetspot: 0.0
       flux_to_bias: 0.0
       asymmetry: 0
       bare_resonator_frequency_sweetspot: 0.0
@@ -811,20 +810,20 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.9109937140564397
-      readout_fidelity: 0.8219874281128795
+      assignment_fidelity: 0.9381436404975257
+      readout_fidelity: 0.8762872809950515
       effective_temperature: 0.0
       peak_voltage: 0
-      pi_pulse_amplitude: 0.345
+      pi_pulse_amplitude: 0.363
       T1: 16783
       T2: 10000
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.0015492049816160575, 0.00018059332913018838]
-      mean_exc_states: [-0.0024693207810906658, 0.0012479490564747033]
-      threshold: 0.0016322870702012186
-      iq_angle: -2.28224553710783
+      mean_gnd_states: [-8.81741912328655e-05, -0.0010261932191531725]
+      mean_exc_states: [-0.0009588264130501794, -0.002020938518573071]
+      threshold: 0.0013504670473869207
+      iq_angle: 2.289768697852685
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -833,9 +832,9 @@ characterization:
     1:
       bare_resonator_frequency: 4927992000
       readout_frequency: 4934492000
-      drive_frequency: 4254689000
+      drive_frequency: 4259199000
       anharmonicity: 213599314
-      sweetspot: 0.0403
+      sweetspot: -0.0027
       flux_to_bias: 0.0
       asymmetry: 0
       bare_resonator_frequency_sweetspot: 0.0
@@ -843,20 +842,20 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.8961481877758459
-      readout_fidelity: 0.7922963755516919
+      assignment_fidelity: 0.9590076233783602
+      readout_fidelity: 0.9180152467567205
       effective_temperature: 0.0
       peak_voltage: 0
-      pi_pulse_amplitude: 0.315
+      pi_pulse_amplitude: 0.334
       T1: 11100
       T2: 1488
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0008143178181276503, 0.00011901957592222783]
-      mean_exc_states: [-0.0021941003509933286, 0.0009652118115812473]
-      threshold: -9.843558710817027e-05
-      iq_angle: -2.8674022153551944
+      mean_gnd_states: [-0.0015774030734992022, -0.000870954034398731]
+      mean_exc_states: [-0.00522576718742558, -0.0007922706330352661]
+      threshold: 0.0022131601656392944
+      iq_angle: -3.1200292341781357
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -864,10 +863,10 @@ characterization:
       mixer_readout_phi: 0
     2:
       bare_resonator_frequency: 6078000000
-      readout_frequency: 6102100000
-      drive_frequency: 4546165000
+      readout_frequency: 6106000000
+      drive_frequency: 4539646000
       anharmonicity: 219199306
-      sweetspot: 0.0050
+      sweetspot: 0.0
       flux_to_bias: 0.0
       asymmetry: 0
       bare_resonator_frequency_sweetspot: 0.0
@@ -875,20 +874,20 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.9414872274976596
-      readout_fidelity: 0.882974454995319
+      assignment_fidelity: 0.928647853417146
+      readout_fidelity: 0.8572957068342919
       effective_temperature: 0.0
       peak_voltage: 0
-      pi_pulse_amplitude: 0
+      pi_pulse_amplitude: 0.305
       T1: 10089
       T2: 972
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [0.0021655186332667133, -0.0014411281969295127]
-      mean_exc_states: [0.001050865265433113, -0.003530473644661399]
-      threshold: 0.0010048406261840153
-      iq_angle: 2.0608787712763115
+      mean_gnd_states: [0.0011046825235050243, -0.00182383801221605]
+      mean_exc_states: [-0.00031133804308134305, -0.003104298052866112]
+      threshold: 0.0011330471600241798
+      iq_angle: 2.4064253332292154
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -899,7 +898,7 @@ characterization:
       readout_frequency: 5801000000
       drive_frequency: 4164954786
       anharmonicity: 214200000
-      sweetspot: 0.0178
+      sweetspot: 0.0 #0.0178
       flux_to_bias: 0.0
       asymmetry: 0
       bare_resonator_frequency_sweetspot: 0.0
@@ -907,8 +906,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.91299986625652
-      readout_fidelity: 0.82599973251304
+      assignment_fidelity: 0.9188177076367527
+      readout_fidelity: 0.8376354152735055
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -917,10 +916,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.001480862576715565, 0.0027069729494588403]
-      mean_exc_states: [0.0002538061323247665, 0.003510472702511442]
-      threshold: 0.0003783134872210677
-      iq_angle: -0.4337772383122055
+      mean_gnd_states: [-0.0013009032388608499, 0.0013081869695026117]
+      mean_exc_states: [-0.000848297220742535, 0.002601635172483679]
+      threshold: 0.0014119667285852676
+      iq_angle: -1.2341909720283184
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -929,9 +928,9 @@ characterization:
     4:
       bare_resonator_frequency: 5516492000
       readout_frequency: 5519000000
-      drive_frequency: 4353927000
+      drive_frequency: 4353727000
       anharmonicity: 210600000
-      sweetspot: 0.0230
+      sweetspot: 0.0
       flux_to_bias: 0.0
       asymmetry: 0
       bare_resonator_frequency_sweetspot: 0.0
@@ -939,8 +938,8 @@ characterization:
       Ec: 0
       Ej: 0.0
       g: 0
-      assignment_fidelity: 0.9081182292363248
-      readout_fidelity: 0.8162364584726494
+      assignment_fidelity: 0.9127992510365119
+      readout_fidelity: 0.825598502073024
       effective_temperature: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
@@ -949,10 +948,10 @@ characterization:
       T2_spin_echo: 0
       state0_voltage: 0
       state1_voltage: 0
-      mean_gnd_states: [-0.002697471937710516, 0.0002050308251893346]
-      mean_exc_states: [-0.0029727163954152394, 0.0033101295430069504]
-      threshold: 0.000907709891356456
-      iq_angle: -1.6592079839142881
+      mean_gnd_states: [-0.00043530883080520336, 0.0001571407949346156]
+      mean_exc_states: [-0.0017336557725077578, 0.0018389513152171834]
+      threshold: 0.0009603648654221893
+      iq_angle: -2.228225386849735
       kernel_path: null
       mixer_drive_g: 0
       mixer_drive_phi: 0
@@ -960,10 +959,10 @@ characterization:
       mixer_readout_phi: 0
   coupler:
     0:
-      sweetspot: -0.5
+      sweetspot: 0 #-0.5
     1:
-      sweetspot: 0.0121
+      sweetspot: 0 #0.0121
     3:
-      sweetspot: 0.0170
+      sweetspot: 0 #0.0170
     4:
-      sweetspot: 0.0218
+      sweetspot: 0 #0.0218
