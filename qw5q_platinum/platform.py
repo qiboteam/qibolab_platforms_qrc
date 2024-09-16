@@ -36,8 +36,8 @@ def create():
         opxs=[opx],
         octaves=[octave1, octave2],
         time_of_flight=224,
-        calibration_path=FOLDER,
-        script_file_name="qua_script.py",
+        # calibration_path=FOLDER,
+        # script_file_name="qua_script.py",
     )
     twpa = SGS100A(name="twpa", address="192.168.0.38")
 
@@ -53,13 +53,11 @@ def create():
     channels |= Channel(name="drive3", port=octave1.ports(4))
     channels |= Channel(name="drive4", port=octave2.ports(2))
     # Flux
-    channels |= Channel(name="drive0", port=opx.ports(4, 5))
-    channels |= Channel(name="drive1", port=opx.ports(4, 4))
-    channels |= Channel(name="drive2", port=opx.ports(4, 1))
-    channels |= Channel(name="drive3", port=opx.ports(4, 3))
-    channels |= Channel(name="drive4", port=opx.ports(4, 2))
-    for q in range(5):
-        channels |= Channel(name=f"flux{q}", port=opxs[2].ports(q + 1))
+    channels |= Channel(name="flux0", port=opx.ports(4, 5))
+    channels |= Channel(name="flux1", port=opx.ports(4, 4))
+    channels |= Channel(name="flux2", port=opx.ports(4, 1))
+    channels |= Channel(name="flux3", port=opx.ports(4, 3))
+    channels |= Channel(name="flux4", port=opx.ports(4, 2))
     # TWPA
     channels |= Channel(name="twpa", port=None)
     channels["twpa"].local_oscillator = twpa
