@@ -44,10 +44,10 @@
         },
         "con1": {
             "2/i1": {
-                "gain": 10
+                "gain": 0
             },
             "2/i2": {
-                "gain": 10
+                "gain": 0
             }
         },
         "octave1": {
@@ -75,7 +75,7 @@
         "octave2": {
             "o1": {
                 "lo_frequency": 7550000000,
-                "gain": -20
+                "gain": 0
             },
             "i1": {
                 "lo_frequency": 7550000000
@@ -105,7 +105,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.01,
+                    "amplitude": 0.001,
                     "shape": "Rectangular()",
                     "frequency": 7202448936,
                     "relative_start": 0,
@@ -134,7 +134,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.008,
+                    "amplitude": 0.0006,
                     "shape": "Rectangular()",
                     "frequency": 7334973801,
                     "relative_start": 0,
@@ -163,7 +163,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.01,
+                    "amplitude": 0.001,
                     "shape": "Rectangular()",
                     "frequency": 7493184662,
                     "relative_start": 0,
@@ -192,7 +192,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.01,
+                    "amplitude": 0.001,
                     "shape": "Rectangular()",
                     "frequency": 7659951000,
                     "relative_start": 0,
@@ -221,7 +221,7 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.01,
+                    "amplitude": 0.0025,
                     "shape": "Rectangular()",
                     "frequency": 7793748235,
                     "relative_start": 0,
@@ -284,7 +284,7 @@
                 "readout_frequency": 7202289936,
                 "drive_frequency": 4768963028,
                 "anharmonicity": -286373266,
-                "sweetspot": 0.242,
+                "sweetspot": 0.0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 1,
@@ -328,7 +328,7 @@
                 "readout_frequency": 7339038801,
                 "drive_frequency": 4806156312,
                 "anharmonicity": 292584018,
-                "sweetspot": -0.26,
+                "sweetspot": -0.0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -372,7 +372,7 @@
                 "readout_frequency": 7493084662,
                 "drive_frequency": 5515802888,
                 "anharmonicity": -310651789,
-                "sweetspot": 0.45,
+                "sweetspot": 0.0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -416,7 +416,7 @@
                 "readout_frequency": 7658593000,
                 "drive_frequency": 6352594054,
                 "anharmonicity": 262310994,
-                "sweetspot": -0.49,
+                "sweetspot": -0.0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
@@ -460,7 +460,7 @@
                 "readout_frequency": 7793698235,
                 "drive_frequency": 6231428170,
                 "anharmonicity": 261390626,
-                "sweetspot": -0.134,
+                "sweetspot": -0.0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "0": 0,
