@@ -1,13 +1,16 @@
 import pathlib
 
-from qibolab.components import AcquisitionChannel, Channel, DcChannel, IqChannel
-from qibolab.identifier import ChannelId
+from qibolab import (
+    AcquisitionChannel,
+    Channel,
+    ConfigKinds,
+    DcChannel,
+    IqChannel,
+    Platform,
+    Qubit,
+)
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.parameters import ConfigKinds
-from qibolab.platform import Platform
-from qibolab.platform.platform import QubitMap
-from qibolab.qubits import Qubit
 
 FOLDER = pathlib.Path(__file__).parent
 
@@ -26,7 +29,7 @@ def create():
     """
     twpa_d = SGS100A(address="192.168.0.33")
 
-    qubits: QubitMap = {
+    qubits = {
         f"D{i}": Qubit(
             drive=f"D{i}/drive",
             flux=f"D{i}/flux",
@@ -40,7 +43,7 @@ def create():
 
     # Create channels and connect to instrument ports
     # Readout
-    channels: dict[ChannelId, Channel] = {}
+    channels = {}
     for q in qubits.values():
         assert q.probe is not None
         channels[q.probe] = IqChannel(
