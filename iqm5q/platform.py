@@ -114,5 +114,5 @@ def create():
     settings = load_settings(runcard)
 
     return Platform(
-        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D"
+        str(FOLDER), qubits, pairs, instruments, settings, resonator_type="2D", couplers=couplers
     )
