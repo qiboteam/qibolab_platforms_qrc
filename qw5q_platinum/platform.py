@@ -53,11 +53,11 @@ def create():
     channels |= Channel(name="drive3", port=octave1.ports(4))
     channels |= Channel(name="drive4", port=octave2.ports(2))
     # Flux
-    channels |= Channel(name="flux0", port=opx.ports(4, 4))
-    channels |= Channel(name="flux1", port=opx.ports(4, 1))
-    channels |= Channel(name="flux2", port=opx.ports(4, 3))
-    channels |= Channel(name="flux3", port=opx.ports(4, 2))
-    channels |= Channel(name="flux4", port=opx.ports(4, 5))
+    channels |= Channel(name="flux0", port=opx.ports(4, 4), max_offset=2.5)
+    channels |= Channel(name="flux1", port=opx.ports(4, 1), max_offset=2.5)
+    channels |= Channel(name="flux2", port=opx.ports(4, 3), max_offset=2.5)
+    channels |= Channel(name="flux3", port=opx.ports(4, 2), max_offset=2.5)
+    channels |= Channel(name="flux4", port=opx.ports(4, 5), max_offset=2.5)
     # TWPA
     channels |= Channel(name="twpa", port=None)
     channels["twpa"].local_oscillator = twpa
