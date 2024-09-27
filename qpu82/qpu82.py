@@ -19,18 +19,19 @@ from qibolab.serialize import (
     load_settings,
 )
  
-NAME = "qpu81"
+FOLDER  = pathlib.Path(__file__).parent
+PLATFORM = FOLDER.name
 ADDRESS = "192.168.0.20"
-RUNCARD = pathlib.Path(__file__).parent / f"{NAME}.yml"
+#RUNCARD = pathlib.Path(__file__).parent / f"{PLATFORM}.yml"
+PARAMETERS = pathlib.Path(__file__).parent / f"parameters.yml"
  
- 
-def create(runcard_path=RUNCARD):
+def create(parameters_path=PARAMETERS):
     """3qubit chip with qblox .20.
  
     Args:
-        runcard_path (str): Path to the runcard file.
+        parameters_path (str): Path to the runcard parameters file.
     """
-    runcard = load_runcard(runcard_path)
+    runcard = load_runcard(parameters_path)
     cluster = Cluster(
         name="cluster",
         address=ADDRESS,
@@ -97,5 +98,5 @@ def create(runcard_path=RUNCARD):
     settings = load_settings(runcard)
  
     return Platform(
-        "qpu81", qubits, pairs, instruments, settings, resonator_type="2D"
+        PLATFORM, qubits, pairs, instruments, settings, resonator_type="2D"
     )

@@ -9,7 +9,7 @@ instruments:
   #twpa_pump0: {power: -4.7, frequency: 5522000000}
   qrm_rf0:
     o1:
-      attenuation: 50
+      attenuation: 48
       lo_frequency: 7100000000
       #mixer_calibration: [-0.79, 13.45]
     i1:
@@ -17,52 +17,52 @@ instruments:
       acquisition_duration: 2500
   qcm_rf0:
     o1:
-      attenuation: 36
-      lo_frequency: 5400000000
+      attenuation: 24
+      lo_frequency: 5250000000
     o2:
-      attenuation: 48
-      lo_frequency: 5500000000
+      attenuation: 32
+      lo_frequency: 5479000842
   qrm_rf1:
     o1:
-      attenuation: 44
+      attenuation: 24
       lo_frequency: 6000000000
       #mixer_calibration: [-0.79, 13.45]
     i1:
       acquisition_hold_off: 500
-      acquisition_duration: 2500
+      acquisition_duration: 800
   
 
 native_gates:
   single_qubit:
     0:
-      RX: { duration: 80, 
-        amplitude: 0.3745, 
-        frequency: 5312263656, #5616092757, #5324185399, 
+      RX: { duration: 40, 
+        amplitude: 0.193, 
+        frequency: 5315929000, #5312263656, 
         shape: Gaussian(5),
         type: qd,
         relative_start: 0,
         phase: 0}
       MZ: {
         duration: 2000,
-        amplitude: 0.15,
-        frequency: 6910930000, 
+        amplitude: 0.042,
+        frequency: 6911130000, 
         shape: Rectangular(),
         type: ro,
         relative_start: 0,
         phase: 0}
     1:
-      RX: {duration: 80, 
-        amplitude: 0.5448, 
+      RX: {duration: 40, 
+        amplitude: 0.172, 
         shape: Gaussian(5), 
-        frequency: 5393450614,
+        frequency: 5395059000, #5395059000
         relative_start: 0, 
         phase: 0, 
         type: qd}
       MZ: {
         duration: 2000, 
-        amplitude: 0.15, 
+        amplitude: 0.042, 
         shape: Rectangular(), 
-        frequency: 7019993000,
+        frequency: 7020143000,
         relative_start: 0, 
         phase: 0, type: ro}
     2:
@@ -86,9 +86,9 @@ native_gates:
 characterization:
   single_qubit:
     0:
-      bare_resonator_frequency: 6854980000
-      readout_frequency: 6858220000
-      drive_frequency: 5719000000
+      bare_resonator_frequency: 0
+      readout_frequency: 0
+      drive_frequency: 5315199000
       anharmonicity: 0
       sweetspot: 0
       asymmetry: 0
@@ -114,9 +114,9 @@ characterization:
       mixer_readout_g: 0
       mixer_readout_phi: 0
     1:
-      bare_resonator_frequency: 69958650000
-      readout_frequency: 6962970000
-      drive_frequency: 5960000000
+      bare_resonator_frequency: 0
+      readout_frequency: 0
+      drive_frequency: 5395259000
       anharmonicity: 0
       sweetspot: 0
       asymmetry: 0
