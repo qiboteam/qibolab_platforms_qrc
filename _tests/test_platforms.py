@@ -8,10 +8,13 @@ PATH = pathlib.Path(__file__).parents[1]
 
 def idfn(path):
     """Helper function to identify platform tested."""
-    return str(path.parent).split("/")[-1]
+    try:
+        return str(path.parent).split("/")[-1]
+    except AttributeError:
+        return None
 
 
-@pytest.mark.parametrize("path", PATH.glob("*/platform.py"), ids=idfn)
+@pytest.mark.parametrize("path", list(PATH.glob("*/platform.py")), ids=idfn)
 def test_create(path):
     """Test that platform can be created."""
     platform = create_platform(path.parent)
