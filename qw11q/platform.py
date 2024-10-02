@@ -19,27 +19,11 @@ ConfigKinds.extend([QmConfigs])
 
 
 def create():
-    """Lines A and D of QuantWare 21q-chip controlled with Quantum Machines.
+    """Line D of QuantWare 21q-chip controlled with Quantum Machines.
 
-    Current status (check before using): Line A (6 qubits) is NOT
-    calibrated because signal is very noisy at low readout power,
-    possibly due to not using the TWPA pump. Line D (5 qubits):
-    calibrated with TWPA and latest status in:
-    https://github.com/qiboteam/qibolab_platforms_qrc/pull/149
+    Qubits D1, D2, D3 have been tested to work.
     """
-    twpa_d = SGS100A(address="192.168.0.33")
-
-    qubits = {
-        f"D{i}": Qubit(
-            drive=f"D{i}/drive",
-            flux=f"D{i}/flux",
-            probe=f"D{i}/probe",
-            acquisition=f"D{i}/acquisition",
-        )
-        for i in range(1, 6)
-    }
-    for q in qubits.values():
-        assert q.probe is not None
+    qubits = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
 
     # Create channels and connect to instrument ports
     # Readout
@@ -86,5 +70,5 @@ def create():
         calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
-    instruments = {"qm": controller, "twpaD": twpa_d}
+    instruments = {"qm": controller, "twpaD": SGS100A(address="192.168.0.33")}
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
