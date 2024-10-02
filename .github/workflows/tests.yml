@@ -4,7 +4,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        version: ["main", "stable"]
+        version: ["stable", "dev"]
     runs-on: ubuntu-22.04
     defaults:
       run:
@@ -15,25 +15,26 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-      - name: Install qibolab stable
+      - name: Install latest qibolab 0.1 stable version
         if: ${{ matrix.version == 'stable' }}
         run: |
           python -m venv testenv
           source testenv/bin/activate
           pip install pytest
-          pip install qibolab[qblox,zh,qm,rfsoc]
+          pip install 'qibolab[qblox,zh,qm,rfsoc,los]<0.2.0'
       - name: Install and configure poetry
-        if: ${{ matrix.version == 'main' }}
+        if: ${{ matrix.version == 'dev' }}
         uses: snok/install-poetry@v1
         with:
           virtualenvs-create: false
-      - name: Install qibolab main
-        if: ${{ matrix.version == 'main' }}
+      - name: Install latest qibolab 0.1 development version
+        if: ${{ matrix.version == 'dev' }}
         run: |
           python -m venv testenv
           source testenv/bin/activate
           git clone https://github.com/qiboteam/qibolab
           cd qibolab
+          git checkout 0.1
           poetry install --no-interaction --with tests --all-extras
       - name: Test platforms
         run: |
