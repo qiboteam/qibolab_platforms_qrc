@@ -7,6 +7,7 @@ from qibolab.instruments.qblox.cluster_qrm_rf import QrmRf
 from qibolab.instruments.qblox.controller import QbloxController
 from qibolab.instruments.rohde_schwarz import SGS100A
 from qibolab.platform import Platform
+
 from qibolab.serialize import (
     load_instrument_settings,
     load_qubits,
