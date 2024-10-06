@@ -6,7 +6,7 @@
     "configs": {
         "qm/bounds": {
             "kind": "bounds",
-            "waveforms": 40000,
+            "waveforms": 40000.0,
             "readout": 30,
             "instructions": 1000000
         },
@@ -48,8 +48,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.0019053980922939717,
-            "iq_angle": -1.2047300122613553,
+            "threshold": 0.001806559973762099,
+            "iq_angle": -1.100165435889717,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -61,7 +61,15 @@
         "D1/flux": {
             "kind": "opx-output",
             "offset": 0.2205,
-            "filter": {}
+            "filter": {
+                "feedforward": [
+                    1.1298143371682787,
+                    -0.9007185757251136
+                ],
+                "feedback": [
+                    0.7709042385568349
+                ]
+            }
         },
         "D2/probe": {
             "kind": "iq",
@@ -71,8 +79,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": -0.0007618324274527526,
-            "iq_angle": 1.1001599266665802,
+            "threshold": -0.00024156205902244586,
+            "iq_angle": 1.2589261144038006,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -84,7 +92,15 @@
         "D2/flux": {
             "kind": "opx-output",
             "offset": -0.421,
-            "filter": {}
+            "filter": {
+                "feedforward": [
+                    1.0891790415038731,
+                    -1.024484298837039
+                ],
+                "feedback": [
+                    0.935305257333166
+                ]
+            }
         },
         "D3/probe": {
             "kind": "iq",
@@ -94,8 +110,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.0013563017527724213,
-            "iq_angle": 1.8403323381935008,
+            "threshold": 0.0013255408943197108,
+            "iq_angle": 1.9608026111000543,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -109,11 +125,11 @@
             "offset": -0.2095,
             "filter": {
                 "feedforward": [
-                    1.0684635881381783,
-                    -1.0163217174522334
+                    1.0725851073784813,
+                    -0.9529722265285006
                 ],
                 "feedback": [
-                    0.947858129314055
+                    0.880387119150019
                 ]
             }
         },
@@ -235,7 +251,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.0024,
+                                "amplitude": 0.0019,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -368,6 +384,25 @@
             }
         },
         "coupler": {},
-        "two_qubit": {}
+        "two_qubit": {
+            "D1-D2": {
+                "CZ": [
+                    [
+                        "D2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 48.0,
+                            "amplitude": 0.4032,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            }
+        }
     }
 }
