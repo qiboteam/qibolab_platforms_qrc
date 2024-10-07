@@ -42,27 +42,63 @@
             "frequency": 6542230000
         },
         "con1": {
-            "2/i1": {
-                "gain": 10
+            "2/o1": {
+                "output_mode": "direct"
             },
-            "2/i2": {
-                "gain": 10
+            "2/o2": {
+                "output_mode": "direct"
             },
-            "4/o1": {
+            "1/o3": {
+                "output_mode": "direct"
+            },
+            "1/o4": {
+                "output_mode": "direct"
+            },
+            "1/o5": {
+                "output_mode": "direct"
+            },
+            "1/o6": {
+                "output_mode": "direct"
+            },
+            "1/o1": {
+                "output_mode": "direct"
+            },
+            "1/o2": {
+                "output_mode": "direct"
+            },
+            "1/o7": {
+                "output_mode": "direct"
+            },
+            "1/o8": {
+                "output_mode": "direct"
+            },
+            "2/o3": {
+                "output_mode": "direct"
+            },
+            "2/o4": {
+                "output_mode": "direct"
+            },
+            "4/o4": {
                 "output_mode": "amplified"
             },
-            "4/o2": {
+            "4/o1": {
                 "output_mode": "amplified"
             },
             "4/o3": {
                 "output_mode": "amplified"
             },
-            "4/o4": {
+            "4/o2": {
                 "output_mode": "amplified"
             },
             "4/o5": {
                 "output_mode": "amplified"
-             }
+            },
+            "2/i1": {
+                "gain": 10
+            },
+            "2/i2": {
+                "gain": 10
+            }
         },
         "octave1": {
             "o2": {
@@ -141,6 +177,7 @@
                     "duration": 40,
                     "amplitude": 0.5,
                     "shape": "Drag(5, 0.000)",
+                    "frequency": 0,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -198,6 +235,7 @@
                     "duration": 40,
                     "amplitude": 0.226,
                     "shape": "Drag(5, 0.000)",
+                    "frequency": 0,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -308,8 +346,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 107000000,
-                "assignment_fidelity": 0.9537602976348658,
-                "readout_fidelity": 0.9075205952697316,
+                "assignment_fidelity": 0.8718068744148724,
+                "readout_fidelity": 0.7436137488297445,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -321,15 +359,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    0.009601331799664152,
-                    0.0006182046827942667
+                    0.003377203424152313,
+                    0.0015771929667372502
                 ],
                 "mean_exc_states": [
-                    0.014703962990507748,
-                    0.003463007678004804
+                    0.005101026528971677,
+                    0.001977514622064617
                 ],
-                "threshold": 0.011708838195149535,
-                "iq_angle": -0.5085960004195781,
+                "threshold": 0.0044455620738104015,
+                "iq_angle": -0.22818433141114405,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -396,8 +434,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 83600000,
-                "assignment_fidelity": 0.9735856626989434,
-                "readout_fidelity": 0.9471713253978868,
+                "assignment_fidelity": 0.8837100441353484,
+                "readout_fidelity": 0.7674200882706967,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -409,15 +447,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.00028945860027575643,
-                    -0.0011747202165858872
+                    -0.0016607132111555335,
+                    -0.0018520254062897948
                 ],
                 "mean_exc_states": [
-                    0.00018316328273493987,
-                    -0.0035482269412032
+                    -0.0013045501414827442,
+                    -0.005277462280719727
                 ],
-                "threshold": 0.008298,
-                "iq_angle": 1.502,
+                "threshold": 0.003081311044462533,
+                "iq_angle": 1.4671926547533174,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -440,8 +478,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 54300000,
-                "assignment_fidelity": 0.9201435025245814,
-                "readout_fidelity": 0.8402870050491629,
+                "assignment_fidelity": 0.9066470509562659,
+                "readout_fidelity": 0.8132941019125317,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -453,15 +491,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.0018974434507620472,
-                    0.0041372811041447384
+                    0.0037995580800207437,
+                    0.00022276443190735008
                 ],
                 "mean_exc_states": [
-                    -0.0023886411283249366,
-                    0.0008307642801119044
+                    0.005338725129084359,
+                    -2.934244060653471e-05
                 ],
-                "threshold": -0.0020686017300445367,
-                "iq_angle": 1.7182722019117103,
+                "threshold": 0.00447976581218009,
+                "iq_angle": 0.16235269979996408,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -484,8 +522,8 @@
                 "Ec": 270000000,
                 "Ej": 0.0,
                 "g": 62700000,
-                "assignment_fidelity": 0.8867059593975115,
-                "readout_fidelity": 0.7734119187950229,
+                "assignment_fidelity": 0.8807676875752306,
+                "readout_fidelity": 0.7615353751504613,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -497,15 +535,15 @@
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.0001474911672074461,
-                    -0.0010644981377049623
+                    -0.0011388063554582833,
+                    0.00011226423674008162
                 ],
                 "mean_exc_states": [
-                    0.0006954978296718497,
-                    -0.0034473196835722677
+                    -0.0024401254925049292,
+                    -0.00090889545012815
                 ],
-                "threshold": 0.002332818342122121,
-                "iq_angle": 1.2307600934217797,
+                "threshold": 0.0017897843455987447,
+                "iq_angle": 2.476243929935957,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
