@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 from typing import Union
 
@@ -7,6 +8,9 @@ def get_info(filename: str):
 
     with open(filename) as f:
         data = json.load(f)
+
+    if not isinstance(data["topology"], list):
+        raise TypeError
 
     info = {key: data[key] for key in ("nqubits", "qubits", "topology")}
     one_q_native_gates = list(
@@ -52,7 +56,7 @@ def create_readme(filename: str):
 ## Topology
 **Number of qubits**: {info["nqubits"]}
 
-**Qubits**: {info["qubits"]}
+**Qubits**: {", ".join(info["qubits"])}
 {mermaid_graph}
 """
     return readme_str
@@ -60,10 +64,23 @@ def create_readme(filename: str):
 
 if __name__ == "__main__":
 
-    directory = sys.argv[1]
-    filename = f"{directory}/parameters.json"
-    readme_str = create_readme(filename)
+    platforms = [
+        directory.name
+        for directory in os.scandir(".")
+        if directory.is_dir()
+        and not (directory.name.startswith("_") or directory.name.startswith("."))
+    ]
 
-    with open(f"{directory}/README.md", "w") as f:
-        f.write(f"# {directory}\n")
-        f.write(readme_str)
+    for platform in platforms:
+
+        filename = f"{platform}/parameters.json"
+        try:
+            readme_str = create_readme(filename)
+        except FileNotFoundError:
+            continue
+        except TypeError:
+            continue
+
+        with open(f"{platform}/README.md", "w") as f:
+            f.write(f"# {platform}\n")
+            f.write(readme_str)
