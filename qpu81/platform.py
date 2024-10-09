@@ -14,7 +14,7 @@ from qibolab.serialize import (
     load_settings,
 )
  
-ADDRESS = "192.168.0.20"
+ADDRESS = "192.168.0.2"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 3
@@ -25,9 +25,9 @@ def create():
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:4"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:17"),  # q1, q2 
-        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q3 or qw   
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:2"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:10"),  # q1, q2 
+        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:3"),  # q3 or qw 
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 

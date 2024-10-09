@@ -7,31 +7,31 @@ characterization:
       T2: 4244
       T2_spin_echo: 0
       anharmonicity: 0
-      assignment_fidelity: 0.93066178915863
+      assignment_fidelity: 0.9159136546184738
       asymmetry: 0.0
       bare_resonator_frequency: 0
-      drive_frequency: 4208850000.0
+      drive_frequency: 4208776000.0
       effective_temperature: 0.0
       g: 0.0
-      iq_angle: 1.1970305423427698
+      iq_angle: 0.8658972638027499
       mean_exc_states:
-      - 0.00010199926723966289
-      - -0.0011272838311555506
+      - 0.00020598830523433612
+      - -0.000861103746100012
       mean_gnd_states:
-      - -0.00014895594860832377
-      - -0.00048742138545912906
+      - -0.0001513688112477938
+      - -0.000441028491152557
       mixer_drive_g: 0.0
       mixer_drive_phi: 0.0
       mixer_readout_g: 0.0
       mixer_readout_phi: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0.3182
-      readout_fidelity: 0.8613235783172597
+      readout_fidelity: 0.8318273092369478
       readout_frequency: 0
       state0_voltage: 0
       state1_voltage: 0
       sweetspot: 0.0
-      threshold: 0.0007741262077839235
+      threshold: 0.0005085202588816099
     1:
       Ec: 0.0
       Ej: 0.0
@@ -39,31 +39,31 @@ characterization:
       T2: 2341
       T2_spin_echo: 0
       anharmonicity: 0
-      assignment_fidelity: 0.9188560026604589
+      assignment_fidelity: 0.8660475234270415
       asymmetry: 0.0
       bare_resonator_frequency: 0
       drive_frequency: 4512588000.0
       effective_temperature: 0.0
       g: 0.0
-      iq_angle: -0.39653560500897334
+      iq_angle: -0.32168316452488965
       mean_exc_states:
-      - 0.0013247704704717
-      - -0.000500137205926611
+      - 0.0007102089937903116
+      - -0.0002702066086478183
       mean_gnd_states:
-      - 0.000596183911597863
-      - -0.0008052076950978517
+      - 0.0002642963054069388
+      - -0.000418810783304585
       mixer_drive_g: 0.0
       mixer_drive_phi: 0.0
       mixer_readout_g: 0.0
       mixer_readout_phi: 0.0
       peak_voltage: 0
       pi_pulse_amplitude: 0
-      readout_fidelity: 0.8377120053209178
+      readout_fidelity: 0.732095046854083
       readout_frequency: 0
       state0_voltage: 0
       state1_voltage: 0
       sweetspot: 0.0
-      threshold: 0.0006420177854057551
+      threshold: 0.00037240875980937483
     2:
       Ec: 0.0
       Ej: 0.0
@@ -116,14 +116,14 @@ instruments:
       lo_frequency: 3900000000.0
     o2:
       attenuation: 20
-      lo_frequency: 4353000000.0
+      lo_frequency: 4350000000.0
   qrm_rf0:
     i1:
-      acquisition_duration: 2000
-      acquisition_hold_off: 440
+      acquisition_duration: 2100
+      acquisition_hold_off: 400
     o1:
-      attenuation: 56
-      lo_frequency: 7308574000.0
+      attenuation: 48
+      lo_frequency: 7250000000.0
   qrm_rf1:
     i1:
       acquisition_duration: 2104
@@ -135,15 +135,15 @@ native_gates:
   single_qubit:
     0:
       MZ:
-        amplitude: 0.48
-        duration: 2260
-        frequency: 6868947000.0
+        amplitude: 0.12
+        duration: 1900
+        frequency: 6869847000.0
         phase: 0
         relative_start: 0
         shape: Rectangular()
         type: ro
       RX:
-        amplitude: 0.3203
+        amplitude: 0.322
         duration: 40
         frequency: 4208850000.0
         phase: 0
@@ -152,15 +152,15 @@ native_gates:
         type: qd
     1:
       MZ:
-        amplitude: 0.25
-        duration: 2340
-        frequency: 6963386000.0
+        amplitude: 0.47
+        duration: 2300
+        frequency: 6964272000.0
         phase: 0
         relative_start: 0
         shape: Rectangular()
         type: ro
       RX:
-        amplitude: 0.2612
+        amplitude: 0.2615
         duration: 40
         frequency: 4512400000.0
         phase: 0
@@ -177,23 +177,12 @@ native_gates:
         shape: Rectangular()
         type: ro
       RX:
-        amplitude: 0.1306
+        amplitude: 0.16
         duration: 40
-        frequency: 4512400000.0
+        frequency: 4854290000.0
         phase: 0
         relative_start: 0
-        shape: Drag(5,-0.772)
-        type: qd
-  two_qubit:
-    0-1:
-      CZ:
-      - amplitude: 0.31605
-        duration: 700
-        frequency: 4208850000.0
-        phase: 0
-        qubit: 1
-        relative_start: 0
-        shape: Gaussian(5)
+        shape: Drag(5,1.085)
         type: qd
 nqubits: 3
 qubits:
