@@ -45,11 +45,14 @@ def create_readme(filename: str):
     mermaid_graph = create_mermaid_graph(info["qubits"], info["topology"])
     readme_str = f"""
 ## Native Gates
-### Single Qubit
-{"  ".join(info["native_gates"]["single_qubit"])}
-### Two Qubit
-{"  ".join(info["native_gates"]["two_qubit"])}
+**Single Qubit**: {", ".join(info["native_gates"]["single_qubit"])}
+
+**Two Qubit**: {", ".join(info["native_gates"]["two_qubit"])}
+
 ## Topology
+**Number of qubits**: {info["nqubits"]}
+
+**Qubits**: {info["qubits"]}
 {mermaid_graph}
 """
     return readme_str

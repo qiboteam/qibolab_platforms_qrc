@@ -1,11 +1,14 @@
 # qw11q
 
 ## Native Gates
-### Single Qubit
-RX  RX12  MZ
-### Two Qubit
-CZ  iSWAP
+**Single Qubit**: RX, RX12, MZ
+
+**Two Qubit**: CZ, iSWAP
+
 ## Topology
+**Number of qubits**: 16
+
+**Qubits**: ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'B1', 'B2', 'B3', 'B4', 'B5', 'D1', 'D2', 'D3', 'D4', 'D5']
 
 ```mermaid
 graph TD;
