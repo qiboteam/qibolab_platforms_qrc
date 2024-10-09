@@ -30,7 +30,7 @@ def create_mermaid_graph(
     nodes: Union[list[str], list[int]], topology: Union[list[str], list[int]]
 ):
     node_indices = list(range(len(nodes)))
-    edges = "\n    ".join([f"{edge[0]}--{edge[1]};" for edge in topology])
+    edges = "\n    ".join([f"{edge[0]}-->{edge[1]};" for edge in topology])
     markdown_str = f"""
 ```mermaid
 graph TD;
