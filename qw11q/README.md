@@ -9,7 +9,7 @@ CZ  iSWAP
 
 ```mermaid
 graph TD;
-A1 -- A2
+    A1 -- A2
     A1 -- A3
     A1 -- D5
     A2 -- A4

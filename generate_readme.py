@@ -34,7 +34,7 @@ def create_mermaid_graph(
     markdown_str = f"""
 ```mermaid
 graph TD;
-{edges}
+    {edges}
 ```
 """
     return markdown_str
