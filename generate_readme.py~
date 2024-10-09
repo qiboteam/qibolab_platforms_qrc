@@ -1,0 +1,8 @@
+import json
+
+def get_info(filename):
+
+    with open(filename, "r") as f:
+        data = json.load(f)
+
+    info = { key: data[key] for key in ("nqubits", "qubits", "topology") }
