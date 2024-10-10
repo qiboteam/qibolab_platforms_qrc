@@ -39,7 +39,3 @@ jobs:
         run: |
           source testenv/bin/activate
           QIBOLAB_PLATFORMS=$(realpath .) pytest _tests/
-  readme:
-    runs-on: ubuntu-22.04
-    steps:
-      - run: python generate_readme.py

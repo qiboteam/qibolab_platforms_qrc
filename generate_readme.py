@@ -10,7 +10,7 @@ def get_info(filename: str):
         data = json.load(f)
 
     if not isinstance(data["topology"], list):
-        raise TypeError
+        raise RuntimeError
 
     info = {key: data[key] for key in ("nqubits", "qubits", "topology")}
     one_q_native_gates = list(
@@ -33,10 +33,27 @@ def get_info(filename: str):
 def create_mermaid_graph(
     nodes: Union[list[str], list[int]], topology: Union[list[str], list[int]]
 ):
-    node_indices = list(range(len(nodes)))
-    edges = "\n    ".join([f"{edge[0]} <--> {edge[1]};" for edge in topology])
+    node_to_index = dict(zip(nodes, range(len(nodes))))
+    if isinstance(nodes[0], int) or nodes[0].isdecimal():
+        edges = "\n    ".join(
+            [
+                f"{edge[0]}(({str(edge[0])})) <--> {edge[1]}(({str(edge[1])}));"
+                for edge in topology
+            ]
+        )
+    else:
+        edges = "\n    ".join(
+            [
+                f"{node_to_index[edge[0]]}(({edge[0]})) <--> {node_to_index[edge[1]]}(({edge[1]}));"
+                for edge in topology
+            ]
+        )
     markdown_str = f"""
 ```mermaid
+---
+config:
+layout: elk
+---
 graph TD;
     {edges}
 ```
@@ -47,6 +64,11 @@ graph TD;
 def create_readme(filename: str):
     info = get_info(filename)
     mermaid_graph = create_mermaid_graph(info["qubits"], info["topology"])
+    qubits = (
+        ", ".join([str(q) for q in info["qubits"]])
+        if isinstance(info["qubits"][0], int) or info["qubits"][0].isdecimal()
+        else ", ".join([f"{q} ({i})" for i, q in enumerate(info["qubits"])])
+    )
     readme_str = f"""
 ## Native Gates
 **Single Qubit**: {", ".join(info["native_gates"]["single_qubit"])}
@@ -56,7 +78,7 @@ def create_readme(filename: str):
 ## Topology
 **Number of qubits**: {info["nqubits"]}
 
-**Qubits**: {", ".join(info["qubits"])}
+**Qubits**: {qubits}
 {mermaid_graph}
 """
     return readme_str
@@ -78,7 +100,7 @@ if __name__ == "__main__":
             readme_str = create_readme(filename)
         except FileNotFoundError:
             continue
-        except TypeError:
+        except RuntimeError:
             continue
 
         with open(f"{platform}/README.md", "w") as f:
