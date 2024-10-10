@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
     for platform in platforms:
 
-        filename = f"{platform}/parameters.json"
+        filename = platform / "parameters.json"
         try:
             readme_str = create_readme(filename)
         except FileNotFoundError:
