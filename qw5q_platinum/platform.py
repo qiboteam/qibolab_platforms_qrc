@@ -19,10 +19,7 @@ ConfigKinds.extend([QmConfigs])
 
 
 def create():
-    """Line D of QuantWare 21q-chip controlled with Quantum Machines.
-
-    Qubits D1, D2, D3 have been tested to work.
-    """
+    """QuantWare 5q-chip controlled with Quantum Machines OPX1000 and Octaves."""
     qubits = {i: Qubit.default(i) for i in range(5)}
 
     # Create channels and connect to instrument ports
