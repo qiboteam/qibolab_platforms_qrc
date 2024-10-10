@@ -107,6 +107,4 @@ if __name__ == "__main__":
             )
             continue
 
-        with open(f"{platform}/README.md", "w") as f:
-            f.write(f"# {platform}\n")
-            f.write(readme_str)
+        (platform / "README.md").write_text(f"# {platform}\n{readme_str}")
