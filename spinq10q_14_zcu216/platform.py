@@ -30,24 +30,26 @@ def create(runcard_path=RUNCARD):
     """
     # Instantiate QICK instruments
     controller = RFSoC("ZCU216", ADDRESS, PORT)
-    controller.cfg.ro_time_of_flight = 167  # tProc clock ticks?!!
-    controller.cfg.relaxation_time = 100  # in us !!
+    # controller.cfg.ro_time_of_flight = 0  # tProc clock ticks?!!
+    controller.cfg.ro_time_of_flight = 275  # tProc clock ticks?!! 789ns (lag included)
+    # controller.cfg.relaxation_time = 100  # in us !!
 
-    # twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
+    twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
     instruments = {
         controller.name: controller,
-        # twpa_pump0.name: twpa_pump0,
+        twpa_pump0.name: twpa_pump0,
     }
 
     # "twpa_pump0": {
     #   "power": -1.90,
     #   "frequency": 6803000000
     # }
-# DC_FLUX     = [12,   10,   13, 11]
-# RF_FLUX     = [None, 10, None, 11]
-# DRIVE       = [3,4,5,2]
+
+# DC_FLUX     = [2,    0,    3, 1]
+# RF_FLUX     = [None, 0, None, 1]
+# DRIVE       = [3,    4,    5, 2]
 # PROBE_CH    = 6
-# FEEDBACK_CH = [0,1,2,3] #ADC
+# FEEDBACK_CH = [0,    1,    2, 3] #ADC
 
 
     # Create channel objects
@@ -73,8 +75,8 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L6-42", port=controller.ports("DCO_1:RFO_1"))  # q4
 
     # TWPA
-    # channels |= Channel(name="twpa", port=None)
-    # channels["twpa"].local_oscillator = twpa_pump0
+    channels |= Channel(name="twpa", port=None)
+    channels["twpa"].local_oscillator = twpa_pump0
 
     # create qubit objects
     runcard = load_runcard(RUNCARD)
@@ -85,22 +87,22 @@ def create(runcard_path=RUNCARD):
     qubits["q1"].feedback = channels["L1-1-1"]
     qubits["q1"].drive = channels["L6-1"]
     qubits["q1"].flux = channels["L6-39"]
-    # qubits["q1"].twpa = channels["twpa"]
+    qubits["q1"].twpa = channels["twpa"]
     qubits["q2"].readout = channels["L3-20"]
     qubits["q2"].feedback = channels["L1-1-2"]
     qubits["q2"].drive = channels["L6-2"]
     qubits["q2"].flux = channels["L6-40"]
-    # qubits["q2"].twpa = channels["twpa"]
+    qubits["q2"].twpa = channels["twpa"]
     qubits["q3"].readout = channels["L3-20"]
     qubits["q3"].feedback = channels["L1-1-3"]
     qubits["q3"].drive = channels["L6-3"]
     qubits["q3"].flux = channels["L6-41"]
-    # qubits["q3"].twpa = channels["twpa"]
+    qubits["q3"].twpa = channels["twpa"]
     qubits["q4"].readout = channels["L3-20"]
     qubits["q4"].feedback = channels["L1-1-4"]
     qubits["q4"].drive = channels["L6-4"]
     qubits["q4"].flux = channels["L6-42"]
-    # qubits["q4"].twpa = channels["twpa"]
+    qubits["q4"].twpa = channels["twpa"]
 
     settings = load_settings(runcard)
     instruments = load_instrument_settings(runcard, instruments)
