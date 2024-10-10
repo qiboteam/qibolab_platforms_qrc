@@ -90,9 +90,7 @@ if __name__ == "__main__":
 
     platforms = [
         directory.name
-        for directory in os.scandir(".")
-        if directory.is_dir()
-        and not (directory.name.startswith("_") or directory.name.startswith("."))
+        for directory in Path().glob("[!._]*/")
     ]
 
     for platform in platforms:
