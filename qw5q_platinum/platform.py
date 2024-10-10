@@ -36,7 +36,7 @@ def create():
         opxs=[opx],
         octaves=[octave1, octave2],
         time_of_flight=224,
-        # calibration_path=FOLDER,
+        calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
     twpa = SGS100A(name="twpa", address="192.168.0.38")
