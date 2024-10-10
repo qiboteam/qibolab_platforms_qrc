@@ -1,10 +1,13 @@
+"""Small script that automatically parses some basic information from the `parameters.json` file and organizes it in a `README.md`"""
+
 import json
-import os
 import warnings
+from pathlib import Path
 from typing import Union
 
 
-def get_info(filename: str):
+def get_info(filename: str) -> dict:
+    """Open ``filename`` and extracts: `nqubits`, `qubits`, `topology` and `native_gates`."""
 
     with open(filename) as f:
         data = json.load(f)
@@ -33,8 +36,10 @@ def get_info(filename: str):
 
 
 def create_mermaid_graph(
-    nodes: Union[list[str], list[int]], topology: Union[list[str], list[int]]
-):
+    nodes: Union[list[str], list[int]],
+    topology: Union[list[list[str]], list[list[int]]],
+) -> str:
+    """Create a markdown string encoding a mermaid graph given by the input `nodes` and `topology`."""
     node_to_index = dict(zip(nodes, range(len(nodes))))
     if isinstance(nodes[0], int) or nodes[0].isdecimal():
         edges = "\n    ".join(
@@ -63,7 +68,8 @@ graph TD;
     return markdown_str
 
 
-def create_readme(filename: str):
+def create_readme(filename: str) -> str:
+    """Build the `README.md` for the input `filename`."""
     info = get_info(filename)
     mermaid_graph = create_mermaid_graph(info["qubits"], info["topology"])
     qubits = (
