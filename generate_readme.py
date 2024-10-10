@@ -88,10 +88,7 @@ def create_readme(filename: str):
 
 if __name__ == "__main__":
 
-    platforms = [
-        directory.name
-        for directory in Path().glob("[!._]*/")
-    ]
+    platforms = [directory.name for directory in Path().glob("[!._]*/")]
 
     for platform in platforms:
 
