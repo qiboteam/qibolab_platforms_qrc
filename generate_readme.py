@@ -1,6 +1,6 @@
 import json
 import os
-import sys
+import warnings
 from typing import Union
 
 
@@ -10,7 +10,9 @@ def get_info(filename: str):
         data = json.load(f)
 
     if not isinstance(data["topology"], list):
-        raise RuntimeError
+        raise RuntimeError(
+            f"The topology is expected to be a list of edges (List[List[int, int]] or List[List[str, str]]), but received a {type(data['topology'])}."
+        )
 
     info = {key: data[key] for key in ("nqubits", "qubits", "topology")}
     one_q_native_gates = list(
@@ -99,8 +101,15 @@ if __name__ == "__main__":
         try:
             readme_str = create_readme(filename)
         except FileNotFoundError:
+            warnings.warn(
+                f"Couldn't find ``{filename}``, unable to generate the README for platform ``{platform}``."
+            )
             continue
-        except RuntimeError:
+        except RuntimeError as err:
+            warnings.warn(
+                err.args[0]
+                + f" Unable to generate the README for platform ``{platform}``."
+            )
             continue
 
         with open(f"{platform}/README.md", "w") as f:
