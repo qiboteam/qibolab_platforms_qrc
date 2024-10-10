@@ -53,8 +53,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
+            "threshold": 0.0050746640940701245,
+            "iq_angle": -0.315736905002615,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -66,6 +66,7 @@
         "0/flux": {
             "kind": "opx-output",
             "offset": 0.26841555262486466,
+            "filter": {},
             "output_mode": "amplified"
         },
         "1/probe": {
@@ -89,6 +90,7 @@
         "1/flux": {
             "kind": "opx-output",
             "offset": -0.18,
+            "filter": {},
             "output_mode": "amplified"
         },
         "2/probe": {
@@ -99,8 +101,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
+            "threshold": 0.0031103401074213366,
+            "iq_angle": 1.5542188761280658,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -112,6 +114,7 @@
         "2/flux": {
             "kind": "opx-output",
             "offset": 0.4812934537050486,
+            "filter": {},
             "output_mode": "amplified"
         },
         "3/probe": {
@@ -122,8 +125,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
+            "threshold": 0.005024984605102332,
+            "iq_angle": 0.26809260114131156,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -135,6 +138,7 @@
         "3/flux": {
             "kind": "opx-output",
             "offset": -0.581,
+            "filter": {},
             "output_mode": "amplified"
         },
         "4/probe": {
@@ -145,8 +149,8 @@
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
+            "threshold": 0.0016615786465084248,
+            "iq_angle": 2.3622151192773138,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -158,6 +162,7 @@
         "4/flux": {
             "kind": "opx-output",
             "offset": -0.04822291721348779,
+            "filter": {},
             "output_mode": "amplified"
         }
     },
