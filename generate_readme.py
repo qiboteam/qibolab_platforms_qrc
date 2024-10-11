@@ -99,10 +99,8 @@ if __name__ == "__main__":
         prog="generate_readme",
         description="Automatically generate the README.md for the given input platform/s.",
     )
-    parser.add_argument("platform", nargs="+")
-    args = parser.parse_args()
-
-    platforms = [Path(platform) for platform in args.platform]
+    parser.add_argument("platform", nargs="+", type=Path)
+    platforms = parser.parse_args().platform
 
     for platform in platforms:
 
