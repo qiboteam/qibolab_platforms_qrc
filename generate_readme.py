@@ -1,5 +1,6 @@
 """Small script that automatically parses some basic information from the `parameters.json` file and organizes it in a `README.md`"""
 
+import argparse
 import json
 import warnings
 from pathlib import Path
@@ -94,9 +95,14 @@ def create_readme(filename: str) -> str:
 
 if __name__ == "__main__":
 
-    platforms = [
-        directory for directory in Path().glob("[!._]*/") if directory.is_dir()
-    ]
+    parser = argparse.ArgumentParser(
+        prog="generate_readme",
+        description="Automatically generate the README.md for the given input platform/s.",
+    )
+    parser.add_argument("platform", nargs="+")
+    args = parser.parse_args()
+
+    platforms = [Path(platform) for platform in args.platform]
 
     for platform in platforms:
 
