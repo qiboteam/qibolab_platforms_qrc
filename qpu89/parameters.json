@@ -53,10 +53,10 @@
         "single_qubit": {
             "0": {
                 "RX": {
-                    "duration": 40,
-                    "amplitude": 0.399,
+                    "duration": 80,
+                    "amplitude": 0.2,
                     "shape": "Gaussian(5)",
-                    "frequency": 5262412200.0,
+                    "frequency": 3.86,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -65,7 +65,7 @@
                     "duration": 2500,
                     "amplitude": 0.2,
                     "shape": "Rectangular()",
-                    "frequency": 6898830000.0,
+                    "frequency": 6.8536e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -74,7 +74,7 @@
             "1": {
                 "RX": {
                     "duration": 80,
-                    "amplitude": 0.0966,
+                    "amplitude": 0.2,
                     "shape": "Gaussian(5)",
                     "frequency": 5073130000.0,
                     "relative_start": 0,
@@ -83,9 +83,9 @@
                 },
                 "MZ": {
                     "duration": 1900,
-                    "amplitude": 0.4,
+                    "amplitude": 0.2,
                     "shape": "GaussianSquare(0.9,5)",
-                    "frequency": 7016140000.0,
+                    "frequency": 6.957e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -94,18 +94,18 @@
             "2": {
                 "RX": {
                     "duration": 80,
-                    "amplitude": 0.094,
+                    "amplitude": 0.2,
                     "shape": "Gaussian(5)",
-                    "frequency": 5528900000.0,
+                    "frequency": 4.42e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 1900,
-                    "amplitude": 0.5,
+                    "amplitude": 0.2,
                     "shape": "GaussianSquare(0.9,5)",
-                    "frequency": 7143474000.0,
+                    "frequency": 7.060e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
