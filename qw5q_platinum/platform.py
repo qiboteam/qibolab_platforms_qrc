@@ -1,129 +1,74 @@
 import pathlib
 
-from laboneq.dsl.device import create_connection
-from laboneq.dsl.device.instruments import HDAWG, PQSC, SHFQC
-from laboneq.simple import DeviceSetup
-from qibolab import Platform
-from qibolab.channels import Channel
-from qibolab.instruments.dummy import DummyLocalOscillator
-from qibolab.instruments.rohde_schwarz import SGS100A
-from qibolab.instruments.zhinst import Zurich
-from qibolab.kernels import KERNELS, Kernels
-from qibolab.serialize import (
-    load_instrument_settings,
-    load_qubits,
-    load_runcard,
-    load_settings,
+from qibolab import (
+    AcquisitionChannel,
+    Channel,
+    ConfigKinds,
+    DcChannel,
+    IqChannel,
+    Platform,
+    Qubit,
 )
+from qibolab.instruments.qm import Octave, QmConfigs, QmController
+from qibolab.instruments.rohde_schwarz import SGS100A
 
 FOLDER = pathlib.Path(__file__).parent
 
+# Register QM-specific configurations for parameters loading
+ConfigKinds.extend([QmConfigs])
+
 
 def create():
-    """"""
+    """QuantWare 5q-chip controlled with Quantum Machines OPX1000 and Octaves."""
+    qubits = {i: Qubit.default(i) for i in range(5)}
 
-    device_setup = DeviceSetup("EL_ZURO")
-    device_setup.add_dataserver(host="localhost", port=8004)
-    device_setup.add_instruments(
-        HDAWG("device_hdawg", address="DEV8660"),
-        PQSC("device_pqsc", address="DEV10055", reference_clock_source="internal"),
-        SHFQC("device_shfqc", address="DEV12146"),
-    )
-    device_setup.add_connections(
-        "device_pqsc",
-        create_connection(to_instrument="device_hdawg", ports="ZSYNCS/0"),
-        create_connection(to_instrument="device_shfqc", ports="ZSYNCS/2"),
-    )
-
-    controller = Zurich(
-        "EL_ZURO",
-        device_setup=device_setup,
-        time_of_flight=75,
-        smearing=50,
-    )
-
-    # create qubit objects
-    runcard = load_runcard(FOLDER)
-
-    kernels = Kernels.load(FOLDER) if (FOLDER / KERNELS).exists() else None
-    qubits, _, pairs = load_qubits(runcard, kernels)
-    settings = load_settings(runcard)
-
-    twpa_pump_channel = Channel("twpa_pump")
-    measure_path = "QACHANNELS/0/OUTPUT"
-    acquire_path = "QACHANNELS/0/INPUT"
-    measure_channel = Channel(
-        f"measure", controller.ports(("device_shfqc", measure_path))
-    )
-    acquire_channel = Channel(
-        f"acquire", controller.ports(("device_shfqc", acquire_path))
-    )
-    for i in range(5):
-        drive_path = f"SGCHANNELS/{i}/OUTPUT"
-        device_setup.add_connections(
-            "device_shfqc",
-            create_connection(to_signal=f"q{i}/drive_line", ports=[drive_path]),
-            create_connection(to_signal=f"q{i}/measure_line", ports=[measure_path]),
-            create_connection(to_signal=f"q{i}/acquire_line", ports=[acquire_path]),
+    # Create channels and connect to instrument ports
+    # Readout
+    channels = {}
+    for q in qubits.values():
+        channels[q.probe] = IqChannel(
+            device="octave2", path="1", mixer=None, lo="probe_lo"
         )
-
-        flux_path = f"SIGOUTS/{i}"
-        device_setup.add_connections(
-            "device_hdawg",
-            create_connection(to_signal=f"q{i}/flux_line", ports=[flux_path]),
+    # Acquire
+    for q in qubits.values():
+        channels[q.acquisition] = AcquisitionChannel(
+            device="octave2", path="1", twpa_pump="twpa", probe=q.probe
         )
-
-        qubits[i].drive = Channel(
-            f"q{i}/drive", controller.ports(("device_shfqc", drive_path))
-        )
-        qubits[i].readout = measure_channel
-        qubits[i].feedback = acquire_channel
-        qubits[i].flux = Channel(
-            f"q{i}/flux", controller.ports(("device_hdawg", flux_path))
-        )
-
-        qubits[i].twpa = twpa_pump_channel
-
-    qubits[0].drive.local_oscillator = DummyLocalOscillator("q_0_1/drive/lo", None)
-    qubits[1].drive.local_oscillator = qubits[0].drive.local_oscillator
-    qubits[2].drive.local_oscillator = DummyLocalOscillator("q_2_3/drive/lo", None)
-    qubits[3].drive.local_oscillator = qubits[2].drive.local_oscillator
-    qubits[4].drive.local_oscillator = DummyLocalOscillator("q_4/drive/lo", None)
-
-    arbitrary_qubit = next(iter(qubits.values()))
-    arbitrary_qubit.readout.local_oscillator = DummyLocalOscillator("readout/lo", None)
-    arbitrary_qubit.twpa.local_oscillator = SGS100A("twpa", "192.168.0.38")
-
-    measure_channel.power_range = -10
-    acquire_channel.power_range = 0
-
-    qubits[0].drive.power_range = 5
-    qubits[0].flux.power_range = 1
-
-    qubits[1].drive.power_range = 5
-    qubits[1].flux.power_range = 1
-
-    qubits[2].drive.power_range = 0
-    qubits[2].flux.power_range = 2
-
-    qubits[3].drive.power_range = 5
-    qubits[3].flux.power_range = 2
-
-    qubits[4].drive.power_range = 5
-    qubits[4].flux.power_range = 2
-
-    instruments = {controller.name: controller}
-    for qb in qubits.values():
-        instruments[qb.drive.local_oscillator.name] = qb.drive.local_oscillator
-        instruments[qb.readout.local_oscillator.name] = qb.readout.local_oscillator
-        instruments[qb.twpa.local_oscillator.name] = qb.twpa.local_oscillator
-    instruments = load_instrument_settings(runcard, instruments)
-
-    return Platform(
-        str(FOLDER),
-        qubits,
-        pairs,
-        instruments,
-        settings,
-        resonator_type="2D",
+    # Drive
+    channels[qubits[0].drive] = IqChannel(
+        device="octave1", path="2", mixer=None, lo="01/drive_lo"
     )
+    channels[qubits[1].drive] = IqChannel(
+        device="octave1", path="3", mixer=None, lo="01/drive_lo"
+    )
+    channels[qubits[2].drive] = IqChannel(
+        device="octave1", path="1", mixer=None, lo="2/drive_lo"
+    )
+    channels[qubits[3].drive] = IqChannel(
+        device="octave1", path="4", mixer=None, lo="3/drive_lo"
+    )
+    channels[qubits[4].drive] = IqChannel(
+        device="octave2", path="2", mixer=None, lo="4/drive_lo"
+    )
+    # Flux
+    channels[qubits[0].flux] = DcChannel(device="con1/4", path="4")
+    channels[qubits[1].flux] = DcChannel(device="con1/4", path="1")
+    channels[qubits[2].flux] = DcChannel(device="con1/4", path="3")
+    channels[qubits[3].flux] = DcChannel(device="con1/4", path="2")
+    channels[qubits[4].flux] = DcChannel(device="con1/4", path="5")
+
+    octaves = {
+        "octave1": Octave("octave1", port=11250, connectivity="con1/1"),
+        "octave2": Octave("octave2", port=11251, connectivity="con1/2"),
+    }
+    fems = {"con1/1": "LF", "con1/2": "LF", "con1/4": "LF"}
+    controller = QmController(
+        address="192.168.0.102:80",
+        octaves=octaves,
+        fems=fems,
+        channels=channels,
+        # calibration_path=FOLDER,
+        script_file_name="qua_script.py",
+    )
+    instruments = {"qm": controller, "twpa": SGS100A(address="192.168.0.38")}
+    return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
