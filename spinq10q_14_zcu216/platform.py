@@ -31,7 +31,7 @@ def create(runcard_path=RUNCARD):
     # Instantiate QICK instruments
     controller = RFSoC("ZCU216", ADDRESS, PORT)
     # controller.cfg.ro_time_of_flight = 0  # tProc clock ticks?!!
-    controller.cfg.ro_time_of_flight = 275  # tProc clock ticks?!! 789ns (lag included)
+    controller.cfg.ro_time_of_flight = 275 + 138  # tProc clock ticks?!! 789ns (lag included)
     # controller.cfg.relaxation_time = 100  # in us !!
 
     twpa_pump0 = SGS100A(name="twpa_pump0", address=TWPA_ADDRESS)
@@ -45,7 +45,7 @@ def create(runcard_path=RUNCARD):
     #   "frequency": 6803000000
     # }
 
-# DC_FLUX     = [2,    0,    3, 1]
+# DC_FLUX     = [5,    2,    6, 7] new
 # RF_FLUX     = [None, 0, None, 1]
 # DRIVE       = [3,    4,    5, 2]
 # PROBE_CH    = 6
@@ -69,10 +69,10 @@ def create(runcard_path=RUNCARD):
     channels |= Channel("L6-4", port=controller.ports("RFO_2"))  # q4
     
     # flux
-    channels |= Channel("L6-39", port=controller.ports("DCO_2"))        # q1
-    channels |= Channel("L6-40", port=controller.ports("DCO_0:RFO_0"))  # q2
-    channels |= Channel("L6-41", port=controller.ports("DCO_3"))        # q3
-    channels |= Channel("L6-42", port=controller.ports("DCO_1:RFO_1"))  # q4
+    channels |= Channel("L6-39", port=controller.ports("DCO_5"))        # q1
+    channels |= Channel("L6-40", port=controller.ports("DCO_2:RFO_0"))  # q2
+    channels |= Channel("L6-41", port=controller.ports("DCO_6"))        # q3
+    channels |= Channel("L6-42", port=controller.ports("DCO_7:RFO_1"))  # q4
 
     # TWPA
     channels |= Channel(name="twpa", port=None)
