@@ -35,7 +35,7 @@
         "qcm_rf0": {
             "o1": {
                 "attenuation": 26,
-                "lo_frequency": 4000000000.0
+                "lo_frequency": 4239055500.0
             },
             "o2": {
                 "attenuation": 26,
@@ -45,7 +45,7 @@
         "qrm_rf1": {
             "o1": {
                 "attenuation": 26,
-                "lo_frequency": 4500000000.0
+                "lo_frequency": 4239055500.0
             },
             "i1": {
                 "acquisition_hold_off": 218,
@@ -58,9 +58,9 @@
             "0": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.11,
+                    "amplitude": 0.169,
                     "shape": "Gaussian(5)",
-                    "frequency": 3858200000.0,
+                    "frequency": 3.8675785e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -69,7 +69,7 @@
                     "duration": 1000,
                     "amplitude": 0.2,
                     "shape": "Rectangular()",
-                    "frequency": 6853599000.0,
+                    "frequency": 6853639000.0,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -98,9 +98,9 @@
             "2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.075,
+                    "amplitude": 0.109,
                     "shape": "Gaussian(5)",
-                    "frequency": 4419911000.0,
+                    "frequency": 4.421781000e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
