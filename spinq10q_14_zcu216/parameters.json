@@ -57,16 +57,16 @@
           "duration": 160,
           "amplitude": 0.080,
           "shape": "Gaussian(5)",
-          "frequency": 4863856000,
+          "frequency": 4863705000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
         },
         "MZ": {
           "duration": 4800,
-          "amplitude": 0.35,
+          "amplitude": 0.30,
           "shape": "Rectangular()",
-          "frequency": 7511471000,
+          "frequency": 7511574000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -84,9 +84,9 @@
         },
         "MZ": {
           "duration": 4800,
-          "amplitude": 0.35,
+          "amplitude": 0.20,
           "shape": "Rectangular()",
-          "frequency": 7548818000,
+          "frequency": 7548824000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -159,7 +159,7 @@
                 "readout_frequency": 7431427000,
                 "drive_frequency": 4219975000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.1336,
+                "sweetspot": -0.140,
                 "asymmetry": 0.3,
                 "crosstalk_matrix": {
                     "q1": 1,
@@ -199,10 +199,10 @@
             },
             "q2": {
                 "bare_resonator_frequency": 7510339000,
-                "readout_frequency": 7511471000,
-                "drive_frequency": 4863856000,
+                "readout_frequency": 7511574000,
+                "drive_frequency": 4863705000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.1626,
+                "sweetspot": 0.141,
                 "asymmetry": 0.1330056186090635,
                 "crosstalk_matrix": {
                     "q1": 0,
@@ -242,10 +242,10 @@
             },
             "q3": {
                 "bare_resonator_frequency": 7547293000,
-                "readout_frequency": 7548818000,
+                "readout_frequency": 7548824000,
                 "drive_frequency": 4288934000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.2728,
+                "sweetspot": 0.279,
                 "asymmetry": 0.5666990319994453,
                 "crosstalk_matrix": {
                     "q1": 0,
@@ -288,7 +288,7 @@
                 "readout_frequency": 7584141000,
                 "drive_frequency": 4851460000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.2673,
+                "sweetspot": -0.095,
                 "asymmetry": 0,
                 "crosstalk_matrix": {
                     "q1": 0,
