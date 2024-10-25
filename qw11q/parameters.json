@@ -69,7 +69,8 @@
                 "feedback": [
                     0.7709042385568349
                 ]
-            }
+            },
+            "output_mode": "direct"
         },
         "D2/probe": {
             "kind": "iq",
@@ -100,7 +101,8 @@
                 "feedback": [
                     0.935305257333166
                 ]
-            }
+            },
+            "output_mode": "direct"
         },
         "D3/probe": {
             "kind": "iq",
@@ -131,7 +133,8 @@
                 "feedback": [
                     0.880387119150019
                 ]
-            }
+            },
+            "output_mode": "direct"
         },
         "D4/probe": {
             "kind": "iq",
@@ -154,7 +157,8 @@
         "D4/flux": {
             "kind": "opx-output",
             "offset": 0.0,
-            "filter": {}
+            "filter": {},
+            "output_mode": "direct"
         },
         "D5/probe": {
             "kind": "iq",
@@ -177,7 +181,8 @@
         "D5/flux": {
             "kind": "opx-output",
             "offset": -0.04,
-            "filter": {}
+            "filter": {},
+            "output_mode": "direct"
         }
     },
     "native_gates": {
