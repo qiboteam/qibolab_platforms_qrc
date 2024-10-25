@@ -55,9 +55,9 @@
       "q2": {
         "RX": {
           "duration": 160,
-          "amplitude": 0.080,
+          "amplitude": 0.078,
           "shape": "Gaussian(5)",
-          "frequency": 4863705000,
+          "frequency": 4865040000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
@@ -66,7 +66,7 @@
           "duration": 4800,
           "amplitude": 0.30,
           "shape": "Rectangular()",
-          "frequency": 7511574000,
+          "frequency": 7511588000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -75,9 +75,9 @@
       "q3": {
         "RX": {
           "duration": 160,
-          "amplitude": 0.057,
+          "amplitude": 0.059,
           "shape": "Gaussian(5)",
-          "frequency": 4288934000,
+          "frequency": 4292196000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
@@ -86,7 +86,7 @@
           "duration": 4800,
           "amplitude": 0.20,
           "shape": "Rectangular()",
-          "frequency": 7548824000,
+          "frequency": 7548946000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -129,12 +129,22 @@
       "q2-q3": {
         "CZ": [
           {
-            "duration": 40,
-            "amplitude": 1,
+            "duration": 39,
+            "amplitude": 0.272,
             "shape": "Rectangular()",
             "qubit": "q2",
             "relative_start": 0,
             "type": "qf"
+          },
+          {
+            "type": "virtual_z",
+            "phase": -0.159,
+            "qubit": "q3"
+          },
+          {
+            "type": "virtual_z",
+            "phase": 2.0508,
+            "qubit": "q2"
           }
         ]
       },
@@ -199,10 +209,10 @@
             },
             "q2": {
                 "bare_resonator_frequency": 7510339000,
-                "readout_frequency": 7511574000,
-                "drive_frequency": 4863705000,
+                "readout_frequency": 7511588000,
+                "drive_frequency": 4865040000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.141,
+                "sweetspot": 0.1415,
                 "asymmetry": 0.1330056186090635,
                 "crosstalk_matrix": {
                     "q1": 0,
@@ -220,7 +230,7 @@
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.5,
                 "resonator_depletion_time": 0,
-                "T1": 11227,
+                "T1": 17100,
                 "T2": 303,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
@@ -242,10 +252,10 @@
             },
             "q3": {
                 "bare_resonator_frequency": 7547293000,
-                "readout_frequency": 7548824000,
-                "drive_frequency": 4288934000,
+                "readout_frequency": 7548946000,
+                "drive_frequency": 4292196000,
                 "anharmonicity": 200000000,
-                "sweetspot": 0.279,
+                "sweetspot": 0.2789,
                 "asymmetry": 0.5666990319994453,
                 "crosstalk_matrix": {
                     "q1": 0,
@@ -263,7 +273,7 @@
                 "peak_voltage": 0,
                 "pi_pulse_amplitude": 0.5,
                 "resonator_depletion_time": 0,
-                "T1": 0,
+                "T1": 20300,
                 "T2": 0,
                 "T2_spin_echo": 0,
                 "state0_voltage": 0,
