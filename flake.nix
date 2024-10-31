@@ -34,6 +34,7 @@
 
           languages.python = {
             enable = true;
+            version = "3.11";
             venv = {
               enable = true;
               requirements = ''
