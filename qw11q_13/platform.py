@@ -1,4 +1,5 @@
 import pathlib
+
 from qibolab import create_platform
 
 FOLDER = pathlib.Path(__file__).parent
