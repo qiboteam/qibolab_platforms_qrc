@@ -1,0 +1,17 @@
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'If you are changing the configuration of one or more platforms remember to run `python generate_readme.py path/to/platform ...` to update the `README.md` accordingly.'
+            })
