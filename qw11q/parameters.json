@@ -2,7 +2,7 @@
     "nqubits": 16,
     "settings": {
         "nshots": 2048,
-        "relaxation_time": 300000
+        "relaxation_time": 200000
     },
     "qubits": [
         "A1",
@@ -646,7 +646,7 @@
                     "duration": 40,
                     "amplitude": 0.04077,
                     "shape": "Gaussian(5)",
-                    "frequency": 4957469700,
+                    "frequency": 4957352040,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -675,7 +675,7 @@
                     "duration": 40,
                     "amplitude": 0.0536,
                     "shape": "Gaussian(5)",
-                    "frequency": 5563432000,
+                    "frequency": 5564137938,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -704,7 +704,7 @@
                     "duration": 40,
                     "amplitude": 0.0698402,
                     "shape": "Gaussian(5)",
-                    "frequency": 5648378000,
+                    "frequency": 5652393739,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -1548,9 +1548,9 @@
             "D1": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7137442519,
-                "drive_frequency": 4958224292,
+                "drive_frequency": 4957352040,
                 "anharmonicity": -200000000,
-                "sweetspot": 0.2203,
+                "sweetspot": 0.21674190528643072,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1564,7 +1564,7 @@
                     "B3": 0.0,
                     "B4": 0.0,
                     "B5": 0.0,
-                    "D1": 0.8598493267934884,
+                    "D1": 0.8118568615850348,
                     "D2": 0.0,
                     "D3": 0.0,
                     "D4": 0.0,
@@ -1603,9 +1603,9 @@
             "D2": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7379236963,
-                "drive_frequency": 5564024728,
+                "drive_frequency": 5564137938,
                 "anharmonicity": -211000000,
-                "sweetspot": -0.4218,
+                "sweetspot": -0.4253086474672965,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1620,7 +1620,7 @@
                     "B4": 0.0,
                     "B5": 0.0,
                     "D1": 0.0,
-                    "D2": 0.8362892894619234,
+                    "D2": 0.9057651898352576,
                     "D3": 0.0,
                     "D4": 0.0,
                     "D5": 0.0
@@ -1658,9 +1658,9 @@
             "D3": {
                 "bare_resonator_frequency": 0,
                 "readout_frequency": 7490655184,
-                "drive_frequency": 5652486485,
+                "drive_frequency": 5652393739,
                 "anharmonicity": -211000000,
-                "sweetspot": -0.2099,
+                "sweetspot": -0.21477959018116385,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1676,7 +1676,7 @@
                     "B5": 0.0,
                     "D1": 0.0,
                     "D2": 0.0,
-                    "D3": 0.8349775310865607,
+                    "D3": 0.8254035339527089,
                     "D4": 0.0,
                     "D5": 0.0
                 },
