@@ -34,7 +34,11 @@
               venv = {
                 enable = true;
                 requirements = ''
-                  qibolab @ git+https://github.com/qiboteam/qibolab.git@qblox
+                  qibolab [qblox] @ git+https://github.com/qiboteam/qibolab.git@qblox
+
+                  # dev deps
+                  ipython
+                  pdbpp
                 '';
               };
             };
