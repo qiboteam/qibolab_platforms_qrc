@@ -775,6 +775,29 @@
             }
         },
         "two_qubit": {
+            "B1-B3": {
+                "CZ": [
+                    {
+                        "duration": 50,
+                        "amplitude": 0.5,
+                        "shape": "Rectangular()",
+                        "qubit": "B3",
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0.0,
+                        "qubit": "B1"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0.0,
+                        "qubit": "B3"
+                    }
+                ]
+                
+            },
             "D1-D2": {
                 "CZ": [
                     {
