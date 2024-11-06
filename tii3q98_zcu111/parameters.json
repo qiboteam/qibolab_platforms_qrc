@@ -22,7 +22,7 @@
     ],
     "instruments": {
         "LO": {
-            "frequency": 7200000000,
+            "frequency": 6550000000,
             "power": 10
         }
     },
@@ -32,19 +32,19 @@
 
             "1": {
                 "RX": {
-                    "duration": 130,
-                    "amplitude": 0.22,
+                    "duration": 150,
+                    "amplitude": 0.35,
                     "shape": "Gaussian(5)",
-                    "frequency": 5073047000,
+                    "frequency": 4466187000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
                 },
                 "MZ": {
                     "duration": 2500,
-                    "amplitude": 0.22,
+                    "amplitude": 0.5,
                     "shape": "Rectangular()",
-                    "frequency": 7016395000,
+                    "frequency": 6259600000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -52,10 +52,30 @@
             },
             "2": {
                 "RX": {
-                    "duration": 130,
-                    "amplitude": 0.985,
+                    "duration": 150,
+                    "amplitude": 0.23,
                     "shape": "Gaussian(5)",
-                    "frequency": 5529137000,
+                    "frequency": 4852200000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2500,
+                    "amplitude": 0.99,
+                    "shape": "Rectangular()",
+                    "frequency": 6385672000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "3": {
+                "RX": {
+                    "duration": 150,
+                    "amplitude": 0.725,
+                    "shape": "Gaussian(5)",
+                    "frequency": 5265200000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -64,27 +84,7 @@
                     "duration": 2500,
                     "amplitude": 0.2,
                     "shape": "Rectangular()",
-                    "frequency": 7143720000,
-                    "relative_start": 0,
-                    "phase": 0,
-                    "type": "ro"
-                }
-            },
-            "3": {
-                "RX": {
-                    "duration": 1200,
-                    "amplitude": 0.990,
-                    "shape": "Gaussian(5)",
-                    "frequency": 4357137000,
-                    "relative_start": 0,
-                    "phase": 0,
-                    "type": "qd"
-                },
-                "MZ": {
-                    "duration": 2500,
-                    "amplitude": 0.16,
-                    "shape": "Rectangular()",
-                    "frequency": 7638800000,
+                    "frequency": 6451980000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
