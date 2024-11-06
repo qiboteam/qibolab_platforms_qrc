@@ -50,7 +50,6 @@ def create():
     channels |= Channel("L4-32_qd", port=controller.ports(4))  # drive    dac4
     channels |= Channel("L1-23_fl", port=controller.ports(1))  # Not Usedflux     dac1
 
-
     # Readout local oscillator
     local_oscillator = SGS100A(name="LO", address=LO_ADDRESS)
     channels["L3-28_ro"].local_oscillator = local_oscillator
@@ -75,8 +74,6 @@ def create():
     qubits[3].drive = channels["L4-32_qd"]
     qubits[3].flux = channels["L1-23_fl"]  # Not Used
     channels["L1-23_fl"].qubit = qubits[3]
-
-
 
     instruments = {controller.name: controller, local_oscillator.name: local_oscillator}
     settings = load_settings(runcard)
