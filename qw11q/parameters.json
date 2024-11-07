@@ -40,9 +40,27 @@
             "frequency": 5100000000.0,
             "power": 0.0
         },
-        "D1/probe": {
+        "B1/probe": {
             "kind": "iq",
             "frequency": 7137442519.0
+        },
+        "B1/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0039557,
+            "iq_angle": 2.311382545,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "B1/drive": {
+            "kind": "iq",
+            "frequency": 4999865465.0
+        },
+        "D1/probe": {
+            "kind": "iq",
+            "frequency": 7137636454.0
         },
         "D1/acquisition": {
             "kind": "qm-acquisition",
@@ -57,6 +75,10 @@
         "D1/drive": {
             "kind": "iq",
             "frequency": 4958270075.0
+        },
+        "D1/drive12": {
+            "kind": "iq",
+            "frequency": 4758270075.0
         },
         "D1/flux": {
             "kind": "opx-output",
@@ -187,6 +209,46 @@
     },
     "native_gates": {
         "single_qubit": {
+            "B1": {
+                "RX": [
+                    [
+                        "B1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.0583,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX12": null,
+                "MZ": [
+                    [
+                        "B1/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.0045,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
             "D1": {
                 "RX": [
                     [
@@ -203,7 +265,21 @@
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "D1/drive12",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.0828917651219067,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "D1/acquisition",

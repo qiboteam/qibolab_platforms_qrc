@@ -23,8 +23,11 @@ def create():
 
     Qubits D1, D2, D3 have been tested to work.
     """
-    qubits = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
-
+    qubits = {
+        f"D{i}": Qubit.default(f"D{i}", drive_qudits={(1, 2): f"D{i}/drive12"})
+        for i in range(1, 6)
+    }
+    qubits.update({"B1": Qubit.default("B1")})
     # Create channels and connect to instrument ports
     # Readout
     channels = {}
@@ -53,6 +56,9 @@ def create():
     define_drive("D4", "octave6", 5, "D4/drive_lo")
     define_drive("D5", "octave6", 3, "D5/drive_lo")
 
+    channels["D1/drive12"] = IqChannel(
+        device="octave5", path="2", mixer=None, lo="D1/drive_lo"
+    )
     # Flux
     for q in range(1, 6):
         qubit = qubits[f"D{q}"]
