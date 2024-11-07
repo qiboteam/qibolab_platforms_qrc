@@ -43,7 +43,7 @@ graph TD;
 
 ## Table for B line
 
-Qubit Value | Qubit  | Readout Fidelity | Assignment Fidelity | T1 (µs) | T2 (µs) | Gate infidelity (e-3) |
+| Qubit Value | Qubit  | Readout Fidelity | Assignment Fidelity | T1 (µs) | T2 (µs) | Gate infidelity (e-3) |
 | ------------- | ------------- | --------- | -------------------- | ------- | ------- | -------------------- |
 |6| B1 | 0.93 | 0.96 | 24.3 ± 0.2 | 27.5 ± 0.5 | 7.3 ± 0.1 |
 |7| B2 | 0.93 | 0.96 | 19.6 ± 0.1 | 28.6 ± 0.4 | 1.53 ± 0.03 |
@@ -58,3 +58,11 @@ Qubit Value | Qubit  | Readout Fidelity | Assignment Fidelity | T1 (µs) | T2 (�
 **2-B2**: http://login.qrccluster.com:9000/C8U5KwTiSSKjAFii09CElA==/ <br/>
 **3-B3**: http://login.qrccluster.com:9000/4mpgIlKVTEOEh9zGpQLlFQ==/ <br/>
 **4-B5**: http://login.qrccluster.com:9000/ytGFcieeT4imfHlD47ZY9g==/ <br/>
+
+
+
+## 2-Qubit Gate Callibration
+
+| Pair | Calibrated gate | RB fidelity |
+|-|-|-|
+| B1-B3 | CZ | Not measured  |
