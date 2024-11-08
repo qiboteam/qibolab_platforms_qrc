@@ -27,7 +27,6 @@ def create():
         f"D{i}": Qubit.default(f"D{i}", drive_qudits={(1, 2): f"D{i}/drive12"})
         for i in range(1, 6)
     }
-    qubits.update({"B1": Qubit.default("B1")})
     # Create channels and connect to instrument ports
     # Readout
     channels = {}
@@ -45,8 +44,11 @@ def create():
         )
 
     # Drive
-    def define_drive(q: str, device: str, port: int, lo: str):
-        drive = qubits[q].drive
+    def define_drive(q: str, device: str, port: int, lo: str, transition=None):
+        if transition is not None:
+            drive = qubits[q].drive_qudits[transition]
+        else:
+            drive = qubits[q].drive
         assert drive is not None
         channels[drive] = IqChannel(device=device, path=str(port), mixer=None, lo=lo)
 
@@ -56,9 +58,13 @@ def create():
     define_drive("D4", "octave6", 5, "D4/drive_lo")
     define_drive("D5", "octave6", 3, "D5/drive_lo")
 
-    channels["D1/drive12"] = IqChannel(
-        device="octave5", path="2", mixer=None, lo="D1/drive_lo"
-    )
+    # define drive channles for 12 transition
+    define_drive("D1", "octave5", 2, "D1/drive_lo", transition=(1, 2))
+    define_drive("D2", "octave5", 4, "D2D3/drive_lo", transition=(1, 2))
+    define_drive("D3", "octave5", 5, "D2D3/drive_lo", transition=(1, 2))
+    define_drive("D4", "octave6", 5, "D4/drive_lo", transition=(1, 2))
+    define_drive("D5", "octave6", 3, "D5/drive_lo", transition=(1, 2))
+
     # Flux
     for q in range(1, 6):
         qubit = qubits[f"D{q}"]
