@@ -137,6 +137,17 @@
             }
         },
         "con4": {
+            "o2": {
+                "filter": {
+                    "feedforward": [
+                        1.0605851073784813,
+                        -0.9529722265285006
+                    ],
+                    "feedback": [
+                       0.890387119150019
+                    ]
+                }
+            },
             "o3": {
                 "filter": {
                     "feedforward": [
@@ -539,7 +550,7 @@
                     "duration": 40,
                     "amplitude": 0.051,
                     "shape": "Gaussian(5)",
-                    "frequency": 5700000000,
+                    "frequency": 5766856000,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "qd"
@@ -788,6 +799,28 @@
             }
         },
         "two_qubit": {
+            "B1-B2": {
+                "CZ": [
+                    {
+                        "duration": 47,
+                        "amplitude": -0.29494,
+                        "shape": "Rectangular()",
+                        "qubit": "B2",
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0.0,
+                        "qubit": "B1"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0.0,
+                        "qubit": "B2"
+                    }
+                ]
+            },
             "B1-B3": {
                 "CZ": [
                     {
@@ -1329,7 +1362,7 @@
                 "bare_resonator_frequency": 7392332635,
                 "readout_frequency": 7395629397,
                 "drive_frequency": 5972855792,
-                "anharmonicity": -200000000,
+                "anharmonicity": -205999792,
                 "sweetspot": 0.32000000001466894,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
