@@ -15,9 +15,11 @@ ADDRESS = "192.168.1.78"
 TWPA_ADDRESS = "192.168.0.37"
 PORT = 6000
 FOLDER = pathlib.Path(__file__).parent
+
 # # alvaro/latest_20231215
 # NAME = "spinq10q_14_zcu216"
 # RUNCARD = pathlib.Path(__file__).parent / "spinq10q-15.yml"
+
 # # main
 NAME = str(FOLDER)
 RUNCARD = FOLDER
@@ -40,10 +42,10 @@ def create(runcard_path=RUNCARD):
         twpa_pump0.name: twpa_pump0,
     }
 
-    # "twpa_pump0": {
-    #   "power": -1.90,
-    #   "frequency": 6803000000
-    # }
+    "twpa_pump0": {
+      "power": -1.90,
+      "frequency": 6803000000
+    }
 
 # DC_FLUX     = [5,    2,    6, 7] new
 # RF_FLUX     = [None, 0, None, 1]
