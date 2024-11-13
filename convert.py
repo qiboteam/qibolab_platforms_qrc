@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -14,8 +15,25 @@ def channel(qubit: str, gate: str):
     return f"{qubit}/{kind}"
 
 
+SHAPES = {"rectangular": {}, "gaussian": {"rel_sigma": lambda s: 1 / float(s)}}
+SHAPE = re.compile(r"(?P<kind>[a-zA-Z_]\w*)\((?P<args>.*)\)")
+ARG = re.compile(r"(?:(?P<name>\w+)=)?(?P<value>.*)")
+
+
 def envelope(o: str) -> dict:
-    return {}
+    shape = SHAPE.match(o)
+    assert shape is not None
+    kind = shape["kind"].lower()
+    kwargs = {}
+    for param, spec in zip(shape["args"].split(","), SHAPES[kind].items()):
+        arg = ARG.match(param)
+        assert arg is not None
+        try:
+            name = arg["name"]
+        except KeyError:
+            name = spec[0]
+        kwargs[name] = spec[1](arg["value"])
+    return {"kind": kind, **kwargs}
 
 
 def pulse(o: dict) -> dict:
