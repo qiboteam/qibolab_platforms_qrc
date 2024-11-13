@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 
-def extract_configs() -> dict:
+def configs() -> dict:
     return {}
 
 
@@ -14,22 +14,25 @@ def channel(qubit: str, gate: str):
     return f"{qubit}/{kind}"
 
 
-def pulse(o: dict) -> dict:
+def envelope(o: str) -> dict:
     return {}
 
 
+def pulse(o: dict) -> dict:
+    return {
+        "kind": "pulse",
+        "duration": o["duration"],
+        "amplitude": o["amplitude"],
+        "envelope": envelope(o["shape"]),
+        "relative_phase": o.get("phase"),
+    }
+
+
 def acquisition(o: dict) -> dict:
-    duration = o["duration"]
     return {
         "kind": "readout",
-        "acquisition": {"kind": "acquisition", "duration": duration},
-        "probe": {
-            "kind": "pulse",
-            "duration": duration,
-            "amplitude": o["amplitude"],
-            "envelope": {},
-            "relative_phase": o["phase"],
-        },
+        "acquisition": {"kind": "acquisition", "duration": o["duration"]},
+        "probe": pulse(o),
     }
 
 
@@ -44,7 +47,7 @@ def single_pulse(o: dict) -> dict:
     }
 
 
-def extract_natives(o: dict) -> dict:
+def natives(o: dict) -> dict:
     return {
         "single_qubit": single_pulse(o["single_qubit"]),
         "coupler": single_pulse(o["coupler"]),
@@ -55,8 +58,8 @@ def extract_natives(o: dict) -> dict:
 def upgrade(o: dict) -> dict:
     return {
         "settings": o["settings"],
-        "configs": extract_configs(),
-        "native_gates": extract_natives(o["native_gates"]),
+        "configs": configs(),
+        "native_gates": natives(o["native_gates"]),
     }
 
 
