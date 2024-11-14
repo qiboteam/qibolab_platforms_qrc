@@ -20,6 +20,7 @@ def channel(qubit: str, gate: str):
 SHAPES = {
     "rectangular": {},
     "gaussian": {"rel_sigma": lambda s: 1 / s},
+    "drag": {"rel_sigma": lambda s: 1 / s, "beta": lambda s: s},
     "custom": {"i_": lambda s: np.array(s)},
 }
 
