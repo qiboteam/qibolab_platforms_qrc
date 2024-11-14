@@ -1,7 +1,9 @@
 import argparse
+import ast
 import json
-import re
 from pathlib import Path
+
+import numpy as np
 
 
 def configs() -> dict:
@@ -15,24 +17,28 @@ def channel(qubit: str, gate: str):
     return f"{qubit}/{kind}"
 
 
-SHAPES = {"rectangular": {}, "gaussian": {"rel_sigma": lambda s: 1 / float(s)}}
-SHAPE = re.compile(r"(?P<kind>[a-zA-Z_]\w*)\((?P<args>.*)\)")
-ARG = re.compile(r"(?:(?P<name>\w+)=)?(?P<value>.*)")
+SHAPES = {
+    "rectangular": {},
+    "gaussian": {"rel_sigma": lambda s: 1 / s},
+    "custom": {"i_": lambda s: np.array(s)},
+}
 
 
 def envelope(o: str) -> dict:
-    shape = SHAPE.match(o)
-    assert shape is not None
-    kind = shape["kind"].lower()
+    expr = ast.parse(o).body[0]
+    assert isinstance(expr, ast.Expr)
+    call = expr.value
+    assert isinstance(call, ast.Call)
+    assert isinstance(call.func, ast.Name)
+    kind = call.func.id.lower()
     kwargs = {}
-    for param, spec in zip(shape["args"].split(","), SHAPES[kind].items()):
-        arg = ARG.match(param)
-        assert arg is not None
-        try:
-            name = arg["name"]
-        except KeyError:
-            name = spec[0]
-        kwargs[name] = spec[1](arg["value"])
+    shape = SHAPES[kind]
+    for arg, spec in zip(call.args, shape.items()):
+        assert isinstance(arg, ast.Constant)
+        kwargs[spec[0]] = spec[1](arg.value)
+    for arg in call.keywords:
+        assert isinstance(arg.value, ast.Constant)
+        kwargs[arg.arg] = arg.value.value
     return {"kind": kind, **kwargs}
 
 
