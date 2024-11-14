@@ -3,6 +3,8 @@ import ast
 import json
 from pathlib import Path
 
+from pydantic import TypeAdapter
+from qibolab._core.serialize import NdArray
 
 NONSERIAL = lambda: None
 """Raise an error if survives in the final object to be serialized."""
@@ -21,7 +23,7 @@ SHAPES = {
     "rectangular": {},
     "gaussian": {"rel_sigma": lambda s: 1 / s},
     "drag": {"rel_sigma": lambda s: 1 / s, "beta": lambda s: s},
-    "custom": {"i_": lambda s: s},
+    "custom": {"i_": lambda s: TypeAdapter(NdArray).dump_json(s).decode()},
 }
 
 
