@@ -10,15 +10,58 @@ NONSERIAL = lambda: None
 """Raise an error if survives in the final object to be serialized."""
 
 
-def configs() -> dict:
+def channel_config(o: dict) -> dict:
     return {}
+
+
+def configs(
+    instruments: dict, single: dict, couplers: dict, characterization: dict
+) -> dict:
+    return (
+        {
+            f"{k}/bounds": (v["bounds"] | {"kind": "bounds"})
+            for k, v in instruments.items()
+            if "bounds" in v
+        }
+        | {
+            k: (v | {"kind": "oscillator"})
+            for k, v in instruments.items()
+            if "twpa" in k
+        }
+        | {
+            channel(id, pulse["type"]): channel_config(pulse)
+            for id, gates in single.items()
+            for gate, pulse in gates.items()
+        }
+        | {
+            channel(id, "ro"): {
+                "kind": "acquisition",
+                "delay": 0.0,
+                "smearing": 0.0,
+                "threshold": char["threshold"],
+                "iq_angle": char["iq_angle"],
+                "kernel": None,
+            }
+            for id, char in characterization["single_qubit"].items()
+        }
+        | {
+            channel(id, "qf"): {"kind": "dc", "offset": char["sweetspot"]}
+            for id, char in characterization["single_qubit"].items()
+        }
+        | {
+            channel(id, "coupler"): {"kind": "dc", "offset": char["sweetspot"]}
+            for id, char in characterization.get("coupler", {}).items()
+        }
+    )
 
 
 def channel(qubit: str, type_: str) -> str:
     kind = (
         "flux"
         if type_ == "qf" or type_ == "coupler"
-        else "acquisition" if type_ == "ro" else "drive"
+        else "acquisition"
+        if type_ == "ro"
+        else "drive"
     )
     element = qubit if type_ != "coupler" else f"coupler_{qubit}"
     return f"{element}/{kind}"
@@ -75,7 +118,9 @@ def pulse_like(o: dict) -> dict:
     return (
         acquisition(o)
         if o["type"] == "ro"
-        else virtualz(o) if o["type"] == "virtual_z" else pulse(o)
+        else virtualz(o)
+        if o["type"] == "virtual_z"
+        else pulse(o)
     )
 
 
@@ -121,7 +166,12 @@ def natives(o: dict) -> dict:
 def upgrade(o: dict) -> dict:
     return {
         "settings": o["settings"],
-        "configs": configs(),
+        "configs": configs(
+            o["instruments"],
+            o["native_gates"]["single_qubit"],
+            o["native_gates"].get("coupler", {}),
+            o["characterization"],
+        ),
         "native_gates": natives(o["native_gates"]),
     }
 
