@@ -18,9 +18,7 @@ def channel(qubit: str, type_: str) -> str:
     kind = (
         "flux"
         if type_ == "qf" or type_ == "coupler"
-        else "acquisition"
-        if type_ == "ro"
-        else "drive"
+        else "acquisition" if type_ == "ro" else "drive"
     )
     element = qubit if type_ != "coupler" else f"coupler_{qubit}"
     return f"{element}/{kind}"
@@ -77,9 +75,7 @@ def pulse_like(o: dict) -> dict:
     return (
         acquisition(o)
         if o["type"] == "ro"
-        else virtualz(o)
-        if o["type"] == "virtual_z"
-        else pulse(o)
+        else virtualz(o) if o["type"] == "virtual_z" else pulse(o)
     )
 
 
