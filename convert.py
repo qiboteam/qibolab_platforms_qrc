@@ -15,8 +15,15 @@ def configs() -> dict:
 
 
 def channel(qubit: str, type_: str) -> str:
-    kind = "flux" if type_ == "qf" else "acquisition" if type_ == "ro" else "drive"
-    return f"{qubit}/{kind}"
+    kind = (
+        "flux"
+        if type_ == "qf" or type_ == "coupler"
+        else "acquisition"
+        if type_ == "ro"
+        else "drive"
+    )
+    element = qubit if type_ != "coupler" else f"coupler_{qubit}"
+    return f"{element}/{kind}"
 
 
 SHAPES = {
@@ -108,7 +115,9 @@ def two_qubit(o: dict) -> dict:
 def natives(o: dict) -> dict:
     return {
         "single_qubit": single_pulse(o["single_qubit"]),
-        "coupler": single_pulse(o["coupler"]) if "coupler" in o else {},
+        "coupler": {
+            f"coupler_{k}": v for k, v in single_pulse(o.get("coupler", {})).items()
+        },
         "two_qubit": two_qubit(o["two_qubit"]),
     }
 
