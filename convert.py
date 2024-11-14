@@ -61,7 +61,7 @@ def acquisition(o: dict) -> dict:
 
 
 def virtualz(o: dict) -> dict:
-    return {}
+    return {"kind": "virtualz", "phase": o["phase"]}
 
 
 def pulse_like(o: dict) -> dict:
@@ -72,13 +72,6 @@ def pulse_like(o: dict) -> dict:
         if o["type"] == "virtual_z"
         else pulse(o)
     )
-
-
-def try_(f):
-    try:
-        return f()
-    except Exception:
-        breakpoint()
 
 
 def single_pulse(o: dict) -> dict:
