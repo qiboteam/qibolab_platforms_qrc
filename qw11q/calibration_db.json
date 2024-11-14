@@ -1,0 +1,97 @@
+{
+    "modes": {
+        "1": {
+            "octave_name": "octave2",
+            "octave_channel": 1
+        }
+    },
+    "lo_modes": {
+        "1": {
+            "mode_id": 1,
+            "lo_freq": 7370000000,
+            "gain": -10.0,
+            "latest": 1
+        }
+    },
+    "lo_cal": {
+        "1": {
+            "i0": 0.0013393150756660474,
+            "q0": -0.016996385714061885,
+            "lo_mode_id": 1,
+            "dc_gain": 0.001580477654008261,
+            "dc_phase": -0.06364797475604514,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6698077,
+            "method": "auto"
+        }
+    },
+    "if_modes": {
+        "1": {
+            "lo_mode_id": 1,
+            "if_freq": -222678788,
+            "latest": 1
+        },
+        "2": {
+            "lo_mode_id": 1,
+            "if_freq": 25377050,
+            "latest": 2
+        },
+        "3": {
+            "lo_mode_id": 1,
+            "if_freq": 124554070,
+            "latest": 3
+        },
+        "4": {
+            "lo_mode_id": 1,
+            "if_freq": 340930634,
+            "latest": 4
+        },
+        "5": {
+            "lo_mode_id": 1,
+            "if_freq": 278524183,
+            "latest": 5
+        }
+    },
+    "if_cal": {
+        "1": {
+            "if_mode_id": 1,
+            "gain": 0.011668436971767646,
+            "phase": 0.0036914993643673314,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6745968,
+            "method": "auto"
+        },
+        "2": {
+            "if_mode_id": 2,
+            "gain": 0.020781842712281704,
+            "phase": -0.10242447657482383,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6792889,
+            "method": "auto"
+        },
+        "3": {
+            "if_mode_id": 3,
+            "gain": 0.0,
+            "phase": 0.0,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6841977,
+            "method": "auto"
+        },
+        "4": {
+            "if_mode_id": 4,
+            "gain": 0.028322506933562468,
+            "phase": -0.16788210855634084,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6881962,
+            "method": "auto"
+        },
+        "5": {
+            "if_mode_id": 5,
+            "gain": 0.003904424700513883,
+            "phase": -0.13613875560085884,
+            "temperature": 58.5625,
+            "timestamp": 1731565086.6920607,
+            "method": "auto"
+        }
+    }
+}
