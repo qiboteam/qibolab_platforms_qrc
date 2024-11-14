@@ -3,17 +3,17 @@ import ast
 import json
 from pathlib import Path
 
-import numpy as np
+
+NONSERIAL = lambda: None
+"""Raise an error if survives in the final object to be serialized."""
 
 
 def configs() -> dict:
     return {}
 
 
-def channel(qubit: str, gate: str):
-    kind = (
-        "drive" if gate.startswith("RX") else "acquisition" if gate == "MZ" else "flux"
-    )
+def channel(qubit: str, type_: str) -> str:
+    kind = "flux" if type_ == "qf" else "acquisition" if type_ == "ro" else "drive"
     return f"{qubit}/{kind}"
 
 
@@ -21,7 +21,7 @@ SHAPES = {
     "rectangular": {},
     "gaussian": {"rel_sigma": lambda s: 1 / s},
     "drag": {"rel_sigma": lambda s: 1 / s, "beta": lambda s: s},
-    "custom": {"i_": lambda s: np.array(s)},
+    "custom": {"i_": lambda s: s},
 }
 
 
@@ -35,11 +35,10 @@ def envelope(o: str) -> dict:
     kwargs = {}
     shape = SHAPES[kind]
     for arg, spec in zip(call.args, shape.items()):
-        assert isinstance(arg, ast.Constant)
-        kwargs[spec[0]] = spec[1](arg.value)
+        kwargs[spec[0]] = spec[1](ast.literal_eval(arg))
     for arg in call.keywords:
         assert isinstance(arg.value, ast.Constant)
-        kwargs[arg.arg] = arg.value.value
+        kwargs[arg.arg] = ast.literal_eval(arg.value)
     return {"kind": kind, **kwargs}
 
 
@@ -61,13 +60,52 @@ def acquisition(o: dict) -> dict:
     }
 
 
+def virtualz(o: dict) -> dict:
+    return {}
+
+
 def pulse_like(o: dict) -> dict:
-    return acquisition(o) if o["type"] == "ro" else pulse(o)
+    return (
+        acquisition(o)
+        if o["type"] == "ro"
+        else virtualz(o)
+        if o["type"] == "virtual_z"
+        else pulse(o)
+    )
+
+
+def try_(f):
+    try:
+        return f()
+    except Exception:
+        breakpoint()
 
 
 def single_pulse(o: dict) -> dict:
     return {
-        id: {gid: [(channel(id, gid), pulse_like(gate))] for gid, gate in gates.items()}
+        id: {
+            gid: [(channel(id, gate["type"]), pulse_like(gate))]
+            for gid, gate in gates.items()
+        }
+        for id, gates in o.items()
+    }
+
+
+def two_qubit(o: dict) -> dict:
+    return {
+        id: {
+            gid: [
+                (
+                    channel(
+                        pulse.get("qubit", pulse.get("coupler", NONSERIAL)),
+                        pulse["type"],
+                    ),
+                    pulse_like(pulse),
+                )
+                for pulse in gate
+            ]
+            for gid, gate in gates.items()
+        }
         for id, gates in o.items()
     }
 
@@ -76,7 +114,7 @@ def natives(o: dict) -> dict:
     return {
         "single_qubit": single_pulse(o["single_qubit"]),
         "coupler": single_pulse(o["coupler"]) if "coupler" in o else {},
-        "two_qubit": {},
+        "two_qubit": two_qubit(o["two_qubit"]),
     }
 
 
