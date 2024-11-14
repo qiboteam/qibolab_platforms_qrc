@@ -74,7 +74,7 @@ def single_pulse(o: dict) -> dict:
 def natives(o: dict) -> dict:
     return {
         "single_qubit": single_pulse(o["single_qubit"]),
-        "coupler": single_pulse(o["coupler"]),
+        "coupler": single_pulse(o["coupler"]) if "coupler" in o else {},
         "two_qubit": {},
     }
 
