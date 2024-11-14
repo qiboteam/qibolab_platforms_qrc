@@ -2,6 +2,7 @@ import argparse
 import ast
 import json
 from pathlib import Path
+from typing import Optional
 
 from pydantic import TypeAdapter
 from qibolab._core.serialize import NdArray
@@ -29,7 +30,7 @@ def configs(
             if "twpa" in k
         }
         | {
-            channel(id, pulse["type"]): channel_config(pulse)
+            channel(id, pulse["type"], gate=gate): channel_config(pulse)
             for id, gates in single.items()
             for gate, pulse in gates.items()
         }
@@ -55,12 +56,16 @@ def configs(
     )
 
 
-def channel(qubit: str, type_: str) -> str:
+def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
     kind = (
         "flux"
         if type_ == "qf" or type_ == "coupler"
+        else "probe"
+        if gate == "MZ"
         else "acquisition"
         if type_ == "ro"
+        else "drive12"
+        if gate == "RX12"
         else "drive"
     )
     element = qubit if type_ != "coupler" else f"coupler_{qubit}"
