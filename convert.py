@@ -11,8 +11,8 @@ NONSERIAL = lambda: None
 """Raise an error if survives in the final object to be serialized."""
 
 
-def channel_config(o: dict) -> dict:
-    return {}
+def channel_from_pulse(pulse: dict) -> dict:
+    return {"kind": "iq", "frequency": pulse["frequency"]}
 
 
 def configs(
@@ -30,7 +30,7 @@ def configs(
             if "twpa" in k
         }
         | {
-            channel(id, pulse["type"], gate=gate): channel_config(pulse)
+            channel(id, pulse["type"], gate=gate): channel_from_pulse(pulse)
             for id, gates in single.items()
             for gate, pulse in gates.items()
         }
