@@ -1,9 +1,10 @@
+"""Converts parameters.json to parameters.json and calibration.json
+"""
 import argparse
 import ast
 import json
 from pathlib import Path
 from typing import Optional
-
 from pydantic import TypeAdapter
 from qibolab._core.serialize import NdArray
 
@@ -180,11 +181,48 @@ def upgrade(o: dict) -> dict:
         "native_gates": natives(o["native_gates"]),
     }
 
+def single_qubits_cal(o: dict) -> dict:
+    return { q: {
+            "resonator": {
+                "bare_frequency": k["bare_resonator_frequency"],
+                "dressed_frequency": k["readout_frequency"],
+                },
+            "qubit": {
+                "frequency_01": k["drive_frequency"],
+                "sweetspot": k["sweetspot"],
+            },
+            "readout":{
+                "fidelity": k["readout_fidelity"],
+                "ground_state": k["mean_gnd_states"],
+                "excited_state": k["mean_exc_states"],
+            },
+            "t1": [k["T1"], None],
+            "t2": [k["T2"], None],
+            "t2_spin_echo": [k["T2_spin_echo"], None],
+            "rb_fidelity": [k["gate_fidelity"], None],
+    } for q, k in o.items()}
+
+
+def two_qubits_cal(o:dict) -> dict:
+    return {qq :{
+        "rb_fidelity": [k["gate_fidelity"], None],
+        "cz_fidelity": [k["cz_fidelity"], None],
+        } for qq, k in o.items()}
+
+
+def upgrade_cal(o: dict) -> dict:
+    return {
+        "single_qubits": single_qubits_cal(o["characterization"]["single_qubit"]
+        ),
+        "two_qubits": two_qubits_cal(o["characterization"]["two_qubit"]),
+    }
 
 def convert(path: Path):
     params = json.loads(path.read_text())
     new = upgrade(params)
+    cal = upgrade_cal(params)
     path.with_stem(path.stem + "-new").write_text(json.dumps(new, indent=4))
+    path.with_stem("calibration").write_text(json.dumps(new, indent=4))
 
 
 def parse():
@@ -195,7 +233,6 @@ def parse():
 
 def main():
     args = parse()
-
     for p in args.path:
         convert(p)
 
