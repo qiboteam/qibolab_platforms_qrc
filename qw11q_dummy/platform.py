@@ -44,21 +44,27 @@ def create(with_couplers: bool = True):
     if not with_couplers:
         runcard = remove_couplers(runcard)
 
+        qubits, couplers, pairs = load_qubits(runcard, kernels)
+    settings = load_settings(runcard)
+
+    def name(i):
+        return list(qubits)[i]
+
     # Create channel objects
     nqubits = runcard["nqubits"]
     channels = ChannelMap()
     channels |= Channel("readout", port=instrument.ports("readout"))
     channels |= (
-        Channel(f"drive-{i}", port=instrument.ports(f"drive-{i}"))
+        Channel(f"drive-{name(i)}", port=instrument.ports(f"drive-{name(i)}"))
         for i in range(nqubits)
     )
     channels |= (
-        Channel(f"flux-{i}", port=instrument.ports(f"flux-{i}")) for i in range(nqubits)
+        Channel(f"flux-{name(i)}", port=instrument.ports(f"flux-{name(i)}")) for i in range(nqubits)
     )
     channels |= Channel("twpa", port=None)
     if with_couplers:
         channels |= (
-            Channel(f"flux_coupler-{c}", port=instrument.ports(f"flux_coupler-{c}"))
+            Channel(f"flux_coupler-{name(c)}", port=instrument.ports(f"flux_coupler-{name(c)}"))
             for c in itertools.chain(range(0, 2), range(3, 5))
         )
     channels["readout"].attenuation = 0
