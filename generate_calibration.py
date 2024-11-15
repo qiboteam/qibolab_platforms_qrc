@@ -3,18 +3,18 @@ import json
 from pathlib import Path
 
 
-
 def single_qubits(o: dict) -> dict:
-    return { q: {
+    return {
+        q: {
             "resonator": {
                 "bare_frequency": k["bare_resonator_frequency"],
                 "dressed_frequency": k["readout_frequency"],
-                },
+            },
             "qubit": {
                 "frequency_01": k["drive_frequency"],
                 "sweetspot": k["sweetspot"],
             },
-            "readout":{
+            "readout": {
                 "fidelity": k["readout_fidelity"],
                 "ground_state": k["mean_gnd_states"],
                 "excited_state": k["mean_exc_states"],
@@ -23,20 +23,24 @@ def single_qubits(o: dict) -> dict:
             "t2": [k["T2"], None],
             "t2_spin_echo": [k["T2_spin_echo"], None],
             "rb_fidelity": [k["gate_fidelity"], None],
-    } for q, k in o.items()}
+        }
+        for q, k in o.items()
+    }
 
 
-def two_qubits(o:dict) -> dict:
-    return {qq :{
-        "rb_fidelity": [k["gate_fidelity"], None],
-        "cz_fidelity": [k["cz_fidelity"], None],
-        } for qq, k in o.items()}
+def two_qubits(o: dict) -> dict:
+    return {
+        qq: {
+            "rb_fidelity": [k["gate_fidelity"], None],
+            "cz_fidelity": [k["cz_fidelity"], None],
+        }
+        for qq, k in o.items()
+    }
 
 
 def upgrade(o: dict) -> dict:
     return {
-        "single_qubits": single_qubits(o["characterization"]["single_qubit"]
-        ),
+        "single_qubits": single_qubits(o["characterization"]["single_qubit"]),
         "two_qubits": two_qubits(o["characterization"]["two_qubit"]),
     }
 
