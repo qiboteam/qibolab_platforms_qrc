@@ -70,9 +70,9 @@ def create(with_couplers: bool = True):
     # map channels to qubits
     for q, qubit in qubits.items():
         qubit.readout = channels["readout"]
-        # qubit.drive = channels[f"drive-{q}"]
-        # qubit.flux = channels[f"flux-{q}"]
-        # qubit.twpa = channels["twpa"]
+        qubit.drive = channels[f"drive-{q}"]
+        qubit.flux = channels[f"flux-{q}"]
+        qubit.twpa = channels["twpa"]
 
     if with_couplers:
         # map channels to couplers
