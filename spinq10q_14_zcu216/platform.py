@@ -42,11 +42,6 @@ def create(runcard_path=RUNCARD):
         twpa_pump0.name: twpa_pump0,
     }
 
-    "twpa_pump0": {
-      "power": -1.90,
-      "frequency": 6803000000
-    }
-
 # DC_FLUX     = [5,    2,    6, 7] new
 # RF_FLUX     = [None, 0, None, 1]
 # DRIVE       = [3,    4,    5, 2]

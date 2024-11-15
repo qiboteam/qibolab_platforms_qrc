@@ -37,6 +37,12 @@ def create():
         twpa_pump1.name: twpa_pump1,
     }
 
+# DC_FLUX     = [2,    5,    6, 7] new
+# RF_FLUX     = [0, None, 1, None]
+# DRIVE       = [3,    4,    5, 2]
+# PROBE_CH    = 6
+# FEEDBACK_CH = [0,    1,    2, 3] #ADC
+
     # Create channel objects
     channels = ChannelMap()
 
@@ -73,16 +79,19 @@ def create():
     qubits["q6"].twpa = channels["L3-23"]
     qubits["q6"].drive = channels["L6-6"]
     qubits["q6"].flux = channels["L6-44"]
+
     qubits["q7"].readout = channels["L3-21"]
     qubits["q7"].feedback = channels["L2-17-7"]
     qubits["q7"].twpa = channels["L3-23"]
     qubits["q7"].drive = channels["L6-7"]
     qubits["q7"].flux = channels["L6-45"]
+
     qubits["q8"].readout = channels["L3-21"]
     qubits["q8"].feedback = channels["L2-17-8"]
     qubits["q8"].twpa = channels["L3-23"]
     qubits["q8"].drive = channels["L6-8"]
     qubits["q8"].flux = channels["L6-46"]
+
     qubits["q9"].readout = channels["L3-21"]
     qubits["q9"].feedback = channels["L2-17-9"]
     qubits["q9"].twpa = channels["L3-23"]

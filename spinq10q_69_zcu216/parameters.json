@@ -34,19 +34,19 @@
     "single_qubit": {
       "q6": {
         "RX": {
-          "duration": 40,
-          "amplitude": 0.294,
+          "duration": 80,
+          "amplitude": 0.174,
           "shape": "Gaussian(5)",
-          "frequency": 4228472634,
+          "frequency": 4815127000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
         },
         "MZ": {
           "duration": 2500,
-          "amplitude": 0.1,
+          "amplitude": 0.4,
           "shape": "Rectangular()",
-          "frequency": 7491345077,
+          "frequency": 7491855000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -54,19 +54,19 @@
       },
       "q7": {
         "RX": {
-          "duration": 40,
-          "amplitude": 0.473,
+          "duration": 80,
+          "amplitude": 0.109,
           "shape": "Gaussian(5)",
-          "frequency": 4852154170,
+          "frequency": 4151917000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
         },
         "MZ": {
           "duration": 2500,
-          "amplitude": 0.1,
+          "amplitude": 0.12,
           "shape": "Rectangular()",
-          "frequency": 7551094041,
+          "frequency": 7552349000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -74,19 +74,19 @@
       },
       "q8": {
         "RX": {
-          "duration": 40,
-          "amplitude": 0.2,
+          "duration": 80,
+          "amplitude": 0.269,
           "shape": "Gaussian(5)",
-          "frequency": 4277000000,
+          "frequency": 4753433000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
         },
         "MZ": {
           "duration": 2500,
-          "amplitude": 0.1,
+          "amplitude": 0.46,
           "shape": "Rectangular()",
-          "frequency": 7581553134,
+          "frequency": 7582447000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -94,19 +94,19 @@
       },
       "q9": {
         "RX": {
-          "duration": 40,
-          "amplitude": 0.9,
+          "duration": 80,
+          "amplitude": 0.23,
           "shape": "Gaussian(5)",
-          "frequency": 7549119105,
+          "frequency": 4241682000,
           "relative_start": 0,
           "phase": 0,
           "type": "qd"
         },
         "MZ": {
           "duration": 2500,
-          "amplitude": 0.1,
+          "amplitude": 0.20,
           "shape": "Rectangular()",
-          "frequency": 7438773941,
+          "frequency": 7436415000,
           "relative_start": 0,
           "phase": 0,
           "type": "ro"
@@ -155,12 +155,18 @@
   "characterization": {
     "single_qubit": {
       "q6": {
-        "bare_resonator_frequency": 7491345077,
-        "readout_frequency": 7491345077,
-        "drive_frequency": 4228472634,
+        "bare_resonator_frequency": 7490851000,
+        "readout_frequency": 7491855000,
+        "drive_frequency": 4815127000,
         "anharmonicity": 197369466,
-        "sweetspot": 0.093,
+        "sweetspot": -0.1462,
         "asymmetry": 0.984279103491614,
+        "crosstalk_matrix": {
+          "q6": 1,
+          "q7": 0,
+          "q8": 0,
+          "q9": 0
+        },
         "Ec": 0.61296396978099,
         "g": 0.2014594078657114,
         "assignment_fidelity": 0.8028814669286182,
@@ -189,12 +195,18 @@
         "mixer_readout_phi": 0
       },
       "q7": {
-        "bare_resonator_frequency": 7551094041,
-        "readout_frequency": 7551094041,
-        "drive_frequency": 4852154170,
+        "bare_resonator_frequency": 7550960000,
+        "readout_frequency": 7552349000,
+        "drive_frequency": 4151917000,
         "anharmonicity": 196746898,
-        "sweetspot": 0.097,
+        "sweetspot": -0.1796,
         "asymmetry": 0.1330056186090635,
+        "crosstalk_matrix": {
+          "q6": 0,
+          "q7": 1,
+          "q8": 0,
+          "q9": 0
+        },
         "Ec": 0.6428551085357185,
         "g": 0.02056941968868565,
         "assignment_fidelity": 0.768172888015717,
@@ -223,12 +235,18 @@
         "mixer_readout_phi": 0
       },
       "q8": {
-        "bare_resonator_frequency": 7581553134,
-        "readout_frequency": 7581553134,
-        "drive_frequency": 4277000000,
+        "bare_resonator_frequency": 7581414000,
+        "readout_frequency": 7582447000,
+        "drive_frequency": 4753433000,
         "anharmonicity": 300000000,
-        "sweetspot": -0.191,
+        "sweetspot": -0.1979,
         "asymmetry": 0.5666990319994453,
+        "crosstalk_matrix": {
+          "q6": 0,
+          "q7": 0,
+          "q8": 1,
+          "q9": 0
+        },
         "Ec": 0.002442676501640139,
         "g": 0.19588166298004064,
         "assignment_fidelity": 0,
@@ -257,12 +275,18 @@
         "mixer_readout_phi": 0
       },
       "q9": {
-        "bare_resonator_frequency": 7438773941,
-        "readout_frequency": 7438773941,
-        "drive_frequency": 4848000000,
+        "bare_resonator_frequency": 7435177000,
+        "readout_frequency": 7436415000,
+        "drive_frequency": 4241682000,
         "anharmonicity": 300000000,
-        "sweetspot": -0.186,
+        "sweetspot": -0.2153,
         "asymmetry": 0,
+        "crosstalk_matrix": {
+          "q6": 0,
+          "q7": 0,
+          "q8": 0,
+          "q9": 1
+        },
         "Ec": 0.61296396978099,
         "g": 0.2014594078657114,
         "assignment_fidelity": 0,
