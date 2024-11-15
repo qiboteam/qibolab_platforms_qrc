@@ -9,6 +9,7 @@ from qibolab.instruments.rohde_schwarz import SGS100A
 ConfigKinds.extend([QbloxConfigs])
 
 FOLDER = pathlib.Path(__file__).parent
+NAME = "iqm5q_qblox"
 ADDRESS = "192.168.0.6"
 """Cluster ``iqm5q_qblox``."""
 
@@ -42,7 +43,7 @@ def create():
                 update={"twpa_pump": "twpa"}
             )
 
-    controller = Cluster(address=ADDRESS, channels=channels)
+    controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.35")}
     return Platform.load(
         path=FOLDER, instruments=instruments, qubits=qubits, couplers=couplers
