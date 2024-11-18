@@ -44,28 +44,25 @@ def create(with_couplers: bool = True):
     if not with_couplers:
         runcard = remove_couplers(runcard)
 
-        qubits, couplers, pairs = load_qubits(runcard, kernels)
+    qubits, couplers, pairs = load_qubits(runcard, kernels)
     settings = load_settings(runcard)
-
-    def name(i):
-        return list(qubits)[i]
 
     # Create channel objects
     nqubits = runcard["nqubits"]
     channels = ChannelMap()
     channels |= Channel("readout", port=instrument.ports("readout"))
     channels |= (
-        Channel(f"drive-{name(i)}", port=instrument.ports(f"drive-{name(i)}"))
+        Channel(f"drive-{list(qubits)[i]}", port=instrument.ports(f"drive-{list(qubits)[i]}"))
         for i in range(nqubits)
     )
     channels |= (
-        Channel(f"flux-{name(i)}", port=instrument.ports(f"flux-{name(i)}")) for i in range(nqubits)
+        Channel(f"flux-{list(qubits)[i]}", port=instrument.ports(f"flux-{list(qubits)[i]}")) for i in range(nqubits)
     )
     channels |= Channel("twpa", port=None)
     if with_couplers:
         channels |= (
-            Channel(f"flux_coupler-{name(c)}", port=instrument.ports(f"flux_coupler-{name(c)}"))
-            for c in itertools.chain(range(0, 2), range(3, 5))
+            Channel(f"flux_coupler-{list(qubits)[i]}", port=instrument.ports(f"flux_coupler-{list(qubits)[i]}"))
+            for i in itertools.chain(range(0, 2), range(3, 5))
         )
     channels["readout"].attenuation = 0
     channels["twpa"].local_oscillator = twpa_pump
