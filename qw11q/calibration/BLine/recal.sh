@@ -7,6 +7,7 @@ fi
 mkdir recal_reports
 
 qq run ./runcard_frequencies.yml -o ./recal_reports/recal_frequencies -f
+qq update ./recal_reports/recal_frequencies
 
 python calibrate_mixers.py
 

@@ -9,3 +9,9 @@ cd qibolab_platforms_qrc/qw11q/calibration/BLine/
 sbatch -v -J recal -p qw11q ./recal.sh
 ```
 - On a successfull run this will generate two reports under the `./recal_reports` directory. Previous reports will be ovewritten.
+- The report under `./recal_reports/recal_frequencies` will be used automatically to update the platform,
+- However the report under `./recal_reports/recal_frequencies/recal_1q_gates` will not be used automatically to update the platform.
+You will need to do this manually, after checking that the report is fine:
+```
+-qq update ./recal_reports/recal_1q_gates
+```
