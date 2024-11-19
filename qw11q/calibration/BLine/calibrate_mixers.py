@@ -13,7 +13,9 @@ def _calibrate_readout_mixer(platform, controller, config, qubit_names):
         if lo_frequency is None:
             lo_frequency = qubit.readout.lo_frequency
         else:
-            assert lo_frequency == qubit.readout.lo_frequency, "Qubits on same probe line must have the same LO frequency."
+            assert (
+                lo_frequency == qubit.readout.lo_frequency
+            ), "Qubits on same probe line must have the same LO frequency."
         if_frequencies.append(qubit.native_gates.MZ.frequency - lo_frequency)
 
     qmachine = controller.manager.open_qm(config.__dict__)
@@ -40,7 +42,9 @@ def _run_until_success(fn, *args, label):
             print(f"Mixer calibration for {label} finished successfully")
             break
         except RuntimeWarning as w:
-            print(f"Issue encountered while running mixer calibration for {label} mixer. Retrying...")
+            print(
+                f"Issue encountered while running mixer calibration for {label} mixer. Retrying..."
+            )
 
 
 if __name__ == "__main__":
@@ -50,10 +54,26 @@ if __name__ == "__main__":
     controller = platform.instruments["qm"]
     controller.write_calibration = True
     controller.connect()
-    
-    config = controllers_config(list(platform.qubits.values()), controller.time_of_flight, controller.smearing)
-    
-    _run_until_success(_calibrate_readout_mixer, platform, controller, config, ["B1", "B2", "B3", "B4", "B5"], label="readout")
-    _run_until_success(_calibrate_drive_mixers, platform, controller, config, ["B1", "B2", "B3", "B4", "B5"], label="drive")
+
+    config = controllers_config(
+        list(platform.qubits.values()), controller.time_of_flight, controller.smearing
+    )
+
+    _run_until_success(
+        _calibrate_readout_mixer,
+        platform,
+        controller,
+        config,
+        ["B1", "B2", "B3", "B4", "B5"],
+        label="readout",
+    )
+    _run_until_success(
+        _calibrate_drive_mixers,
+        platform,
+        controller,
+        config,
+        ["B1", "B2", "B3", "B4", "B5"],
+        label="drive",
+    )
 
     controller.disconnect()
