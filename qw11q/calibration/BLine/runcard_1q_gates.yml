@@ -1,0 +1,47 @@
+platform: qw11q
+
+targets: [B1,B2,B3,B4,B5]
+
+actions:
+
+  - id: flipping B1
+    operation: flipping
+    parameters:
+      delta_amplitude: 0.0015
+      nflips_max: 50
+      nflips_step: 1
+      nshots: 256
+      relaxation_time: 100_000
+      unrolling: true
+    targets: [B1]
+    update: true
+
+  - id: flipping B2 B3 B4 B5
+    operation: flipping
+    parameters:
+      delta_amplitude: 0.004
+      nflips_max: 50
+      nflips_step: 1
+      nshots: 256
+      relaxation_time: 100_000
+      unrolling: true
+    targets: [B2, B3, B4, B5]
+    update: true
+
+  - id: DRAG
+    operation: drag_tuning
+    parameters:
+      beta_start: -1.0
+      beta_end: 1.5
+      beta_step: 0.01
+      nshots: 512
+      relaxation_time: 100_000
+      unrolling: true
+    update: true
+
+  - id: single shot classification
+    operation: single_shot_classification
+    parameters:
+      nshots: 10_000
+      relaxation_time: 100_000
+    update: true

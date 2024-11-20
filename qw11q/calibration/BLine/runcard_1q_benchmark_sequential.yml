@@ -1,0 +1,158 @@
+platform: qw11q
+
+actions:
+
+  - id: t1 B1
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B1]
+
+  - id: t1 B2
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B2]
+
+  - id: t1 B3
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B3]
+
+  - id: t1 B4
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B4]
+
+  - id: t1 B5
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B5]
+
+  - id: ramsey detuned B1
+    operation: ramsey
+    parameters:
+      delay_between_pulses_end: 3_000
+      delay_between_pulses_start: 8
+      delay_between_pulses_step: 20
+      detuning: 2_000_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B1]
+    update: true
+
+  - id: ramsey detuned B2
+    operation: ramsey
+    parameters:
+      delay_between_pulses_end: 3_000
+      delay_between_pulses_start: 8
+      delay_between_pulses_step: 20
+      detuning: 2_000_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B2]
+    update: true
+
+  - id: ramsey detuned B3
+    operation: ramsey
+    parameters:
+      delay_between_pulses_end: 3_000
+      delay_between_pulses_start: 8
+      delay_between_pulses_step: 20
+      detuning: 2_000_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B3]
+    update: true
+
+  - id: ramsey detuned B4
+    operation: ramsey
+    parameters:
+      delay_between_pulses_end: 3_000
+      delay_between_pulses_start: 8
+      delay_between_pulses_step: 20
+      detuning: 2_000_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B4]
+    update: true
+
+  - id: ramsey detuned B5
+    operation: ramsey
+    parameters:
+      delay_between_pulses_end: 3_000
+      delay_between_pulses_start: 8
+      delay_between_pulses_step: 20
+      detuning: 2_000_000
+      nshots: 512
+      relaxation_time: 100_000
+    targets: [B5]
+    update: true
+
+  - id: t2 B1
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 512
+    targets: [B1]
+
+  - id: t2 B2
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 512
+    targets: [B2]
+
+  - id: t2 B3
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 512
+    targets: [B3]
+
+  - id: t2 B4
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 512
+    targets: [B4]
+
+  - id: t2 B5
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 512
+    targets: [B5]

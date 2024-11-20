@@ -1,0 +1,38 @@
+platform: qw11q
+
+targets: [B1,B2,B3,B4,B5]
+
+actions:
+
+  # - id: allXY
+  #   operation: allxy
+  #   parameters:
+  #     beta_param: null
+  #     nshots: 1024
+
+  # - id: standard rb
+  #   operation: standard_rb
+  #   parameters:
+  #     depths: [1, 5, 10, 20, 40, 80, 160, 320]
+  #     niter: 5
+  #     nshots: 1024
+  #     seed: 420
+  #     relaxation_time: 100_000
+  #     unrolling: false
+
+  - id: t1
+    operation: t1
+    parameters:
+      delay_before_readout_end: 100_000
+      delay_before_readout_start: 20
+      delay_before_readout_step: 1_000
+      nshots: 1024
+      relaxation_time: 100_000
+
+  - id: t2
+    operation: t2
+    parameters:
+      delay_between_pulses_start: 20
+      delay_between_pulses_end: 40_000
+      delay_between_pulses_step: 400
+      nshots: 1024
