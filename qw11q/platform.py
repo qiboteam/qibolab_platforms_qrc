@@ -23,16 +23,13 @@ def create():
 
     Qubits D1, D2, D3 have been tested to work.
     """
-    qubits = (
-        {
-            f"B{i}": Qubit.default(f"B{i}", drive_qudits={(1, 2): f"B{i}/drive12"})
-            for i in range(1, 6)
-        } | 
-        {
-            f"D{i}": Qubit.default(f"D{i}", drive_qudits={(1, 2): f"D{i}/drive12"})
-            for i in range(1, 6)
-        }
-    )
+    qubits = {
+        f"B{i}": Qubit.default(f"B{i}", drive_qudits={(1, 2): f"B{i}/drive12"})
+        for i in range(1, 6)
+    } | {
+        f"D{i}": Qubit.default(f"D{i}", drive_qudits={(1, 2): f"D{i}/drive12"})
+        for i in range(1, 6)
+    }
     # Create channels and connect to instrument ports
     channels = {}
     for i in range(1, 6):
@@ -45,7 +42,7 @@ def create():
         channels[q.acquisition] = AcquisitionChannel(
             device="octave2", path="1", twpa_pump="twpaB", probe=q.probe
         )
-        
+
         q = qubits[f"D{i}"]
         assert q.probe is not None
         assert q.acquisition is not None
@@ -75,7 +72,7 @@ def create():
     define_transitions("B3", "octave3", 1, "B3/drive_lo")
     define_transitions("B4", "octave3", 4, "B4/drive_lo")
     define_transitions("B5", "octave3", 3, "B5/drive_lo")
-    
+
     define_transitions("D1", "octave5", 2, "D1/drive_lo")
     define_transitions("D2", "octave5", 4, "D2D3/drive_lo")
     define_transitions("D3", "octave5", 5, "D2D3/drive_lo")
@@ -87,7 +84,7 @@ def create():
         qubit = qubits[f"B{q}"]
         assert qubit.flux is not None
         channels[qubit.flux] = DcChannel(device="con4", path=str(q))
-        
+
         qubit = qubits[f"D{q}"]
         assert qubit.flux is not None
         channels[qubit.flux] = DcChannel(device="con9", path=str(q + 2))
@@ -106,8 +103,8 @@ def create():
         script_file_name="qua_script.py",
     )
     instruments = {
-        "qm": controller, 
-        "twpaB": SGS100A(address="192.168.0.34"), 
-        "twpaD": SGS100A(address="192.168.0.33")
+        "qm": controller,
+        "twpaB": SGS100A(address="192.168.0.34"),
+        "twpaD": SGS100A(address="192.168.0.33"),
     }
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
