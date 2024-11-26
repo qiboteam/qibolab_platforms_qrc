@@ -4,6 +4,7 @@
 import argparse
 import ast
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
@@ -18,10 +19,51 @@ def channel_from_pulse(pulse: dict) -> dict:
     return {"kind": "iq", "frequency": pulse["frequency"]}
 
 
+@dataclass
+class QmConnection:
+    instrument: str
+    port: str
+    output_mode: str = "triggered"
+
+
+def qm_configs(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
+    for channel, conn in instrument_channels.items():
+        connection = QmConnection(**conn)
+        settings = instruments.get(connection.instrument, {}).get(connection.port, {})
+        if channel in conf:
+            kind = conf[channel]["kind"]
+            if kind == "acquisition":
+                conf[channel].update(
+                    {"kind": "qm-acquisition", "gain": settings.get("gain", 0)}
+                )
+            elif kind == "dc":
+                conf[channel].update(
+                    {
+                        "kind": "opx-output",
+                        "filter": settings.get("filter", {}),
+                        "output_mode": settings.get("output_mode", "direct"),
+                    }
+                )
+            else:
+                raise NotImplementedError
+        else:
+            conf[channel] = {
+                "kind": "octave-oscillator",
+                "frequency": settings["lo_frequency"],
+                "power": settings["gain"],
+                "output_mode": connection.output_mode,
+            }
+    return conf
+
+
 def configs(
-    instruments: dict, single: dict, couplers: dict, characterization: dict
+    instruments: dict,
+    single: dict,
+    couplers: dict,
+    characterization: dict,
+    connections: Optional[dict] = None,
 ) -> dict:
-    return (
+    conf = (
         {
             f"{k}/bounds": (v["bounds"] | {"kind": "bounds"})
             for k, v in instruments.items()
@@ -57,6 +99,12 @@ def configs(
             for id, char in characterization.get("coupler", {}).items()
         }
     )
+    if connections is not None:
+        if connections["kind"] == "qm":
+            conf = qm_configs(conf, instruments, connections["channels"])
+        else:
+            raise NotImplementedError
+    return conf
 
 
 def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
@@ -171,7 +219,7 @@ def natives(o: dict) -> dict:
     }
 
 
-def upgrade(o: dict) -> dict:
+def upgrade(o: dict, connections: Optional[dict] = None) -> dict:
     return {
         "settings": o["settings"],
         "configs": configs(
@@ -179,6 +227,7 @@ def upgrade(o: dict) -> dict:
             o["native_gates"]["single_qubit"],
             o["native_gates"].get("coupler", {}),
             o["characterization"],
+            connections,
         ),
         "native_gates": natives(o["native_gates"]),
     }
@@ -226,9 +275,14 @@ def upgrade_cal(o: dict) -> dict:
     }
 
 
-def convert(path: Path):
+def convert(path: Path, connections_path: Optional[Path] = None):
     params = json.loads(path.read_text())
-    new = upgrade(params)
+    connections = (
+        json.loads(connections_path.read_text())
+        if connections_path is not None
+        else None
+    )
+    new = upgrade(params, connections)
     cal = upgrade_cal(params)
     path.with_stem(path.stem + "-new").write_text(json.dumps(new, indent=4))
     path.with_stem("calibration").write_text(json.dumps(cal, indent=4))
@@ -237,13 +291,20 @@ def convert(path: Path):
 def parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("path", nargs="*", type=Path)
+    parser.add_argument("--connections", nargs="*", default=None, type=Path)
     return parser.parse_args()
 
 
 def main():
     args = parse()
-    for p in args.path:
-        convert(p)
+    connections = args.connections
+    if connections is not None:
+        assert len(args.path) == len(connections)
+    else:
+        connections = len(args.path) * [None]
+
+    for p, c in zip(args.path, connections):
+        convert(p, c)
 
 
 if __name__ == "__main__":
