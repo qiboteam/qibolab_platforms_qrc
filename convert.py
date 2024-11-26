@@ -156,21 +156,21 @@ def envelope(o: str) -> dict:
     return {"kind": kind, **kwargs}
 
 
-def pulse(o: dict) -> dict:
+def pulse(o: dict, rescale: float) -> dict:
     return {
         "kind": "pulse",
         "duration": o["duration"],
-        "amplitude": o["amplitude"],
+        "amplitude": rescale * o["amplitude"],
         "envelope": envelope(o["shape"]),
         "relative_phase": o.get("phase", 0.0),
     }
 
 
-def acquisition(o: dict) -> dict:
+def acquisition(o: dict, rescale: float) -> dict:
     return {
         "kind": "readout",
         "acquisition": {"kind": "acquisition", "duration": o["duration"]},
-        "probe": pulse(o),
+        "probe": pulse(o, rescale),
     }
 
 
@@ -178,25 +178,25 @@ def virtualz(o: dict) -> dict:
     return {"kind": "virtualz", "phase": o["phase"]}
 
 
-def pulse_like(o: dict) -> dict:
+def pulse_like(o: dict, rescale: float) -> dict:
     return (
-        acquisition(o)
+        acquisition(o, rescale)
         if o["type"] == "ro"
-        else virtualz(o) if o["type"] == "virtual_z" else pulse(o)
+        else virtualz(o) if o["type"] == "virtual_z" else pulse(o, rescale)
     )
 
 
-def single_pulse(o: dict) -> dict:
+def single_pulse(o: dict, rescale: float) -> dict:
     return {
         id: {
-            gid: [(channel(id, gate["type"]), pulse_like(gate))]
+            gid: [(channel(id, gate["type"]), pulse_like(gate, rescale))]
             for gid, gate in gates.items()
         }
         for id, gates in o.items()
     }
 
 
-def two_qubit(o: dict) -> dict:
+def two_qubit(o: dict, rescale: float) -> dict:
     return {
         id: {
             gid: [
@@ -205,7 +205,7 @@ def two_qubit(o: dict) -> dict:
                         pulse.get("qubit", pulse.get("coupler", NONSERIAL)),
                         pulse["type"],
                     ),
-                    pulse_like(pulse),
+                    pulse_like(pulse, rescale),
                 )
                 for pulse in gate
             ]
@@ -215,17 +215,19 @@ def two_qubit(o: dict) -> dict:
     }
 
 
-def natives(o: dict) -> dict:
+def natives(o: dict, rescale: float) -> dict:
     return {
-        "single_qubit": single_pulse(o["single_qubit"]),
+        "single_qubit": single_pulse(o["single_qubit"], rescale),
         "coupler": {
-            f"coupler_{k}": v for k, v in single_pulse(o.get("coupler", {})).items()
+            f"coupler_{k}": v
+            for k, v in single_pulse(o.get("coupler", {}), rescale).items()
         },
-        "two_qubit": two_qubit(o["two_qubit"]),
+        "two_qubit": two_qubit(o["two_qubit"], rescale),
     }
 
 
 def upgrade(o: dict, connections: Optional[dict] = None) -> dict:
+    rescale = 2 if connections is not None and connections["kind"] == "qm" else 1
     return {
         "settings": o["settings"],
         "configs": configs(
@@ -235,7 +237,7 @@ def upgrade(o: dict, connections: Optional[dict] = None) -> dict:
             o["characterization"],
             connections,
         ),
-        "native_gates": natives(o["native_gates"]),
+        "native_gates": natives(o["native_gates"], rescale),
     }
 
 
