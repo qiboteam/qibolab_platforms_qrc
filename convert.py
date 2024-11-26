@@ -231,7 +231,7 @@ def convert(path: Path):
     new = upgrade(params)
     cal = upgrade_cal(params)
     path.with_stem(path.stem + "-new").write_text(json.dumps(new, indent=4))
-    path.with_stem("calibration").write_text(json.dumps(new, indent=4))
+    path.with_stem("calibration").write_text(json.dumps(cal, indent=4))
 
 
 def parse():
