@@ -156,7 +156,7 @@ def pulse(o: dict) -> dict:
         "duration": o["duration"],
         "amplitude": o["amplitude"],
         "envelope": envelope(o["shape"]),
-        "relative_phase": o.get("phase"),
+        "relative_phase": o.get("phase", 0.0),
     }
 
 
