@@ -94,7 +94,7 @@ def create():
 
     octaves = {
         "octave2": Octave("octave2", port=11101, connectivity="con2"),
-        "octave2": Octave("octave3", port=11102, connectivity="con3"),
+        "octave3": Octave("octave3", port=11102, connectivity="con3"),
         "octave5": Octave("octave5", port=11104, connectivity="con6"),
         "octave6": Octave("octave6", port=11105, connectivity="con8"),
     }
