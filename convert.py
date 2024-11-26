@@ -13,6 +13,8 @@ from qibolab._core.serialize import NdArray
 
 NONSERIAL = lambda: None
 """Raise an error if survives in the final object to be serialized."""
+QM_TIME_OF_FLIGHT = 224
+"""Default time of flight for QM platforms (in 0.1 this was hard-coded in platform.py)."""
 
 
 def channel_from_pulse(pulse: dict) -> dict:
@@ -34,7 +36,11 @@ def qm_configs(conf: dict, instruments: dict, instrument_channels: dict) -> dict
             kind = conf[channel]["kind"]
             if kind == "acquisition":
                 conf[channel].update(
-                    {"kind": "qm-acquisition", "gain": settings.get("gain", 0)}
+                    {
+                        "kind": "qm-acquisition",
+                        "delay": QM_TIME_OF_FLIGHT,
+                        "gain": settings.get("gain", 0),
+                    }
                 )
             elif kind == "dc":
                 conf[channel].update(
