@@ -1,0 +1,70 @@
+{
+    "kind": "qm",
+    "channels": {
+        "01/drive_lo": {
+            "instrument": "octave1",
+            "port": "o2",
+            "output_mode": "always_on"
+        },
+        "2/drive_lo": {
+            "instrument": "octave1",
+            "port": "o1",
+            "output_mode": "always_on"
+        },
+        "3/drive_lo": {
+            "instrument": "octave1",
+            "port": "o4",
+            "output_mode": "always_on"
+        },
+        "4/drive_lo": {
+            "instrument": "octave2",
+            "port": "o2",
+            "output_mode": "always_on"
+        },
+        "probe_lo": {
+            "instrument": "octave2",
+            "port": "o1",
+            "output_mode": "always_on"
+        },
+        "0/flux": {
+            "instrument": "con1",
+            "port": "4/o4"
+        },
+        "1/flux": {
+            "instrument": "con1",
+            "port": "4/o1"
+        },
+        "2/flux": {
+            "instrument": "con1",
+            "port": "4/o3"
+        },
+        "3/flux": {
+            "instrument": "con1",
+            "port": "4/o2"
+        },
+        "4/flux": {
+            "instrument": "con1",
+            "port": "4/o5"
+        },
+        "0/acquisition": {
+            "instrument": "con1",
+            "port": "2/i1"
+        },
+        "1/acquisition": {
+            "instrument": "con1",
+            "port": "2/i1"
+        },
+        "2/acquisition": {
+            "instrument": "con1",
+            "port": "2/i1"
+        },
+        "3/acquisition": {
+            "instrument": "con1",
+            "port": "2/i1"
+        },
+        "4/acquisition": {
+            "instrument": "con1",
+            "port": "2/i1"
+        }
+    }
+}
