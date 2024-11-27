@@ -14,21 +14,22 @@ from qibolab.serialize import (
     load_settings,
 )
  
-ADDRESS = "192.168.0.20"
+ADDRESS = "192.168.0.2"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 3
+NUM_QUBITS = 4
 ROOT = pathlib.Path.home()
 
 def create():
-    """"QRC QFoundry 2Q Chip for Cross Resonance Gates"""
+    """"QRC QFoundry 24 Chip for Cross Resonance Gates"""
     runcard = load_runcard(FOLDER)
 
     # Declare RF Instrument
-    modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:4"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:17"),  # q0, q1 
-        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q2   
+    modules = {  
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:3"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:7"),  # q0, q1 
+        "qrm_rf1": QrmRf("qcm_rf1", f"{ADDRESS}:8"),  # q2   
+        "qrm_rf2": QrmRf("qrm_rf2", f"{ADDRESS}:2"),  # q3
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -49,17 +50,22 @@ def create():
  
     # Create channel objects
     channels = ChannelMap()
-    # Readout
-    channels |= Channel(name="feed_in", port=modules["qrm_rf0"].ports("o1"))
-    # Feedback
-    channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False))
+    channels |= Channel(name="feed_in", port=modules["qrm_rf0"].ports("o1"))             # Readout
+    channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False)) # Feedback
 
      # Drive
-    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # 
-    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit
-    channels |= Channel(name="drive2", port=modules["qrm_rf1"].ports("o1")) # qubit
-    #channels |= Channel(name="drive4", port=modules["qrm_rf1"].ports("o1")) # qubit
-    channels |= Channel(name="dummy", port=modules["qrm_rf1"].ports("i1",out=False))
+    channels |= Channel(name="drive2", port=modules["qcm_rf0"].ports("o1")) # qubit2 [checked]
+    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit1 [checked]
+
+    channels |= Channel(name="drive3", port=modules["qrm_rf1"].ports("o1")) # qubit3
+    channels |= Channel(name="dummy2", port=modules["qrm_rf1"].ports("i1",out=False)) #
+
+    channels |= Channel(name="drive0", port=modules["qrm_rf2"].ports("o1")) # qubit0 [checked]
+    channels |= Channel(name="dummy3", port=modules["qrm_rf2"].ports("i1",out=False)) #
+    
+    
+
+    
 
     # Channel for TWPA Pump
     # channels |= Channel(name="twpa", port=None)
@@ -90,5 +96,5 @@ def create():
     #     modules[name]._debug_folder = debug_folder
     #########################################################################################################
     return Platform(
-        PLATFORM, qubits, pairs, instruments, settings, resonator_type="D"
+        PLATFORM, qubits, pairs, instruments, settings, resonator_type="2D"
     )
