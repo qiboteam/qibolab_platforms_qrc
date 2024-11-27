@@ -59,7 +59,7 @@
         "qrm_rf1": {
             "o1": {
                 "attenuation": 30,
-                "lo_frequency": 4300000000.0
+                "lo_frequency": 4900000000.0
             },
             "i1": {
                 "acquisition_hold_off": 220,
@@ -86,7 +86,7 @@
             "0": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.333,
+                    "amplitude": 0.36,
                     "shape": "Drag(5, 0.384224)",
                     "frequency": 3929664000.0,
                     "relative_start": 0,
@@ -133,7 +133,7 @@
                 },
                 "MZ": {
                     "duration": 1000,
-                    "amplitude": 0.05,
+                    "amplitude": 0.06,
                     "shape": "Rectangular()",
                     "frequency": 7021600000.0,
                     "relative_start": 0,
@@ -162,7 +162,7 @@
                 },
                 "MZ": {
                     "duration": 1000,
-                    "amplitude": 0.1,
+                    "amplitude": 0.13,
                     "shape": "Rectangular()",
                     "frequency": 7205415000.0,
                     "relative_start": 0,
@@ -175,7 +175,7 @@
                     "duration": 40,
                     "amplitude": 0.001,
                     "shape": "Gaussian(5)",
-                    "frequency": 5000000000.0,
+                    "frequency": 4.7e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
