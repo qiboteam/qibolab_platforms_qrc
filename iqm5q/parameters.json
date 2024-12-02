@@ -1,169 +1,203 @@
 {
     "settings": {
-        "nshots": 2048,
-        "relaxation_time": 100000
+        "nshots": 4096,
+        "relaxation_time": 300000
     },
     "configs": {
-        "qm/bounds": {
-            "kind": "bounds",
-            "waveforms": 40000.0,
-            "readout": 30,
-            "instructions": 1000000
+        "qblox_controller/bounds": {
+            "waveforms": 40000,
+            "readout": 1000000,
+            "instructions": 1000000,
+            "kind": "bounds"
         },
-        "twpa": {
-            "kind": "oscillator",
-            "frequency": 6542230000.0,
-            "power": 1.42
-        },
-        "probe_lo": {
-            "kind": "octave-oscillator",
-            "frequency": 7550000000.0,
-            "power": -10.0,
-            "output_mode": "always_on"
-        },
-        "01/drive_lo": {
-            "kind": "octave-oscillator",
-            "frequency": 4900000000.0,
-            "power": 0.0,
-            "output_mode": "always_on"
-        },
-        "2/drive_lo": {
-            "kind": "octave-oscillator",
-            "frequency": 5700000000.0,
-            "power": 0.0,
-            "output_mode": "always_on"
-        },
-        "3/drive_lo": {
-            "kind": "octave-oscillator",
-            "frequency": 6500000000.0,
-            "power": 0.0,
-            "output_mode": "always_on"
-        },
-        "4/drive_lo": {
-            "kind": "octave-oscillator",
-            "frequency": 6500000000.0,
-            "power": 0.0,
-            "output_mode": "always_on"
-        },
-        "0/probe": {
-            "kind": "iq",
-            "frequency": 7202448936.0
-        },
-        "0/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.005134536511341071,
-            "iq_angle": -0.29740896436378317,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "twpa_pump0": {
+            "power": 5,
+            "frequency": 6700000000,
+            "kind": "oscillator"
         },
         "0/drive": {
-            "kind": "iq",
-            "frequency": 4773401847.0
+            "kind": "qblox-iq",
+            "frequency": 4107190912,
+            "attenuation": 26
         },
-        "0/flux": {
-            "kind": "opx-output",
-            "offset": 0.26841555262486466,
-            "filter": {},
-            "output_mode": "amplified"
+        "0/drive12": {
+            "kind": "qblox-iq",
+            "frequency": 3995623000,
+            "attenuation": 26
         },
-        "1/probe": {
-            "kind": "iq",
-            "frequency": 7332334801.0
-        },
-        "1/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "0/probe": {
+            "kind": "qblox-iq",
+            "frequency": 5232350000,
+            "attenuation": 28
         },
         "1/drive": {
-            "kind": "iq",
-            "frequency": 4808384394.0
+            "kind": "qblox-iq",
+            "frequency": 4257487324,
+            "attenuation": 26
         },
-        "1/flux": {
-            "kind": "opx-output",
-            "offset": -0.18,
-            "filter": {},
-            "output_mode": "amplified"
+        "1/drive12": {
+            "kind": "qblox-iq",
+            "frequency": 41521410000,
+            "attenuation": 26
         },
-        "2/probe": {
-            "kind": "iq",
-            "frequency": 7493204662.0
-        },
-        "2/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.0034120167301051126,
-            "iq_angle": 1.5704503406631587,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "1/probe": {
+            "kind": "qblox-iq",
+            "frequency": 4934492000,
+            "attenuation": 28
         },
         "2/drive": {
-            "kind": "iq",
-            "frequency": 5512171486.0
+            "kind": "qblox-iq",
+            "frequency": 4538373000,
+            "attenuation": 26
         },
-        "2/flux": {
-            "kind": "opx-output",
-            "offset": 0.4812934537050486,
-            "filter": {},
-            "output_mode": "amplified"
+        "2/drive12": {
+            "kind": "qblox-iq",
+            "frequency": 4337630000,
+            "attenuation": 26
         },
-        "3/probe": {
-            "kind": "iq",
-            "frequency": 7660383000.0
-        },
-        "3/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.005144906282110747,
-            "iq_angle": 0.23761955385072117,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "2/probe": {
+            "kind": "qblox-iq",
+            "frequency": 6106000000,
+            "attenuation": 28
         },
         "3/drive": {
-            "kind": "iq",
-            "frequency": 6329296235.0
+            "kind": "qblox-iq",
+            "frequency": 4160866475,
+            "attenuation": 0
         },
-        "3/flux": {
-            "kind": "opx-output",
-            "offset": -0.581,
-            "filter": {},
-            "output_mode": "amplified"
+        "3/drive12": {
+            "kind": "qblox-iq",
+            "frequency": 3948921000,
+            "attenuation": 0
         },
-        "4/probe": {
-            "kind": "iq",
-            "frequency": 7793718235.0
-        },
-        "4/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.001704547130855065,
-            "iq_angle": 2.3229800598289256,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "3/probe": {
+            "kind": "qblox-iq",
+            "frequency": 5801000000,
+            "attenuation": 28
         },
         "4/drive": {
-            "kind": "iq",
-            "frequency": 6236225900.0
+            "kind": "qblox-iq",
+            "frequency": 4353758484,
+            "attenuation": 26
+        },
+        "4/drive12": {
+            "kind": "qblox-iq",
+            "frequency": 4143343000,
+            "attenuation": 26
+        },
+        "4/probe": {
+            "kind": "qblox-iq",
+            "frequency": 5519000000,
+            "attenuation": 28
+        },
+        "0/acquisition": {
+            "kind": "acquisition",
+            "delay": 0.0,
+            "smearing": 0.0,
+            "threshold": 0.001306018038891992,
+            "iq_angle": 2.3704903459828994,
+            "kernel": null
+        },
+        "1/acquisition": {
+            "kind": "acquisition",
+            "delay": 0.0,
+            "smearing": 0.0,
+            "threshold": 0.0020967485680331204,
+            "iq_angle": -3.119173409432834,
+            "kernel": null
+        },
+        "2/acquisition": {
+            "kind": "acquisition",
+            "delay": 0.0,
+            "smearing": 0.0,
+            "threshold": 0.0007286683396828021,
+            "iq_angle": 2.452677874450897,
+            "kernel": null
+        },
+        "3/acquisition": {
+            "kind": "acquisition",
+            "delay": 0.0,
+            "smearing": 0.0,
+            "threshold": 0.0015154286339107198,
+            "iq_angle": -1.1976502145909054,
+            "kernel": null
+        },
+        "4/acquisition": {
+            "kind": "acquisition",
+            "delay": 0.0,
+            "smearing": 0.0,
+            "threshold": 0.0008421355731670621,
+            "iq_angle": -2.2864882528950705,
+            "kernel": null
+        },
+        "0/flux": {
+            "kind": "dc",
+            "offset": -0.00032
+        },
+        "1/flux": {
+            "kind": "dc",
+            "offset": 0.0163
+        },
+        "2/flux": {
+            "kind": "dc",
+            "offset": -0.0594
+        },
+        "3/flux": {
+            "kind": "dc",
+            "offset": 0.0
         },
         "4/flux": {
-            "kind": "opx-output",
-            "offset": -0.04822291721348779,
-            "filter": {},
-            "output_mode": "amplified"
+            "kind": "dc",
+            "offset": 0.0
+        },
+        "coupler_0/flux": {
+            "kind": "dc",
+            "offset": 0
+        },
+        "coupler_1/flux": {
+            "kind": "dc",
+            "offset": 0
+        },
+        "coupler_3/flux": {
+            "kind": "dc",
+            "offset": 0
+        },
+        "coupler_4/flux": {
+            "kind": "dc",
+            "offset": 0
+        },
+        "qrm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 5100000000
+        },
+        "qrm_rf1/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 5840000000
+        },
+        "qcm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 4410592000
+        },
+        "qcm_rf0/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 4738318000
+        },
+        "qcm_rf1/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 4336921000
+        },
+        "qcm_rf1/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 4578819000
+        },
+        "qcm_rf2/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 4305409000
+        },
+        "qrm_rf1/o1/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -8.1,
+            "offset_q": -3.8
         }
     },
     "native_gates": {
@@ -174,17 +208,31 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.176,
+                            "duration": 40,
+                            "amplitude": 0.3508518308085702,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
                             },
-                            "relative_phase": 0.0
+                            "relative_phase": 0
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "0/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 80,
+                            "amplitude": 0.102,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "0/acquisition",
@@ -192,21 +240,20 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 2000
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.012,
+                                "duration": 2000,
+                                "amplitude": 0.286,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "1": {
                 "RX": [
@@ -214,17 +261,31 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.0332,
+                            "duration": 40,
+                            "amplitude": 0.34096022647753355,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
                             },
-                            "relative_phase": 0.0
+                            "relative_phase": 0
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 80,
+                            "amplitude": 0.078,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "1/acquisition",
@@ -232,21 +293,20 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 2000
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.002,
+                                "duration": 2000,
+                                "amplitude": 0.45,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "2": {
                 "RX": [
@@ -254,17 +314,31 @@
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.1025,
+                            "duration": 40,
+                            "amplitude": 0.3389668394766815,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
                             },
-                            "relative_phase": 0.0
+                            "relative_phase": 0
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 80,
+                            "amplitude": 0.073,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "2/acquisition",
@@ -272,21 +346,20 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 2000
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.004,
+                                "duration": 2000,
+                                "amplitude": 0.12,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "3": {
                 "RX": [
@@ -294,17 +367,31 @@
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.136,
+                            "duration": 40,
+                            "amplitude": 0.33847980194164407,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
                             },
-                            "relative_phase": 0.0
+                            "relative_phase": 0
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 80,
+                            "amplitude": 0.084,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "3/acquisition",
@@ -312,21 +399,20 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 2000
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.014,
+                                "duration": 2000,
+                                "amplitude": 0.08,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "4": {
                 "RX": [
@@ -334,17 +420,31 @@
                         "4/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.159,
+                            "duration": 40,
+                            "amplitude": 0.34058057897699473,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
                             },
-                            "relative_phase": 0.0
+                            "relative_phase": 0
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX12": [
+                    [
+                        "4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 80,
+                            "amplitude": 0.076,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "4/acquisition",
@@ -352,24 +452,348 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 2000
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.006,
+                                "duration": 2000,
+                                "amplitude": 0.222,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             }
         },
-        "coupler": {},
-        "two_qubit": {}
+        "coupler": {
+            "coupler_0": {
+                "CP": [
+                    [
+                        "coupler_0/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "coupler_1": {
+                "CP": [
+                    [
+                        "coupler_1/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "coupler_3": {
+                "CP": [
+                    [
+                        "coupler_3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "coupler_4": {
+                "CP": [
+                    [
+                        "coupler_4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            }
+        },
+        "two_qubit": {
+            "0-2": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_0/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "iSWAP": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0.2541,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_0/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 0,
+                            "amplitude": 0,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "1-2": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 91,
+                            "amplitude": 0.1083,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": -2.8
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 4.454
+                        }
+                    ],
+                    [
+                        "coupler_1/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 91,
+                            "amplitude": 0.06712,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "iSWAP": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 78,
+                            "amplitude": 0.213987,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_1/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 78,
+                            "amplitude": 0.107625,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "2-3": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 57,
+                            "amplitude": 0.16033,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 1.9
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.54
+                        }
+                    ],
+                    [
+                        "coupler_3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 57,
+                            "amplitude": 0.1144,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "iSWAP": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 75,
+                            "amplitude": 0.2325,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 75,
+                            "amplitude": 0.104,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "2-4": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 50,
+                            "amplitude": 0.243,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 50,
+                            "amplitude": 0.213,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "iSWAP": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 75,
+                            "amplitude": 0.164,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"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\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "coupler_4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 75,
+                            "amplitude": 0.213,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "\"k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDE4MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8D+7wnHPqfrvP/LAtjRt9e8/V6H1rknw7z/INXDNPuvvP2jsCRpM5u8/os9HGXHh7z8NFcpfrdzvP8oqdHcA2O8/KapE+mnT7z++yNt86c7vP2ZYe45+yu8/J1aAzijG7z9OW+nW58HvPykBtUG7ve8/v0RArqK57z8VI+i7nbXvPzGZCQqsse8/i2u+Qs2t7z8pl2MFAarvP4LgEvxGpu8/Dgzm0J6i7z9D3vYtCJ/vP+G3ALiCm+8/iIg4KQ6Y7z/2sFkmqpTvPxW9OmRWke8/FNVTkhKO7z+U6Nlq3orvPwy85pe5h+8/1qIN2aOE7z+SjIPonIHvP7g9YnCkfu8/EtH5Orp77z+I0iD93XjvP3WVanYPdu8/eQkMYU5z7z/sgZh8mnDvP5sZYJPzbe8/bVw5Wllr7z8tZXSby2jvPzOHpBZKZu8/BEF4m9Rj7z9AgiTkamHvP2vJV8AMX+8/3Gml77lc7z/RRRpHclrvP1wUqIs1WO8/RvCehwNW7z8SWK0K3FPvP4xmI9++Ue8/N5qv1KtP7z9N1V7Aok3vP+LOImejS+8/6cxmo61J7z/lTdlEwUfvP1nQKBveRe8/OZrAAARE7z8KKk/FMkLvPwVi4T1qQO8/IIjiRKo+7z+Wfl+v8jzvP6InZVJDO+8/8iy9DZw57z8IDRax/DfvP5FxORxlNu8/gaCSKdU07z8UfC6uTDPvP2h1k5TLMe8/AAtwrFEw7z+I5o3V3i7vP62xtu9yLe8/1XkS4A0s7z87Ia57ryrvP4xRU6JXKe8/5XuIPgYo7z875rgquybvP/OdDEx2Je8/AenufDck7z+EOOan/iLvP9+ZGrLLIe8/CFP3dZ4g7z/VOGHjdh/vPzqRw9RUHu8/VM2kNDgd7z+K+izoIBzvP/iJ4tkOG+8/TCWP6QEa7z+kPbkB+hjvPxxE5wz3F+8/G0ZB8PgW7z+/tE2W/xXvPyQBk+kKFe8/sTg5zxoU7z+DzMYxLxPvP3CRIAFIEu8/3pRuImUR7z/rRzeAhhDvP2x/XwqsD+8/ORDMsNUO7z/+o0ZTAw7vPwPXcOw0De8/rLZyYWoM7z8XtNKcowvvP9UH1JPgCu8/ASP9MCEK7z9z2jJkZQnvPwEDWh2tCO8/yA35RvgH7z+gz/TQRgfvPxeBkLCYBu8/A/ew1e0F7z+DotwqRgXvP2xY+J+hBO8/BrWlLwAE7z+2xQy/YQPvP8Qmz0jGAu8/Bq3RvC0C7z9TLfkKmAHvPzngiCgFAe8/j5plBXUA7z8qMXSR5//uP1RAVsdc/+4/KDmSkdT+7j+oGyjwTv7uPzj1P8jL/e4/2sXZGUv97j+p/nvPzPzuP+47yONQ/O4/ObYBTNf77j9eQg34X/vuP6Z8jOLq+u4/n53CAHj67j8gepRCB/ruP7hKRZ2Y+e4/Zg/VECz57j9KOcqHwfjuP2HIJAJZ+O4/yy1ravL37j9AzfvFjffuP94XXf8q9+4/7KkwEcr27j+xHxj2avbuP72xVqMN9u4/n5gvDrL17j+dcEQxWPXuP0dy2AEA9e4/LNYudan07j9MnEeLVPTuPzX9ZTkB9O4/L5Ureq/z7j8ROX09X/PuP9roWoMQ8+4/Gd0HQcPy7j8WsiVxd/LuPxkEVg4t8u4/rwvcDeTx7j8hZVlqnPHuP7asbx5W8e4/tn7AJBHx7j9nd+13zfDuP1rPOQ2L8O4/1CJH30nw7j/XcRXuCfDuPzmRiSnL7+4/suQBl43v7j/RpMErUe/uPyQKDN0V7+4/Zng/sNvu7j9rxECVou7uPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\""
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ]
+            }
+        }
     }
 }
