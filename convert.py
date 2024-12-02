@@ -123,9 +123,7 @@ def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
             else (
                 "acquisition"
                 if type_ == "ro"
-                else "drive12"
-                if gate == "RX12"
-                else "drive"
+                else "drive12" if gate == "RX12" else "drive"
             )
         )
     )
@@ -184,9 +182,7 @@ def pulse_like(o: dict, rescale: float) -> dict:
     return (
         acquisition(o, rescale)
         if o["type"] == "ro"
-        else virtualz(o)
-        if o["type"] == "virtual_z"
-        else pulse(o, rescale)
+        else virtualz(o) if o["type"] == "virtual_z" else pulse(o, rescale)
     )
 
 
@@ -264,7 +260,7 @@ def single_qubits_cal(o: dict) -> dict:
             "t1": [k["T1"], None],
             "t2": [k["T2"], None],
             "t2_spin_echo": [k["T2_spin_echo"], None],
-            "rb_fidelity": [k["gate_fidelity"], None],
+            "rb_fidelity": [k["gate_fidelity"], None] if "gate_fidelity" in k else None,
         }
         for q, k in o.items()
     }
@@ -283,7 +279,11 @@ def two_qubits_cal(o: dict) -> dict:
 def upgrade_cal(o: dict) -> dict:
     return {
         "single_qubits": single_qubits_cal(o["characterization"]["single_qubit"]),
-        "two_qubits": two_qubits_cal(o["characterization"]["two_qubit"]),
+        "two_qubits": (
+            two_qubits_cal(o["characterization"]["two_qubit"])
+            if "two_qubit" in o["characterization"]
+            else {}
+        ),
     }
 
 
