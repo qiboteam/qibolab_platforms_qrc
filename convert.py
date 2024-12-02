@@ -28,48 +28,13 @@ class QmConnection:
     output_mode: str = "triggered"
 
 
-def qm_configs(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
-    for channel, conn in instrument_channels.items():
-        connection = QmConnection(**conn)
-        settings = instruments.get(connection.instrument, {}).get(connection.port, {})
-        if channel in conf:
-            kind = conf[channel]["kind"]
-            if kind == "acquisition":
-                conf[channel].update(
-                    {
-                        "kind": "qm-acquisition",
-                        "delay": QM_TIME_OF_FLIGHT,
-                        "gain": settings.get("gain", 0),
-                    }
-                )
-            elif kind == "dc":
-                conf[channel].update(
-                    {
-                        "kind": "opx-output",
-                        "filter": settings.get("filter", {}),
-                        "output_mode": settings.get("output_mode", "direct"),
-                    }
-                )
-            else:
-                raise NotImplementedError
-        else:
-            conf[channel] = {
-                "kind": "octave-oscillator",
-                "frequency": settings["lo_frequency"],
-                "power": settings["gain"],
-                "output_mode": connection.output_mode,
-            }
-    return conf
-
-
 def configs(
     instruments: dict,
     single: dict,
     couplers: dict,
     characterization: dict,
-    connections: Optional[dict] = None,
 ) -> dict:
-    conf = (
+    return (
         {
             f"{k}/bounds": (v["bounds"] | {"kind": "bounds"})
             for k, v in instruments.items()
@@ -105,12 +70,6 @@ def configs(
             for id, char in characterization.get("coupler", {}).items()
         }
     )
-    if connections is not None:
-        if connections["kind"] == "qm":
-            conf = qm_configs(conf, instruments, connections["channels"])
-        else:
-            raise NotImplementedError
-    return conf
 
 
 def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
@@ -226,15 +185,72 @@ def natives(o: dict, rescale: float) -> dict:
     }
 
 
+def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
+    for channel, conn in instrument_channels.items():
+        connection = QmConnection(**conn)
+        settings = instruments.get(connection.instrument, {}).get(connection.port, {})
+        if channel in conf:
+            kind = conf[channel]["kind"]
+            if kind == "acquisition":
+                conf[channel].update(
+                    {
+                        "kind": "qm-acquisition",
+                        "delay": QM_TIME_OF_FLIGHT,
+                        "gain": settings.get("gain", 0),
+                    }
+                )
+            elif kind == "dc":
+                conf[channel].update(
+                    {
+                        "kind": "opx-output",
+                        "filter": settings.get("filter", {}),
+                        "output_mode": settings.get("output_mode", "direct"),
+                    }
+                )
+            else:
+                raise NotImplementedError
+        else:
+            conf[channel] = {
+                "kind": "octave-oscillator",
+                "frequency": settings["lo_frequency"],
+                "power": settings["gain"],
+                "output_mode": connection.output_mode,
+            }
+    return conf
+
+
+def qblox(configs: dict, instruments: dict):
+    return configs
+
+
+def device_specific(o: dict, configs: dict, connections: Optional[dict]):
+    return (
+        configs
+        if connections is None
+        else (
+            qm(configs, o["instruments"], connections["channels"])
+            if connections["kind"] == "qm"
+            else (
+                qblox(configs, o["instruments"])
+                if connections["kind"] == "qblox"
+                else NONSERIAL
+            )
+        )
+    )
+
+
 def upgrade(o: dict, connections: Optional[dict] = None) -> dict:
     rescale = 2 if connections is not None and connections["kind"] == "qm" else 1
     return {
         "settings": o["settings"],
-        "configs": configs(
-            o["instruments"],
-            o["native_gates"]["single_qubit"],
-            o["native_gates"].get("coupler", {}),
-            o["characterization"],
+        "configs": device_specific(
+            o,
+            configs(
+                o["instruments"],
+                o["native_gates"]["single_qubit"],
+                o["native_gates"].get("coupler", {}),
+                o["characterization"],
+            ),
             connections,
         ),
         "native_gates": natives(o["native_gates"], rescale),
@@ -287,8 +303,17 @@ def upgrade_cal(o: dict) -> dict:
     }
 
 
-def convert(path: Path, connections_path: Optional[Path] = None):
+def convert(path: Path, args: argparse.Namespace):
     params = json.loads(path.read_text())
+    connections_path = (
+        args.connections
+        if args.connections is not None
+        else (
+            (path.parent / "connections.json")
+            if (path.parent / "connections.json").exists()
+            else None
+        )
+    )
     connections = (
         json.loads(connections_path.read_text())
         if connections_path is not None
@@ -304,11 +329,11 @@ def parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("path", nargs="*", type=Path)
     parser.add_argument(
-        "--qm-connections",
+        "--connections",
         nargs="?",
         default=None,
         type=Path,
-        help="path to JSON file with connections for QM",
+        help="path to JSON file with connections",
     )
     return parser.parse_args()
 
@@ -317,7 +342,7 @@ def main():
     args = parse()
 
     for p in args.path:
-        convert(p, args.qm_connections)
+        convert(p, args)
 
 
 if __name__ == "__main__":
