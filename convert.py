@@ -1,5 +1,4 @@
-"""Converts parameters.json to parameters.json and calibration.json
-"""
+"""Converts parameters.json to parameters.json and calibration.json."""
 
 import argparse
 import ast
@@ -14,7 +13,8 @@ from qibolab._core.serialize import NdArray
 NONSERIAL = lambda: None
 """Raise an error if survives in the final object to be serialized."""
 QM_TIME_OF_FLIGHT = 224
-"""Default time of flight for QM platforms (in 0.1 this was hard-coded in platform.py)."""
+"""Default time of flight for QM platforms (in 0.1 this was hard-coded in
+platform.py)."""
 
 
 def channel_from_pulse(pulse: dict) -> dict:
@@ -123,7 +123,9 @@ def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
             else (
                 "acquisition"
                 if type_ == "ro"
-                else "drive12" if gate == "RX12" else "drive"
+                else "drive12"
+                if gate == "RX12"
+                else "drive"
             )
         )
     )
@@ -182,7 +184,9 @@ def pulse_like(o: dict, rescale: float) -> dict:
     return (
         acquisition(o, rescale)
         if o["type"] == "ro"
-        else virtualz(o) if o["type"] == "virtual_z" else pulse(o, rescale)
+        else virtualz(o)
+        if o["type"] == "virtual_z"
+        else pulse(o, rescale)
     )
 
 
@@ -299,20 +303,21 @@ def convert(path: Path, connections_path: Optional[Path] = None):
 def parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("path", nargs="*", type=Path)
-    parser.add_argument("--connections", nargs="*", default=None, type=Path)
+    parser.add_argument(
+        "--qm-connections",
+        nargs="?",
+        default=None,
+        type=Path,
+        help="path to JSON file with connections for QM",
+    )
     return parser.parse_args()
 
 
 def main():
     args = parse()
-    connections = args.connections
-    if connections is not None:
-        assert len(args.path) == len(connections)
-    else:
-        connections = len(args.path) * [None]
 
-    for p, c in zip(args.path, connections):
-        convert(p, c)
+    for p in args.path:
+        convert(p, args.qm_connections)
 
 
 if __name__ == "__main__":
