@@ -5,7 +5,7 @@ import ast
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import Callable, Optional
 
 from pydantic import TypeAdapter
 from qibolab._core.serialize import NdArray
@@ -219,11 +219,49 @@ def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
     return conf
 
 
-def qblox(configs: dict, instruments: dict):
-    return configs
+def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
+    MODS = {"qcm_bb", "qcm_rf", "qrm_rf"}
+    c = (
+        configs
+        | {
+            f"{inst}/{port}/lo": {
+                "kind": "oscillator",
+                "frequency": settings["lo_frequency"],
+            }
+            for inst, ports in instruments.items()
+            if any(mod in inst for mod in MODS)
+            for port, settings in ports.items()
+            if "lo_frequency" in settings
+        }
+        | {
+            f"{inst}/{port}/mixer": {
+                "kind": "iq-mixer",
+                "offset_i": settings["mixer_calibration"][0],
+                "offset_q": settings["mixer_calibration"][1],
+            }
+            for inst, ports in instruments.items()
+            if any(mod in inst for mod in MODS)
+            for port, settings in ports.items()
+            if "mixer_calibration" in settings
+        }
+    )
+    for inst, ports in instruments.items():
+        if any(mod in inst for mod in MODS):
+            for port, settings in ports.items():
+                if "attenuation" in settings:
+                    chs = ["drive", "drive12"] if "qcm" in inst else ["probe"]
+                    for q in channels[inst][port[1:]]:
+                        for ch in chs:
+                            d = c[f"{q[1:]}/{ch}"]
+                            d["kind"] = "qblox-iq"
+                            d["attenuation"] = settings["attenuation"]
+
+    return c
 
 
-def device_specific(o: dict, configs: dict, connections: Optional[dict]):
+def device_specific(
+    o: dict, configs: dict, connections: Optional[dict]
+) -> dict | Callable:
     return (
         configs
         if connections is None
@@ -231,7 +269,7 @@ def device_specific(o: dict, configs: dict, connections: Optional[dict]):
             qm(configs, o["instruments"], connections["channels"])
             if connections["kind"] == "qm"
             else (
-                qblox(configs, o["instruments"])
+                qblox(configs, o["instruments"], connections["channels"])
                 if connections["kind"] == "qblox"
                 else NONSERIAL
             )
