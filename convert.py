@@ -83,9 +83,7 @@ def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
             else (
                 "acquisition"
                 if type_ == "ro"
-                else "drive12"
-                if gate == "RX12"
-                else "drive"
+                else "drive12" if gate == "RX12" else "drive"
             )
         )
     )
@@ -148,9 +146,7 @@ def pulse_like(o: dict, rescale: float) -> dict:
     return (
         acquisition(o, rescale)
         if o["type"] == "ro"
-        else virtualz(o)
-        if o["type"] == "virtual_z"
-        else pulse(o, rescale)
+        else virtualz(o) if o["type"] == "virtual_z" else pulse(o, rescale)
     )
 
 
