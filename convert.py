@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Optional
 
+import numpy as np
 from pydantic import TypeAdapter
 from qibolab._core.serialize import NdArray
 
@@ -82,7 +83,9 @@ def channel(qubit: str, type_: str, gate: Optional[str] = None) -> str:
             else (
                 "acquisition"
                 if type_ == "ro"
-                else "drive12" if gate == "RX12" else "drive"
+                else "drive12"
+                if gate == "RX12"
+                else "drive"
             )
         )
     )
@@ -107,11 +110,15 @@ def envelope(o: str) -> dict:
     kind = call.func.id.lower()
     kwargs = {}
     shape = SHAPES[kind]
-    for arg, spec in zip(call.args, shape.items()):
-        kwargs[spec[0]] = spec[1](ast.literal_eval(arg))
+    for arg, (attr, map_) in zip(call.args, shape.items()):
+        kwargs[attr] = map_(ast.literal_eval(arg))
     for arg in call.keywords:
         assert isinstance(arg.value, ast.Constant)
         kwargs[arg.arg] = ast.literal_eval(arg.value)
+    if kind == "custom" and "q_" not in kwargs:
+        kwargs["q_"] = (
+            TypeAdapter(NdArray).dump_json(np.zeros_like(kwargs["i_"])).decode()
+        )
     return {"kind": kind, **kwargs}
 
 
@@ -141,7 +148,9 @@ def pulse_like(o: dict, rescale: float) -> dict:
     return (
         acquisition(o, rescale)
         if o["type"] == "ro"
-        else virtualz(o) if o["type"] == "virtual_z" else pulse(o, rescale)
+        else virtualz(o)
+        if o["type"] == "virtual_z"
+        else pulse(o, rescale)
     )
 
 
