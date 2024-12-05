@@ -224,14 +224,15 @@ def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
     return conf
 
 
-def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
+def qblox(configs: dict, instruments: dict) -> dict:
     MODS = {"qcm_bb", "qcm_rf", "qrm_rf"}
-    c = (
+    return (
         configs
         | {
             f"{inst}/{port}/lo": {
                 "kind": "oscillator",
                 "frequency": settings["lo_frequency"],
+                "power": settings["attenuation"],
             }
             for inst, ports in instruments.items()
             if any(mod in inst for mod in MODS)
@@ -250,18 +251,6 @@ def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
             if "mixer_calibration" in settings
         }
     )
-    for inst, ports in instruments.items():
-        if any(mod in inst for mod in MODS):
-            for port, settings in ports.items():
-                if "attenuation" in settings:
-                    chs = ["drive", "drive12"] if "qcm" in inst else ["probe"]
-                    for q in channels[inst][port[1:]]:
-                        for ch in chs:
-                            d = c[f"{q[1:]}/{ch}"]
-                            d["kind"] = "qblox-iq"
-                            d["attenuation"] = settings["attenuation"]
-
-    return c
 
 
 def device_specific(
@@ -274,7 +263,7 @@ def device_specific(
             qm(configs, o["instruments"], connections["channels"])
             if connections["kind"] == "qm"
             else (
-                qblox(configs, o["instruments"], connections["channels"])
+                qblox(configs, o["instruments"])
                 if connections["kind"] == "qblox"
                 else NONSERIAL
             )
