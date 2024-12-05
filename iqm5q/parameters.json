@@ -16,79 +16,64 @@
             "kind": "oscillator"
         },
         "0/drive": {
-            "kind": "qblox-iq",
-            "frequency": 4107103000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4107103000
         },
         "0/drive12": {
-            "kind": "qblox-iq",
-            "frequency": 3995623000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 3995623000
         },
         "0/probe": {
-            "kind": "qblox-iq",
-            "frequency": 5232350000,
-            "attenuation": 28
+            "kind": "iq",
+            "frequency": 5232350000
         },
         "1/drive": {
-            "kind": "qblox-iq",
-            "frequency": 4257487324,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4257487324
         },
         "1/drive12": {
-            "kind": "qblox-iq",
-            "frequency": 41521410000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 41521410000
         },
         "1/probe": {
-            "kind": "qblox-iq",
-            "frequency": 4934492000,
-            "attenuation": 28
+            "kind": "iq",
+            "frequency": 4934492000
         },
         "2/drive": {
-            "kind": "qblox-iq",
-            "frequency": 4538373000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4538373000
         },
         "2/drive12": {
-            "kind": "qblox-iq",
-            "frequency": 4337630000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4337630000
         },
         "2/probe": {
-            "kind": "qblox-iq",
-            "frequency": 6106000000,
-            "attenuation": 28
+            "kind": "iq",
+            "frequency": 6106000000
         },
         "3/drive": {
-            "kind": "qblox-iq",
-            "frequency": 4160866475,
-            "attenuation": 0
+            "kind": "iq",
+            "frequency": 4160866475
         },
         "3/drive12": {
-            "kind": "qblox-iq",
-            "frequency": 3948921000,
-            "attenuation": 0
+            "kind": "iq",
+            "frequency": 3948921000
         },
         "3/probe": {
-            "kind": "qblox-iq",
-            "frequency": 5808000000,
-            "attenuation": 28
+            "kind": "iq",
+            "frequency": 5808000000
         },
         "4/drive": {
-            "kind": "qblox-iq",
-            "frequency": 4145153000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4145153000
         },
         "4/drive12": {
-            "kind": "qblox-iq",
-            "frequency": 4143343000,
-            "attenuation": 26
+            "kind": "iq",
+            "frequency": 4143343000
         },
         "4/probe": {
-            "kind": "qblox-iq",
-            "frequency": 5531000000,
-            "attenuation": 28
+            "kind": "iq",
+            "frequency": 5531000000
         },
         "0/acquisition": {
             "kind": "acquisition",
@@ -168,31 +153,38 @@
         },
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 5100000000
+            "frequency": 5100000000,
+            "power": 28
         },
         "qrm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 5840000000
+            "frequency": 5840000000,
+            "power": 28
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4410592000
+            "frequency": 4410592000,
+            "power": 26
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4738318000
+            "frequency": 4738318000,
+            "power": 26
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4336921000
+            "frequency": 4336921000,
+            "power": 0
         },
         "qcm_rf1/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4278819000
+            "frequency": 4278819000,
+            "power": 26
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4305409000
+            "frequency": 4305409000,
+            "power": 26
         },
         "qrm_rf1/o1/mixer": {
             "kind": "iq-mixer",

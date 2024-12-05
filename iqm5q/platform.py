@@ -1,16 +1,12 @@
 import pathlib
 
-from qibolab import ConfigKinds, Platform, Qubit
-from qibolab._core.instruments.qblox.channels import QbloxConfigs
+from qibolab import Platform, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import map_ports
 from qibolab._core.platform.platform import QubitMap
 
 # from qibolab.instruments.qblox import Cluster, QbloxConfigs, map_ports
 from qibolab.instruments.rohde_schwarz import SGS100A
-
-# Register Qblox-specific configurations for parameters loading
-ConfigKinds.extend([QbloxConfigs])
 
 FOLDER = pathlib.Path(__file__).parent
 NAME = "iqm5q_qblox"
