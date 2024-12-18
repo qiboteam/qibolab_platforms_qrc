@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -d recal_reports ]; then
-    re -r recal_reports
+    rm -r recal_reports
 fi
 
 mkdir recal_reports
