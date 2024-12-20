@@ -48,11 +48,11 @@ def create():
     # Readout
     channels |= Channel(name="readoutA", port=octaves[4].ports(1))
     channels |= Channel(name="readoutB", port=octaves[2].ports(1))
-    channels |= Channel(name="readoutD", port=octaves[5].ports(1))
+    channels |= Channel(name="readoutD", port=octaves[6].ports(1))
     # Feedback
     channels |= Channel(name="feedbackA", port=octaves[4].ports(1, output=False))
     channels |= Channel(name="feedbackB", port=octaves[2].ports(1, output=False))
-    channels |= Channel(name="feedbackD", port=octaves[5].ports(1, output=False))
+    channels |= Channel(name="feedbackD", port=octaves[6].ports(1, output=False))
     # TWPA
     channels |= Channel(name="twpaB", port=None)
     channels["twpaB"].local_oscillator = twpa_b
