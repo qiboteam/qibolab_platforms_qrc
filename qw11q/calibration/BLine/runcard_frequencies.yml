@@ -1,21 +1,20 @@
 platform: qw11q
 
-targets: [B1,B2,B3,B4,B5]
+targets: [B1,B2,B3,B4]
 
 actions:
 
-  - id: resonator_spectroscopy B4
+  - id: resonator_spectroscopy
     operation: resonator_spectroscopy
     parameters:
       power_level: low
-      freq_width: 5_000_000
+      freq_width: 3_000_000
       freq_step: 10_000
       nshots: 512
       relaxation_time: 100_000
     update: true
-    targets: [B4]
 
-  - id: qubit flux dependence B1, B2, B3, B5
+  - id: qubit flux dependence
     operation: qubit_flux
     parameters:
       bias_width: 0.06
@@ -25,20 +24,6 @@ actions:
       freq_width: 20_000_000
       nshots: 512
       relaxation_time: 100_000
-    targets: [B1, B2, B3, B5]
-    update: true
-
-  - id: qubit flux dependence B4
-    operation: qubit_flux
-    parameters:
-      bias_width: 0.03
-      bias_step: 0.0015
-      drive_amplitude: 0.001
-      freq_step: 200_000
-      freq_width: 8_000_000
-      nshots: 512
-      relaxation_time: 100_000
-    targets: [B4]
     update: true
 
   - id: rabi amplitude signal
