@@ -2,7 +2,7 @@
     "nqubits": 4,
     "settings": {
         "nshots": 4000,
-        "relaxation_time": 100000
+        "relaxation_time": 120000
     },
     "qubits": [
         0,
@@ -49,17 +49,17 @@
         "qcm_rf0": {
             "o1": {
                 "attenuation": 20,
-                "lo_frequency": 4900000000.0
+                "lo_frequency": 4600000000.0
             },
             "o2": {
                 "attenuation": 30,
-                "lo_frequency": 4300000000.0
+                "lo_frequency": 4100000000.0
             }
         },
         "qrm_rf1": {
             "o1": {
                 "attenuation": 20,
-                "lo_frequency": 4.485e9
+                "lo_frequency": 4.385e9
             },
             "i1": {
                 "acquisition_hold_off": 220,
@@ -69,7 +69,7 @@
         "qrm_rf2": {
             "o1": {
                 "attenuation": 30,
-                "lo_frequency": 3870000000.0,
+                "lo_frequency": 3850000000.0,
                 "mixer_calibration": [
                     0.0,
                     0.0
@@ -85,7 +85,7 @@
         "single_qubit": {
             "0": {
                 "RX": {
-                    "duration": 200,
+                    "duration": 40,
                     "amplitude": 0.333,
                     "shape": "Drag(5, 0.384224)",
                     "frequency": 3929664000.0,
@@ -94,10 +94,10 @@
                     "type": "qd"
                 },
                 "RX12": {
-                    "duration": 80,
+                    "duration": 40,
                     "amplitude": 0.394,
                     "shape": "Gaussian(5)",
-                    "frequency": 4445261447,
+                    "frequency": 3.674664e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -114,8 +114,8 @@
             },
             "1": {
                 "RX": {
-                    "duration": 200,
-                    "amplitude": 0.191,
+                    "duration": 40,
+                    "amplitude": 0.186,
                     "shape": "Drag(5, -0.366673)",
                     "frequency": 4012428000.0,
                     "relative_start": 0,
@@ -126,7 +126,7 @@
                     "duration": 40,
                     "amplitude": 0.398,
                     "shape": "Gaussain(5)",
-                    "frequency": 4843730920,
+                    "frequency": 3.746e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -143,8 +143,8 @@
             },
             "2": {
                 "RX": {
-                    "duration": 200,
-                    "amplitude": 0.2175,
+                    "duration": 40,
+                    "amplitude": 0.159,
                     "shape": "Drag(5, 0.413779)",
                     "frequency": 4553096000.0,
                     "relative_start": 0,
@@ -155,7 +155,7 @@
                     "duration": 40,
                     "amplitude": 0.461,
                     "shape": "Gaussian(5)",
-                    "frequency": 5229187418,
+                    "frequency": 4303096000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -172,8 +172,8 @@
             },
             "3": {
                 "RX": {
-                    "duration": 200,
-                    "amplitude": 0.443,
+                    "duration": 40,
+                    "amplitude": 0.347,
                     "shape": "Gaussian(5)",
                     "frequency": 4.743634e9,
                     "relative_start": 0,
@@ -184,7 +184,7 @@
                     "duration": 40,
                     "amplitude": 0.461,
                     "shape": "Gaussian(5)",
-                    "frequency": 4680000000.0,
+                    "frequency": 4.589e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"

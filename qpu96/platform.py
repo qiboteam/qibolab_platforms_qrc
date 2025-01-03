@@ -13,11 +13,12 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
- 
+
 ADDRESS = "192.168.0.20"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 3
+
 ROOT = pathlib.Path.home()
 
 def create():
