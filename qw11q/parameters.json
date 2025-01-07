@@ -639,7 +639,7 @@
                     "duration": 40,
                     "amplitude": 0.0629792262456283,
                     "shape": "Drag(5, 0.0)",
-                    "frequency": 5743385524,
+                    "frequency": 5741886000,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -655,9 +655,9 @@
                 },
                 "MZ": {
                     "duration": 2000,
-                    "amplitude": 0.0037,
+                    "amplitude": 0.0084,
                     "shape": "Rectangular()",
-                    "frequency": 7638124768,
+                    "frequency": 7638064745,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -854,28 +854,6 @@
                     }
                 ]
             },
-            "B3-B4": {
-                "CZ": [
-                    {
-                        "duration": 38,
-                        "amplitude": -0.285,
-                        "shape": "Rectangular()",
-                        "qubit": "B4",
-                        "relative_start": 0,
-                        "type": "qf"
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": 0,
-                        "qubit": "B3"
-                    },
-                    {
-                        "type": "virtual_z",
-                        "phase": 0,
-                        "qubit": "B4"
-                    }
-                ]
-            },
             "B2-B4": {
                 "CZ": [
                     {
@@ -890,6 +868,28 @@
                         "type": "virtual_z",
                         "phase": 0,
                         "qubit": "B2"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0,
+                        "qubit": "B4"
+                    }
+                ]
+            },
+            "B3-B4": {
+                "CZ": [
+                    {
+                        "duration": 38,
+                        "amplitude": -0.285,
+                        "shape": "Rectangular()",
+                        "qubit": "B4",
+                        "relative_start": 0,
+                        "type": "qf"
+                    },
+                    {
+                        "type": "virtual_z",
+                        "phase": 0,
+                        "qubit": "B3"
                     },
                     {
                         "type": "virtual_z",
@@ -1363,7 +1363,7 @@
                 "readout_frequency": 7132549730,
                 "drive_frequency": 5000538442,
                 "anharmonicity": -200000000,
-                "sweetspot": -0.45223092952193317,
+                "sweetspot": 0,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1418,7 +1418,7 @@
                 "readout_frequency": 7380073341,
                 "drive_frequency": 5963692382,
                 "anharmonicity": -205999792,
-                "sweetspot": -0.15280667763489417,
+                "sweetspot": -0.2819,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1472,8 +1472,8 @@
                 "bare_resonator_frequency": 7492173053,
                 "readout_frequency": 7480464452,
                 "drive_frequency": 5684073526,
-                "anharmonicity":  -215423513,
-                "sweetspot": 0.15904593831217914,
+                "anharmonicity": -215423513,
+                "sweetspot": 0.0307,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1528,7 +1528,7 @@
                 "readout_frequency": 7701181947,
                 "drive_frequency": 6809610828,
                 "anharmonicity": -197513445,
-                "sweetspot": 0.28779891451466577,
+                "sweetspot": -0.215,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
@@ -1579,11 +1579,11 @@
                 "mixer_readout_phi": 0.0
             },
             "B5": {
-                "bare_resonator_frequency": 7645105792,
-                "readout_frequency": 7638124768,
-                "drive_frequency": 5743385524,
+                "bare_resonator_frequency": 7638064745,
+                "readout_frequency": 7638064745,
+                "drive_frequency": 5741886000,
                 "anharmonicity": -200000000,
-                "sweetspot": 0.0,
+                "sweetspot": 0.074,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
                     "A1": 0.0,
