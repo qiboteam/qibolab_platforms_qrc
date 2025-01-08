@@ -47,10 +47,10 @@ def create():
         assert q.probe is not None
         assert q.acquisition is not None
         channels[q.probe] = IqChannel(
-            device="octave5", path="1", mixer=None, lo="D/probe_lo"
+            device="octave6", path="1", mixer=None, lo="D/probe_lo"
         )
         channels[q.acquisition] = AcquisitionChannel(
-            device="octave5", path="1", twpa_pump="twpaD", probe=q.probe
+            device="octave6", path="1", twpa_pump="twpaD", probe=q.probe
         )
 
     # Drive
