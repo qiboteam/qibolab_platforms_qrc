@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [B1,B2,B3,B4,B5]
+targets: [B1,B2,B3,B4]
 
 actions:
 
@@ -16,7 +16,7 @@ actions:
     targets: [B1]
     update: true
 
-  - id: flipping B2 B3 B4 B5
+  - id: flipping B2 B3 B4
     operation: flipping
     parameters:
       delta_amplitude: 0.004
@@ -25,7 +25,7 @@ actions:
       nshots: 256
       relaxation_time: 100_000
       unrolling: true
-    targets: [B2, B3, B4, B5]
+    targets: [B2, B3, B4]
     update: true
 
   - id: DRAG
