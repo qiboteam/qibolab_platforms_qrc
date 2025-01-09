@@ -95,6 +95,7 @@ SHAPES = {
     "rectangular": {},
     "gaussian": {"rel_sigma": lambda s: 1 / s},
     "drag": {"rel_sigma": lambda s: 1 / s, "beta": lambda s: s},
+    "exponential": {"tau": lambda s: s, "upsilon": lambda s: s, "g": lambda s: s},
     "custom": {"i_": lambda s: TypeAdapter(NdArray).dump_json(s).decode()},
 }
 
