@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [B1,B2,B3,B4]
+targets: [B1,B2,B3,B4,B5]
 
 actions:
 
@@ -25,7 +25,7 @@ actions:
       nshots: 256
       relaxation_time: 100_000
       unrolling: true
-    targets: [B2, B3, B4]
+    targets: [B2, B3, B4, B5]
     update: true
 
   - id: DRAG
