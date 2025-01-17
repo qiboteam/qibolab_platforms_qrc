@@ -1,0 +1,262 @@
+{
+    "modes": {
+        "1": {
+            "octave_name": "octave2",
+            "octave_channel": 1
+        },
+        "2": {
+            "octave_name": "octave2",
+            "octave_channel": 2
+        },
+        "3": {
+            "octave_name": "octave2",
+            "octave_channel": 4
+        },
+        "4": {
+            "octave_name": "octave3",
+            "octave_channel": 1
+        },
+        "5": {
+            "octave_name": "octave3",
+            "octave_channel": 4
+        },
+        "6": {
+            "octave_name": "octave3",
+            "octave_channel": 3
+        }
+    },
+    "lo_modes": {
+        "1": {
+            "mode_id": 1,
+            "lo_freq": 7370000000,
+            "gain": -10.0,
+            "latest": 1
+        },
+        "2": {
+            "mode_id": 2,
+            "lo_freq": 4900000000,
+            "gain": 0.0,
+            "latest": 2
+        },
+        "3": {
+            "mode_id": 3,
+            "lo_freq": 5900000000,
+            "gain": 0.0,
+            "latest": 3
+        },
+        "4": {
+            "mode_id": 4,
+            "lo_freq": 5800000000,
+            "gain": 0.0,
+            "latest": 4
+        },
+        "5": {
+            "mode_id": 5,
+            "lo_freq": 6700000000,
+            "gain": 0.0,
+            "latest": 5
+        },
+        "6": {
+            "mode_id": 6,
+            "lo_freq": 5900000000,
+            "gain": 0.0,
+            "latest": 6
+        }
+    },
+    "lo_cal": {
+        "1": {
+            "i0": 0.0015558989231421458,
+            "q0": -0.016895615375547544,
+            "lo_mode_id": 1,
+            "dc_gain": -7.730709263675806e-05,
+            "dc_phase": -0.06361604237616675,
+            "temperature": 58.375,
+            "timestamp": 1737103625.8752184,
+            "method": "auto"
+        },
+        "2": {
+            "i0": -0.01764451484044262,
+            "q0": 0.014000739257638013,
+            "lo_mode_id": 2,
+            "dc_gain": 0.007494815335493676,
+            "dc_phase": 0.16158058578235746,
+            "temperature": 59.8125,
+            "timestamp": 1737103645.364778,
+            "method": "auto"
+        },
+        "3": {
+            "i0": -0.011865476959503098,
+            "q0": 0.0012243080434092223,
+            "lo_mode_id": 3,
+            "dc_gain": -0.013706013599394717,
+            "dc_phase": 0.04173534611550871,
+            "temperature": 49.8125,
+            "timestamp": 1737103664.9368548,
+            "method": "auto"
+        },
+        "4": {
+            "i0": -0.0005131686903630259,
+            "q0": 0.0021979295852747735,
+            "lo_mode_id": 4,
+            "dc_gain": -0.014088918697643837,
+            "dc_phase": 0.0447477600935513,
+            "temperature": 57.5,
+            "timestamp": 1737103685.7745574,
+            "method": "auto"
+        },
+        "5": {
+            "i0": -0.013265348751003204,
+            "q0": 0.009840086741208637,
+            "lo_mode_id": 5,
+            "dc_gain": 0.0012747372014729752,
+            "dc_phase": -0.08136770642805466,
+            "temperature": 52.6875,
+            "timestamp": 1737103706.5481393,
+            "method": "auto"
+        },
+        "6": {
+            "i0": 0.009769459114553868,
+            "q0": 0.017213848270605153,
+            "lo_mode_id": 6,
+            "dc_gain": -0.005768230976133104,
+            "dc_phase": 0.036777435369855914,
+            "temperature": 56.375,
+            "timestamp": 1737103727.0026736,
+            "method": "auto"
+        }
+    },
+    "if_modes": {
+        "1": {
+            "lo_mode_id": 1,
+            "if_freq": -237420286,
+            "latest": 1
+        },
+        "2": {
+            "lo_mode_id": 1,
+            "if_freq": 10073372,
+            "latest": 2
+        },
+        "3": {
+            "lo_mode_id": 1,
+            "if_freq": 110355638,
+            "latest": 3
+        },
+        "4": {
+            "lo_mode_id": 1,
+            "if_freq": 330298316,
+            "latest": 4
+        },
+        "5": {
+            "lo_mode_id": 1,
+            "if_freq": 270679567,
+            "latest": 5
+        },
+        "6": {
+            "lo_mode_id": 2,
+            "if_freq": 100102567,
+            "latest": 6
+        },
+        "7": {
+            "lo_mode_id": 3,
+            "if_freq": 63748730,
+            "latest": 7
+        },
+        "8": {
+            "lo_mode_id": 4,
+            "if_freq": -115416853,
+            "latest": 8
+        },
+        "9": {
+            "lo_mode_id": 5,
+            "if_freq": 109678455,
+            "latest": 9
+        },
+        "10": {
+            "lo_mode_id": 6,
+            "if_freq": -157953677,
+            "latest": 10
+        }
+    },
+    "if_cal": {
+        "1": {
+            "if_mode_id": 1,
+            "gain": -0.0003603424317449413,
+            "phase": -0.013489089296459224,
+            "temperature": 58.375,
+            "timestamp": 1737103625.880609,
+            "method": "auto"
+        },
+        "2": {
+            "if_mode_id": 2,
+            "gain": 0.00027231017929112193,
+            "phase": -0.0677703120672439,
+            "temperature": 58.375,
+            "timestamp": 1737103625.8859992,
+            "method": "auto"
+        },
+        "3": {
+            "if_mode_id": 3,
+            "gain": -0.0008646117011601494,
+            "phase": -0.09127447392196837,
+            "temperature": 58.375,
+            "timestamp": 1737103625.890913,
+            "method": "auto"
+        },
+        "4": {
+            "if_mode_id": 4,
+            "gain": 0.022617062208673464,
+            "phase": -0.15486627414022344,
+            "temperature": 58.375,
+            "timestamp": 1737103625.8950794,
+            "method": "auto"
+        },
+        "5": {
+            "if_mode_id": 5,
+            "gain": -0.004087438130944488,
+            "phase": -0.14198457282011936,
+            "temperature": 58.375,
+            "timestamp": 1737103625.8988857,
+            "method": "auto"
+        },
+        "6": {
+            "if_mode_id": 6,
+            "gain": 0.006286382720572885,
+            "phase": 0.149047467492439,
+            "temperature": 59.8125,
+            "timestamp": 1737103645.3710113,
+            "method": "auto"
+        },
+        "7": {
+            "if_mode_id": 7,
+            "gain": -0.012297386145511435,
+            "phase": 0.04346139745795755,
+            "temperature": 49.8125,
+            "timestamp": 1737103664.9436426,
+            "method": "auto"
+        },
+        "8": {
+            "if_mode_id": 8,
+            "gain": -0.015375889784278979,
+            "phase": 0.07985165385924074,
+            "temperature": 57.5,
+            "timestamp": 1737103685.7806525,
+            "method": "auto"
+        },
+        "9": {
+            "if_mode_id": 9,
+            "gain": 0.000564544631306673,
+            "phase": -0.12185671383932054,
+            "temperature": 52.6875,
+            "timestamp": 1737103706.556477,
+            "method": "auto"
+        },
+        "10": {
+            "if_mode_id": 10,
+            "gain": -0.004357116961506524,
+            "phase": 0.040448329378673556,
+            "temperature": 56.375,
+            "timestamp": 1737103727.0108542,
+            "method": "auto"
+        }
+    }
+}
