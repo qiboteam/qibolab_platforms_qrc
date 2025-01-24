@@ -1,6 +1,6 @@
 platform: qw11q
 
-targets: [B1,B2,B3,B4,B5]
+targets: [B1, B2, B3, B4]
 
 actions:
 
@@ -10,7 +10,7 @@ actions:
       delta_amplitude: 0.0015
       nflips_max: 50
       nflips_step: 1
-      nshots: 256
+      nshots: 128
       relaxation_time: 100_000
       unrolling: true
     targets: [B1]
@@ -22,10 +22,10 @@ actions:
       delta_amplitude: 0.004
       nflips_max: 50
       nflips_step: 1
-      nshots: 256
+      nshots: 128
       relaxation_time: 100_000
       unrolling: true
-    targets: [B2, B3, B4, B5]
+    targets: [B2, B3, B4]
     update: true
 
   - id: DRAG
@@ -34,7 +34,7 @@ actions:
       beta_start: -1.0
       beta_end: 1.5
       beta_step: 0.01
-      nshots: 512
+      nshots: 128
       relaxation_time: 100_000
       unrolling: true
     update: true
