@@ -19,14 +19,20 @@
       imports = [inputs.devenv.flakeModule];
       systems = ["x86_64-linux" "aarch64-darwin"];
 
-      perSystem = {pkgs, ...}: {
-        packages.default = pkgs.poetry2nix.mkPoetryApplication {
-          projectDir = self;
-          preferWheels = true;
-        };
-
+      perSystem = {
+        pkgs,
+        config,
+        ...
+      }: {
         devenv.shells.default = {
           packages = with pkgs; [poethepoet pre-commit stdenv.cc.cc.lib];
+
+          env = {
+            LD_LIBRARY_PATH = builtins.concatStringsSep ":" (map (p: "${p}/lib") (with pkgs; [
+              stdenv.cc.cc.lib
+              zlib
+            ]));
+          };
 
           languages = {
             python = {
