@@ -226,20 +226,9 @@ def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
     return conf
 
 
-def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
+def qblox(configs: dict, instruments: dict) -> dict:
     MODS = {"qcm_bb", "qcm_rf", "qrm_rf"}
-    los = {
-        q: f"{mod}/o{port}"
-        for mod, chs in channels.items()
-        if "qrm_rf" in mod
-        for port, qs in chs.items()
-        for q in qs
-        if "c" not in q
-    }
     configs_ = {re.sub("coupler_", "c", k): v for k, v in configs.items()}
-    configs__ = configs_ | {
-        k: v | {"lo": los[k.split("/")[0]]} for k, v in configs.items() if "probe" in k
-    }
     los = {
         f"{inst}/{port}/lo": {
             "kind": "oscillator",
@@ -262,7 +251,7 @@ def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
         for port, settings in ports.items()
         if "mixer_calibration" in settings
     }
-    return configs__ | los | mixers
+    return configs_ | los | mixers
 
 
 def device_specific(
@@ -275,7 +264,7 @@ def device_specific(
             qm(configs, o["instruments"], connections["channels"])
             if connections["kind"] == "qm"
             else (
-                qblox(configs, o["instruments"], connections["channels"])
+                qblox(configs, o["instruments"])
                 if connections["kind"] == "qblox"
                 else NONSERIAL
             )
