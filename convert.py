@@ -3,6 +3,7 @@
 import argparse
 import ast
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Optional
@@ -225,33 +226,43 @@ def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
     return conf
 
 
-def qblox(configs: dict, instruments: dict) -> dict:
+def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
     MODS = {"qcm_bb", "qcm_rf", "qrm_rf"}
-    return (
-        configs
-        | {
-            f"{inst}/{port}/lo": {
-                "kind": "oscillator",
-                "frequency": settings["lo_frequency"],
-                "power": settings["attenuation"],
-            }
-            for inst, ports in instruments.items()
-            if any(mod in inst for mod in MODS)
-            for port, settings in ports.items()
-            if "lo_frequency" in settings
+    los = {
+        q: f"{mod}/o{port}"
+        for mod, chs in channels.items()
+        if "qrm_rf" in mod
+        for port, qs in chs.items()
+        for q in qs
+        if "c" not in q
+    }
+    configs_ = {re.sub("coupler_", "c", k): v for k, v in configs.items()}
+    configs__ = configs_ | {
+        k: v | {"lo": los[k.split("/")[0]]} for k, v in configs.items() if "probe" in k
+    }
+    los = {
+        f"{inst}/{port}/lo": {
+            "kind": "oscillator",
+            "frequency": settings["lo_frequency"],
+            "power": settings["attenuation"],
         }
-        | {
-            f"{inst}/{port}/mixer": {
-                "kind": "iq-mixer",
-                "offset_i": settings["mixer_calibration"][0],
-                "offset_q": settings["mixer_calibration"][1],
-            }
-            for inst, ports in instruments.items()
-            if any(mod in inst for mod in MODS)
-            for port, settings in ports.items()
-            if "mixer_calibration" in settings
+        for inst, ports in instruments.items()
+        if any(mod in inst for mod in MODS)
+        for port, settings in ports.items()
+        if "lo_frequency" in settings
+    }
+    mixers = {
+        f"{inst}/{port}/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": settings["mixer_calibration"][0],
+            "offset_q": settings["mixer_calibration"][1],
         }
-    )
+        for inst, ports in instruments.items()
+        if any(mod in inst for mod in MODS)
+        for port, settings in ports.items()
+        if "mixer_calibration" in settings
+    }
+    return configs__ | los | mixers
 
 
 def device_specific(
@@ -264,7 +275,7 @@ def device_specific(
             qm(configs, o["instruments"], connections["channels"])
             if connections["kind"] == "qm"
             else (
-                qblox(configs, o["instruments"])
+                qblox(configs, o["instruments"], connections["channels"])
                 if connections["kind"] == "qblox"
                 else NONSERIAL
             )
