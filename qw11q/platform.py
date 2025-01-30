@@ -79,9 +79,14 @@ def create():
     for q in range(1, 6):
         channels |= Channel(name=f"fluxA{q}", port=opxs[7].ports(q + 2))
         channels |= Channel(name=f"fluxB{q}", port=opxs[4].ports(q))
-        channels |= Channel(name=f"fluxD{q}", port=opxs[9].ports(q + 2))
+        #channels |= Channel(name=f"fluxD{q}", port=opxs[9].ports(q + 2))
     channels |= Channel(name=f"fluxA6", port=opxs[3].ports(8))
-
+    channels |= Channel(name=f"fluxD1", port=opxs[9].ports(3))
+    channels |= Channel(name=f"fluxD2", port=opxs[9].ports(4))
+    channels |= Channel(name=f"fluxD3", port=opxs[9].ports(5))
+    channels |= Channel(name=f"fluxD4", port=opxs[9].ports(6))
+    channels |= Channel(name=f"fluxD5", port=opxs[9].ports(7))
+ 
     # create qubit objects
     runcard = load_runcard(FOLDER)
     # kernels = Kernels.load(FOLDER)
