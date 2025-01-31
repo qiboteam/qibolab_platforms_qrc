@@ -48,11 +48,11 @@ def create():
     # Readout
     channels |= Channel(name="readoutA", port=octaves[4].ports(1))
     channels |= Channel(name="readoutB", port=octaves[2].ports(1))
-    channels |= Channel(name="readoutD", port=octaves[5].ports(1))
+    channels |= Channel(name="readoutD", port=octaves[6].ports(1))
     # Feedback
     channels |= Channel(name="feedbackA", port=octaves[4].ports(1, output=False))
     channels |= Channel(name="feedbackB", port=octaves[2].ports(1, output=False))
-    channels |= Channel(name="feedbackD", port=octaves[5].ports(1, output=False))
+    channels |= Channel(name="feedbackD", port=octaves[6].ports(1, output=False))
     # TWPA
     channels |= Channel(name="twpaB", port=None)
     channels["twpaB"].local_oscillator = twpa_b
@@ -79,8 +79,13 @@ def create():
     for q in range(1, 6):
         channels |= Channel(name=f"fluxA{q}", port=opxs[7].ports(q + 2))
         channels |= Channel(name=f"fluxB{q}", port=opxs[4].ports(q))
-        channels |= Channel(name=f"fluxD{q}", port=opxs[9].ports(q + 2))
+        # channels |= Channel(name=f"fluxD{q}", port=opxs[9].ports(q + 2))
     channels |= Channel(name=f"fluxA6", port=opxs[3].ports(8))
+    channels |= Channel(name=f"fluxD1", port=opxs[9].ports(3))
+    channels |= Channel(name=f"fluxD2", port=opxs[9].ports(4))
+    channels |= Channel(name=f"fluxD3", port=opxs[9].ports(5))
+    channels |= Channel(name=f"fluxD4", port=opxs[9].ports(6))
+    channels |= Channel(name=f"fluxD5", port=opxs[9].ports(7))
 
     # create qubit objects
     runcard = load_runcard(FOLDER)
