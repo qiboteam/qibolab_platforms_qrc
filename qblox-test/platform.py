@@ -11,7 +11,7 @@ ADDRESS = "192.168.0.21"
 # the only cluster of the config
 CLUSTER = {
     "qcm": (12, {1: [0]}),
-    "qcm_rf": (15, {1: [0]}),
+    "qcm_rf": (15, {"io1": [0]}),
     "qrm_rf": (16, {"i1": [0]}),
     "qrm_rf_lo": (20, {"io1": [1]}),
 }
