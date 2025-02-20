@@ -26,6 +26,21 @@
       "threshold": null,
       "iq_angle": null,
       "kernel": null
+    },
+    "qrm_rf/o1/lo": {
+      "kind": "oscillator",
+      "frequency": 5e9,
+      "power": 28
+    },
+    "qrm_rf_lo/o1/lo": {
+      "kind": "oscillator",
+      "frequency": 5e9,
+      "power": 26
+    },
+    "qcm_rf/o1/lo": {
+      "kind": "oscillator",
+      "frequency": 4e9,
+      "power": 26
     }
   },
   "native_gates": {
