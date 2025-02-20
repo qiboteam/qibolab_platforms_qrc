@@ -7,9 +7,9 @@
       "instructions": 1,
       "kind": "bounds"
     },
-    "0/probe": { "kind": "iq", "frequency": 0.0 },
+    "0/probe": { "kind": "iq", "frequency": 5e9 },
     "0/flux": { "kind": "dc", "offset": 0.0 },
-    "0/drive": { "kind": "iq", "frequency": 0.0 },
+    "0/drive": { "kind": "iq", "frequency": 4e9 },
     "0/acquisition": {
       "kind": "acquisition",
       "delay": 0.0,
@@ -18,7 +18,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "1/probe": { "kind": "iq", "frequency": 0.0 },
+    "1/probe": { "kind": "iq", "frequency": 5e9 },
     "1/acquisition": {
       "kind": "acquisition",
       "delay": 0.0,
