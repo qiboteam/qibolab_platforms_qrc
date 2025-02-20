@@ -3,6 +3,7 @@
 from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, map_ports
+from qibolab._core.parameters import QubitMap
 
 NAME = "qblox-test"
 ADDRESS = "192.168.0.21"
@@ -11,8 +12,8 @@ ADDRESS = "192.168.0.21"
 # the only cluster of the config
 CLUSTER = {
     "qcm": (12, {1: [0]}),
-    "qcm_rf": (15, {"io1": [0]}),
-    "qrm_rf": (16, {"i1": [0]}),
+    "qcm_rf": (15, {1: [0]}),
+    "qrm_rf": (16, {"io1": [0]}),
     "qrm_rf_lo": (20, {"io1": [1]}),
 }
 """Connections compact representation."""
@@ -20,7 +21,10 @@ CLUSTER = {
 
 def create():
     """Platform creation."""
-    qubits = {i: Qubit.default(i) for i in range(2)}
+    qubits: QubitMap = {
+        0: Qubit.default(0),
+        1: Qubit.default(1, ["acquisition", "probe"]),
+    }
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
