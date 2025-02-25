@@ -225,10 +225,17 @@ def qm(conf: dict, instruments: dict, instrument_channels: dict) -> dict:
     return conf
 
 
-def qblox(configs: dict, instruments: dict) -> dict:
+def qblox(configs: dict, instruments: dict, channels: dict) -> dict:
     MODS = {"qcm_bb", "qcm_rf", "qrm_rf"}
     return (
         configs
+        | {
+            f"{q}/acquisition": configs[f"{q}/acquisition"]
+            | {"delay": ports["i1"]["acquisition_hold_off"]}
+            for inst, ports in instruments.items()
+            if "qrm_rf" in inst
+            for q in [q[1:] for q in channels[inst]["1"]]
+        }
         | {
             f"{inst}/{port}/lo": {
                 "kind": "oscillator",
@@ -264,7 +271,7 @@ def device_specific(
             qm(configs, o["instruments"], connections["channels"])
             if connections["kind"] == "qm"
             else (
-                qblox(configs, o["instruments"])
+                qblox(configs, o["instruments"], connections["channels"])
                 if connections["kind"] == "qblox"
                 else NONSERIAL
             )
