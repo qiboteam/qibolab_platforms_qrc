@@ -19,9 +19,9 @@ CLUSTER = {
     "qcm_rf1": (10, {1: [3], 2: [4]}),
     "qcm_rf2": (12, {1: [0]}),
     "qcm0": (2, {1: [0], 2: [1], 3: [2], 4: [3]}),
-    "qcm1": (4, {1: [4], 2: ["c1"], 4: ["c3"]}),
-    "qcm2": (6, {2: ["c4"]}),
-    "qcm3": (17, {1: ["c0"]}),
+    "qcm1": (4, {1: [4], 2: ["coupler_1"], 4: ["coupler_3"]}),
+    "qcm2": (6, {2: ["coupler_4"]}),
+    "qcm3": (17, {1: ["coupler_0"]}),
 }
 """Connections compact representation."""
 
@@ -29,9 +29,7 @@ CLUSTER = {
 def create():
     """IQM 5q-chip controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
-    couplers: QubitMap = {
-        f"coupler_{i}": Qubit.default(f"coupler_{i}") for i in (0, 1, 3, 4)
-    }
+    couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in (0, 1, 3, 4)}
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits, couplers)
