@@ -28,16 +28,17 @@ def create():
     https://github.com/qiboteam/qibolab_platforms_qrc/pull/147#pullrequestreview-2146505676
     """
     opx = OPX1000("con1", {1: FEM("LF"), 2: FEM("LF"), 4: FEM("LF")})
-    octave1 = Octave("octave1", port=250, connectivity=opx.connectivity(1))
-    octave2 = Octave("octave2", port=251, connectivity=opx.connectivity(2))
+    octave1 = Octave("octave1", port=248, connectivity=opx.connectivity(1))
+    octave2 = Octave("octave2", port=245, connectivity=opx.connectivity(2))
     controller = QMController(
         "qm",
         "192.168.0.102:80",
         opxs=[opx],
         octaves=[octave1, octave2],
-        time_of_flight=224,
+        time_of_flight=308,
         calibration_path=FOLDER,
-        # script_file_name="qua_script.py",
+        script_file_name="qua_script.py",
+        cluster_name="Cluster_2",
     )
     twpa = SGS100A(name="twpa", address="192.168.0.38")
 
