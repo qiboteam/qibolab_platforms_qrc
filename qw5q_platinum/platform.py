@@ -68,7 +68,7 @@ def create():
         fems=fems,
         channels=channels,
         cluster_name="Cluster_2",
-        # calibration_path=FOLDER,
+        calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
     instruments = {"qm": controller, "twpa": SGS100A(address="192.168.0.38")}
