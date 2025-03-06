@@ -58,8 +58,8 @@ def create():
     channels[qubits[4].flux] = DcChannel(device="con1/4", path="5")
 
     octaves = {
-        "octave1": Octave("octave1", port=11250, connectivity="con1/1"),
-        "octave2": Octave("octave2", port=11251, connectivity="con1/2"),
+        "octave1": Octave("octave1", port=11248, connectivity="con1/1"),
+        "octave2": Octave("octave2", port=11245, connectivity="con1/2"),
     }
     fems = {"con1/1": "LF", "con1/2": "LF", "con1/4": "LF"}
     controller = QmController(
@@ -67,7 +67,8 @@ def create():
         octaves=octaves,
         fems=fems,
         channels=channels,
-        # calibration_path=FOLDER,
+        cluster_name="Cluster_2",
+        calibration_path=FOLDER,
         script_file_name="qua_script.py",
     )
     instruments = {"qm": controller, "twpa": SGS100A(address="192.168.0.38")}
