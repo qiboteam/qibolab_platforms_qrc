@@ -17,7 +17,7 @@ from qibolab.serialize import (
 ADDRESS = "192.168.0.2"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 3
+NUM_QUBITS = 1
 
 ROOT = pathlib.Path.home()
 
@@ -29,7 +29,7 @@ def create():
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:3"),  # feedline
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # q0, q1 
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:2"),  # q2   
+        # "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:2"),  # q2   
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -58,8 +58,8 @@ def create():
      # Drive
     channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # qubit 0
     channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit 1
-    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit 2
-    channels |= Channel(name="drive_", port=modules["qcm_rf1"].ports("o2")) # Not Connected
+    # channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit 2
+    # channels |= Channel(name="drive_", port=modules["qcm_rf1"].ports("o2")) # Not Connected
 
     # Channel for TWPA Pump
     # channels |= Channel(name="twpa", port=None)
@@ -72,7 +72,7 @@ def create():
     for q, qubit in qubits.items():
         qubit.readout = channels["feed_in"]
         qubit.feedback = channels["feed_back"]
-        if q >= 3:
+        if q >= 1:
             qubit.drive = channels[f"drive_"]
         else:
             qubit.drive = channels[f"drive{q}"]

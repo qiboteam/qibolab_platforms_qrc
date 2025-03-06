@@ -27,9 +27,9 @@ def create():
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:4"),  # feedline
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:6"),  # feedline
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:17"),  # q0, q1 
-        "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q2   
+        "qcm_rf1": QcmRf("qrm_rf1", f"{ADDRESS}:4"),  # q2   
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -58,9 +58,9 @@ def create():
      # Drive
     channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # 
     channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit
-    channels |= Channel(name="drive2", port=modules["qrm_rf1"].ports("o1")) # qubit
-    #channels |= Channel(name="drive4", port=modules["qrm_rf1"].ports("o1")) # qubit
-    channels |= Channel(name="dummy", port=modules["qrm_rf1"].ports("i1",out=False))
+    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit
+    channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2")) # qubit
+    #channels |= Channel(name="dummy", port=modules["qrm_rf1"].ports("o2",out=False))
 
     # Channel for TWPA Pump
     # channels |= Channel(name="twpa", port=None)
@@ -80,7 +80,7 @@ def create():
     settings = load_settings(runcard)
     #instruments["qblox_controller"].device
 
-    # DEBUG: debug folder = report folder ###################################################################
+    # DEBUG: ###################################################################
     # import os
     # from datetime import datetime
 
