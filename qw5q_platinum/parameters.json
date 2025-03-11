@@ -5,120 +5,125 @@
     },
     "configs": {
         "qm/bounds": {
-            "waveforms": 40000,
+            "kind": "bounds",
+            "waveforms": 40000.0,
             "readout": 30,
-            "instructions": 1000000,
-            "kind": "bounds"
+            "instructions": 1000000
         },
         "twpa": {
-            "power": 1.6,
-            "frequency": 6532730000,
-            "kind": "oscillator"
+            "kind": "oscillator",
+            "frequency": 6532730000.0,
+            "power": 1.6
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4768288843
+            "frequency": 4768288843.0
         },
         "0/drive12": {
             "kind": "iq",
-            "frequency": 4482584846
+            "frequency": 4482584846.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7202797579
+            "frequency": 7202797579.0
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4813610914
+            "frequency": 4813610914.0
         },
         "1/drive12": {
             "kind": "iq",
-            "frequency": 0
+            "frequency": 0.0
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7335680370
+            "frequency": 7335680370.0
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5518116808
+            "frequency": 5518126324.0
         },
         "2/drive12": {
             "kind": "iq",
-            "frequency": 5205873098
+            "frequency": 5205873098.0
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7495827724
+            "frequency": 7495827724.0
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6333083967
+            "frequency": 6333083967.0
         },
         "3/drive12": {
             "kind": "iq",
-            "frequency": 0
+            "frequency": 0.0
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7660581126
+            "frequency": 7660581126.0
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6239164926
+            "frequency": 6239164926.0
         },
         "4/drive12": {
             "kind": "iq",
-            "frequency": 6236251170
+            "frequency": 6236251170.0
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7793642218
+            "frequency": 7793642218.0
         },
         "0/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308,
+            "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0007605702338601848,
-            "iq_angle": -2.6021742565441053,
+            "threshold": 0.0009530167201376175,
+            "iq_angle": -2.5464005619208305,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "1/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308,
+            "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.004958113109668478,
-            "iq_angle": 1.726821447844394,
+            "threshold": -0.004908881709173921,
+            "iq_angle": 1.7717769991122996,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "2/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308,
+            "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0007510805463682896,
-            "iq_angle": -1.344636285992825,
+            "threshold": 0.000733660120796054,
+            "iq_angle": -1.3281892138607654,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "3/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308,
+            "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.0019925252133692417,
-            "iq_angle": 2.4939269794437386,
+            "threshold": -0.001994706684107038,
+            "iq_angle": 2.513037163032644,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "4/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308,
+            "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0010855134446520489,
-            "iq_angle": 2.039383105647335,
+            "threshold": 0.000854837034364118,
+            "iq_angle": 2.0459677419612854,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "0/flux": {
             "kind": "opx-output",
@@ -137,11 +142,40 @@
             "offset": 0.589,
             "filter": {
                 "feedforward": [
-                    1.0891790415038731,
-                    -1.024484298837039
+                    1.0754132007773474,
+                    -0.9404285930896409,
+                    -0.00031967690825593625,
+                    -0.0003181621077945765,
+                    -0.0007908278407050525,
+                    -0.0039569098735961795,
+                    -0.000729855202823688,
+                    -0.002416517675524896,
+                    -0.009115264641310138,
+                    -0.000603450314426204,
+                    0.0025958138731864864,
+                    0.0034184442226738005,
+                    0.006059197144989592,
+                    0.00014214314812889756,
+                    0.009270088920469542,
+                    -0.0001459763193763005,
+                    -0.004815096408596875,
+                    -0.0010556491762116023,
+                    -0.0033488366166169823,
+                    -0.0029395695162534284,
+                    -0.003758551696870666,
+                    0.000608574673864078,
+                    0.005247312295791289,
+                    -0.005217486206611773,
+                    0.008664364835577754,
+                    0.00045171748069881097,
+                    0.0007314837398484262,
+                    -0.004904855638914386,
+                    -0.004185970415658234,
+                    0.00022349907161149044,
+                    0.0036919505198862172
                 ],
                 "feedback": [
-                    0.935305257333166
+                    0.8720655726989497
                 ]
             },
             "output_mode": "amplified"
@@ -177,31 +211,31 @@
         "01/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 4900000000.0,
-            "power": -10,
+            "power": -10.0,
             "output_mode": "always_on"
         },
         "2/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 5700000000.0,
-            "power": -10,
+            "power": -10.0,
             "output_mode": "always_on"
         },
         "3/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 6500000000.0,
-            "power": -10,
+            "power": -10.0,
             "output_mode": "always_on"
         },
         "4/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 6500000000.0,
-            "power": -10,
+            "power": -10.0,
             "output_mode": "always_on"
         },
         "probe_lo": {
             "kind": "octave-oscillator",
-            "frequency": 7550000000,
-            "power": -10,
+            "frequency": 7550000000.0,
+            "power": -10.0,
             "output_mode": "always_on"
         }
     },
@@ -213,24 +247,25 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.29418323038869104,
+                            "duration": 40.0,
+                            "amplitude": 0.5883664607773821,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
                                 "beta": -0.25
                             },
-                            "relative_phase": 0
+                            "relative_phase": 0.0
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.18,
+                            "duration": 40.0,
+                            "amplitude": 0.36,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -247,20 +282,21 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1000
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1000,
+                                "duration": 1000.0,
                                 "amplitude": 0.02,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0
+                                "relative_phase": 0.0
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "1": {
                 "RX": [
@@ -268,8 +304,8 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.1394942983392979,
+                            "duration": 40.0,
+                            "amplitude": 0.2789885966785958,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -279,13 +315,14 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.5,
+                            "duration": 40.0,
+                            "amplitude": 1.0,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -302,12 +339,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1000
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1000,
-                                "amplitude": 0.0035,
+                                "duration": 1000.0,
+                                "amplitude": 0.007,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -315,7 +352,8 @@
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "2": {
                 "RX": [
@@ -323,8 +361,8 @@
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.15830289054741192,
+                            "duration": 40.0,
+                            "amplitude": 0.31660578109482385,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -334,13 +372,14 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.2245,
+                            "duration": 40.0,
+                            "amplitude": 0.449,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -357,12 +396,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1000
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1000,
-                                "amplitude": 0.006,
+                                "duration": 1000.0,
+                                "amplitude": 0.012,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -370,7 +409,8 @@
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "3": {
                 "RX": [
@@ -378,8 +418,8 @@
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.22391561843177232,
+                            "duration": 40.0,
+                            "amplitude": 0.44783123686354465,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -389,13 +429,14 @@
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.226,
+                            "duration": 40.0,
+                            "amplitude": 0.452,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -412,12 +453,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1000
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1000,
-                                "amplitude": 0.012,
+                                "duration": 1000.0,
+                                "amplitude": 0.024,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -425,7 +466,8 @@
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "4": {
                 "RX": [
@@ -433,24 +475,25 @@
                         "4/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.25900977891517385,
+                            "duration": 40.0,
+                            "amplitude": 0.5180195578303477,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": 1
+                                "beta": 1.0
                             },
                             "relative_phase": 0.0
                         }
                     ]
                 ],
+                "RX90": null,
                 "RX12": [
                     [
                         "4/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40,
-                            "amplitude": 0.5,
+                            "duration": 40.0,
+                            "amplitude": 1.0,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -467,12 +510,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1000
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1000,
-                                "amplitude": 0.007,
+                                "duration": 1000.0,
+                                "amplitude": 0.014,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -480,7 +523,8 @@
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             }
         },
         "coupler": {},
@@ -491,8 +535,8 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 36,
-                            "amplitude": 0.2235,
+                            "duration": 36.0,
+                            "amplitude": 0.447,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -513,7 +557,9 @@
                             "phase": -1.1899546235762828
                         }
                     ]
-                ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
             },
             "1-2": {
                 "CZ": [
@@ -521,8 +567,8 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 33,
-                            "amplitude": 0.2176,
+                            "duration": 33.0,
+                            "amplitude": 0.08734,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -533,17 +579,19 @@
                         "1/drive",
                         {
                             "kind": "virtualz",
-                            "phase": -0.08654352971481938
+                            "phase": -0.11089075673064262
                         }
                     ],
                     [
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": -4.920217101568504
+                            "phase": -5.477078940314098
                         }
                     ]
-                ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
             },
             "2-3": {
                 "CZ": [
@@ -551,8 +599,8 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 31,
-                            "amplitude": 0.2365,
+                            "duration": 31.0,
+                            "amplitude": 0.473,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -574,13 +622,14 @@
                         }
                     ]
                 ],
+                "CNOT": null,
                 "iSWAP": [
                     [
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 29,
-                            "amplitude": 0.2316,
+                            "duration": 29.0,
+                            "amplitude": 0.4632,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -591,14 +640,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0
+                            "phase": 0.0
                         }
                     ],
                     [
                         "3/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0
+                            "phase": 0.0
                         }
                     ]
                 ]
@@ -609,8 +658,8 @@
                         "4/flux",
                         {
                             "kind": "pulse",
-                            "duration": 31,
-                            "amplitude": 0.208,
+                            "duration": 31.0,
+                            "amplitude": 0.416,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -632,13 +681,14 @@
                         }
                     ]
                 ],
+                "CNOT": null,
                 "iSWAP": [
                     [
                         "4/flux",
                         {
                             "kind": "pulse",
-                            "duration": 32,
-                            "amplitude": 0.2232,
+                            "duration": 32.0,
+                            "amplitude": 0.4464,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -649,14 +699,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0
+                            "phase": 0.0
                         }
                     ],
                     [
                         "4/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0
+                            "phase": 0.0
                         }
                     ]
                 ]
