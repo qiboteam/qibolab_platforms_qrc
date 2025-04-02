@@ -5,10 +5,10 @@
     },
     "configs": {
         "qm/bounds": {
-            "kind": "bounds",
-            "waveforms": 40000.0,
+            "waveforms": 40000,
             "readout": 30,
-            "instructions": 1000000
+            "instructions": 1000000,
+            "kind": "bounds"
         },
         "twpa": {
             "kind": "oscillator",
@@ -112,8 +112,7 @@
             "threshold": -0.0018267755700658167,
             "iq_angle": 2.177433735242399,
             "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+            "gain": 10
         },
         "4/acquisition": {
             "kind": "qm-acquisition",
@@ -349,12 +348,11 @@
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0.0
+                                "relative_phase": 0
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "1": {
                 "RX": [
@@ -410,8 +408,7 @@
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "2": {
                 "RX": [
@@ -467,8 +464,7 @@
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "3": {
                 "RX": [
@@ -524,8 +520,7 @@
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             },
             "4": {
                 "RX": [
@@ -581,8 +576,7 @@
                             }
                         }
                     ]
-                ],
-                "CP": null
+                ]
             }
         },
         "coupler": {},
