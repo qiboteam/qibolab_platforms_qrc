@@ -28,28 +28,28 @@ def create():
     channels = {}
     for q in qubits.values():
         channels[q.probe] = IqChannel(
-            device="octave2", path="1", mixer=None, lo="probe_lo"
+            device="oct2", path="1", mixer=None, lo="probe_lo"
         )
     # Acquire
     for q in qubits.values():
         channels[q.acquisition] = AcquisitionChannel(
-            device="octave2", path="1", twpa_pump="twpa", probe=q.probe
+            device="oct2", path="1", twpa_pump="twpa", probe=q.probe
         )
     # Drive
     channels[qubits[0].drive] = IqChannel(
-        device="octave1", path="2", mixer=None, lo="01/drive_lo"
+        device="oct1", path="2", mixer=None, lo="01/drive_lo"
     )
     channels[qubits[1].drive] = IqChannel(
-        device="octave1", path="3", mixer=None, lo="01/drive_lo"
+        device="oct1", path="3", mixer=None, lo="01/drive_lo"
     )
     channels[qubits[2].drive] = IqChannel(
-        device="octave1", path="1", mixer=None, lo="2/drive_lo"
+        device="oct1", path="1", mixer=None, lo="2/drive_lo"
     )
     channels[qubits[3].drive] = IqChannel(
-        device="octave1", path="4", mixer=None, lo="3/drive_lo"
+        device="oct1", path="4", mixer=None, lo="3/drive_lo"
     )
     channels[qubits[4].drive] = IqChannel(
-        device="octave2", path="2", mixer=None, lo="4/drive_lo"
+        device="oct2", path="2", mixer=None, lo="4/drive_lo"
     )
     # Flux
     channels[qubits[0].flux] = DcChannel(device="con1/4", path="4")
@@ -59,8 +59,8 @@ def create():
     channels[qubits[4].flux] = DcChannel(device="con1/4", path="5")
 
     octaves = {
-        "octave1": Octave("octave1", port=11248, connectivity="con1/1"),
-        "octave2": Octave("octave2", port=11245, connectivity="con1/2"),
+        "oct1": Octave("oct1", port=11248, connectivity="con1/1"),
+        "oct2": Octave("oct2", port=11245, connectivity="con1/2"),
     }
     fems = {"con1/1": "LF", "con1/2": "LF", "con1/4": "LF"}
     controller = QmController(
