@@ -24,10 +24,10 @@ def create():
     Qubits D1, D2, D3 have been tested to work.
     """
     qubits = {
-        f"B{i}": Qubit.default(f"B{i}", drive_qudits={(1, 2): f"B{i}/drive12"})
+        f"B{i}": Qubit.default(f"B{i}", drive_extra={(1, 2): f"B{i}/drive12"})
         for i in range(1, 6)
     } | {
-        f"D{i}": Qubit.default(f"D{i}", drive_qudits={(1, 2): f"D{i}/drive12"})
+        f"D{i}": Qubit.default(f"D{i}", drive_extra={(1, 2): f"D{i}/drive12"})
         for i in range(1, 6)
     }
     # Create channels and connect to instrument ports
@@ -56,7 +56,7 @@ def create():
     # Drive
     def define_drive(q: str, device: str, port: int, lo: str, transition=None):
         if transition is not None:
-            drive = qubits[q].drive_qudits[transition]
+            drive = qubits[q].drive_extra[transition]
         else:
             drive = qubits[q].drive
         assert drive is not None

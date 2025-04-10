@@ -20,7 +20,7 @@ ConfigKinds.extend([QmConfigs])
 
 def create():
     """QuantWare 5q-chip controlled with Quantum Machines OPX1000 and Octaves."""
-    # qubits = {i: Qubit.default(i,drive_qudits={(1, 2): f"{i}/drive12"}) for i in range(5)}
+    # qubits = {i: Qubit.default(i,drive_extra={(1, 2): f"{i}/drive12"}) for i in range(5)}
     qubits = {i: Qubit.default(i) for i in range(5)}
 
     # Create channels and connect to instrument ports
