@@ -1,4 +1,5 @@
 import pathlib
+from time import gmtime, strftime
 
 from qibolab import (
     AcquisitionChannel,
@@ -70,7 +71,7 @@ def create():
         channels=channels,
         cluster_name="Cluster_2",
         calibration_path=FOLDER,
-        script_file_name="qua_script.py",
+        script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
     )
     instruments = {"qm": controller, "twpa": SGS100A(address="192.168.0.38")}
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)

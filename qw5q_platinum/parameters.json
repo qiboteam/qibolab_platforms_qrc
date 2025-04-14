@@ -17,7 +17,11 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4768297063.0
+<<<<<<< Updated upstream
+            "frequency": 4768255884.0
+=======
+            "frequency": 4768262851.0
+>>>>>>> Stashed changes
         },
         "0/drive12": {
             "kind": "iq",
@@ -29,7 +33,11 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4813607012.0
+<<<<<<< Updated upstream
+            "frequency": 4813586970.0
+=======
+            "frequency": 4813613919.0
+>>>>>>> Stashed changes
         },
         "1/drive12": {
             "kind": "iq",
@@ -41,7 +49,11 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5518130078.0
+<<<<<<< Updated upstream
+            "frequency": 5518133438.0
+=======
+            "frequency": 5518138635.0
+>>>>>>> Stashed changes
         },
         "2/drive12": {
             "kind": "iq",
@@ -53,7 +65,11 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6333056601.0
+<<<<<<< Updated upstream
+            "frequency": 6333020900.0
+=======
+            "frequency": 6333006846.0
+>>>>>>> Stashed changes
         },
         "3/drive12": {
             "kind": "iq",
@@ -65,7 +81,11 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6239236768.0
+<<<<<<< Updated upstream
+            "frequency": 6239207921.0
+=======
+            "frequency": 6239189677.0
+>>>>>>> Stashed changes
         },
         "4/drive12": {
             "kind": "iq",
@@ -79,8 +99,13 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0004715313613751214,
-            "iq_angle": -2.459411502191039,
+<<<<<<< Updated upstream
+            "threshold": 0.0008332705600927504,
+            "iq_angle": -2.415369951997537,
+=======
+            "threshold": 0.00060043144274145,
+            "iq_angle": -2.4677743961088074,
+>>>>>>> Stashed changes
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -89,8 +114,13 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.004577543381991155,
-            "iq_angle": 1.859325895514976,
+<<<<<<< Updated upstream
+            "threshold": -0.0044666265206928495,
+            "iq_angle": 1.8645205022686473,
+=======
+            "threshold": -0.004729278783737451,
+            "iq_angle": 1.8335906419332713,
+>>>>>>> Stashed changes
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -99,8 +129,13 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0003522778882777746,
-            "iq_angle": -1.4042396876305567,
+<<<<<<< Updated upstream
+            "threshold": 0.0004599205986483802,
+            "iq_angle": -1.3533216012053517,
+=======
+            "threshold": 0.0002946317750756266,
+            "iq_angle": -1.5148156547888163,
+>>>>>>> Stashed changes
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -109,8 +144,13 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.002068065781312192,
-            "iq_angle": 2.3237172351146262,
+<<<<<<< Updated upstream
+            "threshold": -0.0018267755700658167,
+            "iq_angle": 2.177433735242399,
+=======
+            "threshold": -0.0017920088321887562,
+            "iq_angle": 2.283695191108191,
+>>>>>>> Stashed changes
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -119,21 +159,34 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0011669464649223856,
-            "iq_angle": 1.9568179214846686,
+<<<<<<< Updated upstream
+            "threshold": 0.0009475500421651194,
+            "iq_angle": 1.9572651231297926,
+=======
+            "threshold": 0.0010251992990533351,
+            "iq_angle": 2.1777233585054585,
+>>>>>>> Stashed changes
             "kernel": null,
             "gain": 10,
             "offset": 0.0
         },
         "0/flux": {
             "kind": "opx-output",
-            "offset": 0.334,
+<<<<<<< Updated upstream
+            "offset": 0.332,
+=======
+            "offset": 0.335,
+>>>>>>> Stashed changes
             "filter": {},
             "output_mode": "amplified"
         },
         "1/flux": {
             "kind": "opx-output",
-            "offset": 0.407,
+<<<<<<< Updated upstream
+            "offset": 0.405,
+=======
+            "offset": 0.4075,
+>>>>>>> Stashed changes
             "filter": {},
             "output_mode": "amplified"
         },
@@ -182,7 +235,11 @@
         },
         "3/flux": {
             "kind": "opx-output",
-            "offset": 0.6145,
+<<<<<<< Updated upstream
+            "offset": 0.6125,
+=======
+            "offset": 0.615,
+>>>>>>> Stashed changes
             "filter": {
                 "feedforward": [
                     1.082007705000196,
@@ -306,11 +363,15 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.5702450542745673,
+<<<<<<< Updated upstream
+                            "amplitude": 0.5703316607691853,
+=======
+                            "amplitude": 0.3108720159657448,
+>>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": -0.25
+                                "rel_sigma": 0.6,
+                                "beta": -0.3
                             },
                             "relative_phase": 0.0
                         }
@@ -363,11 +424,15 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.27649547619607723,
+<<<<<<< Updated upstream
+                            "amplitude": 0.2754174022993116,
+=======
+                            "amplitude": 0.1519651763535302,
+>>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": -0.35
+                                "rel_sigma": 0.6,
+                                "beta": -1.6
                             },
                             "relative_phase": 0.0
                         }
@@ -420,11 +485,15 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3122763930820125,
+<<<<<<< Updated upstream
+                            "amplitude": 0.3127500885974008,
+=======
+                            "amplitude": 0.17180060157330548,
+>>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": 0.2
+                                "rel_sigma": 0.6,
+                                "beta": 2.2
                             },
                             "relative_phase": 0.0
                         }
@@ -477,11 +546,15 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.43900010071484724,
+<<<<<<< Updated upstream
+                            "amplitude": 0.43923312252954344,
+=======
+                            "amplitude": 0.24094348045724293,
+>>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": -0.25
+                                "rel_sigma": 0.6,
+                                "beta": 0.0
                             },
                             "relative_phase": 0.0
                         }
@@ -534,11 +607,15 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.5013117929444062,
+<<<<<<< Updated upstream
+                            "amplitude": 0.5053151447137197,
+=======
+                            "amplitude": 0.27538651293611116,
+>>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": 1.0
+                                "rel_sigma": 0.6,
+                                "beta": -1.0
                             },
                             "relative_phase": 0.0
                         }
@@ -593,26 +670,14 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 35.0,
-                            "amplitude": 0.091,
+                            "duration": 50.0,
+                            "amplitude": 0.087,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 4,
+                                "b_amplitude": 0.05
                             },
                             "relative_phase": 0.0
-                        }
-                    ],
-                    [
-                        "0/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": -0.12281361577274112
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": -1.1899546235762828
                         }
                     ]
                 ],
@@ -625,13 +690,21 @@
                         "2/flux",
                         {
                             "kind": "pulse",
+<<<<<<< Updated upstream
                             "duration": 33.0,
-                            "amplitude": 0.08785,
+                            "amplitude": 0.0879,
+=======
+                            "duration": 50.0,
+                            "amplitude": 0.087,
+>>>>>>> Stashed changes
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 2,
+                                "b_amplitude": 0.8
                             },
                             "relative_phase": 0.0
                         }
+<<<<<<< Updated upstream
                     ],
                     [
                         "2/drive",
@@ -653,6 +726,8 @@
                             "kind": "virtualz",
                             "phase": 0.0
                         }
+=======
+>>>>>>> Stashed changes
                     ]
                 ],
                 "CNOT": null,
@@ -691,13 +766,16 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 29.0,
+                            "duration": 36.0,
                             "amplitude": 0.095,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 4,
+                                "b_amplitude": 0.02
                             },
                             "relative_phase": 0.0
                         }
+<<<<<<< Updated upstream
                     ],
                     [
                         "2/drive",
@@ -712,6 +790,8 @@
                             "kind": "virtualz",
                             "phase": 0.0
                         }
+=======
+>>>>>>> Stashed changes
                     ]
                 ],
                 "CNOT": null,
@@ -726,6 +806,13 @@
                                 "kind": "rectangular"
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "3/flux",
+                        {
+                            "kind": "delay",
+                            "duration": 50.0
                         }
                     ],
                     [
