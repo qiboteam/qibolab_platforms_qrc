@@ -17,11 +17,7 @@
         },
         "0/drive": {
             "kind": "iq",
-<<<<<<< Updated upstream
-            "frequency": 4768255884.0
-=======
-            "frequency": 4768262851.0
->>>>>>> Stashed changes
+            "frequency": 4768280488.0
         },
         "0/drive12": {
             "kind": "iq",
@@ -33,11 +29,7 @@
         },
         "1/drive": {
             "kind": "iq",
-<<<<<<< Updated upstream
-            "frequency": 4813586970.0
-=======
-            "frequency": 4813613919.0
->>>>>>> Stashed changes
+            "frequency": 4813613561.0
         },
         "1/drive12": {
             "kind": "iq",
@@ -49,11 +41,7 @@
         },
         "2/drive": {
             "kind": "iq",
-<<<<<<< Updated upstream
-            "frequency": 5518133438.0
-=======
-            "frequency": 5518138635.0
->>>>>>> Stashed changes
+            "frequency": 5518140180.0
         },
         "2/drive12": {
             "kind": "iq",
@@ -65,11 +53,7 @@
         },
         "3/drive": {
             "kind": "iq",
-<<<<<<< Updated upstream
-            "frequency": 6333020900.0
-=======
-            "frequency": 6333006846.0
->>>>>>> Stashed changes
+            "frequency": 6333016333.0
         },
         "3/drive12": {
             "kind": "iq",
@@ -81,11 +65,7 @@
         },
         "4/drive": {
             "kind": "iq",
-<<<<<<< Updated upstream
-            "frequency": 6239207921.0
-=======
-            "frequency": 6239189677.0
->>>>>>> Stashed changes
+            "frequency": 6239197648.0
         },
         "4/drive12": {
             "kind": "iq",
@@ -99,13 +79,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-<<<<<<< Updated upstream
-            "threshold": 0.0008332705600927504,
-            "iq_angle": -2.415369951997537,
-=======
-            "threshold": 0.00060043144274145,
-            "iq_angle": -2.4677743961088074,
->>>>>>> Stashed changes
+            "threshold": 0.0004973224105781184,
+            "iq_angle": -2.1800765900217036,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -114,13 +89,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-<<<<<<< Updated upstream
-            "threshold": -0.0044666265206928495,
-            "iq_angle": 1.8645205022686473,
-=======
-            "threshold": -0.004729278783737451,
-            "iq_angle": 1.8335906419332713,
->>>>>>> Stashed changes
+            "threshold": -0.005305985619941656,
+            "iq_angle": 1.8899123637695094,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -129,13 +99,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-<<<<<<< Updated upstream
-            "threshold": 0.0004599205986483802,
-            "iq_angle": -1.3533216012053517,
-=======
-            "threshold": 0.0002946317750756266,
-            "iq_angle": -1.5148156547888163,
->>>>>>> Stashed changes
+            "threshold": 0.00022933596168756075,
+            "iq_angle": -1.542037404562316,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -144,13 +109,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-<<<<<<< Updated upstream
-            "threshold": -0.0018267755700658167,
-            "iq_angle": 2.177433735242399,
-=======
-            "threshold": -0.0017920088321887562,
-            "iq_angle": 2.283695191108191,
->>>>>>> Stashed changes
+            "threshold": -0.0017853727592669665,
+            "iq_angle": 2.0948961547730396,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -159,130 +119,121 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-<<<<<<< Updated upstream
-            "threshold": 0.0009475500421651194,
-            "iq_angle": 1.9572651231297926,
-=======
-            "threshold": 0.0010251992990533351,
-            "iq_angle": 2.1777233585054585,
->>>>>>> Stashed changes
+            "threshold": 0.0010736853294334645,
+            "iq_angle": 1.8486996369732818,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
         },
         "0/flux": {
             "kind": "opx-output",
-<<<<<<< Updated upstream
-            "offset": 0.332,
-=======
-            "offset": 0.335,
->>>>>>> Stashed changes
+            "offset": 0.3395,
             "filter": {},
-            "output_mode": "amplified"
+            "output_mode": "amplified",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "1/flux": {
             "kind": "opx-output",
-<<<<<<< Updated upstream
-            "offset": 0.405,
-=======
-            "offset": 0.4075,
->>>>>>> Stashed changes
+            "offset": 0.4115,
             "filter": {},
-            "output_mode": "amplified"
+            "output_mode": "amplified",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "2/flux": {
             "kind": "opx-output",
-            "offset": 0.5835,
+            "offset": 0.589,
             "filter": {
                 "feedforward": [
-                    1.0754132007773474,
-                    -0.9404285930896409,
-                    -0.00031967690825593625,
-                    -0.0003181621077945765,
-                    -0.0007908278407050525,
-                    -0.0039569098735961795,
-                    -0.000729855202823688,
-                    -0.002416517675524896,
-                    -0.009115264641310138,
-                    -0.000603450314426204,
-                    0.0025958138731864864,
-                    0.0034184442226738005,
-                    0.006059197144989592,
-                    0.00014214314812889756,
-                    0.009270088920469542,
-                    -0.0001459763193763005,
-                    -0.004815096408596875,
-                    -0.0010556491762116023,
-                    -0.0033488366166169823,
-                    -0.0029395695162534284,
-                    -0.003758551696870666,
-                    0.000608574673864078,
-                    0.005247312295791289,
-                    -0.005217486206611773,
-                    0.008664364835577754,
-                    0.00045171748069881097,
-                    0.0007314837398484262,
-                    -0.004904855638914386,
-                    -0.004185970415658234,
-                    0.00022349907161149044,
-                    0.0036919505198862172
+                    1.2850272073706281,
+                    -1.1835033651801536,
+                    -0.0019619545990983006,
+                    -0.0021083107426062495,
+                    0.023371463501887058,
+                    0.02025224421893058,
+                    0.0019589928001863127,
+                    -0.008332938287894982,
+                    0.005350023426410743,
+                    -0.006058073532456922,
+                    -0.0029810381938261575,
+                    0.01438589002352595,
+                    -0.009108685135344331,
+                    0.009421668502231558,
+                    -0.010621680066116072,
+                    0.00540830864939895,
+                    0.004512585573068329,
+                    0.0003686760720884655,
+                    -0.004178724719820321,
+                    -0.008386539202861157,
+                    0.005306908434137087,
+                    -0.0063945802366233255,
+                    0.0047257569033639585,
+                    0.0039971922628910745,
+                    0.0018148359829937384,
+                    -0.005562057786637358,
+                    0.0007293882543540939,
+                    0.008526004583632483,
+                    -0.006776409848482018,
+                    -0.010507935963832819,
+                    0.008821440255055466
                 ],
                 "feedback": [
-                    0.8720655726989497
+                    0.8620664644665267
                 ]
             },
-            "output_mode": "amplified"
+            "output_mode": "amplified",
+            "sampling_rate": 2000000000.0,
+            "upsampling_mode": "mw"
         },
         "3/flux": {
             "kind": "opx-output",
-<<<<<<< Updated upstream
-            "offset": 0.6125,
-=======
-            "offset": 0.615,
->>>>>>> Stashed changes
+            "offset": 0.621,
             "filter": {
                 "feedforward": [
-                    1.082007705000196,
-                    -0.9741536851730478,
-                    0.00021689045678121438,
-                    0.0002177678487019965,
-                    -0.007090170034779514,
-                    -0.01371935301473203,
-                    0.004825050146937807,
-                    -0.009680016191753295,
-                    0.0051330968039090905,
-                    0.01453528320150697,
-                    0.007239990189523316,
-                    -0.005750718322479985,
-                    -0.01995192037481248,
-                    0.008815287010840356,
-                    0.005575918023622079,
-                    -0.013036632750514456,
-                    0.02593218215943937,
-                    0.0017546236439041907,
-                    -0.013018264548832698,
-                    -0.001059546515898485,
-                    -0.0010291630322702978,
-                    -0.0028974814258814715,
-                    0.002596287731258245,
-                    0.008059794467478565,
-                    -0.02307973887840023,
-                    0.005653434576441265,
-                    0.012880916586044532,
-                    0.016707467915731362,
-                    -0.014204518712674735,
-                    -0.02060011427237446,
-                    0.014825884812555394
+                    1.284548875270807,
+                    -1.0056617429201637,
+                    -0.012529253885234482,
+                    -0.011487520765016534,
+                    0.011937918784461163,
+                    0.020522728255477393,
+                    -0.0018467139311742903,
+                    0.002437540831660893,
+                    -0.005773242737811846,
+                    -0.013462125461493262,
+                    0.00339733073386875,
+                    0.010402457373085936,
+                    -0.002435267813384176,
+                    0.004014594962814319,
+                    0.0023439183439868012,
+                    -0.009018705643699408,
+                    0.004068435942822789,
+                    -0.0001231020194283884,
+                    -0.0004663482646134888,
+                    -0.0034076328150296,
+                    0.0033469599285347153,
+                    -0.0059114982750668454,
+                    -0.003311871458134612,
+                    0.008539232279897882,
+                    -0.006902247042433698,
+                    0.005088775743873732,
+                    0.0019945807949700717,
+                    -0.001366443684824285,
+                    -0.007933769936717959,
+                    -0.0005344965764873585,
+                    0.004798242254681082
                 ],
                 "feedback": [
-                    0.9022911072872918
+                    0.7232765696189466
                 ]
             },
-            "output_mode": "amplified"
+            "output_mode": "amplified",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "pulse"
         },
         "4/flux": {
             "kind": "opx-output",
-            "offset": 0.0215,
+            "offset": 0.028,
             "filter": {
                 "feedforward": [
                     1.0931558397101324,
@@ -321,7 +272,9 @@
                     0.9196467888932802
                 ]
             },
-            "output_mode": "amplified"
+            "output_mode": "amplified",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "01/drive_lo": {
             "kind": "octave-oscillator",
@@ -363,15 +316,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-<<<<<<< Updated upstream
-                            "amplitude": 0.5703316607691853,
-=======
-                            "amplitude": 0.3108720159657448,
->>>>>>> Stashed changes
+                            "amplitude": 0.3093666048941922,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
-                                "beta": -0.3
+                                "beta": -1.1499999999999997
                             },
                             "relative_phase": 0.0
                         }
@@ -424,15 +373,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-<<<<<<< Updated upstream
-                            "amplitude": 0.2754174022993116,
-=======
-                            "amplitude": 0.1519651763535302,
->>>>>>> Stashed changes
+                            "amplitude": 0.1515878346478727,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
-                                "beta": -1.6
+                                "beta": -1.1499999999999997
                             },
                             "relative_phase": 0.0
                         }
@@ -485,15 +430,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-<<<<<<< Updated upstream
-                            "amplitude": 0.3127500885974008,
-=======
-                            "amplitude": 0.17180060157330548,
->>>>>>> Stashed changes
+                            "amplitude": 0.17125468689262674,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
-                                "beta": 2.2
+                                "beta": -1.1499999999999997
                             },
                             "relative_phase": 0.0
                         }
@@ -546,15 +487,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-<<<<<<< Updated upstream
-                            "amplitude": 0.43923312252954344,
-=======
-                            "amplitude": 0.24094348045724293,
->>>>>>> Stashed changes
+                            "amplitude": 0.24009414544763336,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
-                                "beta": 0.0
+                                "beta": -1.1499999999999997
                             },
                             "relative_phase": 0.0
                         }
@@ -607,15 +544,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-<<<<<<< Updated upstream
-                            "amplitude": 0.5053151447137197,
-=======
-                            "amplitude": 0.27538651293611116,
->>>>>>> Stashed changes
+                            "amplitude": 0.27678943149518065,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.6,
-                                "beta": -1.0
+                                "beta": -1.1499999999999997
                             },
                             "relative_phase": 0.0
                         }
@@ -690,44 +623,15 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-<<<<<<< Updated upstream
-                            "duration": 33.0,
-                            "amplitude": 0.0879,
-=======
-                            "duration": 50.0,
+                            "duration": 32.0,
                             "amplitude": 0.087,
->>>>>>> Stashed changes
                             "envelope": {
                                 "kind": "snz",
-                                "t_idling": 2,
-                                "b_amplitude": 0.8
+                                "t_idling": 4,
+                                "b_amplitude": 0.0
                             },
                             "relative_phase": 0.0
                         }
-<<<<<<< Updated upstream
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 10.0
-                        }
-                    ],
-                    [
-                        "1/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-=======
->>>>>>> Stashed changes
                     ]
                 ],
                 "CNOT": null,
@@ -766,32 +670,15 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 36.0,
-                            "amplitude": 0.095,
+                            "duration": 33.0,
+                            "amplitude": 0.0938,
                             "envelope": {
                                 "kind": "snz",
-                                "t_idling": 4,
-                                "b_amplitude": 0.02
+                                "t_idling": 1,
+                                "b_amplitude": 0.8
                             },
                             "relative_phase": 0.0
                         }
-<<<<<<< Updated upstream
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-                    ],
-                    [
-                        "3/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-=======
->>>>>>> Stashed changes
                     ]
                 ],
                 "CNOT": null,
@@ -803,7 +690,9 @@
                             "duration": 29.0,
                             "amplitude": 0.08,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 1,
+                                "b_amplitude": 0.8
                             },
                             "relative_phase": 0.0
                         }
@@ -812,7 +701,7 @@
                         "3/flux",
                         {
                             "kind": "delay",
-                            "duration": 50.0
+                            "duration": 16.0
                         }
                     ],
                     [
@@ -834,43 +723,17 @@
             "2-4": {
                 "CZ": [
                     [
-                        "2/flux",
-                        {
-                            "kind": "delay",
-                            "duration": 50.0
-                        }
-                    ],
-                    [
                         "4/flux",
                         {
                             "kind": "pulse",
-                            "duration": 31.0,
+                            "duration": 34.0,
                             "amplitude": 0.08265,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 4,
+                                "b_amplitude": 0.5
                             },
                             "relative_phase": 0.0
-                        }
-                    ],
-                    [
-                        "2/flux",
-                        {
-                            "kind": "delay",
-                            "duration": 50.0
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-                    ],
-                    [
-                        "4/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
                         }
                     ]
                 ],
