@@ -47,10 +47,10 @@ def create():
         device="octave1", path="1", mixer=None, lo="2/drive_lo"
     )
     channels[qubits[3].drive] = IqChannel(
-        device="octave1", path="4", mixer=None, lo="3/drive_lo"
+        device="octave1", path="4", mixer=None, lo="34/drive_lo"
     )
     channels[qubits[4].drive] = IqChannel(
-        device="octave2", path="2", mixer=None, lo="4/drive_lo"
+        device="octave1", path="5", mixer=None, lo="34/drive_lo"
     )
     # Flux
     channels[qubits[0].flux] = DcChannel(device="con1/4", path="4")
