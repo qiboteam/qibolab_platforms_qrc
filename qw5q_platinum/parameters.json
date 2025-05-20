@@ -13,7 +13,7 @@
         "twpa": {
             "kind": "oscillator",
             "frequency": 6532730000.0,
-            "power": 1.42
+            "power": 1.4
         },
         "0/drive": {
             "kind": "iq",
@@ -25,7 +25,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7205352361.0
+            "frequency": 7205270517.0
         },
         "1/drive": {
             "kind": "iq",
@@ -37,7 +37,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7338411828.0
+            "frequency": 7338383471.0
         },
         "2/drive": {
             "kind": "iq",
@@ -49,7 +49,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7499888377.0
+            "frequency": 7499762058.0
         },
         "3/drive": {
             "kind": "iq",
@@ -61,7 +61,7 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7663267172.0
+            "frequency": 7663363718.0
         },
         "4/drive": {
             "kind": "iq",
@@ -73,14 +73,14 @@
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7796064524.0
+            "frequency": 7795904249.0
         },
         "0/acquisition": {
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.00026941689591518186,
-            "iq_angle": 2.4345090415356867,
+            "threshold": -0.0006106042829597726,
+            "iq_angle": 2.0138620122790174,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -89,8 +89,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.000057812585264435306,
-            "iq_angle": -1.588484770160693,
+            "threshold": -0.0003110973857872265,
+            "iq_angle": -1.7482110341898216,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -99,8 +99,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0013629558165953312,
-            "iq_angle": 0.27370256880124644,
+            "threshold": -0.0021504802642856088,
+            "iq_angle": -0.7028022742209706,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -109,8 +109,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.003665372487829636,
-            "iq_angle": -2.1228226442064253,
+            "threshold": -0.001373887466782256,
+            "iq_angle": -1.9209982040898057,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -119,8 +119,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.002049872690832353,
-            "iq_angle": -0.12072031926139422,
+            "threshold": -0.0037693241122289485,
+            "iq_angle": -0.8346143257617067,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -358,7 +358,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.015,
+                                "amplitude": 0.01,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -415,7 +415,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.02,
+                                "amplitude": 0.01,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
