@@ -87,7 +87,7 @@
         },
         "qcm_rf2": {
             "o1": {
-                "attenuation": 26,
+                "attenuation": 16,
                 "lo_frequency": 4305409000
             }
         }
@@ -103,9 +103,9 @@
             "0": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.3410252680360759,
+                    "amplitude": 0.10901707832951452,
                     "shape": "Gaussian(5)",
-                    "frequency": 4107069248,
+                    "frequency": 4106848222,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -121,7 +121,7 @@
                 },
                 "MZ": {
                     "duration": 700,
-                    "amplitude": 0.1,
+                    "amplitude": 0.09,
                     "shape": "Rectangular()",
                     "frequency": 5228976330,
                     "relative_start": 0,
@@ -132,9 +132,9 @@
             "1": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.04574933771359648,
+                    "amplitude": 0.04604397777108247,
                     "shape": "Gaussian(5)",
-                    "frequency": 4264082173,
+                    "frequency": 4264109688,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -161,9 +161,9 @@
             "2": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.46307995223350784,
+                    "amplitude": 0.4652101659652749,
                     "shape": "Drag(5, 0.433396)",
-                    "frequency": 4556652119,
+                    "frequency": 4556619068,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -219,9 +219,9 @@
             "4": {
                 "RX": {
                     "duration": 40,
-                    "amplitude": 0.2566522140098526,
+                    "amplitude": 0.2572609913317633,
                     "shape": "Gaussian(5)",
-                    "frequency": 4358134069,
+                    "frequency": 4358114655,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -237,7 +237,7 @@
                 },
                 "MZ": {
                     "duration": 700,
-                    "amplitude": 0.06,
+                    "amplitude": 0.05,
                     "shape": "Rectangular()",
                     "frequency": 5522640418,
                     "relative_start": 0,
@@ -442,18 +442,18 @@
             "0": {
                 "bare_resonator_frequency": 5221992000,
                 "readout_frequency": 5226976330,
-                "drive_frequency": 4107069248,
+                "drive_frequency": 4106848222,
                 "anharmonicity": 218941606,
-                "sweetspot": -0.0016229057855406503,
+                "sweetspot": 0.000899265657818477,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
-                    "0": 0.5686188854660573
+                    "0": 0.5556259498844018
                 },
                 "Ec": 0,
                 "Ej": 0.0,
                 "g": 0,
-                "assignment_fidelity": 0.9432927644777317,
-                "readout_fidelity": 0.8865855289554634,
+                "assignment_fidelity": 0.9418884579376756,
+                "readout_fidelity": 0.8837769158753511,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -461,19 +461,19 @@
                 "resonator_depletion_time": 0,
                 "T1": 23128,
                 "T2": 10680,
-                "T2_spin_echo": 28205,
+                "T2_spin_echo": 27529,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.00047468118641087444,
-                    0.0006090297812827418
+                    -0.00044183098676292115,
+                    0.000502857501615545
                 ],
                 "mean_exc_states": [
-                    -0.002849275937428792,
-                    0.003612874764746109
+                    -0.002677386288184412,
+                    0.0031228467241705047
                 ],
-                "threshold": 0.0026656203929711062,
-                "iq_angle": -2.2397290106821806,
+                "threshold": 0.002218746376861871,
+                "iq_angle": -2.2771850927596287,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -482,18 +482,18 @@
             "1": {
                 "bare_resonator_frequency": 4927992000,
                 "readout_frequency": 4928845888,
-                "drive_frequency": 4264082173,
+                "drive_frequency": 4264109688,
                 "anharmonicity": 213599314,
-                "sweetspot": 0.00043051222276122323,
+                "sweetspot": 0.0023976004181763973,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
-                    "1": 0.46367716782822654
+                    "1": 0.45258022229194783
                 },
                 "Ec": 0,
                 "Ej": 0.0,
                 "g": 0,
-                "assignment_fidelity": 0.8865855289554634,
-                "readout_fidelity": 0.7731710579109269,
+                "assignment_fidelity": 0.8905309616156213,
+                "readout_fidelity": 0.7810619232312426,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -501,19 +501,19 @@
                 "resonator_depletion_time": 0,
                 "T1": 18407,
                 "T2": 11505,
-                "T2_spin_echo": 10905,
+                "T2_spin_echo": 13542,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    7.352226459703797e-05,
-                    9.448476955762375e-05
+                    5.834395194214067e-05,
+                    8.677844703293782e-05
                 ],
                 "mean_exc_states": [
-                    -0.0018669512209796514,
-                    -0.00027390591708637387
+                    -0.0018830868177225713,
+                    -0.0003548772384203413
                 ],
-                "threshold": 0.001050232311747224,
-                "iq_angle": 2.953979565777573,
+                "threshold": 0.0009404384104922909,
+                "iq_angle": 2.917909657034879,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -522,18 +522,18 @@
             "2": {
                 "bare_resonator_frequency": 6078000000,
                 "readout_frequency": 6114827652,
-                "drive_frequency": 4556652119,
+                "drive_frequency": 4556619068,
                 "anharmonicity": -209105697,
-                "sweetspot": -0.010436105811582838,
+                "sweetspot": -0.008346954748958205,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
-                    "2": 0.45564554858047235
+                    "2": 0.4429271598133911
                 },
                 "Ec": 0,
                 "Ej": 0.0,
                 "g": 5884752.089075527,
-                "assignment_fidelity": 0.9494449645579779,
-                "readout_fidelity": 0.8988899291159557,
+                "assignment_fidelity": 0.9448308144977933,
+                "readout_fidelity": 0.8896616289955865,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -541,19 +541,19 @@
                 "resonator_depletion_time": 0,
                 "T1": 8507,
                 "T2": 3595,
-                "T2_spin_echo": 15091,
+                "T2_spin_echo": 14121,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    -0.004032558888542423,
-                    0.00024028430294349538
+                    -0.0041441307777274556,
+                    6.52283757053139e-05
                 ],
                 "mean_exc_states": [
-                    -0.004966204318289762,
-                    0.004080991814413737
+                    -0.005322162873072615,
+                    0.003875668773442831
                 ],
-                "threshold": 0.0027161136718365834,
-                "iq_angle": -1.8092628890407862,
+                "threshold": 0.002709823196573354,
+                "iq_angle": -1.8706345851993111,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
@@ -602,18 +602,18 @@
             "4": {
                 "bare_resonator_frequency": 5516492000,
                 "readout_frequency": 5532640418,
-                "drive_frequency": 4358134069,
+                "drive_frequency": 4358114655,
                 "anharmonicity": 210600000,
-                "sweetspot": -0.01191603900477246,
+                "sweetspot": -0.009373475164799153,
                 "asymmetry": 0.0,
                 "crosstalk_matrix": {
-                    "4": 0.4546876964439768
+                    "4": 0.44341765758626855
                 },
                 "Ec": 0,
                 "Ej": 0.0,
                 "g": 0,
-                "assignment_fidelity": 0.945700147117828,
-                "readout_fidelity": 0.891400294235656,
+                "assignment_fidelity": 0.9289822121171593,
+                "readout_fidelity": 0.8579644242343185,
                 "gate_fidelity": 0.0,
                 "effective_temperature": 0.0,
                 "peak_voltage": 0,
@@ -621,19 +621,19 @@
                 "resonator_depletion_time": 0,
                 "T1": 7030,
                 "T2": 9573,
-                "T2_spin_echo": 10557,
+                "T2_spin_echo": 8313,
                 "state0_voltage": 0,
                 "state1_voltage": 0,
                 "mean_gnd_states": [
-                    0.0007366633479541909,
-                    -0.0006603052471317902
+                    0.0006515258994429122,
+                    -0.0005329945732580831
                 ],
                 "mean_exc_states": [
-                    0.0009096024454948995,
-                    -0.0028394861886544267
+                    0.0009039271961622637,
+                    -0.00232330085856834
                 ],
-                "threshold": 0.0015980820123104931,
-                "iq_angle": 1.4916026235122826,
+                "threshold": 0.0013562731112472756,
+                "iq_angle": 1.4307372086426517,
                 "mixer_drive_g": 0.0,
                 "mixer_drive_phi": 0.0,
                 "mixer_readout_g": 0.0,
