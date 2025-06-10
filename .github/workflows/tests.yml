@@ -21,7 +21,7 @@ jobs:
           python -m venv testenv
           source testenv/bin/activate
           pip install pytest
-          pip install qibolab[qblox,zh,qm,rfsoc]
+          pip install qibolab-qm
       - name: Install and configure poetry
         if: ${{ matrix.version == 'main' }}
         uses: snok/install-poetry@v1
@@ -32,8 +32,8 @@ jobs:
         run: |
           python -m venv testenv
           source testenv/bin/activate
-          git clone https://github.com/qiboteam/qibolab
-          cd qibolab
+          git clone https://github.com/qiboteam/qibolab-qm
+          cd qibolab-qm
           poetry install --no-interaction --with tests --all-extras
       - name: Test platforms
         run: |
