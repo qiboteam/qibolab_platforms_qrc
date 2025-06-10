@@ -21,6 +21,7 @@ jobs:
           python -m venv testenv
           source testenv/bin/activate
           pip install pytest
+          pip install qcodes
           pip install qibolab-qm
       - name: Install and configure poetry
         if: ${{ matrix.version == 'main' }}
@@ -32,6 +33,10 @@ jobs:
         run: |
           python -m venv testenv
           source testenv/bin/activate
+          git clone https://github.com/qiboteam/qibolab
+          cd qibolab
+          poetry install --no-interaction --with tests --all-extras
+          cd ..
           git clone https://github.com/qiboteam/qibolab-qm
           cd qibolab-qm
           poetry install --no-interaction --with tests --all-extras
