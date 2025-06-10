@@ -10,88 +10,443 @@
             "readout": 30,
             "instructions": 1000000
         },
+        "twpaB": {
+            "kind": "oscillator",
+            "frequency": 8484000000.0,
+            "power": -11.0
+        },
         "twpaD": {
             "kind": "oscillator",
-            "frequency": 6149000000.0,
-            "power": -2.6
+            "frequency": 8475000000.0,
+            "power": -10.5
         },
-        "D/probe_lo": {
-            "kind": "oscillator",
-            "frequency": 7450000000.0,
-            "power": 0.0
+        "A1/drive": {
+            "kind": "iq",
+            "frequency": 4900000000.0
         },
-        "D5/drive_lo": {
-            "kind": "oscillator",
-            "frequency": 5700000000.0,
-            "power": 0.0
+        "A1/drive12": {
+            "kind": "iq",
+            "frequency": 4900000000.0
         },
-        "D2D3/drive_lo": {
-            "kind": "oscillator",
-            "frequency": 5700000000.0,
-            "power": 0.0
+        "A1/probe": {
+            "kind": "iq",
+            "frequency": 7134250000.0
         },
-        "D4/drive_lo": {
-            "kind": "oscillator",
-            "frequency": 6400000000.0,
-            "power": 0.0
+        "A2/drive": {
+            "kind": "iq",
+            "frequency": 5700000000.0
         },
-        "D1/drive_lo": {
-            "kind": "oscillator",
-            "frequency": 5100000000.0,
-            "power": 0.0
+        "A2/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "A2/probe": {
+            "kind": "iq",
+            "frequency": 7400400000.0
+        },
+        "A3/drive": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "A3/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "A3/probe": {
+            "kind": "iq",
+            "frequency": 7490250000.0
+        },
+        "A4/drive": {
+            "kind": "iq",
+            "frequency": 4900000000.0
+        },
+        "A4/drive12": {
+            "kind": "iq",
+            "frequency": 4900000000.0
+        },
+        "A4/probe": {
+            "kind": "iq",
+            "frequency": 7242800000.0
+        },
+        "A5/drive": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "A5/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "A5/probe": {
+            "kind": "iq",
+            "frequency": 7640000000.0
+        },
+        "A6/drive": {
+            "kind": "iq",
+            "frequency": 6500000000.0
+        },
+        "A6/drive12": {
+            "kind": "iq",
+            "frequency": 6500000000.0
+        },
+        "A6/probe": {
+            "kind": "iq",
+            "frequency": 7742200000.0
+        },
+        "B1/drive": {
+            "kind": "iq",
+            "frequency": 5000165524.9930525
+        },
+        "B1/drive12": {
+            "kind": "iq",
+            "frequency": 4900000000.0
+        },
+        "B1/probe": {
+            "kind": "iq",
+            "frequency": 7123184994.749676
+        },
+        "B2/drive": {
+            "kind": "iq",
+            "frequency": 5971116855.563813
+        },
+        "B2/drive12": {
+            "kind": "iq",
+            "frequency": 5766856000.0
+        },
+        "B2/probe": {
+            "kind": "iq",
+            "frequency": 7370096345.08059
+        },
+        "B3/drive": {
+            "kind": "iq",
+            "frequency": 5685300640.496863
+        },
+        "B3/drive12": {
+            "kind": "iq",
+            "frequency": 5468650012.0
+        },
+        "B3/probe": {
+            "kind": "iq",
+            "frequency": 7472723357.481687
+        },
+        "B4/drive": {
+            "kind": "iq",
+            "frequency": 6811771407.144825
+        },
+        "B4/drive12": {
+            "kind": "iq",
+            "frequency": 6612097382.0
+        },
+        "B4/probe": {
+            "kind": "iq",
+            "frequency": 7695786067.372317
+        },
+        "B5/drive": {
+            "kind": "iq",
+            "frequency": 5741835731.409868
+        },
+        "B5/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "B5/probe": {
+            "kind": "iq",
+            "frequency": 7637546952.22525
+        },
+        "D1/drive": {
+            "kind": "iq",
+            "frequency": 4958894888.0
+        },
+        "D1/drive12": {
+            "kind": "iq",
+            "frequency": 4748442235.0
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7137442519.0
+            "frequency": 7122042240.914573
+        },
+        "D2/drive": {
+            "kind": "iq",
+            "frequency": 5568008860.0
+        },
+        "D2/drive12": {
+            "kind": "iq",
+            "frequency": 5354064200.0
+        },
+        "D2/probe": {
+            "kind": "iq",
+            "frequency": 7360864864.974213
+        },
+        "D3/drive": {
+            "kind": "iq",
+            "frequency": 5658723293.0
+        },
+        "D3/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "D3/probe": {
+            "kind": "iq",
+            "frequency": 7468449016.994243
+        },
+        "D4/drive": {
+            "kind": "iq",
+            "frequency": 6249006263.0
+        },
+        "D4/drive12": {
+            "kind": "iq",
+            "frequency": 6500000000.0
+        },
+        "D4/probe": {
+            "kind": "iq",
+            "frequency": 7684228389.501525
+        },
+        "D5/drive": {
+            "kind": "iq",
+            "frequency": 5532052319.0
+        },
+        "D5/drive12": {
+            "kind": "iq",
+            "frequency": 5700000000.0
+        },
+        "D5/probe": {
+            "kind": "iq",
+            "frequency": 7624721278.633852
+        },
+        "A1/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "A2/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "A3/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "A4/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "A5/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "A6/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0,
+            "iq_angle": 0.0,
+            "kernel": null,
+            "gain": 0,
+            "offset": 0.0
+        },
+        "B1/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 308.0,
+            "smearing": 0.0,
+            "threshold": 0.01703329830918195,
+            "iq_angle": 1.1334575596195857,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "B2/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 308.0,
+            "smearing": 0.0,
+            "threshold": 0.021346871737474408,
+            "iq_angle": -0.408319235405189,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "B3/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 308.0,
+            "smearing": 0.0,
+            "threshold": 0.007241422695635399,
+            "iq_angle": -0.5727931819342655,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "B4/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 308.0,
+            "smearing": 0.0,
+            "threshold": 0.006649552326367462,
+            "iq_angle": 0.37886414490192943,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "B5/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 308.0,
+            "smearing": 0.0,
+            "threshold": 0.007963735495949358,
+            "iq_angle": -2.217613149539266,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
         },
         "D1/acquisition": {
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.001806559973762099,
-            "iq_angle": -1.100165435889717,
+            "threshold": 0.0020257882851266703,
+            "iq_angle": -0.7912369196609195,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
-        },
-        "D1/drive": {
-            "kind": "iq",
-            "frequency": 4958270075.0
-        },
-        "D1/flux": {
-            "kind": "opx-output",
-            "offset": 0.2205,
-            "filter": {
-                "feedforward": [
-                    1.1298143371682787,
-                    -0.9007185757251136
-                ],
-                "feedback": [
-                    0.7709042385568349
-                ]
-            }
-        },
-        "D2/probe": {
-            "kind": "iq",
-            "frequency": 7379236963.0
         },
         "D2/acquisition": {
             "kind": "qm-acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": -0.00024156205902244586,
-            "iq_angle": 1.2589261144038006,
+            "threshold": 0.0034323958795263,
+            "iq_angle": -1.4060343659185124,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
         },
-        "D2/drive": {
-            "kind": "iq",
-            "frequency": 5564024728.0
+        "D3/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.0020833725806629487,
+            "iq_angle": -0.7163651477597726,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
         },
-        "D2/flux": {
+        "D4/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.002089058828918122,
+            "iq_angle": -2.443356633718677,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "D5/acquisition": {
+            "kind": "qm-acquisition",
+            "delay": 224.0,
+            "smearing": 0.0,
+            "threshold": 0.00410112724481901,
+            "iq_angle": -3.0769883241994616,
+            "kernel": null,
+            "gain": 10,
+            "offset": 0.0
+        },
+        "A1/flux": {
             "kind": "opx-output",
-            "offset": -0.421,
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A2/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A3/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A4/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A5/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A6/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "B1/flux": {
+            "kind": "opx-output",
+            "offset": 0.09223860900254983,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "B2/flux": {
+            "kind": "opx-output",
+            "offset": 0.4395472244576253,
+            "filter": {
+                "feedforward": [
+                    1.0605851073784813,
+                    -0.9529722265285006
+                ],
+                "feedback": [
+                    0.890387119150019
+                ]
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "B3/flux": {
+            "kind": "opx-output",
+            "offset": 0.11719021104861632,
             "filter": {
                 "feedforward": [
                     1.0891790415038731,
@@ -100,96 +455,194 @@
                 "feedback": [
                     0.935305257333166
                 ]
-            }
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
-        "D3/probe": {
-            "kind": "iq",
-            "frequency": 7490655184.0
+        "B4/flux": {
+            "kind": "opx-output",
+            "offset": -0.47493809361156486,
+            "filter": {
+                "feedforward": [
+                    1.0891790415038731,
+                    -1.024484298837039
+                ],
+                "feedback": [
+                    0.933705257333166
+                ]
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
-        "D3/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.0013255408943197108,
-            "iq_angle": 1.9608026111000543,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
+        "B5/flux": {
+            "kind": "opx-output",
+            "offset": -0.3270396460963957,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
-        "D3/drive": {
-            "kind": "iq",
-            "frequency": 5652486485.0
+        "D1/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {
+                "feedforward": [
+                    1.1298143371682787,
+                    -0.9007185757251136
+                ],
+                "feedback": [
+                    0.7709042385568349
+                ]
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "D2/flux": {
+            "kind": "opx-output",
+            "offset": 0.0,
+            "filter": {
+                "feedforward": [
+                    1.0891790415038731,
+                    -1.024484298837039
+                ],
+                "feedback": [
+                    0.935305257333166
+                ]
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "D3/flux": {
             "kind": "opx-output",
-            "offset": -0.2095,
+            "offset": 0.0,
             "filter": {
                 "feedforward": [
-                    1.0725851073784813,
-                    -0.9529722265285006
+                    1.1298143371682787,
+                    -0.9007185757251136
                 ],
                 "feedback": [
-                    0.880387119150019
+                    0.7709042385568349
                 ]
-            }
-        },
-        "D4/probe": {
-            "kind": "iq",
-            "frequency": 7706570000.0
-        },
-        "D4/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.0016417382238347856,
-            "iq_angle": 0.12674967868508633,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
-        },
-        "D4/drive": {
-            "kind": "iq",
-            "frequency": 6150032162.0
+            },
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "D4/flux": {
             "kind": "opx-output",
             "offset": 0.0,
-            "filter": {}
-        },
-        "D5/probe": {
-            "kind": "iq",
-            "frequency": 7636110000.0
-        },
-        "D5/acquisition": {
-            "kind": "qm-acquisition",
-            "delay": 224.0,
-            "smearing": 0.0,
-            "threshold": 0.0025593424931173144,
-            "iq_angle": 0.5464984071797813,
-            "kernel": null,
-            "gain": 10,
-            "offset": 0.0
-        },
-        "D5/drive": {
-            "kind": "iq",
-            "frequency": 5421335411.0
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
         },
         "D5/flux": {
             "kind": "opx-output",
-            "offset": -0.04,
-            "filter": {}
+            "offset": 0.0,
+            "filter": {},
+            "output_mode": "direct",
+            "sampling_rate": 1000000000.0,
+            "upsampling_mode": "mw"
+        },
+        "A1A4/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 4900000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "A2A3/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5700000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "A5D5/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5700000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "A6D4/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 6400000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B1/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 4900000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B2/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5900000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B3/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5800000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B4/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 6700000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B5/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5900000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "D1/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5100000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "D2D3/drive_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 5700000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "A/probe_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 7520000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
+        },
+        "B/probe_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 7400000000.0,
+            "power": -10.0,
+            "output_mode": "triggered"
+        },
+        "D/probe_lo": {
+            "kind": "octave-oscillator",
+            "frequency": 7450000000.0,
+            "power": 0.0,
+            "output_mode": "triggered"
         }
     },
     "native_gates": {
         "single_qubit": {
-            "D1": {
+            "A1": {
                 "RX": [
                     [
-                        "D1/drive",
+                        "A1/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.0828917651219067,
+                            "amplitude": 0.1,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -198,10 +651,25 @@
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
-                        "D1/acquisition",
+                        "A1/acquisition",
                         {
                             "kind": "readout",
                             "acquisition": {
@@ -211,7 +679,618 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.003,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "A2": {
+                "RX": [
+                    [
+                        "A2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "A2/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "A3": {
+                "RX": [
+                    [
+                        "A3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "A3/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "A4": {
+                "RX": [
+                    [
+                        "A4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "A4/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "A5": {
+                "RX": [
+                    [
+                        "A5/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A5/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "A5/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "A6": {
+                "RX": [
+                    [
+                        "A6/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "A6/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "A6/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.004,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "B1": {
+                "RX": [
+                    [
+                        "B1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.09336511054905783,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": 0.65
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "B1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "B1/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.009,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "B2": {
+                "RX": [
+                    [
+                        "B2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.08891575520952345,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": -0.485437
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "B2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.102,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "B2/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.008,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "B3": {
+                "RX": [
+                    [
+                        "B3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1266525068407105,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": -0.603462
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "B3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "B3/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.0073,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "B4": {
+                "RX": [
+                    [
+                        "B4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.15325702412176523,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": -0.556924
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "B4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "B4/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.006,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "B5": {
+                "RX": [
+                    [
+                        "B5/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1187271786085094,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": -0.15
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "B5/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "B5/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 2000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 2000.0,
+                                "amplitude": 0.008,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0
+                            }
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "D1": {
+                "RX": [
+                    [
+                        "D1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.0826507236496066,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": 0.0
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "D1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "MZ": [
+                    [
+                        "D1/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 1000.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 1000.0,
+                                "amplitude": 0.004,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -229,7 +1308,24 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.1071511121234632,
+                            "amplitude": 0.1063918599542511,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "D2/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -238,7 +1334,6 @@
                         }
                     ]
                 ],
-                "RX12": null,
                 "MZ": [
                     [
                         "D2/acquisition",
@@ -246,12 +1341,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.0019,
+                                "duration": 1000.0,
+                                "amplitude": 0.006,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -269,7 +1364,24 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.14156044043938226,
+                            "amplitude": 0.13610196612852987,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": 0.4
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "D3/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -278,7 +1390,6 @@
                         }
                     ]
                 ],
-                "RX12": null,
                 "MZ": [
                     [
                         "D3/acquisition",
@@ -286,12 +1397,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
-                                "amplitude": 0.0018,
+                                "duration": 1000.0,
+                                "amplitude": 0.005,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -309,7 +1420,24 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.1575230136152547,
+                            "amplitude": 0.15679611640490315,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.2,
+                                "beta": 0.6
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": [
+                    [
+                        "D4/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -318,7 +1446,6 @@
                         }
                     ]
                 ],
-                "RX12": null,
                 "MZ": [
                     [
                         "D4/acquisition",
@@ -349,7 +1476,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3828221406541789,
+                            "amplitude": 0.12438556874950284,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -358,7 +1485,22 @@
                         }
                     ]
                 ],
-                "RX12": null,
+                "RX90": null,
+                "RX12": [
+                    [
+                        "D5/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.1,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "D5/acquisition",
@@ -371,7 +1513,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.0036,
+                                "amplitude": 0.004,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -385,14 +1527,14 @@
         },
         "coupler": {},
         "two_qubit": {
-            "D1-D2": {
+            "B1-B2": {
                 "CZ": [
                     [
-                        "D2/flux",
+                        "B2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 48.0,
-                            "amplitude": 0.4032,
+                            "duration": 47.0,
+                            "amplitude": -0.57536,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -402,6 +1544,244 @@
                 ],
                 "CNOT": null,
                 "iSWAP": null
+            },
+            "B1-B3": {
+                "CZ": [
+                    [
+                        "B3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 38.0,
+                            "amplitude": 0.435,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "B2-B4": {
+                "CZ": [
+                    [
+                        "B4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 33.0,
+                            "amplitude": -0.4776,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "B2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ],
+                    [
+                        "B4/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "B3-B4": {
+                "CZ": [
+                    [
+                        "B4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 38.0,
+                            "amplitude": 0.57,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "B3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ],
+                    [
+                        "B4/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "B4-B5": {
+                "CZ": [
+                    [
+                        "B4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 38.0,
+                            "amplitude": 0.57,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "D1-D2": {
+                "CZ": [
+                    [
+                        "D2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 51.0,
+                            "amplitude": 0.404,
+                            "envelope": {
+                                "kind": "snz",
+                                "t_idling": 1,
+                                "b_amplitude": 0.81
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "D1-D3": {
+                "CZ": [
+                    [
+                        "D3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 49.0,
+                            "amplitude": 0.4606,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "D1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": -6.204513832205662
+                        }
+                    ],
+                    [
+                        "D3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": -3.7793879059598057
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": [
+                    [
+                        "D2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 80.0,
+                            "amplitude": 0.5,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "D1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ],
+                    [
+                        "D3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ]
+            },
+            "D2-D4": {
+                "CZ": [
+                    [
+                        "D4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 70.0,
+                            "amplitude": 0.4268,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "D2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": -0.016968392949063747
+                        }
+                    ],
+                    [
+                        "D4/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": -5.663817468134775
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": [
+                    [
+                        "D2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 80.0,
+                            "amplitude": 0.5,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "D1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ],
+                    [
+                        "D2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ]
             }
         }
     }
