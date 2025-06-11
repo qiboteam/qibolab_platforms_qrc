@@ -38,6 +38,7 @@ jobs:
             cd $lib
             poetry install --no-interaction --with tests --all-extras
             cd ..
+          done
       - name: Test platforms
         run: |
           source testenv/bin/activate
