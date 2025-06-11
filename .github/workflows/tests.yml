@@ -32,17 +32,12 @@ jobs:
         run: |
           python -m venv testenv
           source testenv/bin/activate
-          git clone https://github.com/qiboteam/qibolab
-          cd qibolab
-          poetry install --no-interaction --with tests --all-extras
-          cd ..
-          git clone https://github.com/qiboteam/qibolab-qm
-          cd qibolab-qm
-          poetry install --no-interaction --with tests --all-extras
-          cd ..
-          git clone https://github.com/qiboteam/qibolab-qblox
-          cd qibolab-qblox
-          poetry install --no-interaction --with tests --all-extras
+          for lib in qibolab-qm qibolab-qblox qibolab
+          do
+            git clone https://github.com/qiboteam/$lib
+            cd $lib
+            poetry install --no-interaction --with tests --all-extras
+            cd ..
       - name: Test platforms
         run: |
           source testenv/bin/activate
