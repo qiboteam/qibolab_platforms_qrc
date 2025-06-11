@@ -1,0 +1,323 @@
+{
+    "nqubits": 3,
+    "settings": {
+        "nshots": 2000,
+        "relaxation_time": 150000
+    },
+    "qubits": [
+        0,
+        1,
+        2
+    ],
+    "topology": [
+        [
+            0,
+            1
+        ],
+        [
+            1,
+            2
+        ]
+    ],
+    "instruments": {
+        "qblox_controller": {
+            "bounds": {
+                "waveforms": 40000,
+                "readout": 1000000,
+                "instructions": 1000000
+            }
+        },
+        "qrm_rf0": {
+            "o1": {
+                "attenuation": 50,
+                "lo_frequency": 6450000000,
+                "mixer_calibration": [
+                    -13.6,
+                    -4.29
+                ]
+            },
+            "i1": {
+                "acquisition_hold_off": 240,
+                "acquisition_duration": 2000
+            }
+        },
+        "qcm_rf1": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 4700000000.0,
+                "mixer_calibration": [
+                    -13.48,
+                    -9.37
+                ]
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 5950000000,
+                "mixer_calibration": [
+                    -6.34,
+                    -1.78
+                ]
+            }
+        },
+        "qcm_rf0": {
+            "o1": {
+                "attenuation": 20,
+                "lo_frequency": 4500000000,
+                "mixer_calibration": [
+                    -5.18,
+                    -0.07
+                ]
+            },
+            "o2": {
+                "attenuation": 20,
+                "lo_frequency": 4500000000,
+                "mixer_calibration": [
+                    -2.34,
+                    -0.23
+                ]
+            }
+        }
+    },
+    "native_gates": {
+        "single_qubit": {
+            "0": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.2875,
+                    "shape": "Drag(5,-0.2)",
+                    "frequency": 4499578000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.18,
+                    "shape": "Rectangular()",
+                    "frequency": 6262511000.0,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "1": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.2374,
+                    "shape": "Drag(5,0)",
+                    "frequency": 4325866000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.18,
+                    "shape": "Rectangular()",
+                    "frequency": 6603721000.0,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "ro"
+                }
+            },
+            "2": {
+                "RX": {
+                    "duration": 40,
+                    "amplitude": 0.3614,
+                    "shape": "Drag(5,-0.05)",
+                    "frequency": 4300155000,
+                    "relative_start": 0,
+                    "phase": 0,
+                    "type": "qd"
+                },
+                "MZ": {
+                    "duration": 2000,
+                    "amplitude": 0.4,
+                    "shape": "Rectangular()",
+                    "frequency": 6785407000,
+                    "relative_start": 0,
+                    "phase": 0.0,
+                    "type": "ro"
+                }
+            }
+        },
+        "two_qubit": {
+            "0-1": {
+                "CZ": [
+                    {
+                        "duration": 40,
+                        "amplitude": 0.41,
+                        "shape": "Rectangular()",
+                        "qubit": 1,
+                        "frequency": 4884087000,
+                        "relative_start": 0,
+                        "phase": 0.0,
+                        "type": "qd"
+                    }
+                ]
+            },
+            "1-2": {
+                "CNOT": [
+                    {
+                        "duration": 200,
+                        "amplitude": 0.69,
+                        "shape": "Rectangular()",
+                        "qubit": 2,
+                        "frequency": 4952401000,
+                        "relative_start": 0,
+                        "phase": 0.0,
+                        "type": "qd"
+                    }
+                ]
+            }
+        }
+    },
+    "characterization": {
+        "single_qubit": {
+            "0": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 6851593000,
+                "drive_frequency": 0,
+                "anharmonicity": 300000000.0,
+                "sweetspot": 0.0,
+                "asymmetry": 0,
+                "crosstalk_matrix": {
+                    "0": 1,
+                    "1": 0,
+                    "2": 0
+                },
+                "Ec": 0,
+                "Ej": 0,
+                "g": 69526557.80860941,
+                "assignment_fidelity": 0.9005187416331994,
+                "readout_fidelity": 0.8010374832663989,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 0,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    -0.00010460929703131521,
+                    -0.0010889866197171768
+                ],
+                "mean_exc_states": [
+                    1.6620994644593675e-05,
+                    -0.0023051852827365407
+                ],
+                "threshold": 0.000414,
+                "iq_angle": 1.242,
+                "mixer_drive_g": 0.97,
+                "mixer_drive_phi": -19.34,
+                "mixer_readout_g": 0.97,
+                "mixer_readout_phi": 9.05
+            },
+            "1": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 0,
+                "drive_frequency": 0,
+                "anharmonicity": 300000000.0,
+                "sweetspot": 0.0,
+                "asymmetry": 0,
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 1,
+                    "2": 0
+                },
+                "Ec": 0,
+                "Ej": 0,
+                "g": 0,
+                "assignment_fidelity": 0.7895749665327978,
+                "readout_fidelity": 0.5791499330655957,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 14839,
+                "T2": 0,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    0.0009004411591623264,
+                    0.0013618401556814237
+                ],
+                "mean_exc_states": [
+                    0.0012380005284122967,
+                    0.0017600595755436687
+                ],
+                "threshold": 0.001256,
+                "iq_angle": -2.701,
+                "mixer_drive_g": 0.96,
+                "mixer_drive_phi": -21.53,
+                "mixer_readout_g": 1.0,
+                "mixer_readout_phi": 7.82
+            },
+            "2": {
+                "bare_resonator_frequency": 0,
+                "readout_frequency": 7067429000,
+                "drive_frequency": 0,
+                "anharmonicity": 300000000.0,
+                "sweetspot": 0.0,
+                "asymmetry": 0,
+                "crosstalk_matrix": {
+                    "0": 0,
+                    "1": 0,
+                    "2": 1
+                },
+                "Ec": 0,
+                "Ej": 0,
+                "g": 92114704.62708898,
+                "assignment_fidelity": 0.8282295850066934,
+                "readout_fidelity": 0.6564591700133869,
+                "gate_fidelity": 0.0,
+                "effective_temperature": 0,
+                "peak_voltage": 0,
+                "pi_pulse_amplitude": 0,
+                "resonator_depletion_time": 0,
+                "T1": 16350,
+                "T2": 13102,
+                "T2_spin_echo": 0,
+                "state0_voltage": 0,
+                "state1_voltage": 0,
+                "mean_gnd_states": [
+                    -0.0006618513610032236,
+                    -0.0018312652259363693
+                ],
+                "mean_exc_states": [
+                    -0.001263531572961766,
+                    -0.0018963996353432017
+                ],
+                "threshold": 0.001255,
+                "iq_angle": -2.847,
+                "mixer_drive_g": 0.97,
+                "mixer_drive_phi": -14.33,
+                "mixer_readout_g": 1.02,
+                "mixer_readout_phi": 2.9
+            }
+        },
+        "two_qubit": {
+            "0-1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "1-0": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "1-2": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            },
+            "2-1": {
+                "gate_fidelity": 0.0,
+                "cz_fidelity": 0.0
+            }
+        }
+    }
+}
