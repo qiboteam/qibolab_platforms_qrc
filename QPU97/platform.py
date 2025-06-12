@@ -15,25 +15,24 @@ from qibolab.serialize import (
 )
 
 ADDRESS = "192.168.0.3"
-FOLDER  = pathlib.Path(__file__).parent
+FOLDER = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 3
 
+
 def create():
-    """"QRC QFoundry 2Q Chip for Cross Resonance Gates"""
+    """ "QRC QFoundry 2Q Chip for Cross Resonance Gates"""
     runcard = load_runcard(FOLDER)
 
     # Declare RF Instrument
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:4"),  # feedline
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:9"),  # q1
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),    #q2,q3
-        #"qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q4
-        #"qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:10"),
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),  # q2,q3
+        # "qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q4
+        # "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:10"),
     }
-    controller = QbloxController("qblox_controller",
-                                 ADDRESS,
-                                 modules)
+    controller = QbloxController("qblox_controller", ADDRESS, modules)
 
     # Declare TWPA Inatrument
     # twpa = SGS100A(name="twpa", address="192.168.0.36")
@@ -53,16 +52,18 @@ def create():
     # Readout
     channels |= Channel(name="feed_in", port=modules["qrm_rf0"].ports("o1"))
     # Feedback
-    channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False))
+    channels |= Channel(
+        name="feed_back", port=modules["qrm_rf0"].ports("i1", out=False)
+    )
 
-     # Drive
-    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) #
-    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit
-    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit
-    #channels |= Channel(name="drive2", port=modules["qrm_rf1"].ports("o1")) # qubit
+    # Drive
+    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1"))  #
+    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1"))  # qubit
+    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2"))  # qubit
+    # channels |= Channel(name="drive2", port=modules["qrm_rf1"].ports("o1")) # qubit
     channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2"))
-    #channels |= Channel(name="dummy", port=modules["qrm_rf0"].ports("i1",out=False))
-    #channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2",out=False))
+    # channels |= Channel(name="dummy", port=modules["qrm_rf0"].ports("i1",out=False))
+    # channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2",out=False))
     # Channel for TWPA Pump
 
     # channels |= Channel(name="twpa", port=None)
@@ -70,7 +71,7 @@ def create():
     # channels |= Channel(name="flux0", port=modules["qcm_bb0"].ports("o1"))
     # channels |= Channel(name="flux1", port=modules["qcm_bb0"].ports("o2"))
     # channels |= Channel(name="flux2", port=modules["qcm_bb0"].ports("o3"))
-    #channels |= Channel(name="flux3", port=modules["qcm_bb0"].ports("o4"))
+    # channels |= Channel(name="flux3", port=modules["qcm_bb0"].ports("o4"))
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
@@ -87,8 +88,6 @@ def create():
 
     settings = load_settings(runcard)
     print(runcard)
-    #instruments["qblox_controller"].device
+    # instruments["qblox_controller"].device
 
-    return Platform(
-        PLATFORM, qubits, pairs, instruments, settings, resonator_type="D"
-    )
+    return Platform(PLATFORM, qubits, pairs, instruments, settings, resonator_type="D")
