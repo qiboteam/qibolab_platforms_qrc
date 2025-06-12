@@ -5,10 +5,10 @@
     },
     "configs": {
         "qm/bounds": {
-            "waveforms": 40000,
+            "kind": "bounds",
+            "waveforms": 40000.0,
             "readout": 30,
-            "instructions": 1000000,
-            "kind": "bounds"
+            "instructions": 1000000
         },
         "twpa": {
             "kind": "oscillator",
@@ -53,7 +53,7 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6334770157.0
+            "frequency": 6334755407.0
         },
         "3/drive12": {
             "kind": "iq",
@@ -79,8 +79,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.001544340785239351,
-            "iq_angle": 0.17935872164230096,
+            "threshold": 0.002082839907118219,
+            "iq_angle": 0.4540806600779188,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -89,8 +89,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0024329337084790332,
-            "iq_angle": 1.2441078357749735,
+            "threshold": 0.002992717635137094,
+            "iq_angle": 1.5996007636115426,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -99,8 +99,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": -0.00040364848604586176,
-            "iq_angle": -2.557539124261869,
+            "threshold": -0.0007820616417178689,
+            "iq_angle": -2.124007487697589,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -109,17 +109,18 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0004983304545004048,
-            "iq_angle": -0.1398715998117395,
+            "threshold": 0.000734593555624052,
+            "iq_angle": 0.25386108122802203,
             "kernel": null,
-            "gain": 10
+            "gain": 10,
+            "offset": 0.0
         },
         "4/acquisition": {
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.0005194670756599835,
-            "iq_angle": -0.20465563888895164,
+            "threshold": 0.000827352222513849,
+            "iq_angle": -0.10363030526732397,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -343,11 +344,12 @@
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
-                                "relative_phase": 0
+                                "relative_phase": 0.0
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "1": {
                 "RX": [
@@ -388,7 +390,8 @@
                             }
                         }
                     ]
-                ]
+                ],
+                "CP": null
             },
             "2": {
                 "RX": [
