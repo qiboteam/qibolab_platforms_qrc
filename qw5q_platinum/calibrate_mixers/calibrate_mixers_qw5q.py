@@ -84,13 +84,13 @@ if __name__ == "__main__":
         [0, 1, 2, 3, 4],
         label="readout",
     )
-    _run_until_success(
-        _calibrate_drive_mixers,
-        platform,
-        controller,
-        config,
-        [0, 1, 2, 3, 4],
-        label="drive",
-    )
+    # _run_until_success(
+    #    _calibrate_drive_mixers,
+    #    platform,
+    #    controller,
+    #    config,
+    #    [0, 1, 2, 3, 4],
+    #    label="drive",
+    # )
 
     controller.disconnect()
