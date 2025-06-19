@@ -33,9 +33,10 @@ def _calibrate_drive_mixers(platform, controller, config, qubit_names):
         if_frequency = rf_freq - lo_frequency
 
         qmachine = controller.manager.open_qm(config)
-        qmachine.calibrate_element(
-            qubit.drive, {lo_frequency: (if_frequency, -if_frequency)}
-        )
+        qmachine.calibrate_element(qubit.drive, {lo_frequency: (if_frequency,)})
+        # qmachine.calibrate_element(
+        #     qubit.drive, {lo_frequency: (if_frequency, -if_frequency)}
+        # )
         qmachine.close()
 
 
@@ -80,7 +81,7 @@ if __name__ == "__main__":
         platform,
         controller,
         config,
-        [0, 1],
+        [0, 1, 2, 3, 4],
         label="readout",
     )
     _run_until_success(
@@ -88,7 +89,7 @@ if __name__ == "__main__":
         platform,
         controller,
         config,
-        [0, 1],
+        [0, 1, 2, 3, 4],
         label="drive",
     )
 
