@@ -13,13 +13,11 @@ from qibolab.serialize import (
     load_runcard,
     load_settings,
 )
-
-ADDRESS = "192.168.0.2"
+ 
+ADDRESS = "192.168.0.3"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 3
-
-ROOT = pathlib.Path.home()
 
 def create():
     """"QRC QFoundry 2Q Chip for Cross Resonance Gates"""
@@ -27,9 +25,11 @@ def create():
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:3"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # q0, q1 
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:2"),  # q2   
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:5"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:9"),  # q1 
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:10"),    #q2,q3
+        #"qrm_rf1": QrmRf("qrm_rf1", f"{ADDRESS}:6"),  # q4 
+        #"qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:10"),  
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -56,11 +56,21 @@ def create():
     channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False))
 
      # Drive
-    
-    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # qubit 0
-    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit 1
-    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit 2
-    channels |= Channel(name="drive_", port=modules["qcm_rf1"].ports("o2")) # Not Connected
+    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # 
+    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit
+    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit
+    #channels |= Channel(name="drive2", port=modules["qrm_rf1"].ports("o1")) # qubit
+    channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2"))
+    #channels |= Channel(name="dummy", port=modules["qrm_rf0"].ports("i1",out=False))
+    #channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2",out=False))
+    # Channel for TWPA Pump
+   
+    # channels |= Channel(name="twpa", port=None)
+    # channels["twpa"].local_oscillator = twpa
+    # channels |= Channel(name="flux0", port=modules["qcm_bb0"].ports("o1"))
+    # channels |= Channel(name="flux1", port=modules["qcm_bb0"].ports("o2"))
+    # channels |= Channel(name="flux2", port=modules["qcm_bb0"].ports("o3"))
+    #channels |= Channel(name="flux3", port=modules["qcm_bb0"].ports("o4"))
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
@@ -69,25 +79,26 @@ def create():
     for q, qubit in qubits.items():
         qubit.readout = channels["feed_in"]
         qubit.feedback = channels["feed_back"]
-        if q >= NUM_QUBITS:
-            qubit.drive = channels[f"drive_"]
-        else:
-            qubit.drive = channels[f"drive{q}"]
-            channels[f"drive{q}"].qubit = qubit
+        qubit.drive = channels[f"drive{q}"]
         # qubit.twpa = channels["twpa"]
+        channels[f"drive{q}"].qubit = qubit
+        # qubits[q].flux = channels[f"flux{q}"]
+        # qubits[q].flux.max_bias = 2.5
     
     settings = load_settings(runcard)
+    # print(runcard)
+    #instruments["qblox_controller"].device
 
-    # DEBUG: debug folder = report folder ###################################################################
-    import os
-    from datetime import datetime
+    # DEBUG: ###################################################################
+    # import os
+    # from datetime import datetime
 
-    debug_folder = f"{ROOT}/debug/{PLATFORM}/"
-    if not os.path.exists(debug_folder):
-        os.makedirs(debug_folder)
-    for name in modules:
-        modules[name]._debug_folder = debug_folder
+    # debug_folder = f"{ROOT}/debug/{PLATFORM}/"
+    # if not os.path.exists(debug_folder):
+    #     os.makedirs(debug_folder)
+    # for name in modules:
+    #     modules[name]._debug_folder = debug_folder
     #########################################################################################################
     return Platform(
-        PLATFORM, qubits, pairs, instruments, settings, resonator_type="2D"
+        PLATFORM, qubits, pairs, instruments, settings, resonator_type="D"
     )
