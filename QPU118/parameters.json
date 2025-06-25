@@ -24,11 +24,11 @@
         },
         "01/drive": {
             "kind": "iq",
-            "frequency": 4539958738.0
+            "frequency": 4540554996.0
         },
         "10/drive": {
             "kind": "iq",
-            "frequency": 4245163267.0
+            "frequency": 4244817127.0
         },
         "1/probe": {
             "kind": "iq",
@@ -244,6 +244,39 @@
                 "CNOT": [
                     [
                         "01/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 500.0,
+                            "amplitude": 0.8,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.6
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "iSWAP": null
+            },
+            "1-0": {
+                "CZ": [
+                    [
+                        "10/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 500.0,
+                            "amplitude": 0.8,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.6
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": [
+                    [
+                        "10/drive",
                         {
                             "kind": "pulse",
                             "duration": 500.0,
