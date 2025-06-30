@@ -28,7 +28,7 @@ def create():
     modules = {
         "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:10"),  # RO: q0, q1, q2, q3
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:13"),  # Drive: q0, q1
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:14"), # Drive: q2, q3
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:14"),  # Drive: q2, q3
     }
     controller = QbloxController("qblox_controller", ADDRESS, modules)
 
@@ -55,12 +55,12 @@ def create():
     )
 
     # Drive
-    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) 
-    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1"))  
-    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2"))  
-    channels |= Channel(name="drive3", port=modules["qcm_rf1"].ports("o2"))  
+    channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1"))
+    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1"))
+    channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2"))
+    channels |= Channel(name="drive3", port=modules["qcm_rf1"].ports("o2"))
 
-    #channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2"))
+    # channels |= Channel(name="dummy", port=modules["qcm_rf1"].ports("o2"))
 
     # Channel for TWPA Pump
 
