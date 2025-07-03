@@ -12,15 +12,15 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4244817127.0
+            "frequency": 4244957625.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6413812779.0
+            "frequency": 6414217832.0
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4540554996.0
+            "frequency": 4539157552.0
         },
         "01/drive": {
             "kind": "iq",
@@ -32,7 +32,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 6594556823.0
+            "frequency": 6595591965.0
         },
         "2/drive": {
             "kind": "iq",
@@ -40,14 +40,14 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 6782375262.758519
+            "frequency": 6783085618.429465
         },
         "0/acquisition": {
             "kind": "qm-acquisition",
             "delay": 264.0,
             "smearing": 0.0,
-            "threshold": 0.00018338413613062975,
-            "iq_angle": 0.6456865721990693,
+            "threshold": 0.00034776938100029804,
+            "iq_angle": -0.2848291113563496,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 264.0,
             "smearing": 0.0,
-            "threshold": -0.00009925690102818582,
-            "iq_angle": 1.0938498050168242,
+            "threshold": 0.0011053285667069028,
+            "iq_angle": 1.2859621913938537,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -74,19 +74,19 @@
         },
         "probe_lo": {
             "kind": "octave-oscillator",
-            "frequency": 6550000000.0,
+            "frequency": 6670000000.0,
             "power": -20.0,
             "output_mode": "always_on"
         },
         "0/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 4310000000.0,
+            "frequency": 4350000000.0,
             "power": -4.0,
             "output_mode": "always_on"
         },
         "1/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 4460000000.0,
+            "frequency": 4700000000.0,
             "power": 1.0,
             "output_mode": "always_on"
         },
@@ -106,10 +106,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.08406177721134775,
+                            "amplitude": 0.08528053025062778,
                             "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.3
+                                "kind": "drag",
+                                "rel_sigma": 0.3,
+                                "beta": -0.2000000000000004
                             },
                             "relative_phase": 0.0
                         }
@@ -129,7 +130,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.035,
+                                "amplitude": 0.03,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -147,10 +148,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.07503294435163246,
+                            "amplitude": 0.0683115006214438,
                             "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.3
+                                "kind": "drag",
+                                "rel_sigma": 0.3,
+                                "beta": 0.39999999999999947
                             },
                             "relative_phase": 0.0
                         }
@@ -170,7 +172,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.006,
+                                "amplitude": 0.02,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -211,7 +213,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.003,
+                                "amplitude": 0.002,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -259,36 +261,8 @@
                 "iSWAP": null
             },
             "1-0": {
-                "CZ": [
-                    [
-                        "10/drive",
-                        {
-                            "kind": "pulse",
-                            "duration": 500.0,
-                            "amplitude": 0.8,
-                            "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.6
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ]
-                ],
-                "CNOT": [
-                    [
-                        "10/drive",
-                        {
-                            "kind": "pulse",
-                            "duration": 500.0,
-                            "amplitude": 0.8,
-                            "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.6
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ]
-                ],
+                "CZ": null,
+                "CNOT": null,
                 "iSWAP": null
             },
             "1-2": {
