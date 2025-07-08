@@ -19,6 +19,7 @@ FOLDER = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 4
 
+ROOT = pathlib.Path.home()
 
 def create():
     """QRC QFoundry 4Q Chip (QPU-130) for Cross Resonance Gates"""
@@ -81,5 +82,18 @@ def create():
     settings = load_settings(runcard)
     print(runcard)
     # instruments["qblox_controller"].device
+
+
+    # Output qblox controller settings
+    import os
+    from datetime import datetime
+
+    debug_folder = f"{ROOT}/debug/{PLATFORM}/"
+    if not os.path.exists(debug_folder):
+        os.makedirs(debug_folder)
+
+    for name in modules:
+        modules[name]._debug_folder = debug_folder
+
 
     return Platform(PLATFORM, qubits, pairs, instruments, settings, resonator_type="D")
