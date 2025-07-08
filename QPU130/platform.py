@@ -21,6 +21,7 @@ NUM_QUBITS = 4
 
 ROOT = pathlib.Path.home()
 
+
 def create():
     """QRC QFoundry 4Q Chip (QPU-130) for Cross Resonance Gates"""
     runcard = load_runcard(FOLDER)
@@ -83,7 +84,6 @@ def create():
     print(runcard)
     # instruments["qblox_controller"].device
 
-
     # Output qblox controller settings
     import os
     from datetime import datetime
@@ -94,6 +94,5 @@ def create():
 
     for name in modules:
         modules[name]._debug_folder = debug_folder
-
 
     return Platform(PLATFORM, qubits, pairs, instruments, settings, resonator_type="D")
