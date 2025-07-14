@@ -28,6 +28,14 @@
         devenv.shells.default = {
           packages = with pkgs; [poethepoet pre-commit stdenv.cc.cc.lib];
 
+          env = {
+            LD_LIBRARY_PATH = builtins.concatStringsSep ":" (map (p: "${p}/lib") (with pkgs; [
+              stdenv.cc.cc.lib
+              zlib
+            ]));
+            PYTHONBREAKPOINT = "pudb.set_trace";
+          };
+
           languages = {
             python = {
               enable = true;
@@ -38,7 +46,7 @@
 
                   # dev deps
                   ipython
-                  pdbpp
+                  pudb
                 '';
               };
             };
