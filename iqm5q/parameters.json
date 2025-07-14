@@ -44,11 +44,7 @@
         "qrm_rf0": {
             "o1": {
                 "attenuation": 28,
-                "lo_frequency": 5100000000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 5100000000
             },
             "i1": {
                 "acquisition_hold_off": 300,
@@ -58,11 +54,7 @@
         "qrm_rf1": {
             "o1": {
                 "attenuation": 20,
-                "lo_frequency": 5950000000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 5950000000
             },
             "i1": {
                 "acquisition_hold_off": 285,
@@ -72,47 +64,27 @@
         "qcm_rf0": {
             "o1": {
                 "attenuation": 4,
-                "lo_frequency": 4410592000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 4410592000
             },
             "o2": {
                 "attenuation": 26,
-                "lo_frequency": 4738318000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 4738318000
             }
         },
         "qcm_rf1": {
             "o1": {
                 "attenuation": 0,
-                "lo_frequency": 4336921000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 4336921000
             },
             "o2": {
                 "attenuation": 26,
-                "lo_frequency": 4478819000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 4478819000
             }
         },
         "qcm_rf2": {
             "o1": {
                 "attenuation": 16,
-                "lo_frequency": 4305409000,
-                "mixer_calibration": [
-                    -8.1,
-                    -3.8
-                ]
+                "lo_frequency": 4305409000
             }
         }
     },
@@ -145,9 +117,9 @@
                 },
                 "MZ": {
                     "duration": 910,
-                    "amplitude": 0.09,
+                    "amplitude": 0.145,
                     "shape": "Rectangular()",
-                    "frequency": 5228976330,
+                    "frequency": 5.225826e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -174,9 +146,9 @@
                 },
                 "MZ": {
                     "duration": 910,
-                    "amplitude": 0.055,
+                    "amplitude": 0.23,
                     "shape": "Rectangular()",
-                    "frequency": 4931845888,
+                    "frequency": 4.9297e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -205,7 +177,7 @@
                     "duration": 900,
                     "amplitude": 0.035,
                     "shape": "Rectangular()",
-                    "frequency": 6104827652,
+                    "frequency": 6.083868e9,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "ro"
@@ -261,7 +233,7 @@
                 },
                 "MZ": {
                     "duration": 900,
-                    "amplitude": 0.05,
+                    "amplitude": 0.104,
                     "shape": "Rectangular()",
                     "frequency": 5522640418,
                     "relative_start": 0,
