@@ -17,7 +17,7 @@ from qibolab.serialize import (
 ADDRESS = "192.168.0.2"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 3
+NUM_QUBITS = 4
 
 ROOT = pathlib.Path.home()
 
@@ -27,9 +27,9 @@ def create():
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:3"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # q0, q1 
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:2"),  # q2   
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:4"),  # q0, q1 
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:6"),  # q2   
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -56,14 +56,11 @@ def create():
     channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False))
 
      # Drive
+    
     channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # qubit 0
     channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit 1
     channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit 2
-    channels |= Channel(name="drive_", port=modules["qcm_rf1"].ports("o2")) # Not Connected
-
-    # Channel for TWPA Pump
-    # channels |= Channel(name="twpa", port=None)
-    # channels["twpa"].local_oscillator = twpa
+    channels |= Channel(name="drive3", port=modules["qcm_rf1"].ports("o2")) # qubit 3
 
     # create qubit objects
     qubits, couplers, pairs = load_qubits(runcard)
@@ -72,7 +69,7 @@ def create():
     for q, qubit in qubits.items():
         qubit.readout = channels["feed_in"]
         qubit.feedback = channels["feed_back"]
-        if q >= 3:
+        if q >= NUM_QUBITS:
             qubit.drive = channels[f"drive_"]
         else:
             qubit.drive = channels[f"drive{q}"]
@@ -80,17 +77,16 @@ def create():
         # qubit.twpa = channels["twpa"]
     
     settings = load_settings(runcard)
-    #instruments["qblox_controller"].device
 
     # DEBUG: debug folder = report folder ###################################################################
-    # import os
-    # from datetime import datetime
+    import os
+    from datetime import datetime
 
-    # debug_folder = f"{ROOT}/debug/{PLATFORM}/"
-    # if not os.path.exists(debug_folder):
-    #     os.makedirs(debug_folder)
-    # for name in modules:
-    #     modules[name]._debug_folder = debug_folder
+    debug_folder = f"{ROOT}/debug/{PLATFORM}/"
+    if not os.path.exists(debug_folder):
+        os.makedirs(debug_folder)
+    for name in modules:
+        modules[name]._debug_folder = debug_folder
     #########################################################################################################
     return Platform(
         PLATFORM, qubits, pairs, instruments, settings, resonator_type="2D"
