@@ -94,7 +94,7 @@
         },
         "B1/drive": {
             "kind": "iq",
-            "frequency": 5000057964.0
+            "frequency": 5001003510.126064
         },
         "B1/drive12": {
             "kind": "iq",
@@ -102,11 +102,11 @@
         },
         "B1/probe": {
             "kind": "iq",
-            "frequency": 7122873694.0
+            "frequency": 7123083629.259874
         },
         "B2/drive": {
             "kind": "iq",
-            "frequency": 5970993555.2702675
+            "frequency": 5970892600.895349
         },
         "B2/drive12": {
             "kind": "iq",
@@ -114,11 +114,11 @@
         },
         "B2/probe": {
             "kind": "iq",
-            "frequency": 7369743547.0
+            "frequency": 7369669863.122424
         },
         "B3/drive": {
             "kind": "iq",
-            "frequency": 5685251888.0
+            "frequency": 5685179475.4530325
         },
         "B3/drive12": {
             "kind": "iq",
@@ -126,7 +126,7 @@
         },
         "B3/probe": {
             "kind": "iq",
-            "frequency": 7472297210.0
+            "frequency": 7472671352.709383
         },
         "B4/drive": {
             "kind": "iq",
@@ -274,17 +274,17 @@
         },
         "B1/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308.0,
+            "delay": 312.0,
             "smearing": 0.0,
-            "threshold": 0.005064811796762728,
-            "iq_angle": -0.9246243724885934,
+            "threshold": 0.008008327235482749,
+            "iq_angle": -0.8701865986201687,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
         },
         "B2/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308.0,
+            "delay": 312.0,
             "smearing": 0.0,
             "threshold": 0.0044586684144439686,
             "iq_angle": -2.664937355369283,
@@ -294,10 +294,10 @@
         },
         "B3/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 308.0,
+            "delay": 312.0,
             "smearing": 0.0,
-            "threshold": 0.0017182081298667857,
-            "iq_angle": -2.504811310429653,
+            "threshold": 0.004452923238408575,
+            "iq_angle": -2.271070491159853,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -422,7 +422,7 @@
         },
         "B1/flux": {
             "kind": "opx-output",
-            "offset": 0.15045509985649239,
+            "offset": -0.17640591492144853,
             "filter": {},
             "output_mode": "direct",
             "sampling_rate": 1000000000.0,
@@ -430,7 +430,7 @@
         },
         "B2/flux": {
             "kind": "opx-output",
-            "offset": 0.46123865044704626,
+            "offset": 0.315,
             "filter": {
                 "feedforward": [
                     1.0605851073784813,
@@ -446,7 +446,7 @@
         },
         "B3/flux": {
             "kind": "opx-output",
-            "offset": 0.04443985558406093,
+            "offset": 0.25555667348644445,
             "filter": {
                 "feedforward": [
                     1.0891790415038731,
@@ -972,7 +972,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.09121953058321924,
+                            "amplitude": 0.08871803162459023,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -1042,7 +1042,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.09795607047636364,
+                            "amplitude": 0.10429264296219226,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -1113,7 +1113,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.1294222111726204,
+                            "amplitude": 0.12826046332171137,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -1590,7 +1590,7 @@
             },
             "B1-B3": {
                 "CZ": [
-                                        [
+                    [
                         "B3/flux",
                         {
                             "kind": "pulse",
