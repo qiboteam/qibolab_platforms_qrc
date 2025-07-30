@@ -49,7 +49,7 @@ def create():
             )
  
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.35")}
+    instruments = {"qblox": controller}
     return Platform.load(
         path=FOLDER, instruments=instruments, qubits=qubits, #couplers=couplers
     )
