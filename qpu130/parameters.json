@@ -31,15 +31,15 @@
         "qrm_rf0": {
             "o1": {
                 "attenuation": 56,
-                "lo_frequency": 6470000000,
+                "lo_frequency": 6420000000,
                 "mixer_calibration": [
-                    0,
-                    0
+                    -11.84,
+                    -3.64
                 ]
             },
             "i1": {
-                "acquisition_hold_off": 500,
-                "acquisition_duration": 2000
+                "acquisition_hold_off": 203,
+                "acquisition_duration": 500
             }
         },
         "qcm_rf0": {
@@ -101,7 +101,7 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 2000,
+                    "duration": 500,
                     "amplitude": 0.15,
                     "shape": "Rectangular()",
                     "frequency": 6084284385,
@@ -130,7 +130,7 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 2000,
+                    "duration": 500,
                     "amplitude": 0.15,
                     "shape": "Rectangular()",
                     "frequency": 6219524167,
@@ -159,7 +159,7 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 2000,
+                    "duration": 500,
                     "amplitude": 0.15,
                     "shape": "Rectangular()",
                     "frequency": 6373559219,
@@ -188,7 +188,7 @@
                     "type": "qd"
                 },
                 "MZ": {
-                    "duration": 2000,
+                    "duration": 500,
                     "amplitude": 0.15,
                     "shape": "Rectangular()",
                     "frequency": 6494953539,
@@ -269,10 +269,10 @@
                 ],
                 "threshold": 0.0008646909163843255,
                 "iq_angle": 1.7194643680820092,
-                "mixer_drive_g": 0.95,
-                "mixer_drive_phi": -22.85,
-                "mixer_readout_g": 1.03,
-                "mixer_readout_phi": -9.23
+                "mixer_drive_g": 1,
+                "mixer_drive_phi": 0,
+                "mixer_readout_g": 0.96,
+                "mixer_readout_phi": 12.39
             },
             "1": {
                 "bare_resonator_frequency": 0,
@@ -312,10 +312,10 @@
                 ],
                 "threshold": -0.0009781761063389102,
                 "iq_angle": 2.831130568933555,
-                "mixer_drive_g": 0.96,
-                "mixer_drive_phi": -3.52,
-                "mixer_readout_g": 1.0,
-                "mixer_readout_phi": 6.59
+                "mixer_drive_g": 1,
+                "mixer_drive_phi": 0,
+                "mixer_readout_g": 0.99,
+                "mixer_readout_phi": 12.74
             },
             "2": {
                 "bare_resonator_frequency": 0,
@@ -355,10 +355,10 @@
                 ],
                 "threshold": 0.001331,
                 "iq_angle": -22.85,
-                "mixer_drive_g": 0.99,
-                "mixer_drive_phi": -28.13,
-                "mixer_readout_g": 1.01,
-                "mixer_readout_phi": 7.47
+                "mixer_drive_g": 1,
+                "mixer_drive_phi":0,
+                "mixer_readout_g": 1.02,
+                "mixer_readout_phi": 9.41
             },
             "3": {
                 "bare_resonator_frequency": 0,
@@ -398,10 +398,10 @@
                 ],
                 "threshold": -0.0009781761063389102,
                 "iq_angle": -22.85,
-                "mixer_drive_g": 1.01,
-                "mixer_drive_phi": -3.52,
-                "mixer_readout_g": 1.01,
-                "mixer_readout_phi": -6.59
+                "mixer_drive_g": 1,
+                "mixer_drive_phi": 0,
+                "mixer_readout_g": 0.97,
+                "mixer_readout_phi": 5.19
             }
         },
         "two_qubit": {
