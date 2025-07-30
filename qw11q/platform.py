@@ -11,6 +11,7 @@ from qibolab import (
 )
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
+from qibolab.instruments.spi import Spi
 
 FOLDER = pathlib.Path(__file__).parent
 
@@ -24,7 +25,9 @@ def create():
     Qubits D1, D2, D3 have been tested to work.
     """
     qubits = {
-        f"B{i}": Qubit.default(f"B{i}", drive_extra={(1, 2): f"B{i}/drive12"})
+        f"B{i}": Qubit.default(
+            f"B{i}", dc_flux=f"B{i}/dc_flux", drive_extra={(1, 2): f"B{i}/drive12"}
+        )
         for i in range(1, 6)
     } | {
         f"D{i}": Qubit.default(f"D{i}", drive_extra={(1, 2): f"D{i}/drive12"})
@@ -89,6 +92,8 @@ def create():
         assert qubit.flux is not None
         channels[qubit.flux] = DcChannel(device="con9", path=str(q + 2))
 
+    spi_channels = {"B2/dc_flux": DcChannel(device="spi", path="2/1")}
+
     octaves = {
         "octave2": Octave("octave2", port=11101, connectivity="con2"),
         "octave3": Octave("octave3", port=11102, connectivity="con3"),
@@ -104,6 +109,7 @@ def create():
     )
     instruments = {
         "qm": controller,
+        "spi": Spi(address="/dev/ttyACM0", channels=spi_channels, close_currents=True),
         "twpaB": SGS100A(address="192.168.0.34"),
         "twpaD": SGS100A(address="192.168.0.33"),
     }
