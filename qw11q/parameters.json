@@ -94,7 +94,7 @@
         },
         "B1/drive": {
             "kind": "iq",
-            "frequency": 5000165524.9930525
+            "frequency": 5000848026.0
         },
         "B1/drive12": {
             "kind": "iq",
@@ -106,7 +106,7 @@
         },
         "B2/drive": {
             "kind": "iq",
-            "frequency": 5971116855.563813
+            "frequency": 5971123901.0
         },
         "B2/drive12": {
             "kind": "iq",
@@ -118,7 +118,7 @@
         },
         "B3/drive": {
             "kind": "iq",
-            "frequency": 5685300640.496863
+            "frequency": 5685296768.0
         },
         "B3/drive12": {
             "kind": "iq",
@@ -276,8 +276,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.01703329830918195,
-            "iq_angle": 1.1334575596195857,
+            "threshold": 0.010397482890551967,
+            "iq_angle": 1.1416865735451014,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -286,8 +286,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.021346871737474408,
-            "iq_angle": -0.408319235405189,
+            "threshold": 0.01636929422900461,
+            "iq_angle": -0.603838780061181,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -296,8 +296,8 @@
             "kind": "qm-acquisition",
             "delay": 308.0,
             "smearing": 0.0,
-            "threshold": 0.007241422695635399,
-            "iq_angle": -0.5727931819342655,
+            "threshold": 0.005865812189371181,
+            "iq_angle": -0.8085372678700026,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -422,15 +422,19 @@
         },
         "B1/flux": {
             "kind": "opx-output",
-            "offset": 0.09223860900254983,
+            "offset": 0.0,
             "filter": {},
             "output_mode": "direct",
             "sampling_rate": 1000000000.0,
             "upsampling_mode": "mw"
         },
+        "B1/dc_flux": {
+            "kind": "dc",
+            "offset": 0.00018384244224919514
+        },
         "B2/flux": {
             "kind": "opx-output",
-            "offset": 0.4395472244576253,
+            "offset": 0.0,
             "filter": {
                 "feedforward": [
                     1.0605851073784813,
@@ -446,11 +450,11 @@
         },
         "B2/dc_flux": {
             "kind": "dc",
-            "offset": 0.001
+            "offset": 0.0031641073008148108
         },
         "B3/flux": {
             "kind": "opx-output",
-            "offset": 0.11719021104861632,
+            "offset": 0.0,
             "filter": {
                 "feedforward": [
                     1.0891790415038731,
@@ -464,9 +468,13 @@
             "sampling_rate": 1000000000.0,
             "upsampling_mode": "mw"
         },
+        "B3/dc_flux": {
+            "kind": "dc",
+            "offset": 0.0011782644640096491
+        },
         "B4/flux": {
             "kind": "opx-output",
-            "offset": -0.47493809361156486,
+            "offset": 0.0,
             "filter": {
                 "feedforward": [
                     1.0891790415038731,
@@ -480,13 +488,21 @@
             "sampling_rate": 1000000000.0,
             "upsampling_mode": "mw"
         },
+        "B4/dc_flux": {
+            "kind": "dc",
+            "offset": 0.00001
+        },
         "B5/flux": {
             "kind": "opx-output",
-            "offset": -0.3270396460963957,
+            "offset": 0.0,
             "filter": {},
             "output_mode": "direct",
             "sampling_rate": 1000000000.0,
             "upsampling_mode": "mw"
+        },
+        "B5/dc_flux": {
+            "kind": "dc",
+            "offset": 0.00001
         },
         "D1/flux": {
             "kind": "opx-output",

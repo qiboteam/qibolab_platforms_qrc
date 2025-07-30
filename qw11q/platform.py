@@ -92,7 +92,13 @@ def create():
         assert qubit.flux is not None
         channels[qubit.flux] = DcChannel(device="con9", path=str(q + 2))
 
-    spi_channels = {"B2/dc_flux": DcChannel(device="spi", path="2/1")}
+    spi_channels = {
+        "B1/dc_flux": DcChannel(device="spi", path="2/0"),
+        "B2/dc_flux": DcChannel(device="spi", path="2/1"),
+        "B3/dc_flux": DcChannel(device="spi", path="2/2"),
+        "B4/dc_flux": DcChannel(device="spi", path="2/3"),
+        "B5/dc_flux": DcChannel(device="spi", path="15/0"),
+    }
 
     octaves = {
         "octave2": Octave("octave2", port=11101, connectivity="con2"),
