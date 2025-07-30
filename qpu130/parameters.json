@@ -4,7 +4,7 @@
         "relaxation_time": 100000
     },
     "configs": {
-        "qblox_controller/bounds": {
+        "qblox/bounds": {
             "waveforms": 40000,
             "readout": 1000000,
             "instructions": 1000000,
@@ -60,7 +60,7 @@
         },
         "0/acquisition": {
             "kind": "acquisition",
-            "delay": 0.0,
+            "delay": 16,
             "smearing": 0.0,
             "threshold": 0.0008646909163843255,
             "iq_angle": 1.7194643680820092,
@@ -68,7 +68,7 @@
         },
         "1/acquisition": {
             "kind": "acquisition",
-            "delay": 0.0,
+            "delay": 16,
             "smearing": 0.0,
             "threshold": -0.0009781761063389102,
             "iq_angle": 2.831130568933555,
@@ -76,7 +76,7 @@
         },
         "2/acquisition": {
             "kind": "acquisition",
-            "delay": 0.0,
+            "delay": 16,
             "smearing": 0.0,
             "threshold": 0.001331,
             "iq_angle": -22.85,
@@ -84,7 +84,7 @@
         },
         "3/acquisition": {
             "kind": "acquisition",
-            "delay": 0.0,
+            "delay": 16,
             "smearing": 0.0,
             "threshold": -0.0009781761063389102,
             "iq_angle": -22.85,
@@ -105,6 +105,31 @@
         "3/flux": {
             "kind": "dc",
             "offset": 0.0
+        },
+        "qrm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 6420000000,
+            "power": 56.0
+        },
+        "qcm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 3650000000,
+            "power": 14
+        },
+        "qcm_rf0/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 3900000000,
+            "power": 14
+        },
+        "qcm_rf1/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 4200000000,
+            "power": 14
+        },
+        "qcm_rf1/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 4500000000,
+            "power": 14
         }
     },
     "native_gates": {
