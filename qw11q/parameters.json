@@ -94,7 +94,7 @@
         },
         "B1/drive": {
             "kind": "iq",
-            "frequency": 5001003510.126064
+            "frequency": 5001011299.0
         },
         "B1/drive12": {
             "kind": "iq",
@@ -102,7 +102,7 @@
         },
         "B1/probe": {
             "kind": "iq",
-            "frequency": 7123083629.259874
+            "frequency": 7123172453.075087
         },
         "B2/drive": {
             "kind": "iq",
@@ -118,7 +118,7 @@
         },
         "B3/drive": {
             "kind": "iq",
-            "frequency": 5685179475.4530325
+            "frequency": 5685230993.0
         },
         "B3/drive12": {
             "kind": "iq",
@@ -126,7 +126,7 @@
         },
         "B3/probe": {
             "kind": "iq",
-            "frequency": 7472671352.709383
+            "frequency": 7472750952.419509
         },
         "B4/drive": {
             "kind": "iq",
@@ -276,8 +276,8 @@
             "kind": "qm-acquisition",
             "delay": 312.0,
             "smearing": 0.0,
-            "threshold": 0.008008327235482749,
-            "iq_angle": -0.8701865986201687,
+            "threshold": 0.02708612598551502,
+            "iq_angle": 0.8222707548593948,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -296,8 +296,8 @@
             "kind": "qm-acquisition",
             "delay": 312.0,
             "smearing": 0.0,
-            "threshold": 0.004452923238408575,
-            "iq_angle": -2.271070491159853,
+            "threshold": 0.016487741944822037,
+            "iq_angle": 0.14424062188526515,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -575,19 +575,19 @@
         "B1/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 5200000000.0,
-            "power": 0.0,
+            "power": -14.0,
             "output_mode": "always_on"
         },
         "B2/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 5900000000.0,
-            "power": 0.0,
+            "power": -10.0,
             "output_mode": "always_on"
         },
         "B3/drive_lo": {
             "kind": "octave-oscillator",
             "frequency": 5800000000.0,
-            "power": 0.0,
+            "power": -14.0,
             "output_mode": "always_on"
         },
         "B4/drive_lo": {
@@ -972,31 +972,17 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.08871803162459023,
+                            "amplitude": 0.2600733307471822,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": 0.7562465793660764
+                                "rel_sigma": 0.5,
+                                "beta": 2.260516861238281
                             },
                             "relative_phase": 0.0
                         }
                     ]
                 ],
-                "RX90": [
-                    [
-                        "B1/drive",
-                        {
-                            "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.04586474187290966,
-                            "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.2
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ]
-                ],
+                "RX90": null,
                 "RX12": [
                     [
                         "B1/drive",
@@ -1024,7 +1010,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.009,
+                                "amplitude": 0.01,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -1052,22 +1038,7 @@
                         }
                     ]
                 ],
-                "RX90": [
-                    [
-                        "B2/drive",
-                        {
-                            "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.0480635640780897,
-                            "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": -0.485437
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ]
-                ],
+                "RX90": null,
                 "RX12": [
                     [
                         "B2/drive",
@@ -1113,31 +1084,17 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.12826046332171137,
+                            "amplitude": 0.38402501876982936,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2,
-                                "beta": -0.603462
+                                "rel_sigma": 0.5,
+                                "beta": -3.5699736257215573
                             },
                             "relative_phase": 0.0
                         }
                     ]
                 ],
-                "RX90": [
-                    [
-                        "B3/drive",
-                        {
-                            "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.04586474187290966,
-                            "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 0.2
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ]
-                ],
+                "RX90": null,
                 "RX12": [
                     [
                         "B3/drive",
@@ -1165,7 +1122,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.0073,
+                                "amplitude": 0.01,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
