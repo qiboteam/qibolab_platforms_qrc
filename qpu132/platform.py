@@ -27,9 +27,9 @@ def create():
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:2"),  # q0, q1
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:4"),  # q2, q3
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:20"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:6"),  # q0, q1
+        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:8"),  # q2, q3
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
