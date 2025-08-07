@@ -115,8 +115,8 @@ def create():
     )
     instruments = {
         "qm": controller,
-        "spi": Spi(address="/dev/ttyACM0", channels=spi_channels, close_currents=True),
-        "twpaB": SGS100A(address="192.168.0.34"),
-        "twpaD": SGS100A(address="192.168.0.33"),
+        "spi": Spi(address="/dev/ttyACM0", channels=spi_channels, close_currents=False),
+        # "twpaB": SGS100A(address="192.168.0.34"),
+        # "twpaD": SGS100A(address="192.168.0.33"),
     }
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
