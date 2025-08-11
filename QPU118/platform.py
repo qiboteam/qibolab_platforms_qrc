@@ -70,7 +70,7 @@ def create():
         channels=channels,
         cluster_name="Cluster_1",
         calibration_path=FOLDER,
-        script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
+    #    script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
     )
     instruments = {"qm": controller}
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
