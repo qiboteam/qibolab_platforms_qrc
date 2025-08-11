@@ -16,7 +16,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6415019808.0
+            "frequency": 6416301414.594469
         },
         "1/drive": {
             "kind": "iq",
@@ -32,7 +32,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 6563993443.347123
+            "frequency": 6597477890.099017
         },
         "2/drive": {
             "kind": "iq",
@@ -40,7 +40,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 6783085618.429465
+            "frequency": 6782535582.27897
         },
         "0/acquisition": {
             "kind": "qm-acquisition",
@@ -74,7 +74,7 @@
         },
         "probe_lo": {
             "kind": "octave-oscillator",
-            "frequency": 6670000000.0,
+            "frequency": 6550000000.0,
             "power": -20.0,
             "output_mode": "always_on"
         },
@@ -130,7 +130,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.18,
+                                "amplitude": 0.01,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },

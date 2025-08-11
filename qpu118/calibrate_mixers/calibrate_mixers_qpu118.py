@@ -67,8 +67,9 @@ def _run_until_success(fn, *args, label):
 
 if __name__ == "__main__":
     warnings.filterwarnings("error", category=RuntimeWarning, message="invalid value")
-
-    platform = create_platform("QPU118")
+    import os
+    platform_name = os.environ.get("QIBO_PLATFORM", "qpu118")
+    platform = create_platform(platform_name)
     controller = platform.instruments["qm"]
     controller.write_calibration = True
     controller.connect()
