@@ -12,11 +12,11 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4245126693.0
+            "frequency": 4245131296.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6413176311.0
+            "frequency": 6415795313.0
         },
         "1/drive": {
             "kind": "iq",
@@ -44,17 +44,17 @@
         },
         "0/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 264.0,
+            "delay": 268.0,
             "smearing": 0.0,
-            "threshold": -0.0011847695934766602,
-            "iq_angle": 2.882961463809458,
+            "threshold": 0.001059165695668939,
+            "iq_angle": 2.593196348237413,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
         },
         "1/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 264.0,
+            "delay": 268.0,
             "smearing": 0.0,
             "threshold": 0.0022489240259468833,
             "iq_angle": -0.7761374923482083,
@@ -64,7 +64,7 @@
         },
         "2/acquisition": {
             "kind": "qm-acquisition",
-            "delay": 264.0,
+            "delay": 268.0,
             "smearing": 0.0,
             "threshold": 0.0002314237877849521,
             "iq_angle": -2.9238232084212488,
@@ -106,11 +106,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.08932638315201073,
+                            "amplitude": 0.08916486852002038,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -0.34186829007294317
+                                "beta": -0.27225771099991336
                             },
                             "relative_phase": 0.0
                         }
@@ -147,7 +147,7 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 42.0,
+                            "duration": 40.0,
                             "amplitude": 0.091575683118987,
                             "envelope": {
                                 "kind": "drag",
