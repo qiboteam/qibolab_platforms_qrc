@@ -1,0 +1,271 @@
+{
+    "single_qubits": {
+        "0": {
+            "resonator": {
+                "bare_frequency": 5221992000,
+                "dressed_frequency": 5226976330
+            },
+            "qubit": {
+                "frequency_01": 4106848222,
+                "sweetspot": 0.000899265657818477
+            },
+            "readout": {
+                "fidelity": 0.8837769158753511,
+                "ground_state": [
+                    -0.00044183098676292115,
+                    0.000502857501615545
+                ],
+                "excited_state": [
+                    -0.002677386288184412,
+                    0.0031228467241705047
+                ]
+            },
+            "t1": [
+                23128,
+                null
+            ],
+            "t2": [
+                10680,
+                null
+            ],
+            "t2_spin_echo": [
+                27529,
+                null
+            ],
+            "rb_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "1": {
+            "resonator": {
+                "bare_frequency": 4927992000,
+                "dressed_frequency": 4928845888
+            },
+            "qubit": {
+                "frequency_01": 4264109688,
+                "sweetspot": 0.0023976004181763973
+            },
+            "readout": {
+                "fidelity": 0.7810619232312426,
+                "ground_state": [
+                    5.834395194214067e-05,
+                    8.677844703293782e-05
+                ],
+                "excited_state": [
+                    -0.0018830868177225713,
+                    -0.0003548772384203413
+                ]
+            },
+            "t1": [
+                18407,
+                null
+            ],
+            "t2": [
+                11505,
+                null
+            ],
+            "t2_spin_echo": [
+                13542,
+                null
+            ],
+            "rb_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "2": {
+            "resonator": {
+                "bare_frequency": 6078000000,
+                "dressed_frequency": 6114827652
+            },
+            "qubit": {
+                "frequency_01": 4556619068,
+                "sweetspot": -0.008346954748958205
+            },
+            "readout": {
+                "fidelity": 0.8896616289955865,
+                "ground_state": [
+                    -0.0041441307777274556,
+                    6.52283757053139e-05
+                ],
+                "excited_state": [
+                    -0.005322162873072615,
+                    0.003875668773442831
+                ]
+            },
+            "t1": [
+                8507,
+                null
+            ],
+            "t2": [
+                3595,
+                null
+            ],
+            "t2_spin_echo": [
+                14121,
+                null
+            ],
+            "rb_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "3": {
+            "resonator": {
+                "bare_frequency": 5778500000,
+                "dressed_frequency": 5808431510
+            },
+            "qubit": {
+                "frequency_01": 4101313618,
+                "sweetspot": -0.06
+            },
+            "readout": {
+                "fidelity": 0.8701350809148054,
+                "ground_state": [
+                    -0.002529545200411399,
+                    -0.007103022859003043
+                ],
+                "excited_state": [
+                    -0.005168027922569168,
+                    -0.004643851733279827
+                ]
+            },
+            "t1": [
+                23964,
+                null
+            ],
+            "t2": [
+                3255,
+                null
+            ],
+            "t2_spin_echo": [
+                5900,
+                null
+            ],
+            "rb_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "4": {
+            "resonator": {
+                "bare_frequency": 5516492000,
+                "dressed_frequency": 5532640418
+            },
+            "qubit": {
+                "frequency_01": 4358114655,
+                "sweetspot": -0.009373475164799153
+            },
+            "readout": {
+                "fidelity": 0.8579644242343185,
+                "ground_state": [
+                    0.0006515258994429122,
+                    -0.0005329945732580831
+                ],
+                "excited_state": [
+                    0.0009039271961622637,
+                    -0.00232330085856834
+                ]
+            },
+            "t1": [
+                7030,
+                null
+            ],
+            "t2": [
+                9573,
+                null
+            ],
+            "t2_spin_echo": [
+                8313,
+                null
+            ],
+            "rb_fidelity": [
+                0.0,
+                null
+            ]
+        }
+    },
+    "two_qubits": {
+        "0-2": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "2-0": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "1-2": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "2-1": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "2-3": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "3-2": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "2-4": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        },
+        "4-2": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ]
+        }
+    }
+}
