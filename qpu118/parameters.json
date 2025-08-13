@@ -16,7 +16,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6415795313.0
+            "frequency": 6413495313.0
         },
         "1/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0005591755374694157,
-            "iq_angle": 2.3967183024662546,
+            "threshold": -0.0006428095538879782,
+            "iq_angle": -2.5569397069853506,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -130,7 +130,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.06300000000000001,
+                                "amplitude": 0.09300000000000004,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
