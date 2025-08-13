@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 2000,
-        "relaxation_time": 100000
+        "relaxation_time": 200000
     },
     "configs": {
         "qm/bounds": {
@@ -16,11 +16,11 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6415795313.0
+            "frequency": 6413495313.0
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4539621000.0
+            "frequency": 4539985507.0
         },
         "01/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.001059165695668939,
-            "iq_angle": 2.593196348237413,
+            "threshold": -0.0006428095538879782,
+            "iq_angle": -2.5569397069853506,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0022489240259468833,
-            "iq_angle": -0.7761374923482083,
+            "threshold": 0.0012631198674575054,
+            "iq_angle": -0.8707881652777081,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -130,7 +130,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.09499999999999999,
+                                "amplitude": 0.09300000000000004,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -148,7 +148,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.091575683118987,
+                            "amplitude": 0.09584747487878005,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
