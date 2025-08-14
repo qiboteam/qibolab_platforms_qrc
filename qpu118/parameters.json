@@ -1,6 +1,6 @@
 {
     "settings": {
-        "nshots": 2000,
+        "nshots": 500,
         "relaxation_time": 200000
     },
     "configs": {
@@ -20,7 +20,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4539621000.0
+            "frequency": 4539984353.0
         },
         "01/drive": {
             "kind": "iq",
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0022489240259468833,
-            "iq_angle": -0.7761374923482083,
+            "threshold": 0.001320718322250383,
+            "iq_angle": -0.8507804313321107,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -148,7 +148,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.091575683118987,
+                            "amplitude": 0.09584747487878005,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
