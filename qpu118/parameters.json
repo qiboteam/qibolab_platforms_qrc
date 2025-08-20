@@ -12,7 +12,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4245159147.0
+            "frequency": 4245148365.0
         },
         "0/probe": {
             "kind": "iq",
@@ -20,7 +20,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4537973888.0
+            "frequency": 4541089135.0
         },
         "01/drive": {
             "kind": "iq",
@@ -32,7 +32,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 6597339015.0
+            "frequency": 6597400441.0
         },
         "2/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.00019981391232431228,
-            "iq_angle": 0.6993003760089435,
+            "threshold": -0.000983405767571771,
+            "iq_angle": 2.5669072451915538,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0015777087093458144,
-            "iq_angle": -0.7489782434314242,
+            "threshold": 0.0010015486916560789,
+            "iq_angle": -1.6875927250228109,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -86,14 +86,14 @@
         },
         "1/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 4630000000.0,
+            "frequency": 4430000000.0,
             "power": -2.0,
             "output_mode": "always_on"
         },
         "2/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 6000000000.0,
-            "power": 0.0,
+            "frequency": 5600000000.0,
+            "power": -2.0,
             "output_mode": "always_on"
         }
     },
@@ -148,11 +148,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.10548432186744658,
+                            "amplitude": 0.11458670456519056,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -1.2258899052357926
+                                "beta": -0.03274503618684449
                             },
                             "relative_phase": 0.0
                         }
@@ -172,7 +172,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.07499999999999994,
+                                "amplitude": 0.05,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
