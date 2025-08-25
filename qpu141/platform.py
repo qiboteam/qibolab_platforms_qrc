@@ -22,12 +22,12 @@ NUM_QUBITS = 4
 ROOT = pathlib.Path.home()
 
 def create():
-    """"QRC QFoundry 2Q Chip for Cross Resonance Gates"""
+    """"QRC QFoundry 4Q Chip for Cross Resonance Gates (Connected only q0, q1 and q2)"""
     runcard = load_runcard(FOLDER)
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),  # feedline
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:20"),  # feedline
         "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:10"),  # q0, q1
         "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:12"),  # q2, q3
     }

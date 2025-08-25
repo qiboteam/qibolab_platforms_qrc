@@ -1,0 +1,351 @@
+Status: OKAY, State: STOPPED, Info Flags: FORCED_STOP, Warning Flags: NONE, Error Flags: NONE, Log: []
+Status: OKAY, State: STOPPED, Info Flags: NONE, Warning Flags: NONE, Error Flags: NONE, Log: []
+
+Snapshot:
+qblox20_module10:
+	parameter        value
+--------------------------------------------------------------------------------
+marker0_inv_en    :	False 
+marker1_inv_en    :	False 
+out0_att          :	0 (dB)
+out0_lo_en        :	True 
+out0_lo_freq      :	3260000000 (Hz)
+out0_offset_path0 :	-4.407 (mV)
+out0_offset_path1 :	-5.255 (mV)
+out1_att          :	0 (dB)
+out1_lo_en        :	True 
+out1_lo_freq      :	6000000000 (Hz)
+out1_offset_path0 :	7.625 (mV)
+out1_offset_path1 :	7.625 (mV)
+present           :	True 
+qblox20_module10_sequencer0:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	True 
+marker_ovr_value                 :	3 
+mixer_corr_gain_ratio            :	1.108 
+mixer_corr_phase_offset_degree   :	-15.644 
+mod_en_awg                       :	True 
+nco_freq                         :	-1.5764e+08 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	True 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+qblox20_module10_sequencer1:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	False 
+marker_ovr_value                 :	0 
+mixer_corr_gain_ratio            :	1 
+mixer_corr_phase_offset_degree   :	-0 
+mod_en_awg                       :	False 
+nco_freq                         :	0 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	False 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+qblox20_module10_sequencer2:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	False 
+marker_ovr_value                 :	0 
+mixer_corr_gain_ratio            :	1 
+mixer_corr_phase_offset_degree   :	-0 
+mod_en_awg                       :	False 
+nco_freq                         :	0 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	False 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+qblox20_module10_sequencer3:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	False 
+marker_ovr_value                 :	0 
+mixer_corr_gain_ratio            :	1 
+mixer_corr_phase_offset_degree   :	-0 
+mod_en_awg                       :	False 
+nco_freq                         :	0 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	False 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+qblox20_module10_sequencer4:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	False 
+marker_ovr_value                 :	0 
+mixer_corr_gain_ratio            :	1 
+mixer_corr_phase_offset_degree   :	-0 
+mod_en_awg                       :	False 
+nco_freq                         :	0 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	False 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+qblox20_module10_sequencer5:
+	parameter                       value
+--------------------------------------------------------------------------------
+connect_out0                     :	IQ 
+connect_out1                     :	IQ 
+cont_mode_en_awg_path0           :	False 
+cont_mode_en_awg_path1           :	False 
+cont_mode_waveform_idx_awg_path0 :	0 
+cont_mode_waveform_idx_awg_path1 :	0 
+gain_awg_path0                   :	1 
+gain_awg_path1                   :	1 
+marker_ovr_en                    :	False 
+marker_ovr_value                 :	0 
+mixer_corr_gain_ratio            :	1 
+mixer_corr_phase_offset_degree   :	-0 
+mod_en_awg                       :	False 
+nco_freq                         :	0 (Hz)
+nco_phase_offs                   :	0 (Degrees)
+nco_prop_delay_comp              :	0 (ns)
+nco_prop_delay_comp_en           :	False (ns)
+offset_awg_path0                 :	0 
+offset_awg_path1                 :	0 
+sync_en                          :	False 
+trigger10_count_threshold        :	1 
+trigger10_threshold_invert       :	False 
+trigger11_count_threshold        :	1 
+trigger11_threshold_invert       :	False 
+trigger12_count_threshold        :	1 
+trigger12_threshold_invert       :	False 
+trigger13_count_threshold        :	1 
+trigger13_threshold_invert       :	False 
+trigger14_count_threshold        :	1 
+trigger14_threshold_invert       :	False 
+trigger15_count_threshold        :	1 
+trigger15_threshold_invert       :	False 
+trigger1_count_threshold         :	1 
+trigger1_threshold_invert        :	False 
+trigger2_count_threshold         :	1 
+trigger2_threshold_invert        :	False 
+trigger3_count_threshold         :	1 
+trigger3_threshold_invert        :	False 
+trigger4_count_threshold         :	1 
+trigger4_threshold_invert        :	False 
+trigger5_count_threshold         :	1 
+trigger5_threshold_invert        :	False 
+trigger6_count_threshold         :	1 
+trigger6_threshold_invert        :	False 
+trigger7_count_threshold         :	1 
+trigger7_threshold_invert        :	False 
+trigger8_count_threshold         :	1 
+trigger8_threshold_invert        :	False 
+trigger9_count_threshold         :	1 
+trigger9_threshold_invert        :	False 
+upsample_rate_awg_path0          :	0 
+upsample_rate_awg_path1          :	0 
+Status: OKAY, Flags: NONE, Slot flags: NONE

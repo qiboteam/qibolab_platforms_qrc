@@ -17,19 +17,24 @@ from qibolab.serialize import (
 ADDRESS = "192.168.0.20"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 3
+NUM_QUBITS = 2
 
 ROOT = pathlib.Path.home()
 
+# "twpa_pump0": {
+#             "power": -6.51,
+#             "frequency": 6.25e9
+#         }
+
 def create():
-    """"QRC QFoundry 2Q Chip for Cross Resonance Gates"""
+    """"QRC QFoundry 2Q Chip for Flux Tunable Gates"""
     runcard = load_runcard(FOLDER)
 
     # Declare RF Instrument
     modules = {
-        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:20"),  # feedline
-        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:14"),  # q0, q1
-        "qcm_rf1": QcmRf("qcm_rf1", f"{ADDRESS}:16"),  # q2, q3
+        "qrm_rf0": QrmRf("qrm_rf0", f"{ADDRESS}:18"),  # feedline
+        "qcm_rf0": QcmRf("qcm_rf0", f"{ADDRESS}:8"),  # q0, q1
+        "qcm_bb0": QcmBb("qcm_bb0", f"{ADDRESS}:2"),  # q0, q1
     }
     controller = QbloxController("qblox_controller", 
                                  ADDRESS, 
@@ -56,11 +61,12 @@ def create():
     channels |= Channel(name="feed_back", port=modules["qrm_rf0"].ports("i1",out=False))
 
      # Drive
-    
     channels |= Channel(name="drive0", port=modules["qcm_rf0"].ports("o1")) # qubit 0
     channels |= Channel(name="drive1", port=modules["qcm_rf0"].ports("o2")) # qubit 1
-    channels |= Channel(name="drive2", port=modules["qcm_rf1"].ports("o1")) # qubit 2
-    channels |= Channel(name="drive3", port=modules["qcm_rf1"].ports("o2")) # qubit 3
+
+    # Flux
+    channels |= Channel(name="flux0", port=modules["qcm_bb0"].ports("o1")) # qubit 0
+    channels |= Channel(name="flux1", port=modules["qcm_bb0"].ports("o2")) # qubit 1
 
     # create qubit objects
     qubits, _, pairs = load_qubits(runcard)
@@ -70,12 +76,13 @@ def create():
         qubit.readout = channels["feed_in"]
         qubit.feedback = channels["feed_back"]
         if q >= NUM_QUBITS:
-            qubit.drive = channels[f"drive_"]
+            qubit.drive = channels[f"dummy"]
         else:
             # qubit.drive = channels[f"drive3"]
             qubit.drive = channels[f"drive{q}"]
+            qubit.flux = channels[f"flux{q}"]
             channels[f"drive{q}"].qubit = qubit
-        # qubit.twpa = channels["twpa"]
+            # qubit.twpa = channels["twpa"] # TWPA always ON
     
     settings = load_settings(runcard)
 
