@@ -41,13 +41,13 @@
                 "attenuation": 14,
                 "lo_frequency": 3300000000.0,
                 "mixer_calibration": [
-                    -0,
-                    -0
+                    0,
+                    0
                 ]
             },
             "o2": {
-                "attenuation": 4,
-                "lo_frequency": 2800000000.0,
+                "attenuation": 14,
+                "lo_frequency": 3600000000.0,
                 "mixer_calibration": [
                     0,
                     0
@@ -62,7 +62,7 @@
                     "duration": 40,
                     "amplitude": 0.20614975135897337,
                     "shape": "Drag(5, -0.1)",
-                    "frequency": 3.14e9,
+                    "frequency": 3140000000.0,
                     "relative_start": 0,
                     "phase": 0,
                     "type": "qd"
@@ -109,7 +109,7 @@
                     "duration": 600,
                     "amplitude": 0.12,
                     "shape": "Rectangular()",
-                    "frequency": 7235837067,
+                    "frequency": 7235860301,
                     "relative_start": 0,
                     "phase": 0.0,
                     "type": "ro"
@@ -188,7 +188,7 @@
             },
             "1": {
                 "bare_resonator_frequency": 7231751921,
-                "readout_frequency": 7235837067,
+                "readout_frequency": 7235860301,
                 "drive_frequency": 3209950424,
                 "anharmonicity": 1000000000.0,
                 "sweetspot": 0.0,
