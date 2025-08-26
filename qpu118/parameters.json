@@ -1,7 +1,7 @@
 {
     "settings": {
-        "nshots": 500,
-        "relaxation_time": 300000
+        "nshots": 400,
+        "relaxation_time": 250000
     },
     "configs": {
         "qm/bounds": {
@@ -12,15 +12,15 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4245173652.0
+            "frequency": 4245181778.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6416440250.0
+            "frequency": 6416182631.0
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4539911936.0
+            "frequency": 4539909958.0
         },
         "01/drive": {
             "kind": "iq",
@@ -32,7 +32,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 6597749756.0
+            "frequency": 6597286598.0
         },
         "2/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0016398276320275617,
-            "iq_angle": -0.9603195223546094,
+            "threshold": 0.001895033284466891,
+            "iq_angle": -1.9044725032888878,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0022485491987344996,
-            "iq_angle": -0.2133524948731936,
+            "threshold": 0.0035269000104302967,
+            "iq_angle": -1.4480073770320894,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -172,7 +172,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.07099999999999995,
+                                "amplitude": 0.071,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
