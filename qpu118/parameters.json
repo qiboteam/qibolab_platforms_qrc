@@ -16,7 +16,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6416182631.0
+            "frequency": 6416399204.0
         },
         "1/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.001895033284466891,
-            "iq_angle": -1.9044725032888878,
+            "threshold": 0.0011135430850570114,
+            "iq_angle": -1.5752700751062871,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0035269000104302967,
-            "iq_angle": -1.4480073770320894,
+            "threshold": 0.002642996834681636,
+            "iq_angle": -1.0076011341459092,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -110,7 +110,7 @@
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -0.5901485948053147
+                                "beta": -0.6581851661344
                             },
                             "relative_phase": 0.0
                         }
@@ -130,7 +130,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 2000.0,
-                                "amplitude": 0.054999999999999966,
+                                "amplitude": 0.033,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -152,7 +152,7 @@
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -0.12537260043201529
+                                "beta": -0.15705372142953164
                             },
                             "relative_phase": 0.0
                         }
