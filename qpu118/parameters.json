@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 400,
-        "relaxation_time": 250000
+        "relaxation_time": 200000
     },
     "configs": {
         "qm/bounds": {
@@ -12,7 +12,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4245159456.0
+            "frequency": 4245160371.0
         },
         "0/probe": {
             "kind": "iq",
@@ -20,7 +20,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4539915787.0
+            "frequency": 4539919055.0
         },
         "01/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.001651205846577764,
-            "iq_angle": -1.1752194269120833,
+            "threshold": 0.0016884688049014797,
+            "iq_angle": -1.1692589502166404,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0024685247041957227,
-            "iq_angle": -0.6538352388164208,
+            "threshold": 0.0023843659064602036,
+            "iq_angle": -0.5778809348431393,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -116,7 +116,22 @@
                         }
                     ]
                 ],
-                "RX90": null,
+                "RX90": [
+                    [
+                        "0/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 20.0,
+                            "amplitude": 0.0835274883616533,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.3,
+                                "beta": -0.6581851661344
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "RX12": null,
                 "MZ": [
                     [
