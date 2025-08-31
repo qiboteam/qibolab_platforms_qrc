@@ -183,7 +183,7 @@
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 10,
-                                    "sigma": 75
+                                    "sigma": 75.0
                                 },
                                 "relative_phase": 0.0
                             }
@@ -227,7 +227,7 @@
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 10,
-                                    "sigma": 95
+                                    "sigma": 95.0
                                 },
                                 "relative_phase": 0.0
                             }
@@ -271,7 +271,7 @@
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 10,
-                                    "sigma": 100
+                                    "sigma": 100.0
                                 },
                                 "relative_phase": 0.0
                             }
@@ -315,7 +315,7 @@
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 10,
-                                    "sigma": 75
+                                    "sigma": 75.0
                                 },
                                 "relative_phase": 0.0
                             }
@@ -359,7 +359,7 @@
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 10,
-                                    "sigma": 75
+                                    "sigma": 75.0
                                 },
                                 "relative_phase": 0.0
                             }
@@ -370,6 +370,41 @@
             }
         },
         "coupler": {},
-        "two_qubit": {}
+        "two_qubit": {
+            "4-2": {
+                "CZ": [
+                    [
+                        "4/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 50.0,
+                            "amplitude": 0.37924883,
+                            "envelope": {
+                                "kind": "snz",
+                                "t_idling": 18,
+                                "b_amplitude": 0.5
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "4/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 3.971230742908777
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.162562084661416
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            }
+        }
     }
 }
