@@ -12,7 +12,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4245160371.0
+            "frequency": 4245163759.0
         },
         "0/probe": {
             "kind": "iq",
@@ -20,7 +20,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4539919055.0
+            "frequency": 4539920078.0
         },
         "01/drive": {
             "kind": "iq",
@@ -46,8 +46,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.0016957089257184095,
-            "iq_angle": -1.2152071341709965,
+            "threshold": 0.001600697661183383,
+            "iq_angle": -1.0096821033449153,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -56,8 +56,8 @@
             "kind": "qm-acquisition",
             "delay": 268.0,
             "smearing": 0.0,
-            "threshold": 0.002412599450564394,
-            "iq_angle": -0.6863003168678126,
+            "threshold": 0.0019643119864698275,
+            "iq_angle": -0.3718683672982128,
             "kernel": null,
             "gain": 0,
             "offset": 0.0
@@ -105,12 +105,12 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 20.0,
-                            "amplitude": 0.1670549767233066,
+                            "duration": 40.0,
+                            "amplitude": 0.08258351787756933,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -0.6581851661344
+                                "beta": -0.655018949771489
                             },
                             "relative_phase": 0.0
                         }
@@ -163,11 +163,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.11298165988624002,
+                            "amplitude": 0.11205727985055887,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.3,
-                                "beta": -0.15705372142953164
+                                "beta": -0.08910911259253282
                             },
                             "relative_phase": 0.0
                         }
