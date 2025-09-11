@@ -604,7 +604,7 @@
         },
         "B1/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 5200000000.0,
+            "frequency": 5800000000.0,
             "power": -14.0,
             "output_mode": "always_on"
         },
@@ -616,7 +616,7 @@
         },
         "B3/drive_lo": {
             "kind": "octave-oscillator",
-            "frequency": 5800000000.0,
+            "frequency": 5200000000.0,
             "power": -14.0,
             "output_mode": "always_on"
         },
@@ -1582,11 +1582,25 @@
                         {
                             "kind": "pulse",
                             "duration": 44.0,
-                            "amplitude": 0.43400000000000005,
+                            "amplitude": 0.432,
                             "envelope": {
                                 "kind": "rectangular"
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "B3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 4.337
+                        }
+                    ],
+                    [
+                        "B1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.2278
                         }
                     ]
                 ],
