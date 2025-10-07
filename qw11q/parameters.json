@@ -1625,10 +1625,12 @@
                         "B2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 48.0,
+                            "duration": 64.0,
                             "amplitude": -0.583,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "gaussian_square",
+                                "risefall": 10,
+                                "sigma": 3.0
                             },
                             "relative_phase": 0.0
                         }
@@ -1637,14 +1639,14 @@
                         "B1/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 6.21
+                            "phase": 6.237294584837199
                         }
                     ],
                     [
                         "B2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 5.50
+                            "phase": 4.218676185213965
                         }
                     ]
                 ],
@@ -1657,10 +1659,12 @@
                         "B3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 46.0,
-                            "amplitude": 0.4635,
+                            "duration": 63.0,
+                            "amplitude": 0.46335,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "gaussian_square",
+                                "risefall": 10,
+                                "sigma": 2.0
                             },
                             "relative_phase": 0.0
                         }
@@ -1669,14 +1673,14 @@
                         "B1/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 6.24
+                            "phase": 6.249434365636166
                         }
                     ],
                     [
                         "B3/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 4.21
+                            "phase": 1.7755596094396238
                         }
                     ]
                 ],
