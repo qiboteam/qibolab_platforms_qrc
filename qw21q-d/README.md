@@ -9,14 +9,14 @@ is required.
 Please install it with:
 
 ```sh
-pip install qblox-instruments==0.16.0
+pip install qblox-instruments==0.16.0 lark qcodes
 ```
 
 An TWPA pump from Rohde-Schwarz is also part of the setup. The required dependencies can
 be obtained with
 
 ```sh
-pip install qcodes qcodes_contrib_drivers pyvisa-py
+pip install qcodes # qcodes_contrib_drivers pyvisa-py
 ```
 
-Any recent version is assumed to be good enough.
+Where not specified, any recent version is assumed to be good enough.
