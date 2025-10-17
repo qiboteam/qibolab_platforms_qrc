@@ -11,19 +11,19 @@ ADDRESS = "192.168.0.21"
 
 # the only cluster of the config
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": [1, 2, 3, 4, 5]}),
-    "qcm_rf0": (12, {1: [1], 2: [2]}),
-    "qcm_rf1": (10, {1: [3], 2: [4]}),
-    "qcm_rf2": (8, {1: [5]}),
-    "qcm0": (16, {1: [1], 2: [2], 3: [3], 4: [4]}),
-    "qcm1": (14, {1: [5]}),
+    "qrm_rf0": (18, {"io1": ["D1", "D2", "D3", "D4", "D5"]}),
+    "qcm_rf0": (12, {1: ["D1"], 2: ["D2"]}),
+    "qcm_rf1": (10, {1: ["D3"], 2: ["D4"]}),
+    "qcm_rf2": (8, {1: ["D5"]}),
+    "qcm0": (16, {1: ["D1"], 2: ["D2"], 3: ["D3"], 4: ["D4"]}),
+    "qcm1": (14, {1: ["D5"]}),
 }
 """Connections compact representation."""
 
 
 def create():
     """IQM 5q-chip controlled with a Qblox cluster."""
-    qubits: QubitMap = {i: Qubit.default(i) for i in range(1, 6)}
+    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
