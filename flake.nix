@@ -51,11 +51,11 @@
               venv = {
                 enable = true;
                 requirements = ''
-                  qibolab [qblox] @ git+https://github.com/qiboteam/qibolab.git@qblox
+                  qibolab
 
                   # dev deps
                   ipython
-                  pudp
+                  # pudp
                 '';
               };
             };
