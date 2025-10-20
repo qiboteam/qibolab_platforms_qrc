@@ -33,10 +33,10 @@ def create():
         assert q.probe is not None
         assert q.acquisition is not None
         channels[q.probe] = IqChannel(
-            device="octave2", path="1", mixer=None, lo="B/probe_lo"
+            device="oct2", path="1", mixer=None, lo="B/probe_lo"
         )
         channels[q.acquisition] = AcquisitionChannel(
-            device="octave2", path="1", twpa_pump="twpaB", probe=q.probe
+            device="oct2", path="1", twpa_pump="twpaB", probe=q.probe
         )
 
     # Drive
@@ -53,11 +53,11 @@ def create():
         # define drive channles for 12 transition
         define_drive(q, device, port, lo, transition=(1, 2))
 
-    define_transitions("B1", "octave2", 2, "B1/drive_lo")
-    define_transitions("B2", "octave2", 4, "B2/drive_lo")
-    define_transitions("B3", "octave3", 1, "B3/drive_lo")
-    define_transitions("B4", "octave3", 4, "B4/drive_lo")
-    define_transitions("B5", "octave3", 3, "B5/drive_lo")
+    define_transitions("B1", "oct2", 2, "B1/drive_lo")
+    define_transitions("B2", "oct2", 4, "B2/drive_lo")
+    define_transitions("B3", "oct3", 1, "B3/drive_lo")
+    define_transitions("B4", "oct3", 4, "B4/drive_lo")
+    define_transitions("B5", "oct3", 3, "B5/drive_lo")
 
     # Flux
     for q in range(1, 6):
@@ -66,8 +66,8 @@ def create():
         channels[qubit.flux] = DcChannel(device="con4", path=str(q))
 
     octaves = {
-        "octave2": Octave("octave2", port=11101, connectivity="con2"),
-        "octave3": Octave("octave3", port=11102, connectivity="con3"),
+        "oct2": Octave("oct2", port=11101, connectivity="con2"),
+        "oct3": Octave("oct3", port=11102, connectivity="con3"),
     }
     controller = QmController(
         address="192.168.0.101:80",
