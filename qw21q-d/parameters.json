@@ -24,22 +24,22 @@
     },
     "qcm_rf0/o2/lo": {
       "kind": "oscillator",
-      "frequency": 5600000000,
+      "frequency": 5650000000,
       "power": 0.0
     },
     "qcm_rf1/o1/lo": {
       "kind": "oscillator",
-      "frequency": 5757525186,
+      "frequency": 5750000000,
       "power": 0.0
     },
     "qcm_rf1/o2/lo": {
       "kind": "oscillator",
-      "frequency": 6348620764,
+      "frequency": 6350000000,
       "power": 0.0
     },
     "qcm_rf2/o1/lo": {
       "kind": "oscillator",
-      "frequency": 5632340384,
+      "frequency": 5600000000,
       "power": 0.0
     },
     "D1/probe": { "kind": "iq", "frequency": 7122170000 },
@@ -51,7 +51,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "D1/drive": { "kind": "iq", "frequency": 4959156389 },
+    "D1/drive": { "kind": "iq", "frequency": 4880000000 },
     "D1/flux": { "kind": "dc", "offset": 0.0 },
     "D2/probe": { "kind": "iq", "frequency": 7360850000 },
     "D2/acquisition": {
@@ -62,7 +62,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "D2/drive": { "kind": "iq", "frequency": 5568088582 },
+    "D2/drive": { "kind": "iq", "frequency": 5466000000 },
     "D2/flux": { "kind": "dc", "offset": 0.0 },
     "D3/probe": { "kind": "iq", "frequency": 7468810000 },
     "D3/acquisition": {
@@ -73,7 +73,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "D3/drive": { "kind": "iq", "frequency": 5657525186 },
+    "D3/drive": { "kind": "iq", "frequency": 5555000000 },
     "D3/flux": { "kind": "dc", "offset": 0.0 },
     "D4/probe": { "kind": "iq", "frequency": 7623770000 },
     "D4/acquisition": {
@@ -84,7 +84,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "D4/drive": { "kind": "iq", "frequency": 6248620764 },
+    "D4/drive": { "kind": "iq", "frequency": 6159000000 },
     "D4/flux": { "kind": "dc", "offset": 0.0 },
     "D5/probe": { "kind": "iq", "frequency": 7683331000 },
     "D5/acquisition": {
@@ -95,7 +95,7 @@
       "iq_angle": null,
       "kernel": null
     },
-    "D5/drive": { "kind": "iq", "frequency": 5532340384 },
+    "D5/drive": { "kind": "iq", "frequency": 5412000000 },
     "D5/flux": { "kind": "dc", "offset": 0.0 }
   },
   "native_gates": {
