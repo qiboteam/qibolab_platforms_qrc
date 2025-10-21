@@ -6,19 +6,19 @@ from qibolab._core.instruments.qblox.platform import infer_los, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-ADDRESS = "192.168.0.2"
+ADDRESS = "192.168.0.3"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 4
+NUM_QUBITS = 6
 
 ROOT = pathlib.Path.home()
 
 # the only other cluster of the config
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": [0, 1, 2,3]}),
-    #"qrm_rf1": (20, {"io1": [2, 3, 4]}),
-    "qcm_rf0": (4, {1: [0], 2: [1]}),
-    "qcm_rf1": (6, {1: [2], 2: [3]}),
+    "qrm_rf0": (20, {"io1": [0, 1, 2, 3, 4, 5]}),
+    "qcm_rf0": (12, {1: [0], 2: [1]}),
+    "qcm_rf1": (10, {1: [2], 2: [3]}),
+    "qcm_rf2": (8, {1: [4], 2: [5]}),
     #"qcm_rf2": (8, {1: [0]}),
     #"qcm_rf3": (8, {1: [0]}),
     
@@ -26,9 +26,9 @@ CLUSTER = {
 """Connections compact representation."""
 
 def create():
-    """IQM 5q-chip controlled with a Qblox cluster."""
+    """TII - QPU 148 controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(NUM_QUBITS)}
-    #couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in (0, 1, 3, 4)}
+    #couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in (0, 1, 2, 3, 4)}
 
     channels = map_ports(CLUSTER, qubits) # couplers)
     los = infer_los(CLUSTER)
@@ -49,7 +49,7 @@ def create():
             )
  
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller}
+    instruments = {"qblox": controller}# ,"twpa": SGS100A(address="192.168.0.31")} 
     return Platform.load(
         path=FOLDER, instruments=instruments, qubits=qubits, #couplers=couplers
     )
