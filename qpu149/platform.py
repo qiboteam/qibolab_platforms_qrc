@@ -19,20 +19,17 @@ CLUSTER = {
     "qcm_rf0": (14, {1: [0], 2: [1]}),
     "qcm_rf1": (12, {1: [2], 2: [3]}),
     "qcm_rf2": (10, {1: [4], 2: [5]}),
-    #"qcm_rf2": (8, {1: [0]}),
-    #"qcm_rf3": (8, {1: [0]}),
-    
 }
 """Connections compact representation."""
 
 def create():
     """TII - QPU 149 controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(NUM_QUBITS)}
-    couplers: QubitMap = {"c1": Qubit(flux="c1/flux", drive="1/drive", probe="0/probe", acquisition="0/acquisition")}
+    # couplers: QubitMap = {"c1": Qubit(flux="c1/flux", drive="1/drive", probe="0/probe", acquisition="0/acquisition")}
 
     channels = map_ports(CLUSTER, qubits) # couplers)
     los = infer_los(CLUSTER)
-    
+
     # update channel information beyond connections
     for i, q in qubits.items():
         if q.acquisition is not None:
@@ -51,7 +48,7 @@ def create():
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
     instruments = {"qblox": controller}# ,"twpa": SGS100A(address="192.168.0.31")} 
     return Hardware(
-        instruments=instruments, qubits=qubits, couplers=couplers
+        instruments=instruments, qubits=qubits, #couplers=couplers
     )
 
 
