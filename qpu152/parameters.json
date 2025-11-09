@@ -10,18 +10,23 @@
             "readout": 1000000,
             "instructions": 1000000
         },
+        "twpa": {
+            "kind": "oscillator",
+            "frequency": 6.235e9,
+            "power": -6.3
+        },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 3880000000.0,
-            "power": 8.0
+            "frequency": 3300000000.0,
+            "power": 4.0
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 3956902653.570936
+            "frequency": 3450000000.0
         },
         "0/drive12": {
             "kind": "iq",
-            "frequency": 3856902653.0
+            "frequency": 4200000000.0
         },
         "0/probe": {
             "kind": "iq",
@@ -36,7 +41,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4360974163.0
+            "frequency": 4360971388.0
         },
         "1/drive12": {
             "kind": "iq",
@@ -140,8 +145,8 @@
             "kind": "acquisition",
             "delay": 228.0,
             "smearing": 0.0,
-            "threshold": 0.008254332607186131,
-            "iq_angle": 2.8566180968365713,
+            "threshold": 0.00651171375816105,
+            "iq_angle": 2.8089585021557424,
             "kernel": null
         },
         "2/acquisition": {
@@ -226,7 +231,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.10303883754046796,
+                            "amplitude": 0.1661118578897315,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -265,7 +270,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.486,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
