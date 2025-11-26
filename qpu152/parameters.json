@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 100000
+        "relaxation_time": 200000
     },
     "configs": {
         "qblox/bounds": {
@@ -12,25 +12,30 @@
         },
         "twpa": {
             "kind": "oscillator",
-            "frequency": 6.235e9,
+            "frequency": 6235000000.0,
             "power": -6.3
         },
-        "qcm_rf0/o1/lo": {
+        "qrm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 3300000000.0,
-            "power": 4.0
+            "frequency": 7500000000.0,
+            "power": 38.0
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 3450000000.0
+            "frequency": 5.644e9
         },
         "0/drive12": {
             "kind": "iq",
-            "frequency": 4200000000.0
+            "frequency": 4891800000.0
+        },
+        "qcm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 5.8e9,
+            "power": 2.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7079293000.0
+            "frequency": 7578721000.0
         },
         "0/probe/mixer": {
             "kind": "iq-mixer",
@@ -41,15 +46,15 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4360971388.0
+            "frequency": 4803611093.707081
         },
         "1/drive12": {
             "kind": "iq",
-            "frequency": 4381067000.0
+            "frequency": 5000000000.0
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4410937340.0,
+            "frequency": 5000000000.0,
             "power": 2.0
         },
         "1/probe/mixer": {
@@ -61,28 +66,28 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7194132703.449898
+            "frequency": 7668092000.0
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 4402875090.0
+            "frequency": 5000000000.0
         },
         "2/drive12": {
             "kind": "iq",
-            "frequency": 4361200000.0
+            "frequency": 5000000000.0
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4450000000.0,
-            "power": 6.0
+            "frequency": 4900000000.0,
+            "power": 2.0
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7303035190.980235
+            "frequency": 7417775863.737896
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 4765935844.0
+            "frequency": 5226472359.191028
         },
         "3/drive12": {
             "kind": "iq",
@@ -90,25 +95,25 @@
         },
         "qcm_rf1/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4830000000.0,
-            "power": 2.0
+            "frequency": 5000000000.0,
+            "power": 6.0
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7393832397.0
+            "frequency": 7243554631.972513
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 5150559239.0
+            "frequency": 5130292313.972347
         },
         "4/drive12": {
             "kind": "iq",
-            "frequency": 5100000000.0
+            "frequency": 5200000000.0
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
-            "frequency": 5220000000.0,
-            "power": 4.0
+            "frequency": 4900000000.0,
+            "power": 12.0
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
@@ -119,15 +124,15 @@
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7517004758.0
+            "frequency": 7340228278.164161
         },
         "5/drive": {
             "kind": "iq",
-            "frequency": 4500000000.0
+            "frequency": 5000000000.0
         },
         "5/drive12": {
             "kind": "iq",
-            "frequency": 4300000000.0
+            "frequency": 5000000000.0
         },
         "5/probe": {
             "kind": "iq",
@@ -211,14 +216,9 @@
             "offset": 0.0,
             "filters": []
         },
-        "qrm_rf0/o1/lo": {
-            "kind": "oscillator",
-            "frequency": 7550000000.0,
-            "power": 34.0
-        },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4600000000.0,
+            "frequency": 5000000000.0,
             "power": 20.0
         }
     },
@@ -230,7 +230,7 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
+                            "duration": 40.0,
                             "amplitude": 0.1661118578897315,
                             "envelope": {
                                 "kind": "drag",
@@ -270,7 +270,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.73,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -287,7 +287,7 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
+                            "duration": 400.0,
                             "amplitude": 0.234388403912051,
                             "envelope": {
                                 "kind": "drag",
@@ -327,7 +327,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.18,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 20,
@@ -385,7 +385,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -402,12 +402,12 @@
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
-                            "amplitude": 0.4445932919223373,
+                            "duration": 400.0,
+                            "amplitude": 0.6,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.18,
-                                "beta": -0.4447
+                                "beta": -0.0
                             },
                             "relative_phase": 0.0
                         }
@@ -441,11 +441,9 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.08,
+                                "amplitude": 0.2,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 20,
-                                    "sigma": 0.2
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -460,7 +458,7 @@
                         "4/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
+                            "duration": 360.0,
                             "amplitude": 0.18284555025596103,
                             "envelope": {
                                 "kind": "drag",
@@ -499,7 +497,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.03,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -554,7 +552,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -613,7 +611,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },

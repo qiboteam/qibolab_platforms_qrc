@@ -9,26 +9,20 @@ from qibolab.instruments.rohde_schwarz import SGS100A
 ADDRESS = "192.168.0.20"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
-NUM_QUBITS = 5
+NUM_QUBITS = 2
 ROOT = pathlib.Path.home()
 
 # the only other cluster of the config
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": [0, 1, 2, 3, 4]}),
-    "qcm_rf0": (14, {1: [0], 2: []}),
-    "qcm_rf1": (12, {1: [], 2   : [1]}),
-    "qcm_rf2": (10, {1: [], 2: [2,3,4]}),
-    # "qcm_rf2": (8, {1: [5], 2: []}),
-    "qcm0": (6, {1: [], 2: [], 3: [], 4: []}),
-    "qcm1": (4, {1: [], 2: [], 3: [], 4: []}),
+    "qrm_rf0": (18, {"io1": [0, 1]}),
+    "qcm_rf0": (14, {1: [0], 2: [1]}),
+    "qcm0": (6, {1: [0], 2: [1], 3: [], 4: []}),
 }
 """Connections compact representation."""
 
 def create():
-    """TII - QPU 152 controlled with a Qblox cluster."""
+    """TII (QW fab) 2 qubit QPU controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(NUM_QUBITS)}
-    # couplers: QubitMap = {"c1": Qubit(flux="c1/flux", drive="1/drive", probe="0/probe", acquisition="0/acquisition")}
-
     channels = map_ports(CLUSTER, qubits) # couplers)
     los = infer_los(CLUSTER)
 
