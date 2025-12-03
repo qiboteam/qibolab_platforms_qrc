@@ -2,33 +2,40 @@
 
 import argparse
 import json
-import warnings
 from pathlib import Path
 from typing import Union
 
 
-def get_info(filename: str) -> dict:
+def get_info(parameters_path: Path, calibration_path: Path) -> dict:
     """Open ``filename`` and extracts: `nqubits`, `qubits`, `topology` and `native_gates`."""
 
-    with open(filename) as f:
-        data = json.load(f)
+    with open(parameters_path) as f:
+        parameters_data = json.load(f)
 
-    if not isinstance(data["topology"], list):
-        raise RuntimeError(
-            f"The topology is expected to be a list of edges (List[List[int, int]] or List[List[str, str]]), but received a {type(data['topology'])}."
-        )
+    with open(calibration_path) as f:
+        calibration_data = json.load(f)
 
-    info = {key: data[key] for key in ("nqubits", "qubits", "topology")}
-    one_q_native_gates = list(
-        next(iter(data["native_gates"]["single_qubit"].values())).keys()
-    )
-    two_q_native_gates = list(
-        next(iter(data["native_gates"]["two_qubit"].values())).keys()
-    )
+    qubits = list(calibration_data['single_qubits'].keys())
+    topology = [s.split('-') for s in calibration_data['two_qubits'].keys()]
+    info = {"nqubits": len(qubits), "qubits": qubits, "topology": topology}
+
+    # Do we want the union or intersection of gates for the various qubits?
+    single_q_native_gates = set()
+    for gate_dict in parameters_data['native_gates']['single_qubit'].values():
+        for gate, val in gate_dict.items():
+            if val is not None:
+                single_q_native_gates.add(gate)
+
+    two_q_native_gates = set()
+    for gate_dict in parameters_data['native_gates']['two_qubit'].values():
+        for gate, val in gate_dict.items():
+            if val is not None:
+                two_q_native_gates.add(gate)
+
     info.update(
         {
             "native_gates": {
-                "single_qubit": one_q_native_gates,
+                "single_qubit": single_q_native_gates,
                 "two_qubit": two_q_native_gates,
             }
         }
@@ -69,9 +76,8 @@ graph TD;
     return markdown_str
 
 
-def create_readme(filename: str) -> str:
+def create_readme(info: dict) -> str:
     """Build the `README.md` for the input `filename`."""
-    info = get_info(filename)
     mermaid_graph = create_mermaid_graph(info["qubits"], info["topology"])
     qubits = (
         ", ".join([str(q) for q in info["qubits"]])
@@ -103,20 +109,8 @@ if __name__ == "__main__":
     platforms = parser.parse_args().platform
 
     for platform in platforms:
-
-        filename = platform / "parameters.json"
-        try:
-            readme_str = create_readme(filename)
-        except FileNotFoundError:
-            warnings.warn(
-                f"Couldn't find ``{filename}``, unable to generate the README for platform ``{platform}``."
-            )
-            continue
-        except RuntimeError as err:
-            warnings.warn(
-                err.args[0]
-                + f" Unable to generate the README for platform ``{platform}``."
-            )
-            continue
-
+        parameters_file = platform / "parameters.json"
+        calibration_file = platform / "calibration.json"
+        info = get_info(parameters_file, calibration_file)
+        readme_str = create_readme(info)
         (platform / "README.md").write_text(f"# {platform}\n{readme_str}")
