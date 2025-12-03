@@ -5,8 +5,6 @@ import json
 from pathlib import Path
 from typing import Union
 
-import numpy as np
-
 
 def get_info(parameters_path: Path, calibration_path: Path) -> dict:
     """Open ``filename`` and extracts: `nqubits`, `qubits`, `topology` and `native_gates`."""
