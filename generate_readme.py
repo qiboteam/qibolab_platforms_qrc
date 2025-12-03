@@ -2,9 +2,10 @@
 
 import argparse
 import json
-import numpy as np
 from pathlib import Path
 from typing import Union
+
+import numpy as np
 
 
 def get_info(parameters_path: Path, calibration_path: Path) -> dict:
@@ -16,40 +17,41 @@ def get_info(parameters_path: Path, calibration_path: Path) -> dict:
     with open(calibration_path) as f:
         calibration_data = json.load(f)
 
-    qubits = list(calibration_data['single_qubits'].keys())
-    topology = [s.split('-') for s in calibration_data['two_qubits'].keys()]
+    qubits = list(calibration_data["single_qubits"].keys())
+    topology = [s.split("-") for s in calibration_data["two_qubits"].keys()]
 
     # Do we want the union or intersection of gates for the various qubits?
     single_q_native_gates = set()
-    for gate_dict in parameters_data['native_gates']['single_qubit'].values():
+    for gate_dict in parameters_data["native_gates"]["single_qubit"].values():
         for gate, val in gate_dict.items():
             if val is not None:
                 single_q_native_gates.add(gate)
 
     two_q_native_gates = set()
-    for gate_dict in parameters_data['native_gates']['two_qubit'].values():
+    for gate_dict in parameters_data["native_gates"]["two_qubit"].values():
         for gate, val in gate_dict.items():
             if val is not None:
                 two_q_native_gates.add(gate)
 
     fidelity = {}
-    for qbit, qinfo in calibration_data['single_qubits'].items():
+    for qbit, qinfo in calibration_data["single_qubits"].items():
         fidelity[qbit] = {
-            "readout_fidelity": qinfo['readout']['fidelity'],
-            "t1": qinfo['t1'],
-            "t2": qinfo['t2'],
-            "rb_fidelity": qinfo['rb_fidelity']
-            }
-
-    info = {"nqubits": len(qubits),
-            "qubits": qubits,
-            "topology": topology,
-            "native_gates": {
-                "single_qubit": single_q_native_gates,
-                "two_qubit": two_q_native_gates,
-            },
-            "fidelity": fidelity,
+            "readout_fidelity": qinfo["readout"]["fidelity"],
+            "t1": qinfo["t1"],
+            "t2": qinfo["t2"],
+            "rb_fidelity": qinfo["rb_fidelity"],
         }
+
+    info = {
+        "nqubits": len(qubits),
+        "qubits": qubits,
+        "topology": topology,
+        "native_gates": {
+            "single_qubit": single_q_native_gates,
+            "two_qubit": two_q_native_gates,
+        },
+        "fidelity": fidelity,
+    }
     return info
 
 
@@ -99,16 +101,19 @@ def create_fidelity_table(fidelity: dict) -> str:
         t2_str = f"{qinfo['t2'][0]/1e3:.1f} ± {qinfo['t2'][1]/1e3:.1f}"
         # NOTE: these are all 0.0, null in the calibration.json files available now,
         # so I'm not too sure about the formatting
-        gate_infidelity_cv = -qinfo['rb_fidelity'][0]
-        gate_infidelity_err = qinfo['rb_fidelity'][1]
-        if gate_infidelity_cv==0.0 and gate_infidelity_err==None:
+        gate_infidelity_cv = -qinfo["rb_fidelity"][0]
+        gate_infidelity_err = qinfo["rb_fidelity"][1]
+        if gate_infidelity_cv == 0.0 and gate_infidelity_err == None:
             gate_infidelity_str = "0.0"
         elif gate_infidelity_cv is not None and gate_infidelity_err is not None:
-            gate_infidelity_str = f"{gate_infidelity_cv:.1f} ± {gate_infidelity_err:.1f}"
+            gate_infidelity_str = (
+                f"{gate_infidelity_cv:.1f} ± {gate_infidelity_err:.1f}"
+            )
         else:
             gate_infidelity_str = "N/A"
         table_header += f"| {qubit} | {assingment_fidelity_str} | {t1_str} | {t2_str} | {gate_infidelity_str} |\n"
     return table_header
+
 
 def create_readme(info: dict) -> str:
     """Build the `README.md` for the input `filename`."""
@@ -119,7 +124,7 @@ def create_readme(info: dict) -> str:
     else:
         qubits = ", ".join([f"{q} ({i})" for i, q in enumerate(info["qubits"])])
 
-    fidelity_table = create_fidelity_table(info['fidelity'])
+    fidelity_table = create_fidelity_table(info["fidelity"])
 
     readme_str = f"""
 ## Native Gates
