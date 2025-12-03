@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import numpy as np
 from pathlib import Path
 from typing import Union
 
@@ -17,7 +18,6 @@ def get_info(parameters_path: Path, calibration_path: Path) -> dict:
 
     qubits = list(calibration_data['single_qubits'].keys())
     topology = [s.split('-') for s in calibration_data['two_qubits'].keys()]
-    info = {"nqubits": len(qubits), "qubits": qubits, "topology": topology}
 
     # Do we want the union or intersection of gates for the various qubits?
     single_q_native_gates = set()
@@ -32,14 +32,24 @@ def get_info(parameters_path: Path, calibration_path: Path) -> dict:
             if val is not None:
                 two_q_native_gates.add(gate)
 
-    info.update(
-        {
+    fidelity = {}
+    for qbit, qinfo in calibration_data['single_qubits'].items():
+        fidelity[qbit] = {
+            "readout_fidelity": qinfo['readout']['fidelity'],
+            "t1": qinfo['t1'],
+            "t2": qinfo['t2'],
+            "rb_fidelity": qinfo['rb_fidelity']
+            }
+
+    info = {"nqubits": len(qubits),
+            "qubits": qubits,
+            "topology": topology,
             "native_gates": {
                 "single_qubit": single_q_native_gates,
                 "two_qubit": two_q_native_gates,
-            }
+            },
+            "fidelity": fidelity,
         }
-    )
     return info
 
 
@@ -76,14 +86,41 @@ graph TD;
     return markdown_str
 
 
+def create_fidelity_table(fidelity: dict) -> str:
+    """Create a markdown table for the qubit fidelity and coherence times."""
+    table_header = """
+| Qubit | Assignment Fidelity | T1 (µs) | T2 (µs) | Gate infidelity (e-3) |
+| --- | --- | --- | --- | --- |
+"""
+    for qubit, qinfo in fidelity.items():
+        assingment_fidelity_str = f"{qinfo['readout_fidelity']/2 + 0.5:.2f}"
+        # t1 and t2 are in ns, convert to µs
+        t1_str = f"{qinfo['t1'][0]/1e3:.1f} ± {qinfo['t1'][1]/1e3:.1f}"
+        t2_str = f"{qinfo['t2'][0]/1e3:.1f} ± {qinfo['t2'][1]/1e3:.1f}"
+        # NOTE: these are all 0.0, null in the calibration.json files available now,
+        # so I'm not too sure about the formatting
+        gate_infidelity_cv = -qinfo['rb_fidelity'][0]
+        gate_infidelity_err = qinfo['rb_fidelity'][1]
+        if gate_infidelity_cv==0.0 and gate_infidelity_err==None:
+            gate_infidelity_str = "0.0"
+        elif gate_infidelity_cv is not None and gate_infidelity_err is not None:
+            gate_infidelity_str = f"{gate_infidelity_cv:.1f} ± {gate_infidelity_err:.1f}"
+        else:
+            gate_infidelity_str = "N/A"
+        table_header += f"| {qubit} | {assingment_fidelity_str} | {t1_str} | {t2_str} | {gate_infidelity_str} |\n"
+    return table_header
+
 def create_readme(info: dict) -> str:
     """Build the `README.md` for the input `filename`."""
     mermaid_graph = create_mermaid_graph(info["qubits"], info["topology"])
-    qubits = (
-        ", ".join([str(q) for q in info["qubits"]])
-        if isinstance(info["qubits"][0], int) or info["qubits"][0].isdecimal()
-        else ", ".join([f"{q} ({i})" for i, q in enumerate(info["qubits"])])
-    )
+
+    if isinstance(info["qubits"][0], int) or info["qubits"][0].isdecimal():
+        qubits = ", ".join([str(q) for q in info["qubits"]])
+    else:
+        qubits = ", ".join([f"{q} ({i})" for i, q in enumerate(info["qubits"])])
+
+    fidelity_table = create_fidelity_table(info['fidelity'])
+
     readme_str = f"""
 ## Native Gates
 **Single Qubit**: {", ".join(info["native_gates"]["single_qubit"])}
@@ -95,6 +132,9 @@ def create_readme(info: dict) -> str:
 
 **Qubits**: {qubits}
 {mermaid_graph}
+
+## Qubit fidelity and coherence times
+{fidelity_table}
 """
     return readme_str
 
