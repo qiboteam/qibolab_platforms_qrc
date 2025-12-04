@@ -34,7 +34,7 @@ jobs:
           git add */README.md
           # Check if there are any staged changes, if so open a PR
           if ! git diff --cached --quiet; then
-            git commit -m "Automatically updated platform READMEs"
+            git commit -m "docs: Automatically updated platform READMEs"
             git push origin ${{ github.head_ref }}
           else
             echo "Platform README files did not change."
