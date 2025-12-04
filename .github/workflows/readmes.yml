@@ -1,9 +1,6 @@
 name: Generate platform READMEs
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   generate-readmes:
