@@ -1,0 +1,41 @@
+name: Generate platform READMEs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-readmes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.13
+
+      - name: Generate READMEs
+        run: |
+          for dir in */ ; do
+              # Skip directories starting with "_" and contaings platform.py
+              if [[ "${dir}" != _* && -f "${dir}platform.py" ]]; then
+                  echo "Generating README for ${dir%/}"
+                  python generate_readme.py "${dir%/}"
+              fi
+          done
+
+      - name: Set up git
+        run: |
+          git config user.name "generate readme bot"
+          git config user.email "<>"
+          git add */README.md
+          # Check if there are any staged changes, if so open a PR
+          if ! git diff --cached --quiet; then
+            git commit -m "docs: Automatically updated platform READMEs"
+            git push origin ${{ github.head_ref }}
+          else
+            echo "Platform README files did not change."
+          fi
