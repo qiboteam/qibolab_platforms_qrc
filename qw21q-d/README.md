@@ -1,22 +1,36 @@
-# qw21q - line D
+# qw21q-d
 
-The Qblox cluster connected to this line is flashed with v0.11.0 of the Qblox firmware.
+## Native Gates
+**Single Qubit**: RX, MZ
 
-By the official [Compatibility Matrix](https://pypi.org/project/qblox-instruments/)
-published by Qblox this means that the v0.16.0 of the `qblox-instruments` Python package
-is required.
+**Two Qubit**: 
 
-Please install it with:
+## Topology
+**Number of qubits**: 5
 
-```sh
-pip install qblox-instruments==0.16.0 lark qcodes
+**Qubits**: D1 (0), D2 (1), D3 (2), D4 (3), D5 (4)
+
+```mermaid
+---
+config:
+layout: elk
+---
+graph TD;
+    0((D1)) <--> 1((D2));
+    0((D1)) <--> 2((D3));
+    1((D2)) <--> 3((D4));
+    2((D3)) <--> 3((D4));
+    3((D4)) <--> 4((D5));
 ```
 
-An TWPA pump from Rohde-Schwarz is also part of the setup. The required dependencies can
-be obtained with
 
-```sh
-pip install qcodes # qcodes_contrib_drivers pyvisa-py
-```
+## Qubit fidelity and coherence times
 
-Where not specified, any recent version is assumed to be good enough.
+| Qubit | Assignment Fidelity | T1 (µs) | T2 (µs) | Gate infidelity (e-3) |
+| --- | --- | --- | --- | --- |
+| D1 | 0.95 | 0.0 | 31.0 ± 2.9 | 0.0 |
+| D2 | 0.95 | 0.0 | 7.0 ± 0.7 | 0.0 |
+| D3 | 0.95 | 0.0 | 13.7 ± 1.1 | 0.0 |
+| D4 | 0.93 | 21.9 | 24.0 | 0.0 |
+| D5 | 0.84 | 0.0 | 2.1 ± 1.0 | 0.0 |
+
