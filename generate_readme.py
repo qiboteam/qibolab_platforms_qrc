@@ -59,18 +59,28 @@ def create_mermaid_graph(
 ) -> str:
     """Create a markdown string encoding a mermaid graph given by the input `nodes` and `topology`."""
     node_to_index = dict(zip(nodes, range(len(nodes))))
+
+    # Remove duplicate edges
+    seen = set()
+    edges = []
+    for a, b in topology:
+        key = tuple(sorted((a, b)))
+        if key not in seen:
+            seen.add(key)
+            edges.append([a, b])
+
     if isinstance(nodes[0], int) or nodes[0].isdecimal():
         edges = "\n    ".join(
             [
                 f"{edge[0]}(({str(edge[0])})) <--> {edge[1]}(({str(edge[1])}));"
-                for edge in topology
+                for edge in edges
             ]
         )
     else:
         edges = "\n    ".join(
             [
                 f"{node_to_index[edge[0]]}(({edge[0]})) <--> {node_to_index[edge[1]]}(({edge[1]}));"
-                for edge in topology
+                for edge in edges
             ]
         )
     markdown_str = f"""
