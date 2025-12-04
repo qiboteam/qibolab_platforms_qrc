@@ -16,16 +16,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.7765251989389921,
+                "fidelity": 0.9005305039787799,
                 "coupling": 32400487.508362606,
-                "effective_temperature": 0.09037981401052528,
+                "effective_temperature": 0.0603527517466123,
                 "ground_state": [
-                    -0.00018742804810806604,
-                    0.009416116536198275
+                    0.0035049282543865336,
+                    0.0002638011750668934
                 ],
                 "excited_state": [
-                    0.00138281129530308,
-                    0.006399362170686466
+                    0.005584297522802998,
+                    0.004907752206437834
                 ],
                 "qudits_frequency": {
                     "1": 7124209926.115187
@@ -51,7 +51,7 @@
         "D2": {
             "resonator": {
                 "bare_frequency": 7362650000.0,
-                "dressed_frequency": 7363046200.0,
+                "dressed_frequency": 7362809774.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": null
             },
@@ -64,18 +64,20 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.43236074270557034,
-                "coupling": null,
-                "effective_temperature": 0.2278993498236236,
+                "fidelity": 0.9277188328912467,
+                "coupling": 23363914.164294254,
+                "effective_temperature": 0.054673114715681106,
                 "ground_state": [
-                    -0.0018030968945596153,
-                    -0.007797561592129195
+                    -0.02065598569889986,
+                    0.0039710374671537065
                 ],
                 "excited_state": [
-                    -0.002699097404625261,
-                    -0.006657114830657275
+                    -0.029562306951537144,
+                    -0.0066495387785795905
                 ],
-                "qudits_frequency": {}
+                "qudits_frequency": {
+                    "1": 7362202426.070977
+                }
             },
             "t1": [
                 14456.887309910746,
