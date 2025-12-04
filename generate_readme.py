@@ -95,11 +95,11 @@ def create_fidelity_table(fidelity: dict) -> str:
     for qubit, qinfo in fidelity.items():
         assingment_fidelity_str = f"{qinfo['readout_fidelity']/2 + 0.5:.2f}"
         # t1 and t2 are in ns, convert to µs
-        if qinfo['t1'][1] is None:
+        if qinfo["t1"][1] is None:
             t1_str = f"{qinfo['t1'][0]/1e3:.1f}"
         else:
             t1_str = f"{qinfo['t1'][0]/1e3:.1f} ± {qinfo['t1'][1]/1e3:.1f}"
-        if qinfo['t2'][1] is None:
+        if qinfo["t2"][1] is None:
             t2_str = f"{qinfo['t2'][0]/1e3:.1f}"
         else:
             t2_str = f"{qinfo['t2'][0]/1e3:.1f} ± {qinfo['t2'][1]/1e3:.1f}"
