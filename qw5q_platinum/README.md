@@ -3,7 +3,7 @@
 ## Native Gates
 **Single Qubit**: MZ, RX, RX12
 
-**Two Qubit**: iSWAP, CZ
+**Two Qubit**: CZ, iSWAP
 
 ## Topology
 **Number of qubits**: 5

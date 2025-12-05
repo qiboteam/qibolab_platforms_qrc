@@ -1,7 +1,7 @@
 # qw21q-d
 
 ## Native Gates
-**Single Qubit**: RX, MZ
+**Single Qubit**: MZ, RX
 
 **Two Qubit**:
 
