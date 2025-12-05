@@ -1,7 +1,7 @@
 # qw5q_platinum
 
 ## Native Gates
-**Single Qubit**: MZ, RX, RX12
+**Single Qubit**: RX12, RX, MZ
 
 **Two Qubit**: iSWAP, CZ
 
