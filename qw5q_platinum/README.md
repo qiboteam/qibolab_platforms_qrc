@@ -1,9 +1,9 @@
 # qw5q_platinum
 
 ## Native Gates
-**Single Qubit**: RX12, RX, MZ
+**Single Qubit**: MZ, RX, RX12
 
-**Two Qubit**: iSWAP, CZ
+**Two Qubit**: CZ, iSWAP
 
 ## Topology
 **Number of qubits**: 5
