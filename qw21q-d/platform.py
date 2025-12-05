@@ -22,9 +22,12 @@ CLUSTER = {
 
 
 def create():
-    """IQM 5q-chip controlled with a Qblox cluster."""
+    """QW5Q controlled with a Qblox cluster."""
     qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
 
+    # Add extra drive channels for e-f transitions
+    for i in range(1, 6):
+        qubits[f"D{i}"].drive_extra[1, 2] = f"D{i}/drive_ef"
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
@@ -43,6 +46,11 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False]}
             )
+        if q.drive_extra is not None and q.drive is not None:
+            for k, de in q.drive_extra.items():
+                channels[de] = channels[q.drive].model_copy(
+                    update={"lo": los[i, False]}
+                )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.33")}
