@@ -8,7 +8,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs-python = {
       url = "github:cachix/nixpkgs-python";
-      inputs = {nixpkgs.follows = "nixpkgs";};
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
