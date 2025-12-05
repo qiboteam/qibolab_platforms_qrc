@@ -139,12 +139,11 @@ def create_readme(info: dict) -> str:
         qubits = ", ".join([f"{q} ({i})" for i, q in enumerate(info["qubits"])])
 
     fidelity_table = create_fidelity_table(info["fidelity"])
-
     readme_str = f"""
 ## Native Gates
-**Single Qubit**: {", ".join(info["native_gates"]["single_qubit"])}
+**Single Qubit**: {", ".join(sorted(info["native_gates"]["single_qubit"]))}
 
-**Two Qubit**: {", ".join(info["native_gates"]["two_qubit"])}
+**Two Qubit**: {", ".join(sorted(info["native_gates"]["two_qubit"]))}
 
 ## Topology
 **Number of qubits**: {info["nqubits"]}
