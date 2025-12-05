@@ -24,6 +24,12 @@ jobs:
               fi
           done
 
+      - name: install and run pre-commit
+        run: |
+          pip install pre-commit
+          pre-commit install
+          pre-commit run --all-files
+
       - name: Set up git
         run: |
           git config user.name "generate readme bot"
