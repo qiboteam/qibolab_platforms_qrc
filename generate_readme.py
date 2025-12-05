@@ -115,7 +115,7 @@ def create_fidelity_table(fidelity: dict) -> str:
             t2_str = f"{qinfo['t2'][0]/1e3:.1f} ± {qinfo['t2'][1]/1e3:.1f}"
         # NOTE: these are all 0.0, null in the calibration.json files available now,
         # so I'm not too sure about the formatting
-        gate_infidelity_cv = -qinfo["rb_fidelity"][0]
+        gate_infidelity_cv = 1 - qinfo["rb_fidelity"][0]
         gate_infidelity_err = qinfo["rb_fidelity"][1]
         if gate_infidelity_cv == 0.0 and gate_infidelity_err == None:
             gate_infidelity_str = "0.0"
