@@ -3,7 +3,7 @@
 ## Native Gates
 **Single Qubit**: RX, MZ
 
-**Two Qubit**: 
+**Two Qubit**:
 
 ## Topology
 **Number of qubits**: 5
@@ -33,4 +33,3 @@ graph TD;
 | D3 | 0.95 | 0.0 | 13.7 ± 1.1 | 0.0 |
 | D4 | 0.93 | 21.9 | 24.0 | 0.0 |
 | D5 | 0.84 | 0.0 | 2.1 ± 1.0 | 0.0 |
-
