@@ -17,23 +17,24 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4107147828.7099214
+            "frequency": 4102782848.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 5227895239.626591
+            "frequency": 5229000000.0
         },
         "0/acquisition": {
             "kind": "acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.0005333241183633407,
-            "iq_angle": -2.7484291153201523,
+            "threshold": 0.00040120895552264995,
+            "iq_angle": -1.1585569323253866,
             "kernel": null
         },
         "0/flux": {
             "kind": "dc",
-            "offset": -0.00379
+            "offset": -0.0020555505182415583,
+            "filters": []
         },
         "1/drive": {
             "kind": "iq",
@@ -53,7 +54,8 @@
         },
         "1/flux": {
             "kind": "dc",
-            "offset": -1.411e-6
+            "offset": -1.411e-6,
+            "filters": []
         },
         "2/drive": {
             "kind": "iq",
@@ -73,7 +75,8 @@
         },
         "2/flux": {
             "kind": "dc",
-            "offset": -0.014181
+            "offset": -0.014181,
+            "filters": []
         },
         "3/drive": {
             "kind": "iq",
@@ -93,7 +96,8 @@
         },
         "3/flux": {
             "kind": "dc",
-            "offset": 0.001
+            "offset": 0.001,
+            "filters": []
         },
         "4/drive": {
             "kind": "iq",
@@ -113,7 +117,8 @@
         },
         "4/flux": {
             "kind": "dc",
-            "offset": -0.052
+            "offset": -0.052,
+            "filters": []
         },
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -152,19 +157,23 @@
         },
         "coupler_0/flux": {
             "kind": "dc",
-            "offset": 0.0
+            "offset": 0.0,
+            "filters": []
         },
         "coupler_1/flux": {
             "kind": "dc",
-            "offset": 0.0
+            "offset": 0.0,
+            "filters": []
         },
         "coupler_3/flux": {
             "kind": "dc",
-            "offset": 0.0
+            "offset": 0.0,
+            "filters": []
         },
         "coupler_4/flux": {
             "kind": "dc",
-            "offset": 0.0
+            "offset": 0.0,
+            "filters": []
         }
     },
     "native_gates": {
@@ -175,8 +184,8 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.42656939782616005,
+                            "duration": 100.0,
+                            "amplitude": 0.19242516330141526,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -200,7 +209,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1600.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.1,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
