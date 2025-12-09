@@ -29,7 +29,7 @@
         },
         "B2/drive": {
             "kind": "iq",
-            "frequency": 5944745426.0
+            "frequency": 5954197453.0
         },
         "B2/drive12": {
             "kind": "iq",
@@ -89,8 +89,8 @@
             "kind": "qm-acquisition",
             "delay": 312.0,
             "smearing": 0.0,
-            "threshold": 0.00936480828196695,
-            "iq_angle": 1.8337376054864107,
+            "threshold": 0.008887121617292455,
+            "iq_angle": 1.8055678993586237,
             "kernel": null,
             "gain": 10,
             "offset": 0.0
@@ -452,11 +452,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.32950703317112107,
+                            "amplitude": 0.3179986389685047,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": 0.3255564276387306
+                                "beta": 0.09999999999999964
                             },
                             "relative_phase": 0.0
                         }
