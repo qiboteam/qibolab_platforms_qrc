@@ -24,8 +24,12 @@ def create():
     # qubits = {i: Qubit.default(i,drive_extra={(2-i): f"{i}/drive_extra"}) for i in range(3) } # Added by Luca and commented next 5 rows
     # qubits = {i: Qubit.default(i) for i in range(3)}
     qubits = {}
-    qubits[0] = Qubit.default(0, drive_extra={(1, 2): "0/drive12", 1: "01/drive"})
-    qubits[1] = Qubit.default(1, drive_extra={(1, 2): "1/drive12", 0: "10/drive"})
+    qubits[0] = Qubit.default(
+        0, drive_extra={(1, 2): "0/drive12", 0: "10/cr_cancel", 1: "01/cr_drive"}
+    )
+    qubits[1] = Qubit.default(
+        1, drive_extra={(1, 2): "1/drive12", 0: "10/cr_drive", 1: "01/cr_cancel"}
+    )
     qubits[2] = Qubit.default(2)
     # Create channels and connect to instrument ports
     # Readout
@@ -51,10 +55,16 @@ def create():
     )
     # commented this and also commented 01 and 10 drive channels in the parameters
 
+    channels[qubits[0].drive_extra[0]] = IqChannel(
+        device="oct2", path="1", mixer=None, lo="0/drive_lo"
+    )
     channels[qubits[0].drive_extra[1]] = IqChannel(
         device="oct2", path="1", mixer=None, lo="0/drive_lo"
     )
     channels[qubits[1].drive_extra[0]] = IqChannel(
+        device="oct2", path="4", mixer=None, lo="1/drive_lo"
+    )
+    channels[qubits[1].drive_extra[1]] = IqChannel(
         device="oct2", path="4", mixer=None, lo="1/drive_lo"
     )
 
@@ -70,7 +80,7 @@ def create():
         channels=channels,
         cluster_name="Cluster_2",
         calibration_path=FOLDER,
-        #    script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
+        # script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
     )
     instruments = {"qm": controller}
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
