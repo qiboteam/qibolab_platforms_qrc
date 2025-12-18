@@ -82,9 +82,14 @@
             "scale_q": 0.0,
             "phase_q": 0.0
         },
+        "qcm_rf0/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 4100000000.0,
+            "power": 2.0
+        },
         "2/drive": {
             "kind": "iq",
-            "frequency": 4100000000.0
+            "frequency": 4187531506.071161
         },
         "2/drive/mixer": {
             "kind": "iq-mixer",
@@ -104,7 +109,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7293584170.871869
+            "frequency": 7294135237.463094
         },
         "2/probe/mixer": {
             "kind": "iq-mixer",
@@ -127,11 +132,6 @@
         "3/drive_ef": {
             "kind": "iq",
             "frequency": 4891800000.0
-        },
-        "qcm_rf0/o2/lo": {
-            "kind": "oscillator",
-            "frequency": 4080000000.0,
-            "power": 2.0
         },
         "3/probe": {
             "kind": "iq",
@@ -200,8 +200,8 @@
             "kind": "acquisition",
             "delay": 228.0,
             "smearing": 0.0,
-            "threshold": 0.0,
-            "iq_angle": 0.0,
+            "threshold": 0.0009459749467895667,
+            "iq_angle": -2.505638048627072,
             "kernel": null
         },
         "3/acquisition": {
@@ -345,8 +345,8 @@
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
-                            "amplitude": 0.3705969799946045,
+                            "duration": 40.0,
+                            "amplitude": 0.6208572592198595,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -384,7 +384,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.2,
+                                "amplitude": 0.05,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },

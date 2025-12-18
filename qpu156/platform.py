@@ -15,9 +15,9 @@ ROOT = pathlib.Path.home()
 # the only other cluster of the config
 CLUSTER = {
     "qrm_rf0": (18, {"io1": [0, 1, 2, 3, 4]}),
-    "qcm_rf0": (14, {1: [0], 2: []}),
+    "qcm_rf0": (14, {1: [0], 2: [2]}),
     "qcm_rf1": (12, {1: [1], 2: []}),
-    "qcm_rf2": (10, {1: [], 2: [2,3,4]}),
+    "qcm_rf2": (10, {1: [], 2: [3,4]}),
     # "qcm0": (6, {1: [0], 2: [1], 3: [], 4: []}),
 }
 """Connections compact representation."""
