@@ -1,12 +1,11 @@
 import pathlib
 
-from qibolab import Platform, Qubit
+from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-FOLDER = pathlib.Path(__file__).parent
 NAME = "iqm5q_qblox"
 ADDRESS = "192.168.0.6"
 """Cluster ``iqm5q_qblox``."""
@@ -52,6 +51,4 @@ def create():
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.35")}
-    return Platform.load(
-        path=FOLDER, instruments=instruments, qubits=qubits, couplers=couplers
-    )
+    return Hardware(instruments=instruments, qubits=qubits, couplers=couplers)
