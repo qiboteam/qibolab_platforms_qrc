@@ -6,6 +6,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nixpkgs-python = {
+      url = "github:cachix/nixpkgs-python";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -22,12 +26,8 @@
         "aarch64-darwin"
       ];
 
-      perSystem = {
-        pkgs,
-        config,
-        ...
-      }: {
-        devenv.shells.default = {
+      perSystem = {pkgs, ...}: {
+        devenv.shells.default = {config, ...}: {
           packages = with pkgs; [
             poethepoet
             pre-commit
@@ -35,6 +35,7 @@
           ];
 
           env = {
+            QIBOLAB_PLATFORMS = config.env.DEVENV_ROOT;
             LD_LIBRARY_PATH = builtins.concatStringsSep ":" (
               map (p: "${p}/lib") (
                 with pkgs; [
@@ -48,14 +49,17 @@
           languages = {
             python = {
               enable = true;
+              version = "3.12";
               venv = {
                 enable = true;
                 requirements = ''
-                  qibolab [qblox] @ git+https://github.com/qiboteam/qibolab.git@qblox
+                  qibolab
+                  qibolab-qblox
+                  qibolab-qm
 
                   # dev deps
                   ipython
-                  pudp
+                  # pudp
                 '';
               };
             };

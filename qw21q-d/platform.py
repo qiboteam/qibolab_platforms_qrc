@@ -6,32 +6,30 @@ from qibolab._core.instruments.qblox.platform import infer_los, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-NAME = "iqm5q_qblox"
-ADDRESS = "192.168.0.6"
-"""Cluster ``iqm5q_qblox``."""
+NAME = "qw21q-d"
+ADDRESS = "192.168.0.21"
 
 # the only cluster of the config
 CLUSTER = {
-    "qrm_rf0": (19, {"io1": [0, 1]}),
-    "qrm_rf1": (20, {"io1": [2, 3, 4]}),
-    "qcm_rf0": (8, {1: [1], 2: [2]}),
-    "qcm_rf1": (10, {1: [3], 2: [4]}),
-    "qcm_rf2": (12, {1: [0]}),
-    "qcm0": (2, {1: [0], 2: [1], 3: [2], 4: [3]}),
-    "qcm1": (4, {1: [4], 2: ["coupler_1"], 4: ["coupler_3"]}),
-    "qcm2": (6, {2: ["coupler_4"]}),
-    "qcm3": (17, {1: ["coupler_0"]}),
+    "qrm_rf0": (18, {"io1": ["D1", "D2", "D3", "D4", "D5"]}),
+    "qcm_rf0": (12, {1: ["D1"], 2: ["D2"]}),
+    "qcm_rf1": (10, {1: ["D3"], 2: ["D4"]}),
+    "qcm_rf2": (8, {1: ["D5"]}),
+    "qcm0": (16, {1: ["D1"], 2: ["D2"], 3: ["D3"], 4: ["D4"]}),
+    "qcm1": (14, {1: ["D5"]}),
 }
 """Connections compact representation."""
 
 
 def create():
-    """IQM 5q-chip controlled with a Qblox cluster."""
-    qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
-    couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in (0, 1, 3, 4)}
+    """QW5Q controlled with a Qblox cluster."""
+    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
 
+    # Add extra drive channels for e-f transitions
+    for i in range(1, 6):
+        qubits[f"D{i}"].drive_extra[1, 2] = f"D{i}/drive_ef"
     # Create channels and connect to instrument ports
-    channels = map_ports(CLUSTER, qubits, couplers)
+    channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
 
     # update channel information beyond connections
@@ -48,7 +46,12 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False]}
             )
+        if q.drive_extra is not None and q.drive is not None:
+            for k, de in q.drive_extra.items():
+                channels[de] = channels[q.drive].model_copy(
+                    update={"lo": los[i, False]}
+                )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.35")}
-    return Hardware(instruments=instruments, qubits=qubits, couplers=couplers)
+    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.33")}
+    return Hardware(instruments=instruments, qubits=qubits)
