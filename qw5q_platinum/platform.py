@@ -1,76 +1,53 @@
 import pathlib
 
-from qibolab import (
-    AcquisitionChannel,
-    Channel,
-    ConfigKinds,
-    DcChannel,
-    IqChannel,
-    Platform,
-    Qubit,
-)
-from qibolab.instruments.qm import Octave, QmConfigs, QmController
+from qibolab import Platform, Qubit
+from qibolab._core.instruments.qblox.cluster import Cluster
+from qibolab._core.instruments.qblox.platform import infer_los, map_ports
+from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
 FOLDER = pathlib.Path(__file__).parent
+NAME = "qw5q_platinum"
+ADDRESS = "192.168.0.22"
 
-# Register QM-specific configurations for parameters loading
-ConfigKinds.extend([QmConfigs])
+CLUSTER = {
+    "qrm_rf": (18, {"io1": [0, 1, 2, 3, 4]}),
+    "qcm_rf0": (8, {1: [0], 2: [1]}),
+    "qcm_rf1": (10, {1: [2], 2: [3]}),
+    "qcm_rf2": (12, {1: [4]}),
+    "qcm0": (2, {1: [0], 2: [1], 3: [2], 4: [3]}),
+    "qcm1": (4, {1: [4]}),
+}
+"""Connections compact representation."""
 
 
 def create():
-    """QuantWare 5q-chip controlled with Quantum Machines OPX1000 and Octaves."""
-    # qubits = {i: Qubit.default(i,drive_extra={(1, 2): f"{i}/drive12"}) for i in range(5)}
-    qubits = {i: Qubit.default(i) for i in range(5)}
+    """IQM 5q-chip controlled with a Qblox cluster."""
+    qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
 
     # Create channels and connect to instrument ports
-    # Readout
-    channels = {}
-    for q in qubits.values():
-        channels[q.probe] = IqChannel(
-            device="octave2", path="1", mixer=None, lo="probe_lo"
-        )
-    # Acquire
-    for q in qubits.values():
-        channels[q.acquisition] = AcquisitionChannel(
-            device="octave2", path="1", twpa_pump="twpa", probe=q.probe
-        )
-    # Drive
-    channels[qubits[0].drive] = IqChannel(
-        device="octave1", path="2", mixer=None, lo="01/drive_lo"
-    )
-    channels[qubits[1].drive] = IqChannel(
-        device="octave1", path="3", mixer=None, lo="01/drive_lo"
-    )
-    channels[qubits[2].drive] = IqChannel(
-        device="octave1", path="1", mixer=None, lo="2/drive_lo"
-    )
-    channels[qubits[3].drive] = IqChannel(
-        device="octave1", path="4", mixer=None, lo="3/drive_lo"
-    )
-    channels[qubits[4].drive] = IqChannel(
-        device="octave2", path="2", mixer=None, lo="4/drive_lo"
-    )
-    # Flux
-    channels[qubits[0].flux] = DcChannel(device="con1/4", path="4")
-    channels[qubits[1].flux] = DcChannel(device="con1/4", path="1")
-    channels[qubits[2].flux] = DcChannel(device="con1/4", path="3")
-    channels[qubits[3].flux] = DcChannel(device="con1/4", path="2")
-    channels[qubits[4].flux] = DcChannel(device="con1/4", path="5")
+    channels = map_ports(CLUSTER, qubits)
+    los = infer_los(CLUSTER)
 
-    octaves = {
-        "octave1": Octave("octave1", port=11248, connectivity="con1/1"),
-        "octave2": Octave("octave2", port=11245, connectivity="con1/2"),
-    }
-    fems = {"con1/1": "LF", "con1/2": "LF", "con1/4": "LF"}
-    controller = QmController(
-        address="192.168.0.102:80",
-        octaves=octaves,
-        fems=fems,
-        channels=channels,
-        cluster_name="Cluster_2",
-        calibration_path=FOLDER,
-        script_file_name="qua_script.py",
+    # update channel information beyond connections
+    for i, q in qubits.items():
+        if q.acquisition is not None:
+            channels[q.acquisition] = channels[q.acquisition].model_copy(
+                update={"twpa_pump": "twpa"}
+            )
+        if q.probe is not None:
+            channels[q.probe] = channels[q.probe].model_copy(
+                update={"lo": los[i, True]}
+            )
+        if q.drive is not None:
+            channels[q.drive] = channels[q.drive].model_copy(
+                update={"lo": los[i, False]}
+            )
+
+    controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
+    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.38")}
+    return Platform.load(
+        path=FOLDER,
+        instruments=instruments,
+        qubits=qubits,
     )
-    instruments = {"qm": controller, "twpa": SGS100A(address="192.168.0.38")}
-    return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
