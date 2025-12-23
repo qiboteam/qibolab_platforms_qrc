@@ -7,17 +7,19 @@ from qibolab.instruments.rohde_schwarz import SGS100A
 NAME = "qpu149"
 ADDRESS = "192.168.0.2"
 
+# in principle there is a disconnected qubit 5, and a qubit 4 which has not been
+# calibrated
 CLUSTER = {
     "qcm_rf2": (14, {1: [0], 2: [1]}),
     "qcm_rf1": (12, {1: [2], 2: [3]}),
-    "qcm_rf0": (10, {2: [4]}),
-    "qrm_rf": (20, {"io1": [0, 1, 2, 3, 4]}),
+    # "qcm_rf0": (10, {2: [4]}),
+    "qrm_rf": (20, {"io1": [0, 1, 2, 3]}),
 }
 """Connections compact representation."""
 
 def create():
     """foundry QPU149 controlled with a Qblox cluster."""
-    qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
+    qubits: QubitMap = {i: Qubit.default(i) for i in range(4)}
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
