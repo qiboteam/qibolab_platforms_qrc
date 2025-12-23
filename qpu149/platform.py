@@ -1,12 +1,9 @@
-import pathlib
-
 from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-FOLDER = pathlib.Path(__file__).parent
 NAME = "qpu149"
 ADDRESS = "192.168.0.2"
 
@@ -47,7 +44,6 @@ def create():
         "twpa": SGS100A(address="192.168.0.37", turn_off_on_disconnect=False),
     }
     return Hardware(
-        path=FOLDER,
         instruments=instruments,
         qubits=qubits,
     )
