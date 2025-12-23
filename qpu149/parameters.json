@@ -140,14 +140,14 @@
             "frequency": 5466576605.765685,
             "power": 8.0
         },
-        "qcm_rf1/o2/lo": {
+        "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 6111460989.726923,
+            "frequency": 6130225144.790645,
             "power": 6.0
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
-            "frequency": 6304110399.820649,
+            "frequency": 6314064736.594616,
             "power": 8.0
         }
     },
@@ -375,41 +375,6 @@
             }
         },
         "coupler": {},
-        "two_qubit": {
-            "4-2": {
-                "CZ": [
-                    [
-                        "4/flux",
-                        {
-                            "kind": "pulse",
-                            "duration": 59.99999999999999,
-                            "amplitude": 0.37922487588539944,
-                            "envelope": {
-                                "kind": "snz",
-                                "t_idling": 27,
-                                "b_amplitude": 0.4825
-                            },
-                            "relative_phase": 0.0
-                        }
-                    ],
-                    [
-                        "4/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 4.024871858891842
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 6.169901743928583
-                        }
-                    ]
-                ],
-                "CNOT": null,
-                "iSWAP": null
-            }
-        }
+        "two_qubit": {}
     }
 }
