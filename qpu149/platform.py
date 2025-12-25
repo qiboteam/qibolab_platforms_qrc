@@ -10,8 +10,8 @@ ADDRESS = "192.168.0.2"
 # in principle there is a disconnected qubit 5, and a qubit 4 which has not been
 # calibrated
 CLUSTER = {
-    "qcm_rf2": (14, {1: [0], 2: [1]}),
-    "qcm_rf1": (12, {1: [2], 2: [3]}),
+    "qcm_rf1": (14, {1: [0], 2: [1]}),
+    "qcm_rf2": (12, {1: [2], 2: [3]}),
     # "qcm_rf0": (10, {2: [4]}),
     "qrm_rf": (20, {"io1": [0, 1, 2, 3]}),
 }
