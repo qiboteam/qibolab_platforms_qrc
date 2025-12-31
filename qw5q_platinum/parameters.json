@@ -17,7 +17,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4774926290.200615
+            "frequency": 4775015138.751787
         },
         "0/probe": {
             "kind": "iq",
@@ -80,7 +80,7 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6220018999.969256
+            "frequency": 6219689437.179267
         },
         "3/probe": {
             "kind": "iq",
@@ -143,7 +143,7 @@
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
             "frequency": 6111460989.726923,
-            "power": 6.0
+            "power": 18.0
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
@@ -160,7 +160,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.25239225259628906,
+                            "amplitude": 0.23999046865913082,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -186,9 +186,7 @@
                                 "duration": 300.0,
                                 "amplitude": 0.18,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 10,
-                                    "sigma": 75.0
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -230,9 +228,7 @@
                                 "duration": 360.0,
                                 "amplitude": 0.09,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 10,
-                                    "sigma": 90.0
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -274,9 +270,7 @@
                                 "duration": 840.0,
                                 "amplitude": 0.065,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 10,
-                                    "sigma": 210.0
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -318,9 +312,7 @@
                                 "duration": 300.0,
                                 "amplitude": 0.2,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 10,
-                                    "sigma": 75.0
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -362,9 +354,7 @@
                                 "duration": 300.0,
                                 "amplitude": 0.185,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 10,
-                                    "sigma": 75.0
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
