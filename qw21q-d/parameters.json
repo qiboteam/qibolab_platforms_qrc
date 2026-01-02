@@ -73,13 +73,13 @@
             "kind": "acquisition",
             "delay": 256.0,
             "smearing": 0.0,
-            "threshold": 0.004656357587574296,
-            "iq_angle": -1.2848960276431736,
+            "threshold": 0.01125327225065946,
+            "iq_angle": 2.1268163716372093,
             "kernel": null
         },
         "D1/drive": {
             "kind": "iq",
-            "frequency": 4958950760.0
+            "frequency": 4960094251.617281
         },
         "D1/drive_ef": {
             "kind": "iq",
@@ -87,7 +87,7 @@
         },
         "D1/flux": {
             "kind": "dc",
-            "offset": 0.24923002174836145,
+            "offset": 0.2475942990418777,
             "filters": []
         },
         "D2/probe": {
@@ -200,7 +200,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.09059689229573123,
+                            "amplitude": 0.0973842982262869,
                             "envelope": {
                                 "kind": "gaussian",
                                 "rel_sigma": 0.2
@@ -237,7 +237,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1200.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.3,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },

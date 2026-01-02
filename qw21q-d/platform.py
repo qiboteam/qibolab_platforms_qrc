@@ -54,5 +54,5 @@ def create():
                 )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.33")}
+    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.33", turn_off_on_disconnect=False)}
     return Hardware(instruments=instruments, qubits=qubits)
