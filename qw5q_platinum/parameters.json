@@ -4,6 +4,7 @@
         "relaxation_time": 300000
     },
     "configs": {
+        "log": {"kind": "log", "path": "/home/users/roy.stegeman/calibration"},
         "qblox/bounds": {
             "kind": "bounds",
             "waveforms": 40000.0,
@@ -122,7 +123,7 @@
         },
         "qrm_rf/o1/lo": {
             "kind": "oscillator",
-            "frequency": 7535000000.0,
+            "frequency": 7541504209.477961,
             "power": 34.0
         },
         "qcm_rf0/o1/lo": {
@@ -160,11 +161,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.23999046865913082,
+                            "amplitude": 0.47998093731826164,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": -0.1077865073198771
+                                "rel_sigma": 0.125,
+                                "beta": -0.5389325365993856
                             },
                             "relative_phase": 0.0
                         }
@@ -202,11 +203,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.2553515540084564,
+                            "amplitude": 0.5107031080169128,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": 0.09716661394376411
+                                "rel_sigma": 0.125,
+                                "beta": 0.48583306971882056
                             },
                             "relative_phase": 0.0
                         }
@@ -244,11 +245,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.22248307007532006,
+                            "amplitude": 0.4449661401506401,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": -0.07385629225438306
+                                "rel_sigma": 0.125,
+                                "beta": -0.3692814612719153
                             },
                             "relative_phase": 0.0
                         }
@@ -286,11 +287,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.2631985883709064,
+                            "amplitude": 0.5263971767418127,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": 0.03911264537164361
+                                "rel_sigma": 0.125,
+                                "beta": 0.19556322685821806
                             },
                             "relative_phase": 0.0
                         }
@@ -328,11 +329,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.26397212310188845,
+                            "amplitude": 0.5279442462037769,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": 0.19488393217993277
+                                "rel_sigma": 0.125,
+                                "beta": 0.9744196608996638
                             },
                             "relative_phase": 0.0
                         }
