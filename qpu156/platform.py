@@ -37,11 +37,11 @@ def create():
             )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True]}
+                update={"lo": los[i, True], "mixer": f"{i}/probe/mixer"}
             )
         if q.drive is not None:
             channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False]}
+                update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
 
         if q.drive is not None and (1,2) not in q.drive_extra:
