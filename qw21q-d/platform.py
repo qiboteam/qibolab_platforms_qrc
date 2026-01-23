@@ -1,8 +1,9 @@
-from qibolab import Hardware, Qubit
+from qibolab import Hardware, Qubit, ConfigKinds
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
+from qibolab._core.instruments.qblox.config import QbloxIqMixerConfig
 
 NAME = "qw21q-d"
 ADDRESS = "192.168.0.21"
@@ -18,6 +19,7 @@ CLUSTER = {
 }
 """Connections compact representation."""
 
+ConfigKinds.extend([QbloxIqMixerConfig])
 
 def create():
     """QW5Q controlled with a Qblox cluster."""
