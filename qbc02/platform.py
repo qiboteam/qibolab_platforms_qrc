@@ -1,4 +1,4 @@
-from qibolab import ConfigKinds, Hardware, Qubit
+from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import map_ports
 from qibolab._core.platform.platform import QubitMap
