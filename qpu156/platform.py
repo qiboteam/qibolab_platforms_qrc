@@ -14,19 +14,18 @@ ROOT = pathlib.Path.home()
 
 # the only other cluster of the config
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": [0, 1, 2, 3, 4]}),
-    "qcm_rf0": (14, {1: [0], 2: [2]}),
-    "qcm_rf1": (12, {1: [1], 2: [3]}),
-    "qcm_rf2": (10, {1: [4], 2: []}),
+    "qrm_rf0": (18, {"io1": [f"D{i}" for i in range(NUM_QUBITS)]}),
+    "qcm_rf0": (14, {1: ["D0"], 2: ["D2"]}),
+    "qcm_rf1": (12, {1: ["D1"], 2: ["D3"]}),
+    "qcm_rf2": (10, {1: ["D4"], 2: []}),
     # "qcm0": (6, {1: [0], 2: [1], 3: [], 4: []}),
 }
 """Connections compact representation."""
 
 def create():
     """TII 5 qubit QPU controlled with a Qblox cluster, with TWPA pumps always on, for CR gates."""
-    qubits: QubitMap = {i: Qubit.default(i) for i in range(NUM_QUBITS)}
+    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(NUM_QUBITS)}
     channels = map_ports(CLUSTER, qubits) # couplers)
-
     los = infer_los(CLUSTER)
 
     # update channel information
@@ -50,7 +49,7 @@ def create():
         if q.drive_extra is not None and q.drive is not None:
             for k, de in q.drive_extra.items():
                 channels[de] = channels[q.drive].model_copy(
-                    update={"lo": los[i, False]}
+                    update={"lo": los[i, False], "mixer": f"{i}/drive_ef/mixer"}
                 )
     
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
