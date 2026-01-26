@@ -1,6 +1,6 @@
 {
     "single_qubits": {
-        "0": {
+        "D0": {
             "resonator": {
                 "bare_frequency": 7075900000.0,
                 "dressed_frequency": 7077964011.0,
@@ -46,10 +46,10 @@
                 0.0
             ]
         },
-        "1": {
+        "D1": {
             "resonator": {
                 "bare_frequency": 7185080000.0,
-                "dressed_frequency": 7187782132.0,
+                "dressed_frequency": 7188287155.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": null
             },
@@ -94,7 +94,7 @@
                 0.0
             ]
         },
-        "2": {
+        "D2": {
             "resonator": {
                 "bare_frequency": 7291240000.0,
                 "dressed_frequency": 7294135237.0,
@@ -140,7 +140,7 @@
                 0.0
             ]
         },
-        "3": {
+        "D3": {
             "resonator": {
                 "bare_frequency": 7381810000.0,
                 "dressed_frequency": 7384077641.0,
@@ -186,7 +186,7 @@
                 0.0
             ]
         },
-        "4": {
+        "D4": {
             "resonator": {
                 "bare_frequency": 7495480000.0,
                 "dressed_frequency": 7498660396.0,
@@ -236,7 +236,7 @@
         }
     },
     "two_qubits": {
-        "0-1": {
+        "D0-D1": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -247,7 +247,7 @@
             ],
             "coupling": null
         },
-        "1-0": {
+        "D1-D0": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -258,7 +258,7 @@
             ],
             "coupling": null
         },
-        "1-2": {
+        "D1-D2": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -269,7 +269,7 @@
             ],
             "coupling": null
         },
-        "2-1": {
+        "D2-D1": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -280,7 +280,7 @@
             ],
             "coupling": null
         },
-        "2-3": {
+        "D2-D3": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -291,7 +291,7 @@
             ],
             "coupling": null
         },
-        "3-2": {
+        "D3-D2": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -302,7 +302,7 @@
             ],
             "coupling": null
         },
-        "3-4": {
+        "D3-D4": {
             "rb_fidelity": [
                 0.0,
                 null
@@ -313,7 +313,7 @@
             ],
             "coupling": null
         },
-        "4-3": {
+        "D4-D3": {
             "rb_fidelity": [
                 0.0,
                 null
