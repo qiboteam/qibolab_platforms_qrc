@@ -18,7 +18,7 @@
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7260000000.0,
-            "power": 42.0
+            "power": 46.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -152,106 +152,106 @@
         },
         "D0/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -10.7601070404053,
-            "offset_q": -1.57118630409241,
+            "offset_i": -10.7513265609741,
+            "offset_q": -1.57400667667389,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D1/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -0.75964218378067,
-            "offset_q": -6.35145902633667,
+            "offset_i": -0.755770146846771,
+            "offset_q": -6.33947038650513,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D2/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -12.5499086380005,
-            "offset_q": -15.7016172409058,
+            "offset_i": -12.5155506134033,
+            "offset_q": -15.7375545501709,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D3/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.81490421295166,
-            "offset_q": -8.94018840789795,
+            "offset_i": -9.81275272369385,
+            "offset_q": -8.92453479766846,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D4/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.36665153503418,
-            "offset_q": -5.76178693771362,
+            "offset_i": -7.29892778396606,
+            "offset_q": -5.72952651977539,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D0/drive_ef/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -10.7601070404053,
-            "offset_q": -1.57118630409241,
+            "offset_i": -10.7513265609741,
+            "offset_q": -1.57400667667389,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D1/drive_ef/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -0.75964218378067,
-            "offset_q": -6.35145902633667,
+            "offset_i": -0.755770146846771,
+            "offset_q": -6.33947038650513,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D2/drive_ef/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -12.5499086380005,
-            "offset_q": -15.7016172409058,
+            "offset_i": -12.5155506134033,
+            "offset_q": -15.7375545501709,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D3/drive_ef/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.81490421295166,
-            "offset_q": -8.94018840789795,
+            "offset_i": -9.81275272369385,
+            "offset_q": -8.92453479766846,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D4/drive_ef/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.36665153503418,
-            "offset_q": -5.76178693771362,
+            "offset_i": -7.29892778396606,
+            "offset_q": -5.72952651977539,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D0/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.50671434402466,
-            "offset_q": 2.68718814849854,
+            "offset_i": -3.52375841140747,
+            "offset_q": 2.68124294281006,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D1/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.50671434402466,
-            "offset_q": 2.68718814849854,
+            "offset_i": -3.52375841140747,
+            "offset_q": 2.68124294281006,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D2/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.50671434402466,
-            "offset_q": 2.68718814849854,
+            "offset_i": -3.52375841140747,
+            "offset_q": 2.68124294281006,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D3/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.50671434402466,
-            "offset_q": 2.68718814849854,
+            "offset_i": -3.52375841140747,
+            "offset_q": 2.68124294281006,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
         "D4/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.50671434402466,
-            "offset_q": 2.68718814849854,
+            "offset_i": -3.52375841140747,
+            "offset_q": 2.68124294281006,
             "scale_q": 1.0,
             "phase_q": 0.0
         }
@@ -304,7 +304,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.16,
+                                "amplitude": 0.1,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -361,11 +361,9 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.15,
                                 "envelope": {
-                                    "kind": "gaussian_square",
-                                    "risefall": 20,
-                                    "sigma": 0.2
+                                    "kind": "rectangular"
                                 },
                                 "relative_phase": 0.0
                             }
@@ -419,7 +417,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.07,
+                                "amplitude": 0.15,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -470,12 +468,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 620.0
+                                "duration": 1000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 620.0,
-                                "amplitude": 0.15,
+                                "duration": 1000.0,
+                                "amplitude": 0.1,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -531,7 +529,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.193,
+                                "amplitude": 0.4,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
