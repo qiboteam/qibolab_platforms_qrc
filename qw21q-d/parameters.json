@@ -18,54 +18,54 @@
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7400000000.0,
-            "power": 44.0
+            "power": -44.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 5100000000.0,
-            "power": 10.0
+            "power": -10.0
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
             "frequency": 5600000000.0,
-            "power": 10.0
+            "power": -10.0
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
             "frequency": 5504603536.761017,
-            "power": 10.0
+            "power": -10.0
         },
         "qcm_rf1/o2/lo": {
             "kind": "oscillator",
             "frequency": 6348620764.0,
-            "power": 10.0
+            "power": -10.0
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
             "frequency": 5632340384.0,
-            "power": 10.0
+            "power": -10.0
         },
         "qrm_rf0/o1/mixer": {
-            "kind": "qblox-iq-mixer",
+            "kind": "iq-mixer",
             "offset_i": -4.74302434921265,
             "offset_q": -6.24840927124023,
-            "scale_q_sequencer0": 0.9966533780097961,
-            "phase_q_sequencer0": 22.465450286865234
+            "scale_q": 0.9966533780097961,
+            "phase_q": 22.465450286865234
         },
         "qcm_rf0/o1/mixer": {
-            "kind": "qblox-iq-mixer"
+            "kind": "iq-mixer"
         },
         "qcm_rf0/o2/mixer": {
-            "kind": "qblox-iq-mixer"
+            "kind": "iq-mixer"
         },
         "qcm_rf1/o1/mixer": {
-            "kind": "qblox-iq-mixer"
+            "kind": "iq-mixer"
         },
         "qcm_rf1/o2/mixer": {
-            "kind": "qblox-iq-mixer"
+            "kind": "iq-mixer"
         },
         "qcm_rf2/o1/mixer": {
-            "kind": "qblox-iq-mixer",
+            "kind": "iq-mixer",
             "offset_i": -8.6063,
             "offset_q": -8.3282
         },
