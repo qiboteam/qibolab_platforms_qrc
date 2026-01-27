@@ -1,6 +1,5 @@
 from qibolab import ConfigKinds, Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
-from qibolab._core.instruments.qblox.config import QbloxIqMixerConfig
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
@@ -18,8 +17,6 @@ CLUSTER = {
     "qcm1": (14, {1: ["D5"]}),
 }
 """Connections compact representation."""
-
-ConfigKinds.extend([QbloxIqMixerConfig])
 
 
 def create():
