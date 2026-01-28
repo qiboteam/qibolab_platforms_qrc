@@ -2,7 +2,7 @@ import pathlib
 
 from qibolab import Platform, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
-from qibolab._core.instruments.qblox.platform import infer_los, map_ports
+from qibolab._core.instruments.qblox.platform import infer_los, map_ports, infer_mixers
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
@@ -28,6 +28,7 @@ def create():
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
+    mixers = infer_mixers(CLUSTER)
 
     # update channel information beyond connections
     for i, q in qubits.items():
@@ -37,11 +38,11 @@ def create():
             )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True]}
+                update={"lo": los[i, True], "mixer": mixers[i, True]}
             )
         if q.drive is not None:
             channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False]}
+                update={"lo": los[i, False], "mixer": mixers[i, False]}
             )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
