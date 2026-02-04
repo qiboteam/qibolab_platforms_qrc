@@ -60,7 +60,7 @@
         },
         "D0/probe": {
             "kind": "iq",
-            "frequency": 7000000000.0
+            "frequency": 7.07797e9
         },
         "D1/drive": {
             "kind": "iq",
@@ -72,7 +72,7 @@
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7000000000.0
+            "frequency": 7.18232e9
         },
         "D2/drive": {
             "kind": "iq",
@@ -84,7 +84,7 @@
         },
         "D2/probe": {
             "kind": "iq",
-            "frequency": 7000000000.0
+            "frequency": 7.29628e9
         },
         "D3/drive": {
             "kind": "iq",
@@ -96,7 +96,7 @@
         },
         "D3/probe": {
             "kind": "iq",
-            "frequency": 7000000000.0
+            "frequency": 7.38642e9
         },
         "D4/drive": {
             "kind": "iq",
@@ -108,7 +108,7 @@
         },
         "D4/probe": {
             "kind": "iq",
-            "frequency": 7000000000.0
+            "frequency":7.49015e9
         },
         "D0/acquisition": {
             "kind": "acquisition",
@@ -399,7 +399,8 @@
                             "amplitude": 0.1383,
                             "envelope": {
                                 "kind": "drag",
-                                "rel_sigma": 0.2
+                                "rel_sigma": 0.2,
+                                "beta": -0.0
                             },
                             "relative_phase": 0.0
                         }
@@ -607,7 +608,6 @@
                         "kind": "pulse",
                         "duration": 400.0,
                         "amplitude": 0.15,
-                        "frequency": 4.2e9,
                         "envelope": {
                             "kind": "rectangular"
                         },
