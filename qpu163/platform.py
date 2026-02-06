@@ -15,8 +15,8 @@ ROOT = pathlib.Path.home()
 # the only other cluster of the config
 CLUSTER = {
     "qrm_rf0": (18, {"io1": [f"D{i}" for i in range(NUM_QUBITS)]}),
-    "qcm_rf0": (14, {1: ["D1"], 2: ["D2"]}),
-    "qcm_rf1": (12, {1: ["D3"], 2: ["D4"]}),
+    "qcm_rf0": (14, {1: ["D1"], 2: []}),
+    "qcm_rf1": (12, {1: ["D2", "D3"], 2: ["D4"]}),
     "qcm_rf2": (10, {1: [], 2: ["D0"]}),
     # "qcm0": (6, {1: [0], 2: [1], 3: [], 4: []}),
 }
