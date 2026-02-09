@@ -6,7 +6,7 @@ from qibolab._core.instruments.qblox.platform import infer_los, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-ADDRESS = "192.168.0.20"
+ADDRESS = "192.168.0.2"
 FOLDER  = pathlib.Path(__file__).parent
 PLATFORM = FOLDER.name
 NUM_QUBITS = 5
@@ -14,7 +14,7 @@ ROOT = pathlib.Path.home()
 
 # the only other cluster of the config
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": [f"D{i}" for i in range(NUM_QUBITS)]}),
+    "qrm_rf0": (20, {"io1": [f"D{i}" for i in range(NUM_QUBITS)]}),
     "qcm_rf0": (14, {1: ["D0"], 2: ["D2"]}),
     "qcm_rf1": (12, {1: ["D1"], 2: ["D3"]}),
     "qcm_rf2": (10, {1: ["D4"], 2: []}),
@@ -53,7 +53,7 @@ def create():
                 )
     
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller ,"twpa": SGS100A(address="192.168.0.32")} 
+    instruments = {"qblox": controller } #,"twpa": SGS100A(address="192.168.0.32")} 
     return Hardware(
         instruments=instruments, qubits=qubits, #couplers=couplers
     )

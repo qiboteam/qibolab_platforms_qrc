@@ -10,11 +10,6 @@
             "readout": 1000000,
             "instructions": 1000000
         },
-        "twpa": {
-            "kind": "oscillator",
-            "frequency": 6221000000.0,
-            "power": -7.0
-        },
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7260000000.0,
@@ -108,7 +103,7 @@
         },
         "D4/probe": {
             "kind": "iq",
-            "frequency": 7497987944.804741
+            "frequency": 7496525124.396201
         },
         "D0/acquisition": {
             "kind": "acquisition",
@@ -529,7 +524,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.42,
+                                "amplitude": 0.18,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
