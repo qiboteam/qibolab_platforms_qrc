@@ -12,19 +12,21 @@ PLATFORM = FOLDER.name
 NUM_QUBITS = 5
 ROOT = pathlib.Path.home()
 
+qubit_names = [f"D{i}" for i in range(NUM_QUBITS)]
+
 # the only other cluster of the config
 CLUSTER = {
-    "qrm_rf0": (20, {"io1": [f"D{i}" for i in range(NUM_QUBITS)]}),
-    "qcm_rf0": (14, {1: ["D0"], 2: ["D2"]}),
-    "qcm_rf1": (12, {1: ["D1"], 2: ["D3"]}),
-    "qcm_rf2": (10, {1: ["D4"], 2: []}),
+    "qrm_rf0": (20, {"io1": qubit_names}),
+    "qcm_rf0": (14, {1: [], 2: ["D0"]}),
+    "qcm_rf1": (12, {1: ["D3"], 2: ["D4"]}),
+    "qcm_rf2": (10, {1: ["D2"], 2: ["D1"]}),
     # "qcm0": (6, {1: [0], 2: [1], 3: [], 4: []}),
 }
 """Connections compact representation."""
 
 def create():
-    """TII 5 qubit QPU controlled with a Qblox cluster, with TWPA pumps always on, for CR gates."""
-    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(NUM_QUBITS)}
+    """TII 5 qubit QPU controlled with a Qblox cluster, for CR gates."""
+    qubits: QubitMap = {qubit: Qubit.default(qubit) for qubit in qubit_names}
     channels = map_ports(CLUSTER, qubits) # couplers)
     los = infer_los(CLUSTER)
 

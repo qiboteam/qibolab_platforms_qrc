@@ -92,11 +92,11 @@
         },
         "D3/drive_ef": {
             "kind": "iq",
-            "frequency": 5023127380.457178
+            "frequency": 4863120324.579045
         },
         "D3/probe": {
             "kind": "iq",
-            "frequency": 7390480938.88621
+            "frequency": 7389793503.0
         },
         "D4/drive": {
             "kind": "iq",
@@ -108,7 +108,7 @@
         },
         "D4/probe": {
             "kind": "iq",
-            "frequency": 7492876275.0
+            "frequency": 7493387529.478945
         },
         "D0/acquisition": {
             "kind": "acquisition",
@@ -122,8 +122,8 @@
             "kind": "acquisition",
             "delay": 228.0,
             "smearing": 0.0,
-            "threshold": 0.0033646718798782593,
-            "iq_angle": -1.3822728715920654,
+            "threshold": 0.0017660960658484814,
+            "iq_angle": -1.3721270687404097,
             "kernel": null
         },
         "D2/acquisition": {
@@ -138,8 +138,8 @@
             "kind": "acquisition",
             "delay": 228.0,
             "smearing": 0.0,
-            "threshold": 0.001217971926949433,
-            "iq_angle": 2.5106672098254057,
+            "threshold": -0.00015883923263822683,
+            "iq_angle": -0.9775186346767529,
             "kernel": null
         },
         "D4/acquisition": {
@@ -436,11 +436,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3153962473637761,
+                            "amplitude": 0.31963768952068733,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.0
+                                "beta": -0.9236389435485605
                             },
                             "relative_phase": 0.0
                         }
@@ -452,8 +452,8 @@
                         "D3/drive_ef",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.5,
+                            "duration": 400.0,
+                            "amplitude": 0.31388776916933847,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,

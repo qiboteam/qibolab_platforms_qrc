@@ -62,24 +62,24 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.8839522546419099,
+                "fidelity": 0.909814323607427,
                 "coupling": 0.0,
-                "effective_temperature": 0.06653915010808731,
+                "effective_temperature": 0.06257917655707108,
                 "ground_state": [
-                    0.0005151778382279172,
-                    0.001059156078797062
+                    0.00046605638801829925,
+                    0.0009756218149623243
                 ],
                 "excited_state": [
-                    0.0011382834943807264,
-                    0.0043250953391066015
+                    0.0011429328550936286,
+                    0.0043377304433349405
                 ],
                 "qudits_frequency": {
                     "1": 7186694346.069731
                 }
             },
             "t1": [
-                27589.105527093325,
-                876.5804852690989
+                30093.123217185355,
+                219.55987270748136
             ],
             "t2": [
                 0.0,
@@ -143,31 +143,33 @@
         "D3": {
             "resonator": {
                 "bare_frequency": 7389854720.0,
-                "dressed_frequency": 7390480938.0,
+                "dressed_frequency": 7390486842.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.8
             },
             "qubit": {
                 "frequency_01": 5123127380.457178,
-                "frequency_12": 4000000000.0,
+                "frequency_12": 4863120324.579045,
                 "maximum_frequency": null,
                 "asymmetry": null,
                 "sweetspot": 0.0,
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.8342175066312998,
-                "coupling": 0.0,
-                "effective_temperature": 0.07245413967482034,
+                "fidelity": 0.9177718832891246,
+                "coupling": 39361698.608191706,
+                "effective_temperature": 0.048115930945336886,
                 "ground_state": [
-                    -0.0007043322406031982,
-                    -0.00007502511358412437
+                    0.0006598710464932012,
+                    -0.0013651809815187596
                 ],
                 "excited_state": [
-                    -0.0016088262048750874,
-                    -0.0007357878968899304
+                    0.0014550186013302766,
+                    -0.00018598479498366618
                 ],
-                "qudits_frequency": {}
+                "qudits_frequency": {
+                    "1": 7389120192.169231
+                }
             },
             "t1": [
                 31522.26861351644,
@@ -188,14 +190,14 @@
         },
         "D4": {
             "resonator": {
-                "bare_frequency": 7493366670.0,
-                "dressed_frequency": 7493363485.0,
+                "bare_frequency": 7490178792.0,
+                "dressed_frequency": 7493387529.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.8
             },
             "qubit": {
                 "frequency_01": 4987881381.0,
-                "frequency_12": 4000000000.0,
+                "frequency_12": null,
                 "maximum_frequency": null,
                 "asymmetry": null,
                 "sweetspot": 0.0,
@@ -203,7 +205,7 @@
             },
             "readout": {
                 "fidelity": 0.9157824933687002,
-                "coupling": 34216977.17545073,
+                "coupling": 34246879.046441644,
                 "effective_temperature": 0.061102882468627315,
                 "ground_state": [
                     -0.0006053398617737851,
@@ -214,7 +216,7 @@
                     -0.000919587634877462
                 ],
                 "qudits_frequency": {
-                    "1": 7492428845.224122
+                    "1": 7492442969.683224
                 }
             },
             "t1": [
