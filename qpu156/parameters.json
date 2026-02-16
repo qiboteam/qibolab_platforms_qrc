@@ -55,11 +55,11 @@
         },
         "D0/probe": {
             "kind": "iq",
-            "frequency": 7075875159.0
+            "frequency": 7078600572.812276
         },
         "D1/drive": {
             "kind": "iq",
-            "frequency": 4013352039.2704425
+            "frequency": 4013658876.0
         },
         "D1/drive_ef": {
             "kind": "iq",
@@ -67,7 +67,7 @@
         },
         "D1/probe": {
             "kind": "iq",
-            "frequency": 7185802460.0
+            "frequency": 7185721521.0
         },
         "D2/drive": {
             "kind": "iq",
@@ -117,16 +117,16 @@
             "kind": "acquisition",
             "delay": 160.0,
             "smearing": 0.0,
-            "threshold": 0.001356606154920338,
-            "iq_angle": 2.3502014976702723,
+            "threshold": 0.00009580843155317316,
+            "iq_angle": 0.6714824483116677,
             "kernel": null
         },
         "D2/acquisition": {
             "kind": "acquisition",
             "delay": 160.0,
             "smearing": 0.0,
-            "threshold": 0.0025479435460894263,
-            "iq_angle": 0.3801763123460528,
+            "threshold": 0.0006607151976296666,
+            "iq_angle": -2.5200264415574143,
             "kernel": null
         },
         "D3/acquisition": {
@@ -317,11 +317,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.14804182676926436,
+                            "amplitude": 0.29708291442085794,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": 0.0
+                                "beta": -0.6472568766166903
                             },
                             "relative_phase": 0.0
                         }
@@ -412,7 +412,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.1416576,
+                                "amplitude": 0.133158144,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
