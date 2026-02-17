@@ -6,5 +6,6 @@ cd qibolab_platforms_qrc/QPU118/calibrate_mixers
 ```
 - Run the calibration script through slurm (make sure you have a _qpu118_mixers.log log file in your local logs folder):
 ```
-sbatch -v -J recal -p qpu_xld1000 -o ~/logs/_qpu118_mixers.log recal.sh
+mkdir -p ~/logs && touch ~/logs/_qpu118_mixers.log
+sbatch -v -J recal -p agnostic2 -o ~/logs/_qpu118_mixers.log recal.sh
 ```

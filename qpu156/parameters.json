@@ -10,6 +10,11 @@
             "readout": 1000000,
             "instructions": 1000000
         },
+        "twpa": {
+            "kind": "oscillator",
+            "frequency": 6420000000.0,
+            "power": 0.35
+        },
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7211802541.092459,
@@ -55,7 +60,7 @@
         },
         "D0/probe": {
             "kind": "iq",
-            "frequency": 7078600572.812276
+            "frequency": 7075256684.0
         },
         "D1/drive": {
             "kind": "iq",
@@ -109,8 +114,8 @@
             "kind": "acquisition",
             "delay": 160.0,
             "smearing": 0.0,
-            "threshold": -0.0011251757149849104,
-            "iq_angle": -2.4986592977938398,
+            "threshold": -0.002777220339986599,
+            "iq_angle": 1.2699605303202615,
             "kernel": null
         },
         "D1/acquisition": {
@@ -260,7 +265,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.13220420455833956,
+                            "amplitude": 0.13308568558333944,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -299,7 +304,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.2108,
+                                "amplitude": 0.5,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
