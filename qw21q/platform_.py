@@ -11,6 +11,7 @@ from qibolab import (
     Qubit,
 )
 from qibolab._core.identifier import ChannelId
+from qibolab._core.serialize import Model
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
 
@@ -20,10 +21,26 @@ FOLDER = pathlib.Path(__file__).parent
 ConfigKinds.extend([QmConfigs])
 
 
-def _qubit(line: str, i: int) -> tuple[str, Qubit]:
-    label = f"{line}{i}"
-    return label, Qubit.default(
-        f"{line}{i}", drive_extra={(1, 2): f"{line}{i}/drive12"}
+class Label(Model):
+    line: str
+    n: int
+
+    @classmethod
+    def from_str(cls, label: str) -> "Label":
+        return cls(line=label[0], n=int(label[1:]))
+
+    @classmethod
+    def from_ch(cls, channel: ChannelId) -> "Label":
+        return cls.from_str(channel.split("/")[0])
+
+    def __str__(self) -> str:
+        return f"{self.line}{self.n}"
+
+
+def _qubit(line: str, n: int) -> tuple[str, Qubit]:
+    label = Label(line=line, n=n)
+    return str(label), Qubit.default(
+        str(label), drive_extra={(1, 2): f"{label}/drive12"}
     )
 
 
@@ -39,7 +56,8 @@ FEEDLINES = {
 def _feedline(q: Qubit, mixer: Optional[str] = None) -> dict[ChannelId, Channel]:
     assert q.probe is not None
     assert q.acquisition is not None
-    line = q.probe[0]
+    label = Label.from_ch(q.probe)
+    line = label.line
     return {
         q.probe: IqChannel(
             device=FEEDLINES[line], path="1", mixer=mixer, lo=f"{line}/probe_lo"
@@ -97,17 +115,56 @@ def _drive(
 
 def _drives(q: Qubit) -> dict[ChannelId, IqChannel]:
     assert q.drive is not None
-    label = q.drive.split("/")[0]
-    line = label[0]
-    n = int(label[1:])
+    label = Label.from_ch(q.drive)
     lo = f"{label}/drive_lo"
-    device, port = DRIVES[line][n]
+    device, port = DRIVES[label.line][label.n]
     return (
         _drive(q, device, port, lo)
         |
         # define drive channles for 12 transition
         _drive(q, device, port, lo, transition=(1, 2))
     )
+
+
+# flux lines to controller mapping
+FLUX = {
+    "A": {
+        1: ("con7", 6),
+        2: ("con7", 7),
+        3: ("con7", 8),
+        4: ("con7", 9),
+        5: ("con7", 10),
+        6: ("con9", 9),
+    },
+    "B": {
+        1: ("con4", 1),
+        2: ("con4", 2),
+        3: ("con4", 3),
+        4: ("con4", 4),
+        5: ("con4", 5),
+    },
+    "C": {
+        1: ("con4", 6),
+        2: ("con4", 7),
+        3: ("con4", 8),
+        4: ("con4", 9),
+        5: ("con4", 10),
+    },
+    "D": {
+        1: ("con7", 1),
+        2: ("con7", 2),
+        3: ("con7", 3),
+        4: ("con7", 4),
+        5: ("con7", 5),
+    },
+}
+
+
+def _flux(q: Qubit) -> dict[ChannelId, DcChannel]:
+    assert q.flux is not None
+    label = Label.from_ch(q.flux)
+    device, path = FLUX[label.line][label.n]
+    return {q.flux: DcChannel(device=device, path=str(path))}
 
 
 def create():
@@ -122,14 +179,9 @@ def create():
     for q in qubits.values():
         channels |= _feedline(q)
         channels |= _drives(q)
+        channels |= _flux(q)
 
     return channels
-    #
-    # # Flux
-    # for q in range(1, 6):
-    #     qubit = qubits[f"B{q}"]
-    #     assert qubit.flux is not None
-    #     channels[qubit.flux] = DcChannel(device="con4", path=str(q))
     #
     # octaves = {
     #     "oct2": Octave("oct2", port=11101, connectivity="con2"),
