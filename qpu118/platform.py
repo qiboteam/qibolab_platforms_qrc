@@ -20,7 +20,7 @@ ConfigKinds.extend([QmConfigs])
 
 
 def create():
-    """TII 3q-chip fixed frequency controlled with Quantum Machines OPX1000 and Octaves."""
+    """TII 2q-chip fixed frequency controlled with Quantum Machines OPX1000 and Octaves."""
     # qubits = {i: Qubit.default(i,drive_extra={(2-i): f"{i}/drive_extra"}) for i in range(3) } # Added by Luca and commented next 5 rows
     # qubits = {i: Qubit.default(i) for i in range(3)}
     qubits = {}
@@ -44,10 +44,10 @@ def create():
         device="oct3", path="1", mixer=None, lo="0/drive_lo"  # L3-27
     )
     channels[qubits[1].drive] = IqChannel(
-        device="oct3", path="4", mixer=None, lo="1/drive_lo"  # L3-26
+        device="oct3", path="2", mixer=None, lo="1/drive_lo"  # L3-25
     )
     channels[qubits[2].drive] = IqChannel(
-        device="oct3", path="3", mixer=None, lo="2/drive_lo"  # L3-25
+        device="oct3", path="5", mixer=None, lo="2/drive_lo"  # L3-26
     )
     # commented this and also commented 01 and 10 drive channels in the parameters
 
@@ -55,15 +55,15 @@ def create():
         device="oct3", path="1", mixer=None, lo="0/drive_lo"
     )
     channels[qubits[1].drive_extra[0]] = IqChannel(
-        device="oct3", path="4", mixer=None, lo="1/drive_lo"
+        device="oct3", path="2", mixer=None, lo="1/drive_lo"
     )
 
     octaves = {
         "oct1": Octave("oct1", port=11248, connectivity="con1/1"),
         # "oct2": Octave("oct2", port=11245, connectivity="con1/2"),
-        "oct3": Octave("oct3", port=11247, connectivity="con1/2"),
+        "oct3": Octave("oct3", port=11247, connectivity="con1/3"),
     }
-    fems = {"con1/1": "LF", "con1/2": "LF"}
+    fems = {"con1/1": "LF", "con1/3": "LF"}
     controller = QmController(
         address="192.168.0.102:80",
         octaves=octaves,
@@ -71,7 +71,7 @@ def create():
         channels=channels,
         cluster_name="Cluster_2",
         calibration_path=FOLDER,
-        #    script_file_name=f"Z_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
+        script_file_name=f"_qua_scripts/qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
     )
     instruments = {"qm": controller}
     return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)

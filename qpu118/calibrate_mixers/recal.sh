@@ -1,6 +1,6 @@
 #!/bin/bash
 # SBATCH --job-name=recal
-# SBATCH --partition=qpu_xld1000
+# SBATCH --partition=agnostic2
 
 # export QIBOLAB_PLATFORMS=~qibolab_platforms_qrc
 # export QIBO_PLATFORM=QPU118
