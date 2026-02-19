@@ -10,6 +10,7 @@ from qibolab import (
     Platform,
     Qubit,
 )
+from qibolab._core.identifier import ChannelId
 from qibolab.instruments.qm import Octave, QmConfigs, QmController
 from qibolab.instruments.rohde_schwarz import SGS100A
 
@@ -35,7 +36,7 @@ FEEDLINES = {
 }
 
 
-def _feedline(q: Qubit, mixer: Optional[str] = None):
+def _feedline(q: Qubit, mixer: Optional[str] = None) -> dict[ChannelId, Channel]:
     assert q.probe is not None
     assert q.acquisition is not None
     line = q.probe[0]
@@ -49,6 +50,66 @@ def _feedline(q: Qubit, mixer: Optional[str] = None):
     }
 
 
+# drives to octaves mapping
+DRIVES = {
+    "A": {
+        1: ("oct1", 4),
+        2: ("oct1", 2),
+        3: ("oct5", 4),
+        4: ("oct1", 5),
+        5: ("oct1", 3),
+        6: ("oct4", 5),
+    },
+    "B": {
+        1: ("oct2", 2),
+        2: ("oct2", 4),
+        3: ("oct2", 5),
+        4: ("oct3", 4),
+        5: ("oct3", 3),
+    },
+    "C": {
+        1: ("oct6", 2),
+        2: ("oct5", 2),
+        3: ("oct5", 3),
+        4: ("oct6", 3),
+        5: ("oct5", 5),
+    },
+    "D": {
+        1: ("oct2", 3),
+        2: ("oct4", 2),
+        3: ("oct4", 3),
+        4: ("oct4", 4),
+        5: ("oct3", 2),
+    },
+}
+
+
+def _drive(
+    q: Qubit, device: str, port: int, lo: str, transition=None
+) -> dict[ChannelId, IqChannel]:
+    if transition is not None:
+        drive = q.drive_extra[transition]
+    else:
+        drive = q.drive
+    assert drive is not None
+    return {drive: IqChannel(device=device, path=str(port), mixer=None, lo=lo)}
+
+
+def _drives(q: Qubit) -> dict[ChannelId, IqChannel]:
+    assert q.drive is not None
+    label = q.drive.split("/")[0]
+    line = label[0]
+    n = int(label[1:])
+    lo = f"{label}/drive_lo"
+    device, port = DRIVES[line][n]
+    return (
+        _drive(q, device, port, lo)
+        |
+        # define drive channles for 12 transition
+        _drive(q, device, port, lo, transition=(1, 2))
+    )
+
+
 def create():
     """QuantWare 21q-chip controlled with Quantum Machines."""
 
@@ -60,27 +121,9 @@ def create():
 
     for q in qubits.values():
         channels |= _feedline(q)
-    return channels
+        channels |= _drives(q)
 
-    # # Drive
-    # def define_drive(q: str, device: str, port: int, lo: str, transition=None):
-    #     if transition is not None:
-    #         drive = qubits[q].drive_extra[transition]
-    #     else:
-    #         drive = qubits[q].drive
-    #     assert drive is not None
-    #     channels[drive] = IqChannel(device=device, path=str(port), mixer=None, lo=lo)
-    #
-    # def define_transitions(q: str, device: str, port: int, lo: str):
-    #     define_drive(q, device, port, lo)
-    #     # define drive channles for 12 transition
-    #     define_drive(q, device, port, lo, transition=(1, 2))
-    #
-    # define_transitions("B1", "oct2", 2, "B1/drive_lo")
-    # define_transitions("B2", "oct2", 4, "B2/drive_lo")
-    # define_transitions("B3", "oct3", 1, "B3/drive_lo")
-    # define_transitions("B4", "oct3", 4, "B4/drive_lo")
-    # define_transitions("B5", "oct3", 3, "B5/drive_lo")
+    return channels
     #
     # # Flux
     # for q in range(1, 6):
