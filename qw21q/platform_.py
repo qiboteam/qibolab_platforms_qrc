@@ -168,6 +168,17 @@ def _flux(q: Qubit) -> dict[ChannelId, DcChannel]:
     return {q.flux: DcChannel(device=device, path=str(path))}
 
 
+# octaves connections
+OCTAVES = {
+    "oct1": (11100, "con1"),
+    "oct2": (11101, "con2"),
+    "oct3": (11102, "con3"),
+    "oct4": (11103, "con5"),
+    "oct5": (11104, "con6"),
+    "oct6": (11105, "con8"),
+}
+
+
 def create() -> Hardware:
     """QuantWare 21q-chip controlled with Quantum Machines."""
 
@@ -185,12 +196,8 @@ def create() -> Hardware:
         channels |= _flux(q)
 
     octaves = {
-        "oct1": Octave("oct1", port=11100, connectivity="con1"),
-        "oct2": Octave("oct2", port=11101, connectivity="con2"),
-        "oct3": Octave("oct3", port=11102, connectivity="con3"),
-        "oct4": Octave("oct4", port=11103, connectivity="con5"),
-        "oct5": Octave("oct5", port=11104, connectivity="con6"),
-        "oct6": Octave("oct6", port=11105, connectivity="con8"),
+        name: Octave(name, port=port, connectivity=controller)
+        for name, (port, controller) in OCTAVES.items()
     }
 
     controller = QmController(
