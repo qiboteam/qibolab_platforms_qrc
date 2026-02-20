@@ -6,9 +6,10 @@ from qibolab import (
     Channel,
     ConfigKinds,
     DcChannel,
+    Hardware,
     IqChannel,
-    Platform,
     Qubit,
+    QubitMap,
 )
 from qibolab._core.identifier import ChannelId
 from qibolab._core.serialize import Model
@@ -167,10 +168,12 @@ def _flux(q: Qubit) -> dict[ChannelId, DcChannel]:
     return {q.flux: DcChannel(device=device, path=str(path))}
 
 
-def create():
+def create() -> Hardware:
     """QuantWare 21q-chip controlled with Quantum Machines."""
 
-    qubits = dict(_qubit(line, i) for i in range(1, 6) for line in ("A", "B", "C", "D"))
+    qubits: QubitMap = dict(
+        _qubit(line, i) for i in range(1, 6) for line in ("A", "B", "C", "D")
+    )
     qubits["A6"] = _qubit("A", 6)[1]
 
     # Create channels and connect to instrument ports
@@ -181,21 +184,25 @@ def create():
         channels |= _drives(q)
         channels |= _flux(q)
 
-    return channels
-    #
-    # octaves = {
-    #     "oct2": Octave("oct2", port=11101, connectivity="con2"),
-    #     "oct3": Octave("oct3", port=11102, connectivity="con3"),
-    # }
-    # controller = QmController(
-    #     address="192.168.0.101:80",
-    #     octaves=octaves,
-    #     channels=channels,
-    #     calibration_path=FOLDER,
-    #     script_file_name="qua_script.py",
-    # )
-    # instruments = {
-    #     "qm": controller,
-    #     "twpaB": SGS100A(address="192.168.0.34"),
-    # }
-    # return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
+    octaves = {
+        "oct1": Octave("oct1", port=11100, connectivity="con1"),
+        "oct2": Octave("oct2", port=11101, connectivity="con2"),
+        "oct3": Octave("oct3", port=11102, connectivity="con3"),
+        "oct4": Octave("oct4", port=11103, connectivity="con5"),
+        "oct5": Octave("oct5", port=11104, connectivity="con6"),
+        "oct6": Octave("oct6", port=11105, connectivity="con8"),
+    }
+
+    controller = QmController(
+        address="192.168.0.101:80",
+        octaves=octaves,
+        channels=channels,
+        calibration_path=FOLDER,
+        # script_file_name="qua_script.py",
+    )
+    instruments = {
+        "qm": controller,
+        "twpaB": SGS100A(address="192.168.0.34", turn_off_on_disconnect=False),
+        "twpaD": SGS100A(address="192.168.0.33", turn_off_on_disconnect=False),
+    }
+    return Hardware(instruments=instruments, qubits=qubits)
