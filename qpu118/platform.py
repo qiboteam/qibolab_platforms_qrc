@@ -1,77 +1,59 @@
-import pathlib
-from time import gmtime, strftime
-
-from qibolab import (
-    AcquisitionChannel,
-    Channel,
-    ConfigKinds,
-    DcChannel,
-    IqChannel,
-    Platform,
-    Qubit,
-)
-from qibolab.instruments.qm import Octave, QmConfigs, QmController
+from qibolab import ConfigKinds, Hardware, Qubit
+from qibolab._core.instruments.qblox.cluster import Cluster
+from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
+from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-FOLDER = pathlib.Path(__file__).parent
+NAME = "qw21q-d"
+ADDRESS = "192.168.0.21"
 
-# Register QM-specific configurations for parameters loading
-ConfigKinds.extend([QmConfigs])
+# the only cluster of the config
+CLUSTER = {
+    "qrm_rf0": (18, {"io1": ["D1", "D2", "D3", "D4", "D5"]}),
+    "qcm_rf0": (12, {1: ["D1"], 2: ["D2"]}),
+    "qcm_rf1": (10, {1: ["D3"], 2: ["D4"]}),
+    "qcm_rf2": (8, {1: ["D5"]}),
+    "qcm0": (16, {1: ["D1"], 2: ["D2"], 3: ["D3"], 4: ["D4"]}),
+    "qcm1": (14, {1: ["D5"]}),
+}
+"""Connections compact representation."""
 
 
 def create():
-    """TII 2q-chip fixed frequency controlled with Quantum Machines OPX1000 and Octaves."""
-    # qubits = {i: Qubit.default(i,drive_extra={(2-i): f"{i}/drive_extra"}) for i in range(3) } # Added by Luca and commented next 5 rows
-    # qubits = {i: Qubit.default(i) for i in range(3)}
-    qubits = {}
-    qubits[0] = Qubit.default(0, drive_extra={(1, 2): "0/drive12", 1: "01/drive"})
-    qubits[1] = Qubit.default(1, drive_extra={(1, 2): "1/drive12", 0: "10/drive"})
-    qubits[2] = Qubit.default(2)
+    """QW5Q controlled with a Qblox cluster."""
+    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
+
+    # Add extra drive channels for e-f transitions
+    for i in range(1, 6):
+        qubits[f"D{i}"].drive_extra[1, 2] = f"D{i}/drive_ef"
     # Create channels and connect to instrument ports
-    # Readout
-    channels = {}
-    for q in qubits.values():
-        channels[q.probe] = IqChannel(
-            device="oct1", path="1", mixer=None, lo="probe_lo"
-        )
-    # Acquire
-    for q in qubits.values():
-        channels[q.acquisition] = AcquisitionChannel(
-            device="oct1", path="1", twpa_pump=None, probe=q.probe
-        )
-    # Drive
-    channels[qubits[0].drive] = IqChannel(
-        device="oct3", path="1", mixer=None, lo="0/drive_lo"  # L3-27
-    )
-    channels[qubits[1].drive] = IqChannel(
-        device="oct3", path="2", mixer=None, lo="1/drive_lo"  # L3-25
-    )
-    channels[qubits[2].drive] = IqChannel(
-        device="oct3", path="5", mixer=None, lo="2/drive_lo"  # L3-26
-    )
-    # commented this and also commented 01 and 10 drive channels in the parameters
+    channels = map_ports(CLUSTER, qubits)
+    los = infer_los(CLUSTER)
+    mixers = infer_mixers(CLUSTER)
 
-    channels[qubits[0].drive_extra[1]] = IqChannel(
-        device="oct3", path="1", mixer=None, lo="0/drive_lo"
-    )
-    channels[qubits[1].drive_extra[0]] = IqChannel(
-        device="oct3", path="2", mixer=None, lo="1/drive_lo"
-    )
+    # update channel information beyond connections
+    for i, q in qubits.items():
+        if q.acquisition is not None:
+            channels[q.acquisition] = channels[q.acquisition].model_copy(
+                update={"twpa_pump": "twpa"}
+            )
+        if q.probe is not None:
+            channels[q.probe] = channels[q.probe].model_copy(
+                update={"lo": los[i, True], "mixer": mixers[i, True]}
+            )
+        if q.drive is not None:
+            channels[q.drive] = channels[q.drive].model_copy(
+                update={"lo": los[i, False], "mixer": mixers[i, False]}
+            )
+        if q.drive_extra is not None and q.drive is not None:
+            for k, de in q.drive_extra.items():
+                channels[de] = channels[q.drive].model_copy(
+                    update={"lo": los[i, False], "mixer": mixers[i, False]}
+                )
 
-    octaves = {
-        "oct1": Octave("oct1", port=11248, connectivity="con1/1"),
-        # "oct2": Octave("oct2", port=11245, connectivity="con1/2"),
-        "oct3": Octave("oct3", port=11247, connectivity="con1/3"),
+    controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
+    instruments = {
+        "qblox": controller,
+        "twpa": SGS100A(address="192.168.0.33", turn_off_on_disconnect=False),
     }
-    fems = {"con1/1": "LF", "con1/3": "LF"}
-    controller = QmController(
-        address="192.168.0.102:80",
-        octaves=octaves,
-        fems=fems,
-        channels=channels,
-        cluster_name="Cluster_2",
-        calibration_path=FOLDER,
-        script_file_name=f"./qua_script_{strftime('%d_%b_%H_%M_%S', gmtime())}.py",
-    )
-    instruments = {"qm": controller}
-    return Platform.load(path=FOLDER, instruments=instruments, qubits=qubits)
+    return Hardware(instruments=instruments, qubits=qubits)
