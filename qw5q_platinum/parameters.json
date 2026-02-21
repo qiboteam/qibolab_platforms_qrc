@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 300000
+        "relaxation_time": 100000
     },
     "configs": {
         "qblox/bounds": {
@@ -530,7 +530,7 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 7e-8,
+                            "duration": 70,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
@@ -558,7 +558,7 @@
                         "1/flux",
                         {
                             "kind": "pulse",
-                            "duration": 7e-8,
+                            "duration": 70,
                             "amplitude": 0.47749770530001806,
                             "envelope": {
                                 "kind": "rectangular"
@@ -583,7 +583,7 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 7e-8,
+                            "duration": 70,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
@@ -611,7 +611,7 @@
                         "0/flux",
                         {
                             "kind": "pulse",
-                            "duration": 7e-8,
+                            "duration": 70,
                             "amplitude": 0.456446034493228,
                             "envelope": {
                                 "kind": "rectangular"
@@ -636,7 +636,7 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 6e-8,
+                            "duration": 60,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
