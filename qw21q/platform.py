@@ -204,7 +204,7 @@ def create() -> Hardware:
         address="192.168.0.101:80",
         octaves=octaves,
         channels=channels,
-        calibration_path=FOLDER,
+        # calibration_path=FOLDER,
         # script_file_name="qua_script.py",
     )
     instruments = {
