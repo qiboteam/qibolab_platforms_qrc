@@ -102,8 +102,8 @@
             "kind": "acquisition",
             "delay": 248.0,
             "smearing": 0.0,
-            "threshold": 0.007346980259399289,
-            "iq_angle": -1.128058508052131,
+            "threshold": 0.007623520331223652,
+            "iq_angle": -0.9419767895432146,
             "kernel": null
         },
         "2/acquisition": {
@@ -180,11 +180,10 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 100.0,
-                            "amplitude": 0.9833322216547536,
+                            "duration": 120.0,
+                            "amplitude": 0.8762154864557566,
                             "envelope": {
-                                "kind": "gaussian",
-                                "rel_sigma": 5.0
+                                "kind": "rectangular"
                             },
                             "relative_phase": 0.0
                         }
