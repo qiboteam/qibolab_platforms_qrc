@@ -2,13 +2,13 @@
     "single_qubits": {
         "0": {
             "resonator": {
-                "bare_frequency": 6407873622.85168,
-                "dressed_frequency": 6416325019.0,
+                "bare_frequency": 6408075019.0,
+                "dressed_frequency": 6416075019.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": null
             },
             "qubit": {
-                "frequency_01": 4240283478.2423763,
+                "frequency_01": 4240350282.9566708,
                 "frequency_12": null,
                 "maximum_frequency": null,
                 "asymmetry": null,
@@ -16,16 +16,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.27984084880636606,
+                "fidelity": 0.6536043867861441,
                 "coupling": 60551732.166397475,
-                "effective_temperature": 0.4230203943303238,
+                "effective_temperature": 0.12914886788497218,
                 "ground_state": [
-                    0.0005980898144257932,
-                    0.000024156959542640094
+                    -0.0024305205122139408,
+                    -0.0013835544291757058
                 ],
                 "excited_state": [
-                    0.0005060347335645311,
-                    0.000059887727312447225
+                    -0.0032881870140242576,
+                    -0.0014485432251152403
                 ],
                 "qudits_frequency": {
                     "1": 6412955127.459563
@@ -50,13 +50,13 @@
         },
         "1": {
             "resonator": {
-                "bare_frequency": 6586791000.0,
+                "bare_frequency": 6586751335.0,
                 "dressed_frequency": 6597251335.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": null
             },
             "qubit": {
-                "frequency_01": 4540844316.908109,
+                "frequency_01": 4536219218.522777,
                 "frequency_12": null,
                 "maximum_frequency": null,
                 "asymmetry": null,
@@ -64,16 +64,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.6087533156498675,
+                "fidelity": 0.5487642838161042,
                 "coupling": 64763135.25915782,
-                "effective_temperature": 0.1253253669309372,
+                "effective_temperature": 0.16431563098289267,
                 "ground_state": [
-                    0.0007239756631307883,
-                    0.0028447330412492357
+                    0.001448191215297871,
+                    0.007700123888199152
                 ],
                 "excited_state": [
-                    0.0011807270471589635,
-                    0.0031066926057877844
+                    0.002049659860148063,
+                    0.00852710285178455
                 ],
                 "qudits_frequency": {
                     "1": 6593584018.016974
@@ -98,13 +98,13 @@
         },
         "2": {
             "resonator": {
-                "bare_frequency": 6766301027.24265,
-                "dressed_frequency": 6782711114.0,
+                "bare_frequency": 6780861114.0,
+                "dressed_frequency": 6782361114.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": null
             },
             "qubit": {
-                "frequency_01": 5006151086.0,
+                "frequency_01": 5130011714.0,
                 "frequency_12": null,
                 "maximum_frequency": null,
                 "asymmetry": null,
@@ -128,16 +128,16 @@
                 }
             },
             "t1": [
-                16350.0,
-                null
+                12942.28526844846,
+                748.327208073534
             ],
             "t2": [
-                13102.0,
-                null
+                13646.67103335856,
+                1347.8024144537726
             ],
             "t2_spin_echo": [
-                0.0,
-                null
+                13744.50621732044,
+                1578.5542041591223
             ],
             "rb_fidelity": [
                 0.0,

@@ -4,28 +4,33 @@ from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, ma
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-NAME = "qw21q-d"
+NAME = "qpu118"
 ADDRESS = "192.168.0.21"
 
 # the only cluster of the config
+
+# probe line attached to L3-31
+# acquisition line attached to L2-25
+# qubit 0 attached to L3-27
+# qubit 1 attached to L3-25
+# qubit 2 attached to L3-26
 CLUSTER = {
-    "qrm_rf0": (18, {"io1": ["D1", "D2", "D3", "D4", "D5"]}),
-    "qcm_rf0": (12, {1: ["D1"], 2: ["D2"]}),
-    "qcm_rf1": (10, {1: ["D3"], 2: ["D4"]}),
-    "qcm_rf2": (8, {1: ["D5"]}),
-    "qcm0": (16, {1: ["D1"], 2: ["D2"], 3: ["D3"], 4: ["D4"]}),
-    "qcm1": (14, {1: ["D5"]}),
+    "qrm_rf0": (18, {"io1": [0, 1, 2]}),
+    "qcm_rf0": (12, {1: [2], 2: [0]}), 
+    "qcm_rf1": (10, {1: [1]}),
 }
 """Connections compact representation."""
 
 
 def create():
     """QW5Q controlled with a Qblox cluster."""
-    qubits: QubitMap = {f"D{i}": Qubit.default(f"D{i}") for i in range(1, 6)}
+    qubits: QubitMap = {i: Qubit.default(f"{i}") for i in range(3)}
 
     # Add extra drive channels for e-f transitions
-    for i in range(1, 6):
-        qubits[f"D{i}"].drive_extra[1, 2] = f"D{i}/drive_ef"
+    # for i in range(3):
+    #     qubits[i].drive_extra[1, 2] = f"{i}/drive_ef"
+    qubits[0].drive_extra[1] = "01/drive" # CR: control 0, target 1
+    qubits[1].drive_extra[2] = "12/drive" # CR: control 1, target 2
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
@@ -33,10 +38,6 @@ def create():
 
     # update channel information beyond connections
     for i, q in qubits.items():
-        if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa"}
-            )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
                 update={"lo": los[i, True], "mixer": mixers[i, True]}
@@ -54,6 +55,5 @@ def create():
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {
         "qblox": controller,
-        "twpa": SGS100A(address="192.168.0.33", turn_off_on_disconnect=False),
     }
     return Hardware(instruments=instruments, qubits=qubits)
