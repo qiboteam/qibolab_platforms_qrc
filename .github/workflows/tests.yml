@@ -3,8 +3,8 @@ on: push
 jobs:
   tests:
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         version: ["main", "stable"]
     runs-on: ubuntu-22.04
     defaults:
