@@ -4,6 +4,7 @@ jobs:
   tests:
     strategy:
       matrix:
+        fail-fast: false
         version: ["main", "stable"]
     runs-on: ubuntu-22.04
     defaults:
