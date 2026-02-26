@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 300000
+        "relaxation_time": 100000
     },
     "configs": {
         "qblox/bounds": {
@@ -17,49 +17,49 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4775264183.255134
+            "frequency": 4775333564.9281025
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7201182055.663809
+            "frequency": 7201140404.238793
         },
         "0/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": -0.0017401302174195749,
-            "iq_angle": 0.0,
+            "threshold": 0.001653471391558832,
+            "iq_angle": -1.7193653594582603,
             "kernel": null
         },
         "0/flux": {
             "kind": "dc",
-            "offset": 0.507371719699141,
+            "offset": 0.5072530341737346,
             "filters": []
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4816198150.977631
+            "frequency": 4815837956.376461
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7334628963.250675
+            "frequency": 7334604892.5982065
         },
         "1/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.00196532039031421,
-            "iq_angle": 99.36764595485877,
+            "threshold": 0.0002632559076431931,
+            "iq_angle": -0.6435464705540312,
             "kernel": null
         },
         "1/flux": {
             "kind": "dc",
-            "offset": 0.42023469512437206,
+            "offset": 0.4170841339044854,
             "filters": []
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5519511952.198594
+            "frequency": 5519544928.895834
         },
         "2/probe": {
             "kind": "iq",
@@ -69,18 +69,76 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.0010112948203435939,
+            "iq_angle": -0.7347876119453773,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": 0.5709712466671236,
-            "filters": []
+            "offset": 0.5695038619893655,
+            "filters": [
+                {
+                    "kind": "fir",
+                    "coefficients": [
+                        1.185528039932251,
+                        -0.054984916001558304,
+                        -0.05165865644812584,
+                        -0.029635874554514885,
+                        -0.003153519704937935,
+                        0.0024170156102627516,
+                        -0.005605238955467939,
+                        -0.01684468612074852,
+                        -0.016429392620921135,
+                        -0.002885386347770691,
+                        0.001104565802961588,
+                        0.001029126113280654,
+                        -0.0034483419731259346,
+                        -0.0023350934498012066,
+                        0.0034720213152468204,
+                        0.004149794112890959,
+                        0.006661450024694204,
+                        0.0032932148315012455,
+                        -0.001833828748203814,
+                        -0.0051870946772396564,
+                        0.0001823719503590837,
+                        -0.003611939027905464,
+                        0.0006457599811255932,
+                        -0.0023418874479830265,
+                        -0.0003806737076956779,
+                        -0.0031717095989733934,
+                        0.0000778426619945094,
+                        0.002965736435726285,
+                        -0.005208645481616259,
+                        -0.00002417648647679016,
+                        -0.0009095856221392751,
+                        -0.001124586327932775
+                    ]
+                },
+                {
+                    "kind": "exp",
+                    "amplitude": -0.0032999999821186066,
+                    "tau": 29700.0
+                },
+                {
+                    "kind": "exp",
+                    "amplitude": -0.012679999694228172,
+                    "tau": 1530.0
+                },
+                {
+                    "kind": "exp",
+                    "amplitude": -0.016100000590085983,
+                    "tau": 393.0
+                },
+                {
+                    "kind": "exp",
+                    "amplitude": -0.004900000058114529,
+                    "tau": 106.0
+                }
+            ]
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6333836658.289079
+            "frequency": 6333851607.935588
         },
         "3/probe": {
             "kind": "iq",
@@ -90,76 +148,18 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.0005355088109649857,
+            "iq_angle": 2.6151239805367,
             "kernel": null
         },
         "3/flux": {
             "kind": "dc",
-            "offset": -1.072521980824726,
-            "filters": [
-                {
-                    "kind": "fir",
-                    "coefficients": [
-                        1.2326610088348389,
-                        -0.0770387053489685,
-                        -0.07334160804748535,
-                        -0.040847718715667725,
-                        -0.003998355939984322,
-                        0.019984649494290352,
-                        -0.005161434877663851,
-                        -0.011275844648480415,
-                        -0.013866709545254707,
-                        -0.01143199484795332,
-                        -0.003023699391633272,
-                        0.0010228264145553112,
-                        0.012051857076585293,
-                        -0.008599216118454933,
-                        0.009912739507853985,
-                        -0.00519236596301198,
-                        -0.003979471046477556,
-                        0.007152394391596317,
-                        -0.009793479926884174,
-                        0.0022369485814124346,
-                        0.0016930252313613892,
-                        -0.0020545581355690956,
-                        -0.01428865548223257,
-                        0.0012786471052095294,
-                        0.003089714562520385,
-                        0.0025887012016028166,
-                        0.007179333828389645,
-                        -0.012367654591798782,
-                        0.004083737730979919,
-                        0.006380572449415922,
-                        -0.014693711884319782,
-                        0.004237726796418428
-                    ]
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": 0.029500000178813934,
-                    "tau": 45000.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.008820000104606152,
-                    "tau": 2970.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.01850000023841858,
-                    "tau": 219.4219970703125
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.012400000356137753,
-                    "tau": 1290.0
-                }
-            ]
+            "offset": -1.0726676403331799,
+            "filters": []
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6243014620.531655
+            "frequency": 6242999167.327518
         },
         "4/probe": {
             "kind": "iq",
@@ -169,13 +169,13 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.000033837654398877956,
+            "iq_angle": 0.44860488143483457,
             "kernel": null
         },
         "4/flux": {
             "kind": "dc",
-            "offset": -0.40831212718265253,
+            "offset": -0.411878087741462,
             "filters": [
                 {
                     "kind": "fir",
@@ -263,50 +263,50 @@
         },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 6391512253.0,
+            "frequency": 6275101607.0,
             "power": -6.0
         },
         "qrm_rf/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -1.49598681926727,
-            "offset_q": -3.17566323280334,
-            "scale_q": 1.0221675634384155,
-            "phase_q": 10.671258926391602
+            "offset_i": -1.49871611595154,
+            "offset_q": -3.18410325050354,
+            "scale_q": 0.9213789105415344,
+            "phase_q": 9.423514366149902
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.20909023284912,
-            "offset_q": -0.992306768894196,
-            "scale_q": 1.1071720123291016,
-            "phase_q": -13.61975383758545
+            "offset_i": -4.20505714416504,
+            "offset_q": -0.970436155796051,
+            "scale_q": 0.9279060363769531,
+            "phase_q": -26.27024269104004
         },
         "qcm_rf0/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.8827075958252,
-            "offset_q": 2.0338888168335,
-            "scale_q": 1.1071720123291016,
-            "phase_q": -13.61975383758545
+            "offset_i": -5.83131790161133,
+            "offset_q": 2.04190063476562,
+            "scale_q": 0.9279060363769531,
+            "phase_q": -26.27024269104004
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.73358249664307,
-            "offset_q": -2.87100172042847,
-            "scale_q": 0.9309502840042114,
-            "phase_q": -23.29686164855957
+            "offset_i": -9.7578592300415,
+            "offset_q": -2.87985038757324,
+            "scale_q": 0.9877215027809143,
+            "phase_q": -24.38592529296875
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.25065135955811,
-            "offset_q": -4.58271026611328,
-            "scale_q": 0.9543617367744446,
-            "phase_q": 5.268833160400391
+            "offset_i": -9.25668621063232,
+            "offset_q": -4.56593322753906,
+            "scale_q": 0.9512486457824707,
+            "phase_q": -4.138936996459961
         },
         "qcm_rf2/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.61832332611084,
-            "offset_q": -4.86260652542114,
-            "scale_q": 0.9543617367744446,
-            "phase_q": 5.268833160400391
+            "offset_i": -11.2307214736938,
+            "offset_q": -6.00529098510742,
+            "scale_q": 0.9512486457824707,
+            "phase_q": -4.138936996459961
         }
     },
     "native_gates": {
@@ -318,11 +318,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.5042142240009181,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.125,
-                                "beta": -0.5425165080240529
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqQf2is/KsZv9h/aKz8qxk/VotNyCkyQD8Fdt2q869UP4K3Uz1BCGY/Uvry/+tndT+9/ikWWoqDP2latTSI9ZA/5O8EYtIinD+wl9jvFl2mP6SbAS60DbE/NPI4CeT3uD+xA9ONoo3BP4SBN8LLtMc/H9CIrl7Bzj9r/TWEeSrTP8t12gD48tY/VknXznhm2j84vnOTuC3dP+KXxNHj+94/zX8KRjac3z/hl8TR4/vePzW+c5O4Ld0/VknXznhm2j/HddoA+PLWP2f9NYR5KtM/GtCIrl7Bzj+EgTfCy7THP6wD042ijcE/MvI4CeT3uD+dmwEutA2xP7CX2O8WXaY/2e8EYtIinD9gWrU0iPWQP73+KRZaioM/Uvry/+tndT92t1M9QQhmPwV23arzr1Q/SotNyCkyQD+Qf2is/KsZPw==",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApaM5cJb/kcv8yQQwG4mSi/mPEKwoDuNb9BFbyhLbdDvyZzXhSQblG/IgFbduzoXb/1F1RJ97dov/fvDUCYmXO/rDn11CW/fb/iBhQ0to+Fvw+RkW9SzY2/ExdKlByZk7+BnwaMEHeYv86VDrqj45y/W7ajBCIOoL+C/UaywaugvzPezs6E75+/b/zqyHOOm7/BAj/lPlCUv4MBoYBMm4W/Je7v+AA6BL+6Ia9+2HKFP9oSRuQEPJQ/gQzyxzl6mz9J7tXNStufP4qFyrGkoaA/YT4nBAUEoD/gpRW5ac+cP5CvDYvWYpg/JSdRk+KEkz8qsZ9t3qSNPwYnIjJCZ4U/63kR0T1ufT82MCo8sEhzP4OYjEEnFmg/QALMZkylXD89dM8E8CpQP30XnoLtL0E/B/bOgwDgMD9aM5cJb/kcPw=="
                             },
                             "relative_phase": 0.0
                         }
@@ -342,7 +342,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 450.0,
-                                "amplitude": 0.13,
+                                "amplitude": 0.14,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -360,11 +360,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.45861503927260966,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.125,
-                                "beta": -0.33179104554997985
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAr+BfpXYv4WvzwG+ldi/hY/JacXG0EDPT+sLH2vd4dSP6bK+Cbau2M/OceI1T4scz8Ye4Acf4CBP4LDN746YY4/loGttGgzmT/LxEM31gekP58QZpuHjK4/QykybxNdtj/wjLAvs3G/P1/UEt6vO8U/UZfxDgGMyz9DmnYUnyrRPxn4X4sUjtQ/rkO2IWql1z+Onzj5diLaP2lEblVrwNs/9+4nKARQ3D9oRG5Va8DbP4ufOPl2Ito/rkO2IWql1z8W+F+LFI7UP0CadhSfKtE/TZfxDgGMyz9f1BLerzvFP+eMsC+zcb8/QCkybxNdtj+SEGabh4yuP8vEQzfWB6Q/jYGttGgzmT9ywze+OmGOPxh7gBx/gIE/OceI1T4scz+cyvgm2rtjP6wsfa93h1I/EacXG0EDPT/8BfpXYv4WPw==",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqotMMcMr4PvyH1VPF88xq/vpeBEv0GKL+zNWg3dJk1v6fdUvn5GEO/Pd1K70hiUL8RW0MfoBRbv0P85isLeWW/JZIlqmZLcL+LID/DI593v4obX1QqU4C/eE/vroN4hb+uiRvJhc2Kv/qcx61Rpo+/uv4n4N6Wkb+KXqNMjkOSv5NytvdbfpG/cojptocwjr+fJkbFJUGGvxdQh4DVq3e/fTXmxcco9r7Cg/vwg393P3FAgP38KoY/PKIj714ajj96f9OTR3ORP3BrwOh5OJI/nwtFfMqLkT/EtgHmKJCPP3SjVQFdt4o/QGkp51pihT9PNZmMAT2APyFUszPScnc/tsWZGhUfcD9jY88MaCBlP2UpFOFZY1o/Ilc3YgViTz9IevR8bbZBPwNvqz5b1DI/VQoIIct8Ij+otMMcMr4PPw=="
                             },
                             "relative_phase": 0.0
                         }
@@ -383,8 +383,8 @@
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 380.0,
-                                "amplitude": 0.09,
+                                "duration": 390.0,
+                                "amplitude": 0.07,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -402,11 +402,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.4438284966246809,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.125,
-                                "beta": -0.3560173875516465
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIArQR1bbjIoWvwxIVtuMihY/Pq3jRBlxPD9+KzvNHypSPxLtzLxwWGM/JLW926jLcj+pTRf7UyiBPzkUfNsvyI0/R7Ss03S0mD9QRJcE7qKjPzo/G5ei8q0/ACF2j2rstT8dPTqxS9O+P2QuttS40MQ/TALfmDsByz9ftrKOJNTQP5OWfhOIJtQ/BImiNEsu1z86eFnRzp7ZP/9g6dKdNNs/Y9rTQWPB2z/+YOnSnTTbPzh4WdHOntk/BImiNEsu1z+Pln4TiCbUP1y2so4k1NA/RwLfmDsByz9kLrbUuNDEPxU9OrFL074//SB2j2rstT8uPxuXovKtP1BElwTuoqM/PrSs03S0mD8pFHzbL8iNP6lNF/tTKIE/JLW926jLcj8I7cy8cFhjP34rO80fKlI/KK3jRBlxPD/QR1bbjIoWPw==",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoXARfO+rEQvxDTxF2VWRy/og61TDxGKb9erN01cbg2v/uv/gq5FkS/m/bDvvk7Ub/GW2LWcHxcv0Yc0YhZlma/X3Wya+cjcb9LAZQq/9h4v+Jotz8SLIG/RKyjA8uVhr84+J3EpTGMvwsEH/drpZC/eEf40JOAkr+ytJuuOTaTvzsJzTrLZpK/krG3fafBj7/R+Aji1miHv5AtpJJZ5ni/06NbHzVP975fdmUou7d4PzWd6ayHUYc/7lWYSFiqjz9pWz2gI1uSP+AGDBSSKpM/o5loNux0kj85Vo9cxJmQP5Ccfo9WGow/nlCEznt+hj84DZgKwxSBPwNKVcBgqng/Er5zAUn1cD+rrVO0HDlmP6h+Zy33wVs/fRnJFYCBUD+29Qi5xaFCP+Q38pGKzjM/pCXeBG9yIz8XARfO+rEQPw=="
                             },
                             "relative_phase": 0.0
                         }
@@ -425,8 +425,8 @@
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 300.0,
-                                "amplitude": 0.065,
+                                "duration": 309.0,
+                                "amplitude": 0.085,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -444,11 +444,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.424949129330567,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.125,
-                                "beta": -0.357084604635978
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAr+o59p190Vvzykn2nX3RU/WKPmIi6XOz9E4k728p5RP3KVEJQ3xGI/LjNdWaY7cj+K4Eta3qSAP4TdUAMA5Iw/JIkpZyv3lz+3GrggegyjPzNc/oItDa0/sIuDuXBEtT8JbNNIHee9PyQgqqI8McQ/yTc1BVMyyj8buf/yM1PQP1IzYt0jjNM/cMw/LK981j/9mTLQgdrYP5C/uowrZNo/FtgGaLrs2j+Pv7qMK2TaP/qZMtCB2tg/cMw/LK981j9PM2LdI4zTPxe5//IzU9A/xTc1BVMyyj8kIKqiPDHEPwFs00gd570/rYuDuXBEtT8nXP6CLQ2tP7cauCB6DKM/G4kpZyv3lz913VADAOSMP4rgS1repIA/LjNdWaY7cj9olRCUN8RiP0TiTvbynlE/QqPmIi6XOz8ApJ9p190VPw==",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIArtcz+jfT4Qvy5TTi55lRu/Sp7Ok2aXKL85zQ4XRhs2vygn4lzCi0O/p1OJ/sHEUL+o6P2GY7dbv01xhz8a+mW/X8s4L1atcL9Bq+oZHS14v9zU+oNItYC/sHk7lI/5hb/Lsa/WnW6Lv2sG3qpFMpC/pdyHo5YAkr87T3b1U7GSv4XoyGiA55G/oDUTxvrljr+hBPOJ58aGv6sDOSMbOni/Zb4dFvet9r5EyAw1vwx4P+rm3JI5sIY/4hf9zkzPjj+m2T1tKdyRP1pA6/n8pZI/w838pz/1kT+L91Kv7iaQPwqUmd/vV4s/8VslneHihT8Yt+SMmp6AP8VvvivB/3c/3o8MQfp/cD9J+i5jYp9lP7T6TM7zAVs/s2XYRVIPUD87S4Dr4iBCP20VSzSHRTM/pi5HzujrIj/tcz+jfT4QPw=="
                             },
                             "relative_phase": 0.0
                         }
@@ -468,7 +468,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 320.0,
-                                "amplitude": 0.15,
+                                "amplitude": 0.165,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -486,11 +486,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.5297535411772653,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.125,
-                                "beta": 0.5218275471480441
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoaB8HwlpAbv2gHwfCWkBs/NAMAMeRjQT8HRSVwdjZWP6jL4lsnqGc/ItmViv/7dj8FzzmfNvuEP9N+EI+qNZI/8sVOz/A1nj+GQ6N3PgOoPyayrdGeT7I/CkZEqDbPuj99Eqwg/NjCP35A2F9LdMk/2K/cdveC0D+tJ6YxRJTUPz2f58YspNg/YxR8UdNY3D/ngIU2hVTfP8oLqF5iouA/WIZ2yHT44D/KC6heYqLgP+OAhTaFVN8/YxR8UdNY3D85n+fGLKTYP6knpjFElNQ/1q/cdveC0D9+QNhfS3TJP3gSrCD82MI/BkZEqDbPuj8esq3Rnk+yP4ZDo3c+A6g/58VOz/A1nj/KfhCPqjWSPwXPOZ82+4Q/ItmViv/7dj+by+JbJ6hnPwdFJXB2NlY/KAMAMeRjQT8cB8HwlpAbPw==",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAq5mR+Xp+wdP2LxlUY5aCk/SMne35qmNj/XqrpsrVxEP53ujGfkAFI/w6bOYP/jXj9L7Xt2dodpP3lBarUfPnQ/Pp/pENq4fj/eFOWbtESGP2S6Tad9x44/8S6D+589lD+J+zPrbkSZP/XC41Ql1p0/B5MK7OeUoD/DIuO/sjehP3mXMX/MfaA/dZLrV8V1nD+KZSeXw/qUP2jemiysUIY/7kgM9srjBD/pxa6W5CaGv0hZMczf5ZS/LYb1jOFgnL9WkbaZWnOgv58caNpALaG/44yPBnaKoL+ttu2JQcGdvz7vPSCLL5m/pyKNMLwolL/HoWERtp2Ov0z8+AXtGoa/EW4R5Uplfr9NEJKJkOpzvwOLyx5Y4Gi/NeJtscKVXb8HKiy4p7JQv7kh+Q00wEG/A7dbIqhtMb+5mR+Xp+wdvw=="
                             },
                             "relative_phase": 0.0
                         }
@@ -510,7 +510,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 300.0,
-                                "amplitude": 0.15,
+                                "amplitude": 0.151,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -524,6 +524,146 @@
         },
         "coupler": {},
         "two_qubit": {
+            "2-0": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 70,
+                            "amplitude": 1.0,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg3MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOGWbPSg/AAAAAAAAAAAAquSLHH1tPwAAAAAAAAAAMClc+eWBnz8AAAAAAAAAAMRXRylO678/AAAAAAAAAAClZ2RJnA/RPwAAAAAAAAAABXsgdFES1z8AAAAAAAAAAER0npp1z9g/AAAAAAAAAACYlkkgaAfZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAMwVl/1MCNk/AAAAAAAAAAAuZtgeiufYPwAAAAAAAAAAcjvYuQnr1z8AAAAAAAAAAJx86HfAFNQ/AAAAAAAAAACYPbbTbwrJPwAAAAAAAAAA9AM3b73Wsz8AAAAAAAAAAGgi4J1h9pE/AAAAAAAAAABAtetu2nJhPwAAAAAAAAAAAGQ++bAWIT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.940290767402233
+                        }
+                    ],
+                    [
+                        "0/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.20473855053882
+                        }
+                    ],
+                    [
+                        "1/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 70,
+                            "amplitude": 0.47749770530001806,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "2-1": {
+                "CZ": [
+                    [
+                        "2/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 70,
+                            "amplitude": 1.0,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg3MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAADMNMiCYic/AAAAAAAAAABAXGDVlHJsPwAAAAAAAAAAkOzdWB9lnj8AAAAAAAAAAD4BitPOyr4/AAAAAAAAAAAD5JgtaHXQPwAAAAAAAAAAi4Xt7MlB1j8AAAAAAAAAAJyj0Lg279c/AAAAAAAAAAC6XSKSLyXYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAA4K3fWgwm2D8AAAAAAAAAAHnI0ZdxBtg/AAAAAAAAAACcogxn2xLXPwAAAAAAAAAAkS3RakBf0z8AAAAAAAAAAFRke+IbKMg/AAAAAAAAAAAQ26jebSOzPwAAAAAAAAAAgBvstgdUkT8AAAAAAAAAAIDtzVQl1WA/AAAAAAAAAAAAnLPdPHwgPwAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 4.088425553388527
+                        }
+                    ],
+                    [
+                        "1/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.167139677664347
+                        }
+                    ],
+                    [
+                        "0/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 70,
+                            "amplitude": 0.456446034493228,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "0/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
+            "3-2": {
+                "CZ": [
+                    [
+                        "3/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 60,
+                            "amplitude": 1.0,
+                            "envelope": {
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg2MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvAAAAAAAAAAAACz7+ENgKj8AAAAAAAAAAMAAwXQPC3A/AAAAAAAAAAD05r1HNyShPwAAAAAAAAAAWnwb6I9dwT8AAAAAAAAAACAuuqFbkNI/AAAAAAAAAABwL9CsnBrZPwAAAAAAAAAATOj0V/f+2j8AAAAAAAAAAOrMSI3XO9s/AAAAAAAAAABQ7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABQ7MeVIz/bPwAAAAAAAAAA1OrHk9A82z8AAAAAAAAAAHSOHeYqGds/AAAAAAAAAABqJXBDbAbaPwAAAAAAAAAABHshKpvZ1T8AAAAAAAAAAE/sx5UjP8s/AAAAAAAAAAAsxZmuIZa1PwAAAAAAAAAAUG58JXWLkz8AAAAAAAAAAEDtLtVX/GI/AAAAAAAAAAAA1AsAEJgiPwAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDYwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "3/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.3819924027138286
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.18403572546825
+                        }
+                    ]
+                ],
+                "CNOT": null,
+                "iSWAP": null
+            },
             "4-2": {
                 "CZ": [
                     [
@@ -531,11 +671,11 @@
                         {
                             "kind": "pulse",
                             "duration": 35.0,
-                            "amplitude": 0.376949526630087,
+                            "amplitude": 0.3768647129865952,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 5,
-                                "b_amplitude": 0.58
+                                "b_amplitude": 0.59
                             },
                             "relative_phase": 0.0
                         }
@@ -551,14 +691,14 @@
                         "4/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 4.533826879480253
+                            "phase": 4.26612353704249
                         }
                     ],
                     [
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 6.169901743928583
+                            "phase": 6.182734997244568
                         }
                     ]
                 ],
