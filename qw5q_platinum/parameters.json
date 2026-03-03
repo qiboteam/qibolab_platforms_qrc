@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 100000
+        "relaxation_time": 300000
     },
     "configs": {
         "qblox/bounds": {
@@ -27,8 +27,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.001653471391558832,
-            "iq_angle": -1.7193653594582603,
+            "threshold": 0.0012421187383417204,
+            "iq_angle": -1.9140449095747083,
             "kernel": null
         },
         "0/flux": {
@@ -48,8 +48,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0002632559076431931,
-            "iq_angle": -0.6435464705540312,
+            "threshold": 0.0002906542273188682,
+            "iq_angle": -0.6357261938696133,
             "kernel": null
         },
         "1/flux": {
@@ -69,72 +69,14 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0010112948203435939,
-            "iq_angle": -0.7347876119453773,
+            "threshold": 0.0010116634184720052,
+            "iq_angle": -0.734610105527894,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
             "offset": 0.5695038619893655,
-            "filters": [
-                {
-                    "kind": "fir",
-                    "coefficients": [
-                        1.185528039932251,
-                        -0.054984916001558304,
-                        -0.05165865644812584,
-                        -0.029635874554514885,
-                        -0.003153519704937935,
-                        0.0024170156102627516,
-                        -0.005605238955467939,
-                        -0.01684468612074852,
-                        -0.016429392620921135,
-                        -0.002885386347770691,
-                        0.001104565802961588,
-                        0.001029126113280654,
-                        -0.0034483419731259346,
-                        -0.0023350934498012066,
-                        0.0034720213152468204,
-                        0.004149794112890959,
-                        0.006661450024694204,
-                        0.0032932148315012455,
-                        -0.001833828748203814,
-                        -0.0051870946772396564,
-                        0.0001823719503590837,
-                        -0.003611939027905464,
-                        0.0006457599811255932,
-                        -0.0023418874479830265,
-                        -0.0003806737076956779,
-                        -0.0031717095989733934,
-                        0.0000778426619945094,
-                        0.002965736435726285,
-                        -0.005208645481616259,
-                        -0.00002417648647679016,
-                        -0.0009095856221392751,
-                        -0.001124586327932775
-                    ]
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.0032999999821186066,
-                    "tau": 29700.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.012679999694228172,
-                    "tau": 1530.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.016100000590085983,
-                    "tau": 393.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.004900000058114529,
-                    "tau": 106.0
-                }
-            ]
+            "filters": []
         },
         "3/drive": {
             "kind": "iq",
@@ -148,8 +90,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0005355088109649857,
-            "iq_angle": 2.6151239805367,
+            "threshold": 0.0005922273839356125,
+            "iq_angle": 2.620275862802129,
             "kernel": null
         },
         "3/flux": {
@@ -169,72 +111,14 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.000033837654398877956,
-            "iq_angle": 0.44860488143483457,
+            "threshold": 0.00018742468551428108,
+            "iq_angle": 0.4999958104902688,
             "kernel": null
         },
         "4/flux": {
             "kind": "dc",
             "offset": -0.411878087741462,
-            "filters": [
-                {
-                    "kind": "fir",
-                    "coefficients": [
-                        1.2606757879257202,
-                        -0.08746159821748734,
-                        -0.08278974890708923,
-                        -0.06411764770746231,
-                        0.012592639774084091,
-                        0.04266263172030449,
-                        0.002808628836646676,
-                        -0.027790602296590805,
-                        -0.038996484130620956,
-                        -0.0039693452417850494,
-                        0.006200374569743872,
-                        0.006670135539025068,
-                        0.00696518924087286,
-                        -0.004190695006400347,
-                        0.0004158136434853077,
-                        0.010205952450633049,
-                        0.0019134529866278172,
-                        -0.015109236352145672,
-                        -0.006295547354966402,
-                        -0.009770452976226807,
-                        0.0032183874864131212,
-                        0.005454881116747856,
-                        0.00031199565273709595,
-                        0.001202808110974729,
-                        -0.013343299739062786,
-                        0.003217949764803052,
-                        -0.002427069703117013,
-                        0.0031622066162526608,
-                        -0.0012153376592323184,
-                        0.0013284021988511086,
-                        0.003494858741760254,
-                        -0.009436794556677341
-                    ]
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": 0.043299999088048935,
-                    "tau": 90000.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.005009999964386225,
-                    "tau": 11200.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.01720000058412552,
-                    "tau": 1021.0
-                },
-                {
-                    "kind": "exp",
-                    "amplitude": -0.015049999579787254,
-                    "tau": 197.0
-                }
-            ]
+            "filters": []
         },
         "qrm_rf/o1/lo": {
             "kind": "oscillator",
@@ -268,45 +152,45 @@
         },
         "qrm_rf/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -1.49871611595154,
-            "offset_q": -3.18410325050354,
-            "scale_q": 0.9213789105415344,
-            "phase_q": 9.423514366149902
+            "offset_i": -1.53811633586884,
+            "offset_q": -3.2409336566925,
+            "scale_q": 1.0614354610443115,
+            "phase_q": 10.372244834899902
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.20505714416504,
-            "offset_q": -0.970436155796051,
-            "scale_q": 0.9279060363769531,
-            "phase_q": -26.27024269104004
+            "offset_i": -4.21985673904419,
+            "offset_q": -0.980010807514191,
+            "scale_q": 1.019643783569336,
+            "phase_q": -14.067378044128418
         },
         "qcm_rf0/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.83131790161133,
-            "offset_q": 2.04190063476562,
-            "scale_q": 0.9279060363769531,
-            "phase_q": -26.27024269104004
+            "offset_i": -5.80436038970947,
+            "offset_q": 2.06023168563843,
+            "scale_q": 1.019643783569336,
+            "phase_q": -14.067378044128418
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.7578592300415,
-            "offset_q": -2.87985038757324,
-            "scale_q": 0.9877215027809143,
-            "phase_q": -24.38592529296875
+            "offset_i": -9.77535343170166,
+            "offset_q": -2.86436462402344,
+            "scale_q": 0.9893164038658142,
+            "phase_q": -24.461030960083008
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.25668621063232,
-            "offset_q": -4.56593322753906,
-            "scale_q": 0.9512486457824707,
-            "phase_q": -4.138936996459961
+            "offset_i": -9.2511043548584,
+            "offset_q": -4.58402729034424,
+            "scale_q": 0.9533064961433411,
+            "phase_q": -4.247697353363037
         },
         "qcm_rf2/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -11.2307214736938,
-            "offset_q": -6.00529098510742,
-            "scale_q": 0.9512486457824707,
-            "phase_q": -4.138936996459961
+            "offset_i": -11.2207660675049,
+            "offset_q": -6.0170521736145,
+            "scale_q": 0.9533064961433411,
+            "phase_q": -4.247697353363037
         }
     },
     "native_gates": {
@@ -530,7 +414,7 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 70,
+                            "duration": 70.0,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
@@ -538,6 +422,20 @@
                                 "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
+                        }
+                    ],
+                    [
+                        "0/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
                         }
                     ],
                     [
@@ -558,8 +456,8 @@
                         "1/flux",
                         {
                             "kind": "pulse",
-                            "duration": 70,
-                            "amplitude": 0.47749770530001806,
+                            "duration": 70.0,
+                            "amplitude": 0.27011349233492676,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -583,7 +481,7 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 70,
+                            "duration": 70.0,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
@@ -591,6 +489,20 @@
                                 "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
+                        }
+                    ],
+                    [
+                        "1/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
                         }
                     ],
                     [
@@ -611,8 +523,8 @@
                         "0/flux",
                         {
                             "kind": "pulse",
-                            "duration": 70,
-                            "amplitude": 0.456446034493228,
+                            "duration": 70.0,
+                            "amplitude": 0.25820486898869627,
                             "envelope": {
                                 "kind": "rectangular"
                             },
@@ -636,7 +548,7 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 60,
+                            "duration": 60.0,
                             "amplitude": 1.0,
                             "envelope": {
                                 "kind": "custom",
@@ -644,6 +556,20 @@
                                 "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDYwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "3/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 60.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 60.0
                         }
                     ],
                     [
@@ -670,21 +596,28 @@
                         "4/flux",
                         {
                             "kind": "pulse",
-                            "duration": 35.0,
-                            "amplitude": 0.3768647129865952,
+                            "duration": 60.0,
+                            "amplitude": 1.0,
                             "envelope": {
-                                "kind": "snz",
-                                "t_idling": 5,
-                                "b_amplitude": 0.59
+                                "kind": "custom",
+                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDYwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVVVVVVVVlTxVVVVVVVWVPFVVVVVVVZU8fM5SLI0e2D98zlIsjR7YP3zOUiyNHtg/fM5SLI0e2D98zlIsjR7YP3zOUiyNHtg/fM5SLI0e2D98zlIsjR7YP3zOUiyNHtg/fM5SLI0e2D98zlIsjR7YP3zOUiyNHtg/fM5SLI0e2D98zlIsjR7YP3zOUiyNHtg/IQgagfh1zD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhCBqB+HXMv3zOUiyNHti/fM5SLI0e2L98zlIsjR7Yv3zOUiyNHti/fM5SLI0e2L98zlIsjR7Yv3zOUiyNHti/fM5SLI0e2L98zlIsjR7Yv3zOUiyNHti/fM5SLI0e2L98zlIsjR7Yv3zOUiyNHti/fM5SLI0e2L98zlIsjR7Yv1VVVVVVVZU8VVVVVVVVlTxVVVVVVVWVPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDYwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
                             },
                             "relative_phase": 0.0
                         }
                     ],
                     [
-                        "4/flux",
+                        "4/drive",
                         {
                             "kind": "delay",
-                            "duration": 25.0
+                            "duration": 60.0
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 60.0
                         }
                     ],
                     [
