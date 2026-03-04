@@ -27,8 +27,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0012421187383417204,
-            "iq_angle": -1.9140449095747083,
+            "threshold": 0.000997160081780812,
+            "iq_angle": -2.000579701565115,
             "kernel": null
         },
         "0/flux": {
@@ -48,8 +48,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0002906542273188682,
-            "iq_angle": -0.6357261938696133,
+            "threshold": 0.0003002156755359949,
+            "iq_angle": -0.6548688729587387,
             "kernel": null
         },
         "1/flux": {
@@ -69,8 +69,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0010116634184720052,
-            "iq_angle": -0.734610105527894,
+            "threshold": 0.00105393725967606,
+            "iq_angle": -0.7500032533932474,
             "kernel": null
         },
         "2/flux": {
@@ -90,8 +90,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0005922273839356125,
-            "iq_angle": 2.620275862802129,
+            "threshold": 0.000590372795023086,
+            "iq_angle": 2.6080495803532857,
             "kernel": null
         },
         "3/flux": {
@@ -111,8 +111,8 @@
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.00018742468551428108,
-            "iq_angle": 0.4999958104902688,
+            "threshold": -7.041660367236697e-6,
+            "iq_angle": 0.4736012815997678,
             "kernel": null
         },
         "4/flux": {
@@ -127,7 +127,7 @@
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4710413573.0,
+            "frequency": 4958237221.0,
             "power": -8.0
         },
         "qcm_rf0/o2/lo": {
@@ -152,45 +152,45 @@
         },
         "qrm_rf/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -1.53811633586884,
-            "offset_q": -3.2409336566925,
-            "scale_q": 1.0614354610443115,
-            "phase_q": 10.372244834899902
+            "offset_i": -1.533278465271,
+            "offset_q": -3.23529386520386,
+            "scale_q": 1.062421202659607,
+            "phase_q": 10.442427635192871
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.21985673904419,
-            "offset_q": -0.980010807514191,
-            "scale_q": 1.019643783569336,
-            "phase_q": -14.067378044128418
+            "offset_i": -4.23155403137207,
+            "offset_q": -0.960280656814575,
+            "scale_q": 1.0186442136764526,
+            "phase_q": -13.990883827209473
         },
         "qcm_rf0/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.80436038970947,
-            "offset_q": 2.06023168563843,
-            "scale_q": 1.019643783569336,
-            "phase_q": -14.067378044128418
+            "offset_i": -5.77814483642578,
+            "offset_q": 2.0735821723938,
+            "scale_q": 1.0186442136764526,
+            "phase_q": -13.990883827209473
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.77535343170166,
-            "offset_q": -2.86436462402344,
-            "scale_q": 0.9893164038658142,
-            "phase_q": -24.461030960083008
+            "offset_i": -9.78157520294189,
+            "offset_q": -2.87212991714478,
+            "scale_q": 0.9874221086502075,
+            "phase_q": -24.15973663330078
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.2511043548584,
-            "offset_q": -4.58402729034424,
-            "scale_q": 0.9533064961433411,
-            "phase_q": -4.247697353363037
+            "offset_i": -9.28081226348877,
+            "offset_q": -4.56352949142456,
+            "scale_q": 0.95103919506073,
+            "phase_q": -4.135448932647705
         },
         "qcm_rf2/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -11.2207660675049,
-            "offset_q": -6.0170521736145,
-            "scale_q": 0.9533064961433411,
-            "phase_q": -4.247697353363037
+            "offset_i": -11.2335214614868,
+            "offset_q": -6.00051164627075,
+            "scale_q": 0.95103919506073,
+            "phase_q": -4.135448932647705
         }
     },
     "native_gates": {
@@ -457,11 +457,18 @@
                         {
                             "kind": "pulse",
                             "duration": 70.0,
-                            "amplitude": 0.27011349233492676,
+                            "amplitude": 0.47749770530001806,
                             "envelope": {
                                 "kind": "rectangular"
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "1/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
                         }
                     ],
                     [
@@ -524,11 +531,18 @@
                         {
                             "kind": "pulse",
                             "duration": 70.0,
-                            "amplitude": 0.25820486898869627,
+                            "amplitude": 0.456446034493228,
                             "envelope": {
                                 "kind": "rectangular"
                             },
                             "relative_phase": 0.0
+                        }
+                    ],
+                    [
+                        "0/drive",
+                        {
+                            "kind": "delay",
+                            "duration": 70.0
                         }
                     ],
                     [
