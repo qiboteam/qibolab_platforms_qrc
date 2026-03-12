@@ -86,6 +86,10 @@
             "kind": "iq",
             "frequency": 5129714421.310028
         },
+        "2/drive_ef": {
+            "kind": "iq",
+            "frequency": 4829714421.310028
+        },
         "2/probe": {
             "kind": "iq",
             "frequency": 6776861114.0
@@ -94,8 +98,8 @@
             "kind": "acquisition",
             "delay": 248.0,
             "smearing": 0.0,
-            "threshold": 0.002962018467124542,
-            "iq_angle": 3.065963209496696,
+            "threshold": 0.009313620676079697,
+            "iq_angle": -3.066376695427181,
             "kernel": null
         },
         "1/acquisition": {
@@ -163,7 +167,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1000.0,
-                                "amplitude": 0.05,
+                                "amplitude": 0.07500000000000001,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -231,7 +235,21 @@
                     ]
                 ],
                 "RX90": null,
-                "RX12": null,
+                "RX12": [
+                    [
+                        "2/drive_ef",
+                        {
+                            "kind": "pulse",
+                            "duration": 30.0,
+                            "amplitude": 0.6818968658734158,
+                            "envelope": {
+                                "kind": "gaussian",
+                                "rel_sigma": 0.2
+                            },
+                            "relative_phase": 0.0
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "2/acquisition",
