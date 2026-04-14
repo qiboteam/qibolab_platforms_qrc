@@ -4,12 +4,6 @@
         "relaxation_time": 100000
     },
     "configs": {
-        "qblox/bounds": {
-            "kind": "bounds",
-            "waveforms": 40000.0,
-            "readout": 1000000,
-            "instructions": 1000000
-        },
         "twpa": {
             "kind": "oscillator",
             "frequency": 6221000000.0,
@@ -48,7 +42,7 @@
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7260000000.0,
-            "power": -50.0
+            "power": -34.0
         },
         "q0/drive": {
             "kind": "iq",
@@ -96,7 +90,7 @@
         },
         "q2/drive_ef": {
             "kind": "iq",
-            "frequency": 0.0
+            "frequency": 5115799000.0
         },
         "q2/probe": {
             "kind": "iq",
@@ -116,7 +110,7 @@
         },
         "q3/drive_ef": {
             "kind": "iq",
-            "frequency": 0.0
+            "frequency": 5115799000.0
         },
         "q3/probe": {
             "kind": "iq",
@@ -136,7 +130,7 @@
         },
         "q4/drive_ef": {
             "kind": "iq",
-            "frequency": 0.0
+            "frequency": 5115799000.0
         },
         "q4/probe": {
             "kind": "iq",

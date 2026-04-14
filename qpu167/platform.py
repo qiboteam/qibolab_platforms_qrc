@@ -19,12 +19,12 @@ CLUSTER = {
     "qcm_rf2": (14, {1: ['q2', 'q3', 'q4'], 2: []}),
     "qrm_rf0": (18, {"io1": ['q0', 'q1', 'q2', 'q3', 'q4']}),
 }
-"""Connections compact representation derived from hardware_config connectivity."""
+"""Connections derived from hardware_config connectivity."""
 
 
 def create():
     """QPU controlled with a Qblox cluster."""
-    qubits: QubitMap = {qubit_name: Qubit.default(qubit_name) for qubit_name in qubit_names}
+    qubits: QubitMap = {name: Qubit.default(name) for name in qubit_names}
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
 
@@ -50,13 +50,11 @@ def create():
                 )
 
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
-    instruments = {"qblox": controller, "twpa": SGS100A(address="192.168.0.32")}
+    instruments = {"qblox": controller}#, "twpa": SGS100A(address="192.168.0.32")}
     return Hardware(instruments=instruments, qubits=qubits)
 
 
 if __name__ == "__main__":
     platform = create()
     parms = initialize_parameters(platform)
-    (FOLDER / "parameters.json").write_text(
-        parms.model_dump_json(indent=4)
-    )
+    (FOLDER / "default_parameters.json").write_text(parms.model_dump_json(indent=4))
