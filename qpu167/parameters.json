@@ -4,12 +4,6 @@
         "relaxation_time": 100000
     },
     "configs": {
-        "qblox/bounds": {
-            "kind": "bounds",
-            "waveforms": 40000.0,
-            "readout": 1000000,
-            "instructions": 1000000
-        },
         "twpa": {
             "kind": "oscillator",
             "frequency": 6221000000.0,
@@ -18,7 +12,7 @@
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
             "frequency": 7289286200.0,
-            "power": -50.0
+            "power": -34.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -32,7 +26,7 @@
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 5400000000.0,
+            "frequency": 5400000000.0,  
             "power": -4.0
         },
         "qcm_rf1/o2/lo": {
