@@ -16,16 +16,16 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.9729562522902215,
+                "fidelity": 0.7473474801061009,
                 "coupling": 493847.4082107544,
-                "effective_temperature": 0.0,
+                "effective_temperature": 0.06288991197049595,
                 "ground_state": [
-                    0.0,
-                    0.0
+                    -0.0007436175952680944,
+                    0.00012874643585941367
                 ],
                 "excited_state": [
-                    0.0,
-                    0.0
+                    -0.000415473327256918,
+                    -0.00046290440882797124
                 ],
                 "qudits_frequency": {
                     "1": 7126456704.093388
@@ -241,5 +241,7 @@
             ]
         }
     },
-    "two_qubits": {}
+    "two_qubits": {},
+    "readout_mitigation_matrix": null,
+    "flux_crosstalk_matrix": null
 }

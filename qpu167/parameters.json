@@ -58,10 +58,10 @@
         },
         "q0/acquisition": {
             "kind": "acquisition",
-            "delay": 232,
+            "delay": 232.0,
             "smearing": 0.0,
-            "threshold": 0.0006760525654775176,
-            "iq_angle": 2.1770844125459012,
+            "threshold": -0.00009761992260728219,
+            "iq_angle": 1.0644092938453835,
             "kernel": null
         },
         "q1/drive": {
@@ -78,7 +78,7 @@
         },
         "q1/acquisition": {
             "kind": "acquisition",
-            "delay": 232,
+            "delay": 232.0,
             "smearing": 0.0,
             "threshold": 0.0009557663296162722,
             "iq_angle": 3.5583901448803767,
@@ -98,7 +98,7 @@
         },
         "q2/acquisition": {
             "kind": "acquisition",
-            "delay": 232,
+            "delay": 232.0,
             "smearing": 0.0,
             "threshold": 0.0,
             "iq_angle": 0.0,
@@ -118,7 +118,7 @@
         },
         "q3/acquisition": {
             "kind": "acquisition",
-            "delay": 232,
+            "delay": 232.0,
             "smearing": 0.0,
             "threshold": 0.0,
             "iq_angle": 0.0,
@@ -138,7 +138,7 @@
         },
         "q4/acquisition": {
             "kind": "acquisition",
-            "delay": 460,
+            "delay": 460.0,
             "smearing": 0.0,
             "threshold": 0.0,
             "iq_angle": 0.0,
@@ -263,7 +263,7 @@
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.03498469723132472
+                                "beta": -0.4304547373849339
                             },
                             "relative_phase": 0.0
                         }
@@ -535,6 +535,7 @@
                 "CP": null
             }
         },
+        "coupler": {},
         "two_qubit": {}
     }
 }
