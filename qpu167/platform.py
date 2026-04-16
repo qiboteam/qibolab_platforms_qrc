@@ -28,6 +28,8 @@ def create():
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
 
+    connections = [('q0', 'q1')]
+
     for i, q in qubits.items():
         if q.acquisition is not None:
             channels[q.acquisition] = channels[q.acquisition].model_copy(
@@ -41,13 +43,21 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
+
+        for c  in connections:
+            if i in c:
+                t = c[0] if c[0]!=i else c[1]
+                if t not in q.drive_extra:
+                    q.drive_extra[t] = f"{i}/drive_{t}"
+
         if q.drive is not None and (1, 2) not in q.drive_extra:
             q.drive_extra[(1, 2)] = f"{i}/drive_ef"
+
         if q.drive_extra is not None and q.drive is not None:
             for k, de in q.drive_extra.items():
                 channels[de] = channels[q.drive].model_copy(
-                    update={"lo": los[i, False], "mixer": f"{i}/drive_ef/mixer"}
-                )
+                    update={"lo": los[i, False], "mixer": f"{de}/mixer"}
+                )        
 
     controller = Cluster(name=PLATFORM, address=ADDRESS, channels=channels)
     instruments = {"qblox": controller}#, "twpa": SGS100A(address="192.168.0.32")}
