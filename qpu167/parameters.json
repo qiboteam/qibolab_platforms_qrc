@@ -46,7 +46,7 @@
         },
         "q0/drive": {
             "kind": "iq",
-            "frequency": 4097789922.0
+            "frequency": 4097782306.0
         },
         "q0/drive_q1": {
             "kind": "iq",
@@ -58,14 +58,14 @@
         },
         "q0/probe": {
             "kind": "iq",
-            "frequency": 7126456704.093388
+            "frequency": 7126156704.093388
         },
         "q0/acquisition": {
             "kind": "acquisition",
             "delay": 232.0,
             "smearing": 0.0,
-            "threshold": -0.000042913942468346564,
-            "iq_angle": 1.0249869648433794,
+            "threshold": -0.0003376274732694907,
+            "iq_angle": -0.6263153144645485,
             "kernel": null
         },
         "q1/drive": {
@@ -88,8 +88,8 @@
             "kind": "acquisition",
             "delay": 232.0,
             "smearing": 0.0,
-            "threshold": 0.0004195290346384868,
-            "iq_angle": -1.8651739911625551,
+            "threshold": 0.00046550147876755647,
+            "iq_angle": -1.7794316237052021,
             "kernel": null
         },
         "q2/drive": {
@@ -281,11 +281,11 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.17012841521924257,
+                            "amplitude": 0.17171202757192303,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.3778839740785124
+                                "beta": -0.6179189071894656
                             },
                             "relative_phase": 0.0
                         }
