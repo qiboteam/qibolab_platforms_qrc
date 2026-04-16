@@ -48,6 +48,10 @@
             "kind": "iq",
             "frequency": 4097789922.0
         },
+        "q0/drive_q1": {
+            "kind": "iq",
+            "frequency": 4341572427.0
+        },
         "q0/drive_ef": {
             "kind": "iq",
             "frequency": 3825900000.0
@@ -67,6 +71,10 @@
         "q1/drive": {
             "kind": "iq",
             "frequency": 4341572427.0
+        },
+        "q1/drive_q0": {
+            "kind": "iq",
+            "frequency": 4097789922.0
         },
         "q1/drive_ef": {
             "kind": "iq",
@@ -158,6 +166,13 @@
             "scale_q": 0.9592869281768799,
             "phase_q": -26.106801986694336
         },
+        "q0/drive_q1/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -3.42376446723938,
+            "offset_q": -6.66680335998535,
+            "scale_q": 0.9889668226242065,
+            "phase_q": -15.373974800109863
+        },
         "q0/probe/mixer": {
             "kind": "iq-mixer",
             "offset_i": -3.51118111610413,
@@ -166,6 +181,13 @@
             "phase_q": 5.459386825561523
         },
         "q1/drive/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -0.863132417201996,
+            "offset_q": -5.24979543685913,
+            "scale_q": 1.018484115600586,
+            "phase_q": -20.842649459838867
+        },
+        "q1/drive_q0/mixer": {
             "kind": "iq-mixer",
             "offset_i": -0.863132417201996,
             "offset_q": -5.24979543685913,
