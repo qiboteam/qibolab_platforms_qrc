@@ -46,7 +46,7 @@
         },
         "q0/drive": {
             "kind": "iq",
-            "frequency": 4097782306.0
+            "frequency": 4097774837.0
         },
         "q0/drive_q1": {
             "kind": "iq",
@@ -64,8 +64,8 @@
             "kind": "acquisition",
             "delay": 232.0,
             "smearing": 0.0,
-            "threshold": -0.0003376274732694907,
-            "iq_angle": -0.6263153144645485,
+            "threshold": -0.0003184087926527927,
+            "iq_angle": -0.6380376770244341,
             "kernel": null
         },
         "q1/drive": {
@@ -88,8 +88,8 @@
             "kind": "acquisition",
             "delay": 232.0,
             "smearing": 0.0,
-            "threshold": 0.00046550147876755647,
-            "iq_angle": -1.7794316237052021,
+            "threshold": 0.0004329582800714728,
+            "iq_angle": -1.8278579171338905,
             "kernel": null
         },
         "q2/drive": {
@@ -281,7 +281,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.17171202757192303,
+                            "amplitude": 0.17056115896043478,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
@@ -338,11 +338,11 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.06166136826583874,
+                            "amplitude": 0.06179624180923896,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": 0.4951562286419061
+                                "beta": 0.505113019766181
                             },
                             "relative_phase": 0.0
                         }
