@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 100000
+        "relaxation_time": 200000
     },
     "configs": {
         "twpa": {
@@ -91,8 +91,8 @@
             "kind": "acquisition",
             "delay": 236.0,
             "smearing": 0.0,
-            "threshold": 0.0014366545044864028,
-            "iq_angle": -0.5099710009059515,
+            "threshold": 0.0016717505103861431,
+            "iq_angle": -0.2828278411209881,
             "kernel": null
         },
         "q3/drive": {
@@ -111,8 +111,8 @@
             "kind": "acquisition",
             "delay": 236.0,
             "smearing": 0.0,
-            "threshold": 0.0003933857608303566,
-            "iq_angle": 1.416499068879026,
+            "threshold": 0.00046596936882330387,
+            "iq_angle": 1.5846610157665977,
             "kernel": null
         },
         "q4/drive": {
@@ -131,8 +131,8 @@
             "kind": "acquisition",
             "delay": 236.0,
             "smearing": 0.0,
-            "threshold": 0.00007934754686746253,
-            "iq_angle": -1.3515456155477525,
+            "threshold": -0.0012131854816704024,
+            "iq_angle": 2.723837496942073,
             "kernel": null
         },
         "q1/drive_q0": {
@@ -410,7 +410,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.4363066046887796,
+                            "amplitude": 0.3456189983988295,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -468,7 +468,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.42214526689903314,
+                            "amplitude": 0.41608780281801583,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -526,7 +526,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.420099941951288,
+                            "amplitude": 0.41572447712545507,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
