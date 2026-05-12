@@ -11,86 +11,86 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4775333564.9281025
+            "frequency": 4774766374.0
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7201140404.238793
+            "frequency": 7201503317.0
         },
         "0/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.000997160081780812,
-            "iq_angle": -2.000579701565115,
+            "threshold": 0.003276111908206419,
+            "iq_angle": 0.7282382522532524,
             "kernel": null
         },
         "0/flux": {
             "kind": "dc",
-            "offset": 0.5072530341737346,
+            "offset": 0.3791308111355492,
             "filters": []
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4815837956.376461
+            "frequency": 4815650815.0
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7334604892.5982065
+            "frequency": 7335038340.0
         },
         "1/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.0003002156755359949,
-            "iq_angle": -0.6548688729587387,
+            "threshold": 0.0016947920777915769,
+            "iq_angle": 2.201015911818536,
             "kernel": null
         },
         "1/flux": {
             "kind": "dc",
-            "offset": 0.4170841339044854,
+            "offset": 0.16440410064616673,
             "filters": []
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5519544928.895834
+            "frequency": 5518080640.0
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7495952806.651602
+            "frequency": 7495906783.0
         },
         "2/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.00105393725967606,
-            "iq_angle": -0.7500032533932474,
+            "threshold": 0.0004272273944634863,
+            "iq_angle": -0.9984573923104861,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": 0.5695038619893655,
+            "offset": -0.08329817788734344,
             "filters": []
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6333851607.935588
+            "frequency": 6333405940.0
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7658488120.558918
+            "frequency": 7658444860.0
         },
         "3/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": 0.000590372795023086,
-            "iq_angle": 2.6080495803532857,
+            "threshold": 0.00020075728039117144,
+            "iq_angle": 2.347012690198594,
             "kernel": null
         },
         "3/flux": {
             "kind": "dc",
-            "offset": -1.0726676403331799,
+            "offset": -0.23304304921743593,
             "filters": []
         },
         "4/drive": {
@@ -111,7 +111,7 @@
         },
         "4/flux": {
             "kind": "dc",
-            "offset": -0.411878087741462,
+            "offset": -0.32,
             "filters": []
         },
         "qrm_rf/o1/lo": {
@@ -121,7 +121,7 @@
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4958237221.0,
+            "frequency": 4710413573.0,
             "power": -8.0
         },
         "qcm_rf0/o2/lo": {
@@ -146,45 +146,45 @@
         },
         "qrm_rf/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -1.533278465271,
-            "offset_q": -3.23529386520386,
-            "scale_q": 1.062421202659607,
-            "phase_q": 10.442427635192871
+            "offset_i": -1.48463881015778,
+            "offset_q": -3.19231677055359,
+            "scale_q": 1.0032848119735718,
+            "phase_q": 10.802105903625488
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.23155403137207,
-            "offset_q": -0.960280656814575,
-            "scale_q": 1.0186442136764526,
-            "phase_q": -13.990883827209473
+            "offset_i": -4.1639199256897,
+            "offset_q": -0.927073657512665,
+            "scale_q": 0.9910346865653992,
+            "phase_q": -27.49801254272461
         },
         "qcm_rf0/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.77814483642578,
-            "offset_q": 2.0735821723938,
-            "scale_q": 1.0186442136764526,
-            "phase_q": -13.990883827209473
+            "offset_i": -5.8064136505127,
+            "offset_q": 2.08300638198853,
+            "scale_q": 0.9823580384254456,
+            "phase_q": -13.962027549743652
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.78157520294189,
-            "offset_q": -2.87212991714478,
-            "scale_q": 0.9874221086502075,
-            "phase_q": -24.15973663330078
+            "offset_i": -9.81727027893066,
+            "offset_q": -2.88323473930359,
+            "scale_q": 0.9862876534461975,
+            "phase_q": -24.449308395385742
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.28081226348877,
-            "offset_q": -4.56352949142456,
-            "scale_q": 0.95103919506073,
-            "phase_q": -4.135448932647705
+            "offset_i": -9.32900142669678,
+            "offset_q": -4.61578178405762,
+            "scale_q": 0.9731858968734741,
+            "phase_q": -5.195220470428467
         },
         "qcm_rf2/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -11.2335214614868,
-            "offset_q": -6.00051164627075,
-            "scale_q": 0.95103919506073,
-            "phase_q": -4.135448932647705
+            "offset_i": -11.3206424713135,
+            "offset_q": -6.04415559768677,
+            "scale_q": 0.9697165489196777,
+            "phase_q": 1.5704083442687988
         }
     },
     "native_gates": {
@@ -196,11 +196,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 1.0,
+                            "amplitude": 0.2511705245784106,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqQf2is/KsZv9h/aKz8qxk/VotNyCkyQD8Fdt2q869UP4K3Uz1BCGY/Uvry/+tndT+9/ikWWoqDP2latTSI9ZA/5O8EYtIinD+wl9jvFl2mP6SbAS60DbE/NPI4CeT3uD+xA9ONoo3BP4SBN8LLtMc/H9CIrl7Bzj9r/TWEeSrTP8t12gD48tY/VknXznhm2j84vnOTuC3dP+KXxNHj+94/zX8KRjac3z/hl8TR4/vePzW+c5O4Ld0/VknXznhm2j/HddoA+PLWP2f9NYR5KtM/GtCIrl7Bzj+EgTfCy7THP6wD042ijcE/MvI4CeT3uD+dmwEutA2xP7CX2O8WXaY/2e8EYtIinD9gWrU0iPWQP73+KRZaioM/Uvry/+tndT92t1M9QQhmPwV23arzr1Q/SotNyCkyQD+Qf2is/KsZPw==",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIApaM5cJb/kcv8yQQwG4mSi/mPEKwoDuNb9BFbyhLbdDvyZzXhSQblG/IgFbduzoXb/1F1RJ97dov/fvDUCYmXO/rDn11CW/fb/iBhQ0to+Fvw+RkW9SzY2/ExdKlByZk7+BnwaMEHeYv86VDrqj45y/W7ajBCIOoL+C/UaywaugvzPezs6E75+/b/zqyHOOm7/BAj/lPlCUv4MBoYBMm4W/Je7v+AA6BL+6Ia9+2HKFP9oSRuQEPJQ/gQzyxzl6mz9J7tXNStufP4qFyrGkoaA/YT4nBAUEoD/gpRW5ac+cP5CvDYvWYpg/JSdRk+KEkz8qsZ9t3qSNPwYnIjJCZ4U/63kR0T1ufT82MCo8sEhzP4OYjEEnFmg/QALMZkylXD89dM8E8CpQP30XnoLtL0E/B/bOgwDgMD9aM5cJb/kcPw=="
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.6282364633823557
                             },
                             "relative_phase": 0.0
                         }
@@ -238,11 +238,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 1.0,
+                            "amplitude": 0.23072996318271102,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAr+BfpXYv4WvzwG+ldi/hY/JacXG0EDPT+sLH2vd4dSP6bK+Cbau2M/OceI1T4scz8Ye4Acf4CBP4LDN746YY4/loGttGgzmT/LxEM31gekP58QZpuHjK4/QykybxNdtj/wjLAvs3G/P1/UEt6vO8U/UZfxDgGMyz9DmnYUnyrRPxn4X4sUjtQ/rkO2IWql1z+Onzj5diLaP2lEblVrwNs/9+4nKARQ3D9oRG5Va8DbP4ufOPl2Ito/rkO2IWql1z8W+F+LFI7UP0CadhSfKtE/TZfxDgGMyz9f1BLerzvFP+eMsC+zcb8/QCkybxNdtj+SEGabh4yuP8vEQzfWB6Q/jYGttGgzmT9ywze+OmGOPxh7gBx/gIE/OceI1T4scz+cyvgm2rtjP6wsfa93h1I/EacXG0EDPT/8BfpXYv4WPw==",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqotMMcMr4PvyH1VPF88xq/vpeBEv0GKL+zNWg3dJk1v6fdUvn5GEO/Pd1K70hiUL8RW0MfoBRbv0P85isLeWW/JZIlqmZLcL+LID/DI593v4obX1QqU4C/eE/vroN4hb+uiRvJhc2Kv/qcx61Rpo+/uv4n4N6Wkb+KXqNMjkOSv5NytvdbfpG/cojptocwjr+fJkbFJUGGvxdQh4DVq3e/fTXmxcco9r7Cg/vwg393P3FAgP38KoY/PKIj714ajj96f9OTR3ORP3BrwOh5OJI/nwtFfMqLkT/EtgHmKJCPP3SjVQFdt4o/QGkp51pihT9PNZmMAT2APyFUszPScnc/tsWZGhUfcD9jY88MaCBlP2UpFOFZY1o/Ilc3YgViTz9IevR8bbZBPwNvqz5b1DI/VQoIIct8Ij+otMMcMr4PPw=="
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.46439155788973674
                             },
                             "relative_phase": 0.0
                         }
@@ -280,11 +280,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 1.0,
+                            "amplitude": 0.22830387271872843,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIArQR1bbjIoWvwxIVtuMihY/Pq3jRBlxPD9+KzvNHypSPxLtzLxwWGM/JLW926jLcj+pTRf7UyiBPzkUfNsvyI0/R7Ss03S0mD9QRJcE7qKjPzo/G5ei8q0/ACF2j2rstT8dPTqxS9O+P2QuttS40MQ/TALfmDsByz9ftrKOJNTQP5OWfhOIJtQ/BImiNEsu1z86eFnRzp7ZP/9g6dKdNNs/Y9rTQWPB2z/+YOnSnTTbPzh4WdHOntk/BImiNEsu1z+Pln4TiCbUP1y2so4k1NA/RwLfmDsByz9kLrbUuNDEPxU9OrFL074//SB2j2rstT8uPxuXovKtP1BElwTuoqM/PrSs03S0mD8pFHzbL8iNP6lNF/tTKIE/JLW926jLcj8I7cy8cFhjP34rO80fKlI/KK3jRBlxPD/QR1bbjIoWPw==",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoXARfO+rEQvxDTxF2VWRy/og61TDxGKb9erN01cbg2v/uv/gq5FkS/m/bDvvk7Ub/GW2LWcHxcv0Yc0YhZlma/X3Wya+cjcb9LAZQq/9h4v+Jotz8SLIG/RKyjA8uVhr84+J3EpTGMvwsEH/drpZC/eEf40JOAkr+ytJuuOTaTvzsJzTrLZpK/krG3fafBj7/R+Aji1miHv5AtpJJZ5ni/06NbHzVP975fdmUou7d4PzWd6ayHUYc/7lWYSFiqjz9pWz2gI1uSP+AGDBSSKpM/o5loNux0kj85Vo9cxJmQP5Ccfo9WGow/nlCEznt+hj84DZgKwxSBPwNKVcBgqng/Er5zAUn1cD+rrVO0HDlmP6h+Zy33wVs/fRnJFYCBUD+29Qi5xaFCP+Q38pGKzjM/pCXeBG9yIz8XARfO+rEQPw=="
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.33107367886399736
                             },
                             "relative_phase": 0.0
                         }
@@ -322,11 +322,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 1.0,
+                            "amplitude": 0.223932698408183,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAr+o59p190Vvzykn2nX3RU/WKPmIi6XOz9E4k728p5RP3KVEJQ3xGI/LjNdWaY7cj+K4Eta3qSAP4TdUAMA5Iw/JIkpZyv3lz+3GrggegyjPzNc/oItDa0/sIuDuXBEtT8JbNNIHee9PyQgqqI8McQ/yTc1BVMyyj8buf/yM1PQP1IzYt0jjNM/cMw/LK981j/9mTLQgdrYP5C/uowrZNo/FtgGaLrs2j+Pv7qMK2TaP/qZMtCB2tg/cMw/LK981j9PM2LdI4zTPxe5//IzU9A/xTc1BVMyyj8kIKqiPDHEPwFs00gd570/rYuDuXBEtT8nXP6CLQ2tP7cauCB6DKM/G4kpZyv3lz913VADAOSMP4rgS1repIA/LjNdWaY7cj9olRCUN8RiP0TiTvbynlE/QqPmIi6XOz8ApJ9p190VPw==",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIArtcz+jfT4Qvy5TTi55lRu/Sp7Ok2aXKL85zQ4XRhs2vygn4lzCi0O/p1OJ/sHEUL+o6P2GY7dbv01xhz8a+mW/X8s4L1atcL9Bq+oZHS14v9zU+oNItYC/sHk7lI/5hb/Lsa/WnW6Lv2sG3qpFMpC/pdyHo5YAkr87T3b1U7GSv4XoyGiA55G/oDUTxvrljr+hBPOJ58aGv6sDOSMbOni/Zb4dFvet9r5EyAw1vwx4P+rm3JI5sIY/4hf9zkzPjj+m2T1tKdyRP1pA6/n8pZI/w838pz/1kT+L91Kv7iaQPwqUmd/vV4s/8VslneHihT8Yt+SMmp6AP8VvvivB/3c/3o8MQfp/cD9J+i5jYp9lP7T6TM7zAVs/s2XYRVIPUD87S4Dr4iBCP20VSzSHRTM/pi5HzujrIj/tcz+jfT4QPw=="
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.33107367886399736
                             },
                             "relative_phase": 0.0
                         }
@@ -364,11 +364,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 1.0,
+                            "amplitude": 0.223932698408183,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoaB8HwlpAbv2gHwfCWkBs/NAMAMeRjQT8HRSVwdjZWP6jL4lsnqGc/ItmViv/7dj8FzzmfNvuEP9N+EI+qNZI/8sVOz/A1nj+GQ6N3PgOoPyayrdGeT7I/CkZEqDbPuj99Eqwg/NjCP35A2F9LdMk/2K/cdveC0D+tJ6YxRJTUPz2f58YspNg/YxR8UdNY3D/ngIU2hVTfP8oLqF5iouA/WIZ2yHT44D/KC6heYqLgP+OAhTaFVN8/YxR8UdNY3D85n+fGLKTYP6knpjFElNQ/1q/cdveC0D9+QNhfS3TJP3gSrCD82MI/BkZEqDbPuj8esq3Rnk+yP4ZDo3c+A6g/58VOz/A1nj/KfhCPqjWSPwXPOZ82+4Q/ItmViv/7dj+by+JbJ6hnPwdFJXB2NlY/KAMAMeRjQT8cB8HwlpAbPw==",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDQwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAq5mR+Xp+wdP2LxlUY5aCk/SMne35qmNj/XqrpsrVxEP53ujGfkAFI/w6bOYP/jXj9L7Xt2dodpP3lBarUfPnQ/Pp/pENq4fj/eFOWbtESGP2S6Tad9x44/8S6D+589lD+J+zPrbkSZP/XC41Ql1p0/B5MK7OeUoD/DIuO/sjehP3mXMX/MfaA/dZLrV8V1nD+KZSeXw/qUP2jemiysUIY/7kgM9srjBD/pxa6W5CaGv0hZMczf5ZS/LYb1jOFgnL9WkbaZWnOgv58caNpALaG/44yPBnaKoL+ttu2JQcGdvz7vPSCLL5m/pyKNMLwolL/HoWERtp2Ov0z8+AXtGoa/EW4R5Uplfr9NEJKJkOpzvwOLyx5Y4Gi/NeJtscKVXb8HKiy4p7JQv7kh+Q00wEG/A7dbIqhtMb+5mR+Xp+wdvw=="
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.33107367886399736
                             },
                             "relative_phase": 0.0
                         }
