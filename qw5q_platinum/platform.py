@@ -6,6 +6,9 @@ from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, ma
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 FOLDER = pathlib.Path(__file__).parent
 NAME = "qw5q_platinum"
 ADDRESS = "192.168.0.22"
