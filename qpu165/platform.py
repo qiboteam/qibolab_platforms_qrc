@@ -1,3 +1,4 @@
+import logging
 import pathlib
 
 from qibolab import Platform, Qubit
@@ -6,7 +7,6 @@ from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, ma
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-import logging
 logging.basicConfig(level=logging.DEBUG)
 
 ADDRESS = "192.168.0.6"
