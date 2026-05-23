@@ -15,46 +15,46 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7063874350.018488
+            "frequency": 7063374350.018488
         },
         "0/acquisition": {
             "kind": "acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": 0.00045892056085680683,
-            "iq_angle": -2.7120700585397888,
+            "threshold": 0.00017006125473326177,
+            "iq_angle": 1.0465984830187036,
             "kernel": null
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4082003610.0
+            "frequency": 4082247233.4766946
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7176983868.523569
+            "frequency": 7176783868.523569
         },
         "1/acquisition": {
             "kind": "acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": -0.0005529069461665721,
-            "iq_angle": 1.4621232218615998,
+            "threshold": -0.0004648238764184436,
+            "iq_angle": 0.2698066456112194,
             "kernel": null
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 4284416543.1321473
+            "frequency": 4280040128.330203
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7282006772.294818
+            "frequency": 7281506772.294818
         },
         "2/acquisition": {
             "kind": "acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": -0.0014345850519932692,
-            "iq_angle": -2.6050328097439035,
+            "threshold": -0.0020687311216148227,
+            "iq_angle": 1.3984131467485839,
             "kernel": null
         },
         "3/drive": {
@@ -63,7 +63,7 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7376654395.670332
+            "frequency": 7376986692.883917
         },
         "3/acquisition": {
             "kind": "acquisition",
@@ -75,18 +75,18 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 4462670644.296473
+            "frequency": 4460653973.575848
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7483585217.895893
+            "frequency": 7483387466.467256
         },
         "4/acquisition": {
             "kind": "acquisition",
             "delay": 224.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.0004717997622968558,
+            "iq_angle": 2.705015145608887,
             "kernel": null
         },
         "qcm_rf0/o1/lo": {
@@ -121,45 +121,45 @@
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.50676155090332,
-            "offset_q": -0.121822416782379,
-            "scale_q": 0.9737542867660522,
-            "phase_q": -17.16803741455078
+            "offset_i": -4.56395435333252,
+            "offset_q": -0.129539370536804,
+            "scale_q": 0.9725596904754639,
+            "phase_q": -17.28695297241211
         },
         "qcm_rf0/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.81090664863586,
-            "offset_q": 2.94446992874146,
-            "scale_q": 0.9787285923957825,
-            "phase_q": -17.356632232666016
+            "offset_i": -3.82702279090881,
+            "offset_q": 2.99179029464722,
+            "scale_q": 0.9775413274765015,
+            "phase_q": -17.226659774780273
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.12085151672363,
-            "offset_q": -2.60592746734619,
-            "scale_q": 0.9580733776092529,
-            "phase_q": -20.806137084960938
+            "offset_i": -7.98280954360962,
+            "offset_q": -2.41256213188171,
+            "scale_q": 0.9574851989746094,
+            "phase_q": -20.77789306640625
         },
         "qcm_rf1/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -6.03153514862061,
-            "offset_q": -2.49335026741028,
-            "scale_q": 0.9803562760353088,
-            "phase_q": -18.302791595458984
+            "offset_i": -5.93185472488403,
+            "offset_q": -2.42590165138245,
+            "scale_q": 0.9782434105873108,
+            "phase_q": -18.4703369140625
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.38624048233032,
-            "offset_q": 0.568841278553009,
-            "scale_q": 0.9282071590423584,
-            "phase_q": -13.745742797851562
+            "offset_i": -4.18439960479736,
+            "offset_q": 0.800306379795074,
+            "scale_q": 0.9267719984054565,
+            "phase_q": -13.774996757507324
         },
         "qrm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.64070510864258,
-            "offset_q": -6.10573387145996,
-            "scale_q": 0.9908525347709656,
-            "phase_q": 27.05145835876465
+            "offset_i": -8.63296508789062,
+            "offset_q": -6.15313148498535,
+            "scale_q": 0.9913097023963928,
+            "phase_q": 27.139827728271484
         }
     },
     "native_gates": {
@@ -171,7 +171,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.20222586764093278,
+                            "amplitude": 0.1996242342262477,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.125,
@@ -216,7 +216,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.45765708037835107,
+                            "amplitude": 0.4512682880796024,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.125,
@@ -261,7 +261,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.5203637253640608,
+                            "amplitude": 0.518314203584835,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.125,
@@ -331,7 +331,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1600.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.05,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -351,7 +351,7 @@
                         {
                             "kind": "pulse",
                             "duration": 80.0,
-                            "amplitude": 0.3108414496335276,
+                            "amplitude": 0.6060225820078625,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.125,
@@ -376,7 +376,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1600.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.05,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
