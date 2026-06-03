@@ -1,3 +1,4 @@
+import logging
 import pathlib
 
 from qibolab import Platform, Qubit
@@ -5,6 +6,8 @@ from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
+
+logging.basicConfig(level=logging.DEBUG)
 
 FOLDER = pathlib.Path(__file__).parent
 NAME = "qw5q_platinum"
