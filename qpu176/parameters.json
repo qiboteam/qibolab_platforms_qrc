@@ -11,7 +11,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4786931786.0
+            "frequency": 4786928359.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -26,18 +26,18 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": 0.0009477730699370438,
-            "iq_angle": 2.7290035298537565,
+            "threshold": 0.0010744898239090314,
+            "iq_angle": 2.640941966004593,
             "kernel": null
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
-            "frequency": 4400000000.0,
+            "frequency": 5100000000.0,
             "power": -20.0
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4787000000.0
+            "frequency": 5020106596.621862
         },
         "1/probe": {
             "kind": "iq",
@@ -54,7 +54,7 @@
         "qrm_rf/o1/lo": {
             "kind": "oscillator",
             "frequency": 7467139071.0,
-            "power": -42.0
+            "power": -46.0
         },
         "0/probe/mixer": {
             "kind": "iq-mixer",
@@ -119,7 +119,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1500.0,
-                                "amplitude": 0.060000000000000005,
+                                "amplitude": 0.1,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
