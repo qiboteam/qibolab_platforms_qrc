@@ -21,11 +21,11 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4786928359.0
+            "frequency": 4787989920.700308
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7404187984.999098
+            "frequency": 7011411887.982024
         },
         "0/acquisition": {
             "kind": "acquisition",
@@ -46,7 +46,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7656050310.124741
+            "frequency": 7085326073.049138
         },
         "1/acquisition": {
             "kind": "acquisition",
@@ -67,7 +67,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7404187984.999098
+            "frequency": 7195322326.128393
         },
         "2/acquisition": {
             "kind": "acquisition",
@@ -88,7 +88,7 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7404187984.999098
+            "frequency": 7293033224.737508
         },
         "3/acquisition": {
             "kind": "acquisition",
@@ -189,7 +189,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1500.0,
-                                "amplitude": 0.1,
+                                "amplitude": 0.5,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -234,7 +234,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1500.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.04,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -250,7 +250,7 @@
             "2": {
                 "RX": [
                     [
-                        "0/drive",
+                        "2/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -269,7 +269,7 @@
                 "RX12": null,
                 "MZ": [
                     [
-                        "0/acquisition",
+                        "2/acquisition",
                         {
                             "kind": "readout",
                             "acquisition": {
@@ -295,7 +295,7 @@
             "3": {
                 "RX": [
                     [
-                        "1/drive",
+                        "3/drive",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -314,7 +314,7 @@
                 "RX12": null,
                 "MZ": [
                     [
-                        "1/acquisition",
+                        "3/acquisition",
                         {
                             "kind": "readout",
                             "acquisition": {
@@ -324,7 +324,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1500.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.2,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
