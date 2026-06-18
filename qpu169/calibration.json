@@ -2,8 +2,8 @@
     "single_qubits": {
         "0": {
             "resonator": {
-                "bare_frequency": 7.0084e9,
-                "dressed_frequency": 7.0113e9,
+                "bare_frequency": 7008400000.0,
+                "dressed_frequency": 7011300000.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.3
             },
@@ -50,8 +50,8 @@
         },
         "1": {
             "resonator": {
-                "bare_frequency": 7.0815e9,
-                "dressed_frequency": 7.0856e9,
+                "bare_frequency": 7081500000.0,
+                "dressed_frequency": 7085600000.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.3
             },
@@ -98,8 +98,8 @@
         },
         "2": {
             "resonator": {
-                "bare_frequency": 7.1908e9,
-                "dressed_frequency": 7.1955e9,
+                "bare_frequency": 7190800000.0,
+                "dressed_frequency": 7195500000.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.3
             },
@@ -146,8 +146,8 @@
         },
         "3": {
             "resonator": {
-                "bare_frequency": 7.2885e9,
-                "dressed_frequency": 7.2935e9,
+                "bare_frequency": 7288500000.0,
+                "dressed_frequency": 7293500000.0,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.3
             },
@@ -195,6 +195,28 @@
     },
     "two_qubits": {
         "0-1": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ],
+            "coupling": null
+        },
+        "1-2": {
+            "rb_fidelity": [
+                0.0,
+                null
+            ],
+            "cz_fidelity": [
+                0.0,
+                null
+            ],
+            "coupling": null
+        },
+        "2-3": {
             "rb_fidelity": [
                 0.0,
                 null

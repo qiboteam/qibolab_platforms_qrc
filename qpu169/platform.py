@@ -9,7 +9,6 @@ from qibolab.instruments.rohde_schwarz import SGS100A
 FOLDER = pathlib.Path(__file__).parent
 NAME = "qpu169"
 ADDRESS = "192.168.0.3"
-NQUBITS = 4
 
 CLUSTER = {
     "qrm_rf": (20, {"io1": [0, 1 , 2 ,3]}),
@@ -21,7 +20,7 @@ CLUSTER = {
 
 def create():
     """qpu 169 chip controlled with a Qblox cluster. First readout line of 8 qubit chip."""
-    qubits: QubitMap = {i: Qubit.default(i) for i in range(NQUBITS)}
+    qubits: QubitMap = {i: Qubit.default(i) for i in range(4)}
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
