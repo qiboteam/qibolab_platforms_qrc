@@ -11,9 +11,9 @@ NAME = "qpu169"
 ADDRESS = "192.168.0.3"
 
 CLUSTER = {
-    "qrm_rf": (20, {"io1": [0, 1 , 2 ,3]}),
+    "qrm_rf": (20, {"io1": [0, 1, 2, 3]}),
     "qcm_rf0": (9, {1: [0], 2: [1]}),
-    "qcm_rf1": (8, {1: [2], 2: [3]})
+    "qcm_rf1": (8, {1: [2], 2: [3]}),
 }
 """Connections compact representation."""
 
@@ -34,11 +34,11 @@ def create():
             )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True], "mixer": f'{i}/probe/mixer'}
+                update={"lo": los[i, True], "mixer": f"{i}/probe/mixer"}
             )
         if q.drive is not None:
             channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False], "mixer": f'{i}/drive/mixer'}
+                update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)

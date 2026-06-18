@@ -13,7 +13,7 @@ ADDRESS = "192.168.0.20"
 CLUSTER = {
     "qrm_rf": (19, {"io1": [0, 1, 2, 3]}),
     "qcm_rf0": (14, {1: [0], 2: [2]}),
-    "qcm_rf1": (8, {1: [1], 2: [3]})
+    "qcm_rf1": (8, {1: [1], 2: [3]}),
 }
 """Connections compact representation."""
 
