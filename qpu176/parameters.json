@@ -1,0 +1,184 @@
+{
+    "settings": {
+        "nshots": 1000,
+        "relaxation_time": 100000
+    },
+    "configs": {
+        "twpa": {
+            "kind": "oscillator",
+            "frequency": 6225000000.0,
+            "power": -6.4
+        },
+        "0/drive": {
+            "kind": "iq",
+            "frequency": 4786928359.0
+        },
+        "qcm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 4686070454.0,
+            "power": -10.0
+        },
+        "0/probe": {
+            "kind": "iq",
+            "frequency": 7404187984.999098
+        },
+        "0/acquisition": {
+            "kind": "acquisition",
+            "delay": 234.0,
+            "smearing": 0.0,
+            "threshold": 0.0010744898239090314,
+            "iq_angle": 2.640941966004593,
+            "kernel": null
+        },
+        "qcm_rf0/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 5100000000.0,
+            "power": -8.0
+        },
+        "1/drive": {
+            "kind": "iq",
+            "frequency": 5019256984.0
+        },
+        "1/probe": {
+            "kind": "iq",
+            "frequency": 7656050310.124741
+        },
+        "1/acquisition": {
+            "kind": "acquisition",
+            "delay": 234.0,
+            "smearing": 0.0,
+            "threshold": 0.0022340375064058065,
+            "iq_angle": -2.5437059794280463,
+            "kernel": null
+        },
+        "qrm_rf/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 7467139071.0,
+            "power": -46.0
+        },
+        "0/probe/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -3.32543563842773,
+            "offset_q": 1.44320714473724,
+            "scale_q": 1.0159473419189453,
+            "phase_q": 7.907260417938232
+        },
+        "1/probe/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -3.32543563842773,
+            "offset_q": 1.44320714473724,
+            "scale_q": 1.0168440341949463,
+            "phase_q": 15.508216857910156
+        },
+        "0/drive/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -7.86344385147095,
+            "offset_q": -10.6792526245117,
+            "scale_q": 0.9971645474433899,
+            "phase_q": -17.149782180786133
+        },
+        "1/drive/mixer": {
+            "kind": "iq-mixer",
+            "offset_i": -9.22821044921875,
+            "offset_q": -8.49678802490234,
+            "scale_q": 0.9666857123374939,
+            "phase_q": -10.04819393157959
+        }
+    },
+    "native_gates": {
+        "single_qubit": {
+            "0": {
+                "RX": [
+                    [
+                        "0/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.3558139667294532,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -1.9429929929929968
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": null,
+                "MZ": [
+                    [
+                        "0/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 1600.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 1500.0,
+                                "amplitude": 0.1,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0,
+                                "chirp": null
+                            },
+                            "time_of_flight": 220.0
+                        }
+                    ]
+                ],
+                "CP": null
+            },
+            "1": {
+                "RX": [
+                    [
+                        "1/drive",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.31334504382247397,
+                            "envelope": {
+                                "kind": "drag",
+                                "rel_sigma": 0.25,
+                                "beta": -0.6801801801801795
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
+                "RX90": null,
+                "RX12": null,
+                "MZ": [
+                    [
+                        "1/acquisition",
+                        {
+                            "kind": "readout",
+                            "acquisition": {
+                                "kind": "acquisition",
+                                "duration": 1600.0
+                            },
+                            "probe": {
+                                "kind": "pulse",
+                                "duration": 1500.0,
+                                "amplitude": 0.3,
+                                "envelope": {
+                                    "kind": "rectangular"
+                                },
+                                "relative_phase": 0.0,
+                                "chirp": null
+                            },
+                            "time_of_flight": 220.0
+                        }
+                    ]
+                ],
+                "CP": null
+            }
+        },
+        "coupler": {},
+        "two_qubit": {}
+    }
+}
