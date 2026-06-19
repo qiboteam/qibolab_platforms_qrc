@@ -1,0 +1,214 @@
+{
+  "Recalibrate RX": {
+    "action_card": [
+      {
+        "id": "rabi_amplitude_signal",
+        "name": "Rabi Amplitude Signal",
+        "attributes": {
+          "inputs": {
+            "min_amp": "<class 'float'>",
+            "max_amp": "<class 'float'>",
+            "step_amp": "<class 'float'>",
+            "pulse_length": "float | None",
+            "rx90": "<class 'bool'>"
+          },
+          "results": {
+            "amplitude": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "length": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "fitted_parameters": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], dict[str, float]]",
+            "rx90": "<class 'bool'>"
+          },
+          "data": {
+            "rx90": "<class 'bool'>",
+            "durations": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[dtype([('amp', '<f8'), ('signal', '<f8'), ('phase', '<f8')])]]]"
+          }
+        },
+        "parameters": {
+          "nshots": 1024,
+          "min_amp": 0.01,
+          "max_amp": 1,
+          "step_amp": 0.05,
+          "pulse_length": 40,
+          "rx90": false
+        },
+        "targets": [],
+        "update": true
+      },
+      {
+        "id": "single_shot_classification",
+        "name": "Single Shot Classification",
+        "attributes": {
+          "inputs": {
+            "classifiers_list": "list[str] | None",
+            "savedir": "str | None"
+          },
+          "results": {
+            "names": "<class 'list'>",
+            "savedir": "<class 'str'>",
+            "y_preds": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list]",
+            "grid_preds": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list]",
+            "threshold": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "rotation_angle": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "mean_gnd_states": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "mean_exc_states": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "fidelity": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "assignment_fidelity": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "effective_temperature": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "models": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list]",
+            "benchmark_table": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], pandas.core.frame.DataFrame] | None",
+            "classifiers_hpars": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], dict] | None",
+            "x_tests": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list]",
+            "y_tests": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list]",
+            "snr": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]"
+          },
+          "data": {
+            "nshots": "<class 'int'>",
+            "savedir": "<class 'str'>",
+            "qubit_frequencies": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[+_ScalarType_co]]]",
+            "classifiers_list": "list[str] | None"
+          }
+        },
+        "parameters": {
+          "nshots": 1024
+        },
+        "targets": [],
+        "update": true
+      },
+      {
+        "id": "rabi_amplitude",
+        "name": "Rabi Amplitude",
+        "attributes": {
+          "inputs": {
+            "min_amp": "<class 'float'>",
+            "max_amp": "<class 'float'>",
+            "step_amp": "<class 'float'>",
+            "pulse_length": "float | None",
+            "rx90": "<class 'bool'>"
+          },
+          "results": {
+            "amplitude": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "length": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "fitted_parameters": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], dict[str, float]]",
+            "rx90": "<class 'bool'>"
+          },
+          "data": {
+            "rx90": "<class 'bool'>",
+            "durations": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[dtype([('amp', '<f8'), ('prob', '<f8'), ('error', '<f8')])]]]"
+          }
+        },
+        "parameters": {
+          "nshots": 1024,
+          "min_amp": 0.01,
+          "max_amp": 1,
+          "step_amp": 0.05,
+          "pulse_length": 40,
+          "rx90": false
+        },
+        "targets": [],
+        "update": true
+      },
+      {
+        "id": "ramsey",
+        "name": "Ramsey",
+        "attributes": {
+          "inputs": {
+            "delay": "tuple[float, float, float] | None",
+            "delay_between_pulses_start": "float | None",
+            "delay_between_pulses_end": "float | None",
+            "delay_between_pulses_step": "float | None",
+            "detuning": "float | None"
+          },
+          "results": {
+            "detuning": "float | None",
+            "frequency": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "t2": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "delta_phys": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "delta_fitting": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "fitted_parameters": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]"
+          },
+          "data": {
+            "detuning": "float | None",
+            "qubit_freqs": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[dtype([('wait', '<f8'), ('prob', '<f8')])]]]"
+          }
+        },
+        "parameters": {
+          "nshots": 102,
+          "delay_between_pulses_start": 4,
+          "delay_between_pulses_end": 2004,
+          "delay_between_pulses_step": 4,
+          "detuning": 500000
+        },
+        "targets": [],
+        "update": true
+      },
+      {
+        "id": "drag_simple",
+        "name": "Drag Simple",
+        "attributes": {
+          "inputs": {
+            "beta": "tuple[float, float, float] | None",
+            "beta_start": "float | None",
+            "beta_end": "float | None",
+            "beta_step": "float | None",
+            "nflips": "<class 'int'>"
+          },
+          "results": {
+            "betas": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "fitted_parameters": "dict[tuple[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], str], list[float]]"
+          },
+          "data": {
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[dtype([('prob', '<f8'), ('error', '<f8'), ('beta', '<f8')])]]]"
+          }
+        },
+        "parameters": {
+          "nshots": 1024,
+          "beta_start": -2,
+          "beta_end": 2,
+          "beta_step": 0.1
+        },
+        "targets": [],
+        "update": true
+      },
+      {
+        "id": "flipping",
+        "name": "Flipping",
+        "attributes": {
+          "inputs": {
+            "nflips_max": "<class 'int'>",
+            "nflips_step": "<class 'int'>",
+            "delta_amplitude": "<class 'float'>",
+            "rx90": "<class 'bool'>"
+          },
+          "results": {
+            "amplitude": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "delta_amplitude": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "delta_amplitude_detuned": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float | list[float]]",
+            "fitted_parameters": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]",
+            "rx90": "<class 'bool'>",
+            "chi2": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], list[float]]"
+          },
+          "data": {
+            "resonator_type": "<class 'str'>",
+            "delta_amplitude": "<class 'float'>",
+            "pulse_amplitudes": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], float]",
+            "rx90": "<class 'bool'>",
+            "data": "dict[typing.Annotated[typing.Union[int, str], FieldInfo(annotation=NoneType, required=True, metadata=[_PydanticGeneralMetadata(union_mode='left_to_right')])], numpy.ndarray[tuple[int, ...], numpy.dtype[dtype([('flips', '<f8'), ('prob', '<f8'), ('error', '<f8')])]]]"
+          }
+        },
+        "parameters": {
+          "nshots": 1024,
+          "nflips_max": 52,
+          "nflips_step": 2,
+          "delta_amplitude": 0.01,
+          "rx90": false
+        },
+        "targets": [],
+        "update": true
+      }
+    ]
+  }
+}
