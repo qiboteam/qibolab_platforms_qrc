@@ -11,7 +11,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4786920581.0
+            "frequency": 4786906805.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -20,14 +20,14 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7404187984.999098
+            "frequency": 7404237809.46398
         },
         "0/acquisition": {
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": 0.0010309123618113397,
-            "iq_angle": 2.721003489434873,
+            "threshold": 0.0011205346696838792,
+            "iq_angle": 2.8779752238871605,
             "kernel": null
         },
         "qcm_rf0/o2/lo": {
@@ -58,31 +58,31 @@
         },
         "0/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.32543563842773,
-            "offset_q": 1.44320714473724,
-            "scale_q": 1.0159473419189453,
-            "phase_q": 7.907260417938232
+            "offset_i": -2.66273665428162,
+            "offset_q": 1.73328900337219,
+            "scale_q": 1.0164984464645386,
+            "phase_q": 7.954648017883301
         },
         "1/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -3.32543563842773,
-            "offset_q": 1.44320714473724,
-            "scale_q": 1.0168440341949463,
-            "phase_q": 15.508216857910156
+            "offset_i": -2.66273665428162,
+            "offset_q": 1.73328900337219,
+            "scale_q": 1.0141253471374512,
+            "phase_q": 15.622164726257324
         },
         "0/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.86344385147095,
-            "offset_q": -10.6792526245117,
-            "scale_q": 0.9971645474433899,
-            "phase_q": -17.149782180786133
+            "offset_i": -7.71271085739136,
+            "offset_q": -11.3149108886719,
+            "scale_q": 0.9985907077789307,
+            "phase_q": -17.34004783630371
         },
         "1/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -9.22821044921875,
-            "offset_q": -8.49678802490234,
-            "scale_q": 0.9666857123374939,
-            "phase_q": -10.04819393157959
+            "offset_i": -9.12446880340576,
+            "offset_q": -8.62504291534424,
+            "scale_q": 0.9682835936546326,
+            "phase_q": -10.262931823730469
         }
     },
     "native_gates": {
@@ -94,11 +94,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3619441436706107,
+                            "amplitude": 0.354893230620278,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -1.9276834102461957
+                                "beta": -1.8033222821745176
                             },
                             "relative_phase": 0.0,
                             "chirp": null
