@@ -13,7 +13,11 @@
                 "maximum_frequency": 4775392342.0,
                 "asymmetry": null,
                 "sweetspot": 0.5023819934934555,
-                "flux_coefficients": null
+                "flux_coefficients": [
+                    -4.982296053985994,
+                    0.028402533847770597,
+                    -0.0006393944704423328
+                ]
             },
             "readout": {
                 "fidelity": 0.821419080520861,
@@ -61,7 +65,11 @@
                 "maximum_frequency": null,
                 "asymmetry": null,
                 "sweetspot": -0.28204955145079336,
-                "flux_coefficients": null
+                "flux_coefficients": [
+                    -5.247650570561473,
+                    -0.08540099649495551,
+                    -0.00028071481181899744
+                ]
             },
             "readout": {
                 "fidelity": 0.8700504916290195,
@@ -110,9 +118,9 @@
                 "asymmetry": null,
                 "sweetspot": 0.5297074300651243,
                 "flux_coefficients": [
-                    60.60370787641982,
-                    -0.028527152480155128,
-                    0.00030016721829152526
+                    -5.828001345419159,
+                    0.2640507651378921,
+                    -0.0009868974544075568
                 ]
             },
             "readout": {
@@ -162,9 +170,9 @@
                 "asymmetry": null,
                 "sweetspot": -0.14040934247606246,
                 "flux_coefficients": [
-                    62.264266752260575,
-                    -0.04758161300178534,
-                    0.0004063229934912003
+                    -6.267264016979504,
+                    -0.1752981648334272,
+                    -0.000987691988089956
                 ]
             },
             "readout": {
@@ -214,9 +222,9 @@
                 "asymmetry": null,
                 "sweetspot": 0.3833728793308014,
                 "flux_coefficients": [
-                    69.82678788195469,
-                    -0.03465251296265737,
-                    0.0003602023870738302
+                    -6.80880212464102,
+                    -0.022057317119429355,
+                    -0.0006537493676641169
                 ]
             },
             "readout": {
@@ -344,5 +352,5 @@
         }
     },
     "readout_mitigation_matrix": null,
-    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqmIrLzgLHnPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAopb57nOJfkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADHQgbmJj3lPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACS+UqxpzrkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2xk8CUhzlPw=="
 }
