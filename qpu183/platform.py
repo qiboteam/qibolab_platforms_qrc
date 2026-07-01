@@ -1,12 +1,12 @@
+import logging
 import pathlib
 
+import rich
 from qibolab import Platform, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
-import logging
-import rich
 
 FOLDER = pathlib.Path(__file__).parent
 NAME = "qpu183"
@@ -22,9 +22,9 @@ CLUSTER = {
     # "qrm_rf0": (18, {"io1": [0, 1, 2, 3]}),
     # "qcm_rf0": (14, {1: [0], 2: [1]}),
     # "qcm_rf1": (12, {1: [2], 2: [3]}),
-    "qrm_rf1": (20, {"io1": [0,1,2,3]}),
+    "qrm_rf1": (20, {"io1": [0, 1, 2, 3]}),
     "qcm_rf2": (10, {1: [0], 2: [1]}),
-    "qcm_rf3": (8, {1: [2], 2: [3]})
+    "qcm_rf3": (8, {1: [2], 2: [3]}),
 }
 """Connections compact representation."""
 
