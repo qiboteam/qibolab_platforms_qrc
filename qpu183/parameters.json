@@ -11,18 +11,18 @@
         },
         "twpa1": {
             "kind": "oscillator",
-            "frequency": 6.225e9,
+            "frequency": 6225000000.0,
             "power": -6.4
         },
         "qrm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 7.2e9,
-            "power": -46.0
+            "frequency": 7000000000.0,
+            "power": -10.0
         },
         "qrm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 7.2e9,
-            "power": -46.0
+            "frequency": 7.13e9,
+            "power": -10.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -35,7 +35,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 6.7426e9
+            "frequency": 6742600000.0
         },
         "0/acquisition": {
             "kind": "acquisition",
@@ -56,7 +56,7 @@
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 6.8522e9
+            "frequency": 6852200000.0
         },
         "1/acquisition": {
             "kind": "acquisition",
@@ -77,7 +77,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 6.9577e9
+            "frequency": 6957700000.0
         },
         "2/acquisition": {
             "kind": "acquisition",
@@ -98,7 +98,7 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 6.9966e9
+            "frequency": 6996600000.0
         },
         "3/acquisition": {
             "kind": "acquisition",
@@ -119,7 +119,7 @@
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 6.7705e9
+            "frequency": 6770500000.0
         },
         "4/acquisition": {
             "kind": "acquisition",
@@ -140,7 +140,7 @@
         },
         "5/probe": {
             "kind": "iq",
-            "frequency": 6.8709e9
+            "frequency": 6870900000.0
         },
         "5/acquisition": {
             "kind": "acquisition",
@@ -161,7 +161,7 @@
         },
         "6/probe": {
             "kind": "iq",
-            "frequency": 6.8861e9
+            "frequency": 6886100000.0
         },
         "6/acquisition": {
             "kind": "acquisition",
@@ -182,7 +182,7 @@
         },
         "7/probe": {
             "kind": "iq",
-            "frequency": 6.99655e9
+            "frequency": 6996550000.0
         },
         "7/acquisition": {
             "kind": "acquisition",
@@ -194,115 +194,115 @@
         },
         "0/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9373060464859009,
-            "phase_q": -13.97093391418457
+            "offset_i": -8.32914924621582,
+            "offset_q": -3.61967349052429,
+            "scale_q": 1.0288673639297485,
+            "phase_q": -1.5491783618927002
         },
         "1/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9784290194511414,
-            "phase_q": -8.925901412963867
+            "offset_i": -8.32914924621582,
+            "offset_q": -3.61967349052429,
+            "scale_q": 1.0079792737960815,
+            "phase_q": 2.7929599285125732
         },
         "2/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 1.0138599872589111,
-            "phase_q": -2.7808687686920166
+            "offset_i": -8.32914924621582,
+            "offset_q": -3.61967349052429,
+            "scale_q": 1.0187054872512817,
+            "phase_q": 9.914182662963867
         },
         "3/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9988179802894592,
-            "phase_q": 2.7498488426208496
+            "offset_i": -8.32914924621582,
+            "offset_q": -3.61967349052429,
+            "scale_q": 1.0192543268203735,
+            "phase_q": 11.003395080566406
         },
         "4/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9373060464859009,
-            "phase_q": -13.97093391418457
+            "offset_i": -5.49727392196655,
+            "offset_q": 2.25117135047913,
+            "scale_q": 0.9961156249046326,
+            "phase_q": 4.910740375518799
         },
         "5/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9784290194511414,
-            "phase_q": -8.925901412963867
+            "offset_i": -5.49727392196655,
+            "offset_q": 2.25117135047913,
+            "scale_q": 1.0150939226150513,
+            "phase_q": 8.52646541595459
         },
         "6/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 1.0138599872589111,
-            "phase_q": -2.7808687686920166
+            "offset_i": -5.49727392196655,
+            "offset_q": 2.25117135047913,
+            "scale_q": 1.0100691318511963,
+            "phase_q": 8.805514335632324
         },
         "7/probe/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.01422548294067,
-            "offset_q": -1.66133451461792,
-            "scale_q": 0.9988179802894592,
-            "phase_q": 2.7498488426208496
+            "offset_i": -5.49727392196655,
+            "offset_q": 2.25117135047913,
+            "scale_q": 0.9998777508735657,
+            "phase_q": 10.454988479614258
         },
         "0/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.62167549133301,
-            "offset_q": -1.45986640453339,
-            "scale_q": 0.9625589847564697,
-            "phase_q": -21.06073570251465
+            "offset_i": -16.8740940093994,
+            "offset_q": -6.79951095581055,
+            "scale_q": 0.9724112749099731,
+            "phase_q": -26.89818000793457
         },
         "1/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.35263824462891,
-            "offset_q": -1.82781434059143,
-            "scale_q": 1.00533926486969,
-            "phase_q": -16.36821174621582
+            "offset_i": -12.724310874939,
+            "offset_q": -6.07371759414673,
+            "scale_q": 0.9602881669998169,
+            "phase_q": -18.52729034423828
         },
         "2/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.75383424758911,
-            "offset_q": 0.31542232632637,
-            "scale_q": 1.0180355310440063,
-            "phase_q": -19.50174903869629
+            "offset_i": -4.67843723297119,
+            "offset_q": -6.73975229263306,
+            "scale_q": 0.9669032692909241,
+            "phase_q": -22.881746292114258
         },
         "3/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.41364574432373,
-            "offset_q": -2.7368848323822,
-            "scale_q": 0.9869142770767212,
-            "phase_q": -17.892492294311523
+            "offset_i": -8.0045108795166,
+            "offset_q": -8.38800811767578,
+            "scale_q": 0.95475172996521,
+            "phase_q": -10.344884872436523
         },
         "4/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.62167549133301,
-            "offset_q": -1.45986640453339,
-            "scale_q": 0.9625589847564697,
-            "phase_q": -21.06073570251465
+            "offset_i": -9.34198093414307,
+            "offset_q": -9.76613807678223,
+            "scale_q": 0.9743402600288391,
+            "phase_q": -24.7747745513916
         },
         "5/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -4.35263824462891,
-            "offset_q": -1.82781434059143,
-            "scale_q": 1.00533926486969,
-            "phase_q": -16.36821174621582
+            "offset_i": -11.9226531982422,
+            "offset_q": -2.56019520759583,
+            "scale_q": 0.9622130393981934,
+            "phase_q": -23.104225158691406
         },
         "6/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.75383424758911,
-            "offset_q": 0.31542232632637,
-            "scale_q": 1.0180355310440063,
-            "phase_q": -19.50174903869629
+            "offset_i": -6.89474105834961,
+            "offset_q": 2.0134916305542,
+            "scale_q": 0.982167661190033,
+            "phase_q": -24.626148223876953
         },
         "7/drive/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -5.41364574432373,
-            "offset_q": -2.7368848323822,
-            "scale_q": 0.9869142770767212,
-            "phase_q": -17.892492294311523
+            "offset_i": -3.19678092002869,
+            "offset_q": 2.02988123893738,
+            "scale_q": 0.9813724160194397,
+            "phase_q": -13.066307067871094
         }
     },
     "native_gates": {
