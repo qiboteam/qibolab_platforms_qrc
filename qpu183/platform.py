@@ -11,7 +11,7 @@ from qibolab.instruments.rohde_schwarz import SGS100A
 FOLDER = pathlib.Path(__file__).parent
 NAME = "qpu183"
 ADDRESS = "192.168.0.20"
-NUM_QUBITS = 4
+NUM_QUBITS = 8
 
 # if NUM_QUBITS >= 4:
 #     qubit_names = [i + 4 for i in range(NUM_QUBITS)]
