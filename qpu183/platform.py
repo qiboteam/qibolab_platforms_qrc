@@ -60,7 +60,7 @@ def create():
     instruments = {
         "qblox": controller,
         # "twpa0": SGS100A(address="192.168.0.36", turn_off_on_disconnect=False),
-        "twpa": SGS100A(address="192.168.0.32", turn_off_on_disconnect=False),
+        "twpa1": SGS100A(address="192.168.0.32", turn_off_on_disconnect=False),
     }
     return Platform.load(
         path=FOLDER,
