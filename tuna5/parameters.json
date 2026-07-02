@@ -15,7 +15,7 @@
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7086320000.0
+            "frequency": 7089152159.902996
         },
         "0/acquisition": {
             "kind": "acquisition",
@@ -27,70 +27,70 @@
         },
         "0/flux": {
             "kind": "dc",
-            "offset": -0.05,
+            "offset": 0.59396370328,
             "filters": []
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 5469085841.519316
+            "frequency": 5468632170.0
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7278155770.187287
+            "frequency": 7273597173.5
         },
         "1/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": -0.006951966029370647,
-            "iq_angle": -0.7540236138921143,
+            "threshold": -0.001039617714788196,
+            "iq_angle": 2.5352180119978254,
             "kernel": null
         },
         "1/flux": {
             "kind": "dc",
-            "offset": -0.10749657234429287,
+            "offset": -0.1074367487,
             "filters": []
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5498786171.293326
+            "frequency": 5496881759.0
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7479436419.948833
+            "frequency": 7480088530.653427
         },
         "2/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.0007280082061719929,
+            "iq_angle": 0.7973159428951154,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": -0.002575038782624835,
+            "offset": 0.03393847486,
             "filters": []
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5561200311.355653
+            "frequency": 5559624006.0
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7679500000.0
+            "frequency": 7682451519.047673
         },
         "3/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": null,
-            "iq_angle": null,
+            "threshold": 0.001214864742698863,
+            "iq_angle": 2.739765757439338,
             "kernel": null
         },
         "3/flux": {
             "kind": "dc",
-            "offset": 0.35,
+            "offset": -0.25450882295,
             "filters": []
         },
         "4/drive": {
@@ -99,7 +99,7 @@
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7880287855.98808
+            "frequency": 7818287855.98808
         },
         "4/acquisition": {
             "kind": "acquisition",
@@ -111,7 +111,7 @@
         },
         "4/flux": {
             "kind": "dc",
-            "offset": 0.045948734272566884,
+            "offset": 0.07070919078,
             "filters": []
         },
         "qrm_rf/o1/lo": {
@@ -127,12 +127,12 @@
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
             "frequency": 5500000000.0,
-            "power": -12.0
+            "power": -10.0
         },
         "qcm_rf1/o2/lo": {
             "kind": "oscillator",
             "frequency": 5550000000.0,
-            "power": -8.0
+            "power": -6.0
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
@@ -146,22 +146,22 @@
         },
         "coupler_0/flux": {
             "kind": "dc",
-            "offset": 0.0,
+            "offset": -0.35354595394,
             "filters": []
         },
         "coupler_1/flux": {
             "kind": "dc",
-            "offset": 0.0,
+            "offset": -0.45253992696,
             "filters": []
         },
         "coupler_2/flux": {
             "kind": "dc",
-            "offset": 0.0,
+            "offset": 0.16970316381,
             "filters": []
         },
         "coupler_3/flux": {
             "kind": "dc",
-            "offset": 0.0,
+            "offset": 0.11313359933,
             "filters": []
         },
         "qrm_rf/o1/mixer": {
@@ -216,7 +216,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.48301,
+                            "amplitude": 0.38816259988902163,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -241,7 +241,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.52,
+                                "amplitude": 0.5,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -261,11 +261,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.48056,
+                            "amplitude": 0.2496627167011971,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": 0.0
+                                "beta": -1.6722818848656391
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -286,7 +286,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.27,
+                                "amplitude": 0.36,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
@@ -308,11 +308,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.31438332710551464,
+                            "amplitude": 0.22740648435874877,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": 0.0
+                                "beta": -0.8854108263821799
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -333,7 +333,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.36,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
@@ -355,7 +355,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.46523,
+                            "amplitude": 0.1923097348945077,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -380,7 +380,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.37,
+                                "amplitude": 0.36,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
@@ -402,7 +402,7 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.43466,
+                            "amplitude": 0.34948320862036636,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
