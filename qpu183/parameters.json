@@ -33,18 +33,6 @@
         "kind": "iq",
         "frequency": 4584175339.0
     },
-    "0/probe": {
-        "kind": "iq",
-        "frequency": 6742600000.0
-    },
-    "0/acquisition": {
-        "kind": "acquisition",
-        "delay": 234.0,
-        "smearing": 0.0,
-        "threshold": 0.0005331870521647317,
-        "iq_angle": 2.526655857619501,
-        "kernel": null
-    },
     "qcm_rf0/o2/lo": {
         "kind": "oscillator",
         "frequency": 4654250000.0,
@@ -53,18 +41,6 @@
     "1/drive": {
         "kind": "iq",
         "frequency": 4616146140.0
-    },
-    "1/probe": {
-        "kind": "iq",
-        "frequency": 6852200000.0
-    },
-    "1/acquisition": {
-        "kind": "acquisition",
-        "delay": 234.0,
-        "smearing": 0.0,
-        "threshold": 0.001008764450754264,
-        "iq_angle": 1.3438272674647895,
-        "kernel": null
     },
     "qcm_rf1/o1/lo": {
         "kind": "oscillator",
@@ -75,18 +51,6 @@
         "kind": "iq",
         "frequency": 5046900000.0
     },
-    "2/probe": {
-        "kind": "iq",
-        "frequency": 6957700000.0
-    },
-    "2/acquisition": {
-        "kind": "acquisition",
-        "delay": 234.0,
-        "smearing": 0.0,
-        "threshold": 0.0010744898239090314,
-        "iq_angle": 2.640941966004593,
-        "kernel": null
-    },
     "qcm_rf1/o2/lo": {
         "kind": "oscillator",
         "frequency": 5304200000.0,
@@ -95,18 +59,6 @@
     "3/drive": {
         "kind": "iq",
         "frequency": 5234200000.0
-    },
-    "3/probe": {
-        "kind": "iq",
-        "frequency": 6996600000.0
-    },
-    "3/acquisition": {
-        "kind": "acquisition",
-        "delay": 234.0,
-        "smearing": 0.0,
-        "threshold": 0.0010744898239090314,
-        "iq_angle": 2.640941966004593,
-        "kernel": null
     },
     "qcm_rf2/o1/lo": {
       "kind": "oscillator",
@@ -144,6 +96,22 @@
       "kind": "iq",
       "frequency": 5234200000
     },
+    "0/probe": {
+        "kind": "iq",
+        "frequency": 6742600000.0
+    },
+    "1/probe": {
+        "kind": "iq",
+        "frequency": 6852200000.0
+    },
+    "2/probe": {
+        "kind": "iq",
+        "frequency": 6957700000.0
+    },
+    "3/probe": {
+        "kind": "iq",
+        "frequency": 6996600000.0
+    },
     "4/probe": {
       "kind": "iq",
       "frequency": 6770057392.586818
@@ -159,6 +127,38 @@
     "7/probe": {
       "kind": "iq",
       "frequency": 6996214341.400352
+    },
+    "0/acquisition": {
+        "kind": "acquisition",
+        "delay": 234.0,
+        "smearing": 0.0,
+        "threshold": 0.0005331870521647317,
+        "iq_angle": 2.526655857619501,
+        "kernel": null
+    },
+    "1/acquisition": {
+        "kind": "acquisition",
+        "delay": 234.0,
+        "smearing": 0.0,
+        "threshold": 0.001008764450754264,
+        "iq_angle": 1.3438272674647895,
+        "kernel": null
+    },
+    "2/acquisition": {
+        "kind": "acquisition",
+        "delay": 234.0,
+        "smearing": 0.0,
+        "threshold": 0.0010744898239090314,
+        "iq_angle": 2.640941966004593,
+        "kernel": null
+    },
+    "3/acquisition": {
+        "kind": "acquisition",
+        "delay": 234.0,
+        "smearing": 0.0,
+        "threshold": 0.0010744898239090314,
+        "iq_angle": 2.640941966004593,
+        "kernel": null
     },
     "4/acquisition": {
       "kind": "acquisition",
