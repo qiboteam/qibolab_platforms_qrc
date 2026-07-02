@@ -19,12 +19,14 @@ NUM_QUBITS = 8
 qubit_names = [i for i in range(NUM_QUBITS)]
 
 CLUSTER = {
-    # "qrm_rf0": (18, {"io1": [0, 1, 2, 3]}),
-    # "qcm_rf0": (14, {1: [0], 2: [1]}),
-    # "qcm_rf1": (12, {1: [2], 2: [3]}),
-    "qrm_rf1": (20, {"io1": [0, 1, 2, 3]}),
-    "qcm_rf2": (10, {1: [0], 2: [1]}),
-    "qcm_rf3": (8, {1: [2], 2: [3]}),
+    # Feedline 0
+    "qrm_rf0": (18, {"io1": [0, 1, 2, 3]}),
+    "qcm_rf0": (14, {1: [0], 2: [1]}),
+    "qcm_rf1": (12, {1: [2], 2: [3]}),
+    # Feedline 1
+    "qrm_rf1": (20, {"io1": [4,5,6,7]}),
+    "qcm_rf2": (10, {1: [4], 2: [5]}),
+    "qcm_rf3": (8, {1: [6], 2: [7]}),
 }
 """Connections compact representation."""
 
