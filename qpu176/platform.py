@@ -21,7 +21,7 @@ def create():
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
-    
+
     # update channel information beyond connections
     for i, q in qubits.items():
         # if q.acquisition is not None:
@@ -36,11 +36,11 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
-        if q.drive is not None and (1,2) not in q.drive_extra:
-            q.drive_extra[(1,2)] = f"{i}/drive_ef"
+        if q.drive is not None and (1, 2) not in q.drive_extra:
+            q.drive_extra[(1, 2)] = f"{i}/drive_ef"
 
         if q.drive_extra is not None:
-            channels[q.drive_extra[(1,2)]] = channels[q.drive].model_copy(
+            channels[q.drive_extra[(1, 2)]] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f"{i}/drive_ef/mixer"}
             )
 
