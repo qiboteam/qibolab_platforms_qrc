@@ -26,12 +26,12 @@
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4686070454.0,
+            "frequency": 4586070454.0,
             "power": -6.0
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4584175339.0
+            "frequency": 4384175339.0
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
@@ -62,8 +62,8 @@
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
-            "frequency": 4686070454.0,
-            "power": -6.0
+            "frequency": 3686070454.0,
+            "power": -20.0
         },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
@@ -82,7 +82,7 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 4584175339.0
+            "frequency": 3432129038.0
         },
         "5/drive": {
             "kind": "iq",
@@ -164,8 +164,8 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": 0.0005331870521647317,
-            "iq_angle": 2.526655857619501,
+            "threshold": 0.0005983240223728395,
+            "iq_angle": 2.592499993779295,
             "kernel": null
         },
         "5/acquisition": {
@@ -510,11 +510,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3429479546194032,
+                            "amplitude": 0.484713251280975,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.4985716721592705
+                                "beta": -0.6926181663315957
                             },
                             "relative_phase": 0.0,
                             "chirp": null

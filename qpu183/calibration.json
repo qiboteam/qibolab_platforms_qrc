@@ -8,7 +8,7 @@
                 "bare_frequency_amplitude": 1.0
             },
             "qubit": {
-                "frequency_01": null,
+                "frequency_01": 3432129038.0,
                 "frequency_12": null,
                 "maximum_frequency": null,
                 "asymmetry": null,
@@ -16,20 +16,23 @@
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": null,
+                "fidelity": 0.48516129032258065,
                 "coupling": null,
-                "effective_temperature": null,
+                "effective_temperature": 0.09897069717291591,
                 "ground_state": [
-                    0.0,
-                    0.0
+                    -0.000499267942510015,
+                    0.00012006649582383003
                 ],
                 "excited_state": [
-                    0.0,
-                    0.0
+                    -0.0011521987330002997,
+                    -0.000279434104984478
                 ],
                 "qudits_frequency": {}
             },
-            "t1": null,
+            "t1": [
+                1263.4622443404478,
+                36.87545880115299
+            ],
             "t2": null,
             "t2_spin_echo": null,
             "rb_fidelity": null
