@@ -37,7 +37,7 @@ def create():
     channels = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
 
-    logging.info(rich.print(channels))
+    # logging.info(rich.print(channels))
 
     # update channel information beyond connections
     for i, q in qubits.items():
@@ -53,7 +53,7 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
-        logging.info(rich.print(q.acquisition))
+        # logging.info(rich.print(q.acquisition))
         # logging.info(rich.inspect(channels[q.acquisition]))
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
