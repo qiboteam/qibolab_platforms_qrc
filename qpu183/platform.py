@@ -43,10 +43,10 @@ def create():
 
     # update channel information beyond connections
     for i, q in qubits.items():
-        if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa{}".format(i // 4)}
-            )
+        # if q.acquisition is not None:
+        #     channels[q.acquisition] = channels[q.acquisition].model_copy(
+        #         update={"twpa_pump": "twpa{}".format(i // 4)}
+            # )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
                 update={"lo": los[i, True], "mixer": f"{i}/probe/mixer"}
@@ -61,8 +61,8 @@ def create():
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {
         "qblox": controller,
-        "twpa0": SGS100A(address="192.168.0.36", turn_off_on_disconnect=False),
-        "twpa1": SGS100A(address="192.168.0.32", turn_off_on_disconnect=False),
+        # "twpa0": SGS100A(address="192.168.0.36", turn_off_on_disconnect=False),
+        # "twpa1": SGS100A(address="192.168.0.32", turn_off_on_disconnect=False),
     }
     return Platform.load(
         path=FOLDER,
