@@ -73,6 +73,6 @@ def create():
     )
     instruments = {
         "qm": controller,
-        "twpa": SGS100A(address="192.168.0.38", turn_off_on_disconnect=False),
+        # "twpa": SGS100A(address="192.168.0.38", turn_off_on_disconnect=False),
     }
     return Hardware(instruments=instruments, qubits=qubits)

@@ -71,11 +71,11 @@
     },
     "0/drive": {
       "kind": "iq",
-      "frequency": 0.0
+      "frequency": 5.1e9
     },
     "01/drive_lo": {
       "kind": "oscillator",
-      "frequency": 7e9,
+      "frequency": 5e9,
       "power": 0.0
     },
     "1/drive": {
@@ -133,7 +133,19 @@
   "native_gates": {
     "single_qubit": {
       "0": {
-        "RX": null,
+        "RX": [
+          [
+            "0/drive",
+            {
+              "kind": "pulse",
+              "duration": 20.0,
+              "amplitude": 0.2,
+              "envelope": {
+                "kind": "rectangular"
+              }
+            }
+          ]
+        ],
         "RX90": null,
         "RX12": null,
         "MZ": [
