@@ -117,11 +117,11 @@ def create_fidelity_table(fidelity: dict) -> str:
         # so I'm not too sure about the formatting
         gate_infidelity_cv = 1 - qinfo["rb_fidelity"][0]
         gate_infidelity_err = qinfo["rb_fidelity"][1]
-        if gate_infidelity_cv == 0.0 and gate_infidelity_err == None:
+        if gate_infidelity_cv == 0.0 and gate_infidelity_err is None:
             gate_infidelity_str = "0.0"
         elif gate_infidelity_cv is not None and gate_infidelity_err is not None:
             gate_infidelity_str = (
-                f"{gate_infidelity_cv:.1e} ± {gate_infidelity_err:.1e}"
+                f"{gate_infidelity_cv * 1e3:.2g} ± {gate_infidelity_err * 1e3:.2g}"
             )
         else:
             gate_infidelity_str = "N/A"
