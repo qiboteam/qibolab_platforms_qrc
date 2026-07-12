@@ -22,6 +22,9 @@ def create():
     """QPU 169 chip controlled with a Qblox cluster. First readout line of 8 qubit chip."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(4)}
     qubits[2].drive_extra[3] = "2/drive3"
+    qubits[0].drive_extra[1] = "0/drive1"
+    for i, q in qubits.items():
+        q.drive_extra[(1, 2)] = f"{i}/drive12"
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
@@ -30,9 +33,7 @@ def create():
     # update channel information beyond connections
     for i, q in qubits.items():
         if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa"}
-            )
+            channels[q.acquisition] = channels[q.acquisition].model_copy()
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
                 update={"lo": los[i, True], "mixer": f"{i}/probe/mixer"}
