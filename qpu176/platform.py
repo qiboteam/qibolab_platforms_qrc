@@ -36,6 +36,13 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
+        if q.drive is not None and (1, 2) not in q.drive_extra:
+            q.drive_extra[(1, 2)] = f"{i}/drive_ef"
+
+        if q.drive_extra is not None:
+            channels[q.drive_extra[(1, 2)]] = channels[q.drive].model_copy(
+                update={"lo": los[i, False], "mixer": f"{i}/drive_ef/mixer"}
+            )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {
