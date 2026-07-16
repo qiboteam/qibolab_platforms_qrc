@@ -39,8 +39,8 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": -0.004037195361567651,
-            "iq_angle": -2.1299481421452584,
+            "threshold": -0.002586760842659694,
+            "iq_angle": -0.3084454477229511,
             "kernel": null
         },
         "qcm_rf0/o2/lo": {
@@ -50,7 +50,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4628245157.0
+            "frequency": 4628253595.0
         },
         "1/drive12": {
             "kind": "iq",
@@ -64,8 +64,8 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": -0.004590162074821172,
-            "iq_angle": -1.0738236633753362,
+            "threshold": 0.002413952507195093,
+            "iq_angle": -1.0217963980059732,
             "kernel": null
         },
         "qcm_rf1/o1/lo": {
@@ -93,8 +93,8 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": -0.005487418638400563,
-            "iq_angle": 0.4565543022382984,
+            "threshold": -0.006640121264045074,
+            "iq_angle": 0.30671459196699996,
             "kernel": null
         },
         "qcm_rf1/o2/lo": {
@@ -118,8 +118,8 @@
             "kind": "acquisition",
             "delay": 234.0,
             "smearing": 0.0,
-            "threshold": -0.005559116848549533,
-            "iq_angle": -2.4598939783968863,
+            "threshold": -0.0008120079854611575,
+            "iq_angle": 2.229455463341698,
             "kernel": null
         },
         "0/probe/mixer": {
@@ -191,10 +191,6 @@
             "offset_q": -2.70637536048889,
             "scale_q": 0.979991614818573,
             "phase_q": -14.429386138916016
-        },
-        "log": {
-            "kind": "log",
-            "path": "/nfs/users/alessandro.candido/qrc/var/log"
         }
     },
     "native_gates": {
@@ -205,12 +201,10 @@
                         "0/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.3482583744784968,
+                            "duration": 80.0,
+                            "amplitude": 0.10446904524452058,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": -0.36024726542321894
+                                "kind": "rectangular"
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -280,12 +274,12 @@
                         "1/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.3318809968395352,
+                            "duration": 80.0,
+                            "amplitude": 0.16076816853216905,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": 0.2938003501908069
+                                "beta": 0.3043827666565474
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -339,8 +333,8 @@
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.655795421638282,
+                            "duration": 80.0,
+                            "amplitude": 0.3247514973897827,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -398,8 +392,8 @@
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.3359773008839229,
+                            "duration": 80.0,
+                            "amplitude": 0.16428977901495576,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
@@ -455,7 +449,10 @@
         "coupler": {},
         "two_qubit": {
             "0-1": {
-                "CZ": null,
+                "CZ": [
+                    ["1/drive", {"kind": "pulse", "amplitude":0, "duration":20, "envelope":{"kind":"rectangular"}}],
+                    ["0/drive", {"kind":"virtualz", "phase":1.7}]
+                ],
                 "CNOT": [],
                 "iSWAP": null
             },
