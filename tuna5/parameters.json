@@ -32,11 +32,11 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 5468632170.0
+            "frequency": 5466865573.312097
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7273597173.5
+            "frequency": 7279801771.794395
         },
         "1/acquisition": {
             "kind": "acquisition",
@@ -48,7 +48,7 @@
         },
         "1/flux": {
             "kind": "dc",
-            "offset": -0.1074367487,
+            "offset": -0.1764589998577426,
             "filters": []
         },
         "2/drive": {
@@ -117,7 +117,7 @@
         "qrm_rf/o1/lo": {
             "kind": "oscillator",
             "frequency": 7450000000.0,
-            "power": -30.0
+            "power": -40.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -141,8 +141,8 @@
         },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 5430000000.0,
-            "power": -6.0
+            "frequency": 5322864199.0,
+            "power": -16.0
         },
         "coupler_0/flux": {
             "kind": "dc",
@@ -166,45 +166,45 @@
         },
         "qrm_rf/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.19382572174072,
-            "offset_q": -6.13722991943359,
-            "scale_q": 0.9714432954788208,
-            "phase_q": 44.33477783203125
+            "offset_i": -7.15762090682983,
+            "offset_q": -6.18030500411987,
+            "scale_q": 0.993497371673584,
+            "phase_q": 39.381309509277344
         },
         "qcm_rf0/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -15.6407976150513,
-            "offset_q": -6.45051574707031,
-            "scale_q": 1.0064795017242432,
-            "phase_q": -16.158130645751953
+            "offset_i": -15.7468023300171,
+            "offset_q": -6.42059803009033,
+            "scale_q": 1.004654049873352,
+            "phase_q": -16.036609649658203
         },
         "qcm_rf1/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.76304054260254,
-            "offset_q": -1.85876512527466,
-            "scale_q": 0.9860290884971619,
-            "phase_q": -19.71016502380371
+            "offset_i": -8.7069091796875,
+            "offset_q": -1.84390068054199,
+            "scale_q": 0.987636387348175,
+            "phase_q": -19.711811065673828
         },
         "qcm_rf1/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -7.39045715332031,
-            "offset_q": -0.905150949954987,
-            "scale_q": 0.9938867092132568,
-            "phase_q": -13.963724136352539
+            "offset_i": -7.3917760848999,
+            "offset_q": -0.912791669368744,
+            "scale_q": 0.9963420033454895,
+            "phase_q": -13.93149185180664
         },
         "qcm_rf2/o1/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -6.66658306121826,
-            "offset_q": 1.13694941997528,
-            "scale_q": 0.9840474724769592,
-            "phase_q": -24.61124610900879
+            "offset_i": -6.6240611076355,
+            "offset_q": 1.11143159866333,
+            "scale_q": 0.9851056933403015,
+            "phase_q": -24.54945182800293
         },
         "qcm_rf2/o2/mixer": {
             "kind": "iq-mixer",
-            "offset_i": -8.23712158203125,
-            "offset_q": -4.32299089431763,
-            "scale_q": 0.9963481426239014,
-            "phase_q": -14.17492389678955
+            "offset_i": -7.66875505447388,
+            "offset_q": -4.56212472915649,
+            "scale_q": 0.9929244518280029,
+            "phase_q": -16.286224365234375
         }
     },
     "native_gates": {
@@ -286,7 +286,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.36,
+                                "amplitude": 0.3,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
