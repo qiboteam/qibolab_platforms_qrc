@@ -96,33 +96,33 @@
         },
         "2": {
             "resonator": {
-                "bare_frequency": 7476512799.679521,
-                "dressed_frequency": 7479778794.376767,
+                "bare_frequency": 7425071915.406726,
+                "dressed_frequency": 7428671819.449852,
                 "depletion_time": null,
-                "bare_frequency_amplitude": 0.9
+                "bare_frequency_amplitude": 0.99
             },
             "qubit": {
-                "frequency_01": 5507808718.0,
+                "frequency_01": 5508619269.076754,
                 "frequency_12": null,
-                "maximum_frequency": 5508681621.0,
+                "maximum_frequency": 5508375902.0,
                 "asymmetry": null,
-                "sweetspot": 0.06606187903964476,
+                "sweetspot": 0.06414551699169174,
                 "flux_coefficients": null
             },
             "readout": {
-                "fidelity": 0.5039787798408488,
-                "coupling": 46577242.25046738,
-                "effective_temperature": 0.24534551211897665,
+                "fidelity": 0.43103448275862066,
+                "coupling": 2.618735805657048,
+                "effective_temperature": 0.2968781167202182,
                 "ground_state": [
-                    0.0012234359181225126,
-                    0.0011308943797523172
+                    0.000241493141732294,
+                    0.0007717570297298557
                 ],
                 "excited_state": [
-                    0.0007377037496809068,
-                    0.00008982652148428814
+                    -0.0006575256019354195,
+                    0.0011676583920658514
                 ],
                 "qudits_frequency": {
-                    "1": 7477578794.376767
+                    "1": 7421931915.406726
                 }
             },
             "t1": [
@@ -326,5 +326,5 @@
         }
     },
     "readout_mitigation_matrix": null,
-    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAprwbtRsXL1PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASYZ6ARQD7PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUioWC5Qr9PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAprwbtRsXL1PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASYZ6ARQD7PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACbaSVRftP7PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
 }

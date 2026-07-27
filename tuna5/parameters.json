@@ -53,23 +53,23 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5507808718.0
+            "frequency": 5508375902.618167
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7476278794.376767
+            "frequency": 7428671819.449852
         },
         "2/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": -0.000995591095608919,
-            "iq_angle": 2.007345001647272,
+            "threshold": 0.0005552412088807361,
+            "iq_angle": -2.7267753891902817,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": 0.06606187903964476,
+            "offset": 0.06414551699169174,
             "filters": []
         },
         "3/drive": {
@@ -116,8 +116,8 @@
         },
         "qrm_rf/o1/lo": {
             "kind": "oscillator",
-            "frequency": 7400000000.0,
-            "power": -30.0
+            "frequency": 7500000000.0,
+            "power": -24.0
         },
         "qcm_rf0/o1/lo": {
             "kind": "oscillator",
@@ -286,7 +286,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 1500.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.1,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
@@ -307,12 +307,10 @@
                         "2/drive",
                         {
                             "kind": "pulse",
-                            "duration": 80.0,
-                            "amplitude": 0.3640007530830769,
+                            "duration": 50.0,
+                            "amplitude": 0.3535497610224261,
                             "envelope": {
-                                "kind": "drag",
-                                "rel_sigma": 0.25,
-                                "beta": -0.8854108263821799
+                                "kind": "rectangular"
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -333,7 +331,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 150.0,
-                                "amplitude": 0.3,
+                                "amplitude": 0.09,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
