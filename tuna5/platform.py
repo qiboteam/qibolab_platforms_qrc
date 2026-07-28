@@ -5,6 +5,9 @@ from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 FOLDER = pathlib.Path(__file__).parent
 NAME = "tuna5"
