@@ -74,23 +74,23 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5559624006.0
+            "frequency": 5568009616.0
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7682451519.047673
+            "frequency": 7679180927.073474
         },
         "3/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": 0.001214864742698863,
-            "iq_angle": 2.739765757439338,
+            "threshold": -0.0004451250864376151,
+            "iq_angle": -1.3201808095424963,
             "kernel": null
         },
         "3/flux": {
             "kind": "dc",
-            "offset": -0.25450882295,
+            "offset": -0.28825701404020837,
             "filters": []
         },
         "4/drive": {
@@ -354,12 +354,12 @@
                         "3/drive",
                         {
                             "kind": "pulse",
-                            "duration": 40.0,
-                            "amplitude": 0.1923097348945077,
+                            "duration": 80.0,
+                            "amplitude": 0.09404244587919218,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": 0.0
+                                "beta": -1.1018308625107007
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -375,12 +375,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 225.0
+                                "duration": 1600.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 150.0,
-                                "amplitude": 0.36,
+                                "duration": 1500.0,
+                                "amplitude": 0.12999999999999998,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
