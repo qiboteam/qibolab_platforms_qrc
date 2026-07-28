@@ -15,7 +15,7 @@ CLUSTER = {
     "qcm_rf0": (13, {1: [4]}),
     "qcm_rf1": (15, {1: [2], 2:[3]}),
     "qcm_rf2": (17, {1: [0], 2: [1]}),
-    "qcm0": (4, {1: ["coupler_0"], 2: ["coupler_1"], 3: ["coupler_2"], 4: ["coupler_3"]}),
+    "qcm0": (4, {1: ["coupler_02"], 2: ["coupler_12"], 3: ["coupler_32"], 4: ["coupler_42"]}),
     "qcm1": (6, {1: [4]}),
     "qcm2": (8, {1: [0], 2: [1], 3: [2], 4: [3]}),
 }
@@ -24,7 +24,8 @@ CLUSTER = {
 def create():
     """TUNA-5 5q-chip controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
-    tunable_couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in range(4)}
+    coupler_map = ["02", "12", "32", "42"]
+    tunable_couplers: QubitMap = {f"coupler_{c}": Qubit.coupler(i) for i, c in enumerate(coupler_map)}
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits, tunable_couplers)
