@@ -78,14 +78,14 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7676191346.661918
+            "frequency": 7678691000.0
         },
         "3/acquisition": {
             "kind": "acquisition",
             "delay": 239.0,
             "smearing": 0.0,
-            "threshold": -0.0020399286149315713,
-            "iq_angle": -0.3158303406624469,
+            "threshold": -0.0012817975493902656,
+            "iq_angle": -2.677348584536214,
             "kernel": null
         },
         "3/flux": {
@@ -380,7 +380,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.55,
+                                "amplitude": 0.44,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
