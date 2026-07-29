@@ -19,8 +19,12 @@ CLUSTER = {
 
 
 def create():
-    """qpu 169 chip controlled with a Qblox cluster. First readout line of 8 qubit chip."""
+    """QPU 169 chip controlled with a Qblox cluster. First readout line of 8 qubit chip."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(4)}
+    qubits[2].drive_extra[3] = "2/drive3"
+    qubits[0].drive_extra[1] = "0/drive1"
+    for i, q in qubits.items():
+        q.drive_extra[(1, 2)] = f"{i}/drive12"
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
@@ -41,10 +45,18 @@ def create():
                 update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
             )
 
+        if q.drive_extra:
+            for k in q.drive_extra.keys():
+                channels |= {
+                    q.drive_extra[k]: channels[q.drive].model_copy(
+                        update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
+                    )
+                }
+
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {
         "qblox": controller,
-        "twpa": SGS100A(address="192.168.0.31", turn_off_on_disconnect=False),
+        "twpa": SGS100A(address="192.168.0.39", turn_off_on_disconnect=False),
     }
     return Platform.load(
         path=FOLDER,
