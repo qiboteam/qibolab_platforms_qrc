@@ -28,7 +28,7 @@ def create():
     """TUNA-5 5q-chip controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
     for i, q in qubits.items():
-        q.drive_extra[(1, 2)] = f"{i}/drive/(1,2)"
+        q.drive_extra[(1, 2)] = f"{i}/drive/(1, 2)"
     tunable_couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in range(4)}
 
     # Create channels and connect to instrument ports
@@ -53,14 +53,11 @@ def create():
         
         if q.drive_extra is not None:
             for k in q.drive_extra.keys():
-                k_str = str(k).replace(" ", "")
                 channels |= {
                     q.drive_extra[k]: channels[q.drive].model_copy(
-                        update={"lo": los[i, False], "mixer": f"{i}/drive/{k_str}/mixer"}
+                        update={"lo": los[i, False], "mixer": f"{i}/drive/{k}/mixer"}
                     )
                 }
-
-    logging.info(f"Channels: {channels.keys()}")
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {

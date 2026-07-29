@@ -13,9 +13,9 @@
             "kind": "iq",
             "frequency": 5329575400.0
         },
-        "0/drive/(1,2)": {
+        "0/drive/(1, 2)": {
             "kind": "iq",
-            "frequency": 5219575400.0
+            "frequency": 5180772236.8845215
         },
         "0/probe": {
             "kind": "iq",
@@ -38,9 +38,9 @@
             "kind": "iq",
             "frequency": 5466918453.0
         },
-        "1/drive/(1,2)": {
+        "1/drive/(1, 2)": {
             "kind": "iq",
-            "frequency": 5356918453.0
+            "frequency": 5326918453.0
         },
         "1/probe": {
             "kind": "iq",
@@ -61,9 +61,9 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5509837613.0
+            "frequency": 5479837613.0
         },
-        "2/drive/(1,2)": {
+        "2/drive/(1, 2)": {
             "kind": "iq",
             "frequency": 5399837613.0
         },
@@ -86,9 +86,9 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5568232012.0
+            "frequency": 5538232012.0
         },
-        "3/drive/(1,2)": {
+        "3/drive/(1, 2)": {
             "kind": "iq",
             "frequency": 5458232012.0
         },
@@ -111,9 +111,9 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 5691095478.0
+            "frequency": 5661095478.0
         },
-        "4/drive/(1,2)": {
+        "4/drive/(1, 2)": {
             "kind": "iq",
             "frequency": 5581095478.0
         },
@@ -254,35 +254,35 @@
             "scale_q": 1.0089492797851562,
             "phase_q": -17.043970108032227
         },
-        "0/drive/(1,2)/mixer": {
+        "0/drive/(1, 2)/mixer": {
             "kind": "iq-mixer",
             "offset_i": -7.50725555419922,
             "offset_q": 0.510142505168915,
             "scale_q": 0.991855263710022,
             "phase_q": -24.043092727661133
         },
-        "1/drive/(1,2)/mixer": {
+        "1/drive/(1, 2)/mixer": {
             "kind": "iq-mixer",
             "offset_i": -8.6324987411499,
             "offset_q": -4.72124862670898,
             "scale_q": 0.9960718154907227,
             "phase_q": -13.562521934509277
         },
-        "2/drive/(1,2)/mixer": {
+        "2/drive/(1, 2)/mixer": {
             "kind": "iq-mixer",
             "offset_i": -7.30590581893921,
             "offset_q": -1.11116003990173,
             "scale_q": 0.9821361303329468,
             "phase_q": -26.611970901489258
         },
-        "3/drive/(1,2)/mixer": {
+        "3/drive/(1, 2)/mixer": {
             "kind": "iq-mixer",
             "offset_i": -6.78175497055054,
             "offset_q": -0.369925200939178,
             "scale_q": 0.9953623414039612,
             "phase_q": -16.49759292602539
         },
-        "4/drive/(1,2)/mixer": {
+        "4/drive/(1, 2)/mixer": {
             "kind": "iq-mixer",
             "offset_i": -13.7998428344727,
             "offset_q": -4.96328067779541,
@@ -313,7 +313,7 @@
                 "RX90": null,
                 "RX12": [
                     [
-                        "0/drive/(1,2)",
+                        "0/drive/(1, 2)",
                         {
                             "kind": "pulse",
                             "duration": 40.0,
@@ -370,7 +370,21 @@
                     ]
                 ],
                 "RX90": null,
-                "RX12": null,
+                "RX12": [
+                    [
+                        "1/drive/(1, 2)",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.25570131671533597,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "1/acquisition",
@@ -417,7 +431,21 @@
                     ]
                 ],
                 "RX90": null,
-                "RX12": null,
+                "RX12": [
+                    [
+                        "2/drive/(1, 2)",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.25570131671533597,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "2/acquisition",
@@ -464,7 +492,21 @@
                     ]
                 ],
                 "RX90": null,
-                "RX12": null,
+                "RX12": [
+                    [
+                        "3/drive/(1, 2)",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.25570131671533597,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "3/acquisition",
@@ -511,7 +553,21 @@
                     ]
                 ],
                 "RX90": null,
-                "RX12": null,
+                "RX12": [
+                    [
+                        "4/drive/(1, 2)",
+                        {
+                            "kind": "pulse",
+                            "duration": 40.0,
+                            "amplitude": 0.25570131671533597,
+                            "envelope": {
+                                "kind": "rectangular"
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ]
+                ],
                 "MZ": [
                     [
                         "4/acquisition",
