@@ -48,6 +48,19 @@ def create():
             channels[q.drive] = channels[q.drive].model_copy(
                 update={"lo": los[i, False], "mixer": f'{q.drive}/mixer'}
             )
+        
+        if q.drive is not None:
+            for k in [(1,2)]:
+                k_str = str(k).replace(" ", "")
+                logging.info(f"Adding extra drive channel for qubit {i}: {k}")
+                q.drive_extra = {k: 
+                    channels[q.drive].model_copy(
+                        update={"lo": los[i, False], "mixer": f"{q.drive}/{k_str}/mixer"}
+                    )
+                }
+                channels |= {f'{i}/drive/{k_str}': q.drive_extra[k]}
+                logging.info(f"Added extra drive channel for qubit {i}: {k} -> {channels[f'{i}/drive/{k_str}']}")
+
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
     instruments = {
