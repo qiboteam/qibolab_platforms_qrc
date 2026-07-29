@@ -42,11 +42,11 @@ def create():
             )
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True], "mixer": mixers[i, True]}
+                update={"lo": los[i, True], "mixer": f'{q.probe}/mixer'}
             )
         if q.drive is not None:
             channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False], "mixer": mixers[i, False]}
+                update={"lo": los[i, False], "mixer": f'{q.drive}/mixer'}
             )
 
     controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
