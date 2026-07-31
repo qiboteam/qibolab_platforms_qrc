@@ -33,9 +33,7 @@ def create():
     # update channel information beyond connections
     for i, q in qubits.items():
         if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa"}
-            )
+            channels[q.acquisition] = channels[q.acquisition].model_copy()
         if q.probe is not None:
             channels[q.probe] = channels[q.probe].model_copy(
                 update={"lo": los[i, True], "mixer": f"{i}/probe/mixer"}
