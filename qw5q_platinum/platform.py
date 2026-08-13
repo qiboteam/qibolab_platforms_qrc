@@ -1,28 +1,25 @@
-import pathlib
-
-from qibolab import Platform, Qubit
+from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
 from qibolab.instruments.rohde_schwarz import SGS100A
 
-FOLDER = pathlib.Path(__file__).parent
 NAME = "qw5q_platinum"
-ADDRESS = "192.168.0.22"
+ADDRESS = "192.168.0.21"
 
-CLUSTER = {
+CLUSTER: dict[str, tuple[int, dict[int | str, list[int]]]] = {
     "qrm_rf": (18, {"io1": [0, 1, 2, 3, 4]}),
-    "qcm_rf0": (8, {1: [0], 2: [1]}),
-    "qcm_rf1": (10, {1: [2]}),
-    "qcm_rf2": (12, {1: [4], 2: [3]}),
-    "qcm0": (2, {1: [0], 2: [1], 3: [2], 4: [3]}),
-    "qcm1": (4, {1: [4]}),
+    "qcm_rf0": (12, {1: [0], 2: [1]}),
+    "qcm_rf1": (10, {1: [2], 2: [3]}),
+    "qcm_rf2": (8, {1: [4]}),
+    "qcm0": (16, {1: [0], 2: [1], 3: [2], 4: [3]}),
+    "qcm1": (14, {1: [4]}),
 }
 """Connections compact representation."""
 
 
-def create():
-    """IQM 5q-chip controlled with a Qblox cluster."""
+def create() -> Hardware:
+    """QW Soprano architecture, controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
 
     # Create channels and connect to instrument ports
@@ -50,8 +47,4 @@ def create():
         "qblox": controller,
         "twpa": SGS100A(address="192.168.0.38", turn_off_on_disconnect=False),
     }
-    return Platform.load(
-        path=FOLDER,
-        instruments=instruments,
-        qubits=qubits,
-    )
+    return Hardware(instruments=instruments, qubits=qubits)
