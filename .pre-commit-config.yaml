@@ -1,5 +1,9 @@
 ci:
   autofix_prs: true
+
+# exclude JSON files, since they are automatically generated
+exclude: '(?x)^(.*\.json)$'
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
