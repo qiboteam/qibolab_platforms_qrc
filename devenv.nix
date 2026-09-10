@@ -12,15 +12,6 @@
 
   env = {
     QIBOLAB_PLATFORMS = config.env.DEVENV_ROOT;
-    LD_LIBRARY_PATH = builtins.concatStringsSep ":" (
-      map (p: "${p}/lib") (
-        with pkgs;
-        [
-          stdenv.cc.cc.lib
-          zlib
-        ]
-      )
-    );
   };
 
   languages.python = {
