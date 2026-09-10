@@ -5,7 +5,6 @@ from qibolab import Platform, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
 from qibolab._core.platform.platform import QubitMap
-from qibolab.instruments.rohde_schwarz import SGS100A
 
 logging.basicConfig(level=logging.INFO)
 
@@ -63,11 +62,13 @@ def create():
                     )
                 }
 
-    controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
-    instruments = {
-        "qblox": controller,
-        "twpa": SGS100A(address="192.168.0.31", turn_off_on_disconnect=False),
-    }
+    controller = Cluster(
+        name=NAME,
+        address=ADDRESS,
+        channels=channels,
+        twpas={"twpa": ("13/o2", None)},
+    )
+    instruments = {"qblox": controller}
     return Platform.load(
         path=FOLDER,
         instruments=instruments,
