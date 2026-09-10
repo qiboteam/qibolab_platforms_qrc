@@ -68,7 +68,7 @@ def create():
         channels=channels,
         twpas={"twpa": ("13/o2", None)},
     )
-    instruments = { "qblox": controller }
+    instruments = {"qblox": controller}
     return Platform.load(
         path=FOLDER,
         instruments=instruments,
