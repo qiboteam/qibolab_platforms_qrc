@@ -21,10 +21,13 @@ CLUSTER = {
 def create():
     """QPU 186 chip controlled with a Qblox cluster. First readout line of 8 qubit chip."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(4)}
-    qubits[2].drive_extra[3] = "2/drive3"
-    qubits[0].drive_extra[1] = "0/drive1"
-    for i, q in qubits.items():
-        q.drive_extra[(1, 2)] = f"{i}/drive12"
+
+    # Assign drive_extra channels for cross resonance operations (bidirectional per coupled pair)
+    num_qubits = len(qubits)
+    cr_pairs = [(i, i + 1) for i in range(num_qubits - 1)]
+    for control, target in cr_pairs:
+        qubits[control].drive_extra[target] = f"{control}/drive{target}"
+        qubits[target].drive_extra[control] = f"{target}/drive{control}"
 
     # Create channels and connect to instrument ports
     channels = map_ports(CLUSTER, qubits)
@@ -44,10 +47,10 @@ def create():
             )
 
         if q.drive_extra:
-            for k in q.drive_extra.keys():
+            for channel_id in q.drive_extra.values():
                 channels |= {
-                    q.drive_extra[k]: channels[q.drive].model_copy(
-                        update={"lo": los[i, False], "mixer": f"{i}/drive/mixer"}
+                    channel_id: channels[q.drive].model_copy(
+                        update={"lo": los[i, False], "mixer": f"{channel_id}/mixer"}
                     )
                 }
 
