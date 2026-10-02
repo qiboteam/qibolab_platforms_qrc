@@ -57,14 +57,14 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7514513403.060519
+            "frequency": 7514432594.979738
         },
         "2/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": -0.000454760496281463,
-            "iq_angle": -0.17943499037384092,
+            "threshold": -0.0018337969212456604,
+            "iq_angle": -0.7024137714822584,
             "kernel": null
         },
         "2/flux": {
@@ -95,18 +95,18 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6264667304.168242
+            "frequency": 6264532355.0
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7809312928.566276
+            "frequency": 7809292726.546115
         },
         "4/acquisition": {
             "kind": "acquisition",
             "delay": 220.0,
             "smearing": 0.0,
-            "threshold": -0.0003855826500855756,
-            "iq_angle": -1.2685526479324212,
+            "threshold": -0.0005807025413873145,
+            "iq_angle": -1.40163011737278,
             "kernel": null
         },
         "4/flux": {
@@ -310,8 +310,8 @@
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 350.0,
-                                "amplitude": 0.2,
+                                "duration": 600.0,
+                                "amplitude": 0.15,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -376,11 +376,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.20191418388595542,
+                            "amplitude": 0.20315634791125436,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.43727074767757185
+                                "beta": -0.4200535890754701
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -396,12 +396,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1600.0
+                                "duration": 1700.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 420.0,
-                                "amplitude": 0.23,
+                                "duration": 800.0,
+                                "amplitude": 0.16,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
