@@ -12,10 +12,10 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
       - name: Install qibolab stable
         if: ${{ matrix.version == 'stable' }}
         run: |
@@ -23,22 +23,15 @@ jobs:
           source testenv/bin/activate
           pip install pytest
           pip install qcodes qibolab-qm qibolab-qblox
-      - name: Install and configure poetry
-        if: ${{ matrix.version == 'main' }}
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: false
       - name: Install qibolab main
         if: ${{ matrix.version == 'main' }}
         run: |
           python -m venv testenv
           source testenv/bin/activate
+          pip install pytest
           for lib in qibolab-qm qibolab-qblox qibolab
           do
-            git clone https://github.com/qiboteam/$lib
-            cd $lib
-            poetry install --no-interaction --with tests --all-extras
-            cd ..
+            pip install git+https://github.com/qiboteam/$lib
           done
       - name: Test platforms
         run: |
