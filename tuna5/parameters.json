@@ -73,7 +73,7 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5511480231.0,
+            "frequency": 5511814642.0,
             "scale_q": 0.9813406467437744,
             "phase_q": -0.46583131615554946
         },
@@ -85,7 +85,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7479538087.573455,
+            "frequency": 7478615953.443163,
             "scale_q": 1.0244072675704956,
             "phase_q": 0.13850147917174574
         },
@@ -93,13 +93,13 @@
             "kind": "acquisition",
             "delay": 579.0,
             "smearing": 0.0,
-            "threshold": 0.0007890216065664483,
-            "iq_angle": -2.705435162428606,
+            "threshold": -0.00010276111179642279,
+            "iq_angle": -0.2635369964016603,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": 0.04489524472703445,
+            "offset": 0.04516232895547159,
             "filters": []
         },
         "3/drive": {
@@ -419,11 +419,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3372407262180319,
+                            "amplitude": 0.33643202812695044,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.5932713301909269
+                                "beta": -0.5659576035261575
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -453,11 +453,11 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 4000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 2000.0,
+                                "duration": 3000.0,
                                 "amplitude": 0.18,
                                 "envelope": {
                                     "kind": "gaussian_square",

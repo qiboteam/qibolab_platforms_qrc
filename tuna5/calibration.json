@@ -107,16 +107,16 @@
         "2": {
             "resonator": {
                 "bare_frequency": 7474765900.36728,
-                "dressed_frequency": 7479538087.573455,
+                "dressed_frequency": 7479814953.443163,
                 "depletion_time": null,
                 "bare_frequency_amplitude": 0.1
             },
             "qubit": {
-                "frequency_01": 5511480231.0,
+                "frequency_01": 5511814642.0,
                 "frequency_12": 5407477754.538295,
-                "maximum_frequency": 5509766812.0,
+                "maximum_frequency": 5512907687.0,
                 "asymmetry": null,
-                "sweetspot": 0.0634914639790313,
+                "sweetspot": 0.04516232895547159,
                 "flux_coefficients": [
                     -34.960066905509855,
                     0.09924371634446774,
@@ -124,16 +124,16 @@
                 ]
             },
             "readout": {
-                "fidelity": 0.7767913441946431,
-                "coupling": 499999999.9981246,
-                "effective_temperature": 0.10407631112932211,
+                "fidelity": 0.8573983033547106,
+                "coupling": 266783806.00679293,
+                "effective_temperature": 0.08261905449097746,
                 "ground_state": [
-                    0.00029182357494255724,
-                    -0.00006349208112957986
+                    -0.0010819469211532456,
+                    -0.0004943549762814971
                 ],
                 "excited_state": [
-                    -0.0015560487849904103,
-                    0.0007977916906458506
+                    0.0008861925145597152,
+                    0.00003667349779839438
                 ],
                 "qudits_frequency": {
                     "1": 7469265900.36728
@@ -152,8 +152,8 @@
                 2638767.9914762788
             ],
             "rb_fidelity": [
-                0.9991705520512615,
-                0.00006129073155626061
+                0.9993432781245652,
+                0.00010765441067622885
             ]
         },
         "3": {
@@ -352,5 +352,5 @@
         }
     },
     "readout_mitigation_matrix": null,
-    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqR+VDyh4PMvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAisjsdQbP8PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABB/ESceFABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgsDGV2g2xvw=="
+    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAqR+VDyh4PMvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAisjsdQbP8PwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABB+PUDGoMAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABB/ESceFABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgsDGV2g2xvw=="
 }
