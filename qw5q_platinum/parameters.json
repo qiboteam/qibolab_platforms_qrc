@@ -11,97 +11,173 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4794471822.85357,
-            "scale_q": 1.0019031763076782,
-            "phase_q": -0.33000810319069074
+            "frequency": 4794519509.0,
+            "scale_q": 1.0007503032684326,
+            "phase_q": -0.33016279956051076
         },
         "0/probe": {
             "kind": "iq",
-            "frequency": 7217618567.087049,
-            "scale_q": 0.9975581765174866,
-            "phase_q": 0.4407164753640981
+            "frequency": 7217508508.586179,
+            "scale_q": 0.9946643114089966,
+            "phase_q": 0.43812239001479275
         },
         "0/acquisition": {
             "kind": "acquisition",
-            "delay": 0.0,
+            "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.0006139035442754855,
-            "iq_angle": -1.5253300187484944,
+            "threshold": 0.002862354655212302,
+            "iq_angle": -0.2397967270460358,
             "kernel": null
         },
         "0/flux": {
             "kind": "dc",
             "offset": 0.25031081693431584,
-            "filters": []
+            "filters": [
+                {
+                    "kind": "fir",
+                    "coefficients": [
+                        1.1119997958503844,
+                        -0.02684461076204554,
+                        -0.025569900934112287,
+                        -0.024383030594699158,
+                        -0.0220856817112197,
+                        -0.006593333216475463,
+                        0.0013415967381560192,
+                        0.003649096008648083,
+                        -0.00016038387991138578,
+                        -0.0021748517221553253,
+                        -0.00174591295224288,
+                        -0.006599749498810924,
+                        -0.0025963953189650072,
+                        -0.0001868517156870458,
+                        0.0010615608571664667,
+                        0.0015693148140953688,
+                        0.0005311475092671775,
+                        0.00014656285210826162,
+                        0.0005720473890484045,
+                        0.003243307058533952,
+                        0.0005071327487999984,
+                        0.00036769420929140463,
+                        0.0018299287130402917,
+                        -0.002015819346280419,
+                        -0.0030160110059679456,
+                        -0.001230614044201542,
+                        -0.0016207212844543606,
+                        -0.002113894660109923,
+                        0.00003537647715243477,
+                        -0.0000702912612005833,
+                        -0.00019383641847793,
+                        0.0023473291013238655
+                    ]
+                }
+            ]
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4836403586.788039,
-            "scale_q": 0.9852640628814697,
-            "phase_q": -0.49124809283558857
+            "frequency": 4835773666.990353,
+            "scale_q": 0.9858751893043518,
+            "phase_q": -0.49021045869586644
         },
         "1/probe": {
             "kind": "iq",
-            "frequency": 7350401838.753626,
-            "scale_q": 0.995591938495636,
-            "phase_q": 0.3597350729369686
+            "frequency": 7350311496.452743,
+            "scale_q": 0.995633602142334,
+            "phase_q": 0.358924273543094
         },
         "1/acquisition": {
             "kind": "acquisition",
-            "delay": 220.0,
+            "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.0013918583502670295,
-            "iq_angle": 1.232106609831952,
+            "threshold": 0.0005115405270771361,
+            "iq_angle": 0.56945235563994,
             "kernel": null
         },
         "1/flux": {
             "kind": "dc",
-            "offset": -0.028301408820470574,
+            "offset": -0.028514457924915398,
             "filters": []
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5551074551.634838,
-            "scale_q": 0.9610554575920105,
-            "phase_q": -0.28132212293365244
+            "frequency": 5550867239.0,
+            "scale_q": 0.9614870548248291,
+            "phase_q": -0.2824036992313609
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7514806089.443295,
-            "scale_q": 1.0198956727981567,
-            "phase_q": 0.21148463486417546
+            "frequency": 7514543463.18068,
+            "scale_q": 1.0201773643493652,
+            "phase_q": 0.21138471638902706
         },
         "2/acquisition": {
             "kind": "acquisition",
-            "delay": 220.0,
+            "delay": 250.0,
             "smearing": 0.0,
-            "threshold": -0.0017578276586541531,
-            "iq_angle": -0.9297855254541567,
+            "threshold": 0.0001332432390337801,
+            "iq_angle": 0.014047826932956727,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": -0.04980706982894888,
-            "filters": []
+            "offset": -0.0502,
+            "filters": [
+                {
+                    "kind": "fir",
+                    "coefficients": [
+                        1.1537549344712343,
+                        -0.035605069538153795,
+                        -0.03375408789301668,
+                        -0.03168670290199,
+                        -0.018296649291261926,
+                        -0.007563704876723602,
+                        0.005950017470377502,
+                        0.008115815413579038,
+                        -0.0029508248902645135,
+                        0.00024296655421875485,
+                        -0.008243218607468135,
+                        -0.008752345488966645,
+                        -0.00272855843245199,
+                        -0.004987310568367303,
+                        0.004572513162787055,
+                        0.0003543892776474625,
+                        -0.0024502810301117784,
+                        0.005485270804221609,
+                        -0.005078627286729715,
+                        0.0034299405391815703,
+                        0.0010845393757953526,
+                        -0.0038332463311120603,
+                        0.002013420719535105,
+                        -0.00853753128387987,
+                        0.002266773448522835,
+                        -0.001827732771231778,
+                        -0.004196466577513667,
+                        0.005049320065908213,
+                        -0.006805343215120913,
+                        0.0031827354377358848,
+                        -0.0030682987436734793,
+                        -0.005136637012708148
+                    ]
+                }
+            ]
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6363120221.501791,
-            "scale_q": 0.9969338178634644,
-            "phase_q": -0.03620234190707544
+            "frequency": 6362793769.0,
+            "scale_q": 0.9968662858009338,
+            "phase_q": -0.03553136679280838
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7676185400.179854,
-            "scale_q": 1.0294965505599976,
-            "phase_q": 0.0984681592306453
+            "frequency": 7676003581.998049,
+            "scale_q": 1.02834951877594,
+            "phase_q": 0.10015580441342851
         },
         "3/acquisition": {
             "kind": "acquisition",
-            "delay": 220.0,
+            "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.0005446562645156494,
-            "iq_angle": 1.1136586970881583,
+            "threshold": 0.0012733725551293202,
+            "iq_angle": 1.5760449204891511,
             "kernel": null
         },
         "3/flux": {
@@ -111,22 +187,22 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6264618365.097054,
-            "scale_q": 0.9923343062400818,
-            "phase_q": 0.17564983831585537
+            "frequency": 6264563330.0,
+            "scale_q": 0.9923075437545776,
+            "phase_q": 0.17667344092558415
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7809565372.848702,
-            "scale_q": 1.0105161666870117,
-            "phase_q": -0.000524270600895535
+            "frequency": 7809262342.545684,
+            "scale_q": 1.009613275527954,
+            "phase_q": -0.00021568324642215207
         },
         "4/acquisition": {
             "kind": "acquisition",
-            "delay": 220.0,
+            "delay": 250.0,
             "smearing": 0.0,
-            "threshold": -0.0007690091410016179,
-            "iq_angle": -1.46320906860574,
+            "threshold": -0.0010550655826836338,
+            "iq_angle": -1.5647649095793514,
             "kernel": null
         },
         "4/flux": {
@@ -204,33 +280,33 @@
         },
         "qrm_rf/o1/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -3.82286596298218,
-            "offset_q": -6.49595165252686
+            "offset_i": -3.82543873786926,
+            "offset_q": -6.49862051010132
         },
         "qcm_rf0/o1/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -12.2437877655029,
-            "offset_q": -6.19077014923096
+            "offset_i": -12.2589845657349,
+            "offset_q": -6.24656867980957
         },
         "qcm_rf0/o2/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -3.88958382606506,
-            "offset_q": 0.73191773891449
+            "offset_i": -3.86643052101135,
+            "offset_q": 0.732491552829742
         },
         "qcm_rf1/o1/mixer": {
             "kind": "mixer-offset",
-            "offset_i": 3.86956143379211,
-            "offset_q": 5.90003204345703
+            "offset_i": 3.82457780838013,
+            "offset_q": 5.88556528091431
         },
         "qcm_rf1/o2/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -12.9490346908569,
-            "offset_q": -0.303855508565903
+            "offset_i": -12.9042587280273,
+            "offset_q": -0.247548639774323
         },
         "qcm_rf2/o1/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -10.5376176834106,
-            "offset_q": -2.54062438011169
+            "offset_i": -10.5200271606445,
+            "offset_q": -2.54223966598511
         }
     },
     "native_gates": {
@@ -242,11 +318,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.19221330895531652,
+                            "amplitude": 0.1918535875959872,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.6622809428920367
+                                "beta": -0.665662621632416
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -262,12 +338,12 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 1600.0
+                                "duration": 2300.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 500.0,
-                                "amplitude": 0.15,
+                                "duration": 1300.0,
+                                "amplitude": 0.12,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -287,11 +363,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.16302706546724186,
+                            "amplitude": 0.16260226125066068,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.514497328931061
+                                "beta": -0.5097164876242525
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -312,7 +388,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 400.0,
-                                "amplitude": 0.18,
+                                "amplitude": 0.24,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -332,11 +408,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.1966889013546934,
+                            "amplitude": 0.1958919374722657,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -1.225661967144054
+                                "beta": -1.2233562682995882
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -377,11 +453,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.11570013816124168,
+                            "amplitude": 0.12287808933782433,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -1.7336936580293478
+                                "beta": -0.15481576964302055
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -422,11 +498,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.20327079486971508,
+                            "amplitude": 0.20324479857939526,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.4426414641685818
+                                "beta": -0.4870369522427685
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -469,70 +545,30 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 70.0,
-                            "amplitude": 1.0,
+                            "duration": 56.0,
+                            "amplitude": 0.381,
                             "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg3MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOGWbPSg/AAAAAAAAAAAAquSLHH1tPwAAAAAAAAAAMClc+eWBnz8AAAAAAAAAAMRXRylO678/AAAAAAAAAAClZ2RJnA/RPwAAAAAAAAAABXsgdFES1z8AAAAAAAAAAER0npp1z9g/AAAAAAAAAACYlkkgaAfZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAJg9ttNvCtk/AAAAAAAAAACYPbbTbwrZPwAAAAAAAAAAmD22028K2T8AAAAAAAAAAMwVl/1MCNk/AAAAAAAAAAAuZtgeiufYPwAAAAAAAAAAcjvYuQnr1z8AAAAAAAAAAJx86HfAFNQ/AAAAAAAAAACYPbbTbwrJPwAAAAAAAAAA9AM3b73Wsz8AAAAAAAAAAGgi4J1h9pE/AAAAAAAAAABAtetu2nJhPwAAAAAAAAAAAGQ++bAWIT8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+                                "kind": "snz",
+                                "t_idling": 4,
+                                "b_amplitude": 0.1725,
+                                "padding_duration": 6
                             },
                             "relative_phase": 0.0,
                             "chirp": null
                         }
                     ],
                     [
-                        "2/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 70.0
-                        }
-                    ],
-                    [
                         "0/drive",
                         {
-                            "kind": "delay",
-                            "duration": 70.0
+                            "kind": "virtualz",
+                            "phase": 0.08914249749277724
                         }
                     ],
                     [
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0.940290767402233
-                        }
-                    ],
-                    [
-                        "0/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 6.20473855053882
-                        }
-                    ],
-                    [
-                        "1/flux",
-                        {
-                            "kind": "pulse",
-                            "duration": 70.0,
-                            "amplitude": 0.47749770530001806,
-                            "envelope": {
-                                "kind": "rectangular"
-                            },
-                            "relative_phase": 0.0,
-                            "chirp": null
-                        }
-                    ],
-                    [
-                        "1/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 70.0
-                        }
-                    ],
-                    [
-                        "1/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
+                            "phase": 4.414018533670635
                         }
                     ]
                 ],
@@ -540,127 +576,12 @@
                 "iSWAP": null
             },
             "2-1": {
-                "CZ": [
-                    [
-                        "2/flux",
-                        {
-                            "kind": "pulse",
-                            "duration": 70.0,
-                            "amplitude": 1.0,
-                            "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg3MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAADMNMiCYic/AAAAAAAAAABAXGDVlHJsPwAAAAAAAAAAkOzdWB9lnj8AAAAAAAAAAD4BitPOyr4/AAAAAAAAAAAD5JgtaHXQPwAAAAAAAAAAi4Xt7MlB1j8AAAAAAAAAAJyj0Lg279c/AAAAAAAAAAC6XSKSLyXYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAAVGR74hso2D8AAAAAAAAAAFRke+IbKNg/AAAAAAAAAABUZHviGyjYPwAAAAAAAAAA4K3fWgwm2D8AAAAAAAAAAHnI0ZdxBtg/AAAAAAAAAACcogxn2xLXPwAAAAAAAAAAkS3RakBf0z8AAAAAAAAAAFRke+IbKMg/AAAAAAAAAAAQ26jebSOzPwAAAAAAAAAAgBvstgdUkT8AAAAAAAAAAIDtzVQl1WA/AAAAAAAAAAAAnLPdPHwgPwAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDcwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
-                            },
-                            "relative_phase": 0.0,
-                            "chirp": null
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 70.0
-                        }
-                    ],
-                    [
-                        "1/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 70.0
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 4.088425553388527
-                        }
-                    ],
-                    [
-                        "1/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 6.167139677664347
-                        }
-                    ],
-                    [
-                        "0/flux",
-                        {
-                            "kind": "pulse",
-                            "duration": 70.0,
-                            "amplitude": 0.456446034493228,
-                            "envelope": {
-                                "kind": "rectangular"
-                            },
-                            "relative_phase": 0.0,
-                            "chirp": null
-                        }
-                    ],
-                    [
-                        "0/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 70.0
-                        }
-                    ],
-                    [
-                        "0/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.0
-                        }
-                    ]
-                ],
+                "CZ": null,
                 "CNOT": null,
                 "iSWAP": null
             },
             "3-2": {
-                "CZ": [
-                    [
-                        "3/flux",
-                        {
-                            "kind": "pulse",
-                            "duration": 60.0,
-                            "amplitude": 1.0,
-                            "envelope": {
-                                "kind": "custom",
-                                "i_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGMxNicsICdmb3J0cmFuX29yZGVyJzogRmFsc2UsICdzaGFwZSc6ICg2MCwpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAvAAAAAAAAAAAACz7+ENgKj8AAAAAAAAAAMAAwXQPC3A/AAAAAAAAAAD05r1HNyShPwAAAAAAAAAAWnwb6I9dwT8AAAAAAAAAACAuuqFbkNI/AAAAAAAAAABwL9CsnBrZPwAAAAAAAAAATOj0V/f+2j8AAAAAAAAAAOrMSI3XO9s/AAAAAAAAAABQ7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABP7MeVIz/bPwAAAAAAAAAAT+zHlSM/2z8AAAAAAAAAAE/sx5UjP9s/AAAAAAAAAABQ7MeVIz/bPwAAAAAAAAAA1OrHk9A82z8AAAAAAAAAAHSOHeYqGds/AAAAAAAAAABqJXBDbAbaPwAAAAAAAAAABHshKpvZ1T8AAAAAAAAAAE/sx5UjP8s/AAAAAAAAAAAsxZmuIZa1PwAAAAAAAAAAUG58JXWLkz8AAAAAAAAAAEDtLtVX/GI/AAAAAAAAAAAA1AsAEJgiPwAAAAAAAAAAAAAAAAAAgLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
-                                "q_": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDYwLCksIH0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
-                            },
-                            "relative_phase": 0.0,
-                            "chirp": null
-                        }
-                    ],
-                    [
-                        "3/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 60.0
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "delay",
-                            "duration": 60.0
-                        }
-                    ],
-                    [
-                        "3/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 0.3819924027138286
-                        }
-                    ],
-                    [
-                        "2/drive",
-                        {
-                            "kind": "virtualz",
-                            "phase": 6.18403572546825
-                        }
-                    ]
-                ],
+                "CZ": null,
                 "CNOT": null,
                 "iSWAP": null
             },
@@ -676,7 +597,7 @@
                                 "kind": "snz",
                                 "t_idling": 4,
                                 "b_amplitude": 0.495,
-                                "padding_duration": 4
+                                "padding_duration": 0
                             },
                             "relative_phase": 0.0,
                             "chirp": null
