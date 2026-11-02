@@ -5,9 +5,8 @@
     },
     "configs": {
         "twpa": {
-            "kind": "oscillator",
-            "frequency": 8566000000.0,
-            "power": -21.4
+            "kind": "iq",
+            "frequency": 8566000000.0
         },
         "0/drive": {
             "kind": "iq",
@@ -277,6 +276,11 @@
             "kind": "oscillator",
             "frequency": 6400000000.0,
             "power": -8.0
+        },
+        "qcm_rf2/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 8566000000.0,
+            "power": -21.4
         },
         "qrm_rf/o1/mixer": {
             "kind": "mixer-offset",
