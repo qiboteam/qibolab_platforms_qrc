@@ -6,7 +6,9 @@
     "configs": {
         "twpa": {
             "kind": "iq",
-            "frequency": 8566000000.0
+            "frequency": 8565200000.0,
+            "scale_q": 1.0,
+            "phase_q": 0.0
         },
         "0/drive": {
             "kind": "iq",
@@ -63,8 +65,8 @@
                         -0.001230614044201542,
                         -0.0016207212844543606,
                         -0.002113894660109923,
-                        0.00003537647715243477,
-                        -0.0000702912612005833,
+                        3.537647715243477e-05,
+                        -7.02912612005833e-05,
                         -0.00019383641847793,
                         0.0023473291013238655
                     ]
@@ -186,13 +188,13 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6264561389.0,
+            "frequency": 6264549611.0,
             "scale_q": 0.9940648078918457,
             "phase_q": 0.17691915082565757
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7809262342.545684,
+            "frequency": 7809323000.0,
             "scale_q": 1.0095199346542358,
             "phase_q": 0.00030809044996579185
         },
@@ -200,13 +202,13 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": -0.00117125877337073,
-            "iq_angle": -1.5412336456182145,
+            "threshold": 9.806823915965888e-06,
+            "iq_angle": -0.7407886074771741,
             "kernel": null
         },
         "4/flux": {
             "kind": "dc",
-            "offset": -0.125149854574699,
+            "offset": -0.12387952156592898,
             "filters": [
                 {
                     "kind": "fir",
@@ -279,8 +281,8 @@
         },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 8566000000.0,
-            "power": -21.4
+            "frequency": 8565200000.0,
+            "power": -25.697920507177432
         },
         "qrm_rf/o1/mixer": {
             "kind": "mixer-offset",
@@ -507,11 +509,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.20324479857939526,
+                            "amplitude": 0.20209415417104296,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.47701877903366385
+                                "beta": -0.40986675287784735
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -532,7 +534,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.16,
+                                "amplitude": 0.104,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
