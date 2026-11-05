@@ -586,12 +586,12 @@
                         {
                             "kind": "pulse",
                             "duration": 44.0,
-                            "amplitude": 0.2655,
+                            "amplitude": 0.2654,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 4,
-                                "b_amplitude": 0.495,
-                                "padding_duration": 0
+                                "b_amplitude": 0.5,
+                                "padding_duration": 4
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -601,14 +601,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 6.1925718436667765
+                            "phase": 6.169264986029532
                         }
                     ],
                     [
                         "4/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0.6316844722784871
+                            "phase": 0.6675826440889501
                         }
                     ]
                 ],
