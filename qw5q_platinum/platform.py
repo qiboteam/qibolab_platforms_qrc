@@ -1,12 +1,6 @@
 from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
-from qibolab._core.instruments.qblox.platform import (
-    ClusterMap,
-    Twpa,
-    infer_los,
-    infer_mixers,
-    map_ports,
-)
+from qibolab._core.instruments.qblox.platform import ClusterMap, Twpa
 from qibolab._core.platform.platform import QubitMap
 
 NAME = "qw5q_platinum"
@@ -29,27 +23,9 @@ CLUSTER: ClusterMap = {
 def create() -> Hardware:
     """QW Soprano architecture, controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
-
-    # Create channels and connect to instrument ports
-    channels, twpas = map_ports(CLUSTER, qubits)
-    los = infer_los(CLUSTER)
-    mixers = infer_mixers(CLUSTER)
-
-    # update channel information beyond connections
-    for i, q in qubits.items():
-        if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa"}
-            )
-        if q.probe is not None:
-            channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True], "mixer": mixers[i, True]}
-            )
-        if q.drive is not None:
-            channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False], "mixer": mixers[i, False]}
-            )
-
-    controller = Cluster(name=NAME, address=ADDRESS, channels=channels, twpas=twpas)
-    instruments = {"qblox": controller}
-    return Hardware(instruments=instruments, qubits=qubits)
+    # all the qubits are read out through the same transmission line, amplified by the
+    # same TWPA
+    controller = Cluster.from_map(
+        NAME, ADDRESS, CLUSTER, qubits, twpa_pumps={i: "twpa" for i in qubits}
+    )
+    return Hardware(instruments={"qblox": controller}, qubits=qubits)
