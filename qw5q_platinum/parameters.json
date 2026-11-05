@@ -594,13 +594,13 @@
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 36.0,
+                            "duration": 44.0,
                             "amplitude": 0.286,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 4,
                                 "b_amplitude": 0.55,
-                                "padding_duration": 0
+                                "padding_duration": 4
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -608,11 +608,17 @@
                     ],
                     [
                         "2/drive",
-                        {"kind": "virtualz", "phase": 0.0}
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.083307314879454
+                        }
                     ],
                     [
                         "0/drive",
-                        {"kind": "virtualz", "phase": 0.0}
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.19358022364382
+                        }
                     ]
                 ],
                 "CNOT": null,
@@ -625,7 +631,7 @@
                         {
                             "kind": "pulse",
                             "duration": 36.0,
-                            "amplitude": 0.283,
+                            "amplitude": 0.27336,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 4,
@@ -638,11 +644,17 @@
                     ],
                     [
                         "2/drive",
-                        {"kind": "virtualz", "phase": 0.0}
+                        {
+                            "kind": "virtualz",
+                            "phase": 2.3733975232310485
+                        }
                     ],
                     [
                         "1/drive",
-                        {"kind": "virtualz", "phase": 0.0}
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.214723619881409
+                        }
                     ]
                 ],
                 "CNOT": null,
