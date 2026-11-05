@@ -6,7 +6,7 @@
     "configs": {
         "twpa": {
             "kind": "iq",
-            "frequency": 8565200000.0,
+            "frequency": 8564400000.0,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
@@ -188,13 +188,13 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6264549611.0,
+            "frequency": 6264540923.0,
             "scale_q": 0.9940648078918457,
             "phase_q": 0.17691915082565757
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7809323000.0,
+            "frequency": 7809229000.0,
             "scale_q": 1.0095199346542358,
             "phase_q": 0.00030809044996579185
         },
@@ -202,8 +202,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 9.806823915965888e-06,
-            "iq_angle": -0.7407886074771741,
+            "threshold": -0.001362828487712611,
+            "iq_angle": -1.6877221507848188,
             "kernel": null
         },
         "4/flux": {
@@ -281,8 +281,8 @@
         },
         "qcm_rf2/o2/lo": {
             "kind": "oscillator",
-            "frequency": 8565200000.0,
-            "power": -25.697920507177432
+            "frequency": 8600000000.0,
+            "power": -25.555814708581345
         },
         "qrm_rf/o1/mixer": {
             "kind": "mixer-offset",
@@ -509,11 +509,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.20209415417104296,
+                            "amplitude": 0.2016748309296888,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.40986675287784735
+                                "beta": -0.4225722282898502
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -534,7 +534,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 800.0,
-                                "amplitude": 0.104,
+                                "amplitude": 0.1052,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
