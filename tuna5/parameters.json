@@ -73,7 +73,7 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5513666027.0,
+            "frequency": 5516072796.0,
             "scale_q": 0.9813406467437744,
             "phase_q": -0.46583131615554946
         },
@@ -85,7 +85,7 @@
         },
         "2/probe": {
             "kind": "iq",
-            "frequency": 7479793629.148126,
+            "frequency": 7479039860.303899,
             "scale_q": 1.0244072675704956,
             "phase_q": 0.13850147917174574
         },
@@ -93,18 +93,18 @@
             "kind": "acquisition",
             "delay": 579.0,
             "smearing": 0.0,
-            "threshold": 0.000715154431384656,
-            "iq_angle": -1.7779896066220628,
+            "threshold": 0.0006829283259567332,
+            "iq_angle": -2.1232128400681334,
             "kernel": null
         },
         "2/flux": {
             "kind": "dc",
-            "offset": 0.04845712287836678,
+            "offset": 0.04964688556412031,
             "filters": []
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5567848698.0,
+            "frequency": 5568006474.0,
             "scale_q": 1.0102620124816895,
             "phase_q": -0.09594118554080999
         },
@@ -124,18 +124,18 @@
             "kind": "acquisition",
             "delay": 579.0,
             "smearing": 0.0,
-            "threshold": 0.0009865650498764365,
-            "iq_angle": 0.3842564983475362,
+            "threshold": 0.0010090089098017915,
+            "iq_angle": 0.05599933991393521,
             "kernel": null
         },
         "3/flux": {
             "kind": "dc",
-            "offset": -0.22312353548188332,
+            "offset": -0.22055940312272423,
             "filters": []
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 5691351540.0,
+            "frequency": 5692557928.198725,
             "scale_q": 1.0089694261550903,
             "phase_q": -0.2951936302350073
         },
@@ -161,7 +161,7 @@
         },
         "4/flux": {
             "kind": "dc",
-            "offset": 0.11351608125078742,
+            "offset": 0.1159968348200025,
             "filters": []
         },
         "qrm_rf/o1/lo": {
@@ -419,11 +419,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.33643202812695044,
+                            "amplitude": 0.3478800618870316,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.5659576035261575
+                                "beta": -0.4868218080483853
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -480,11 +480,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.30977434869437354,
+                            "amplitude": 0.311389513177145,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.24777165711604235
+                                "beta": -0.9442287711016711
                             },
                             "relative_phase": 0.0,
                             "chirp": null
