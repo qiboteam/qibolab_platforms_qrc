@@ -12,7 +12,7 @@
         },
         "0/drive": {
             "kind": "iq",
-            "frequency": 4794542314.0,
+            "frequency": 4794542558.0,
             "scale_q": 1.0011736154556274,
             "phase_q": -0.32778942368654573
         },
@@ -26,8 +26,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.00009196092743828835,
-            "iq_angle": -1.8823026315678548,
+            "threshold": 0.000056490853000923696,
+            "iq_angle": -2.1740915923045985,
             "kernel": null
         },
         "0/flux": {
@@ -75,7 +75,7 @@
         },
         "1/drive": {
             "kind": "iq",
-            "frequency": 4835923441.0,
+            "frequency": 4836275153.0,
             "scale_q": 0.9848910570144653,
             "phase_q": -0.49339157132845246
         },
@@ -89,8 +89,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.00027464239980947255,
-            "iq_angle": 1.2525196636589362,
+            "threshold": 0.0005894184619496637,
+            "iq_angle": 0.9653621096480338,
             "kernel": null
         },
         "1/flux": {
@@ -100,9 +100,9 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5550460198.0,
-            "scale_q": 0.9601554870605469,
-            "phase_q": -0.2814856410245833
+            "frequency": 5550914843.0,
+            "scale_q": 0.9947568774223328,
+            "phase_q": -0.19480995077843044
         },
         "2/probe": {
             "kind": "iq",
@@ -114,8 +114,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": -0.0008004647786935887,
-            "iq_angle": -0.05231380774219067,
+            "threshold": -0.000050291228621240446,
+            "iq_angle": -0.4102321581877341,
             "kernel": null
         },
         "2/flux": {
@@ -163,7 +163,7 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 6362774105.0,
+            "frequency": 6362789153.0,
             "scale_q": 0.996304988861084,
             "phase_q": -0.03586685851113112
         },
@@ -177,8 +177,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": 0.0014187916298502726,
-            "iq_angle": 1.7603930076279333,
+            "threshold": 0.0012228819555817297,
+            "iq_angle": 1.4945455580742175,
             "kernel": null
         },
         "3/flux": {
@@ -226,7 +226,7 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 6264209411.0,
+            "frequency": 6264561286.0,
             "scale_q": 0.9940648078918457,
             "phase_q": 0.17691915082565757
         },
@@ -240,8 +240,8 @@
             "kind": "acquisition",
             "delay": 250.0,
             "smearing": 0.0,
-            "threshold": -0.0014559711454623157,
-            "iq_angle": -1.7888943727348454,
+            "threshold": -0.0016752570839262907,
+            "iq_angle": -2.154430015186671,
             "kernel": null
         },
         "4/flux": {
@@ -304,7 +304,7 @@
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
-            "frequency": 5800000000.0,
+            "frequency": 5875000000.0,
             "power": -8.0
         },
         "qcm_rf1/o2/lo": {
@@ -339,8 +339,8 @@
         },
         "qcm_rf1/o1/mixer": {
             "kind": "mixer-offset",
-            "offset_i": 3.82827353477478,
-            "offset_q": 5.83352613449097
+            "offset_i": 0.912334561347961,
+            "offset_q": 5.99667358398438
         },
         "qcm_rf1/o2/mixer": {
             "kind": "mixer-offset",
@@ -457,11 +457,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.19695783184135243,
+                            "amplitude": 0.2085530710838658,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -1.224132527490591
+                                "beta": -0.4897897897897878
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -623,14 +623,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 4.050944571476143
+                            "phase": 3.7320304951804317
                         }
                     ],
                     [
                         "0/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0.13034995884985415
+                            "phase": 0.15196356948080397
                         }
                     ]
                 ],
@@ -672,14 +672,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 4.170344610661174
+                            "phase": 3.8884437337175908
                         }
                     ],
                     [
                         "1/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0.43068557688184095
+                            "phase": 0.17443724603289346
                         }
                     ]
                 ],
@@ -692,8 +692,8 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 72.0,
-                            "amplitude": 0.38354,
+                            "duration": 86.0,
+                            "amplitude": 0.29,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 4,
@@ -708,14 +708,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 0.5509969174405023
+                            "phase": 6.067832555951734
                         }
                     ],
                     [
                         "3/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 2.5521381701512533
+                            "phase": 1.594601863429743
                         }
                     ]
                 ],
