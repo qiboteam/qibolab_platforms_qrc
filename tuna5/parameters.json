@@ -1,7 +1,7 @@
 {
     "settings": {
         "nshots": 1000,
-        "relaxation_time": 200000
+        "relaxation_time": 600000
     },
     "configs": {
         "twpa": {
@@ -73,7 +73,7 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5517092406.0,
+            "frequency": 5517078081.0,
             "scale_q": 0.9813406467437744,
             "phase_q": -0.46583131615554946
         },
@@ -93,8 +93,8 @@
             "kind": "acquisition",
             "delay": 242.0,
             "smearing": 0.0,
-            "threshold": 0.0008081876061179876,
-            "iq_angle": -2.3711279424585507,
+            "threshold": 0.0007524710629409286,
+            "iq_angle": -2.3874475601458176,
             "kernel": null
         },
         "2/flux": {
@@ -130,7 +130,7 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5569050087.0,
+            "frequency": 5569030330.0,
             "scale_q": 1.0102620124816895,
             "phase_q": -0.09594118554080999
         },
@@ -150,8 +150,8 @@
             "kind": "acquisition",
             "delay": 242.0,
             "smearing": 0.0,
-            "threshold": 0.0003111816313580954,
-            "iq_angle": -0.4400522425950986,
+            "threshold": 0.0008836924783496609,
+            "iq_angle": -0.42806416274049003,
             "kernel": null
         },
         "3/flux": {
@@ -471,11 +471,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.34766697481245,
+                            "amplitude": 0.34053129299414414,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.44793645910526214
+                                "beta": -0.44434434434434245
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -505,11 +505,11 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 4000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1900.0,
+                                "duration": 3900.0,
                                 "amplitude": 0.1946783625730995,
                                 "envelope": {
                                     "kind": "rectangular"
@@ -530,11 +530,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.31586849697944175,
+                            "amplitude": 0.3106922851027547,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -0.9487550017457278
+                                "beta": -1.0807807807807797
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -564,11 +564,11 @@
                             "kind": "readout",
                             "acquisition": {
                                 "kind": "acquisition",
-                                "duration": 2000.0
+                                "duration": 4000.0
                             },
                             "probe": {
                                 "kind": "pulse",
-                                "duration": 1900.0,
+                                "duration": 3900.0,
                                 "amplitude": 0.12558479532163735,
                                 "envelope": {
                                     "kind": "rectangular"
