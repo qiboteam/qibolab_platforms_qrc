@@ -27,7 +27,7 @@ def create():
         q.drive_extra[(1, 2)] = f"{i}/drive12"
 
     # Create channels and connect to instrument ports
-    channels = map_ports(CLUSTER, qubits)
+    channels, _ = map_ports(CLUSTER, qubits)
     los = infer_los(CLUSTER)
 
     # update channel information beyond connections
