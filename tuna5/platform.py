@@ -36,7 +36,7 @@ def create():
     tunable_couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in range(4)}
 
     # Create channels and connect to instrument ports
-    channels = map_ports(CLUSTER, qubits, tunable_couplers)
+    channels, _ = map_ports(CLUSTER, qubits, tunable_couplers)
     los = infer_los(CLUSTER)
     mixers = infer_mixers(CLUSTER)
 
