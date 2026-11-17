@@ -20,6 +20,36 @@
             "offset_i": -8.53068733215332,
             "offset_q": -6.83676958084106
         },
+        "0/drive/(1, 2)": {
+            "kind": "iq",
+            "frequency": 4594518934.0,
+            "scale_q": 1.0,
+            "phase_q": 0.0
+        },
+        "1/drive/(1, 2)": {
+            "kind": "iq",
+            "frequency": 4636216949.0,
+            "scale_q": 1.0,
+            "phase_q": 0.0
+        },
+        "2/drive/(1, 2)": {
+            "kind": "iq",
+            "frequency": 5351718014.0,
+            "scale_q": 1.0,
+            "phase_q": 0.0
+        },
+        "3/drive/(1, 2)": {
+            "kind": "iq",
+            "frequency": 6162914960.0,
+            "scale_q": 1.0,
+            "phase_q": 0.0
+        },
+        "4/drive/(1, 2)": {
+            "kind": "iq",
+            "frequency": 6060521977.441898,
+            "scale_q": 1.0,
+            "phase_q": -0.005809755617927012
+        },
         "0/probe": {
             "kind": "iq",
             "frequency": 7217374436.154724,
@@ -227,12 +257,6 @@
             "frequency": 6264435439.337021,
             "scale_q": 0.9704849123954773,
             "phase_q": -0.12437770393613314
-        },
-        "4/drive/(1, 2)": {
-            "kind": "iq",
-            "frequency": 6064435439.337021,
-            "scale_q": 1.0,
-            "phase_q": -0.005809755617927012
         },
         "qcm_rf2/o1/lo": {
             "kind": "oscillator",
@@ -592,14 +616,31 @@
                         "4/flux",
                         {
                             "kind": "pulse",
-                            "duration": 0.0,
-                            "amplitude": 0.0,
+                            "duration": 30.0,
+                            "amplitude": 0.26,
                             "envelope": {
-                                "kind": "rectangular"
+                                "kind": "snz",
+                                "t_idling": 0,
+                                "b_amplitude": 0.5,
+                                "padding_duration": 4
                             },
                             "relative_phase": 0.0,
                             "chirp": null
+                        },
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
                         }
+                    ],
+                    [
+                        "4/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 0.0
+                        }
+                    ]
                     ]
                 ],
                 "CNOT": null,
