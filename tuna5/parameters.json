@@ -5,9 +5,10 @@
     },
     "configs": {
         "twpa": {
-            "kind": "oscillator",
+            "kind": "iq",
             "frequency": 5668000000.0,
-            "power": -16.6
+            "scale_q": 1.0,
+            "phase_q": 0.0
         },
         "0/drive": {
             "kind": "iq",
@@ -250,6 +251,11 @@
             "frequency": 5620650000.0,
             "power": -8.0
         },
+        "qcm_rf0/o2/lo": {
+            "kind": "oscillator",
+            "frequency": 5668000000.0,
+            "power": -16.6
+        },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
             "frequency": 5439274000.0,
@@ -290,80 +296,40 @@
             "offset": 0.021,
             "filters": []
         },
-        "0/probe/mixer": {
+        "qrm_rf/o1/mixer": {
             "kind": "mixer-offset",
             "offset_i": -6.76896619796753,
             "offset_q": -6.25410747528076
         },
-        "1/probe/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -6.76896619796753,
-            "offset_q": -6.25410747528076
-        },
-        "2/probe/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -6.76896619796753,
-            "offset_q": -6.25410747528076
-        },
-        "3/probe/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -6.76896619796753,
-            "offset_q": -6.25410747528076
-        },
-        "4/probe/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -6.76896619796753,
-            "offset_q": -6.25410747528076
-        },
-        "0/drive/mixer": {
+        "qcm_rf2/o1/mixer": {
             "kind": "mixer-offset",
             "offset_i": -7.45912265777588,
             "offset_q": 0.528120815753937
         },
-        "1/drive/mixer": {
+        "qcm_rf2/o2/mixer": {
             "kind": "mixer-offset",
             "offset_i": -8.60241985321045,
             "offset_q": -4.70764589309692
         },
-        "2/drive/mixer": {
+        "qcm_rf1/o1/mixer": {
             "kind": "mixer-offset",
             "offset_i": -7.27756357192993,
             "offset_q": -1.11477291584015
         },
-        "3/drive/mixer": {
+        "qcm_rf1/o2/mixer": {
             "kind": "mixer-offset",
             "offset_i": -8.17814826965332,
             "offset_q": 0.270905345678329
         },
-        "4/drive/mixer": {
+        "qcm_rf0/o1/mixer": {
             "kind": "mixer-offset",
             "offset_i": -13.7644195556641,
             "offset_q": -5.0811014175415
         },
-        "0/drive/(1, 2)/mixer": {
+        "qcm_rf0/o2/mixer": {
             "kind": "mixer-offset",
-            "offset_i": -7.45912265777588,
-            "offset_q": 0.528120815753937
-        },
-        "1/drive/(1, 2)/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -8.60241985321045,
-            "offset_q": -4.70764589309692
-        },
-        "2/drive/(1, 2)/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -7.27756357192993,
-            "offset_q": -1.11477291584015
-        },
-        "3/drive/(1, 2)/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -8.17814826965332,
-            "offset_q": 0.270905345678329
-        },
-        "4/drive/(1, 2)/mixer": {
-            "kind": "mixer-offset",
-            "offset_i": -13.7644195556641,
-            "offset_q": -5.0811014175415
+            "offset_i": 0.0,
+            "offset_q": 0.0
         }
     },
     "native_gates": {

@@ -1,21 +1,14 @@
-import logging
-import pathlib
-
-from qibolab import Platform, Qubit
+from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
-from qibolab._core.instruments.qblox.platform import infer_los, infer_mixers, map_ports
+from qibolab._core.instruments.qblox.platform import ClusterMap, Twpa
 from qibolab._core.platform.platform import QubitMap
-from qibolab.instruments.rohde_schwarz import SGS100A
 
-logging.basicConfig(level=logging.INFO)
-
-FOLDER = pathlib.Path(__file__).parent
 NAME = "tuna5"
 ADDRESS = "192.168.0.6"
 
-CLUSTER = {
+CLUSTER: ClusterMap = {
     "qrm_rf": (19, {"io1": [0, 1, 2, 3, 4]}),
-    "qcm_rf0": (13, {1: [4]}),
+    "qcm_rf0": (13, {1: [4], 2: [Twpa()]}),
     "qcm_rf1": (15, {1: [2], 2: [3]}),
     "qcm_rf2": (17, {1: [0], 2: [1]}),
     "qcm0": (
@@ -28,49 +21,27 @@ CLUSTER = {
 """Connections compact representation."""
 
 
-def create():
+def create() -> Hardware:
     """TUNA-5 5q-chip controlled with a Qblox cluster."""
     qubits: QubitMap = {i: Qubit.default(i) for i in range(5)}
     for i, q in qubits.items():
         q.drive_extra[(1, 2)] = f"{i}/drive/(1, 2)"
     tunable_couplers: QubitMap = {f"coupler_{i}": Qubit.coupler(i) for i in range(4)}
 
-    # Create channels and connect to instrument ports
-    channels, _ = map_ports(CLUSTER, qubits, tunable_couplers)
-    los = infer_los(CLUSTER)
-    mixers = infer_mixers(CLUSTER)
+    controller = Cluster.from_map(
+        NAME,
+        ADDRESS,
+        CLUSTER,
+        qubits,
+        couplers=tunable_couplers,
+        twpa_pumps={i: "twpa" for i in qubits},
+    )
+    for q in qubits.values():
+        for channel in q.drive_extra.values():
+            controller.channels[channel] = controller.channels[q.drive].model_copy()
 
-    # update channel information beyond connections
-    for i, q in qubits.items():
-        if q.acquisition is not None:
-            channels[q.acquisition] = channels[q.acquisition].model_copy(
-                update={"twpa_pump": "twpa"}
-            )
-        if q.probe is not None:
-            channels[q.probe] = channels[q.probe].model_copy(
-                update={"lo": los[i, True], "mixer": f"{q.probe}/mixer"}
-            )
-        if q.drive is not None:
-            channels[q.drive] = channels[q.drive].model_copy(
-                update={"lo": los[i, False], "mixer": f"{q.drive}/mixer"}
-            )
-
-        if q.drive_extra is not None:
-            for k in q.drive_extra.keys():
-                channels |= {
-                    q.drive_extra[k]: channels[q.drive].model_copy(
-                        update={"lo": los[i, False], "mixer": f"{i}/drive/{k}/mixer"}
-                    )
-                }
-
-    controller = Cluster(name=NAME, address=ADDRESS, channels=channels)
-    instruments = {
-        "qblox": controller,
-        "twpa": SGS100A(address="192.168.0.35", turn_off_on_disconnect=False),
-    }
-    return Platform.load(
-        path=FOLDER,
-        instruments=instruments,
+    return Hardware(
+        instruments={"qblox": controller},
         qubits=qubits,
         couplers=tunable_couplers,
     )
