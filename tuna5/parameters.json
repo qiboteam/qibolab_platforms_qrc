@@ -74,7 +74,7 @@
         },
         "2/drive": {
             "kind": "iq",
-            "frequency": 5516679774.0,
+            "frequency": 5516974901.0,
             "scale_q": 0.9813406467437744,
             "phase_q": -0.46583131615554946
         },
@@ -94,8 +94,8 @@
             "kind": "acquisition",
             "delay": 242.0,
             "smearing": 0.0,
-            "threshold": 0.005544470553161011,
-            "iq_angle": -1.9997458415637572,
+            "threshold": 0.005537939921090889,
+            "iq_angle": -1.9668875022276577,
             "kernel": null
         },
         "2/flux": {
@@ -143,7 +143,7 @@
         },
         "3/drive": {
             "kind": "iq",
-            "frequency": 5568666000.0,
+            "frequency": 5569069995.0,
             "scale_q": 1.0102620124816895,
             "phase_q": -0.09594118554080999
         },
@@ -155,7 +155,7 @@
         },
         "3/probe": {
             "kind": "iq",
-            "frequency": 7679000000.0,
+            "frequency": 7678500000.0,
             "scale_q": 1.0221034288406372,
             "phase_q": 0.4141608311334002
         },
@@ -163,8 +163,8 @@
             "kind": "acquisition",
             "delay": 242.0,
             "smearing": 0.0,
-            "threshold": -0.005273449230176457,
-            "iq_angle": -1.8851406152234846,
+            "threshold": -0.009352831359091554,
+            "iq_angle": 2.3857466366265023,
             "kernel": null
         },
         "3/flux": {
@@ -212,7 +212,7 @@
         },
         "4/drive": {
             "kind": "iq",
-            "frequency": 5689317307.0,
+            "frequency": 5690865995.0,
             "scale_q": 1.0089694261550903,
             "phase_q": -0.2951936302350073
         },
@@ -224,7 +224,7 @@
         },
         "4/probe": {
             "kind": "iq",
-            "frequency": 7878500000.0,
+            "frequency": 7881500000.0,
             "scale_q": 1.0059051513671875,
             "phase_q": 0.6796168056882557
         },
@@ -232,8 +232,8 @@
             "kind": "acquisition",
             "delay": 579.0,
             "smearing": 0.0,
-            "threshold": 0.0010416583903852276,
-            "iq_angle": -0.6356208757409991,
+            "threshold": 0.004807528254653919,
+            "iq_angle": 0.00520778983094805,
             "kernel": null
         },
         "4/flux": {
@@ -469,11 +469,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3612,
+                            "amplitude": 0.3354152987712046,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.44434434434434245
+                                "beta": -0.9378700040811645
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -508,7 +508,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 3900.0,
-                                "amplitude": 0.05,
+                                "amplitude": 0.049999999999999996,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -527,11 +527,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.3,
+                            "amplitude": 0.3119265737867613,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.25,
-                                "beta": -1.0807807807807797
+                                "beta": -1.0137516325748992
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -566,7 +566,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 3900.0,
-                                "amplitude": 0.03,
+                                "amplitude": 0.05,
                                 "envelope": {
                                     "kind": "rectangular"
                                 },
@@ -585,11 +585,11 @@
                         {
                             "kind": "pulse",
                             "duration": 40.0,
-                            "amplitude": 0.36024798103744077,
+                            "amplitude": 0.3564409330548627,
                             "envelope": {
                                 "kind": "drag",
                                 "rel_sigma": 0.2,
-                                "beta": -0.1596768337493482
+                                "beta": -0.23101723947128056
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -624,7 +624,7 @@
                             "probe": {
                                 "kind": "pulse",
                                 "duration": 4000.0,
-                                "amplitude": 0.05,
+                                "amplitude": 0.06,
                                 "envelope": {
                                     "kind": "gaussian_square",
                                     "risefall": 0,
