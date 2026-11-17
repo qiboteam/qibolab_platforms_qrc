@@ -6,7 +6,7 @@
     "configs": {
         "twpa": {
             "kind": "iq",
-            "frequency": 5668000000.0,
+            "frequency": 8276800000.0,
             "scale_q": 1.0,
             "phase_q": 0.0
         },
@@ -253,8 +253,8 @@
         },
         "qcm_rf0/o2/lo": {
             "kind": "oscillator",
-            "frequency": 5668000000.0,
-            "power": -16.6
+            "frequency": 8150000000.0,
+            "power": -20.473
         },
         "qcm_rf1/o1/lo": {
             "kind": "oscillator",
