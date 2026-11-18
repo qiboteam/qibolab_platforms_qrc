@@ -241,7 +241,12 @@
             "offset": 0.1159968348200025,
             "filters": []
         },
-        "qrm_rf/o1/lo": {
+        "qrm_rf0/o1/lo": {
+            "kind": "oscillator",
+            "frequency": 7516000000.0,
+            "power": -32.0
+        },
+        "qrm_rf1/o1/lo": {
             "kind": "oscillator",
             "frequency": 7516000000.0,
             "power": -16.0
@@ -296,7 +301,12 @@
             "offset": 0.021,
             "filters": []
         },
-        "qrm_rf/o1/mixer": {
+        "qrm_rf0/o1/mixer": {
+            "kind": "mixer-offset",
+            "offset_i": -6.76896619796753,
+            "offset_q": -6.25410747528076
+        },
+        "qrm_rf1/o1/mixer": {
             "kind": "mixer-offset",
             "offset_i": -6.76896619796753,
             "offset_q": -6.25410747528076

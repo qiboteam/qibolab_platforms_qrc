@@ -1,13 +1,15 @@
-from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import ClusterMap, Twpa
 from qibolab._core.platform.platform import QubitMap
+
+from qibolab import Hardware, Qubit
 
 NAME = "tuna5"
 ADDRESS = "192.168.0.6"
 
 CLUSTER: ClusterMap = {
-    "qrm_rf": (19, {"io1": [0, 1, 2, 3, 4]}),
+    "qrm_rf0": (19, {"io1": [0, 1]}),
+    "qrm_rf1": (20, {"io1": [2, 3, 4]}),
     "qcm_rf0": (13, {1: [4], 2: [Twpa()]}),
     "qcm_rf1": (15, {1: [2], 2: [3]}),
     "qcm_rf2": (17, {1: [0], 2: [1]}),
