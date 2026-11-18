@@ -1,8 +1,7 @@
+from qibolab import Hardware, Qubit
 from qibolab._core.instruments.qblox.cluster import Cluster
 from qibolab._core.instruments.qblox.platform import ClusterMap, Twpa
 from qibolab._core.platform.platform import QubitMap
-
-from qibolab import Hardware, Qubit
 
 NAME = "tuna5"
 ADDRESS = "192.168.0.6"
