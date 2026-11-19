@@ -13,19 +13,23 @@
                 "maximum_frequency": 4794309185.0,
                 "asymmetry": 0.0,
                 "sweetspot": 0.2496600644466554,
-                "flux_coefficients": null
+                "flux_coefficients": [
+                    -5.130911400051336,
+                    0.023648171065559574,
+                    -0.0003467936694517224
+                ]
             },
             "readout": {
-                "fidelity": 0.8223549871251234,
+                "fidelity": 0.8243537792559863,
                 "coupling": 31133369.07286792,
-                "effective_temperature": 0.09573266429280658,
+                "effective_temperature": 0.09515637969988558,
                 "ground_state": [
-                    -0.00017234929963354213,
-                    0.001388425925354723
+                    -0.0003776067673529554,
+                    0.0013373837736234526
                 ],
                 "excited_state": [
-                    -0.00032220589648672865,
-                    0.004885809414952955
+                    -0.001212142526120976,
+                    0.004749409310519358
                 ],
                 "qudits_frequency": {
                     "1": 7216935608.5685215
@@ -52,19 +56,23 @@
                 "maximum_frequency": 4836435269.0,
                 "asymmetry": 0.0,
                 "sweetspot": -0.028984428120682363,
-                "flux_coefficients": null
+                "flux_coefficients": [
+                    -5.648128568905541,
+                    0.0237825630751836,
+                    -0.0002969527562404549
+                ]
             },
             "readout": {
-                "fidelity": 0.9007929692352129,
+                "fidelity": 0.9012220043811612,
                 "coupling": 31713302.99581427,
-                "effective_temperature": 0.06426695368923378,
+                "effective_temperature": 0.06729638999502234,
                 "ground_state": [
-                    0.0037411157755958655,
-                    -0.0035885719336562843
+                    0.004436312341874746,
+                    -0.002924470639818059
                 ],
                 "excited_state": [
-                    0.005226020791503088,
-                    0.0014101540060201267
+                    0.004989432963797526,
+                    0.0023528357287485417
                 ],
                 "qudits_frequency": {
                     "1": 7349750916.260806
@@ -98,16 +106,16 @@
                 ]
             },
             "readout": {
-                "fidelity": 0.9174057832472772,
+                "fidelity": 0.926736750999845,
                 "coupling": 28023238.31210877,
-                "effective_temperature": 0.07687589165467157,
+                "effective_temperature": 0.07393388481093978,
                 "ground_state": [
-                    0.006666060670741656,
-                    -0.0015485681883162833
+                    0.007082578090923381,
+                    -0.0003702442456064207
                 ],
                 "excited_state": [
-                    0.0031853337370247718,
-                    0.004402463108001135
+                    0.0023371487466846254,
+                    0.0047892996809387025
                 ],
                 "qudits_frequency": {
                     "1": 7514172727.743102
@@ -141,16 +149,16 @@
                 ]
             },
             "readout": {
-                "fidelity": 0.8684458561396959,
+                "fidelity": 0.8907327679579422,
                 "coupling": 21440391.866998024,
-                "effective_temperature": 0.08793594276331002,
+                "effective_temperature": 0.07948245325891877,
                 "ground_state": [
-                    -0.0005973253428128983,
-                    -0.002947370992323316
+                    -0.00006805737117133218,
+                    -0.0031132182265218803
                 ],
                 "excited_state": [
-                    0.0051808891184227015,
-                    -0.0042623943628505995
+                    0.006196940715354936,
+                    -0.0034542839042825185
                 ],
                 "qudits_frequency": {
                     "1": 7675616112.601243
@@ -184,16 +192,16 @@
                 ]
             },
             "readout": {
-                "fidelity": 0.8480775934763902,
+                "fidelity": 0.8467074472575928,
                 "coupling": 23256036.270687588,
-                "effective_temperature": 0.08076311555456614,
+                "effective_temperature": 0.07570568568344725,
                 "ground_state": [
-                    0.0038338961778792502,
-                    0.0015416736953666815
+                    0.0036258376291639204,
+                    0.0023230809776065013
                 ],
                 "excited_state": [
-                    -0.0006799449507668533,
-                    0.003244450045334999
+                    -0.0013325309297658788,
+                    0.003217343839219024
                 ],
                 "qudits_frequency": {
                     "1": 7809114301.495819
@@ -239,8 +247,20 @@
             ],
             "coupling": null,
             "coupler": null
+        },
+        "1-2": {
+            "rb_fidelity": [
+                0.9274222289074809,
+                0.0012440281818756238
+            ],
+            "cz_fidelity": [
+                0.9768367160482551,
+                0.002245947582794938
+            ],
+            "coupling": null,
+            "coupler": null
         }
     },
     "readout_mitigation_matrix": null,
-    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAo9XJBJxirpPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmncaL7RPqPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+nOaUGIrkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACfOOaRYZbkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXNTi5zS7lPw=="
+    "flux_crosstalk_matrix": "k05VTVBZAQB2AHsnZGVzY3InOiAnPGY4JywgJ2ZvcnRyYW5fb3JkZXInOiBGYWxzZSwgJ3NoYXBlJzogKDUsIDUpLCB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIArWUDKBhs3kPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4My4Q1szlPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+nOaUGIrkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACfOOaRYZbkPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXNTi5zS7lPw=="
 }
