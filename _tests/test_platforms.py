@@ -22,3 +22,11 @@ def test_create(path):
     rx_sequence = platform.natives.single_qubit[qubit].RX()
     mz_sequence = platform.natives.single_qubit[qubit].MZ()
     assert isinstance(platform, Platform)
+
+
+def test_tuna5_readout_configs():
+    platform = create_platform(PATH / "tuna5")
+    for qubit in platform.qubits.values():
+        probe = platform.channels[qubit.probe]
+        assert platform.config(probe.lo).kind == "oscillator"
+        assert platform.config(probe.mixer).kind == "mixer-offset"
