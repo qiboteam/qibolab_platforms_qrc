@@ -758,13 +758,13 @@
                         "3/flux",
                         {
                             "kind": "pulse",
-                            "duration": 39.0,
+                            "duration": 43.0,
                             "amplitude": 0.2955,
                             "envelope": {
                                 "kind": "snz",
                                 "t_idling": 5,
                                 "b_amplitude": 0.53,
-                                "padding_duration": 0
+                                "padding_duration": 2
                             },
                             "relative_phase": 0.0,
                             "chirp": null
@@ -774,14 +774,14 @@
                         "2/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 6.148096126031906
+                            "phase": 6.148156577143353
                         }
                     ],
                     [
                         "3/drive",
                         {
                             "kind": "virtualz",
-                            "phase": 3.3704381621493424
+                            "phase": 3.346218049483427
                         }
                     ]
                 ],
