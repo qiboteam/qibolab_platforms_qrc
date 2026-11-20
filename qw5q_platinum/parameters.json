@@ -667,19 +667,49 @@
         },
         "coupler": {},
         "two_qubit": {
-            "2-0": {
+            "0-2": {
                 "CZ": [
                     [
                         "2/flux",
                         {
                             "kind": "pulse",
-                            "duration": 0.0,
-                            "amplitude": 0.0,
+                            "duration": 38.0,
+                            "amplitude": 0.284,
+                            "envelope": {
+                                "kind": "snz",
+                                "t_idling": 2,
+                                "b_amplitude": 0.385,
+                                "padding_duration": 0
+                            },
+                            "relative_phase": 0.0,
+                            "chirp": null
+                        }
+                    ],
+                    [
+                        "1/flux",
+                        {
+                            "kind": "pulse",
+                            "duration": 80.0,
+                            "amplitude": 0.3,
                             "envelope": {
                                 "kind": "rectangular"
                             },
                             "relative_phase": 0.0,
                             "chirp": null
+                        }
+                    ],
+                    [
+                        "0/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 6.206940584552366
+                        }
+                    ],
+                    [
+                        "2/drive",
+                        {
+                            "kind": "virtualz",
+                            "phase": 5.456825918450907
                         }
                     ]
                 ],
